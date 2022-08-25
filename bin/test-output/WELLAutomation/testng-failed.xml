@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [WELLAutomation]" guice-stage="DEVELOPMENT">
+  <parameter name="environment" value="STG"/>
+  <parameter name="browserName" value="chrome"/>
+  <test thread-count="5" name="WELL-Tests(failed)">
+    <classes>
+      <class name="com.Well.testcases.login.LoginTest">
+        <methods>
+          <include name="getResult"/>
+          <include name="ExtentReportConfig"/>
+          <include name="flushReport"/>
+          <include name="setup"/>
+          <include name="LeedOnlineLogin"/>
+          <include name="end"/>
+          <include name="quit"/>
+        </methods>
+      </class> <!-- com.Well.testcases.login.LoginTest -->
+    </classes>
+  </test> <!-- WELL-Tests(failed) -->
+</suite> <!-- Failed suite [WELLAutomation] -->

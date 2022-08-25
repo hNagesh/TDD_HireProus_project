@@ -1,0 +1,248 @@
+package com.Well.Engine;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.file.Paths;
+import java.time.Duration;
+import java.util.Locale;
+import java.util.Properties;
+
+import javax.imageio.ImageIO;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
+
+import com.Well.ReusableMethods.ReusableMethodsLogin;
+import com.Well.ReusableMethods.ReusableMethodsPortfolio;
+import com.Well.ReusableMethods.ReusableMethodsScorecard;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.MediaEntityBuilder;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.github.javafaker.Faker;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+import ru.yandex.qatools.ashot.AShot;
+import ru.yandex.qatools.ashot.Screenshot;
+import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
+
+
+public class BaseClass {
+
+	public static String Environment;
+	public static WebDriver driver;
+	public static XlsReader data;
+	public static int timeout=30;
+	public static ExtentTest testlog;
+	public static ExtentReports extent;
+	public static String TestCaseName;
+	public static String PortfolioLocationImportfile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"portfoliolocations.xlsm";
+	public static String featurefileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"FeatureFile.xlsx";
+	public static Faker USfaker = new Faker(new Locale("en-US"));
+	public static String downloadPath = System.getProperty("user.dir") +File.separator +"Downloads"+File.separator;
+	public static ReusableMethodsLogin login = new ReusableMethodsLogin();
+	public static ReusableMethodsPortfolio portfolio = new ReusableMethodsPortfolio();
+	public static ReusableMethodsScorecard scorecard = new ReusableMethodsScorecard();
+
+	@BeforeSuite
+	@Parameters({ "browserName", "environment" })
+	public void setup(String browserName, String environment) throws InterruptedException, IOException {
+		
+		data= new XlsReader(System.getProperty("user.dir")+"/TestData.xlsx");
+		Properties prop = new Properties();
+		if ((System.getenv("browserName") != null && !System.getenv("browserName").isEmpty())
+
+				&& System.getenv("environment") != null && !System.getenv("environment").isEmpty()) {
+
+			browserName = System.getenv("browserName");
+			environment = System.getenv("environment");
+			Environment = environment;
+			System.out.println(browserName);
+			System.out.println(environment);
+
+		}
+
+		else {
+
+			Environment = environment;
+		}
+
+		if (browserName.equalsIgnoreCase("firefox")) {
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
+			
+		} else if (browserName.equalsIgnoreCase("chrome")) {
+			
+			
+			
+			ChromeOptions options = new ChromeOptions();
+			WebDriverManager.chromedriver().setup();
+			
+			options.setHeadless(false);
+			driver = new ChromeDriver(options);
+			
+		}
+		
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(120));
+		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
+		driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(120));
+		
+
+		prop= new Properties();
+		FileInputStream file = new FileInputStream(System.getProperty("user.dir")+"/src/main/resources/Environment.properties");
+
+		prop.load(file);
+		String qasurl=prop.getProperty("ENV_QAS");
+		String stgurl=prop.getProperty("ENV_STAGING");
+		String testurl=prop.getProperty("ENV_TEST");
+		
+		
+		if(environment.equalsIgnoreCase("QAS")){
+			
+			driver.get(qasurl);
+			
+		}
+		else if(environment.equalsIgnoreCase("STG")){
+			driver.get(stgurl);
+
+			
+		}
+		else if(environment.equalsIgnoreCase("TEST")){
+			driver.get(testurl);
+
+			
+		}
+		
+		Thread.sleep(2000);
+		
+		
+	
+	}
+	
+	@BeforeMethod(alwaysRun = true)
+	public static ExtentReports ExtentReportConfig() throws IOException {
+		 if (extent == null) {
+			 final File CONF = new File(System.getProperty("user.dir")+"/src/main/resources/Extentconfig.json");
+			 extent = new ExtentReports();
+			 extent.setSystemInfo("Host Name", "Jenkins");
+			 extent.setSystemInfo("Environment", Environment);
+			 extent.setSystemInfo("User Name", "Abhishek Gupta");
+				ExtentSparkReporter spark = new ExtentSparkReporter(System.getProperty("user.dir")
+						+ "/Report/WELL_AutomationReport" + /* TestNGTestName  +*/ ".html");
+			 extent.attachReporter(spark);
+			 spark.loadJSONConfig(CONF);
+		 
+		 
+		    }
+		    return extent;
+		}
+	
+public void StartTest(String TestcaseName) {
+		
+		testlog = extent.createTest(TestcaseName);
+		//System.out.println("Starting TestSuite : "+ SuiteName+" and Test : "+ TestNGTestName);
+		//testlog.info("Starting TestSuite : "+ SuiteName+" and Test : "+ TestNGTestName);
+	}
+
+public void logTestFailure() throws IOException, NumberFormatException, InterruptedException {
+	
+	testlog.log(Status.FAIL,
+			MarkupHelper.createLabel(TestCaseName + " - Test Case Failed", ExtentColor.RED));
+	/*testlog.log(Status.FAIL,
+			MarkupHelper.createLabel(result.getThrowable() + " - Test Case Failed", ExtentColor.RED));*/
+	  Screenshot screenshot=new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(driver);             
+
+	//File screen = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+	//BufferedImage img = ImageIO.read(screenshot);
+	File filetest = Paths.get(".").toAbsolutePath().normalize().toFile();
+	int num = Integer.parseInt(CommonMethod.randomNumber(9999));
+	ImageIO.write(screenshot.getImage(), "png", new File(filetest + File.separator + "Screenshots" + File.separator
+			+ /* ScreenshotCreditName+ */"_"+num +".png"));
+	/*testlog.info("Details of " + "Fail Test screenshot", MediaEntityBuilder
+			.createScreenCaptureFromPath(System.getProperty("user.dir") +File.separator +"Screenshots"+File.separator  + TestCaseName +".png")
+			.build());*/
+}
+
+public static void captureScreenshot() throws IOException {
+
+//System.out.println(OwnerCountry);
+File screen = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+BufferedImage img = ImageIO.read(screen);
+File filetest = Paths.get(".").toAbsolutePath().normalize().toFile();
+ImageIO.write(img, "png", new File(
+		filetest + File.separator + "Screenshots" + File.separator + /* SuiteName+"_"+TestNGTestName+ */".png"));
+
+
+}
+
+@AfterMethod(alwaysRun = true)
+public void getResult(ITestResult result) throws Exception {
+	/*String RS = RatingSystem;
+	System.out.println(RS);*/
+	if (result.getStatus() == ITestResult.FAILURE) {
+		testlog.log(Status.FAIL,
+				MarkupHelper.createLabel(result.getName() + " - Test Case Failed", ExtentColor.RED));
+		testlog.log(Status.FAIL,
+				MarkupHelper.createLabel(result.getThrowable() + " - Test Case Failed", ExtentColor.RED));
+		File screen = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		BufferedImage img = ImageIO.read(screen);
+		File filetest = Paths.get(".").toAbsolutePath().normalize().toFile();
+		ImageIO.write(img, "png", new File(filetest + File.separator + "Screenshots"
+				+ File.separator /* +SuiteName+"_"+TestNGTestName +"-"+*/+TestCaseName +".png"));
+		testlog.info("Details of " + "Test screenshot", MediaEntityBuilder
+				.createScreenCaptureFromPath(System.getProperty("user.dir") + "\\Screenshots\\" + TestCaseName +".png")
+				.build());
+		//search.SearchProjectOnFailure(SheetName, rowNum);
+	} else if (result.getStatus() == ITestResult.SKIP) {
+		// testlog.log(Status.SKIP, "Test Case Skipped is "+result.getName());
+		testlog.log(Status.SKIP,
+				MarkupHelper.createLabel(result.getName() + " - Test Case Skipped", ExtentColor.ORANGE));
+	}
+	
+}
+
+@AfterClass(alwaysRun = true)
+public void flushReport() {
+	
+	extent.flush();
+	//extent=null;
+	System.out.println("EndClass");
+}
+
+@AfterTest(alwaysRun = true)
+public void quit() throws InterruptedException, IOException {
+	
+	System.out.println("EndTest");
+	//login.SignOut();
+	//driver.close();
+	
+}
+
+@AfterSuite(alwaysRun = true)
+public void end(){	
+	
+	System.out.println("EndSuite");
+		driver.quit();
+}
+
+
+	}
+
