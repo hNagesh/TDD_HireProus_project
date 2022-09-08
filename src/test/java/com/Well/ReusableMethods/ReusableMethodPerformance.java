@@ -8,7 +8,6 @@ import com.Well.Engine.CommonMethod;
 public class ReusableMethodPerformance extends BaseClass {
 	
 	public void RegisterPerformance(String SheetName,int rowNum) throws IOException, InterruptedException {
-
 	   CommonMethod.click("ProjectNavBar");
 	   CommonMethod.click("WELLPerformanceRatingNavBar");
 	   CommonMethod.click("WPRstartNewProject");
