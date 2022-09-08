@@ -356,6 +356,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
 		CommonMethod.click("V2Projectscorecarddocuploadsubmit");
 		CommonMethod.Isdisplayed("V2ProjectscorecardVerifyUploadDoc", 60);
+		Thread.sleep(2000);
+		CommonMethod.refreshBrowser();
 
 	}
 
@@ -444,7 +446,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectScorecardDoc");
 		int V2ProjectScoreDocCount = CommonMethod.ElementSize("V2ProjectScorecardDocCount");
 		String V2ProjectDocCounts = Integer.toString(V2ProjectScoreDocCount);
-		CommonMethod.assertActualContainsExpected(V2ProjectDocCounts, "2", "Verified Document Count");
+		CommonMethod.assertActualContainsExpected(V2ProjectDocCounts, "4", "Verified Document Count");
 
 	}
 	public void ReviewV2Project(String SheetName, int rowNum) throws IOException {
