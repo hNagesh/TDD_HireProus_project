@@ -8,9 +8,7 @@ import java.nio.file.Paths;
 import java.time.Duration;
 import java.util.Locale;
 import java.util.Properties;
-
 import javax.imageio.ImageIO;
-
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -26,9 +24,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 
+import com.Well.ReusableMethods.ReusableMethodPerformance;
+import com.Well.ReusableMethods.ReusableMethodsExam;
+import com.Well.ReusableMethods.ReusableMethodsFaculty;
+import com.Well.ReusableMethods.ReusableMethodsHealthSafety;
 import com.Well.ReusableMethods.ReusableMethodsLogin;
 import com.Well.ReusableMethods.ReusableMethodsPortfolio;
-import com.Well.ReusableMethods.ReusableMethodsScorecard;
+import com.Well.ReusableMethods.ReusableMethodsV2Project;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
@@ -49,18 +51,22 @@ public class BaseClass {
 	public static String Environment;
 	public static WebDriver driver;
 	public static XlsReader data;
-	public static int timeout=30;
+	public static int timeout=60;
 	public static ExtentTest testlog;
 	public static ExtentReports extent;
 	public static String TestCaseName;
+	public static String SamplePdffile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"Resume.pdf";
 	public static String PortfolioLocationImportfile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"portfoliolocations.xlsm";
 	public static String featurefileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"FeatureFile.xlsx";
 	public static Faker USfaker = new Faker(new Locale("en-US"));
 	public static String downloadPath = System.getProperty("user.dir") +File.separator +"Downloads"+File.separator;
 	public static ReusableMethodsLogin login = new ReusableMethodsLogin();
 	public static ReusableMethodsPortfolio portfolio = new ReusableMethodsPortfolio();
-	public static ReusableMethodsScorecard scorecard = new ReusableMethodsScorecard();
-
+	public static ReusableMethodsV2Project v2project = new ReusableMethodsV2Project();
+	public static ReusableMethodsHealthSafety hsr = new ReusableMethodsHealthSafety();
+	public static ReusableMethodPerformance performance = new ReusableMethodPerformance();
+	public static ReusableMethodsFaculty faculty = new ReusableMethodsFaculty();
+	public static ReusableMethodsExam exam = new ReusableMethodsExam();
 	@BeforeSuite
 	@Parameters({ "browserName", "environment" })
 	public void setup(String browserName, String environment) throws InterruptedException, IOException {

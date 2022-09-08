@@ -354,7 +354,10 @@ public class CommonMethod extends BaseClass {
 		findElement(objectLocater).sendKeys(value);
 		testlog.pass("Feeding Textvalue " + value);
 	}
-
+	public static void sendKeyEnter(String objectLocater) throws IOException {
+		findElement(objectLocater).sendKeys( Keys.ENTER);
+		
+	}
 	// user defined gettext Method
 	public static String getText(String objectLocater) throws IOException {
 
@@ -2043,6 +2046,10 @@ public class CommonMethod extends BaseClass {
 		System.out.println(boo);
 		Assert.assertFalse(boo, message);
 
+	}
+	public static int ElementSize(String objectLocator) throws IOException {
+		 int size = findElements(objectLocator).size();
+		return size;
 	}
 
 }

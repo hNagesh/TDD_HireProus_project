@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name="WELLAutomation">
+
+<parameter name="browserName" value="chrome"/>
+<parameter name="environment" value="Test"/>
+
+ <test name="WELL-Tests" >
+<parameter name="SheetName" value="Exam"/>
+<parameter name="rowNum" value="2"/>
+<classes>
+<class name="com.Well.testcases.login.TC_01_LoginTest"></class>
+<class name="com.Well.testcases.Exam.TC_02_RegisterExamTest"></class>
+
+</classes>
+</test>
+
+</suite>  

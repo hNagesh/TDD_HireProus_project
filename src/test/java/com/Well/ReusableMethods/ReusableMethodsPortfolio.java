@@ -59,7 +59,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	   CommonMethod.WaitUntilClickble("ClickSearchResultPortfolio", 60);
 	   CommonMethod.click("ClickSearchResultPortfolio");
 	  
-		
+	   Thread.sleep(25000);
 	}
 	
 	public void SignAndSubscribePortfolio (String SheetName,int rowNum) throws IOException, InterruptedException {
@@ -102,8 +102,6 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		}
 	
 	public void PortfolioCardPayment (String SheetName,int rowNum) throws IOException, InterruptedException {
-		
-		
 		 if(!CommonMethod.isElementsExist("CardHolderName", 3)) {
 			  Boolean B = CommonMethod.IsElementPresentTrue("PortfolioPayNowButton");
 			  if(B.equals(true)) { CommonMethod.click("PortfolioPayNowButton"); }
@@ -170,8 +168,94 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.click("PortfolioScorecardAnalyzeToggle");
 		
 		Thread.sleep(20000);
+		
+	}
+	public void clickScoreCard() throws IOException {
+		CommonMethod.WaitUntilClickble("WellV2Tab", 60);
+		CommonMethod.click("WellV2Tab");
+		CommonMethod.WaitUntilClickble("WellV2ScorecardTab", 60);
+		CommonMethod.click("WellV2ScorecardTab");
+		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 300);
+	}
+
+	public void UploadFileinFeature() throws IOException, InterruptedException {
+
+		CommonMethod.click("ScoreCardMeetOrgFeature");
+			Thread.sleep(1000);
+			CommonMethod.WaitUntilClickble("ScorecardFeatureVerificationTab", 60);
+			CommonMethod.click("ScorecardFeatureVerificationTab");
+			CommonMethod.click("ScoreCardAddOptionbutton");
+			Thread.sleep(2000);
+			CommonMethod.click("ScoreCardAddButton");
+			Thread.sleep(2000);
+			CommonMethod.click("ScoreCardAddButton");
+			Thread.sleep(2000);
+			CommonMethod.click("ScoreCardVerificationCloseicon");
+			for(int i=1;i<=2;i++) {
+				Thread.sleep(2000);
+			CommonMethod.click("ScoreCardVerificationAssignbtn");
+			CommonMethod.ClickCheckbox("ScoreCardVerificationAssignLocCbx");
+			Thread.sleep(2000);
+			CommonMethod.click("ScoreCardVerificationAssignLocSavebtn");
+			}
+			Thread.sleep(2000);
+			CommonMethod.scrollDown();
+			Thread.sleep(2000);
+			for(int i=1;i<=1;i++) {
+				CommonMethod.WaitUntilClickble("ScoreCardVerificationUploadbtn", 60);
+			CommonMethod.click("ScoreCardVerificationUploadbtn");
+			CommonMethod.uploadFile("ScoreCardVerificationUpload", PortfolioLocationImportfile);
+		CommonMethod.sendKeys("ScoreCardVerificationAddNote", "Meet Thresholds for Organic Gases");
+		Thread.sleep(2000);
+		//CommonMethod.click("ScoreCardVerificationUploadDocbtn");
+			Thread.sleep(20000);
+			}
+		}
+		
+	
+
+	public void UploadFileinAudit() throws IOException, InterruptedException {
+		CommonMethod.refreshBrowser();
+		CommonMethod.WaitUntilClickble("ScoreCardSupportOrgFeature", 60);
+		CommonMethod.click("ScoreCardSupportOrgFeature");
+		Thread.sleep(1000);
+		CommonMethod.WaitUntilClickble("ScorecardFeatureVerificationTab", 60);
+		CommonMethod.click("ScorecardFeatureVerificationTab");
+		CommonMethod.click("ScoreCardAddOptionbutton");
+		Thread.sleep(2000);
+		CommonMethod.click("ScoreCardAddButton");
+		Thread.sleep(3000);
+		CommonMethod.click("ScoreCardVerificationCloseicon");
+		Thread.sleep(2000);
+		CommonMethod.click("ScoreCardVerificationAssignbtn");
+		Thread.sleep(2000);
+		CommonMethod.ClickCheckbox("ScoreCardVerificationAssignLocCbx");
+		Thread.sleep(2000);
+		CommonMethod.click("ScoreCardVerificationAssignLocSavebtn");
+		Thread.sleep(2000);
+		CommonMethod.scrollDown();
+		Thread.sleep(2000);
+		CommonMethod.assertEqualsmessage("ScoreCardVerificationTaskLoc","0/2 Locations","Verified locations count");
+		CommonMethod.click("ScoreCardVerificationUploadbtn");
+		Thread.sleep(2000);
+		CommonMethod.scrollDown();
+		Thread.sleep(2000);
+		CommonMethod.uploadFile("ScoreCardVerificationUpload", PortfolioLocationImportfile);
+		CommonMethod.sendKeys("ScoreCardVerificationAddNote", "Meet Thresholds for Organic Gases");
+		Thread.sleep(2000);
+	//	CommonMethod.click("ScoreCardVerificationUploadDocbtn");
 
 	}
-	
+	public void clickDocument() throws IOException
+{
+		CommonMethod.WaitUntilClickble("DocumentTab", 60);
+		
+}
+
+	public void ValidatingUploadFileCount() throws IOException, InterruptedException {
+		
+		CommonMethod.assertcontainsmessage("DocumentList", "10", "Verified Upload File Count");
+	}
+
 }
 
