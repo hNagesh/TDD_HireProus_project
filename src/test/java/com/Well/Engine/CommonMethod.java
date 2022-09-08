@@ -335,8 +335,10 @@ public class CommonMethod extends BaseClass {
 	public static void Robustclick(String objectLocater) throws IOException, InterruptedException {
 
 		do {
+			if(CommonMethod.IsElementPresentTrue(objectLocater)) {
 			findElement(objectLocater).click();
-			Thread.sleep(2000);
+			System.out.println("Inside");
+			}
 			
 		}while(!CommonMethod.isElementsExist(objectLocater, 5));
         
