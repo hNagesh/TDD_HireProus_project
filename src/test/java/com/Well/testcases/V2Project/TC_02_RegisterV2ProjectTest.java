@@ -11,7 +11,7 @@ public class TC_02_RegisterV2ProjectTest extends BaseClass {
 
 	@Test
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_02_RegisterPortfolio(String SheetName,int rowNum) throws IOException {
+	public void tc_02_RegisterProject(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
