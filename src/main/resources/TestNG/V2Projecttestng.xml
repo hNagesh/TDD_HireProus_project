@@ -18,7 +18,6 @@
 <class name="com.Well.testcases.V2Project.TC_06_AgreementV2ProjectTest"></class> 
 <class name="com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.TC_08_DocumentV2ProjectTest"></class>
-
 </classes>
 </test>
 
