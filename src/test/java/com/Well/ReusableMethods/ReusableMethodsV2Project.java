@@ -320,7 +320,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.click("V2ProjectInnovationPurseNo");
 			Thread.sleep(4000);
 		}
-//		CommonMethod.refreshBrowser();
+		CommonMethod.refreshBrowser();
 //		Thread.sleep(4000);
 //		CommonMethod.Isdisplayed("V2ProjectScorecardYesCount", 60);
 //		int YesFeatureCount = CommonMethod.ElementSize("V2ProjectScorecardYesCount");
@@ -453,6 +453,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.selectdropdown("V2ProjectSelectPhase", "Preliminary Precertification Review");
 		CommonMethod.sendKeys("V2ProjectcommentReview", "Preliminary Precertification Review");
 		CommonMethod.click("V2ProjectSubmitPhaseReview");
+		/*
+		 * Admin
+		 */
 	}
 	
 }
