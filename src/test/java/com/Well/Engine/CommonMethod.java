@@ -336,11 +336,10 @@ public class CommonMethod extends BaseClass {
 
 		do {
 			findElement(objectLocater).click();
+			Thread.sleep(2000);
 			
-		}while(!CommonMethod.IsElementPresentTrue(objectLocater));
-        if (CommonMethod.isElementsExist(objectLocater, 5)) {
-           CommonMethod.moveToElementAndClick(objectLocater);
-        }
+		}while(!CommonMethod.isElementsExist(objectLocater, 5));
+        
 	}
 
 	public static void click(WebElement objectLocater) throws IOException {

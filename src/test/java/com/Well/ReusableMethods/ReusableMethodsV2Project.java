@@ -334,7 +334,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void UploadFeatureDocV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("V2ProjectScorecardFeature", 60);
-		CommonMethod.click("V2ProjectScorecardFeature");
+		CommonMethod.Robustclick("V2ProjectScorecardFeature");
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
 		CommonMethod.click("V2ProjectscorecardDocbtn");
 		CommonMethod.selectdropdown("V2Projectscorecardverificationdropdown", "Performance Test OR Sensor Data");
@@ -348,7 +348,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void UploadAuditDocV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("V2ProjectScorecardAuditFeature", 60);
-		CommonMethod.click("V2ProjectScorecardAuditFeature");
+		CommonMethod.Robustclick("V2ProjectScorecardAuditFeature");
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
 		CommonMethod.click("V2ProjectscorecardDocbtn");
 		CommonMethod.selectdropdown("V2Projectscorecardverificationdropdown", "Technical Document (Audited)");
@@ -362,7 +362,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void UploadGeneralDocumentInDocV2Project(String SheetName, int rowNum)
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("WellV2ProjectDocumentTab", 60);
-		CommonMethod.click("WellV2ProjectDocumentTab");
+		CommonMethod.Robustclick("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
 		CommonMethod.selectdropdown("V2ProjectDocType", "General");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
@@ -374,7 +374,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void UploadLegalDocumentInDocV2Project(String SheetName, int rowNum)
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("WellV2ProjectDocumentTab", 60);
-		CommonMethod.click("WellV2ProjectDocumentTab");
+		CommonMethod.Robustclick("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
 		CommonMethod.selectdropdown("V2ProjectDocType", "Legal");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
