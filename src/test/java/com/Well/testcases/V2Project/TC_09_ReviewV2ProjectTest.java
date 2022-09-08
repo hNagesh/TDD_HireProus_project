@@ -11,12 +11,11 @@ public class TC_09_ReviewV2ProjectTest extends BaseClass {
 
 	@Test
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_08_DocumentV2ProjectTest(String SheetName,int rowNum) throws IOException {
+	public void tc_09_ReviewV2ProjectTest(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
-
 		try {
 		v2project.ReviewV2Project(SheetName, rowNum);	
 		

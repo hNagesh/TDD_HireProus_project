@@ -16,7 +16,6 @@ public class TC_06_AgreementV2ProjectTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
-
 		try {
 		v2project.AgreementV2ProjectById(SheetName, rowNum);	
 		} catch (Throwable t) {

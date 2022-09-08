@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class SearchPortfolioByNameTest extends BaseClass {
+public class TC_02_SearchPortfolioByNameTest extends BaseClass {
 
 	@Test
 	@Parameters({ "SheetName","rowNum" })
-	public void SearchPortfolioByName(String SheetName,int rowNum) throws IOException {
+	public void TC_02_SearchPortfolioByName(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

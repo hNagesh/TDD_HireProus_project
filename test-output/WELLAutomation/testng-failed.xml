@@ -5,19 +5,19 @@
   <parameter name="browserName" value="chrome"/>
   <test thread-count="5" name="WELL-Tests(failed)">
     <parameter name="rowNum" value="2"/>
-    <parameter name="SheetName" value="Portfolio"/>
+    <parameter name="SheetName" value="V2Project"/>
     <classes>
-      <class name="com.Well.testcases.Scorecard.UploadFileInFeatureTest">
+      <class name="com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest">
         <methods>
           <include name="getResult"/>
-          <include name="UploadFileInFeature"/>
           <include name="ExtentReportConfig"/>
           <include name="setup"/>
           <include name="end"/>
           <include name="quit"/>
+          <include name="tc_07_ScorecardV2ProjectTest" invocation-numbers="0"/>
           <include name="flushReport"/>
         </methods>
-      </class> <!-- com.Well.testcases.Scorecard.UploadFileInFeatureTest -->
+      </class> <!-- com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest -->
     </classes>
   </test> <!-- WELL-Tests(failed) -->
 </suite> <!-- Failed suite [WELLAutomation] -->

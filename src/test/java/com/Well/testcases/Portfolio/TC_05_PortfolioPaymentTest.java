@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class PortfolioPaymentTest extends BaseClass {
+public class TC_05_PortfolioPaymentTest extends BaseClass {
 
 	@Test
 	@Parameters({ "SheetName","rowNum" })
-	public void PortfolioPayment(String SheetName,int rowNum) throws IOException {
+	public void TC_05_PortfolioPayment(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

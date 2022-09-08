@@ -16,7 +16,6 @@ public class TC_05_BillingV2ProjectTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
-
 		try {
 		v2project.BillingV2ProjectById(SheetName, rowNum);	
 		} catch (Throwable t) {

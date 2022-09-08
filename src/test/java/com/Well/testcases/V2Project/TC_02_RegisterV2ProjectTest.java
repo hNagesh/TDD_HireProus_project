@@ -16,7 +16,6 @@ public class TC_02_RegisterV2ProjectTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
-
 		try {
 		v2project.RegisterV2Project(SheetName, rowNum);	
 		} catch (Throwable t) {

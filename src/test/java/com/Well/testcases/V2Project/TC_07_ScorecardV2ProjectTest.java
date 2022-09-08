@@ -17,7 +17,6 @@ public class TC_07_ScorecardV2ProjectTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
-
 		try {
 		v2project.BuildScorecardV2ProjectById(SheetName, rowNum);	
 		v2project.CompleteScorecardV2ProjectById(SheetName, rowNum);

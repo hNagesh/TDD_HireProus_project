@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class PortfolioLocationImportTest extends BaseClass {
+public class TC_06_PortfolioLocationImportTest extends BaseClass {
 
 	@Test
 	@Parameters({ "SheetName","rowNum" })
-	public void PortfolioLocationImport(String SheetName,int rowNum) throws IOException {
+	public void TC_06_PortfolioLocationImport(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

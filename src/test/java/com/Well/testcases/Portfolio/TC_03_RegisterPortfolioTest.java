@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class RegisterPortfolioTest extends BaseClass {
+public class TC_03_RegisterPortfolioTest extends BaseClass {
 
 	@Test
 	@Parameters({ "SheetName","rowNum" })
-	public void RegisterPortfolio() throws IOException {
+	public void TC_03_RegisterPortfolio() throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

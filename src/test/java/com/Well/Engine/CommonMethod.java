@@ -973,7 +973,6 @@ public class CommonMethod extends BaseClass {
 		Assert.assertTrue(findElement(objectLocater).isDisplayed(), message);
 
 	}
-
 	public static boolean Isdisplayed(String objectLocater, int Timeout) throws IOException {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(Timeout));
 		Boolean boo = null;

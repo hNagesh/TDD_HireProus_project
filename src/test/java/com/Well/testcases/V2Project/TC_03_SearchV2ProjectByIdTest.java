@@ -16,7 +16,6 @@ public class TC_03_SearchV2ProjectByIdTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
-
 		try {
 		v2project.SearchV2ProjectById(SheetName, rowNum);	
 		} catch (Throwable t) {

@@ -16,7 +16,6 @@ public class TC_08_DocumentV2ProjectTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
-
 		try {
 		v2project.UploadGeneralDocumentInDocV2Project(SheetName, rowNum);	
 		v2project.UploadLegalDocumentInDocV2Project(SheetName, rowNum);	

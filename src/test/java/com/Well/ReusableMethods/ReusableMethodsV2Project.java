@@ -92,7 +92,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.sendKeys("V2ProjectowneraddressPostalcode", PostalCode);
 		CommonMethod.ClickCheckbox("V2Projectisthisapublicproject");
 		CommonMethod.click("V2ProjectprojectaddressContinuebtn");
-		Thread.sleep(90000);
+		Thread.sleep(4000);
 	}
 
 	public void BillingV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -397,7 +397,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectResetbtn");
 		Thread.sleep(2000);
 		CommonMethod.selectdropdown("V2ProjectDocType", "Ongoing data reports");
-
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
 		CommonMethod.click("OwnerOrgClick");
 		CommonMethod.sendKeys("OwnerOrg", "R");
