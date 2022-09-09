@@ -23,7 +23,7 @@
 hs_err_pid*
 
 # Folders
-/target/*
+target/*
 /test-output/*
 /Screenshots/
 /Report/
