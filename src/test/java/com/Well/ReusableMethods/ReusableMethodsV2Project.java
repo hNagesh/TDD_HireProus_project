@@ -449,15 +449,69 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.assertActualContainsExpected(V2ProjectDocCounts, "4", "Verified Document Count");
 
 	}
-	public void ReviewV2Project(String SheetName, int rowNum) throws IOException {
+	public void ReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilClickble("ReviwTab", 60);
 		CommonMethod.click("ReviwTab");
+		CommonMethod.WaitUntilClickble("V2ProjectsubmitReview", 60);
 		CommonMethod.click("V2ProjectsubmitReview");
-		CommonMethod.selectdropdown("V2ProjectSelectPhase", "Preliminary Precertification Review");
+		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60);
 		CommonMethod.sendKeys("V2ProjectcommentReview", "Preliminary Precertification Review");
+		Thread.sleep(4000);
+		CommonMethod.selectdropdown("V2ProjectSelectPhase", "Preliminary Precertification Review");	
+		CommonMethod.WaitUntilClickble("V2ProjectSubmitPhaseReview", 60);
 		CommonMethod.click("V2ProjectSubmitPhaseReview");
+		Thread.sleep(2000);
 		/*
-		 * Admin
+		 * Admin Review
 		 */
+		CommonMethod.WaitUntilClickble("AdminNavBar", 60);
+		CommonMethod.click("AdminNavBar");
+		CommonMethod.click("AdminWELLCertificationNavBar");
+		CommonMethod.WaitUntilClickble("AdminV2ProjectId", 60);
+		CommonMethod.sendKeys("AdminV2ProjectId", data.getCellData(SheetName, "projectId", rowNum));
+		CommonMethod.click("AdminV2ProjectApplybtn");
+		Thread.sleep(2000);
+		CommonMethod.click("V2ProjectIdCompare");
+		CommonMethod.click("ReviwTab");
+		Thread.sleep(2000);
+		CommonMethod.click("V2ProjectReviewViewbtn");
+		Thread.sleep(2000);
+		CommonMethod.click("V2ProjectReturnReviewbtn");
+		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60);
+		CommonMethod.sendKeys("V2ProjectReviewCommentNarrative", "Preliminary Precertification Review");
+		CommonMethod.sendKeys("V2ProjectGeneralCommentNarrative", "Preliminary Precertification Review");
+		CommonMethod.WaitUntilClickble("V2ProjectdocsubUpdatebtn", 60);
+		Thread.sleep(1000);
+		CommonMethod.click("V2ProjectdocsubUpdatebtn");
+		CommonMethod.WaitUntilClickble("V2ProjectdocsubOkbtn", 60);
+		CommonMethod.click("V2ProjectdocsubOkbtn");
+		CommonMethod.scrollDown();
+		Thread.sleep(1000);
+		CommonMethod.WaitUntilClickble("V2ProjectPaymentstatus", 60);
+		CommonMethod.ClickCheckbox("V2ProjectPaymentstatus");
+		CommonMethod.WaitUntilClickble("V2ProjectReturnReviewSubmit", 60);
+		CommonMethod.click("V2ProjectReturnReviewSubmit");
+		Thread.sleep(2000);
+		CommonMethod.WaitUntilClickble("V2ProjectReviwedStatus", 60);
+		CommonMethod.assertcontainsmessage("V2ProjectReviwedStatus", "REVIEWED", "Verified Review status");	
+	}
+	public void HealthSafetyV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilClickble("HealthSafetyTab", 60);
+		CommonMethod.click("HealthSafetyTab");
+		CommonMethod.WaitUntilClickble("V2ProjectHsrContinuebtn", 60);
+		CommonMethod.click("V2ProjectHsrContinuebtn");
+		CommonMethod.WaitUntilClickble("V2ProjectHsrTermscbx", 60);
+		CommonMethod.click("V2ProjectHsrTermscbx");
+		CommonMethod.click("V2ProjectHsrTermsbtn");
+		CommonMethod.click("V2ProjectHsrProceedbtn");
+		CommonMethod.click("V2ProjectHsrAccountbtn");
+		for(int i=1;i<=15;i++) {
+			CommonMethod.click("V2ProjectHsrPursuingYes");
+		}
+		for(int i=1;i<=12;i++) {
+			CommonMethod.click("V2ProjectHsrPursuingNo");
+		}
+		
 	}
 	
 }
