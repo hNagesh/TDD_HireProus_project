@@ -1,161 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="21" total="29" passed="7" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-09-08T10:12:18Z" name="WELLAutomation" finished-at="2022-09-08T10:40:29Z" duration-ms="1691012">
+  <suite started-at="2022-09-09T12:28:47Z" name="WELLAutomation" finished-at="2022-09-09T12:28:57Z" duration-ms="9549">
     <groups>
     </groups>
-    <test started-at="2022-09-08T10:12:18Z" name="WELL-Tests" finished-at="2022-09-08T10:40:29Z" duration-ms="1691012">
-      <class name="com.Well.testcases.V2Project.TC_02_RegisterV2ProjectTest">
-        <test-method signature="tc_02_RegisterPortfolio(java.lang.String, int)[pri:0, instance:com.Well.testcases.V2Project.TC_02_RegisterV2ProjectTest@606e4010]" started-at="2022-09-08T10:12:37Z" name="tc_02_RegisterPortfolio" finished-at="2022-09-08T10:13:16Z" duration-ms="39713" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[V2Project]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tc_02_RegisterPortfolio -->
-        <test-method is-config="true" signature="ExtentReportConfig()[pri:0, instance:com.Well.testcases.V2Project.TC_02_RegisterV2ProjectTest@606e4010]" started-at="2022-09-08T10:12:37Z" name="ExtentReportConfig" finished-at="2022-09-08T10:12:37Z" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ExtentReportConfig -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Well.testcases.V2Project.TC_02_RegisterV2ProjectTest@606e4010]" started-at="2022-09-08T10:13:16Z" name="getResult" finished-at="2022-09-08T10:13:17Z" duration-ms="10" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=tc_02_RegisterPortfolio status=SUCCESS method=TC_02_RegisterV2ProjectTest.tc_02_RegisterPortfolio(java.lang.String, int)[pri:0, instance:com.Well.testcases.V2Project.TC_02_RegisterV2ProjectTest@606e4010] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="flushReport()[pri:0, instance:com.Well.testcases.V2Project.TC_02_RegisterV2ProjectTest@606e4010]" started-at="2022-09-08T10:13:17Z" name="flushReport" finished-at="2022-09-08T10:13:17Z" duration-ms="86" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- flushReport -->
-      </class> <!-- com.Well.testcases.V2Project.TC_02_RegisterV2ProjectTest -->
-      <class name="com.Well.testcases.V2Project.TC_05_BillingV2ProjectTest">
-        <test-method signature="tc_05_BillingV2ProjectTest(java.lang.String, int)[pri:0, instance:com.Well.testcases.V2Project.TC_05_BillingV2ProjectTest@68c9133c]" started-at="2022-09-08T10:13:55Z" name="tc_05_BillingV2ProjectTest" finished-at="2022-09-08T10:14:15Z" duration-ms="19501" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[V2Project]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tc_05_BillingV2ProjectTest -->
-        <test-method is-config="true" signature="ExtentReportConfig()[pri:0, instance:com.Well.testcases.V2Project.TC_05_BillingV2ProjectTest@68c9133c]" started-at="2022-09-08T10:13:55Z" name="ExtentReportConfig" finished-at="2022-09-08T10:13:55Z" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ExtentReportConfig -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Well.testcases.V2Project.TC_05_BillingV2ProjectTest@68c9133c]" started-at="2022-09-08T10:14:15Z" name="getResult" finished-at="2022-09-08T10:14:15Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=tc_05_BillingV2ProjectTest status=SUCCESS method=TC_05_BillingV2ProjectTest.tc_05_BillingV2ProjectTest(java.lang.String, int)[pri:0, instance:com.Well.testcases.V2Project.TC_05_BillingV2ProjectTest@68c9133c] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="flushReport()[pri:0, instance:com.Well.testcases.V2Project.TC_05_BillingV2ProjectTest@68c9133c]" started-at="2022-09-08T10:14:15Z" name="flushReport" finished-at="2022-09-08T10:14:15Z" duration-ms="73" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- flushReport -->
-      </class> <!-- com.Well.testcases.V2Project.TC_05_BillingV2ProjectTest -->
-      <class name="com.Well.testcases.V2Project.TC_03_SearchV2ProjectByIdTest">
-        <test-method is-config="true" signature="ExtentReportConfig()[pri:0, instance:com.Well.testcases.V2Project.TC_03_SearchV2ProjectByIdTest@8458f04]" started-at="2022-09-08T10:13:17Z" name="ExtentReportConfig" finished-at="2022-09-08T10:13:17Z" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ExtentReportConfig -->
-        <test-method signature="tc_03_SearchV2ProjectByIdTest(java.lang.String, int)[pri:0, instance:com.Well.testcases.V2Project.TC_03_SearchV2ProjectByIdTest@8458f04]" started-at="2022-09-08T10:13:17Z" name="tc_03_SearchV2ProjectByIdTest" finished-at="2022-09-08T10:13:23Z" duration-ms="6744" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[V2Project]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tc_03_SearchV2ProjectByIdTest -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Well.testcases.V2Project.TC_03_SearchV2ProjectByIdTest@8458f04]" started-at="2022-09-08T10:13:23Z" name="getResult" finished-at="2022-09-08T10:13:23Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=tc_03_SearchV2ProjectByIdTest status=SUCCESS method=TC_03_SearchV2ProjectByIdTest.tc_03_SearchV2ProjectByIdTest(java.lang.String, int)[pri:0, instance:com.Well.testcases.V2Project.TC_03_SearchV2ProjectByIdTest@8458f04] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="flushReport()[pri:0, instance:com.Well.testcases.V2Project.TC_03_SearchV2ProjectByIdTest@8458f04]" started-at="2022-09-08T10:13:23Z" name="flushReport" finished-at="2022-09-08T10:13:23Z" duration-ms="81" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- flushReport -->
-      </class> <!-- com.Well.testcases.V2Project.TC_03_SearchV2ProjectByIdTest -->
-      <class name="com.Well.testcases.V2Project.TC_04_EnrollV2ProjectTest">
-        <test-method is-config="true" signature="ExtentReportConfig()[pri:0, instance:com.Well.testcases.V2Project.TC_04_EnrollV2ProjectTest@48075da3]" started-at="2022-09-08T10:13:23Z" name="ExtentReportConfig" finished-at="2022-09-08T10:13:23Z" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ExtentReportConfig -->
-        <test-method signature="tc_04_EnrollV2ProjectTest(java.lang.String, int)[pri:0, instance:com.Well.testcases.V2Project.TC_04_EnrollV2ProjectTest@48075da3]" started-at="2022-09-08T10:13:23Z" name="tc_04_EnrollV2ProjectTest" finished-at="2022-09-08T10:13:55Z" duration-ms="31519" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[V2Project]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tc_04_EnrollV2ProjectTest -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Well.testcases.V2Project.TC_04_EnrollV2ProjectTest@48075da3]" started-at="2022-09-08T10:13:55Z" name="getResult" finished-at="2022-09-08T10:13:55Z" duration-ms="1" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=tc_04_EnrollV2ProjectTest status=SUCCESS method=TC_04_EnrollV2ProjectTest.tc_04_EnrollV2ProjectTest(java.lang.String, int)[pri:0, instance:com.Well.testcases.V2Project.TC_04_EnrollV2ProjectTest@48075da3] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="flushReport()[pri:0, instance:com.Well.testcases.V2Project.TC_04_EnrollV2ProjectTest@48075da3]" started-at="2022-09-08T10:13:55Z" name="flushReport" finished-at="2022-09-08T10:13:55Z" duration-ms="131" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- flushReport -->
-      </class> <!-- com.Well.testcases.V2Project.TC_04_EnrollV2ProjectTest -->
+    <test started-at="2022-09-09T12:28:47Z" name="WELL-Tests" finished-at="2022-09-09T12:28:57Z" duration-ms="9549">
       <class name="com.Well.testcases.login.TC_01_LoginTest">
-        <test-method is-config="true" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:com.Well.testcases.login.TC_01_LoginTest@18271936]" started-at="2022-09-08T10:11:57Z" name="setup" finished-at="2022-09-08T10:12:18Z" duration-ms="20808" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String, java.lang.String)[pri:0, instance:com.Well.testcases.login.TC_01_LoginTest@4c60d6e9]" started-at="2022-09-09T12:28:36Z" name="setup" finished-at="2022-09-09T12:28:47Z" duration-ms="11518" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -171,198 +23,38 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method is-config="true" signature="ExtentReportConfig()[pri:0, instance:com.Well.testcases.login.TC_01_LoginTest@18271936]" started-at="2022-09-08T10:12:18Z" name="ExtentReportConfig" finished-at="2022-09-08T10:12:18Z" duration-ms="683" status="PASS">
+        <test-method is-config="true" signature="ExtentReportConfig()[pri:0, instance:com.Well.testcases.login.TC_01_LoginTest@4c60d6e9]" started-at="2022-09-09T12:28:47Z" name="ExtentReportConfig" finished-at="2022-09-09T12:28:48Z" duration-ms="266" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ExtentReportConfig -->
-        <test-method signature="TC_01_Login()[pri:0, instance:com.Well.testcases.login.TC_01_LoginTest@18271936]" started-at="2022-09-08T10:12:18Z" name="TC_01_Login" finished-at="2022-09-08T10:12:36Z" duration-ms="17435" status="PASS">
+        <test-method signature="TC_01_Login()[pri:0, instance:com.Well.testcases.login.TC_01_LoginTest@4c60d6e9]" started-at="2022-09-09T12:28:48Z" name="TC_01_Login" finished-at="2022-09-09T12:28:56Z" duration-ms="8913" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TC_01_Login -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Well.testcases.login.TC_01_LoginTest@18271936]" started-at="2022-09-08T10:12:36Z" name="getResult" finished-at="2022-09-08T10:12:36Z" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="flushReport()[pri:0, instance:com.Well.testcases.login.TC_01_LoginTest@4c60d6e9]" started-at="2022-09-09T12:28:56Z" name="flushReport" finished-at="2022-09-09T12:28:57Z" duration-ms="354" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- flushReport -->
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Well.testcases.login.TC_01_LoginTest@4c60d6e9]" started-at="2022-09-09T12:28:56Z" name="getResult" finished-at="2022-09-09T12:28:56Z" duration-ms="0" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=TC_01_Login status=SUCCESS method=TC_01_LoginTest.TC_01_Login()[pri:0, instance:com.Well.testcases.login.TC_01_LoginTest@18271936] output={null}]]]>
+                <![CDATA[[TestResult name=TC_01_Login status=SUCCESS method=TC_01_LoginTest.TC_01_Login()[pri:0, instance:com.Well.testcases.login.TC_01_LoginTest@4c60d6e9] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="flushReport()[pri:0, instance:com.Well.testcases.login.TC_01_LoginTest@18271936]" started-at="2022-09-08T10:12:36Z" name="flushReport" finished-at="2022-09-08T10:12:37Z" duration-ms="875" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- flushReport -->
-        <test-method is-config="true" signature="quit()[pri:0, instance:com.Well.testcases.login.TC_01_LoginTest@18271936]" started-at="2022-09-08T10:40:29Z" name="quit" finished-at="2022-09-08T10:40:29Z" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="quit()[pri:0, instance:com.Well.testcases.login.TC_01_LoginTest@4c60d6e9]" started-at="2022-09-09T12:28:57Z" name="quit" finished-at="2022-09-09T12:28:57Z" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quit -->
-        <test-method is-config="true" signature="end()[pri:0, instance:com.Well.testcases.login.TC_01_LoginTest@18271936]" started-at="2022-09-08T10:40:29Z" name="end" finished-at="2022-09-08T10:40:30Z" duration-ms="1174" status="PASS">
+        <test-method is-config="true" signature="end()[pri:0, instance:com.Well.testcases.login.TC_01_LoginTest@4c60d6e9]" started-at="2022-09-09T12:28:57Z" name="end" finished-at="2022-09-09T12:28:57Z" duration-ms="328" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- end -->
       </class> <!-- com.Well.testcases.login.TC_01_LoginTest -->
-      <class name="com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest">
-        <test-method is-config="true" signature="ExtentReportConfig()[pri:0, instance:com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest@5e2c3d18]" started-at="2022-09-08T10:14:20Z" name="ExtentReportConfig" finished-at="2022-09-08T10:14:20Z" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ExtentReportConfig -->
-        <test-method signature="tc_07_ScorecardV2ProjectTest(java.lang.String, int)[pri:0, instance:com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest@5e2c3d18]" started-at="2022-09-08T10:14:20Z" name="tc_07_ScorecardV2ProjectTest" finished-at="2022-09-08T10:39:18Z" duration-ms="1497435" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[V2Project]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.Error">
-            <message>
-              <![CDATA[Expected condition failed: waiting for element to be clickable: By.xpath: //div[contains(text(),'Meet Thresholds for Particulate Matter')] (tried for 60 second(s) with 500 milliseconds interval)
-Build info: version: '4.3.0', revision: 'a4995e2c09*'
-System info: host: 'PRO-GOKULT', ip: '192.168.1.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 105.0.5195.102, chrome: {chromedriverVersion: 105.0.5195.52 (412c95e51883..., userDataDir: C:\Users\PROMAN~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:65188}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:65188/devtoo..., se:cdpVersion: 105.0.5195.102, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: b9c77ada716de5ebb02542553d8367c7]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.Error: Expected condition failed: waiting for element to be clickable: By.xpath: //div[contains(text(),'Meet Thresholds for Particulate Matter')] (tried for 60 second(s) with 500 milliseconds interval)
-Build info: version: '4.3.0', revision: 'a4995e2c09*'
-System info: host: 'PRO-GOKULT', ip: '192.168.1.6', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 105.0.5195.102, chrome: {chromedriverVersion: 105.0.5195.52 (412c95e51883..., userDataDir: C:\Users\PROMAN~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:65188}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:65188/devtoo..., se:cdpVersion: 105.0.5195.102, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
-Session ID: b9c77ada716de5ebb02542553d8367c7
-at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
-at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-at com.Well.Engine.CommonMethod.WaitUntilClickble(CommonMethod.java:1815)
-at com.Well.ReusableMethods.ReusableMethodsV2Project.UploadFeatureDocV2ProjectById(ReusableMethodsV2Project.java:336)
-at com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest.tc_07_ScorecardV2ProjectTest(TC_07_ScorecardV2ProjectTest.java:23)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.Error -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tc_07_ScorecardV2ProjectTest -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest@5e2c3d18]" started-at="2022-09-08T10:39:18Z" name="getResult" finished-at="2022-09-08T10:39:19Z" duration-ms="708" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=tc_07_ScorecardV2ProjectTest status=FAILURE method=TC_07_ScorecardV2ProjectTest.tc_07_ScorecardV2ProjectTest(java.lang.String, int)[pri:0, instance:com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest@5e2c3d18] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="flushReport()[pri:0, instance:com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest@5e2c3d18]" started-at="2022-09-08T10:39:19Z" name="flushReport" finished-at="2022-09-08T10:39:19Z" duration-ms="74" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- flushReport -->
-      </class> <!-- com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest -->
-      <class name="com.Well.testcases.V2Project.TC_06_AgreementV2ProjectTest">
-        <test-method signature="tc_06_AgreementV2ProjectTest(java.lang.String, int)[pri:0, instance:com.Well.testcases.V2Project.TC_06_AgreementV2ProjectTest@7a35b0f5]" started-at="2022-09-08T10:14:15Z" name="tc_06_AgreementV2ProjectTest" finished-at="2022-09-08T10:14:20Z" duration-ms="5718" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[V2Project]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tc_06_AgreementV2ProjectTest -->
-        <test-method is-config="true" signature="ExtentReportConfig()[pri:0, instance:com.Well.testcases.V2Project.TC_06_AgreementV2ProjectTest@7a35b0f5]" started-at="2022-09-08T10:14:15Z" name="ExtentReportConfig" finished-at="2022-09-08T10:14:15Z" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ExtentReportConfig -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Well.testcases.V2Project.TC_06_AgreementV2ProjectTest@7a35b0f5]" started-at="2022-09-08T10:14:20Z" name="getResult" finished-at="2022-09-08T10:14:20Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=tc_06_AgreementV2ProjectTest status=SUCCESS method=TC_06_AgreementV2ProjectTest.tc_06_AgreementV2ProjectTest(java.lang.String, int)[pri:0, instance:com.Well.testcases.V2Project.TC_06_AgreementV2ProjectTest@7a35b0f5] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="flushReport()[pri:0, instance:com.Well.testcases.V2Project.TC_06_AgreementV2ProjectTest@7a35b0f5]" started-at="2022-09-08T10:14:20Z" name="flushReport" finished-at="2022-09-08T10:14:20Z" duration-ms="77" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- flushReport -->
-      </class> <!-- com.Well.testcases.V2Project.TC_06_AgreementV2ProjectTest -->
-      <class name="com.Well.testcases.V2Project.TC_08_DocumentV2ProjectTest">
-        <test-method is-config="true" signature="ExtentReportConfig()[pri:0, instance:com.Well.testcases.V2Project.TC_08_DocumentV2ProjectTest@2cb4893b]" started-at="2022-09-08T10:39:19Z" name="ExtentReportConfig" finished-at="2022-09-08T10:39:19Z" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ExtentReportConfig -->
-        <test-method signature="tc_08_DocumentV2ProjectTest(java.lang.String, int)[pri:0, instance:com.Well.testcases.V2Project.TC_08_DocumentV2ProjectTest@2cb4893b]" started-at="2022-09-08T10:39:19Z" name="tc_08_DocumentV2ProjectTest" finished-at="2022-09-08T10:40:29Z" duration-ms="70007" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[V2Project]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[2]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tc_08_DocumentV2ProjectTest -->
-        <test-method is-config="true" signature="flushReport()[pri:0, instance:com.Well.testcases.V2Project.TC_08_DocumentV2ProjectTest@2cb4893b]" started-at="2022-09-08T10:40:29Z" name="flushReport" finished-at="2022-09-08T10:40:29Z" duration-ms="62" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- flushReport -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.Well.testcases.V2Project.TC_08_DocumentV2ProjectTest@2cb4893b]" started-at="2022-09-08T10:40:29Z" name="getResult" finished-at="2022-09-08T10:40:29Z" duration-ms="0" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=tc_08_DocumentV2ProjectTest status=SUCCESS method=TC_08_DocumentV2ProjectTest.tc_08_DocumentV2ProjectTest(java.lang.String, int)[pri:0, instance:com.Well.testcases.V2Project.TC_08_DocumentV2ProjectTest@2cb4893b] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-      </class> <!-- com.Well.testcases.V2Project.TC_08_DocumentV2ProjectTest -->
     </test> <!-- WELL-Tests -->
   </suite> <!-- WELLAutomation -->
 </testng-results>
