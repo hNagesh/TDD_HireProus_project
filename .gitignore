@@ -1,7 +1,7 @@
 #Folders
-/target/
-/logs/
-/test-output/*
-/Screenshots/
-/Report/
+target/
+logs/
+test-output/*
+Screenshots/
+Report/
 
