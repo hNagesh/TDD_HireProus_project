@@ -134,7 +134,12 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void BuildScorecardV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("V2ProjectStartBuilding", 60);
 		CommonMethod.click("V2ProjectStartBuilding");
-		Thread.sleep(20000);
+		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 300);
+	}
+	
+	public void RefreshScorecard() throws IOException {
+		CommonMethod.refreshBrowser();
+		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 300);
 	}
 
 	public void CompleteScorecardV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -152,7 +157,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.click("V2ProjectPurseNo");
 			Thread.sleep(4000);
 		}
-		CommonMethod.refreshBrowser();
+		RefreshScorecard();
 		/*
 		 * Water concept
 		 */
@@ -169,7 +174,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.click("V2ProjectWaterPurseNo");
 			Thread.sleep(4000);
 		}
-		CommonMethod.refreshBrowser();
+		RefreshScorecard();
 		/*
 		 * Nourisement concept
 		 */
@@ -186,7 +191,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.click("V2ProjectNouisementPurseNo");
 			Thread.sleep(4000);
 		}
-		CommonMethod.refreshBrowser();
+		RefreshScorecard();
 		/*
 		 * Light concept
 		 */
@@ -202,7 +207,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.click("V2ProjectLightPurseNo");
 			Thread.sleep(4000);
 		}
-		CommonMethod.refreshBrowser();
+		RefreshScorecard();
 		/*
 		 * Movement concept
 		 */
@@ -219,7 +224,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.click("V2ProjectMovementPurseNo");
 			Thread.sleep(4000);
 		}
-		CommonMethod.refreshBrowser();
+		RefreshScorecard();
 		/*
 		 * Thermal concept
 		 */
@@ -236,7 +241,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.click("V2ProjectThermalPurseNo");
 			Thread.sleep(4000);
 		}
-		CommonMethod.refreshBrowser();
+		RefreshScorecard();
 		/*
 		 * Sound concept
 		 */
@@ -253,7 +258,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.click("V2ProjectSoundPurseNo");
 			Thread.sleep(4000);
 		}
-		CommonMethod.refreshBrowser();
+		RefreshScorecard();
 		/*
 		 * Material concept
 		 */
@@ -270,7 +275,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.click("V2ProjectMaterialPurseNo");
 			Thread.sleep(4000);
 		}
-		CommonMethod.refreshBrowser();
+		RefreshScorecard();
 		/*
 		 * Mind concept
 		 */
@@ -286,7 +291,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.click("V2ProjectMindPurseNo");
 			Thread.sleep(4000);
 		}
-		CommonMethod.refreshBrowser();
+		RefreshScorecard();
 		/*
 		 * Community concept
 		 */
@@ -303,7 +308,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.click("V2ProjectConnunityPurseNo");
 			Thread.sleep(4000);
 		}
-		CommonMethod.refreshBrowser();
+		RefreshScorecard();
 		/*
 		 * Innovation concept
 		 */
@@ -320,7 +325,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.click("V2ProjectInnovationPurseNo");
 			Thread.sleep(4000);
 		}
-		CommonMethod.refreshBrowser();
+		RefreshScorecard();
 //		Thread.sleep(4000);
 //		CommonMethod.Isdisplayed("V2ProjectScorecardYesCount", 60);
 //		int YesFeatureCount = CommonMethod.ElementSize("V2ProjectScorecardYesCount");
@@ -442,11 +447,11 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectGeneralDoc");
 		int V2ProjectDocCount = CommonMethod.ElementSize("V2ProjectGeneralDocCount");
 		String V2ProjectDocuCounts = Integer.toString(V2ProjectDocCount);
-		CommonMethod.assertActualContainsExpected(V2ProjectDocuCounts, "2", "Verified Document Count");
+		CommonMethod.assertActualContainsExpected(V2ProjectDocuCounts, "2");
 		CommonMethod.click("V2ProjectScorecardDoc");
 		int V2ProjectScoreDocCount = CommonMethod.ElementSize("V2ProjectScorecardDocCount");
 		String V2ProjectDocCounts = Integer.toString(V2ProjectScoreDocCount);
-		CommonMethod.assertActualContainsExpected(V2ProjectDocCounts, "4", "Verified Document Count");
+		CommonMethod.assertActualContainsExpected(V2ProjectDocCounts, "4");
 
 	}
 	public void ReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {

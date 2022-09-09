@@ -710,9 +710,9 @@ public class CommonMethod extends BaseClass {
 		Assert.assertTrue(getText(objectLocater).contains(expected), message);
 	}
 
-	public static void assertActualContainsExpected(String Actual, String expected, String message) throws IOException {
+	public static void assertActualContainsExpected(String Actual, String expected) throws IOException {
 
-		Assert.assertTrue(Actual.contains(expected), message);
+		Assert.assertTrue(Actual.contains(expected), "Did not match --- Actual : "+Actual+ " Expected : "+expected);
 	}
 
 	public static void assertExpectedContainsActual(String Actual, String expected, String message) throws IOException {
