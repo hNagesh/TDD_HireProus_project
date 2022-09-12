@@ -267,7 +267,7 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 
 	public void UploadFeatureDocV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("V2ProjectScorecardFeature", 60);
-		CommonMethod.Robustclick("V2ProjectScorecardFeature");
+		CommonMethod.click("V2ProjectScorecardFeature");
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
 		CommonMethod.click("V2ProjectscorecardDocbtn");
 		CommonMethod.selectdropdown("V2Projectscorecardverificationdropdown", "Performance Test OR Sensor Data");
@@ -281,7 +281,7 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 
 	public void UploadAuditDocV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("V2ProjectScorecardAuditFeature", 60);
-		CommonMethod.Robustclick("V2ProjectScorecardAuditFeature");
+		CommonMethod.click("V2ProjectScorecardAuditFeature");
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
 		CommonMethod.click("V2ProjectscorecardDocbtn");
 		CommonMethod.selectdropdown("V2Projectscorecardverificationdropdown", "Technical Document (Audited)");
