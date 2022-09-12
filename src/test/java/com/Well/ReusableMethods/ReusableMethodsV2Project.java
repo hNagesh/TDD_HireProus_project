@@ -434,6 +434,7 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.click("HealthSafetyTab");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrContinuebtn", 300);
 		CommonMethod.click("V2ProjectHsrContinuebtn");
+<<<<<<< HEAD
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
 		CommonMethod.click("V2ProjectHsrTermscbx");
 		CommonMethod.click("V2ProjectHsrTermsbtn");
@@ -457,19 +458,51 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		}
 	}
 	public void uploadDocumentInfeature() throws IOException, InterruptedException {
+=======
+		
+		  CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
+		  CommonMethod.click("V2ProjectHsrTermscbx");
+		  CommonMethod.click("V2ProjectHsrTermsbtn");
+		  CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
+		  CommonMethod.click("V2ProjectHsrTermscbx");
+		  CommonMethod.WaitUntilVisibility("V2ProjectHsrProceedbtn", 300);
+		  CommonMethod.click("V2ProjectHsrProceedbtn");
+		  CommonMethod.WaitUntilVisibility("V2ProjectHsrAccountbtn", 300);
+		  CommonMethod.click("V2ProjectHsrAccountbtn");
+		  CommonMethod.WaitUntilVisibility("V2ProjectHsrScorecard", 300); for(int
+		  i=1;i<=27;i++) { CommonMethod.click("V2ProjectHsrPursuingNo");
+		  Thread.sleep(3000); } Thread.sleep(2000);
+		  CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
+		  CommonMethod.WaitUntilVisibility("V2ProjectHsrPursuingYes", 300);
+		  
+		  for(int i=1;i<=15;i++) { CommonMethod.click("V2ProjectHsrPursuingYes");
+		  Thread.sleep(2000); }
+		 
+	}
+	
+	public void uploadDocumentInFeature(int LastFeatureNumber) throws IOException, InterruptedException {
+>>>>>>> refs/remotes/origin/master
 
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPDocIcon", 300);
-		CommonMethod.click("V2ProjectWPRPDocIcon");
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRVerificationMethod", 300);
-		CommonMethod.selectdropdownIndex("V2ProjectWPRVerificationMethod", 1);
-		CommonMethod.uploadFile("V2ProjectDocUpload", PortfolioLocationImportfile);
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRUploadbtn", 300);
-		CommonMethod.click("V2ProjectWPRUploadbtn");
-		Thread.sleep(5000);
+		List<WebElement> Feature;
+		Feature = CommonMethod.findElements("V2ProjectWPRPFeature"); 
+		Feature = Feature.subList(0, LastFeatureNumber);
 		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
+		  for (WebElement f:Feature) {
+			  CommonMethod.click(f);
+			  CommonMethod.WaitUntilVisibility("V2ProjectWPRPDocIcon", 60);
+				CommonMethod.click("V2ProjectWPRPDocIcon");
+				CommonMethod.WaitUntilVisibility("V2ProjectWPRVerificationMethod", 60);
+				CommonMethod.selectdropdownIndex("V2ProjectWPRVerificationMethod", 1);
+				CommonMethod.uploadFile("V2ProjectDocUpload", PortfolioLocationImportfile);
+				CommonMethod.WaitUntilVisibility("FeatureFileUploadedVisible", 60);
+				CommonMethod.Robustclick("V2ProjectWPRUploadbtn");
+				CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
+                CommonMethod.click(f);
+		  }
 
 
 	}
+<<<<<<< HEAD
 	public void uploadHsrDocV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		//feature0
 		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
@@ -570,7 +603,12 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 				CommonMethod.click("V2ProjectWPRPFeature14");
 				Thread.sleep(2000);
 
+=======
+
+	public void uploadHsrDocV2Project() throws IOException, InterruptedException {
+>>>>>>> refs/remotes/origin/master
 		
+		uploadDocumentInFeature(14);
 		
 }
 	public void hsrReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -627,8 +665,8 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.WaitUntilVisibility("PerformanceTab", 300);
 		CommonMethod.click("PerformanceTab");
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRContinuebtn", 300);
-		CommonMethod.click("V2ProjectWPRContinuebtn");
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRTermscbx", 300);
+		CommonMethod.Robustclick("V2ProjectWPRContinuebtn");
+		CommonMethod.WaitUntilVisibility("V2ProjectWPRTermscbx", 60);
 		CommonMethod.ClickCheckbox("V2ProjectWPRTermscbx");
 		CommonMethod.click("V2ProjectWPRTermsbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
@@ -650,6 +688,7 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		}
 	}
 	
+<<<<<<< HEAD
 	public void uploadPerformanceDocV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		//feature0
 		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
@@ -780,6 +819,12 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 				CommonMethod.click("V2ProjectWPRPFeature20");
 				Thread.sleep(2000);	
 
+=======
+	public void uploadPerformanceDocV2Project() throws IOException, InterruptedException {
+		
+		uploadDocumentInFeature(20);
+		
+>>>>>>> refs/remotes/origin/master
 	}
 	public void wprReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 300);
