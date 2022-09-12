@@ -1,13 +1,13 @@
 package com.Well.ReusableMethods;
 
 import java.io.IOException;
-<<<<<<< HEAD
+
 
 import org.openqa.selenium.By;
-=======
+
 import java.util.List;
 
->>>>>>> refs/remotes/origin/master
+
 import org.openqa.selenium.WebElement;
 
 import com.Well.Engine.BaseClass;
