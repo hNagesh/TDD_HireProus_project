@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-WELLAutomation" class="navigator-link ">
-                    <span>C:\Users\abhis\eclipse-workspace\WellFrontendTest\src\main\resources\TestNG\V2Projecttestng.xml</span>
+                    <span>D:\WellFrontendTest_1\src\main\resources\TestNG\HSRtestng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,6 +103,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-WELLAutomation" title="com.Well.testcases.login.TC_01_LoginTest" class="method navigator-link" hash-for-method="TC_01_Login">TC_01_Login</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-WELLAutomation" title="com.Well.testcases.HealthSafety.TC_02_RegisterHealthSafetyTest" class="method navigator-link" hash-for-method="TC_02_RegisterPortfolio(Hsr, 2)">TC_02_RegisterPortfolio(Hsr, 2)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-WELLAutomation -->
@@ -132,10 +137,26 @@
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
           </div> <!-- suite-WELLAutomation-class-passed -->
+          <div class="suite-WELLAutomation-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.Well.testcases.HealthSafety.TC_02_RegisterHealthSafetyTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_02_RegisterPortfolio(Hsr, 2)">
+                  </a> <!-- TC_02_RegisterPortfolio(Hsr, 2) -->
+                  <span class="method-name">TC_02_RegisterPortfolio</span>
+                  <span class="parameters">(Hsr, 2)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-WELLAutomation-class-passed -->
         </div> <!-- panel WELLAutomation -->
         <div panel-name="test-xml-WELLAutomation" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\abhis\eclipse-workspace\WellFrontendTest\src\main\resources\TestNG\V2Projecttestng.xml</span>
+            <span class="header-content">D:\WellFrontendTest_1\src\main\resources\TestNG\HSRtestng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -146,9 +167,10 @@
   &lt;parameter name=&quot;browserName&quot; value=&quot;chrome&quot;/&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;WELL-Tests&quot;&gt;
     &lt;parameter name=&quot;rowNum&quot; value=&quot;2&quot;/&gt;
-    &lt;parameter name=&quot;SheetName&quot; value=&quot;V2Project&quot;/&gt;
+    &lt;parameter name=&quot;SheetName&quot; value=&quot;Hsr&quot;/&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.Well.testcases.login.TC_01_LoginTest&quot;/&gt;
+      &lt;class name=&quot;com.Well.testcases.HealthSafety.TC_02_RegisterHealthSafetyTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- WELL-Tests --&gt;
 &lt;/suite&gt; &lt;!-- WELLAutomation --&gt;
@@ -162,7 +184,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">WELL-Tests (1 class)</span>
+                <span class="test-name">WELL-Tests (2 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -188,16 +210,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'TC_01_Login')
-data.setCell(0, 2, 'com.Well.testcases.login.TC_01_LoginTest')
-data.setCell(0, 3, 8913);
+data.setCell(0, 1, 'TC_02_RegisterPortfolio')
+data.setCell(0, 2, 'com.Well.testcases.HealthSafety.TC_02_RegisterHealthSafetyTest')
+data.setCell(0, 3, 51578);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'TC_01_Login')
+data.setCell(1, 2, 'com.Well.testcases.login.TC_01_LoginTest')
+data.setCell(1, 3, 11242);
 window.suiteTableData['WELLAutomation']= { tableData: data, tableDiv: 'times-div-WELLAutomation'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 8 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-WELLAutomation">
               </div> <!-- times-div-WELLAutomation -->
             </div> <!-- times-div -->
@@ -212,9 +238,20 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-WELLAutomation" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">3 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.Well.testcases.HealthSafety.TC_02_RegisterHealthSafetyTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">setup</span>
+                <br/>
+                <span class="ignored-method-name">quit</span>
+                <br/>
+                <span class="ignored-method-name">end</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-WELLAutomation" class="panel">
@@ -230,27 +267,49 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">ExtentReportConfig</span>
-                <span class="method-start">11534 ms</span>
+                <span class="method-start">10992 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">TC_01_Login</span>
-                <span class="method-start">11800 ms</span>
+                <span class="method-start">11626 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">getResult([TestResult name=TC_01_Login status=SUCCESS method=TC_01_LoginTest.TC_01_Login()[pri:0, instance:com...)</span>
-                <span class="method-start">20713 ms</span>
+                <span class="method-start">22871 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">flushReport</span>
-                <span class="method-start">20713 ms</span>
+                <span class="method-start">22873 ms</span>
               </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.Well.testcases.HealthSafety.TC_02_RegisterHealthSafetyTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">ExtentReportConfig</span>
+                <span class="method-start">23445 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC_02_RegisterPortfolio(Hsr, 2)</span>
+                <span class="method-start">23445 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">getResult([TestResult name=TC_02_RegisterPortfolio status=SUCCESS method=TC_02_RegisterHealthSafetyTest.TC_02_...)</span>
+                <span class="method-start">75028 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-class after">
+                <span class="method-name">flushReport</span>
+                <span class="method-start">75040 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.Well.testcases.login.TC_01_LoginTest</div> <!-- chronological-class-name -->
               <div class="configuration-test after">
                 <span class="method-name">quit</span>
-                <span class="method-start">21067 ms</span>
+                <span class="method-start">75159 ms</span>
               </div> <!-- configuration-test after -->
               <div class="configuration-suite after">
                 <span class="method-name">end</span>
-                <span class="method-start">21083 ms</span>
+                <span class="method-start">75189 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
