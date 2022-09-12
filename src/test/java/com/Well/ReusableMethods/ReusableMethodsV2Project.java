@@ -168,7 +168,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 		int j=DifferencePlusOne;
 		for (int i = NoStart; i <= NoEnd; i++) {
 			int RemainingNo = NoButton.size();
-			System.out.println("A"+RemainingNo);
 			do {
 			CommonMethod.click(NoButton.get(RemainingNo-j));
 			Thread.sleep(1000);
