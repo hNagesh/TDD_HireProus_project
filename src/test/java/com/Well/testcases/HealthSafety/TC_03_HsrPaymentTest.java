@@ -18,7 +18,7 @@ public class TC_03_HsrPaymentTest extends BaseClass {
 
 		try {
 			v2project.Billing(SheetName, rowNum);	
-			
+			hsr.StoreIdHealthSafety(SheetName, rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

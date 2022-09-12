@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-WELLAutomation" class="navigator-link">
-              <span class="suite-name border-passed">WELLAutomation</span>
+              <span class="suite-name border-failed">WELLAutomation</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-WELLAutomation" class="hide-methods failed suite-WELLAutomation"> (hide)</a> <!-- hide-methods failed suite-WELLAutomation -->
+                      <a href="#" panel-name="suite-WELLAutomation" class="show-methods failed suite-WELLAutomation"> (show)</a> <!-- show-methods failed suite-WELLAutomation -->
+                    </span>
+                    <div class="method-list-content failed suite-WELLAutomation">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-WELLAutomation" title="com.Well.testcases.HealthSafety.TC_03_HsrPaymentTest" class="method navigator-link" hash-for-method="TC_03_HsrPayment(Hsr, 2)">TC_03_HsrPayment(Hsr, 2)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-WELLAutomation -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -122,6 +136,27 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-WELLAutomation" class="panel WELLAutomation">
+          <div class="suite-WELLAutomation-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.Well.testcases.HealthSafety.TC_03_HsrPaymentTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_03_HsrPayment(Hsr, 2)">
+                  </a> <!-- TC_03_HsrPayment(Hsr, 2) -->
+                  <span class="method-name">TC_03_HsrPayment</span>
+                  <span class="parameters">(Hsr, 2)</span>
+                  <div class="stack-trace">java.lang.Error: Index 1 out of bounds for length 1
+	at com.Well.ReusableMethods.ReusableMethodsHealthSafety.StoreIdHealthSafety(ReusableMethodsHealthSafety.java:66)
+	at com.Well.testcases.HealthSafety.TC_03_HsrPaymentTest.TC_03_HsrPayment(TC_03_HsrPaymentTest.java:21)
+... Removed 25 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-WELLAutomation-class-failed -->
           <div class="suite-WELLAutomation-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -171,6 +206,7 @@
     &lt;classes&gt;
       &lt;class name=&quot;com.Well.testcases.login.TC_01_LoginTest&quot;/&gt;
       &lt;class name=&quot;com.Well.testcases.HealthSafety.TC_02_RegisterHealthSafetyTest&quot;/&gt;
+      &lt;class name=&quot;com.Well.testcases.HealthSafety.TC_03_HsrPaymentTest&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- WELL-Tests --&gt;
 &lt;/suite&gt; &lt;!-- WELLAutomation --&gt;
@@ -184,7 +220,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">WELL-Tests (2 classes)</span>
+                <span class="test-name">WELL-Tests (3 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -210,15 +246,19 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'TC_02_RegisterPortfolio')
 data.setCell(0, 2, 'com.Well.testcases.HealthSafety.TC_02_RegisterHealthSafetyTest')
-data.setCell(0, 3, 51578);
+data.setCell(0, 3, 37906);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'TC_01_Login')
-data.setCell(1, 2, 'com.Well.testcases.login.TC_01_LoginTest')
-data.setCell(1, 3, 11242);
+data.setCell(1, 1, 'TC_03_HsrPayment')
+data.setCell(1, 2, 'com.Well.testcases.HealthSafety.TC_03_HsrPaymentTest')
+data.setCell(1, 3, 24188);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'TC_01_Login')
+data.setCell(2, 2, 'com.Well.testcases.login.TC_01_LoginTest')
+data.setCell(2, 3, 9254);
 window.suiteTableData['WELLAutomation']= { tableData: data, tableDiv: 'times-div-WELLAutomation'}
 return data;
 }
@@ -238,9 +278,20 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-WELLAutomation" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">3 ignored methods</span>
+            <span class="header-content">6 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.Well.testcases.HealthSafety.TC_03_HsrPaymentTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">setup</span>
+                <br/>
+                <span class="ignored-method-name">quit</span>
+                <br/>
+                <span class="ignored-method-name">end</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
             <div class="ignored-class-div">
               <span class="ignored-class-name">com.Well.testcases.HealthSafety.TC_02_RegisterHealthSafetyTest</span>
               <div class="ignored-methods-div">
@@ -267,49 +318,70 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">ExtentReportConfig</span>
-                <span class="method-start">10992 ms</span>
+                <span class="method-start">12902 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">TC_01_Login</span>
-                <span class="method-start">11626 ms</span>
+                <span class="method-start">13530 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">getResult([TestResult name=TC_01_Login status=SUCCESS method=TC_01_LoginTest.TC_01_Login()[pri:0, instance:com...)</span>
-                <span class="method-start">22871 ms</span>
+                <span class="method-start">22786 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">flushReport</span>
-                <span class="method-start">22873 ms</span>
+                <span class="method-start">22789 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.Well.testcases.HealthSafety.TC_02_RegisterHealthSafetyTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">ExtentReportConfig</span>
-                <span class="method-start">23445 ms</span>
+                <span class="method-start">23432 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">TC_02_RegisterPortfolio(Hsr, 2)</span>
-                <span class="method-start">23445 ms</span>
+                <span class="method-start">23432 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">getResult([TestResult name=TC_02_RegisterPortfolio status=SUCCESS method=TC_02_RegisterHealthSafetyTest.TC_02_...)</span>
-                <span class="method-start">75028 ms</span>
+                <span class="method-start">61341 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">flushReport</span>
-                <span class="method-start">75040 ms</span>
+                <span class="method-start">61342 ms</span>
+              </div> <!-- configuration-class after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.Well.testcases.HealthSafety.TC_03_HsrPaymentTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">ExtentReportConfig</span>
+                <span class="method-start">61439 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">TC_03_HsrPayment(Hsr, 2)</span>
+                <span class="method-start">61440 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">getResult([TestResult name=TC_03_HsrPayment status=FAILURE method=TC_03_HsrPaymentTest.TC_03_HsrPayment(java.l...)</span>
+                <span class="method-start">85632 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-class after">
+                <span class="method-name">flushReport</span>
+                <span class="method-start">86374 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.Well.testcases.login.TC_01_LoginTest</div> <!-- chronological-class-name -->
               <div class="configuration-test after">
                 <span class="method-name">quit</span>
-                <span class="method-start">75159 ms</span>
+                <span class="method-start">86494 ms</span>
               </div> <!-- configuration-test after -->
               <div class="configuration-suite after">
                 <span class="method-name">end</span>
-                <span class="method-start">75189 ms</span>
+                <span class="method-start">86549 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

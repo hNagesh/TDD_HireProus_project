@@ -55,23 +55,31 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	   CommonMethod.ClickCheckbox("HsrProgramFeePublicrbtn");
 	   CommonMethod.ClickCheckbox("HsrAcknowledecbx");
 	   CommonMethod.click("HsrReviewbtn");
-	   Thread.sleep(20000);
-//       String getId =CommonMethod.getText("StoreId"); 
-//                String[] stringArray = getId.split(": ");
-//                String getProjectId = stringArray[1].trim();
-//       data.setCellData("V2Project", "projectId", 2, getProjectId);
-     
-       
-       
-       
-       
+	   Thread.sleep(2000);  
+	}
+	public void StoreIdHealthSafety(String SheetName,int rowNum) throws IOException, InterruptedException {
+		  Thread.sleep(10000); 
+		CommonMethod.WaitUntilVisibility("StoreId", 300);
+		String getId =CommonMethod.getText("StoreId"); 
+      System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+getId);
+      String[] stringArray = getId.split(": ");
+      String getHsrId = stringArray[1].trim();
+      System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+getHsrId);
+      data.setCellData("Hsr", "hsrId", 2, getHsrId);
+
 	}
 	
 	public void SearchHealthSafetyByID (String SheetName,int rowNum) throws IOException, InterruptedException {
-		
-	  
-	  
-	   Thread.sleep(25000);
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
+		CommonMethod.click("ProjectNavBar");
+		   CommonMethod.click("WELLHealthSafetyNavBar");
+		   CommonMethod.WaitUntilVisibility("HsrIdSearch", 300);
+		   CommonMethod.click("HsrIdSearch");
+		   CommonMethod.sendKeys("HsrIdSearch", data.getCellData(SheetName, "hsrId", rowNum));
+		   CommonMethod.click("HsrapplySearch");
+		   CommonMethod.WaitUntilVisibility("Hsrprojectidcompare", 300);
+		   CommonMethod.click("Hsrprojectidcompare");
+	 
 	}
 	
 

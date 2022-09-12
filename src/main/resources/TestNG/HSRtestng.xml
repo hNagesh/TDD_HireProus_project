@@ -12,7 +12,10 @@
 <classes>
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
 <class name="com.Well.testcases.HealthSafety.TC_02_RegisterHealthSafetyTest"></class>
-<class name="com.Well.testcases.HealthSafety.TC_02_RegisterHealthSafetyTest"></class>
+<class name="com.Well.testcases.HealthSafety.TC_03_HsrPaymentTest"></class>
+<!--<class name="com.Well.testcases.HealthSafety.TC_03_SearchHealthSafetyByIdTest"></class> -->
+
+<!-- <class name="com.Well.testcases.HealthSafety.TC_07_ScorecardV2ProjectTest"></class>-->
 </classes>
 </test>
 
