@@ -7,19 +7,17 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class TC_09_ReviewV2ProjectTest extends BaseClass {
+public class TC_11_HealthSafetyReviewV2ProjectTest extends BaseClass {
 
 	@Test
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_09_ReviewV2ProjectTest(String SheetName,int rowNum) throws IOException {
+	public void tc_11_HealthSafetyReviewV2ProjectTest(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
 		try {
-		v2project.wprReviewV2Project(SheetName, rowNum);	
-	
-		
+		v2project.hsrReviewV2Project(SheetName, rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
