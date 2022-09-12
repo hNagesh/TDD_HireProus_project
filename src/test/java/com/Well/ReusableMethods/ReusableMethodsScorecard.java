@@ -45,8 +45,6 @@ public class ReusableMethodsScorecard extends BaseClass {
 				CommonMethod.click(ele1);
 				Thread.sleep(1000);
 			}
-			
-	
 		}
 		}
 }

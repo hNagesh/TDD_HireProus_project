@@ -103,10 +103,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectprojectaddressContinuebtn");
 		Thread.sleep(4000);
 	}
-
-	public void BillingV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
+	public void ClickBilling(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("BiilingTab", 300);
 		CommonMethod.click("BiilingTab");
 		CommonMethod.click("PortfolioPayNowButton");
+	}
+	public void Billing(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("BillingLanding", 300);
 		CommonMethod.scrolldowntoElement("CardHolderName");
 		CommonMethod.WaitUntilClickble("CardHolderName", 60);
 		CommonMethod.sendKeys("CardHolderName", USfaker.address().firstName());

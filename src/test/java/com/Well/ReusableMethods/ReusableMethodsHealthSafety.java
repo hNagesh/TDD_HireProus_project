@@ -55,7 +55,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	   CommonMethod.ClickCheckbox("HsrProgramFeePublicrbtn");
 	   CommonMethod.ClickCheckbox("HsrAcknowledecbx");
 	   CommonMethod.click("HsrReviewbtn");
-      
+	   Thread.sleep(20000);
 //       String getId =CommonMethod.getText("StoreId"); 
 //                String[] stringArray = getId.split(": ");
 //                String getProjectId = stringArray[1].trim();

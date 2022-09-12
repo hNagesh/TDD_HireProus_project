@@ -17,7 +17,7 @@ public class TC_03_HsrPaymentTest extends BaseClass {
 		StartTest(TestCaseName);
 
 		try {
-			portfolio.PortfolioCardPayment(SheetName, rowNum);
+			v2project.Billing(SheetName, rowNum);	
 			
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
