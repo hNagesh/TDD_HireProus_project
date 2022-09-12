@@ -461,7 +461,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.selectdropdownIndex("V2ProjectWPRVerificationMethod", 1);
 		CommonMethod.uploadFile("V2ProjectDocUpload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRUploadbtn", 300);
-		CommonMethod.click("V2ProjectWPRUploadbtn");
+		CommonMethod.Robustclick("V2ProjectWPRUploadbtn");
 		Thread.sleep(5000);
 		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
 
