@@ -297,7 +297,7 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 	public void UploadGeneralDocumentInDocV2Project(String SheetName, int rowNum)
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("WellV2ProjectDocumentTab", 60);
-		CommonMethod.Robustclick("WellV2ProjectDocumentTab");
+		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
 		CommonMethod.selectdropdown("V2ProjectDocType", "General");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
@@ -309,7 +309,7 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 	public void UploadLegalDocumentInDocV2Project(String SheetName, int rowNum)
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("WellV2ProjectDocumentTab", 60);
-		CommonMethod.Robustclick("WellV2ProjectDocumentTab");
+		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
 		CommonMethod.selectdropdown("V2ProjectDocType", "Legal");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
