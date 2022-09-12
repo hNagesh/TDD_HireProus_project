@@ -17,7 +17,7 @@ public class TC_11_HealthSafetyReviewV2ProjectTest extends BaseClass {
 
 		StartTest(TestCaseName);
 		try {
-		v2project.ReviewV2Project(SheetName, rowNum);	
+		v2project.hsrReviewV2Project(SheetName, rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
