@@ -484,7 +484,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 }
 	public void hsrReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 300);
-		String getCurrentUrl = driver.getCurrentUrl().replaceAll("wpr","reviews");
+		String getCurrentUrl = driver.getCurrentUrl().replaceAll("hsr","reviews");
 		CommonMethod.GotoURL(getCurrentUrl);
 		CommonMethod.click("V2ProjectSubmitForReviewlink");
 		CommonMethod.WaitUntilClickble("V2ProjectsubmitReview", 60);
@@ -536,8 +536,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("PerformanceTab", 300);
 		CommonMethod.click("PerformanceTab");
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRContinuebtn", 300);
-		CommonMethod.click("V2ProjectWPRContinuebtn");
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRTermscbx", 300);
+		CommonMethod.Robustclick("V2ProjectWPRContinuebtn");
+		CommonMethod.WaitUntilVisibility("V2ProjectWPRTermscbx", 60);
 		CommonMethod.ClickCheckbox("V2ProjectWPRTermscbx");
 		CommonMethod.click("V2ProjectWPRTermsbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
