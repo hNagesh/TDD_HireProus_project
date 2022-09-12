@@ -17,7 +17,7 @@ public class TC_09_ReviewV2ProjectTest extends BaseClass {
 
 		StartTest(TestCaseName);
 		try {
-		v2project.wprReviewV2Project(SheetName, rowNum);	
+		v2project.ReviewV2Project(SheetName, rowNum);	
 	
 		
 		} catch (Throwable t) {

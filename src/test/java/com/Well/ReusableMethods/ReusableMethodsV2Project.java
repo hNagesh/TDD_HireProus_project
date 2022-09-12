@@ -153,328 +153,111 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 300);
 	}
-
-	public void CompleteScorecardV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
+	
+	public void Scorecardfill(int YesEnd,int NoStart, int NoEnd,int DifferencePlusOne) throws IOException, InterruptedException {
 		List<WebElement> YesButton;
 		List<WebElement> NoButton;
-		CommonMethod.WaitUntilClickble("V2ProjectAirconcept", 60);
-		CommonMethod.click("V2ProjectAirconcept");
-		
-		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-		for (int i = 1; i <= 15; i++) {	
-		int RemainingYes = YesButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
-			CommonMethod.click("V2ProjectPurseYes");
-			Thread.sleep(4000);
-			YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-			}while(YesButton.size()==RemainingYes);
-			RemainingYes--;
-		}
+		YesButton = CommonMethod.findElements("V2ProjectPurseYes"); 
+		  for (int i = 1; i<= YesEnd; i++) { 
+			  int RemainingYes = YesButton.size(); 
+			  do {
+		  CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
+		  CommonMethod.click("V2ProjectPurseYes"); 
+		  Thread.sleep(1000); 
+		  YesButton = CommonMethod.findElements("V2ProjectPurseYes");
+		  }while(YesButton.size()==RemainingYes); RemainingYes--; }
+		 
 		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-		for (int i = 1; i <= 10; i++) {
+		int j=DifferencePlusOne;
+		for (int i = NoStart; i <= NoEnd; i++) {
 			int RemainingNo = NoButton.size();
 			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseNo", 60);
-			CommonMethod.click("V2ProjectPurseNo");
-			Thread.sleep(4000);
+			CommonMethod.click(NoButton.get(RemainingNo-j));
+			Thread.sleep(1000);
 			NoButton = CommonMethod.findElements("V2ProjectPurseNo");
 			}while(NoButton.size()==RemainingNo);
 			RemainingNo--;
+			j--;
 		}
 		RefreshScorecard();
+	}
+
+	public void CompleteScorecardV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
+		
+		CommonMethod.WaitUntilClickble("V2ProjectAirconcept", 60);
+		CommonMethod.click("V2ProjectAirconcept");
+		Scorecardfill(15,16,25,10);  
 		/*
 		 * Water concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectWaterconcept", 60);
 		CommonMethod.click("V2ProjectWaterconcept");
-		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-		for (int i = 1; i <= 13; i++) {
-			int RemainingYes = YesButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
-			CommonMethod.click("V2ProjectPurseYes");
-			Thread.sleep(4000);
-			YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-			}while(YesButton.size()==RemainingYes);
-			RemainingYes--;
-		}
-		CommonMethod.scrollUp();
-		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-		for (int i = 1; i <= 4; i++) {
-			int RemainingNo = NoButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseNo", 60);
-			CommonMethod.click("V2ProjectPurseNo");
-			Thread.sleep(4000);
-			NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-			}while(NoButton.size()==RemainingNo);
-			RemainingNo--;
-		}
-		RefreshScorecard();
+		Scorecardfill(13,14,17,4);
 		/*
 		 * Nourisement concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectNourisementconcept", 60);
 		CommonMethod.click("V2ProjectNourisementconcept");
-		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-		for (int i = 1; i <= 14; i++) {
-			int RemainingYes = YesButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
-			CommonMethod.click("V2ProjectPurseYes");
-			Thread.sleep(4000);
-			YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-			}while(YesButton.size()==RemainingYes);
-			RemainingYes--;
-		}
-		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-		for (int i = 1; i <= 1; i++) {
-			int RemainingNo = NoButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseNo", 60);
-			CommonMethod.click("V2ProjectPurseNo");
-			Thread.sleep(4000);
-			NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-			}while(NoButton.size()==RemainingNo);
-			RemainingNo--;
-		}
-		RefreshScorecard();
+		Scorecardfill(13,14,15,2);
 		/*
 		 * Light concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectLightconcept", 60);
 		CommonMethod.click("V2ProjectLightconcept");
-		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-		for (int i = 1; i <= 6; i++) {
-			int RemainingYes = YesButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
-			CommonMethod.click("V2ProjectPurseYes");
-			Thread.sleep(4000);
-			YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-			}while(YesButton.size()==RemainingYes);
-			RemainingYes--;
-		}
-		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-		for (int i = 1; i <= 6; i++) {
-			int RemainingNo = NoButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseNo", 60);
-			CommonMethod.click("V2ProjectPurseNo");
-			Thread.sleep(4000);
-			NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-			}while(NoButton.size()==RemainingNo);
-			RemainingNo--;
-		}
-		RefreshScorecard();
+		Scorecardfill(6,7,12,6);
 		/*
 		 * Movement concept
 		 */
 		CommonMethod.WaitUntilClickble("V2Projectmovementconcept", 60);
 		CommonMethod.click("V2Projectmovementconcept");
-		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-		for (int i = 1; i <= 11; i++) {
-			int RemainingYes = YesButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
-			CommonMethod.click("V2ProjectPurseYes");
-			Thread.sleep(4000);
-			YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-			}while(YesButton.size()==RemainingYes);
-			RemainingYes--;
-		}
-		CommonMethod.scrollUp();
-		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-		for (int i = 1; i <= 11; i++) {
-			int RemainingNo = NoButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseNo", 60);
-			CommonMethod.click("V2ProjectPurseNo");
-			Thread.sleep(4000);
-			NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-			}while(NoButton.size()==RemainingNo);
-			RemainingNo--;
-		}
-		RefreshScorecard();
+		Scorecardfill(11,12,22,11);
 		/*
 		 * Thermal concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectThermalconcept", 60);
 		CommonMethod.click("V2ProjectThermalconcept");
-		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-		for (int i = 1; i <= 10; i++) {
-			int RemainingYes = YesButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
-			CommonMethod.click("V2ProjectPurseYes");
-			Thread.sleep(4000);
-			YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-			}while(YesButton.size()==RemainingYes);
-			RemainingYes--;
-		}
-		CommonMethod.scrollUp();
-		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-		for (int i = 1; i <= 5; i++) {
-			int RemainingNo = NoButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseNo", 60);
-			CommonMethod.click("V2ProjectPurseNo");
-			Thread.sleep(4000);
-			NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-			}while(NoButton.size()==RemainingNo);
-			RemainingNo--;
-		}
-		RefreshScorecard();
+		Scorecardfill(10,11,15,5);
 		/*
 		 * Sound concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectSoundconcept", 60);
 		CommonMethod.click("V2ProjectSoundconcept");
-		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-		for (int i = 1; i <= 9; i++) {
-			int RemainingYes = YesButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
-			CommonMethod.click("V2ProjectPurseYes");
-			Thread.sleep(4000);
-			YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-			}while(YesButton.size()==RemainingYes);
-			RemainingYes--;
-		}
-		CommonMethod.scrollUp();
-		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-		for (int i = 1; i <= 5; i++) {
-			int RemainingNo = NoButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseNo", 60);
-			CommonMethod.click("V2ProjectPurseNo");
-			Thread.sleep(4000);
-			NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-			}while(NoButton.size()==RemainingNo);
-			RemainingNo--;
-		}
-		RefreshScorecard();
+		Scorecardfill(9,10,14,5);
 		/*
 		 * Material concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectMaterialconcept", 60);
 		CommonMethod.click("V2ProjectMaterialconcept");
-		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-		for (int i = 1; i <= 17; i++) {
-			int RemainingYes = YesButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
-			CommonMethod.click("V2ProjectPurseYes");
-			Thread.sleep(4000);
-			YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-			}while(YesButton.size()==RemainingYes);
-			RemainingYes--;
-		}
-		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-		for (int i = 1; i <= 7; i++) {
-			int RemainingNo = NoButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseNo", 60);
-			CommonMethod.click("V2ProjectPurseNo");
-			Thread.sleep(4000);
-			NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-			}while(NoButton.size()==RemainingNo);
-			RemainingNo--;
-		}
-		RefreshScorecard();
+		Scorecardfill(17,18,24,7);
 		/*
 		 * Mind concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectMindconcept", 60);
 		CommonMethod.click("V2ProjectMindconcept");
-		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-		for (int i = 1; i <= 8; i++) {
-			int RemainingYes = YesButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
-			CommonMethod.click("V2ProjectPurseYes");
-			Thread.sleep(4000);
-			YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-			}while(YesButton.size()==RemainingYes);
-			RemainingYes--;
-		}
-		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-		for (int i = 1; i <= 11; i++) {
-			int RemainingNo = NoButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseNo", 60);
-			CommonMethod.click("V2ProjectPurseNo");
-			Thread.sleep(4000);
-			NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-			}while(NoButton.size()==RemainingNo);
-			RemainingNo--;
-		}
-		RefreshScorecard();
+		Scorecardfill(8,9,19,11);
 		/*
 		 * Community concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectCommunityconcept", 60);
 		CommonMethod.click("V2ProjectCommunityconcept");
-		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-		for (int i = 1; i <= 17; i++) {
-			int RemainingYes = YesButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
-			CommonMethod.click("V2ProjectPurseYes");
-			Thread.sleep(4000);
-			YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-			}while(YesButton.size()==RemainingYes);
-			RemainingYes--;
-		}
-		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-		for (int i = 1; i <= 18; i++) {
-			int RemainingNo = NoButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseNo", 60);
-			CommonMethod.click("V2ProjectPurseNo");
-			Thread.sleep(4000);
-			NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-			}while(NoButton.size()==RemainingNo);
-			RemainingNo--;
-		}
-		RefreshScorecard();
+		Scorecardfill(17,18,35,18);
 		/*
 		 * Innovation concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectInnovationconcept", 60);
 		CommonMethod.click("V2ProjectInnovationconcept");
-		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-		for (int i = 1; i <= 10; i++) {
-			int RemainingYes = YesButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
-			CommonMethod.click("V2ProjectPurseYes");
-			Thread.sleep(4000);
-			YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-			}while(YesButton.size()==RemainingYes);
-			RemainingYes--;
-		}
-		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-		for (int i = 1; i <= 8; i++) {
-			int RemainingNo = NoButton.size();
-			do {
-			CommonMethod.WaitUntilClickble("V2ProjectPurseNo", 60);
-			CommonMethod.click("V2ProjectPurseNo");
-			Thread.sleep(4000);
-			NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-			}while(NoButton.size()==RemainingNo);
-			RemainingNo--;
-		}
-		RefreshScorecard();
-		//		Thread.sleep(4000);
-		//		CommonMethod.Isdisplayed("V2ProjectScorecardYesCount", 60);
-		//		int YesFeatureCount = CommonMethod.ElementSize("V2ProjectScorecardYesCount");
-		//		String yesFeatureCount = Integer.toString(YesFeatureCount);
-		//		CommonMethod.assertActualContainsExpected(yesFeatureCount, "130", "Verified Scorecard part Yes Count");
-		//		int NoFeatureCount = CommonMethod.ElementSize("V2ProjectScorecardNoCount");
-		//		String noFeatureCount = Integer.toString(NoFeatureCount);
-		//		CommonMethod.assertActualContainsExpected(noFeatureCount, "86", "Verified Scorecard part No Count");
+
+		Scorecardfill(10,11,18,8);
+//		Thread.sleep(4000);
+//		CommonMethod.Isdisplayed("V2ProjectScorecardYesCount", 60);
+//		int YesFeatureCount = CommonMethod.ElementSize("V2ProjectScorecardYesCount");
+//		String yesFeatureCount = Integer.toString(YesFeatureCount);
+//		CommonMethod.assertActualContainsExpected(yesFeatureCount, "130", "Verified Scorecard part Yes Count");
+//		int NoFeatureCount = CommonMethod.ElementSize("V2ProjectScorecardNoCount");
+//		String noFeatureCount = Integer.toString(NoFeatureCount);
+//		CommonMethod.assertActualContainsExpected(noFeatureCount, "86", "Verified Scorecard part No Count");
+
+		
 
 	}
 
