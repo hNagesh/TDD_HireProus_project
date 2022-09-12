@@ -7,39 +7,39 @@
     <parameter name="rowNum" value="2"/>
     <parameter name="SheetName" value="V2Project"/>
     <classes>
-      <class name="com.Well.testcases.V2Project.TC_08_DocumentV2ProjectTest">
+      <class name="com.Well.testcases.V2Project.TC_14_TeamV2ProjectTest">
         <methods>
+          <include name="tc_14_TeamV2ProjectTest" invocation-numbers="0"/>
           <include name="getResult"/>
-          <include name="tc_08_DocumentV2ProjectTest" invocation-numbers="0"/>
           <include name="ExtentReportConfig"/>
           <include name="setup"/>
           <include name="quit"/>
           <include name="end"/>
           <include name="flushReport"/>
         </methods>
-      </class> <!-- com.Well.testcases.V2Project.TC_08_DocumentV2ProjectTest -->
-      <class name="com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest">
+      </class> <!-- com.Well.testcases.V2Project.TC_14_TeamV2ProjectTest -->
+      <class name="com.Well.testcases.V2Project.TC_13_PerformanceReviewV2ProjectTest">
         <methods>
           <include name="getResult"/>
           <include name="ExtentReportConfig"/>
           <include name="setup"/>
+          <include name="tc_13_PerformanceReviewV2ProjectTest" invocation-numbers="0"/>
           <include name="quit"/>
           <include name="end"/>
-          <include name="tc_07_ScorecardV2ProjectTest" invocation-numbers="0"/>
           <include name="flushReport"/>
         </methods>
-      </class> <!-- com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest -->
-      <class name="com.Well.testcases.V2Project.TC_09_ReviewV2ProjectTest">
+      </class> <!-- com.Well.testcases.V2Project.TC_13_PerformanceReviewV2ProjectTest -->
+      <class name="com.Well.testcases.V2Project.TC_10_HealthSafetyV2ProjectTest">
         <methods>
           <include name="getResult"/>
-          <include name="tc_09_ReviewV2ProjectTest" invocation-numbers="0"/>
+          <include name="tC_10_HealthSafetyV2ProjectTest" invocation-numbers="0"/>
           <include name="ExtentReportConfig"/>
           <include name="setup"/>
           <include name="quit"/>
           <include name="end"/>
           <include name="flushReport"/>
         </methods>
-      </class> <!-- com.Well.testcases.V2Project.TC_09_ReviewV2ProjectTest -->
+      </class> <!-- com.Well.testcases.V2Project.TC_10_HealthSafetyV2ProjectTest -->
       <class name="com.Well.testcases.V2Project.TC_11_HealthSafetyReviewV2ProjectTest">
         <methods>
           <include name="tc_11_HealthSafetyReviewV2ProjectTest" invocation-numbers="0"/>
@@ -62,28 +62,6 @@
           <include name="flushReport"/>
         </methods>
       </class> <!-- com.Well.testcases.V2Project.TC_12_PerformanceV2ProjectTest -->
-      <class name="com.Well.testcases.V2Project.TC_13_PerformanceReviewV2ProjectTest">
-        <methods>
-          <include name="getResult"/>
-          <include name="ExtentReportConfig"/>
-          <include name="setup"/>
-          <include name="tc_13_PerformanceReviewV2ProjectTest" invocation-numbers="0"/>
-          <include name="quit"/>
-          <include name="end"/>
-          <include name="flushReport"/>
-        </methods>
-      </class> <!-- com.Well.testcases.V2Project.TC_13_PerformanceReviewV2ProjectTest -->
-      <class name="com.Well.testcases.V2Project.TC_14_TeamV2ProjectTest">
-        <methods>
-          <include name="tc_14_TeamV2ProjectTest" invocation-numbers="0"/>
-          <include name="getResult"/>
-          <include name="ExtentReportConfig"/>
-          <include name="setup"/>
-          <include name="quit"/>
-          <include name="end"/>
-          <include name="flushReport"/>
-        </methods>
-      </class> <!-- com.Well.testcases.V2Project.TC_14_TeamV2ProjectTest -->
     </classes>
   </test> <!-- WELL-Tests(failed) -->
 </suite> <!-- Failed suite [WELLAutomation] -->

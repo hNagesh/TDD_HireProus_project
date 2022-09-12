@@ -18,7 +18,7 @@ public class TC_12_PerformanceV2ProjectTest extends BaseClass {
 		StartTest(TestCaseName);
 		try {
 		v2project.performanceV2Project(SheetName, rowNum);	
-		v2project.uploadPerformanceDocV2Project(SheetName, rowNum);	
+		v2project.uploadPerformanceDocV2Project();	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

@@ -18,7 +18,7 @@ public class TC_10_HealthSafetyV2ProjectTest extends BaseClass {
 		StartTest(TestCaseName);
 		try {
 		v2project.HealthSafetyV2Project(SheetName, rowNum);	
-		v2project.uploadHsrDocV2Project(SheetName, rowNum);	
+		v2project.uploadHsrDocV2Project();
 		
 		
 		} catch (Throwable t) {

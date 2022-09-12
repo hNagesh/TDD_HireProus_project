@@ -430,143 +430,52 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("HealthSafetyTab");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrContinuebtn", 300);
 		CommonMethod.click("V2ProjectHsrContinuebtn");
-		CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
-		CommonMethod.click("V2ProjectHsrTermscbx");
-		CommonMethod.click("V2ProjectHsrTermsbtn");
-		CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
-		CommonMethod.click("V2ProjectHsrTermscbx");
-		CommonMethod.WaitUntilVisibility("V2ProjectHsrProceedbtn", 300);
-		CommonMethod.click("V2ProjectHsrProceedbtn");
-		CommonMethod.WaitUntilVisibility("V2ProjectHsrAccountbtn", 300);
-		CommonMethod.click("V2ProjectHsrAccountbtn");
-		CommonMethod.WaitUntilVisibility("V2ProjectHsrScorecard", 300);
-		for(int i=1;i<=27;i++) {
-			CommonMethod.click("V2ProjectHsrPursuingNo");
-			Thread.sleep(3000);
-		}
-		Thread.sleep(2000);
-		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
-		CommonMethod.WaitUntilVisibility("V2ProjectHsrPursuingYes", 300);
+		
+		  CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
+		  CommonMethod.click("V2ProjectHsrTermscbx");
+		  CommonMethod.click("V2ProjectHsrTermsbtn");
+		  CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
+		  CommonMethod.click("V2ProjectHsrTermscbx");
+		  CommonMethod.WaitUntilVisibility("V2ProjectHsrProceedbtn", 300);
+		  CommonMethod.click("V2ProjectHsrProceedbtn");
+		  CommonMethod.WaitUntilVisibility("V2ProjectHsrAccountbtn", 300);
+		  CommonMethod.click("V2ProjectHsrAccountbtn");
+		  CommonMethod.WaitUntilVisibility("V2ProjectHsrScorecard", 300); for(int
+		  i=1;i<=27;i++) { CommonMethod.click("V2ProjectHsrPursuingNo");
+		  Thread.sleep(3000); } Thread.sleep(2000);
+		  CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
+		  CommonMethod.WaitUntilVisibility("V2ProjectHsrPursuingYes", 300);
+		  
+		  for(int i=1;i<=15;i++) { CommonMethod.click("V2ProjectHsrPursuingYes");
+		  Thread.sleep(2000); }
+		 
+	}
 	
-		for(int i=1;i<=15;i++) {
-			CommonMethod.click("V2ProjectHsrPursuingYes");
-			Thread.sleep(2000);
-		}
-	}
-	public void uploadDocumentWpr() throws IOException, InterruptedException {
+	public void uploadDocumentInFeature(int LastFeatureNumber) throws IOException, InterruptedException {
 
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPDocIcon", 300);
-		CommonMethod.click("V2ProjectWPRPDocIcon");
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRVerificationMethod", 300);
-		CommonMethod.selectdropdownIndex("V2ProjectWPRVerificationMethod", 1);
-		CommonMethod.uploadFile("V2ProjectDocUpload", PortfolioLocationImportfile);
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRUploadbtn", 300);
-		CommonMethod.Robustclick("V2ProjectWPRUploadbtn");
-		Thread.sleep(5000);
+		List<WebElement> Feature;
+		Feature = CommonMethod.findElements("V2ProjectWPRPFeature"); 
+		Feature = Feature.subList(0, LastFeatureNumber);
 		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
+		  for (WebElement f:Feature) {
+			  CommonMethod.click(f);
+			  CommonMethod.WaitUntilVisibility("V2ProjectWPRPDocIcon", 60);
+				CommonMethod.click("V2ProjectWPRPDocIcon");
+				CommonMethod.WaitUntilVisibility("V2ProjectWPRVerificationMethod", 60);
+				CommonMethod.selectdropdownIndex("V2ProjectWPRVerificationMethod", 1);
+				CommonMethod.uploadFile("V2ProjectDocUpload", PortfolioLocationImportfile);
+				CommonMethod.WaitUntilVisibility("FeatureFileUploadedVisible", 60);
+				CommonMethod.Robustclick("V2ProjectWPRUploadbtn");
+				CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
+                CommonMethod.click(f);
+		  }
 
 
 	}
-	public void uploadHsrDocV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
-		//feature0
-		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 300);
-		CommonMethod.click("V2ProjectWPRPFeature");
-		uploadDocumentWpr();
-		Thread.sleep(2000);
-		CommonMethod.click("V2ProjectWPRPFeature");
+
+	public void uploadHsrDocV2Project() throws IOException, InterruptedException {
 		
-		//feature1
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature1", 300);
-		CommonMethod.click("V2ProjectWPRPFeature1");
-		uploadDocumentWpr();
-		CommonMethod.click("V2ProjectWPRPFeature1");
-		Thread.sleep(2000);
-		
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature2", 300);
-		CommonMethod.click("V2ProjectWPRPFeature2");
-		uploadDocumentWpr();
-		Thread.sleep(2000);
-		CommonMethod.click("V2ProjectWPRPFeature2");
-		Thread.sleep(2000);
-		//feature3
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature3", 300);
-		CommonMethod.click("V2ProjectWPRPFeature3");
-		uploadDocumentWpr();
-		Thread.sleep(2000);
-		CommonMethod.click("V2ProjectWPRPFeature3");
-		Thread.sleep(2000);
-		//feature4
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature4", 300);
-		CommonMethod.click("V2ProjectWPRPFeature4");
-		uploadDocumentWpr();
-		Thread.sleep(2000);
-		CommonMethod.click("V2ProjectWPRPFeature4");
-		Thread.sleep(2000);
-		//feature5
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature5", 300);
-		CommonMethod.click("V2ProjectWPRPFeature5");
-		uploadDocumentWpr();
-		Thread.sleep(2000);
-		CommonMethod.click("V2ProjectWPRPFeature5");
-		Thread.sleep(2000);
-		//feature6
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature6", 300);
-		CommonMethod.click("V2ProjectWPRPFeature6");
-		uploadDocumentWpr();
-		Thread.sleep(2000);
-		CommonMethod.click("V2ProjectWPRPFeature6");
-		Thread.sleep(2000);
-		//feature7
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature7", 300);
-		CommonMethod.click("V2ProjectWPRPFeature7");
-		uploadDocumentWpr();
-		Thread.sleep(2000);
-		CommonMethod.click("V2ProjectWPRPFeature7");
-		Thread.sleep(2000);
-		//feature8
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature8", 300);
-		CommonMethod.click("V2ProjectWPRPFeature8");
-		uploadDocumentWpr();
-		CommonMethod.click("V2ProjectWPRPFeature8");
-		Thread.sleep(2000);
-		//feature9
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature9", 300);
-		CommonMethod.click("V2ProjectWPRPFeature9");
-		uploadDocumentWpr();
-		CommonMethod.click("V2ProjectWPRPFeature9");
-		Thread.sleep(2000);
-		//feature10
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature10", 300);
-		CommonMethod.click("V2ProjectWPRPFeature10");
-		uploadDocumentWpr();
-		CommonMethod.click("V2ProjectWPRPFeature10");
-		Thread.sleep(2000);
-		//feature11
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature11", 300);
-		CommonMethod.click("V2ProjectWPRPFeature11");
-		uploadDocumentWpr();
-		CommonMethod.click("V2ProjectWPRPFeature11");
-		Thread.sleep(2000);
-		//feature12
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature12", 300);
-		CommonMethod.click("V2ProjectWPRPFeature12");
-		uploadDocumentWpr();
-		CommonMethod.click("V2ProjectWPRPFeature12");
-		Thread.sleep(2000);
-		//feature13
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature13", 300);
-		CommonMethod.click("V2ProjectWPRPFeature13");
-		uploadDocumentWpr();
-		CommonMethod.click("V2ProjectWPRPFeature13");
-		Thread.sleep(2000);
-		//feature14
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature14", 300);
-		CommonMethod.click("V2ProjectWPRPFeature14");
-		uploadDocumentWpr();
-		CommonMethod.click("V2ProjectWPRPFeature14");
-		Thread.sleep(2000);
-		
+		uploadDocumentInFeature(14);
 		
 }
 	public void hsrReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -646,136 +555,10 @@ public class ReusableMethodsV2Project extends BaseClass {
 		}
 	}
 	
-	public void uploadPerformanceDocV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
-		//feature0
-		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 300);
-		CommonMethod.click("V2ProjectWPRPFeature");
-		uploadDocumentWpr();
-		Thread.sleep(2000);
-		CommonMethod.click("V2ProjectWPRPFeature");
+	public void uploadPerformanceDocV2Project() throws IOException, InterruptedException {
 		
-		//feature1
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature1", 300);
-		CommonMethod.click("V2ProjectWPRPFeature1");
-		uploadDocumentWpr();
-		CommonMethod.click("V2ProjectWPRPFeature1");
-		Thread.sleep(2000);
-		//feature2
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature2", 300);
-				CommonMethod.click("V2ProjectWPRPFeature2");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature2");
-				Thread.sleep(2000);
-				//feature3
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature3", 300);
-				CommonMethod.click("V2ProjectWPRPFeature3");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature3");
-				Thread.sleep(2000);
-				//feature4
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature4", 300);
-				CommonMethod.click("V2ProjectWPRPFeature4");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature4");
-				Thread.sleep(2000);
-				//feature5
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature5", 300);
-				CommonMethod.click("V2ProjectWPRPFeature5");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature5");
-				Thread.sleep(2000);
-				//feature6
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature6", 300);
-				CommonMethod.click("V2ProjectWPRPFeature6");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature6");
-				Thread.sleep(2000);
-				//feature7
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature7", 300);
-				CommonMethod.click("V2ProjectWPRPFeature7");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature7");
-				Thread.sleep(2000);
-				//feature8
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature8", 300);
-				CommonMethod.click("V2ProjectWPRPFeature8");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature8");
-				Thread.sleep(2000);
-				//feature9
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature9", 300);
-				CommonMethod.click("V2ProjectWPRPFeature9");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature9");
-				Thread.sleep(2000);
-				//feature10
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature10", 300);
-				CommonMethod.click("V2ProjectWPRPFeature10");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature10");
-				Thread.sleep(2000);
-				//feature11
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature11", 300);
-				CommonMethod.click("V2ProjectWPRPFeature11");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature11");
-				Thread.sleep(2000);
-				//feature12
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature12", 300);
-				CommonMethod.click("V2ProjectWPRPFeature12");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature12");
-				Thread.sleep(2000);
-				//feature13
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature13", 300);
-				CommonMethod.click("V2ProjectWPRPFeature13");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature13");
-				Thread.sleep(2000);
-				//feature14
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature14", 300);
-				CommonMethod.click("V2ProjectWPRPFeature14");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature14");
-				Thread.sleep(2000);
-				//feature15
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature15", 300);
-				CommonMethod.click("V2ProjectWPRPFeature15");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature15");
-				Thread.sleep(2000);
-				//feature16
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature16", 300);
-				CommonMethod.click("V2ProjectWPRPFeature16");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature16");
-				Thread.sleep(2000);
-				//feature17
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature17", 300);
-				CommonMethod.click("V2ProjectWPRPFeature17");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature17");
-				Thread.sleep(2000);
-				//feature18
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature18", 300);
-				CommonMethod.click("V2ProjectWPRPFeature18");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature18");
-				Thread.sleep(2000);
-				//feature19
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature19", 300);
-				CommonMethod.click("V2ProjectWPRPFeature19");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature19");
-				Thread.sleep(2000);
-				//feature20
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature20", 300);
-				CommonMethod.click("V2ProjectWPRPFeature20");
-				uploadDocumentWpr();
-				CommonMethod.click("V2ProjectWPRPFeature20");
-				Thread.sleep(2000);	
-
+		uploadDocumentInFeature(20);
+		
 	}
 	public void wprReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 300);
