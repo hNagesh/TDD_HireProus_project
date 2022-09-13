@@ -477,17 +477,17 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrContinuebtn", 300);
 		CommonMethod.click("V2ProjectHsrContinuebtn");
 		
-		/*
-		 * CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
-		 * CommonMethod.click("V2ProjectHsrTermscbx");
-		 * CommonMethod.click("V2ProjectHsrTermsbtn");
-		 * CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
-		 * CommonMethod.click("V2ProjectHsrTermscbx");
-		 * CommonMethod.WaitUntilVisibility("V2ProjectHsrProceedbtn", 300);
-		 * CommonMethod.click("V2ProjectHsrProceedbtn");
-		 * CommonMethod.WaitUntilVisibility("V2ProjectHsrAccountbtn", 300);
-		 * CommonMethod.click("V2ProjectHsrAccountbtn");
-		 */
+		
+		  CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
+		  CommonMethod.click("V2ProjectHsrTermscbx");
+		  CommonMethod.click("V2ProjectHsrTermsbtn");
+		  CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
+		  CommonMethod.click("V2ProjectHsrTermscbx");
+		  CommonMethod.WaitUntilVisibility("V2ProjectHsrProceedbtn", 300);
+		  CommonMethod.click("V2ProjectHsrProceedbtn");
+		  CommonMethod.WaitUntilVisibility("V2ProjectHsrAccountbtn", 300);
+		  CommonMethod.click("V2ProjectHsrAccountbtn");
+		 
 		 
 		 
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrScorecard", 300);
@@ -528,7 +528,6 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 300);
 		String getCurrentUrl = driver.getCurrentUrl().replaceAll("hsr","reviews");
 		CommonMethod.GotoURL(getCurrentUrl);
-		CommonMethod.click("V2ProjectSubmitForReviewlink");
 		CommonMethod.WaitUntilClickble("V2ProjectsubmitReview", 60);
 		CommonMethod.click("V2ProjectsubmitReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60);
