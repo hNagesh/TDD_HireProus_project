@@ -430,8 +430,7 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.click("ReviwTab");
 		CommonMethod.WaitUntilClickble("V2ProjectsubmitReview", 60);
 		CommonMethod.click("V2ProjectsubmitReview");
-		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60);
-		CommonMethod.sendKeys("V2ProjectcommentReview", "Preliminary Precertification Review");
+		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Preliminary Precertification Review");
 		Thread.sleep(4000);
 		CommonMethod.selectdropdown("V2ProjectSelectPhase", "Preliminary Precertification Review");	
 		CommonMethod.WaitUntilClickble("V2ProjectSubmitPhaseReview", 60);
@@ -530,8 +529,7 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.GotoURL(getCurrentUrl);
 		CommonMethod.WaitUntilClickble("V2ProjectsubmitReview", 60);
 		CommonMethod.click("V2ProjectsubmitReview");
-		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60);
-		CommonMethod.sendKeys("V2ProjectcommentReview", "Final Documentation Review");
+		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Final Documentation Review");
 		Thread.sleep(4000);
 		CommonMethod.selectdropdown("V2ProjectSelectPhase", "Final Documentation Review");
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingHsrcbx");
@@ -554,8 +552,7 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.click("V2ProjectHSRReviewViewbtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectReturnReviewbtn");
-		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60);
-		CommonMethod.sendKeys("V2ProjectReviewCommentNarrative", "Final Precertification Review");
+		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60).sendKeys("Final Precertification Review");
 		CommonMethod.sendKeys("V2ProjectGeneralCommentNarrative", "Final Precertification Review");
 		CommonMethod.WaitUntilClickble("V2ProjectdocsubUpdatebtn", 60);
 		Thread.sleep(1000);
@@ -603,8 +600,7 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.GotoURL(getCurrentUrl);
 		CommonMethod.WaitUntilVisibility("V2ProjectsubmitReview", 300);
 		CommonMethod.click("V2ProjectsubmitReview");
-		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60);
-		CommonMethod.sendKeys("V2ProjectcommentReview", "Final Performance Review");
+		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Final Performance Review");
 		Thread.sleep(4000);
 		CommonMethod.selectdropdown("V2ProjectSelectPhase", "Final Performance Review");
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingHsrcbx");
