@@ -17,8 +17,10 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void RegisterV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.click("WELLCertificationNavBar");
+		CommonMethod.WaitUntilVisibility("V2Projectstartav2projectbtn", 300);
 		CommonMethod.click("V2Projectstartav2projectbtn");
 		CommonMethod.click("V2ProjectstartProjectcontinuebtn");
 		String ProjectName = "Automation Project" + CommonMethod.randomNumber(8000000);
@@ -37,21 +39,29 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.sendKeys("V2ProjectareaSize", data.getCellData(SheetName, "area", rowNum));
 		CommonMethod.click("V2ProjectareaContinuebtn");
 		CommonMethod.ClickCheckbox("V2ProjectspaceType");
+		CommonMethod.WaitUntilVisibility("V2ProjectspacetypeContinuebtn", 300);
 		CommonMethod.click("V2ProjectspacetypeContinuebtn");
 		CommonMethod.click("V2Projectwellcorecertification");
-		CommonMethod.WaitUntilClickble("V2ProjectdocsubUpdatebtn", 60);
-		Thread.sleep(10000);
+		CommonMethod.WaitUntilVisibility("V2ProjectdocsubUpdatebtn", 300);
 		CommonMethod.click("V2ProjectdocsubUpdatebtn");
+		CommonMethod.WaitUntilVisibility("V2ProjectnextMonthbtn", 300);
+		CommonMethod.click("V2ProjectnextMonthbtn");
+		CommonMethod.WaitUntilVisibility("V2ProjectselectNextMonth", 300);
+		Thread.sleep(1000);
+		CommonMethod.click("V2ProjectselectNextMonth");
+		Thread.sleep(1000);
+		CommonMethod.WaitUntilVisibility("V2ProjectdocsubOkbtn", 300);
+		CommonMethod.click("V2ProjectdocsubOkbtn");
 		CommonMethod.click("V2ProjectdocsubOkbtn");
 		CommonMethod.WaitUntilClickble("V2ProjectdocsubConfirmbtn", 60);
 		CommonMethod.click("V2ProjectdocsubConfirmbtn");
 		CommonMethod.click("V2Projectcontinuethejourneybtn");
+		CommonMethod.WaitUntilVisibility("StoreId", 300);
 		CommonMethod.WaitUntilClickble("StoreId", 60);
 		String getId = CommonMethod.getText("StoreId");
 		String[] stringArray = getId.split(": ");
 		String getProjectId = stringArray[1].trim();
 		data.setCellData("V2Project", "projectId", 2, getProjectId);
-
 	}
 
 	public void SearchV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
