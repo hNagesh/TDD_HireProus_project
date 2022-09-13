@@ -210,6 +210,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			RemainingNo--;
 			j--;
 		}
+		CommonMethod.scrollUp();
 		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
 		  for (int i = 1; i<= YesEnd; i++) { 
 			  int RemainingYes = YesButton.size(); 
