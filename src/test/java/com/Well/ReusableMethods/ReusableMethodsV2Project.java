@@ -455,17 +455,7 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrAccountbtn", 300);
 		CommonMethod.click("V2ProjectHsrAccountbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrScorecard", 300);
-		for(int i=1;i<=27;i++) {
-			CommonMethod.click("V2ProjectHsrPursuingNo");
-			Thread.sleep(3000);
-		}
-		Thread.sleep(2000);
-		CommonMethod.WaitUntilVisibility("V2ProjectHsrPursuingYes", 300);
-	
-		for(int i=1;i<=15;i++) {
-			CommonMethod.click("V2ProjectHsrPursuingYes");
-			Thread.sleep(2000);
-		}
+		Scorecardfill(15,16,27,12);
 	}
 	public void uploadDocumentInfeature() throws IOException, InterruptedException {
 
