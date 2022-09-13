@@ -210,7 +210,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			RemainingNo--;
 			j--;
 		}
-		CommonMethod.scrollUp();
+		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
 		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
 		  for (int i = 1; i<= YesEnd; i++) { 
 			  int RemainingYes = YesButton.size(); 
@@ -221,7 +221,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		  YesButton = CommonMethod.findElements("V2ProjectPurseYes");
 		  }while(YesButton.size()==RemainingYes); RemainingYes--; }
 		 
-		RefreshScorecard();
+		
 	}
 public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOException, InterruptedException {
 	CommonMethod.WaitUntilVisibility("WellV2ScorecardTab", 300);
@@ -476,15 +476,19 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.click("HealthSafetyTab");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrContinuebtn", 300);
 		CommonMethod.click("V2ProjectHsrContinuebtn");
-		  CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
-		  CommonMethod.click("V2ProjectHsrTermscbx");
-		  CommonMethod.click("V2ProjectHsrTermsbtn");
-		  CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
-		  CommonMethod.click("V2ProjectHsrTermscbx");
-		  CommonMethod.WaitUntilVisibility("V2ProjectHsrProceedbtn", 300);
-		  CommonMethod.click("V2ProjectHsrProceedbtn");
-		  CommonMethod.WaitUntilVisibility("V2ProjectHsrAccountbtn", 300);
-		  CommonMethod.click("V2ProjectHsrAccountbtn");
+		
+		/*
+		 * CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
+		 * CommonMethod.click("V2ProjectHsrTermscbx");
+		 * CommonMethod.click("V2ProjectHsrTermsbtn");
+		 * CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
+		 * CommonMethod.click("V2ProjectHsrTermscbx");
+		 * CommonMethod.WaitUntilVisibility("V2ProjectHsrProceedbtn", 300);
+		 * CommonMethod.click("V2ProjectHsrProceedbtn");
+		 * CommonMethod.WaitUntilVisibility("V2ProjectHsrAccountbtn", 300);
+		 * CommonMethod.click("V2ProjectHsrAccountbtn");
+		 */
+		 
 		 
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrScorecard", 300);
 		ScorecardfillHSRWPR(15,1,27,27);
@@ -517,7 +521,7 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 	public void uploadHsrDocV2Project() throws IOException, InterruptedException {
 
 		
-		uploadDocumentInFeature(14);
+		uploadDocumentInFeature(15);
 		
 }
 	public void hsrReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
