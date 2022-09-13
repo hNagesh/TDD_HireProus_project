@@ -167,14 +167,16 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void Scorecardfill(int YesEnd,int NoStart, int NoEnd,int DifferencePlusOne) throws IOException, InterruptedException {
 		List<WebElement> YesButton;
 		List<WebElement> NoButton;
-		YesButton = CommonMethod.findElements("V2ProjectPurseYes"); 
+		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
 		  for (int i = 1; i<= YesEnd; i++) { 
 			  int RemainingYes = YesButton.size(); 
+			  System.out.println(RemainingYes);
 			  do {
 		  CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
 		  CommonMethod.click("V2ProjectPurseYes"); 
 		  Thread.sleep(1000); 
 		  YesButton = CommonMethod.findElements("V2ProjectPurseYes");
+		  System.out.println(YesButton);
 		  }while(YesButton.size()==RemainingYes); RemainingYes--; }
 		 
 		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
@@ -189,6 +191,35 @@ public class ReusableMethodsV2Project extends BaseClass {
 			RemainingNo--;
 			j--;
 		}
+		RefreshScorecard();
+	}
+	
+	public void ScorecardfillHSRWPR(int YesEnd,int NoStart, int NoEnd,int DifferencePlusOne) throws IOException, InterruptedException {
+		List<WebElement> YesButton;
+		List<WebElement> NoButton;
+		
+		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
+		int j=DifferencePlusOne;
+		for (int i = NoStart; i <= NoEnd; i++) {
+			int RemainingNo = NoButton.size();
+			do {
+			CommonMethod.click(NoButton.get(RemainingNo-j));
+			Thread.sleep(1000);
+			NoButton = CommonMethod.findElements("V2ProjectPurseNo");
+			}while(NoButton.size()==RemainingNo);
+			RemainingNo--;
+			j--;
+		}
+		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
+		  for (int i = 1; i<= YesEnd; i++) { 
+			  int RemainingYes = YesButton.size(); 
+			  do {
+		  CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
+		  CommonMethod.click("V2ProjectPurseYes"); 
+		  Thread.sleep(1000); 
+		  YesButton = CommonMethod.findElements("V2ProjectPurseYes");
+		  }while(YesButton.size()==RemainingYes); RemainingYes--; }
+		 
 		RefreshScorecard();
 	}
 public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -444,22 +475,6 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.click("HealthSafetyTab");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrContinuebtn", 300);
 		CommonMethod.click("V2ProjectHsrContinuebtn");
-
-		CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
-		CommonMethod.click("V2ProjectHsrTermscbx");
-		CommonMethod.click("V2ProjectHsrTermsbtn");
-		CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
-		CommonMethod.click("V2ProjectHsrTermscbx");
-		CommonMethod.WaitUntilVisibility("V2ProjectHsrProceedbtn", 300);
-		CommonMethod.click("V2ProjectHsrProceedbtn");
-		CommonMethod.WaitUntilVisibility("V2ProjectHsrAccountbtn", 300);
-		CommonMethod.click("V2ProjectHsrAccountbtn");
-		CommonMethod.WaitUntilVisibility("V2ProjectHsrScorecard", 300);
-		Scorecardfill(15,16,27,12);
-	}
-	public void uploadDocumentInfeature() throws IOException, InterruptedException {
-
-		
 		  CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
 		  CommonMethod.click("V2ProjectHsrTermscbx");
 		  CommonMethod.click("V2ProjectHsrTermsbtn");
@@ -469,15 +484,9 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		  CommonMethod.click("V2ProjectHsrProceedbtn");
 		  CommonMethod.WaitUntilVisibility("V2ProjectHsrAccountbtn", 300);
 		  CommonMethod.click("V2ProjectHsrAccountbtn");
-		  CommonMethod.WaitUntilVisibility("V2ProjectHsrScorecard", 300); for(int
-		  i=1;i<=27;i++) { CommonMethod.click("V2ProjectHsrPursuingNo");
-		  Thread.sleep(3000); } Thread.sleep(2000);
-		  CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
-		  CommonMethod.WaitUntilVisibility("V2ProjectHsrPursuingYes", 300);
-		  
-		  for(int i=1;i<=15;i++) { CommonMethod.click("V2ProjectHsrPursuingYes");
-		  Thread.sleep(2000); }
 		 
+		CommonMethod.WaitUntilVisibility("V2ProjectHsrScorecard", 300);
+		ScorecardfillHSRWPR(15,1,27,27);
 	}
 	
 	public void uploadDocumentInFeature(int LastFeatureNumber) throws IOException, InterruptedException {
@@ -575,16 +584,7 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRAccountbtn", 300);
 		CommonMethod.click("V2ProjectWPRAccountbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrScorecard", 300);
-		for(int i=1;i<=38;i++) {
-			CommonMethod.click("V2ProjectHsrPursuingNo");
-			Thread.sleep(3000);
-		}
-		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
-		CommonMethod.WaitUntilVisibility("V2ProjectHsrPursuingYes", 300);
-		for(int i=1;i<=21;i++) {
-			CommonMethod.click("V2ProjectHsrPursuingYes");
-			Thread.sleep(3000);
-		}
+		ScorecardfillHSRWPR(21,1,38,38);
 	}
 	
 
