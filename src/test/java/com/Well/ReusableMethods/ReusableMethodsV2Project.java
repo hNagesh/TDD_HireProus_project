@@ -551,7 +551,7 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.click("V2ProjectIdCompare");
 		CommonMethod.click("ReviwTab");
 		Thread.sleep(2000);
-		CommonMethod.click("V2ProjectReviewViewbtn");
+		CommonMethod.click("V2ProjectHSRReviewViewbtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectReturnReviewbtn");
 		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60);
@@ -624,8 +624,8 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.click("V2ProjectIdCompare");
 		CommonMethod.click("ReviwTab");
 		Thread.sleep(2000);
-		CommonMethod.WaitUntilVisibility("V2ProjectReviewViewbtn", 300);
-		CommonMethod.click("V2ProjectReviewViewbtn");
+		CommonMethod.WaitUntilVisibility("V2ProjectWPRReviewViewbtn", 300);
+		CommonMethod.click("V2ProjectWPRReviewViewbtn");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("V2ProjectReturnReviewbtn", 300);
 		CommonMethod.click("V2ProjectReturnReviewbtn");
