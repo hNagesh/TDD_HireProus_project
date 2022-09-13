@@ -595,7 +595,7 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 	
 	public void uploadPerformanceDocV2Project() throws IOException, InterruptedException {
 		
-		uploadDocumentInFeature(20);
+		uploadDocumentInFeature(21);
 	}
 	public void wprReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 300);
@@ -607,6 +607,8 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.sendKeys("V2ProjectcommentReview", "Final Performance Review");
 		Thread.sleep(4000);
 		CommonMethod.selectdropdown("V2ProjectSelectPhase", "Final Performance Review");
+		CommonMethod.ClickCheckbox("V2ProjectsubmittingHsrcbx");
+		CommonMethod.WaitUntilClickble("V2ProjectsubmittingWprcbx", 10);
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingWprcbx");
 		CommonMethod.WaitUntilVisibility("V2ProjectSubmitPhaseReview", 300);
 		CommonMethod.click("V2ProjectSubmitPhaseReview");
