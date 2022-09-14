@@ -1216,7 +1216,7 @@ public class CommonMethod extends BaseClass {
 
 	public static void scrolldowntoElement(String objectLocater) throws IOException {
 
-		scrolldowntoLast();
+		//scrolldowntoLast();
 
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("arguments[0].scrollIntoView(true);", findElement(objectLocater));
