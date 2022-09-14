@@ -630,10 +630,6 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.click("V2ProjectdocsubOkbtn");
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
-		/*
-		 * CommonMethod.WaitUntilVisibility("V2ProjectPaymentstatus", 300);
-		 * CommonMethod.ClickCheckbox("V2ProjectPaymentstatus");
-		 */
 		CommonMethod.WaitUntilVisibility("V2ProjectReturnReviewSubmit", 300);
 		CommonMethod.click("V2ProjectReturnReviewSubmit");
 		Thread.sleep(2000);
