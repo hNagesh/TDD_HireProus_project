@@ -54,13 +54,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 		String getId = CommonMethod.getText("StoreId");
 		String[] stringArray = getId.split(": ");
 		String getProjectId = stringArray[1].trim();
-		data.setCellData("V2Project", "projectId", 2, getProjectId);
+		data.setCellData("Hsr", "projectId", 2, getProjectId);
 	}
 
 	public void SearchV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.click("WELLCertificationNavBar");
-		CommonMethod.sendKeys("V2ProjectId", data.getCellData(SheetName, "projectId", rowNum));
+		CommonMethod.sendKeys("Hsr", data.getCellData(SheetName, "hsrId", rowNum));
 		CommonMethod.click("V2ProjectApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectIdCompare");
