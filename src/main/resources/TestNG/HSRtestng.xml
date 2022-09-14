@@ -12,8 +12,8 @@
 <classes>
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
 <class name="com.Well.testcases.HealthSafety.TC_03_RegisterHealthSafetyTest"></class>
-<class name="com.Well.testcases.HealthSafety.TC_02_SearchHealthSafetyByIdTest"></class>
 <class name="com.Well.testcases.HealthSafety.TC_04_SubscribeAndStoreIdTest"></class>
+<class name="com.Well.testcases.HealthSafety.TC_02_SearchHealthSafetyByIdTest"></class>
 <class name="com.Well.testcases.HealthSafety.TC_05_AgreementSignTest"></class>
 <class name="com.Well.testcases.HealthSafety.TC_06_LocationTest"></class>
  <class name="com.Well.testcases.HealthSafety.TC_07_ScorecardTest"></class>
