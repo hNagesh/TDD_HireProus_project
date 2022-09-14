@@ -9,11 +9,11 @@ public class ReusableMethodsLogin extends BaseClass {
 	
 	public void Login() throws IOException, InterruptedException {
 
-		String Username;
-		String Password;
+		String Username=null;
+		String Password=null;
 		if(Environment.equalsIgnoreCase("Test")) {
 			
-			Username	 = data.getCellData("Login", "UserName", 3);
+			Username = data.getCellData("Login", "UserName", 3);
 			Password = data.getCellData("Login", "Password", 3);
 			
 		}
@@ -37,5 +37,5 @@ public class ReusableMethodsLogin extends BaseClass {
 		}
 
 	}
-}
+
 
