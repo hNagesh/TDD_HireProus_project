@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class TC_02_SearchHealthSafetyByIdTest extends BaseClass {
 
-	@Test
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.TC_03_RegisterHealthSafetyTest.tc_03_RegisterHealthSafetyTest" })
 	@Parameters({ "SheetName","rowNum" })
 	public void tc_02_SearchHealthSafetyByIdTest(String SheetName,int rowNum) throws IOException {
 
