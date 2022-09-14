@@ -19,6 +19,7 @@ public class TC_03_RegisterHealthSafetyTest extends BaseClass {
 
 		try {
 			hsr.RegisterHealthSafety(SheetName, rowNum);
+			hsr.StoreIdHealthSafety(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
