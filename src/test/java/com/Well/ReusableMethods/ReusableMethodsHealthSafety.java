@@ -156,8 +156,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.click("ReviwTab");
 		CommonMethod.WaitUntilVisibility("HsrSubmitReview", 60);
 		CommonMethod.click("HsrSubmitReview");
-		CommonMethod.WaitUntilClickble("HsrCommentReview", 60);
-		CommonMethod.sendKeys("HsrCommentReview", "Preliminary Health-Safety Review");
+		CommonMethod.WaitUntilClickble("HsrCommentReview", 60).sendKeys("Preliminary Health-Safety Review");
 		Thread.sleep(4000);
 		CommonMethod.selectdropdown("HsrSelectedProjectPhaseReview", "Preliminary Health-Safety Review");
 		CommonMethod.WaitUntilClickble("HsrSubmitDocReview", 60);
@@ -168,7 +167,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		 */
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
 		CommonMethod.click("AdminNavBar");
-		CommonMethod.WaitUntilVisibility("AdminWELLHealthsafetyNavBar", 300);
+		CommonMethod.WaitUntilVisibility("AdminWELLHealthsafetyNavBar", 60);
 		CommonMethod.click("AdminWELLHealthsafetyNavBar");
 		CommonMethod.WaitUntilVisibility("HsrAdminIdSearch", 60);
 		CommonMethod.click("HsrAdminIdSearch");
@@ -183,8 +182,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.click("HsrReviewViewbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectReturnReviewbtn", 60);
 		CommonMethod.click("V2ProjectReturnReviewbtn");
-		CommonMethod.WaitUntilClickble("HsrReturnComment", 60);
-		CommonMethod.sendKeys("HsrReturnComment", "Preliminary Precertification Review");
+		CommonMethod.WaitUntilClickble("HsrReturnComment", 60).sendKeys("Preliminary Precertification Review");;
 		CommonMethod.WaitUntilClickble("V2ProjectdocsubUpdatebtn", 60);
 		Thread.sleep(1000);
 		CommonMethod.click("V2ProjectdocsubUpdatebtn");

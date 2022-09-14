@@ -9,12 +9,18 @@ public class ReusableMethodsLogin extends BaseClass {
 	
 	public void Login() throws IOException, InterruptedException {
 
-		
-
+		String Username;
+		String Password;
 		if(Environment.equalsIgnoreCase("Test")) {
 			
-			String Username = data.getCellData("Login", "UserName", 3);
-			String Password = data.getCellData("Login", "Password", 3);;
+			Username	 = data.getCellData("Login", "UserName", 3);
+			Password = data.getCellData("Login", "Password", 3);
+			
+		}
+		else {
+			Username = data.getCellData("Login", "UserName", 2);
+		    Password = data.getCellData("Login", "Password", 2);
+		}
 			
 		CommonMethod.scrolldowntoElement("Username");
 		CommonMethod.sendKeys("Username", Username);
