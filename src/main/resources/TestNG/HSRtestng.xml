@@ -11,12 +11,14 @@
 <parameter name="rowNum" value="2"/>
 <classes>
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
-<class name="com.Well.testcases.HealthSafety.TC_02_RegisterHealthSafetyTest"></class>
-<class name="com.Well.testcases.HealthSafety.TC_03_HsrPaymentTest"></class>
-<!--<class name="com.Well.testcases.HealthSafety.TC_03_SearchHealthSafetyByIdTest"></class> -->
-
-<!-- <class name="com.Well.testcases.HealthSafety.TC_07_ScorecardV2ProjectTest"></class>-->
+<class name="com.Well.testcases.HealthSafety.TC_02_SearchHealthSafetyByIdTest"></class> 
+ <class name="com.Well.testcases.HealthSafety.TC_03_RegisterHealthSafetyTest"></class>
+<class name="com.Well.testcases.HealthSafety.TC_04_SubscribeAndStoreIdTest"></class>
+<class name="com.Well.testcases.HealthSafety.TC_05_AgreementSignTest"></class>
+<class name="com.Well.testcases.HealthSafety.TC_06_LocationTest"></class>
+ <class name="com.Well.testcases.HealthSafety.TC_07_ScorecardTest"></class>
+<class name="com.Well.testcases.HealthSafety.TC_08_ReviewTest"></class>
+ <class name="com.Well.testcases.HealthSafety.TC_09_DocumentTest"></class> 
 </classes>
 </test>
-
 </suite>  

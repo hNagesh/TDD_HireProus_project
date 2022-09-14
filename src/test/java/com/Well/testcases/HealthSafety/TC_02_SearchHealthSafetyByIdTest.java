@@ -7,19 +7,18 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class TC_03_SearchHealthSafetyByIdTest extends BaseClass {
+public class TC_02_SearchHealthSafetyByIdTest extends BaseClass {
 
 	@Test
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_03_SearchHealthSafetyByIdTest(String SheetName,int rowNum) throws IOException {
+	public void tc_02_SearchHealthSafetyByIdTest(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
 
 		try {
-
-			portfolio.SearchPortfolioByName(SheetName,rowNum);
+     hsr.SearchHealthSafetyByID(SheetName,rowNum);
 			
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

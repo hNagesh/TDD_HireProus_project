@@ -131,8 +131,9 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		   Thread.sleep(2000);
 	}
 	
-	public void PortfolioLocationImport (String SheetName,int rowNum) throws IOException {
-		
+	public void PortfolioLocationImport (String SheetName,int rowNum) throws IOException, InterruptedException {
+		Thread.sleep(2000);
+		CommonMethod.WaitUntilVisibility("LocationsTab", 300);
 		CommonMethod.WaitUntilClickble("LocationsTab", 60);
 		CommonMethod.click("LocationsTab");
 		CommonMethod.WaitUntilClickble("PortfolioLocationsImportButton", 60);
@@ -141,11 +142,16 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.uploadFile("PortfolioUploadLocationButton", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilClickble("PortfolioUploadFileNextButton", 60);
 		CommonMethod.click("PortfolioUploadFileNextButton");
-		CommonMethod.WaitUntilClickble("PortfolioUploadFileNextButton", 60);
+		if(CommonMethod.isElementsExist("PortfolioUnmatchFieldcbx", 3)) {
+			CommonMethod.WaitUntilVisibility("PortfolioUnmatchFieldcbx", 100);
+			CommonMethod.ClickCheckbox("PortfolioUnmatchFieldcbx");
+		}
+	
+		CommonMethod.WaitUntilVisibility("PortfolioUploadFileNextButton", 300);
 		CommonMethod.click("PortfolioUploadFileNextButton");
-		CommonMethod.WaitUntilClickble("PortfolioFinishImportButton", 60);
+		CommonMethod.WaitUntilVisibility("PortfolioFinishImportButton", 300);
 		CommonMethod.click("PortfolioFinishImportButton");
-		CommonMethod.WaitUntilClickble("PortfolioImportCloseButton", 60);
+		CommonMethod.WaitUntilVisibility("PortfolioImportCloseButton", 300);
 		CommonMethod.click("PortfolioImportCloseButton");
 		
 	}

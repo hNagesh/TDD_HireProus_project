@@ -2,5 +2,5 @@ target/
 logs/
 test-output/*
 output/
-src/test/resources/*.txt
 Report/
+Screenshots/

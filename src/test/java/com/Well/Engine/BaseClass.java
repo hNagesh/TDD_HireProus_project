@@ -30,6 +30,7 @@ import com.Well.ReusableMethods.ReusableMethodsFaculty;
 import com.Well.ReusableMethods.ReusableMethodsHealthSafety;
 import com.Well.ReusableMethods.ReusableMethodsLogin;
 import com.Well.ReusableMethods.ReusableMethodsPortfolio;
+import com.Well.ReusableMethods.ReusableMethodsScorecard;
 import com.Well.ReusableMethods.ReusableMethodsV2Project;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -67,6 +68,7 @@ public class BaseClass {
 	public static ReusableMethodPerformance performance = new ReusableMethodPerformance();
 	public static ReusableMethodsFaculty faculty = new ReusableMethodsFaculty();
 	public static ReusableMethodsExam exam = new ReusableMethodsExam();
+	public static ReusableMethodsScorecard scorecard = new ReusableMethodsScorecard();
 	@BeforeSuite
 	@Parameters({ "browserName", "environment" })
 	public void setup(String browserName, String environment) throws InterruptedException, IOException {

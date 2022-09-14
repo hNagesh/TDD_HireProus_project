@@ -7,18 +7,17 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class TC_03_HsrPaymentTest extends BaseClass {
+public class TC_09_DocumentTest extends BaseClass {
 
 	@Test
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_03_HsrPayment(String SheetName,int rowNum) throws IOException {
+	public void tc_09_DocumentTest(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName);
 
+		StartTest(TestCaseName);
 		try {
-			v2project.Billing(SheetName, rowNum);	
-			hsr.StoreIdHealthSafety(SheetName, rowNum);	
+		hsr.UploadDocumentHsr();	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
