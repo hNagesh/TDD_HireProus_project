@@ -371,6 +371,7 @@ public class CommonMethod extends BaseClass {
 		}while(CommonMethod.isElementsExist(objectLocater1, 2));
         
 	}
+	
 
 	public static void click(WebElement objectLocater) throws IOException {
 
@@ -830,6 +831,7 @@ public class CommonMethod extends BaseClass {
 		System.out.println(boo);
 		return boo;
 	}
+	
 
 	public static boolean isElementsExistRaw(String xpath, int TimeInSec) throws IOException {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TimeInSec));
@@ -1868,6 +1870,14 @@ public class CommonMethod extends BaseClass {
 		}
 		// By css = findElement(objectlocator);
 
+	}
+	
+	public static WebElement WaitUntilClickble(WebElement objectlocator, int TimeinSeconds) throws IOException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeinSeconds));
+		
+			return (wait.until(ExpectedConditions.elementToBeClickable(objectlocator)));
+			
 	}
 
 	public static void displayhiddenElement(String objectLocator) throws IOException {

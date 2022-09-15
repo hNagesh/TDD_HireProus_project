@@ -101,8 +101,9 @@ public class ReusableMethodPerformance extends BaseClass {
 			for (int i = NoStart; i <= NoEnd; i++) {
 				int RemainingNo = NoButton.size();
 				do {
+				CommonMethod.WaitUntilClickble(NoButton.get(RemainingNo-j),30);
 				CommonMethod.click(NoButton.get(RemainingNo-j));
-				 CommonMethod.WaitUntilInVisibility("WPRCloseIcon", 30);
+				CommonMethod.WaitUntilInVisibility("WPRCloseIcon", 30);
 				Thread.sleep(1000);
 				NoButton = CommonMethod.findElements(purseNo);
 				}while(NoButton.size()==RemainingNo);
