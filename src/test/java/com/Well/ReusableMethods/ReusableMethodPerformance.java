@@ -91,6 +91,7 @@ public class ReusableMethodPerformance extends BaseClass {
 			  int RemainingYes = YesButton.size(); 
 			  do {
 		  CommonMethod.click(purseYes); 
+		  CommonMethod.WaitUntilVisibility("WPRCloseIcon", 30);
 		  CommonMethod.WaitUntilInVisibility("WPRCloseIcon", 30);
 		  YesButton = CommonMethod.findElements(purseYes);
 		  }while(YesButton.size()==RemainingYes); RemainingYes--; }
