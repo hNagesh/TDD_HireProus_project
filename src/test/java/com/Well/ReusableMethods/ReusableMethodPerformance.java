@@ -165,6 +165,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		Thread.sleep(3000);
 		CommonMethod.click("ReviwTab");
 		CommonMethod.click("WPRReviewSubmitbtn");
+		CommonMethod.WaitUntilVisibility("WPRReviewSubmitDocbtn", 30);
 		CommonMethod.selectdropdown("WPRReviewProjectPhase", "Preliminary Performance Rating Review");	
 		CommonMethod.WaitUntilClickble("WPRReviewComment", 60).sendKeys("Preliminary Performance Rating Review");
 		CommonMethod.click("WPRReviewSubmitDocbtn");
