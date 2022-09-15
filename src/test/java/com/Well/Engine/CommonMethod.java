@@ -351,6 +351,26 @@ public class CommonMethod extends BaseClass {
 		}while(CommonMethod.isElementsExist(objectLocater, 2));
         
 	}
+	
+	public static void Robustclick(String objectLocater,String objectLocater1) throws IOException, InterruptedException {
+
+		do {
+			System.out.println("1");
+			Thread.sleep(2000);
+			if(CommonMethod.isElementsExist(objectLocater,5)) {
+				try {
+			findElement(objectLocater).click();
+		    Thread.sleep(2000);
+			System.out.println("Inside");
+			}
+			
+			catch(Exception e) {
+				
+			}
+			}
+		}while(CommonMethod.isElementsExist(objectLocater1, 2));
+        
+	}
 
 	public static void click(WebElement objectLocater) throws IOException {
 
