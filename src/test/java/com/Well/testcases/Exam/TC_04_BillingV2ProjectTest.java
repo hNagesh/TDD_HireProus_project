@@ -1,27 +1,23 @@
-package com.Well.testcases.Faculty;
+package com.Well.testcases.Exam;
 
 import java.io.IOException;
 
-
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class TC_03_DeleteFacultyByOrgIdTest extends BaseClass {
+public class TC_04_BillingV2ProjectTest extends BaseClass {
 
-	@SuppressWarnings("static-access")
 	@Test
-
-	public void tC_03_DeleteFacultyByOrgIdTest() throws IOException {
+	@Parameters({ "SheetName","rowNum" })
+	public void tc_04_BillingV2ProjectTest(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
-
 		try {
-
-			faculty.POSTRequest();
-			
+		exam.BillingExam(SheetName, rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
