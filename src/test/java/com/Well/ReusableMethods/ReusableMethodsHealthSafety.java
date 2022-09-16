@@ -21,7 +21,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	   CommonMethod.click("HsrEnrollnowbtn");
 	   CommonMethod.click("HsrEnrollbtn");
 	   CommonMethod.WaitUntilClickble("HsrenrollName", 30);
-	   String erollName = "Automation hsr "+CommonMethod.randomNumber(8000000);
+	   String erollName = "Automation HSR Project "+CommonMethod.randomNumber(8000000);
 	   CommonMethod.sendKeys("HsrenrollName", erollName);
 	   CommonMethod.ClickCheckbox("Hsrenrollcheckbox");
 	   CommonMethod.click("OwnerOrgClick");

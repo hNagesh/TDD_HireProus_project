@@ -16,7 +16,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2Projectstartav2projectbtn", 300);
 		CommonMethod.click("V2Projectstartav2projectbtn");
 		CommonMethod.click("V2ProjectstartProjectcontinuebtn");
-		String ProjectName = "Automation Project" + CommonMethod.randomNumber(8000000);
+		String ProjectName = "Automation V2 Project" + CommonMethod.randomNumber(8000000);
 		data.setCellData("V2Project", "projectName", 2, ProjectName);
 		CommonMethod.sendKeys("V2Projectprojectnickname", ProjectName);
 		CommonMethod.click("V2ProjectnicknameContinuebtn");

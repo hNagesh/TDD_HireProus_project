@@ -16,7 +16,7 @@ public class ReusableMethodPerformance extends BaseClass {
 	   CommonMethod.click("WPRstartNewProject");
 	   CommonMethod.click("WPREnrollOption");
 	   CommonMethod.click("WPRenrollbtn");
-	   String ProjectName = "Automation Project"+CommonMethod.randomNumber(8000000);
+	   String ProjectName = "Automation WPR Project"+CommonMethod.randomNumber(8000000);
 	   data.setCellData("Wpr", "projectName", 2, ProjectName);
 	   CommonMethod.sendKeys("WPROrgName", ProjectName);
 	   CommonMethod.ClickCheckbox("WPROwnerInfocbx");  
