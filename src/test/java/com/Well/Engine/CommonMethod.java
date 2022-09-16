@@ -351,6 +351,27 @@ public class CommonMethod extends BaseClass {
 		}while(CommonMethod.isElementsExist(objectLocater, 2));
         
 	}
+	
+	public static void Robustclick(String objectLocater,String objectLocater1) throws IOException, InterruptedException {
+
+		do {
+			System.out.println("1");
+			Thread.sleep(2000);
+			if(CommonMethod.isElementsExist(objectLocater,5)) {
+				try {
+			findElement(objectLocater).click();
+		    Thread.sleep(2000);
+			System.out.println("Inside");
+			}
+			
+			catch(Exception e) {
+				
+			}
+			}
+		}while(CommonMethod.isElementsExist(objectLocater1, 2));
+        
+	}
+	
 
 	public static void click(WebElement objectLocater) throws IOException {
 
@@ -810,6 +831,7 @@ public class CommonMethod extends BaseClass {
 		System.out.println(boo);
 		return boo;
 	}
+	
 
 	public static boolean isElementsExistRaw(String xpath, int TimeInSec) throws IOException {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TimeInSec));
@@ -1848,6 +1870,14 @@ public class CommonMethod extends BaseClass {
 		}
 		// By css = findElement(objectlocator);
 
+	}
+	
+	public static WebElement WaitUntilClickble(WebElement objectlocator, int TimeinSeconds) throws IOException {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeinSeconds));
+		
+			return (wait.until(ExpectedConditions.elementToBeClickable(objectlocator)));
+			
 	}
 
 	public static void displayhiddenElement(String objectLocator) throws IOException {

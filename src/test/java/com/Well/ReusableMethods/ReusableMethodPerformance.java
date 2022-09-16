@@ -91,6 +91,7 @@ public class ReusableMethodPerformance extends BaseClass {
 			  int RemainingYes = YesButton.size(); 
 			  do {
 		  CommonMethod.click(purseYes); 
+		  CommonMethod.WaitUntilVisibility("WPRCloseIcon", 30);
 		  CommonMethod.WaitUntilInVisibility("WPRCloseIcon", 30);
 		  YesButton = CommonMethod.findElements(purseYes);
 		  }while(YesButton.size()==RemainingYes); RemainingYes--; }
@@ -101,8 +102,10 @@ public class ReusableMethodPerformance extends BaseClass {
 			for (int i = NoStart; i <= NoEnd; i++) {
 				int RemainingNo = NoButton.size();
 				do {
+				CommonMethod.WaitUntilClickble(NoButton.get(RemainingNo-j),30);
 				CommonMethod.click(NoButton.get(RemainingNo-j));
-				 CommonMethod.WaitUntilInVisibility("WPRCloseIcon", 30);
+				CommonMethod.WaitUntilVisibility("WPRCloseIcon", 30);
+				CommonMethod.WaitUntilInVisibility("WPRCloseIcon", 30);
 				Thread.sleep(1000);
 				NoButton = CommonMethod.findElements(purseNo);
 				}while(NoButton.size()==RemainingNo);
@@ -131,15 +134,14 @@ public class ReusableMethodPerformance extends BaseClass {
 				CommonMethod.WaitUntilVisibility("WPRAddOption", 60);
 				CommonMethod.click("WPRAddOption");
 				CommonMethod.WaitUntilVisibility("WPRAddOptionbtn", 60);
-				CommonMethod.click("WPRAddOptionbtn");
+				CommonMethod.Robustclick("WPRAddOptionbtn");
 				CommonMethod.WaitUntilVisibility("WPRAddOptionCloseIcon", 60);
 				CommonMethod.Robustclick("WPRAddOptionCloseIcon");
 				CommonMethod.WaitUntilVisibility("WPRAssignLocbtn", 30);
-				Thread.sleep(2000);
+				Thread.sleep(1000);
 				CommonMethod.click("WPRAssignLocbtn");
-				Thread.sleep(2000);
-				CommonMethod.ClickCheckbox("WPRAssignLocCbx");
-				Thread.sleep(2000);
+				CommonMethod.WaitUntilClickble("WPRAssignLocFirstChildCbx", 60);
+				CommonMethod.Robustclick("WPRAssignLocCbx","WPRAssignDisabledbtn");
 				CommonMethod.WaitUntilVisibility("WPRAssignSavebtn", 30);
 				CommonMethod.click("WPRAssignSavebtn");
 				CommonMethod.WaitUntilVisibility("WPRUploadDocTaskbtn", 60);
@@ -163,6 +165,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		Thread.sleep(3000);
 		CommonMethod.click("ReviwTab");
 		CommonMethod.click("WPRReviewSubmitbtn");
+		CommonMethod.WaitUntilVisibility("WPRReviewSubmitDocbtn", 30);
 		CommonMethod.selectdropdown("WPRReviewProjectPhase", "Preliminary Performance Rating Review");	
 		CommonMethod.WaitUntilClickble("WPRReviewComment", 60).sendKeys("Preliminary Performance Rating Review");
 		CommonMethod.click("WPRReviewSubmitDocbtn");
