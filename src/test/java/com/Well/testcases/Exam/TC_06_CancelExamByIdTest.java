@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class TC_06_CancelExamByIdTest extends BaseClass {
 
-	@Test
+	@Test(dependsOnMethods = { "com.Well.testcases.Exam.TC_05_StoreExamIdTest.tc_05_StoreExamIdTest" })
 	@Parameters({ "SheetName","rowNum" })
 	public void tc_06_CancelExamByIdTest(String SheetName,int rowNum) throws IOException {
 

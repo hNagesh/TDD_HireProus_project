@@ -9,9 +9,9 @@ import com.Well.Engine.BaseClass;
 
 public class TC_02_RegisterFacultyTest extends BaseClass {
 
-	@Test
+	@Test(dependsOnMethods = { "com.Well.testcases.login.TC_01_LoginTest.TC_01_Login" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_02_RegisterPerformance(String SheetName,int rowNum) throws IOException {
+	public void TC_02_RegisterFaculty(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

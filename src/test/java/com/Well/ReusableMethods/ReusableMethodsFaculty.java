@@ -104,9 +104,8 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.click("WFContinuebtn");
 		CommonMethod.WaitUntilVisibility("WFSubmitApplicationbtn", 60);
 		CommonMethod.Robustclick("WFSubmitApplicationbtn","WFReviewButton");
-		
 		Thread.sleep(2000);
-		Thread.sleep(40000);
+		
 	}
 
 	@SuppressWarnings("unchecked")

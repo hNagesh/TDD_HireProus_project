@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class TC_03_EnrollExamTest extends BaseClass {
 
-	@Test
+	@Test(dependsOnMethods = { "com.Well.testcases.Exam.TC_02_RegisterExamTest.TC_02_RegisterExam" })
 	@Parameters({ "SheetName","rowNum" })
 	public void tc_03_EnrollExamTest(String SheetName,int rowNum) throws IOException {
 
