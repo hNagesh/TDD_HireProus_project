@@ -103,7 +103,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.sendKeys("WFTeachingnarration", sampleText);
 		CommonMethod.click("WFContinuebtn");
 		CommonMethod.WaitUntilVisibility("WFSubmitApplicationbtn", 60);
-		CommonMethod.Robustclick("WFSubmitApplicationbtn","WFReviewButton");
+		CommonMethod.RobustclickElementVisible("WFSubmitApplicationbtn","WFReturnbtn");
 		Thread.sleep(2000);
 		
 	}

@@ -10,7 +10,7 @@ import com.Well.Engine.BaseClass;
 public class TC_05_DeleteFacultyByOrgIdTest extends BaseClass {
 
 	@SuppressWarnings("static-access")
-	@Test(dependsOnMethods = { "com.Well.testcases.Faculty.TC_04_SubmitReviewTest.tc_04_SubmitReviewTest" })
+	@Test//(dependsOnMethods = { "com.Well.testcases.Faculty.TC_04_SubmitReviewTest.tc_04_SubmitReviewTest" })
 	@Parameters({ "SheetName","rowNum" })
 	public void tc_03_DeleteFacultyByOrgIdTest(String SheetName,int rowNum) throws IOException {
 
