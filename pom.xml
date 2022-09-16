@@ -182,8 +182,8 @@
 				<configuration>
 				<testFailureIgnore>true</testFailureIgnore>
 					<suiteXmlFiles>
-				   <suiteXmlFile>src/main/resources/TestNG/V2Projecttestng.xml</suiteXmlFile>
-				   <suiteXmlFile>src/main/resources/TestNG/HSRtestng.xml</suiteXmlFile>				   					
+				   <suiteXmlFile>src/main/resources/TestNG/Examtestng.xml</suiteXmlFile>
+				   <suiteXmlFile>src/main/resources/TestNG/Facultytestng.xml</suiteXmlFile>				   					
 				   <suiteXmlFile>src/main/resources/TestNG/WPRtestng.xml</suiteXmlFile>
 				   </suiteXmlFiles>
 				</configuration>
