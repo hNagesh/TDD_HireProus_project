@@ -36,7 +36,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectspacetypeContinuebtn");
 		CommonMethod.click("V2Projectwellcorecertification");
 		CommonMethod.WaitUntilVisibility("V2ProjectdocsubUpdatebtn", 300);
-		CommonMethod.click("V2ProjectdocsubUpdatebtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectdocsubUpdatebtn","V2ProjectDatePopupWeekday");
 		CommonMethod.WaitUntilVisibility("V2ProjectnextMonthbtn", 300);
 		CommonMethod.Robustclick("V2ProjectnextMonthbtn","V2ProjectDatePopupWeekday");
 		CommonMethod.WaitUntilVisibility("V2ProjectselectNextMonth", 300);

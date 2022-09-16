@@ -169,7 +169,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.click("AdminNavBar");
 		CommonMethod.WaitUntilVisibility("AdminWELLHealthsafetyNavBar", 60);
 		CommonMethod.click("AdminWELLHealthsafetyNavBar");
-		CommonMethod.WaitUntilVisibility("HsrAdminIdSearch", 60);
+		CommonMethod.WaitUntilVisibility("HsrAdminIdSearch", 300);
 		CommonMethod.click("HsrAdminIdSearch");
 		CommonMethod.sendKeys("HsrAdminIdSearch", data.getCellData(SheetName, "hsrId", rowNum));
 		CommonMethod.click("HsrAdminApplybtn");
