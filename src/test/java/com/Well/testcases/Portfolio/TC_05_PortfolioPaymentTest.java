@@ -18,8 +18,9 @@ public class TC_05_PortfolioPaymentTest extends BaseClass {
 		StartTest(TestCaseName);
 
 		try {
-
+			portfolio.PortfolioClickOnBilling();
 			portfolio.PortfolioCardPayment(SheetName, rowNum);
+			
 			
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

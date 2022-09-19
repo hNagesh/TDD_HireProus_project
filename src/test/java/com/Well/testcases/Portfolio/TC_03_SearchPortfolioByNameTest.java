@@ -7,19 +7,19 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class TC_04_SignAndSubscribePortfolioTest extends BaseClass {
+public class TC_03_SearchPortfolioByNameTest extends BaseClass {
 
 	@Test
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_04_SignAndSubscribePortfolio(String SheetName,int rowNum) throws IOException {
+	public void TC_03_SearchPortfolioByName(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
 
 		try {
-			portfolio.SignAgreementPortfolio();
-			portfolio.SubscribePortfolio(SheetName, rowNum);
+
+			portfolio.SearchPortfolioByName(SheetName,rowNum);
 			
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

@@ -1,4 +1,4 @@
-package com.Well.testcases.Portfolio;
+package com.Well.testcases.Membership;
 
 import java.io.IOException;
 
@@ -7,20 +7,17 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class TC_04_SignAndSubscribePortfolioTest extends BaseClass {
+public class TC_04_BillingTest extends BaseClass {
 
-	@Test
+	@Test(dependsOnMethods = { "com.Well.testcases.Membership.TC_03_EnrollTest.TC_03_Enroll" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_04_SignAndSubscribePortfolio(String SheetName,int rowNum) throws IOException {
+	public void TC_04_Billing(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
-
 		try {
-			portfolio.SignAgreementPortfolio();
-			portfolio.SubscribePortfolio(SheetName, rowNum);
-			
+		membership.BillingMembership(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

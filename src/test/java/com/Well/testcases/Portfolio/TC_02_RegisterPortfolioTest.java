@@ -1,4 +1,4 @@
-package com.Well.testcases.Faculty;
+package com.Well.testcases.Portfolio;
 
 import java.io.IOException;
 
@@ -7,21 +7,19 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class TC_05_DeleteFacultyByOrgIdTest extends BaseClass {
+public class TC_02_RegisterPortfolioTest extends BaseClass {
 
-	@SuppressWarnings("static-access")
-	@Test//(dependsOnMethods = { "com.Well.testcases.Faculty.TC_04_SubmitReviewTest.tc_04_SubmitReviewTest" })
+	@Test
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_03_DeleteFacultyByOrgIdTest(String SheetName,int rowNum) throws IOException {
+	public void TC_02_RegisterPortfolio() throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
 
 		try {
-
-			faculty.PostRequestAuthenticate();
-			faculty.DeleteFacultyOrMembership();
+        portfolio.RegisterPortfolio();
+			
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

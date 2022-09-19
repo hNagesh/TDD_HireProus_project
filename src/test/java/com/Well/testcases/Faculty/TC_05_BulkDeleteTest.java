@@ -1,4 +1,4 @@
-package com.Well.testcases.Portfolio;
+package com.Well.testcases.Faculty;
 
 import java.io.IOException;
 
@@ -7,20 +7,18 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class TC_02_SearchPortfolioByNameTest extends BaseClass {
+public class TC_05_BulkDeleteTest extends BaseClass {
 
-	@Test
+	@SuppressWarnings("static-access")
+	@Test//(dependsOnMethods = { "com.Well.testcases.Faculty.TC_04_SubmitReviewTest.tc_04_SubmitReviewTest" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_02_SearchPortfolioByName(String SheetName,int rowNum) throws IOException {
+	public void tc_03_DeleteFacultyByOrgIdTest(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
 		StartTest(TestCaseName);
-
 		try {
-
-			portfolio.SearchPortfolioByName(SheetName,rowNum);
-			
+			faculty.PostRequestAuthenticate();
+			faculty.DeleteFacultyOrMembership();
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

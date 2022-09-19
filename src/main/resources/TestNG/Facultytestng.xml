@@ -10,11 +10,11 @@
 <parameter name="SheetName" value="Faculty"/>
 <parameter name="rowNum" value="2"/>
 <classes>
- <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
+  <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
  <class name="com.Well.testcases.Faculty.TC_02_RegisterFacultyTest"></class>
  <class name="com.Well.testcases.Faculty.TC_03_AgreementFacultyTest"></class>
  <class name="com.Well.testcases.Faculty.TC_04_SubmitReviewTest"></class>
-<class name="com.Well.testcases.Faculty.TC_05_DeleteFacultyByOrgIdTest"></class>
+<class name="com.Well.testcases.Faculty.TC_05_BulkDeleteTest"></class>
 </classes>
 </test>
 </suite>  

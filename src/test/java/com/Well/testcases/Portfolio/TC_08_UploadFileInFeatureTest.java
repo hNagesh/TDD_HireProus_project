@@ -18,7 +18,6 @@ public class TC_08_UploadFileInFeatureTest extends BaseClass {
 		StartTest(TestCaseName);
 
 		try {
-			//scorecard.clickScoreCard();
 			portfolio.UploadFileinFeature();
 			
 		} catch (Throwable t) {

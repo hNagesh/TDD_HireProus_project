@@ -29,6 +29,7 @@ import com.Well.ReusableMethods.ReusableMethodsExam;
 import com.Well.ReusableMethods.ReusableMethodsFaculty;
 import com.Well.ReusableMethods.ReusableMethodsHealthSafety;
 import com.Well.ReusableMethods.ReusableMethodsLogin;
+import com.Well.ReusableMethods.ReusableMethodsMembership;
 import com.Well.ReusableMethods.ReusableMethodsPortfolio;
 import com.Well.ReusableMethods.ReusableMethodsScorecard;
 import com.Well.ReusableMethods.ReusableMethodsV2Project;
@@ -58,6 +59,7 @@ public class BaseClass {
 	public static String TestCaseName;
 	public static String SamplePdffile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"Resume.pdf";
 	public static String SamplePdffile1 = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"SampleResume.pdf";
+	public static String SampleJpgfile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"Favicon.jpg";
 	
 	public static String PortfolioLocationImportfile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"portfoliolocations.xlsm";
 	public static String featurefileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"FeatureFile.xlsx";
@@ -71,6 +73,7 @@ public class BaseClass {
 	public static ReusableMethodsFaculty faculty = new ReusableMethodsFaculty();
 	public static ReusableMethodsExam exam = new ReusableMethodsExam();
 	public static ReusableMethodsScorecard scorecard = new ReusableMethodsScorecard();
+	public static ReusableMethodsMembership membership = new ReusableMethodsMembership();
 	@BeforeSuite
 	@Parameters({ "browserName", "environment" })
 	public void setup(String browserName, String environment) throws InterruptedException, IOException {

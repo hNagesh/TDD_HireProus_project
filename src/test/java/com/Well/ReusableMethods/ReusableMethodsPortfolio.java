@@ -8,12 +8,13 @@ import com.Well.Engine.CommonMethod;
 public class ReusableMethodsPortfolio extends BaseClass {
 	
 	public void RegisterPortfolio() throws IOException, InterruptedException {
-
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
 	   CommonMethod.click("ProjectNavBar");
-	   CommonMethod.WaitUntilClickble("WellAtScaleNavBar", 10);
 	   CommonMethod.click("WellAtScaleNavBar");
+	   CommonMethod.WaitUntilVisibility("CreateAccountButton", 60);
 	   CommonMethod.click("CreateAccountButton");
 	   String AccountName = "Automation portfolio "+CommonMethod.randomNumber(8000000);
+	   CommonMethod.WaitUntilVisibility("AccountName", 30);
 	   CommonMethod.sendKeys("AccountName", AccountName);
 	   data.setCellData("Portfolio", "AccountName", 2, AccountName);
 	   CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
@@ -44,49 +45,38 @@ public class ReusableMethodsPortfolio extends BaseClass {
        CommonMethod.sendKeys("OwnerCity", ProjectCity);
        CommonMethod.sendKeys("OwnerPostalCode", PostalCode);
        CommonMethod.click("CreateAccountSubmit");
-       Thread.sleep(5000);
+       CommonMethod.WaitUntilVisibility("StoreId", 60);
 	}
 	
 	public void SearchPortfolioByName (String SheetName,int rowNum) throws IOException, InterruptedException {
-		
+		 CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
 	   CommonMethod.click("ProjectNavBar");
-	   CommonMethod.WaitUntilClickble("WellAtScaleNavBar", 10);
 	   CommonMethod.click("WellAtScaleNavBar");	
-	   CommonMethod.WaitUntilClickble("SearchPortfolioByName", 60);
-	   CommonMethod.sendKeys("SearchPortfolioByName", data.getCellData(SheetName, "AccountName", rowNum));
+	   CommonMethod.WaitUntilClickble("SearchPortfolioByName", 60).sendKeys(data.getCellData(SheetName, "AccountName", rowNum));
 	   CommonMethod.click("SearchPortfolioApplyFilter");
-	   Thread.sleep(5000);
-	   CommonMethod.WaitUntilClickble("ClickSearchResultPortfolio", 60);
+	   Thread.sleep(2000);
 	   CommonMethod.click("ClickSearchResultPortfolio");
 	  
-	   Thread.sleep(25000);
 	}
-	
-	public void SignAndSubscribePortfolio (String SheetName,int rowNum) throws IOException, InterruptedException {
-		
-		
-		  CommonMethod.WaitUntilClickble("ClickPortfolioSignNow", 60);
+	public void SignAgreementPortfolio() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ClickPortfolioSignNow", 60);
 		  CommonMethod.Robustclick("ClickPortfolioSignNow");
-		 
-		   CommonMethod.WaitUntilClickble("SubscribeTab", 60);
+	}
+	public void SubscribePortfolio(String SheetName,int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("SubscribeTab", 30);
 		   CommonMethod.click("SubscribeTab");
 		   CommonMethod.waitForPageLoaded();
 		   CommonMethod.scrolldowntoElement("PortfolioOwnerName");
 		   String OwnerName = USfaker.address().firstName();
 		   String OwnerEmail = USfaker.internet().emailAddress();
 		   String OwnerPhone = USfaker.number().digits(10);
-		   
 		   CommonMethod.sendKeys("PortfolioOwnerName", OwnerName);
 		   CommonMethod.sendKeys("PortfolioOwnerEmail", OwnerEmail);
 		   CommonMethod.sendKeys("PortfolioOwnerPhone", OwnerPhone);
-		   
-		   CommonMethod.click("PortfolioNoConsultantCheckbox");
-		   
+		  // CommonMethod.click("PortfolioNoConsultantCheckbox");
 		   CommonMethod.scrolldowntoElement("PortfolioSubcribeContinueButton");
 		   CommonMethod.click("PortfolioSubcribeContinueButton");
-		   
-		   CommonMethod.WaitUntilClickble("PortfolioQuestionRadio", 60);
-		   CommonMethod.click("PortfolioQuestionRadio");
+		   CommonMethod.ClickCheckbox("PortfolioQuestionRadio");
 		   CommonMethod.WaitUntilVisibility("PortfolioLocationDescriptionTextbox", 20);
 		   CommonMethod.sendKeys("PortfolioLocationDescriptionTextbox", "Test Description");
 		   CommonMethod.scrolldowntoElement("PortfolioSubcribeContinueButton2");
@@ -94,173 +84,158 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		   CommonMethod.click("PortfolioSubscribeDone");
 		   CommonMethod.WaitUntilVisibility("PortfolioGoToBilling", 60);
 		   CommonMethod.Robustclick("PortfolioGoToBilling");
-		   Thread.sleep(5000);
-			/*
-			 * CommonMethod.WaitUntilClickble("PortfolioPayNowButton", 60);
-			 * CommonMethod.click("PortfolioPayNowButton");
-			 */
+		   CommonMethod.navigateBack();
+		   
 		}
-	
-	public void PortfolioCardPayment (String SheetName,int rowNum) throws IOException, InterruptedException {
+	public void PortfolioClickOnBilling() throws IOException, InterruptedException {
+		 CommonMethod.WaitUntilVisibility("BiilingTab", 60);
+		 CommonMethod.click("BiilingTab");
+		 CommonMethod.WaitUntilVisibility("PortfolioPayNowButton", 20);
+		 CommonMethod.click("PortfolioPayNowButton");
+		 CommonMethod.WaitUntilVisibility("BillingLanding", 30);
+	}
+	public void PortfolioCardPayment(String SheetName,int rowNum) throws IOException, InterruptedException {
 		 if(!CommonMethod.isElementsExist("CardHolderName", 3)) {
 			  Boolean B = CommonMethod.IsElementPresentTrue("PortfolioPayNowButton");
 			  if(B.equals(true)) { CommonMethod.click("PortfolioPayNowButton"); }
 		 }
 		   CommonMethod.scrolldowntoElement("CardHolderName");
-		   CommonMethod.WaitUntilClickble("CardHolderName", 60);
-		   CommonMethod.sendKeys("CardHolderName", USfaker.address().firstName());
+		   CommonMethod.WaitUntilClickble("CardHolderName", 60).sendKeys("CardHolderName", USfaker.address().firstName());
 		   Thread.sleep(2000);
 		   CommonMethod.switchToFrame("CardNumberIframe");
-		   CommonMethod.WaitUntilClickble("CardHolderNumber", 60);
-		   Thread.sleep(2000);
-		   CommonMethod.sendKeys("CardHolderNumber", "4111111111111111");
+		   CommonMethod.WaitUntilClickble("CardHolderNumber", 60).sendKeys("CardHolderNumber", "4111111111111111");
 		   CommonMethod.switchToParentFrame();
 		   Thread.sleep(2000);
 		   CommonMethod.switchToFrame("CardExpDateIframe");
-		   CommonMethod.WaitUntilClickble("CardHolderExpDate", 60);
-		   CommonMethod.sendKeys("CardHolderExpDate", "0925");
+		   CommonMethod.WaitUntilClickble("CardHolderExpDate", 60).sendKeys("CardHolderExpDate", "0925");
 		   CommonMethod.switchToParentFrame();
 		   Thread.sleep(2000);
 		   CommonMethod.switchToFrame("CardCVVIframe");
-		   CommonMethod.WaitUntilClickble("CardHolderCVC", 60);
-		   CommonMethod.sendKeys("CardHolderCVC", "999");
+		   CommonMethod.WaitUntilClickble("CardHolderCVC", 60).sendKeys("CardHolderCVC", "999");
 		   CommonMethod.switchToParentFrame();
 		   Thread.sleep(2000);
-		   CommonMethod.WaitUntilClickble("PayNowButton", 10);
 		   CommonMethod.click("PayNowButton");
 		   Thread.sleep(2000);
 	}
 	
 	public void PortfolioLocationImport (String SheetName,int rowNum) throws IOException, InterruptedException {
 		Thread.sleep(2000);
-		CommonMethod.WaitUntilVisibility("LocationsTab", 300);
-		CommonMethod.WaitUntilClickble("LocationsTab", 60);
+		CommonMethod.WaitUntilVisibility("LocationsTab", 60);
 		CommonMethod.click("LocationsTab");
-		CommonMethod.WaitUntilClickble("PortfolioLocationsImportButton", 60);
 		CommonMethod.click("PortfolioLocationsImportButton");
 		CommonMethod.scrolldowntoElement("PortfolioUploadLocationButton");
 		CommonMethod.uploadFile("PortfolioUploadLocationButton", PortfolioLocationImportfile);
-		CommonMethod.WaitUntilClickble("PortfolioUploadFileNextButton", 60);
 		CommonMethod.click("PortfolioUploadFileNextButton");
 		if(CommonMethod.isElementsExist("PortfolioUnmatchFieldcbx", 3)) {
-			CommonMethod.WaitUntilVisibility("PortfolioUnmatchFieldcbx", 100);
+			CommonMethod.WaitUntilVisibility("PortfolioUnmatchFieldcbx", 30);
 			CommonMethod.ClickCheckbox("PortfolioUnmatchFieldcbx");
 		}
-	
-		CommonMethod.WaitUntilVisibility("PortfolioUploadFileNextButton", 300);
+		CommonMethod.WaitUntilVisibility("PortfolioUploadFileNextButton", 30);
 		CommonMethod.click("PortfolioUploadFileNextButton");
-		CommonMethod.WaitUntilVisibility("PortfolioFinishImportButton", 300);
+		CommonMethod.WaitUntilVisibility("PortfolioFinishImportButton", 30);
 		CommonMethod.click("PortfolioFinishImportButton");
-		CommonMethod.WaitUntilVisibility("PortfolioImportCloseButton", 300);
+		CommonMethod.WaitUntilVisibility("PortfolioImportCloseButton", 30);
 		CommonMethod.click("PortfolioImportCloseButton");
 		
 	}
 	
 	public void PortfolioBuildScorecard () throws IOException, InterruptedException {
-		
-		CommonMethod.WaitUntilClickble("WellV2Tab", 60);
+		CommonMethod.WaitUntilVisibility("WellV2Tab", 60);
 		CommonMethod.click("WellV2Tab");
-		CommonMethod.WaitUntilClickble("WellV2ScorecardTab", 60);
 		CommonMethod.click("WellV2ScorecardTab");
-		CommonMethod.WaitUntilClickble("PortfolioScorecardBuildButton", 60);
-		CommonMethod.click("PortfolioScorecardBuildButton");
-		CommonMethod.WaitUntilClickble("PortfolioScorecardFinishedButton", 60);
-		CommonMethod.click("PortfolioScorecardFinishedButton");
-		Thread.sleep(2000);
-		CommonMethod.WaitUntilClickble("PortfolioScorecardPopupButton", 60);
-		CommonMethod.click("PortfolioScorecardPopupButton");
-		Thread.sleep(2000);
-		CommonMethod.WaitUntilClickble("PortfolioScorecardAnalyzeToggle", 60);
-		CommonMethod.click("PortfolioScorecardAnalyzeToggle");
-		
-		Thread.sleep(20000);
-		
+		if(CommonMethod.isElementsExist("PortfolioScorecardBuildButton", 30)) {
+			CommonMethod.click("PortfolioScorecardBuildButton");
+			CommonMethod.click("PortfolioScorecardFinishedButton");
+			CommonMethod.WaitUntilVisibility("PortfolioScorecardPopupButton", 60);
+			CommonMethod.click("PortfolioScorecardPopupButton");
+			CommonMethod.WaitUntilVisibility("PortfolioScorecardAnalyzeToggle", 60);
+			CommonMethod.click("PortfolioScorecardAnalyzeToggle");
+		}
+		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 300);		
 	}
-	public void clickScoreCard() throws IOException {
-		CommonMethod.WaitUntilClickble("WellV2Tab", 60);
-		CommonMethod.click("WellV2Tab");
-		CommonMethod.WaitUntilClickble("WellV2ScorecardTab", 60);
-		CommonMethod.click("WellV2ScorecardTab");
-		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 300);
-	}
+
 
 	public void UploadFileinFeature() throws IOException, InterruptedException {
-
+		CommonMethod.WaitUntilVisibility("ScoreCardMeetOrgFeature", 60);
 		CommonMethod.click("ScoreCardMeetOrgFeature");
-			Thread.sleep(1000);
-			CommonMethod.WaitUntilClickble("ScorecardFeatureVerificationTab", 60);
+			CommonMethod.WaitUntilVisibility("ScorecardFeatureVerificationTab", 60);
 			CommonMethod.click("ScorecardFeatureVerificationTab");
+			CommonMethod.WaitUntilVisibility("ScoreCardAddOptionbutton", 10);
 			CommonMethod.click("ScoreCardAddOptionbutton");
-			Thread.sleep(2000);
-			CommonMethod.click("ScoreCardAddButton");
-			Thread.sleep(2000);
-			CommonMethod.click("ScoreCardAddButton");
-			Thread.sleep(2000);
-			CommonMethod.click("ScoreCardVerificationCloseicon");
+			CommonMethod.WaitUntilVisibility("ScoreCardAddButton", 10);
+			CommonMethod.Robustclick("ScoreCardAddButton");
+			CommonMethod.WaitUntilVisibility("ScoreCardVerificationCloseicon", 10);
+			CommonMethod.Robustclick("ScoreCardVerificationCloseicon");
+			
 			for(int i=1;i<=2;i++) {
 				Thread.sleep(2000);
-			CommonMethod.click("ScoreCardVerificationAssignbtn");
-			CommonMethod.ClickCheckbox("ScoreCardVerificationAssignLocCbx");
-			Thread.sleep(2000);
-			CommonMethod.click("ScoreCardVerificationAssignLocSavebtn");
+				CommonMethod.WaitUntilVisibility("ScoreCardVerificationAssignbtn", 60);
+				CommonMethod.click("ScoreCardVerificationAssignbtn");
+				CommonMethod.WaitUntilClickble("ScoreCardVerificationAssignChildLocCbx", 30);
+				CommonMethod.Robustclick("ScoreCardVerificationAssignLocCbx","ScorecardValidDisable");
+				CommonMethod.WaitUntilVisibility("ScoreCardVerificationAssignLocSavebtn", 30);
+				CommonMethod.click("ScoreCardVerificationAssignLocSavebtn");
 			}
 			Thread.sleep(2000);
-			CommonMethod.scrollDown();
-			Thread.sleep(2000);
-			for(int i=1;i<=1;i++) {
-				CommonMethod.WaitUntilClickble("ScoreCardVerificationUploadbtn", 60);
+			CommonMethod.scrolldowntoLast();
+			for(int i=1;i<=2;i++) {
+				CommonMethod.WaitUntilVisibility("ScoreCardVerificationUploadbtn", 60);
 			CommonMethod.click("ScoreCardVerificationUploadbtn");
+			CommonMethod.scrolldowntoLast();
 			CommonMethod.uploadFile("ScoreCardVerificationUpload", PortfolioLocationImportfile);
 		CommonMethod.sendKeys("ScoreCardVerificationAddNote", "Meet Thresholds for Organic Gases");
-		Thread.sleep(2000);
-		//CommonMethod.click("ScoreCardVerificationUploadDocbtn");
-			Thread.sleep(20000);
+		CommonMethod.WaitUntilVisibility("ScoreCardVerificationUploadDocbtn", 30);
+		CommonMethod.Robustclick("ScoreCardVerificationUploadDocbtn");
 			}
+			CommonMethod.WaitUntilVisibility("ScorecardVerifyLoc", 30);
+			CommonMethod.scrolldowntoElement("ScoreCardPageLand");
+			CommonMethod.click("ScoreCardMeetOrgFeature");
 		}
 		
-	
-
-	public void UploadFileinAudit() throws IOException, InterruptedException {
-		CommonMethod.refreshBrowser();
-		CommonMethod.WaitUntilClickble("ScoreCardSupportOrgFeature", 60);
+	public void UploadFileinAudit() throws IOException, InterruptedException {	
+		CommonMethod.WaitUntilVisibility("ScoreCardSupportOrgFeature", 60);
 		CommonMethod.click("ScoreCardSupportOrgFeature");
-		Thread.sleep(1000);
-		CommonMethod.WaitUntilClickble("ScorecardFeatureVerificationTab", 60);
+		CommonMethod.WaitUntilVisibility("ScorecardFeatureVerificationTab", 60);
 		CommonMethod.click("ScorecardFeatureVerificationTab");
+		CommonMethod.WaitUntilVisibility("ScoreCardAddOptionbutton", 10);
 		CommonMethod.click("ScoreCardAddOptionbutton");
+		CommonMethod.WaitUntilVisibility("ScoreCardAddButton", 10);
+		CommonMethod.Robustclick("ScoreCardAddButton");
+		CommonMethod.WaitUntilVisibility("ScoreCardVerificationCloseicon", 10);
+		CommonMethod.Robustclick("ScoreCardVerificationCloseicon");
+			Thread.sleep(2000);
+			CommonMethod.WaitUntilVisibility("ScoreCardVerificationAssignbtn", 60);
+			CommonMethod.click("ScoreCardVerificationAssignbtn");
+			CommonMethod.WaitUntilClickble("ScoreCardVerificationAssignChildLocCbx", 30);
+			CommonMethod.Robustclick("ScoreCardVerificationAssignLocCbx","ScorecardValidDisable");
+			CommonMethod.WaitUntilVisibility("ScoreCardVerificationAssignLocSavebtn", 30);
+			CommonMethod.click("ScoreCardVerificationAssignLocSavebtn");
 		Thread.sleep(2000);
-		CommonMethod.click("ScoreCardAddButton");
-		Thread.sleep(3000);
-		CommonMethod.click("ScoreCardVerificationCloseicon");
-		Thread.sleep(2000);
-		CommonMethod.click("ScoreCardVerificationAssignbtn");
-		Thread.sleep(2000);
-		CommonMethod.ClickCheckbox("ScoreCardVerificationAssignLocCbx");
-		Thread.sleep(2000);
-		CommonMethod.click("ScoreCardVerificationAssignLocSavebtn");
-		Thread.sleep(2000);
-		CommonMethod.scrollDown();
-		Thread.sleep(2000);
-		CommonMethod.assertEqualsmessage("ScoreCardVerificationTaskLoc","0/2 Locations","Verified locations count");
+		CommonMethod.scrolldowntoLast();
+			CommonMethod.WaitUntilVisibility("ScoreCardVerificationUploadbtn", 60);
 		CommonMethod.click("ScoreCardVerificationUploadbtn");
-		Thread.sleep(2000);
-		CommonMethod.scrollDown();
-		Thread.sleep(2000);
+		CommonMethod.scrolldowntoLast();
 		CommonMethod.uploadFile("ScoreCardVerificationUpload", PortfolioLocationImportfile);
-		CommonMethod.sendKeys("ScoreCardVerificationAddNote", "Meet Thresholds for Organic Gases");
-		Thread.sleep(2000);
-	//	CommonMethod.click("ScoreCardVerificationUploadDocbtn");
+	CommonMethod.sendKeys("ScoreCardVerificationAddNote", "Meet Thresholds for Organic Gases");
+	CommonMethod.WaitUntilVisibility("ScoreCardVerificationUploadDocbtn", 30);
+	CommonMethod.Robustclick("ScoreCardVerificationUploadDocbtn");
+		CommonMethod.WaitUntilVisibility("ScorecardVerifyLoc", 30);
 
 	}
 	public void clickDocument() throws IOException
 {
-		CommonMethod.WaitUntilClickble("DocumentTab", 60);
+		CommonMethod.WaitUntilVisibility("WellV2Tab", 60);
+		CommonMethod.click("WellV2Tab");
+		CommonMethod.WaitUntilVisibility("WellV2DocLibraryTab", 60);
+		CommonMethod.click("WellV2DocLibraryTab");
 		
 }
 
 	public void ValidatingUploadFileCount() throws IOException, InterruptedException {
-		
-		CommonMethod.assertcontainsmessage("DocumentList", "10", "Verified Upload File Count");
+		CommonMethod.WaitUntilVisibility("V2ProjectDocumentTab", 30);
+		CommonMethod.click("V2ProjectDocumentTab");
+		CommonMethod.WaitUntilVisibility("DocumentList", 60);
+		CommonMethod.assertcontainsmessage("DocumentList", "3", "Verified Upload File Count");
 	}
 
 }
