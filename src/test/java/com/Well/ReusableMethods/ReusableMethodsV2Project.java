@@ -648,6 +648,8 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.ClickCheckbox("V2ProjectMembercbx");
 		CommonMethod.WaitUntilVisibility("V2ProjectInvitebtn", 300);
 		CommonMethod.click("V2ProjectInvitebtn");
+		Thread.sleep(2000);
+		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 300);
 		CommonMethod.click("V2ProjectDeleteIcon");
 		Thread.sleep(2000);
