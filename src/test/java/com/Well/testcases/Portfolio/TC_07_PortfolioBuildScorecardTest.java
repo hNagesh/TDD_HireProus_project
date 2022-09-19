@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class TC_07_PortfolioBuildScorecardTest extends BaseClass {
 
-	@Test
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_06_PortfolioLocationImportTest.TC_06_PortfolioLocationImport" })
 	@Parameters({ "SheetName","rowNum" })
 	public void TC_07_PortfolioBuildScorecard(String SheetName,int rowNum) throws IOException {
 

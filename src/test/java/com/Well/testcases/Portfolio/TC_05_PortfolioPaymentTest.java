@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class TC_05_PortfolioPaymentTest extends BaseClass {
 
-	@Test
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_04_SignAndSubscribePortfolioTest.TC_04_SignAndSubscribePortfolio" })
 	@Parameters({ "SheetName","rowNum" })
 	public void TC_05_PortfolioPayment(String SheetName,int rowNum) throws IOException {
 

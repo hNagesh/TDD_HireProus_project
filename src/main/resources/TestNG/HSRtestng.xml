@@ -4,7 +4,7 @@
 <suite name="WELLAutomation">
 
 <parameter name="browserName" value="chrome"/>
-<parameter name="environment" value="STG"/>
+<parameter name="environment" value="TEST"/>
 
 <test name="WELL-Tests" >
 <parameter name="SheetName" value="Hsr"/>
