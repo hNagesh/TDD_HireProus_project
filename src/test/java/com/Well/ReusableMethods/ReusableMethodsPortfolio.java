@@ -140,6 +140,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 	
 	public void PortfolioBuildScorecard () throws IOException, InterruptedException {
+		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("WellV2Tab", 60);
 		CommonMethod.click("WellV2Tab");
 		CommonMethod.click("WellV2ScorecardTab");
