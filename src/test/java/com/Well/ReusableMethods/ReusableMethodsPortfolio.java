@@ -157,6 +157,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		if (CommonMethod.isElementsExist("PortfolioScorecardFinishedButton", 60)) {
 			Thread.sleep(2000);
 			CommonMethod.click("PortfolioScorecardFinishedButton");
+			Thread.sleep(2000);
 			CommonMethod.WaitUntilVisibility("PortfolioScorecardPopupButton", 60);
 			CommonMethod.click("PortfolioScorecardPopupButton");
 		}
@@ -193,7 +194,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 			CommonMethod.scrolldowntoLast();
 			CommonMethod.uploadFile("ScoreCardVerificationUpload", PortfolioLocationImportfile);
 			CommonMethod.WaitUntilVisibility("ScoreCardVerificationUploadDocbtn", 30);
-			CommonMethod.Robustclick("ScoreCardVerificationUploadDocbtn");
+			CommonMethod.Robustclick("ScoreCardVerificationUploadDocbtn", "ScoreCardVerificationAddNote");
 		}
 		CommonMethod.WaitUntilVisibility("ScorecardVerifyLoc", 30);
 		CommonMethod.scrolldowntoElement("ScoreCardPageLand");
@@ -225,7 +226,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.scrolldowntoLast();
 		CommonMethod.uploadFile("ScoreCardVerificationUpload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilVisibility("ScoreCardVerificationUploadDocbtn", 30);
-		CommonMethod.Robustclick("ScoreCardVerificationUploadDocbtn");
+		CommonMethod.Robustclick("ScoreCardVerificationUploadDocbtn", "ScoreCardVerificationAddNote");
 	}
 
 	public void clickDocument() throws IOException {
