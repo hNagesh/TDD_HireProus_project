@@ -150,28 +150,29 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 
 	public void PortfolioBuildScorecard() throws IOException, InterruptedException {
+		Thread.sleep(2000);
 		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("WellV2Tab", 60);
 		CommonMethod.click("WellV2Tab");
 		CommonMethod.click("WellV2ScorecardTab");
-		if (CommonMethod.isElementsExist("PortfolioScorecardFinishedButton", 60)) {
+		if (CommonMethod.isElementsExist("PortfolioScorecardFinishedButton", 30)) {
 			Thread.sleep(2000);
 			CommonMethod.click("PortfolioScorecardFinishedButton");
 			Thread.sleep(2000);
-			CommonMethod.WaitUntilVisibility("PortfolioScorecardPopupButton", 60);
+			CommonMethod.WaitUntilVisibility("PortfolioScorecardPopupButton", 30);
 			CommonMethod.click("PortfolioScorecardPopupButton");
 		}
 		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 300);
 	}
 
-	public void UploadFileinFeature() throws IOException, InterruptedException {
-	List<WebElement> Feature = CommonMethod.findElements("ScoreCardFeatureClick");
+	public void UploadFileinFeature(String FeatureName) throws IOException, InterruptedException {
+	List<WebElement> Feature = CommonMethod.findElements("ScoreCardFeature");
 	testlog.info("Fetching total no. of credits on page");
 	for (WebElement ele : Feature) {
 		  String Creditname = ele.getText(); 
-		  System.out.println(Creditname);
+		  //System.out.println(Creditname);
 		  Creditname = Creditname.replaceAll("\\.",""); 
-		  if (Creditname.equalsIgnoreCase("Meet Thresholds for Organic Gases")) {
+		  if (Creditname.equalsIgnoreCase(FeatureName)) {
 	CommonMethod.scrolldowntoElement("WPRScorecardLanding");
 	
 		CommonMethod.click(ele);
@@ -183,37 +184,38 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.Robustclick("ScoreCardAddButton");
 		CommonMethod.WaitUntilVisibility("ScoreCardVerificationCloseicon", 10);
 		CommonMethod.Robustclick("ScoreCardVerificationCloseicon");
-		for (int i = 1; i <= 2; i++) {
-			Thread.sleep(2000);
-			CommonMethod.WaitUntilVisibility("ScoreCardVerificationAssignbtn", 60);
-			CommonMethod.click("ScoreCardVerificationAssignbtn");
-			CommonMethod.WaitUntilClickble("ScoreCardVerificationAssignChildLocCbx", 30);
+		List<WebElement> AssignButton;
+		AssignButton = CommonMethod.findElements("ScoreCardVerificationAssignbtn");
+		for (WebElement f : AssignButton) {
+			CommonMethod.WaitUntilClickble(f, 30).click();
+		    CommonMethod.WaitUntilClickble("ScoreCardVerificationAssignChildLocCbx", 30);
 			CommonMethod.Robustclick("ScoreCardVerificationAssignLocCbx", "ScorecardValidDisable");
 			CommonMethod.WaitUntilVisibility("ScoreCardVerificationAssignLocSavebtn", 30);
-			CommonMethod.click("ScoreCardVerificationAssignLocSavebtn");
+			CommonMethod.Robustclick("ScoreCardVerificationAssignLocSavebtn","ScoreCardVerificationAssignLocCancelbtn");
 		}
 		Thread.sleep(2000);
 		CommonMethod.scrollDown();
 		List<WebElement> UploadTaskbtn;
 		UploadTaskbtn = CommonMethod.findElements("ScoreCardVerificationUploadbtn");
-		UploadTaskbtn = UploadTaskbtn.subList(0, 2);
 		for (WebElement f : UploadTaskbtn) {
-			CommonMethod.click(f);
-			CommonMethod.scrolldowntoLast();
+			CommonMethod.WaitUntilClickble(f, 30).click();
+			System.out.println("Clicking");
 			CommonMethod.uploadFile("ScoreCardVerificationUpload", PortfolioLocationImportfile);
 			CommonMethod.WaitUntilVisibility("ScoreCardVerificationUploadDocbtn", 30);
-			CommonMethod.Robustclick("ScoreCardVerificationUploadDocbtn", "ScoreCardVerificationAddNote");
-			CommonMethod.WaitUntilVisibility("ScorecardDocumentAddedPopup", 30);
+			CommonMethod.Robustclick("ScoreCardVerificationUploadDocbtn","ScoreCardVerificationAddNote");
+			if(CommonMethod.isElementsExist("ScorecardDocumentAddedPopup", 3)) {
 			CommonMethod.WaitUntilInVisibility("ScorecardDocumentAddedPopup", 30);
+			}
 		}
 		CommonMethod.WaitUntilVisibility("ScorecardVerifyLoc", 30);
 		CommonMethod.scrolldowntoElement("ScoreCardPageLand");
-		CommonMethod.click("ScoreCardMeetOrgFeature");
+		CommonMethod.click(ele);
 	}
 	}
 }
 
 	public void UploadFileinAudit() throws IOException, InterruptedException {
+		//Support Mindful Eating
 		CommonMethod.WaitUntilVisibility("ScoreCardSupportOrgFeature", 60);
 		CommonMethod.click("ScoreCardSupportOrgFeature");
 		CommonMethod.WaitUntilVisibility("ScorecardFeatureVerificationTab", 60);

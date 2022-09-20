@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class TC_09_UploadFileInAuditTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_08_UploadFileInFeatureTest.TC_08_UploadFileInFeature" })
+	@Test//(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_08_UploadFileInFeatureTest.TC_08_UploadFileInFeature" })
 	@Parameters({ "SheetName","rowNum" })
 	public void TC_09_uploadFileInAudit() throws IOException {
 
@@ -19,7 +19,7 @@ public class TC_09_UploadFileInAuditTest extends BaseClass {
 
 		try {
 
-			portfolio.UploadFileinAudit();
+			portfolio.UploadFileinFeature("Support Mindful Eating");
 
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
