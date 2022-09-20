@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class TC_08_UploadFileInFeatureTest extends BaseClass {
 
-	@Test//(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_07_PortfolioBuildScorecardTest.TC_07_PortfolioBuildScorecard" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_07_PortfolioBuildScorecardTest.TC_07_PortfolioBuildScorecard" })
 	@Parameters({ "SheetName","rowNum" })
 	public void TC_08_UploadFileInFeature() throws IOException {
 
