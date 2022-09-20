@@ -1,6 +1,9 @@
 package com.Well.ReusableMethods;
 
 import java.io.IOException;
+import java.util.List;
+
+import org.openqa.selenium.WebElement;
 
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
@@ -155,6 +158,43 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 300);		
 	}
 
+	public void uploadDocumentInFeature() throws IOException, InterruptedException {
+		List<WebElement> Feature = CommonMethod.findElements("ScoreCardFeatureClick");
+		testlog.info("Fetching total no. of credits on page");
+		for (WebElement ele : Feature) {
+			  String Creditname = ele.getText(); 
+			  System.out.println(Creditname);
+			  Creditname = Creditname.replaceAll("\\.",""); 
+			  if (Creditname.equalsIgnoreCase("Meet Thresholds for Organic Gases")) {
+		CommonMethod.scrolldowntoElement("WPRScorecardLanding");
+			  CommonMethod.click(ele);
+			  CommonMethod.WaitUntilVisibility("WPRVerficationTab", 60);
+				CommonMethod.click("WPRVerficationTab");
+				CommonMethod.WaitUntilVisibility("WPRAddOption", 60);
+				CommonMethod.click("WPRAddOption");
+				CommonMethod.WaitUntilVisibility("WPRAddOptionbtn", 60);
+				CommonMethod.Robustclick("WPRAddOptionbtn");
+				CommonMethod.WaitUntilVisibility("WPRAddOptionCloseIcon", 60);
+				CommonMethod.Robustclick("WPRAddOptionCloseIcon");
+				CommonMethod.WaitUntilVisibility("WPRAssignLocbtn", 30);
+				Thread.sleep(1000);
+				CommonMethod.click("WPRAssignLocbtn");
+				CommonMethod.WaitUntilClickble("WPRAssignLocFirstChildCbx", 60);
+				CommonMethod.Robustclick("WPRAssignLocCbx","WPRAssignDisabledbtn");
+				CommonMethod.WaitUntilVisibility("WPRAssignSavebtn", 30);
+				CommonMethod.click("WPRAssignSavebtn");
+				CommonMethod.WaitUntilVisibility("WPRUploadDocTaskbtn", 60);
+				CommonMethod.click("WPRUploadDocTaskbtn");
+				CommonMethod.scrolldowntoLast();
+				CommonMethod.uploadFile("WPRDocUpload", PortfolioLocationImportfile);
+				Thread.sleep(2000);
+				CommonMethod.Robustclick("WPRUploadDocTaskSavebtn");
+				CommonMethod.scrolldowntoElement("WPRScorecardLanding");
+            
+		  
+			  }
+		  }
+	}
 
 	public void UploadFileinFeature() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ScoreCardMeetOrgFeature", 60);
