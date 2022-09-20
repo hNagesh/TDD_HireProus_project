@@ -126,7 +126,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		Feature = Feature.subList(0, LastFeatureNumber);
 		CommonMethod.scrolldowntoElement("HsrScorecard");
 		  for (WebElement f:Feature) {
-			  CommonMethod.click(f);
+			  CommonMethod.WaitUntilClickble(f, 30).click();
 			  CommonMethod.WaitUntilVisibility("V2ProjectWPRPDocIcon", 60);
 				CommonMethod.click("V2ProjectWPRPDocIcon");
 				CommonMethod.WaitUntilVisibility("HsrSelectTypeDoc", 60);
@@ -137,7 +137,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 				}
 				if(CommonMethod.isElementsExist("HsrSelectLoc",3)) {
 					CommonMethod.WaitUntilClickble("HsrSelectLoc", 10);
-					CommonMethod.selectdropdownIndex("HsrSelectLoc", 1);
+					CommonMethod.selectdropdownIndex("HsrSelectLoc", 2);
 				}
 				CommonMethod.WaitUntilVisibility("V2ProjectWPRVerificationMethod", 60);
 				CommonMethod.selectdropdownIndex("V2ProjectWPRVerificationMethod", 1);

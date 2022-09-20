@@ -125,8 +125,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.switchToParentFrame();
 		Thread.sleep(2000);
 		CommonMethod.switchToFrame("CardExpDateIframe");
-		CommonMethod.WaitUntilClickble("CardHolderExpDate", 60);
-		CommonMethod.sendKeys("CardHolderExpDate", "1231");
+		CommonMethod.WaitUntilClickble("CardHolderExpDate", 60).sendKeys("0925");
 		CommonMethod.switchToParentFrame();
 		Thread.sleep(2000);
 		CommonMethod.switchToFrame("CardCVVIframe");
