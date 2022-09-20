@@ -12,7 +12,7 @@ public class TC_05_BulkDeleteTest extends BaseClass {
 	@SuppressWarnings("static-access")
 	@Test//(dependsOnMethods = { "com.Well.testcases.Faculty.TC_04_SubmitReviewTest.tc_04_SubmitReviewTest" })
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_03_DeleteFacultyByOrgIdTest(String SheetName,int rowNum) throws IOException {
+	public void TC_05_BulkDelete(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName);
