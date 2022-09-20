@@ -132,9 +132,11 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 				CommonMethod.WaitUntilVisibility("HsrSelectTypeDoc", 60);
 				CommonMethod.selectdropdownIndex("HsrSelectTypeDoc", 1);
 				if(CommonMethod.isElementsExist("HsrLocationrtn",3)) {
+					CommonMethod.WaitUntilClickble("HsrLocationrtn", 10);
 					CommonMethod.ClickCheckbox("HsrLocationrtn");
 				}
 				if(CommonMethod.isElementsExist("HsrSelectLoc",3)) {
+					CommonMethod.WaitUntilClickble("HsrSelectLoc", 10);
 					CommonMethod.selectdropdownIndex("HsrSelectLoc", 1);
 				}
 				CommonMethod.WaitUntilVisibility("V2ProjectWPRVerificationMethod", 60);
