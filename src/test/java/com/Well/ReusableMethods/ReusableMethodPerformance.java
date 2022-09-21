@@ -64,7 +64,7 @@ public class ReusableMethodPerformance extends BaseClass {
 	   CommonMethod.WaitUntilVisibility("BillingLanding", 60);
 	}
 	public void StoreIdPerformance(String SheetName,int rowNum) throws IOException, InterruptedException {
-		 CommonMethod.WaitUntilVisibility("WPRDashboard", 60);
+		 CommonMethod.WaitUntilVisibility("WPRDashboard", 5);
 		CommonMethod.WaitUntilVisibility("StoreId", 30);
 		String getId =CommonMethod.getText("StoreId"); 
     String[] stringArray = getId.split(": ");
