@@ -64,7 +64,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectIdCompare");
-		CommonMethod.WaitUntilVisibility("WPRDashboard", 300);
+		CommonMethod.WaitUntilVisibility("EnrollTab", 300);
 	}
 
 	public void EnrollV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
