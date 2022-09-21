@@ -422,7 +422,7 @@ public class CommonMethod extends BaseClass {
 
 	}
 
-	public static void refreshBrowser() throws IOException {
+	public static void refreshBrowser(){
 
 		driver.navigate().refresh();
 

@@ -20,7 +20,8 @@ public class TC_02_RegisterPortfolioTest extends BaseClass {
 		try {
         portfolio.RegisterPortfolio();
 			
-		} catch (Throwable t) {
+		} 
+		catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
 			e1.setStackTrace(t.getStackTrace());

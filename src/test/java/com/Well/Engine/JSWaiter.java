@@ -8,7 +8,7 @@ import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class JSWaiter {
+public class JSWaiter extends BaseClass {
 
     private static WebDriver jsWaitDriver;
     private static WebDriverWait jsWait;
@@ -105,6 +105,17 @@ public class JSWaiter {
         } catch (WebDriverException ignored) {
         }
     }
+    
+    public static void waitUntilLayer0Error(WebDriver driver) {
+        try {
+           if(driver.getPageSource().contains("Layer0")) {
+        	 System.out.println("layer 0");
+        	 CommonMethod.refreshBrowser(); 
+            }
+        } catch (WebDriverException ignored) {
+        	
+        }
+    }
 
     private static void waitForAngular5Load() {
         String angularReadyScript = "return window.getAllAngularTestabilities().findIndex(x=>!x.isStable()) === -1";
@@ -126,6 +137,7 @@ public class JSWaiter {
     }
 
     public static void waitAllRequest() {
+    	waitUntilLayer0Error(driver);
         waitUntilJSReady();
         ajaxComplete();
         waitUntilJQueryReady();
