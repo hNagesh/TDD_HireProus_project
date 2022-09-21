@@ -1673,7 +1673,7 @@ public class CommonMethod extends BaseClass {
 
 
 	public static WebElement WaitUntilPresence(String objectlocator, int TimeinSeconds) throws IOException {
-
+		JSWaiter.waitAllRequest();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeinSeconds));
 		Properties OR = new Properties();
 		FileInputStream fp = new FileInputStream(
@@ -1734,7 +1734,7 @@ public class CommonMethod extends BaseClass {
 
 	/***** Added on Nov 27 11.30 AM *****/
 	public static Boolean WaitUntilInVisibility(String objectlocator, int TimeinSeconds) throws IOException {
-
+		JSWaiter.waitAllRequest();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeinSeconds));
 		Properties OR = new Properties();
 		FileInputStream fp = new FileInputStream(
@@ -1786,7 +1786,7 @@ public class CommonMethod extends BaseClass {
 	}
 
 	public static WebElement WaitUntilVisibility(String objectlocator, int TimeinSeconds) throws IOException {
-
+		JSWaiter.waitAllRequest();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeinSeconds));
 		Properties OR = new Properties();
 		FileInputStream fp = new FileInputStream(
@@ -1839,7 +1839,7 @@ public class CommonMethod extends BaseClass {
 	}
 
 	public static WebElement WaitUntilClickble(String objectlocator, int TimeinSeconds) throws IOException {
-        
+		JSWaiter.waitAllRequest();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeinSeconds));
 		Properties OR = new Properties();
 		FileInputStream fp = new FileInputStream(
@@ -1894,7 +1894,7 @@ public class CommonMethod extends BaseClass {
 	
 	
 	public static WebElement WaitUntilClickble(WebElement objectlocator, int TimeinSeconds) throws IOException {
-
+		JSWaiter.waitAllRequest();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeinSeconds));
 		
 			return (wait.until(ExpectedConditions.elementToBeClickable(objectlocator)));
