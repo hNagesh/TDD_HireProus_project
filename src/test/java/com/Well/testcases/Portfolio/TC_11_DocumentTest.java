@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class TC_03_SearchPortfolioByNameTest extends BaseClass {
+public class TC_11_DocumentTest extends BaseClass {
 
-	@Test//(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_02_RegisterPortfolioTest.TC_02_RegisterPortfolio" })
+	@Test//(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_09_UploadFileInAuditTest.TC_09_UploadFileInAudit" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_03_SearchPortfolioByName(String SheetName,int rowNum) throws IOException {
+	public void TC_11_Document() throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
@@ -19,8 +19,9 @@ public class TC_03_SearchPortfolioByNameTest extends BaseClass {
 
 		try {
 
-			portfolio.SearchPortfolioByName(SheetName,rowNum);
-			
+			portfolio.clickDocument();
+			portfolio.ValidatingUploadDocument();
+
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

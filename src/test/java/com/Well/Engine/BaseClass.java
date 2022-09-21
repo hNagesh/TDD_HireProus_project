@@ -23,7 +23,6 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
-
 import com.Well.ReusableMethods.ReusableMethodPerformance;
 import com.Well.ReusableMethods.ReusableMethodsExam;
 import com.Well.ReusableMethods.ReusableMethodsFaculty;
@@ -31,7 +30,6 @@ import com.Well.ReusableMethods.ReusableMethodsHealthSafety;
 import com.Well.ReusableMethods.ReusableMethodsLogin;
 import com.Well.ReusableMethods.ReusableMethodsMembership;
 import com.Well.ReusableMethods.ReusableMethodsPortfolio;
-import com.Well.ReusableMethods.ReusableMethodsScorecard;
 import com.Well.ReusableMethods.ReusableMethodsV2Project;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -41,7 +39,6 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.github.javafaker.Faker;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
@@ -72,7 +69,6 @@ public class BaseClass {
 	public static ReusableMethodPerformance performance = new ReusableMethodPerformance();
 	public static ReusableMethodsFaculty faculty = new ReusableMethodsFaculty();
 	public static ReusableMethodsExam exam = new ReusableMethodsExam();
-	public static ReusableMethodsScorecard scorecard = new ReusableMethodsScorecard();
 	public static ReusableMethodsMembership membership = new ReusableMethodsMembership();
 	@BeforeSuite
 	@Parameters({ "browserName", "environment" })

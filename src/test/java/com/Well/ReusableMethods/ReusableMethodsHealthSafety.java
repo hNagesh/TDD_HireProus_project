@@ -29,7 +29,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	   CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
 	   CommonMethod.click("SelectOwnerOrg");
 	   CommonMethod.selectdropdownrandom("HsrorgIndustry");
-	   data.setCellData("Hsr", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
+	   data.setCellData("Hsr", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("HsrorgIndustry"));
 	   CommonMethod.selectdropdown("Hsrenrollcountry",  data.getCellData(SheetName, "country", rowNum));
 	   CommonMethod.selectdropdown("Hsrenrollstate", data.getCellData(SheetName, "state", rowNum));
        String ProjectAddress = USfaker.address().streetAddress();
@@ -134,11 +134,12 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 				if(CommonMethod.isElementsExist("HsrLocationrtn",3)) {
 					CommonMethod.ClickCheckbox("HsrLocationrtn");
 				}
+				CommonMethod.WaitUntilVisibility("V2ProjectWPRVerificationMethod", 60);
+				CommonMethod.selectdropdownIndex("V2ProjectWPRVerificationMethod", 1);
+				CommonMethod.scrolldowntoElement("V2ProjectWPRVerificationMethod");
 				if(CommonMethod.isElementsExist("HsrSelectLoc",3)) {
 					CommonMethod.selectdropdownIndex("HsrSelectLoc", 1);
 				}
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRVerificationMethod", 60);
-				CommonMethod.selectdropdownIndex("V2ProjectWPRVerificationMethod", 1);
 				CommonMethod.uploadFile("V2ProjectDocUpload", PortfolioLocationImportfile);
 				Thread.sleep(2000);
 				CommonMethod.Robustclick("HsrUploadDocFeature");

@@ -7,20 +7,18 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class TC_10_DocumentTest extends BaseClass {
+public class TC_12_ReviewTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_09_UploadFileInAuditTest.TC_09_UploadFileInAudit" })
+	@Test//(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_09_UploadFileInAuditTest.TC_09_UploadFileInAudit" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_09_uploadFileInAudit() throws IOException {
+	public void TC_12_Review() throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
 
 		try {
-
-			portfolio.clickDocument();
-			portfolio.ValidatingUploadFileCount();
+			portfolio.ReviewDocument();
 
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

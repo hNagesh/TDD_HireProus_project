@@ -7,19 +7,18 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class TC_03_SearchPortfolioByNameTest extends BaseClass {
+public class TC_10_UpdateUploadFileInAddedFeatureTest extends BaseClass {
 
-	@Test//(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_02_RegisterPortfolioTest.TC_02_RegisterPortfolio" })
+	@Test//(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_07_PortfolioBuildScorecardTest.TC_07_PortfolioBuildScorecard" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_03_SearchPortfolioByName(String SheetName,int rowNum) throws IOException {
+	public void TC_10_UpdateUploadFileInAddedFeature() throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
 
 		try {
-
-			portfolio.SearchPortfolioByName(SheetName,rowNum);
+			portfolio.UpdateUploadFileinAddedFeature("Meet Thresholds for Organic Gases");
 			
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

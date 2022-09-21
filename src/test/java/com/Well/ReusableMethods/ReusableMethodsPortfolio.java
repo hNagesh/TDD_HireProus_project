@@ -14,40 +14,39 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.click("WellAtScaleNavBar");
-		CommonMethod.WaitUntilVisibility("CreateAccountButton", 60);
-		CommonMethod.click("CreateAccountButton");
+		CommonMethod.WaitUntilVisibility("PortfolioCreateAccountButton", 60);
+		CommonMethod.click("PortfolioCreateAccountButton");
 		String AccountName = "Automation portfolio " + CommonMethod.randomNumber(8000000);
-		CommonMethod.WaitUntilVisibility("AccountName", 30);
-		CommonMethod.sendKeys("AccountName", AccountName);
+		CommonMethod.WaitUntilVisibility("PortfolioAccountName", 30);
+		CommonMethod.sendKeys("PortfolioAccountName", AccountName);
 		data.setCellData("Portfolio", "AccountName", 2, AccountName);
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
 		CommonMethod.click("OwnerOrgClick");
 		CommonMethod.sendKeys("OwnerOrg", "R");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
 		CommonMethod.click("SelectOwnerOrg");
-		CommonMethod.selectdropdownrandom("OrgIndustry");
-		data.setCellData("Portfolio", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
-		CommonMethod.click("NotSureRadio");
-		CommonMethod.sendKeys("NumberOfLocation", "15");
-		CommonMethod.sendKeys("EstimatedNumberOfLocation", "10");
-		CommonMethod.sendKeys("GrossAreaSQFT", "15000");
-		CommonMethod.scrolldowntoElement("PrimarlyLocated");
-		CommonMethod.click("PrimarlyLocated");
+		CommonMethod.selectdropdownrandom("PortfolioOrgIndustry");
+		data.setCellData("Portfolio", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("PortfolioOrgIndustry"));
+		CommonMethod.click("PortfolioNotSureRadio");
+		CommonMethod.sendKeys("PortfolioNumberOfLocation", "15");
+		CommonMethod.sendKeys("PortfolioEstimatedNumberOfLocation", "10");
+		CommonMethod.sendKeys("PortfolioGrossAreaSQFT", "15000");
+		CommonMethod.scrolldowntoElement("PortfolioPrimarlyLocated");
+		CommonMethod.click("PortfolioPrimarlyLocated");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
 		CommonMethod.click("SelectOwnerOrg");
-		CommonMethod.click("SpaceType");
-		CommonMethod.WaitUntilClickble("SelectSpaceType", 10);
-		CommonMethod.click("SelectSpaceType");
-		CommonMethod.selectdropdown("OwnerCountry", "United States");
-		CommonMethod.WaitUntilVisibility("OwnerState", 10);
-		CommonMethod.selectdropdownrandom("OwnerState");
+		CommonMethod.click("PortfolioSpaceType");
+		CommonMethod.click("PortfolioSelectSpaceType");
+		CommonMethod.selectdropdown("PortfolioOwnerCountry", "United States");
+		CommonMethod.WaitUntilVisibility("PortfolioOwnerState", 10);
+		CommonMethod.selectdropdownrandom("PortfolioOwnerState");
 		String ProjectAddress1 = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
 		String PostalCode = USfaker.address().zipCode();
-		CommonMethod.sendKeys("OwnerStreetAddress", ProjectAddress1);
-		CommonMethod.sendKeys("OwnerCity", ProjectCity);
-		CommonMethod.sendKeys("OwnerPostalCode", PostalCode);
-		CommonMethod.click("CreateAccountSubmit");
+		CommonMethod.sendKeys("PortfolioOwnerStreetAddress", ProjectAddress1);
+		CommonMethod.sendKeys("PortfolioOwnerCity", ProjectCity);
+		CommonMethod.sendKeys("PortfolioOwnerPostalCode", PostalCode);
+		CommonMethod.click("PortfolioCreateAccountSubmit");
 		CommonMethod.WaitUntilVisibility("StoreId", 60);
 	}
 
@@ -55,17 +54,17 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.click("WellAtScaleNavBar");
-		CommonMethod.WaitUntilClickble("SearchPortfolioByName", 60)
+		CommonMethod.WaitUntilClickble("PortfolioSearchByName", 60)
 				.sendKeys(data.getCellData(SheetName, "AccountName", rowNum));
-		CommonMethod.click("SearchPortfolioApplyFilter");
+		CommonMethod.click("PortfolioSearchApplyFilter");
 		Thread.sleep(2000);
-		CommonMethod.click("ClickSearchResultPortfolio");
+		CommonMethod.click("PortfolioClickSearchResult");
 
 	}
 
 	public void SignAgreementPortfolio() throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("ClickPortfolioSignNow", 60);
-		CommonMethod.Robustclick("ClickPortfolioSignNow");
+		CommonMethod.WaitUntilVisibility("PortfolioClickSignNow", 60);
+		CommonMethod.Robustclick("PortfolioClickSignNow");
 	}
 
 	public void SubscribePortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -79,7 +78,6 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.sendKeys("PortfolioOwnerName", OwnerName);
 		CommonMethod.sendKeys("PortfolioOwnerEmail", OwnerEmail);
 		CommonMethod.sendKeys("PortfolioOwnerPhone", OwnerPhone);
-		// CommonMethod.click("PortfolioNoConsultantCheckbox");
 		CommonMethod.scrolldowntoElement("PortfolioSubcribeContinueButton");
 		CommonMethod.click("PortfolioSubcribeContinueButton");
 		CommonMethod.ClickCheckbox("PortfolioQuestionRadio");
@@ -170,11 +168,9 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	testlog.info("Fetching total no. of credits on page");
 	for (WebElement ele : Feature) {
 		  String Creditname = ele.getText(); 
-		  //System.out.println(Creditname);
 		  Creditname = Creditname.replaceAll("\\.",""); 
 		  if (Creditname.equalsIgnoreCase(FeatureName)) {
 	CommonMethod.scrolldowntoElement("WPRScorecardLanding");
-	
 		CommonMethod.click(ele);
 		CommonMethod.WaitUntilVisibility("ScorecardFeatureVerificationTab", 60);
 		CommonMethod.click("ScorecardFeatureVerificationTab");
@@ -199,7 +195,6 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		UploadTaskbtn = CommonMethod.findElements("ScoreCardVerificationUploadbtn");
 		for (WebElement f : UploadTaskbtn) {
 			CommonMethod.WaitUntilClickble(f, 30).click();
-			System.out.println("Clicking");
 			CommonMethod.uploadFile("ScoreCardVerificationUpload", PortfolioLocationImportfile);
 			CommonMethod.WaitUntilVisibility("ScoreCardVerificationUploadDocbtn", 30);
 			CommonMethod.Robustclick("ScoreCardVerificationUploadDocbtn","ScoreCardVerificationAddNote");
@@ -215,7 +210,6 @@ public class ReusableMethodsPortfolio extends BaseClass {
 }
 
 	public void UploadFileinAudit() throws IOException, InterruptedException {
-		//Support Mindful Eating
 		CommonMethod.WaitUntilVisibility("ScoreCardSupportOrgFeature", 60);
 		CommonMethod.click("ScoreCardSupportOrgFeature");
 		CommonMethod.WaitUntilVisibility("ScorecardFeatureVerificationTab", 60);
@@ -242,19 +236,60 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("ScoreCardVerificationUploadDocbtn", 30);
 		CommonMethod.Robustclick("ScoreCardVerificationUploadDocbtn", "ScoreCardVerificationAddNote");
 	}
-
-	public void clickDocument() throws IOException {
+	public void UpdateUploadFileinAddedFeature(String FeatureName) throws IOException, InterruptedException {
+		List<WebElement> Feature = CommonMethod.findElements("ScoreCardFeature");
+		testlog.info("Fetching total no. of credits on page");
+		for (WebElement ele : Feature) {
+			  String Creditname = ele.getText(); 
+			  Creditname = Creditname.replaceAll("\\.",""); 
+			  if (Creditname.equalsIgnoreCase(FeatureName)) {
+		CommonMethod.scrolldowntoElement("WPRScorecardLanding");
+			CommonMethod.click(ele);
+			CommonMethod.WaitUntilVisibility("ScorecardFeatureVerificationTab", 60);
+			CommonMethod.click("ScorecardFeatureVerificationTab");
+			  }
+		}
+			CommonMethod.scrollDown();
+			CommonMethod.WaitUntilVisibility("PortfolioDocListEditIcon", 60);
+			CommonMethod.click("PortfolioDocListEditIcon");
+			CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadAddfeature", 30);
+			CommonMethod.click("PortfolioScoreCardVerificationUploadAddfeature");
+			CommonMethod.selectdropdownIndex("PortfolioScoreCardVerificationSelectFeature", 1);
+			CommonMethod.selectdropdownIndex("PortfolioScoreCardVerificationSelectSpaceType", 1);
+			CommonMethod.selectdropdownIndex("PortfolioScoreCardVerificationSelectOption", 1);
+			CommonMethod.click("PortfolioScoreCardVerificationAddPart");
+			CommonMethod.WaitUntilVisibility("PortfolioScorecardEditLoc", 60);
+			CommonMethod.click("PortfolioScorecardEditLoc");
+			CommonMethod.click("ScoreCardVerificationAssignChildLocCbx");
+			CommonMethod.click("PortfolioScorecardUncheckLoc");
+			CommonMethod.WaitUntilVisibility("ScoreCardVerificationAssignLocSavebtn", 30);
+			CommonMethod.Robustclick("ScoreCardVerificationAssignLocSavebtn","ScoreCardVerificationAssignLocCancelbtn");
+				CommonMethod.WaitUntilVisibility("ScoreCardVerificationUploadDocbtn", 30);
+				CommonMethod.Robustclick("ScoreCardVerificationUploadDocbtn","ScoreCardVerificationAddNote");
+				if(CommonMethod.isElementsExist("ScorecardDocumentAddedPopup", 3)) {
+				CommonMethod.WaitUntilInVisibility("ScorecardDocumentAddedPopup", 30);
+				}	
+	}
+	public void clickDocument() throws IOException, InterruptedException {
+		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("WellV2Tab", 60);
 		CommonMethod.click("WellV2Tab");
 		CommonMethod.WaitUntilVisibility("WellV2DocLibraryTab", 60);
 		CommonMethod.click("WellV2DocLibraryTab");
 	}
 
-	public void ValidatingUploadFileCount() throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("V2ProjectDocumentTab", 30);
-		CommonMethod.click("V2ProjectDocumentTab");
-		CommonMethod.WaitUntilVisibility("DocumentList", 60);
-		CommonMethod.assertcontainsmessage("DocumentList", "3", "Verified Upload File Count");
+	public void ValidatingUploadDocument() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadbutton", 30);
+		CommonMethod.click("PortfolioDocumentUploadbutton");
+		CommonMethod.selectdropdownIndex("V2ProjectDocType", 1);
+		CommonMethod.selectdropdownIndex("PortfolioSelectdocumenttype", 1);
+		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadSubmitbutton", 60);
+		CommonMethod.click("PortfolioDocumentUploadSubmitbutton");
+		CommonMethod.WaitUntilClickble("PortfolioDocumentListTab", 30).click();
+		CommonMethod.WaitUntilVisibility("PortfolioDocumentList", 60);
+		CommonMethod.assertcontainsmessage("PortfolioDocumentList", "3", "Verified Upload File Count");
 	}
-
+	public void ReviewDocument() throws IOException, InterruptedException {
+	}
+	
 }
