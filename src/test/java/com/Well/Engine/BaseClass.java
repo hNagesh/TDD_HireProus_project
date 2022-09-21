@@ -135,12 +135,13 @@ public class BaseClass {
 		}
 		else if(environment.equalsIgnoreCase("STG")){
 			driver.get(stgurl);
-
 			
 		}
 		else if(environment.equalsIgnoreCase("TEST")){
+			do {
 			driver.get(testurl);
-
+			CommonMethod.waitForPageLoaded();
+			}while(driver.getPageSource().contains("Project Error"));
 			
 		}
 		
