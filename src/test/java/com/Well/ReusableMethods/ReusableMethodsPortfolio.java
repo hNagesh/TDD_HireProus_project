@@ -70,7 +70,6 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	public void SubscribePortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("SubscribeTab", 30);
 		CommonMethod.click("SubscribeTab");
-		CommonMethod.waitForPageLoaded();
 		CommonMethod.scrolldowntoElement("PortfolioOwnerName");
 		String OwnerName = USfaker.address().firstName();
 		String OwnerEmail = USfaker.internet().emailAddress();

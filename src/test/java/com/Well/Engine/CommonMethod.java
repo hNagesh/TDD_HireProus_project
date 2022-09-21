@@ -177,7 +177,7 @@ public class CommonMethod extends BaseClass {
 
 
 	public static WebElement findElement(final String objectLocater) throws IOException {
-
+		JSWaiter.waitAllRequest();
 		Properties OR = new Properties();
 		FileInputStream fp = new FileInputStream(
 				System.getProperty("user.dir") + "/src/main/resources/ObjectLocator.properties");
@@ -226,6 +226,7 @@ public class CommonMethod extends BaseClass {
 	}
 
 	public static List<WebElement> findElements(String objectLocater) throws IOException {
+		JSWaiter.waitAllRequest();
 		Properties OR = new Properties();
 		FileInputStream fp = new FileInputStream(
 				System.getProperty("user.dir") + "/src/main/resources/ObjectLocator.properties");
@@ -275,7 +276,7 @@ public class CommonMethod extends BaseClass {
 
 	public static List<WebElement> findElementsCustom(String objectLocater) throws IOException {
 
-		waitForPageLoaded();
+		JSWaiter.waitAllRequest();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		Properties OR = new Properties();
 		FileInputStream fp = new FileInputStream(
@@ -1656,22 +1657,20 @@ public class CommonMethod extends BaseClass {
 		return fetchedID;
 	}
 
-	public static void waitForPageLoaded() throws IOException {
-		ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
-			public Boolean apply(WebDriver driver) {
-				return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString()
-						.equals("complete");
-			}
-		};
-		try {
-			Thread.sleep(1000);
-			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(180));
-			wait.until(expectation);
-		} catch (Exception e) {
-			System.out.println("Timeout waiting for Page Load Request to complete.");
-			refreshBrowser();
-		}
-	}
+	/*
+	 * public static void waitForPageLoaded(int timeout) throws IOException {
+	 * ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
+	 * public Boolean apply(WebDriver driver) { return ((JavascriptExecutor)
+	 * driver).executeScript("return document.readyState").toString()
+	 * .equals("complete"); } }; try { Thread.sleep(1000); WebDriverWait wait = new
+	 * WebDriverWait(driver, Duration.ofSeconds(timeout)); wait.until(expectation);
+	 * } catch (Exception e) {
+	 * System.out.println("Timeout waiting for Page Load Request to complete.");
+	 * refreshBrowser(); } }
+	 */
+	
+	
+
 
 	public static WebElement WaitUntilPresence(String objectlocator, int TimeinSeconds) throws IOException {
 
@@ -1840,7 +1839,7 @@ public class CommonMethod extends BaseClass {
 	}
 
 	public static WebElement WaitUntilClickble(String objectlocator, int TimeinSeconds) throws IOException {
-
+        
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeinSeconds));
 		Properties OR = new Properties();
 		FileInputStream fp = new FileInputStream(

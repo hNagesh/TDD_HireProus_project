@@ -184,9 +184,7 @@
 					<suiteXmlFiles>
 				  			   					
 				   <suiteXmlFile>src/main/resources/TestNG/HSRtestng.xml</suiteXmlFile>
-				   <suiteXmlFile>src/main/resources/TestNG/WPRtestng.xml</suiteXmlFile>				   					
-		
-				   				   					
+				   			   					
 				   </suiteXmlFiles>
 				</configuration>
 			</plugin>

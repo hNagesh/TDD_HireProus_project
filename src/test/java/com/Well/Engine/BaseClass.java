@@ -106,7 +106,7 @@ public class BaseClass {
 			
 			options.setHeadless(false);
 			driver = new ChromeDriver(options);
-			
+			JSWaiter.setDriver(driver);
 		}
 		
 		driver.manage().window().maximize();
@@ -136,7 +136,7 @@ public class BaseClass {
 		else if(environment.equalsIgnoreCase("TEST")){
 			do {
 			driver.get(testurl);
-			CommonMethod.waitForPageLoaded();
+			//CommonMethod.waitForPageLoaded(120);
 			}while(driver.getPageSource().contains("Project Error"));
 			
 		}
