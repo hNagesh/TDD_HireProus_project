@@ -426,32 +426,29 @@ public class ReusableMethodsV2Project extends BaseClass {
 	}
 
 	public void ReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilClickble("ReviwTab", 60);
+		CommonMethod.WaitUntilVisibility("ReviwTab", 60);
 		CommonMethod.click("ReviwTab");
 		CommonMethod.WaitUntilVisibility("PortfolioReviewlanding", 20);
-		CommonMethod.WaitUntilClickble("V2ProjectsubmitReview", 60);
+		CommonMethod.WaitUntilVisibility("V2ProjectsubmitReview", 60);
 		CommonMethod.click("V2ProjectsubmitReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Preliminary Precertification Review");
 		Thread.sleep(4000);
 		CommonMethod.selectdropdown("V2ProjectSelectPhase", "Preliminary Precertification Review");
-		CommonMethod.WaitUntilClickble("V2ProjectSubmitPhaseReview", 60);
 		CommonMethod.click("V2ProjectSubmitPhaseReview");
 		Thread.sleep(2000);
 		/*
 		 * Admin Review
 		 */
-		CommonMethod.WaitUntilClickble("AdminNavBar", 60);
+		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
 		CommonMethod.click("AdminNavBar");
 		CommonMethod.click("AdminWELLCertificationNavBar");
-		CommonMethod.WaitUntilClickble("AdminV2ProjectId", 60);
-		CommonMethod.sendKeys("AdminV2ProjectId", data.getCellData(SheetName, "projectId", rowNum));
+		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60).sendKeys(data.getCellData(SheetName, "projectId", rowNum));
 		CommonMethod.click("AdminV2ProjectApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectIdCompare");
 		CommonMethod.WaitUntilVisibility("WPRDashboard", 60);
-		CommonMethod.WaitUntilVisibility("PortfolioReviewlanding", 20);
 		CommonMethod.click("ReviwTab");
-		Thread.sleep(2000);
+		CommonMethod.WaitUntilVisibility("PortfolioReviewlanding", 20);
 		CommonMethod.click("V2ProjectReviewViewbtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectReturnReviewbtn");
@@ -461,16 +458,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("V2ProjectdocsubUpdatebtn", 60);
 		Thread.sleep(1000);
 		CommonMethod.click("V2ProjectdocsubUpdatebtn");
-		CommonMethod.WaitUntilClickble("V2ProjectdocsubOkbtn", 60);
 		CommonMethod.click("V2ProjectdocsubOkbtn");
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
-		CommonMethod.WaitUntilClickble("V2ProjectPaymentstatus", 60);
 		CommonMethod.ClickCheckbox("V2ProjectPaymentstatus");
-		CommonMethod.WaitUntilClickble("V2ProjectReturnReviewSubmit", 60);
 		CommonMethod.click("V2ProjectReturnReviewSubmit");
 		Thread.sleep(2000);
-		CommonMethod.WaitUntilClickble("V2ProjectReviwedStatus", 60);
+		CommonMethod.WaitUntilVisibility("V2ProjectReviwedStatus", 60);
 		CommonMethod.assertcontainsmessage("V2ProjectReviwedStatus", "REVIEWED", "Verified Review status");
 	}
 
@@ -521,13 +515,11 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 300);
 		String getCurrentUrl = driver.getCurrentUrl().replaceAll("hsr", "reviews");
 		CommonMethod.GotoURL(getCurrentUrl);
-		CommonMethod.WaitUntilClickble("V2ProjectsubmitReview", 60);
 		CommonMethod.click("V2ProjectsubmitReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Final Documentation Review");
 		Thread.sleep(4000);
 		CommonMethod.selectdropdown("V2ProjectSelectPhase", "Final Documentation Review");
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingHsrcbx");
-		CommonMethod.WaitUntilClickble("V2ProjectSubmitPhaseReview", 60);
 		CommonMethod.click("V2ProjectSubmitPhaseReview");
 		Thread.sleep(2000);
 		/*
@@ -536,8 +528,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("AdminNavBar", 60);
 		CommonMethod.click("AdminNavBar");
 		CommonMethod.click("AdminWELLCertificationNavBar");
-		CommonMethod.WaitUntilClickble("AdminV2ProjectId", 60);
-		CommonMethod.sendKeys("AdminV2ProjectId", data.getCellData(SheetName, "projectId", rowNum));
+		CommonMethod.WaitUntilClickble("AdminV2ProjectId", 60).sendKeys(data.getCellData(SheetName, "projectId", rowNum));
 		CommonMethod.click("AdminV2ProjectApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectIdCompare");
@@ -596,9 +587,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		Thread.sleep(4000);
 		CommonMethod.selectdropdown("V2ProjectSelectPhase", "Final Performance Review");
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingHsrcbx");
-		CommonMethod.WaitUntilClickble("V2ProjectsubmittingWprcbx", 10);
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingWprcbx");
-		CommonMethod.WaitUntilVisibility("V2ProjectSubmitPhaseReview", 300);
 		CommonMethod.click("V2ProjectSubmitPhaseReview");
 		Thread.sleep(2000);
 		/*
@@ -619,13 +608,11 @@ public class ReusableMethodsV2Project extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("V2ProjectReturnReviewbtn", 300);
 		CommonMethod.click("V2ProjectReturnReviewbtn");
-		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60);
-		CommonMethod.sendKeys("V2ProjectReviewCommentNarrative", "Preliminary Precertification Review");
+		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60).sendKeys("Preliminary Precertification Review");
 		CommonMethod.sendKeys("V2ProjectGeneralCommentNarrative", "Preliminary Precertification Review");
 		CommonMethod.WaitUntilVisibility("V2ProjectdocsubUpdatebtn", 300);
 		Thread.sleep(1000);
 		CommonMethod.click("V2ProjectdocsubUpdatebtn");
-		CommonMethod.WaitUntilClickble("V2ProjectdocsubOkbtn", 60);
 		CommonMethod.click("V2ProjectdocsubOkbtn");
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
