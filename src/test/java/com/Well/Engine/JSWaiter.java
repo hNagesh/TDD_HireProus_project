@@ -36,7 +36,7 @@ public class JSWaiter extends BaseClass {
             boolean jqueryReady = (Boolean) jsExec.executeScript("return jQuery.active==0");
             System.out.println(jqueryReady);
             if (!jqueryReady) {
-            	System.out.println("jQuery loading");
+            	//System.out.println("jQuery loading");
                 jsWait.until(jQueryLoad);
             }
         } catch (WebDriverException ignored) {
@@ -56,7 +56,7 @@ public class JSWaiter extends BaseClass {
             boolean jsReady = jsExec.executeScript("return document.readyState").toString().equals("complete");
 System.out.println(jsReady);
             if (!jsReady) {
-            	System.out.println("js loading");
+            	//System.out.println("js loading");
                 jsWait.until(jsLoad);
             }
         } catch (WebDriverException ignored) {
@@ -97,7 +97,7 @@ System.out.println(jsReady);
             if (angular5Check != null) {
                 Boolean angularPageLoaded = (Boolean) jsExec.executeScript("return window.getAllAngularTestabilities().findIndex(x=>!x.isStable()) === -1");
                 if (!angularPageLoaded) {
-                	System.out.println("angular loading");
+                	//System.out.println("angular loading");
                     poll(20);
 
                     waitForAngular5Load();
@@ -110,7 +110,7 @@ System.out.println(jsReady);
     }
     
     public static void waitUntilLayer0Error(WebDriver driver) {
-    	System.out.println("layer 1");
+    	//System.out.println("layer 1");
         try {
            if(driver.getPageSource().contains("Layer0")) {
         	 System.out.println("layer 0");
