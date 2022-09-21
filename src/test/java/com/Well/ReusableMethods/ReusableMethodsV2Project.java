@@ -48,7 +48,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("V2ProjectdocsubConfirmbtn", 60);
 		CommonMethod.click("V2ProjectdocsubConfirmbtn");
 		CommonMethod.click("V2Projectcontinuethejourneybtn");
-		CommonMethod.WaitUntilVisibility("WPRDashboard", 300);
+		CommonMethod.WaitUntilVisibility("EnrollTab", 300);
 		CommonMethod.WaitUntilVisibility("StoreId", 60);
 		String getId = CommonMethod.getText("StoreId");
 		String[] stringArray = getId.split(": ");
