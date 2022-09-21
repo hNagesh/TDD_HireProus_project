@@ -182,10 +182,9 @@
 				<configuration>
 				<testFailureIgnore>true</testFailureIgnore>
 					<suiteXmlFiles>	   					
+<suiteXmlFile>src/main/resources/TestNG/V2Projecttestng.xml</suiteXmlFile>
 
-
-<suiteXmlFile>src/main/resources/TestNG/WPRtestng.xml</suiteXmlFile>
-		
+				   			   					
 				   </suiteXmlFiles>
 				</configuration>
 			</plugin>
