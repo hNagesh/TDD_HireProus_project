@@ -24,7 +24,7 @@ public class ReusableMethodPerformance extends BaseClass {
 	   CommonMethod.sendKeys("OwnerOrg", "R");
 	   CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
 	   CommonMethod.click("SelectOwnerOrg");
-	   CommonMethod.selectdropdownrandom("OrgIndustry");
+	   CommonMethod.selectdropdownrandom("WPROwnerOrgIndustry");
 	   CommonMethod.selectdropdown("WPROwnerCountry",  data.getCellData(SheetName, "country", rowNum));
 	   CommonMethod.selectdropdown("WPROwnerState",  data.getCellData(SheetName, "state", rowNum));
 	   String ProjectAddress = USfaker.address().streetAddress();

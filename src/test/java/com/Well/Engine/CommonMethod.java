@@ -1892,6 +1892,8 @@ public class CommonMethod extends BaseClass {
 
 	}
 	
+	
+	
 	public static WebElement WaitUntilClickble(WebElement objectlocator, int TimeinSeconds) throws IOException {
 
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeinSeconds));
