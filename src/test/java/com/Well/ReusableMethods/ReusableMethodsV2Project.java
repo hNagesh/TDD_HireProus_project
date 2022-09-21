@@ -9,7 +9,6 @@ import com.Well.Engine.CommonMethod;
 public class ReusableMethodsV2Project extends BaseClass {
 
 	public void RegisterV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
-
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.click("WELLCertificationNavBar");
@@ -36,9 +35,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectspacetypeContinuebtn");
 		CommonMethod.click("V2Projectwellcorecertification");
 		CommonMethod.WaitUntilVisibility("V2ProjectdocsubUpdatebtn", 300);
-		CommonMethod.RobustclickElementVisible("V2ProjectdocsubUpdatebtn","V2ProjectDatePopupWeekday");
+		CommonMethod.RobustclickElementVisible("V2ProjectdocsubUpdatebtn", "V2ProjectDatePopupWeekday");
 		CommonMethod.WaitUntilVisibility("V2ProjectnextMonthbtn", 300);
-		CommonMethod.Robustclick("V2ProjectnextMonthbtn","V2ProjectDatePopupWeekday");
+		CommonMethod.Robustclick("V2ProjectnextMonthbtn", "V2ProjectDatePopupWeekday");
 		CommonMethod.WaitUntilVisibility("V2ProjectselectNextMonth", 300);
 		Thread.sleep(1000);
 		CommonMethod.click("V2ProjectselectNextMonth");
@@ -49,8 +48,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("V2ProjectdocsubConfirmbtn", 60);
 		CommonMethod.click("V2ProjectdocsubConfirmbtn");
 		CommonMethod.click("V2Projectcontinuethejourneybtn");
-		CommonMethod.WaitUntilVisibility("StoreId", 300);
-		CommonMethod.WaitUntilClickble("StoreId", 60);
+		CommonMethod.WaitUntilVisibility("WPRDashboard", 300);
+		CommonMethod.WaitUntilVisibility("StoreId", 60);
 		String getId = CommonMethod.getText("StoreId");
 		String[] stringArray = getId.split(": ");
 		String getProjectId = stringArray[1].trim();
@@ -65,6 +64,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectIdCompare");
+		CommonMethod.WaitUntilVisibility("WPRDashboard", 300);
 	}
 
 	public void EnrollV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -105,13 +105,15 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.sendKeys("V2ProjectowneraddressPostalcode", PostalCode);
 		CommonMethod.ClickCheckbox("V2Projectisthisapublicproject");
 		CommonMethod.click("V2ProjectprojectaddressContinuebtn");
-		Thread.sleep(4000);
+		CommonMethod.WaitUntilVisibility("BiilingTab", 300);
 	}
+
 	public void ClickBilling(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("BiilingTab", 300);
 		CommonMethod.click("BiilingTab");
 		CommonMethod.click("PortfolioPayNowButton");
 	}
+
 	public void Billing(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("BillingLanding", 300);
 		CommonMethod.scrolldowntoElement("CardHolderName");
@@ -140,10 +142,11 @@ public class ReusableMethodsV2Project extends BaseClass {
 	}
 
 	public void AgreementV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.click("ProjectNavBar");
+		CommonMethod.WaitUntilVisibility("WellV2DashboardTab", 300);
 		CommonMethod.click("WellV2DashboardTab");
 		CommonMethod.WaitUntilClickble("V2ProjectSignNow", 60);
 		CommonMethod.Robustclick("V2ProjectSignNow");
+		CommonMethod.WaitUntilVisibility("WellV2DashboardTab", 30);
 	}
 
 	public void BuildScorecardV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -156,137 +159,143 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 300);
 	}
-	
-	public void Scorecardfill(int YesEnd,int NoStart, int NoEnd,int DifferencePlusOne) throws IOException, InterruptedException {
+
+	public void Scorecardfill(int YesEnd, int NoStart, int NoEnd, int DifferencePlusOne)
+			throws IOException, InterruptedException {
 		List<WebElement> YesButton;
 		List<WebElement> NoButton;
 		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-		  for (int i = 1; i<= YesEnd; i++) { 
-			  int RemainingYes = YesButton.size(); 
-			  System.out.println(RemainingYes);
-			  do {
-		  CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
-		  CommonMethod.click("V2ProjectPurseYes"); 
-		  Thread.sleep(1000); 
-		  YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-		  System.out.println(YesButton);
-		  }while(YesButton.size()==RemainingYes); RemainingYes--; }
-		 
+		for (int i = 1; i <= YesEnd; i++) {
+			int RemainingYes = YesButton.size();
+			System.out.println(RemainingYes);
+			do {
+				CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
+				CommonMethod.click("V2ProjectPurseYes");
+				Thread.sleep(1000);
+				YesButton = CommonMethod.findElements("V2ProjectPurseYes");
+				System.out.println(YesButton);
+			} while (YesButton.size() == RemainingYes);
+			RemainingYes--;
+		}
+
 		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-		int j=DifferencePlusOne;
+		int j = DifferencePlusOne;
 		for (int i = NoStart; i <= NoEnd; i++) {
 			int RemainingNo = NoButton.size();
 			do {
-			CommonMethod.click(NoButton.get(RemainingNo-j));
-			Thread.sleep(1000);
-			NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-			}while(NoButton.size()==RemainingNo);
+				CommonMethod.click(NoButton.get(RemainingNo - j));
+				Thread.sleep(1000);
+				NoButton = CommonMethod.findElements("V2ProjectPurseNo");
+			} while (NoButton.size() == RemainingNo);
 			RemainingNo--;
 			j--;
 		}
 		RefreshScorecard();
 	}
-	
-	public void ScorecardfillHSRWPR(int YesEnd,int NoStart, int NoEnd,int DifferencePlusOne) throws IOException, InterruptedException {
+
+	public void ScorecardfillHSRWPR(int YesEnd, int NoStart, int NoEnd, int DifferencePlusOne)
+			throws IOException, InterruptedException {
 		List<WebElement> YesButton;
 		List<WebElement> NoButton;
-		
+
 		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-		int j=DifferencePlusOne;
+		int j = DifferencePlusOne;
 		for (int i = NoStart; i <= NoEnd; i++) {
 			int RemainingNo = NoButton.size();
 			do {
-			CommonMethod.click(NoButton.get(RemainingNo-j));
-			Thread.sleep(1000);
-			NoButton = CommonMethod.findElements("V2ProjectPurseNo");
-			}while(NoButton.size()==RemainingNo);
+				CommonMethod.click(NoButton.get(RemainingNo - j));
+				Thread.sleep(1000);
+				NoButton = CommonMethod.findElements("V2ProjectPurseNo");
+			} while (NoButton.size() == RemainingNo);
 			RemainingNo--;
 			j--;
 		}
 		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
 		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-		  for (int i = 1; i<= YesEnd; i++) { 
-			  int RemainingYes = YesButton.size(); 
-			  do {
-		  CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
-		  CommonMethod.click("V2ProjectPurseYes"); 
-		  Thread.sleep(1000); 
-		  YesButton = CommonMethod.findElements("V2ProjectPurseYes");
-		  }while(YesButton.size()==RemainingYes); RemainingYes--; }
-		 
-		
+		for (int i = 1; i <= YesEnd; i++) {
+			int RemainingYes = YesButton.size();
+			do {
+				CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
+				CommonMethod.click("V2ProjectPurseYes");
+				Thread.sleep(1000);
+				YesButton = CommonMethod.findElements("V2ProjectPurseYes");
+			} while (YesButton.size() == RemainingYes);
+			RemainingYes--;
+		}
+
 	}
-public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOException, InterruptedException {
-	CommonMethod.WaitUntilVisibility("WellV2ScorecardTab", 300);
-	CommonMethod.click("WellV2ScorecardTab");
-		Scorecardfill(15,16,27,8);  
-}
+
+	public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("WellV2ScorecardTab", 300);
+		CommonMethod.click("WellV2ScorecardTab");
+		Scorecardfill(15, 16, 27, 8);
+	}
+
 	public void CompleteScorecardV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
-		
 		CommonMethod.WaitUntilClickble("V2ProjectAirconcept", 60);
 		CommonMethod.click("V2ProjectAirconcept");
-		Scorecardfill(15,16,25,10);  
+		Scorecardfill(15, 16, 25, 10);
 		/*
 		 * Water concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectWaterconcept", 60);
 		CommonMethod.click("V2ProjectWaterconcept");
-		Scorecardfill(13,14,17,4);
+		Scorecardfill(13, 14, 17, 4);
 		/*
 		 * Nourisement concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectNourisementconcept", 60);
 		CommonMethod.click("V2ProjectNourisementconcept");
-		Scorecardfill(13,14,15,2);
+		Scorecardfill(13, 14, 15, 2);
 		/*
 		 * Light concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectLightconcept", 60);
 		CommonMethod.click("V2ProjectLightconcept");
-		Scorecardfill(6,7,12,6);
+		Scorecardfill(6, 7, 12, 6);
 		/*
 		 * Movement concept
 		 */
 		CommonMethod.WaitUntilClickble("V2Projectmovementconcept", 60);
 		CommonMethod.click("V2Projectmovementconcept");
-		Scorecardfill(11,12,22,11);
+		Scorecardfill(11, 12, 22, 11);
 		/*
 		 * Thermal concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectThermalconcept", 60);
 		CommonMethod.click("V2ProjectThermalconcept");
-		Scorecardfill(10,11,15,5);
+		Scorecardfill(10, 11, 15, 5);
 		/*
 		 * Sound concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectSoundconcept", 60);
 		CommonMethod.click("V2ProjectSoundconcept");
-		Scorecardfill(9,10,14,5);
+		Scorecardfill(9, 10, 14, 5);
 		/*
 		 * Material concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectMaterialconcept", 60);
 		CommonMethod.click("V2ProjectMaterialconcept");
-		Scorecardfill(17,18,24,7);
+		Scorecardfill(17, 18, 24, 7);
 		/*
 		 * Mind concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectMindconcept", 60);
 		CommonMethod.click("V2ProjectMindconcept");
-		Scorecardfill(8,9,19,11);
+		Scorecardfill(8, 9, 19, 11);
 		/*
 		 * Community concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectCommunityconcept", 60);
 		CommonMethod.click("V2ProjectCommunityconcept");
-		Scorecardfill(17,18,35,18);
+		Scorecardfill(17, 18, 35, 18);
 		/*
 		 * Innovation concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectInnovationconcept", 60);
 		CommonMethod.click("V2ProjectInnovationconcept");
 
-		Scorecardfill(10,11,18,8);
+		Scorecardfill(10, 11, 18, 8);
 //		Thread.sleep(4000);
 //		CommonMethod.Isdisplayed("V2ProjectScorecardYesCount", 60);
 //		int YesFeatureCount = CommonMethod.ElementSize("V2ProjectScorecardYesCount");
@@ -295,8 +304,6 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 //		int NoFeatureCount = CommonMethod.ElementSize("V2ProjectScorecardNoCount");
 //		String noFeatureCount = Integer.toString(NoFeatureCount);
 //		CommonMethod.assertActualContainsExpected(noFeatureCount, "86", "Verified Scorecard part No Count");
-
-		
 
 	}
 
@@ -417,15 +424,16 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.assertActualContainsExpected(V2ProjectDocCounts, "4");
 
 	}
-	
+
 	public void ReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("ReviwTab", 60);
 		CommonMethod.click("ReviwTab");
+		CommonMethod.WaitUntilVisibility("PortfolioReviewlanding", 20);
 		CommonMethod.WaitUntilClickble("V2ProjectsubmitReview", 60);
 		CommonMethod.click("V2ProjectsubmitReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Preliminary Precertification Review");
 		Thread.sleep(4000);
-		CommonMethod.selectdropdown("V2ProjectSelectPhase", "Preliminary Precertification Review");	
+		CommonMethod.selectdropdown("V2ProjectSelectPhase", "Preliminary Precertification Review");
 		CommonMethod.WaitUntilClickble("V2ProjectSubmitPhaseReview", 60);
 		CommonMethod.click("V2ProjectSubmitPhaseReview");
 		Thread.sleep(2000);
@@ -440,13 +448,15 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.click("AdminV2ProjectApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectIdCompare");
+		CommonMethod.WaitUntilVisibility("WPRDashboard", 60);
+		CommonMethod.WaitUntilVisibility("PortfolioReviewlanding", 20);
 		CommonMethod.click("ReviwTab");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectReviewViewbtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectReturnReviewbtn");
-		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60).sendKeys("Preliminary Precertification Review");;
-		//CommonMethod.sendKeys("V2ProjectReviewCommentNarrative", "Preliminary Precertification Review");
+		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60)
+				.sendKeys("Preliminary Precertification Review");
 		CommonMethod.sendKeys("V2ProjectGeneralCommentNarrative", "Preliminary Precertification Review");
 		CommonMethod.WaitUntilClickble("V2ProjectdocsubUpdatebtn", 60);
 		Thread.sleep(1000);
@@ -461,64 +471,55 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.click("V2ProjectReturnReviewSubmit");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilClickble("V2ProjectReviwedStatus", 60);
-		CommonMethod.assertcontainsmessage("V2ProjectReviwedStatus", "REVIEWED", "Verified Review status");	
+		CommonMethod.assertcontainsmessage("V2ProjectReviwedStatus", "REVIEWED", "Verified Review status");
 	}
+
 	public void HealthSafetyV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("HealthSafetyTab", 300);
 		CommonMethod.click("HealthSafetyTab");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrContinuebtn", 300);
 		CommonMethod.click("V2ProjectHsrContinuebtn");
-		
-		
-		  CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
-		  CommonMethod.click("V2ProjectHsrTermscbx");
-		  CommonMethod.click("V2ProjectHsrTermsbtn");
-		  CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
-		  CommonMethod.click("V2ProjectHsrTermscbx");
-		  CommonMethod.WaitUntilVisibility("V2ProjectHsrProceedbtn", 300);
-		  CommonMethod.click("V2ProjectHsrProceedbtn");
-		  CommonMethod.WaitUntilVisibility("V2ProjectHsrAccountbtn", 300);
-		  CommonMethod.click("V2ProjectHsrAccountbtn");
-		 
-		 
-		 
+		CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
+		CommonMethod.click("V2ProjectHsrTermscbx");
+		CommonMethod.click("V2ProjectHsrTermsbtn");
+		CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 300);
+		CommonMethod.click("V2ProjectHsrTermscbx");
+		CommonMethod.WaitUntilVisibility("V2ProjectHsrProceedbtn", 300);
+		CommonMethod.click("V2ProjectHsrProceedbtn");
+		CommonMethod.WaitUntilVisibility("V2ProjectHsrAccountbtn", 300);
+		CommonMethod.click("V2ProjectHsrAccountbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrScorecard", 300);
-		ScorecardfillHSRWPR(15,1,27,27);
+		ScorecardfillHSRWPR(15, 1, 27, 27);
 	}
-	
+
 	public void uploadDocumentInFeature(int LastFeatureNumber) throws IOException, InterruptedException {
-
-
 		List<WebElement> Feature;
-		Feature = CommonMethod.findElements("V2ProjectWPRPFeature"); 
+		Feature = CommonMethod.findElements("V2ProjectWPRPFeature");
 		Feature = Feature.subList(0, LastFeatureNumber);
 		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
-		  for (WebElement f:Feature) {
-			  CommonMethod.click(f);
-			  CommonMethod.WaitUntilVisibility("V2ProjectWPRPDocIcon", 60);
-				CommonMethod.click("V2ProjectWPRPDocIcon");
-				CommonMethod.WaitUntilVisibility("V2ProjectWPRVerificationMethod", 60);
-				CommonMethod.selectdropdownIndex("V2ProjectWPRVerificationMethod", 1);
-				CommonMethod.uploadFile("V2ProjectDocUpload", PortfolioLocationImportfile);
-				CommonMethod.WaitUntilVisibility("FeatureFileUploadedVisible", 60);
-				CommonMethod.Robustclick("V2ProjectWPRUploadbtn");
-				CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
-                CommonMethod.click(f);
-		  }
-
+		for (WebElement f : Feature) {
+			CommonMethod.click(f);
+			CommonMethod.WaitUntilVisibility("V2ProjectWPRPDocIcon", 60);
+			CommonMethod.click("V2ProjectWPRPDocIcon");
+			CommonMethod.WaitUntilVisibility("V2ProjectWPRVerificationMethod", 60);
+			CommonMethod.selectdropdownIndex("V2ProjectWPRVerificationMethod", 1);
+			CommonMethod.uploadFile("V2ProjectDocUpload", PortfolioLocationImportfile);
+			CommonMethod.WaitUntilVisibility("FeatureFileUploadedVisible", 60);
+			CommonMethod.Robustclick("V2ProjectWPRUploadbtn");
+			CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
+			CommonMethod.click(f);
+		}
 
 	}
 
-	
 	public void uploadHsrDocV2Project() throws IOException, InterruptedException {
-
-		
 		uploadDocumentInFeature(15);
-		
-}
+
+	}
+
 	public void hsrReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 300);
-		String getCurrentUrl = driver.getCurrentUrl().replaceAll("hsr","reviews");
+		String getCurrentUrl = driver.getCurrentUrl().replaceAll("hsr", "reviews");
 		CommonMethod.GotoURL(getCurrentUrl);
 		CommonMethod.WaitUntilClickble("V2ProjectsubmitReview", 60);
 		CommonMethod.click("V2ProjectsubmitReview");
@@ -560,9 +561,9 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.click("V2ProjectReturnReviewSubmit");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilClickble("V2ProjectReviwedStatus", 60);
-		CommonMethod.assertcontainsmessage("V2ProjectReviwedStatus", "REVIEWED", "Verified Review status");	
+		CommonMethod.assertcontainsmessage("V2ProjectReviwedStatus", "REVIEWED", "Verified Review status");
 	}
-	
+
 	public void performanceV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("PerformanceTab", 300);
 		CommonMethod.click("PerformanceTab");
@@ -578,18 +579,16 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRAccountbtn", 300);
 		CommonMethod.click("V2ProjectWPRAccountbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrScorecard", 300);
-		ScorecardfillHSRWPR(21,1,38,38);
+		ScorecardfillHSRWPR(21, 1, 38, 38);
 	}
-	
 
-	
 	public void uploadPerformanceDocV2Project() throws IOException, InterruptedException {
-		
 		uploadDocumentInFeature(21);
 	}
+
 	public void wprReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 300);
-		String getCurrentUrl = driver.getCurrentUrl().replaceAll("wpr","reviews");
+		String getCurrentUrl = driver.getCurrentUrl().replaceAll("wpr", "reviews");
 		CommonMethod.GotoURL(getCurrentUrl);
 		CommonMethod.WaitUntilVisibility("V2ProjectsubmitReview", 300);
 		CommonMethod.click("V2ProjectsubmitReview");
@@ -634,24 +633,24 @@ public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOExce
 		CommonMethod.click("V2ProjectReturnReviewSubmit");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("V2ProjectReviwedStatus", 300);
-		CommonMethod.assertcontainsmessage("V2ProjectReviwedStatus", "REVIEWED", "Verified Review status");	
+		CommonMethod.assertcontainsmessage("V2ProjectReviwedStatus", "REVIEWED", "Verified Review status");
 	}
-	
+
 	public void teamV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("TeamTab", 300);
 		CommonMethod.click("TeamTab");
-		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
+		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 30);
 		CommonMethod.click("V2ProjectAddMemberbtn");
-		CommonMethod.WaitUntilVisibility("V2ProjectEmailAddress", 300);
+		CommonMethod.WaitUntilVisibility("V2ProjectEmailAddress", 30);
 		CommonMethod.sendKeys("V2ProjectEmailAddress", "gokulthiru22@gmail.com");
 		CommonMethod.selectdropdown("V2ProjectRole", "Acoustician");
 		CommonMethod.ClickCheckbox("V2ProjectMembercbx");
-		CommonMethod.WaitUntilVisibility("V2ProjectInvitebtn", 300);
+		CommonMethod.WaitUntilVisibility("V2ProjectInvitebtn", 30);
 		CommonMethod.click("V2ProjectInvitebtn");
 		Thread.sleep(2000);
 		CommonMethod.refreshBrowser();
-		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 300);
+		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 30);
 		CommonMethod.click("V2ProjectDeleteIcon");
-		Thread.sleep(2000);
+		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
 	}
 }

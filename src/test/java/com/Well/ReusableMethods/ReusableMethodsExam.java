@@ -26,7 +26,7 @@ public class ReusableMethodsExam extends BaseClass {
 		CommonMethod.sendKeys("WPROrgPostalcode", PostalCode);
 		CommonMethod.sendKeys("APPhoneNo", "9999999999");
 		CommonMethod.click("APRegContinue");
-		
+		CommonMethod.WaitUntilVisibility("APJobtitle", 60);
 	}
 
 	public void EnrollExam(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -58,13 +58,16 @@ public class ReusableMethodsExam extends BaseClass {
 		CommonMethod.ClickCheckbox("APAgree");
 		CommonMethod.click("APAlmostContinuebtn");
 		CommonMethod.click("APPay");
+		CommonMethod.WaitUntilVisibility("BillingLanding", 60);
 		
 	}
 	public void BillingExam(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("BillingLanding", 30);
 		v2project.Billing(SheetName, rowNum);	
-		Thread.sleep(20000);
+		CommonMethod.WaitUntilVisibility("APStoreExamId", 60);
 	}
 	public void StoreExam(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("APStoreExamId", 30);
 		String getId = CommonMethod.getText("APStoreExamId");
 		data.setCellData("Exam", "examId", 2, getId);
 	}

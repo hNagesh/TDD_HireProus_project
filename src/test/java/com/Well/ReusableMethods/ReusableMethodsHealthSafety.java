@@ -2,19 +2,14 @@ package com.Well.ReusableMethods;
 
 import java.io.IOException;
 import java.util.List;
-
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
 
-import io.opentelemetry.exporter.logging.SystemOutLogExporter;
 
 public class ReusableMethodsHealthSafety extends BaseClass {
 	
 	public void RegisterHealthSafety(String SheetName,int rowNum) throws IOException, InterruptedException {
-
 	   CommonMethod.click("ProjectNavBar");
 	   CommonMethod.click("WELLHealthSafetyNavBar");
 	   CommonMethod.click("HsrWellhealthstartprojectbtn");
@@ -59,15 +54,17 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	   CommonMethod.ClickCheckbox("HsrProgramFeePublicrbtn");
 	   CommonMethod.ClickCheckbox("HsrAcknowledecbx");
 	   CommonMethod.click("HsrReviewbtn");
-	   Thread.sleep(2000);  
+	   CommonMethod.WaitUntilVisibility("BillingLanding", 60);
+	  
 	}
 	public void StoreIdHealthSafety(String SheetName,int rowNum) throws IOException, InterruptedException {
-		  Thread.sleep(10000); 
+		CommonMethod.WaitUntilVisibility("WPRDashboard", 60);
 		CommonMethod.WaitUntilVisibility("StoreId", 300);
 		String getId =CommonMethod.getText("StoreId"); 
       String[] stringArray = getId.split(": ");
       String getHsrId = stringArray[1].trim();
       data.setCellData("Hsr", "hsrId", 2, getHsrId);
+      CommonMethod.WaitUntilVisibility("WPRDashboard", 60);
 	}
 	
 	public void SearchHealthSafetyByID (String SheetName,int rowNum) throws IOException, InterruptedException {
@@ -81,11 +78,11 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		   CommonMethod.click("HsrapplySearch");
 		  Thread.sleep(3000);
 		   CommonMethod.click("Hsrprojectidcompare");
+		   CommonMethod.WaitUntilVisibility("WPRDashboard", 60);
 	}
 	public void ScorecardfillHSRWPR(int YesEnd,int NoStart, int NoEnd,int DifferencePlusOne) throws IOException, InterruptedException {
 		List<WebElement> YesButton;
 		List<WebElement> NoButton;
-		
 		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
 		int j=DifferencePlusOne;
 		for (int i = NoStart; i <= NoEnd; i++) {
@@ -154,9 +151,9 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		uploadDocumentInFeature(15);	
 }
 	public void ReviewHsr(String SheetName, int rowNum) throws IOException, InterruptedException {
-		Thread.sleep(3000);
 		CommonMethod.WaitUntilVisibility("ReviwTab", 60);
 		CommonMethod.click("ReviwTab");
+		CommonMethod.WaitUntilVisibility("PortfolioReviewlanding", 20);
 		CommonMethod.WaitUntilVisibility("HsrSubmitReview", 60);
 		CommonMethod.click("HsrSubmitReview");
 		CommonMethod.WaitUntilPresence("HsrCommentReview", 60).sendKeys("Preliminary Health-Safety Review");
@@ -165,6 +162,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilClickble("HsrSubmitDocReview", 60);
 		CommonMethod.click("HsrSubmitDocReview");
 		Thread.sleep(2000);
+		CommonMethod.WaitUntilVisibility("PortfolioReviewlanding", 60);
 		/*
 		 * Admin Review
 		 */
@@ -202,7 +200,6 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.assertcontainsmessage("V2ProjectReviwedStatus", "REVIEWED", "Verified Review status");
 }
 	public void UploadDocumentHsr() throws IOException, InterruptedException {
-		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("WellV2ProjectDocumentTab", 300);
 		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
@@ -215,6 +212,6 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.sendKeys("HsrReasonnarration", "Submitting Document");
 		CommonMethod.Robustclick("HsrDocumentUploadbtn");
 		CommonMethod.click("V2ProjectGeneralDoc");
-		//CommonMethod.WaitUntilVisibility("V2ProjectGeneralDoc", 60);	
+		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);	
 }
 }

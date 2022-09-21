@@ -44,6 +44,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.scrolldowntoElement("WFLeedFaculty");
 		CommonMethod.WaitUntilVisibility("WFAddrContinuebtn", 30);
 		CommonMethod.click("WFAddrContinuebtn");
+		CommonMethod.WaitUntilVisibility("WFFacultyApplication", 60);
 	}
 
 	public void AgreementFaculty(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -64,11 +65,12 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WFAddrContinuebtn", 60);
 		Thread.sleep(1000);
 		CommonMethod.click("WFAddrContinuebtn");
+		CommonMethod.WaitUntilVisibility("WFFacultyApplication", 60);
 
 	}
 
 	public void SubmitReviewFaculty(String SheetName, int rowNum) throws IOException, InterruptedException {
-
+		CommonMethod.WaitUntilVisibility("WFFacultyApplication", 60);
 		CommonMethod.scrolldowntoElement("WFFacultyApplication");
 		CommonMethod.WaitUntilVisibility("WFStatus", 60);
 		CommonMethod.ClickCheckbox("WFStatus");
@@ -105,7 +107,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WFSubmitApplicationbtn", 60);
 		CommonMethod.RobustclickElementVisible("WFSubmitApplicationbtn","WFReturnbtn");
 		Thread.sleep(2000);
-		
+		CommonMethod.WaitUntilVisibility("WFReturnbtn", 60);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -122,7 +124,6 @@ public class ReusableMethodsFaculty extends BaseClass {
 				.post("https://test-v2-api.wellcertified.com/api/authenticate");
 		admin_Header = (res.path("token")).toString();
 		admin_Header = "Bearer " + admin_Header;
-		System.out.println("###" + admin_Header);
 		return res;
 	}
 
@@ -133,7 +134,6 @@ public class ReusableMethodsFaculty extends BaseClass {
 		 */
 		Response res = given().contentType("application/json").header("Authorization", admin_Header).when()
 				.delete("https://test-v2-api.wellcertified.com/api/admin/qa/automation/bulk-delete/" + username);
-		System.out.println(res.toString());
 		return res;
 	}
 }

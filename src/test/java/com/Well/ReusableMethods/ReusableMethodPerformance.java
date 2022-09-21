@@ -61,14 +61,16 @@ public class ReusableMethodPerformance extends BaseClass {
 	   CommonMethod.WaitUntilClickble("WPRAcknowledecbx", 60);
 	   CommonMethod.ClickCheckbox("WPRAcknowledecbx");
 	   CommonMethod.click("WPRtermContinuebutton");
+	   CommonMethod.WaitUntilVisibility("BillingLanding", 60);
 	}
 	public void StoreIdPerformance(String SheetName,int rowNum) throws IOException, InterruptedException {
-		  Thread.sleep(10000); 
-		CommonMethod.WaitUntilVisibility("StoreId", 300);
+		 CommonMethod.WaitUntilVisibility("WPRDashboard", 60);
+		CommonMethod.WaitUntilVisibility("StoreId", 30);
 		String getId =CommonMethod.getText("StoreId"); 
     String[] stringArray = getId.split(": ");
     String getWprId = stringArray[1].trim();
     data.setCellData("Wpr", "wprId", 2, getWprId);
+   
 	}
 	
 	public void SearchPerformanceByID(String SheetName,int rowNum) throws IOException, InterruptedException {
@@ -160,7 +162,6 @@ public class ReusableMethodPerformance extends BaseClass {
 }
 	
 	public void WPRReview(String SheetName, int rowNum) throws IOException, InterruptedException {
-		
 		CommonMethod.WaitUntilClickble("ReviwTab", 60);
 		Thread.sleep(3000);
 		CommonMethod.click("ReviwTab");
@@ -169,6 +170,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.selectdropdown("WPRReviewProjectPhase", "Preliminary Performance Rating Review");	
 		CommonMethod.WaitUntilClickble("WPRReviewComment", 60).sendKeys("Preliminary Performance Rating Review");
 		CommonMethod.click("WPRReviewSubmitDocbtn");
+		CommonMethod.WaitUntilVisibility("PortfolioReviewlanding", 60);
 		Thread.sleep(2000);
 		/*
 		 * Admin Review

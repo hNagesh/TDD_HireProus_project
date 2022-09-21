@@ -47,7 +47,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.sendKeys("PortfolioOwnerCity", ProjectCity);
 		CommonMethod.sendKeys("PortfolioOwnerPostalCode", PostalCode);
 		CommonMethod.click("PortfolioCreateAccountSubmit");
-		CommonMethod.WaitUntilVisibility("StoreId", 60);
+		CommonMethod.WaitUntilVisibility("WPRDashboard", 60);
 	}
 
 	public void SearchPortfolioByName(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -59,15 +59,18 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.click("PortfolioSearchApplyFilter");
 		Thread.sleep(2000);
 		CommonMethod.click("PortfolioClickSearchResult");
-
+		CommonMethod.WaitUntilVisibility("WPRDashboard", 60);
 	}
 
 	public void SignAgreementPortfolio() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("WPRDashboard", 60);
 		CommonMethod.WaitUntilVisibility("PortfolioClickSignNow", 60);
 		CommonMethod.Robustclick("PortfolioClickSignNow");
+		CommonMethod.WaitUntilVisibility("WPRDashboard", 60);
 	}
 
 	public void SubscribePortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("WPRDashboard", 60);
 		CommonMethod.WaitUntilVisibility("SubscribeTab", 30);
 		CommonMethod.click("SubscribeTab");
 		CommonMethod.scrolldowntoElement("PortfolioOwnerName");
@@ -88,10 +91,11 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("PortfolioGoToBilling", 60);
 		CommonMethod.Robustclick("PortfolioGoToBilling");
 		CommonMethod.navigateBack();
-
+		CommonMethod.WaitUntilVisibility("WPRDashboard", 60);
 	}
 
 	public void PortfolioClickOnBilling() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("WPRDashboard", 30);
 		CommonMethod.WaitUntilVisibility("BiilingTab", 60);
 		CommonMethod.click("BiilingTab");
 		CommonMethod.WaitUntilVisibility("PortfolioPayNowButton", 20);
@@ -100,6 +104,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 
 	public void PortfolioCardPayment(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("BillingLanding", 300);
 		if (!CommonMethod.isElementsExist("CardHolderName", 3)) {
 			Boolean B = CommonMethod.IsElementPresentTrue("PortfolioPayNowButton");
 			if (B.equals(true)) {
@@ -126,9 +131,9 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 
 	public void PortfolioLocationImport(String SheetName, int rowNum) throws IOException, InterruptedException {
-		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("LocationsTab", 60);
 		CommonMethod.click("LocationsTab");
+		CommonMethod.WaitUntilVisibility("PortfolioLocationLanding", 60);
 		CommonMethod.click("PortfolioLocationsImportButton");
 		CommonMethod.scrolldowntoElement("PortfolioUploadLocationButton");
 		CommonMethod.uploadFile("PortfolioUploadLocationButton", PortfolioLocationImportfile);
@@ -143,7 +148,8 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.click("PortfolioFinishImportButton");
 		CommonMethod.WaitUntilVisibility("PortfolioImportCloseButton", 30);
 		CommonMethod.click("PortfolioImportCloseButton");
-
+		CommonMethod.WaitUntilVisibility("PortfolioLocationLanding", 60);
+		
 	}
 
 	public void PortfolioBuildScorecard() throws IOException, InterruptedException {
@@ -268,7 +274,6 @@ public class ReusableMethodsPortfolio extends BaseClass {
 				}	
 	}
 	public void clickDocument() throws IOException, InterruptedException {
-		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("WellV2Tab", 60);
 		CommonMethod.click("WellV2Tab");
 		CommonMethod.WaitUntilVisibility("WellV2DocLibraryTab", 60);
@@ -277,16 +282,51 @@ public class ReusableMethodsPortfolio extends BaseClass {
 
 	public void ValidatingUploadDocument() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadbutton", 30);
-		CommonMethod.click("PortfolioDocumentUploadbutton");
+		CommonMethod.click("PortfolioDocumentUploadbutton");	
 		CommonMethod.selectdropdownIndex("V2ProjectDocType", 1);
 		CommonMethod.selectdropdownIndex("PortfolioSelectdocumenttype", 1);
+		CommonMethod.uploadFile("ScoreCardVerificationUpload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadSubmitbutton", 60);
-		CommonMethod.click("PortfolioDocumentUploadSubmitbutton");
-		CommonMethod.WaitUntilClickble("PortfolioDocumentListTab", 30).click();
-		CommonMethod.WaitUntilVisibility("PortfolioDocumentList", 60);
-		CommonMethod.assertcontainsmessage("PortfolioDocumentList", "3", "Verified Upload File Count");
+		CommonMethod.Robustclick("PortfolioDocumentUploadSubmitbutton");
+		CommonMethod.WaitUntilClickble("PortfolioDocumentListLink", 30).click();
+	CommonMethod.WaitUntilVisibility("PortfolioDocumentList", 60);
+//		CommonMethod.assertcontainsmessage("PortfolioDocumentList", "3", "Verified Upload File Count");
 	}
-	public void ReviewDocument() throws IOException, InterruptedException {
-	}
+	public void ReviewDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ReviwTab", 30);
+		CommonMethod.click("ReviwTab");	
+		CommonMethod.WaitUntilVisibility("PortfolioReviewSubmitButton", 30);
+		CommonMethod.click("PortfolioReviewSubmitButton");
+		CommonMethod.WaitUntilVisibility("PortfolioReviewlanding", 30);
+		CommonMethod.WaitUntilVisibility("PortfolioReviewTextbox", 30);
+		CommonMethod.sendKeys("PortfolioReviewTextbox", "Submit Documentation for Year 1, Review Cycle #1");
+		CommonMethod.click("PortfolioReviewSubmitDocButton");
+		CommonMethod.WaitUntilVisibility("PortfolioReviewListViewButton", 60);
+	
+	/*
+	 * Admin Review
+	 */
+		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
+		CommonMethod.click("AdminNavBar");
+		CommonMethod.WaitUntilVisibility("AdminWELLAtScaleNavBar", 60);
+		CommonMethod.click("AdminWELLAtScaleNavBar");
+		CommonMethod.WaitUntilClickble("PortfolioAdminNameSearch", 60).sendKeys(data.getCellData(SheetName, "AccountName", rowNum));
+		CommonMethod.click("PortfolioAdminApplybtn");
+		Thread.sleep(2000);
+		CommonMethod.click("PortfolioAdminIdClick");
+		CommonMethod.WaitUntilVisibility("ReviwTab", 60);
+		CommonMethod.click("ReviwTab");
+		CommonMethod.WaitUntilVisibility("PortfolioReviewListViewButton", 60);
+		CommonMethod.click("PortfolioReviewListViewButton");
+		CommonMethod.WaitUntilVisibility("PortfolioReturnReview", 60);
+		CommonMethod.click("PortfolioReturnReview");
+		CommonMethod.uploadFile("ScoreCardVerificationUpload", PortfolioLocationImportfile);
+		CommonMethod.WaitUntilClickble("HsrReturnComment", 60).sendKeys("Preliminary Precertification Review");
+		Thread.sleep(1000);
+		CommonMethod.scrollDown();
+		Thread.sleep(1000);
+		CommonMethod.click("PortfolioReviewSubmitResponse");
+		CommonMethod.WaitUntilVisibility("PortfolioReviewStatus", 60);
+			}
 	
 }

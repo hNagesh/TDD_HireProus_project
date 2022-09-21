@@ -11,14 +11,14 @@ public class TC_12_ReviewTest extends BaseClass {
 
 	@Test//(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_09_UploadFileInAuditTest.TC_09_UploadFileInAudit" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_12_Review() throws IOException {
+	public void TC_12_Review(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
 
 		try {
-			portfolio.ReviewDocument();
+			portfolio.ReviewDocument(SheetName, rowNum);
 
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

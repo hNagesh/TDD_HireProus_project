@@ -18,25 +18,22 @@ public class ReusableMethodsMembership extends BaseClass {
 		CommonMethod.click("MPMyMembership");
 		CommonMethod.WaitUntilVisibility("MPMembershipLanding", 60);
 		CommonMethod.refreshBrowser();
-			CommonMethod.scrolldowntoElement("MPCornerstoneAmount");
-			
+		CommonMethod.scrolldowntoElement("MPCornerstoneAmount");
 		if (MembershipName.equalsIgnoreCase("Cornerstone")) {
 			CommonMethod.click("MPCornerstonebtn");
-
-	} 
-		else if (MembershipName.equalsIgnoreCase("Keystone")) {
+		} else if (MembershipName.equalsIgnoreCase("Keystone")) {
 			CommonMethod.click("MPKeystonebtn");
 		}
-		
-		CommonMethod.sendKeys("MPorganization",  data.getCellData(SheetName, "organization", rowNum));
-		   CommonMethod.uploadFile("WFProvideUpload", SampleJpgfile);
-		   CommonMethod.ClickCheckbox("MPNumberofyearsrtn");
-		   CommonMethod.sendKeys("MPorganizationwebsite", data.getCellData(SheetName, "organizationwebsite", rowNum));
-		   CommonMethod.WaitUntilVisibility("MPorgcontinuebtn", 30);
-			CommonMethod.click("MPorgcontinuebtn");
+		CommonMethod.sendKeys("MPorganization", data.getCellData(SheetName, "organization", rowNum));
+		CommonMethod.uploadFile("WFProvideUpload", SampleJpgfile);
+		CommonMethod.ClickCheckbox("MPNumberofyearsrtn");
+		CommonMethod.sendKeys("MPorganizationwebsite", data.getCellData(SheetName, "organizationwebsite", rowNum));
+		CommonMethod.WaitUntilVisibility("MPorgcontinuebtn", 30);
+		CommonMethod.click("MPorgcontinuebtn");
+		CommonMethod.WaitUntilVisibility("MPNamePointContact", 30);
 	}
-	public void EnrollMembership(String SheetName, int rowNum)
-			throws IOException, InterruptedException {
+
+	public void EnrollMembership(String SheetName, int rowNum) throws IOException, InterruptedException {
 		/*
 		 * Point Contact
 		 */
@@ -46,44 +43,49 @@ public class ReusableMethodsMembership extends BaseClass {
 		CommonMethod.sendKeys("MPEmail", data.getCellData(SheetName, "email", rowNum));
 		CommonMethod.sendKeys("MPJobtitle", data.getCellData(SheetName, "jobtitle", rowNum));
 		CommonMethod.sendKeys("MPPhonenumber", data.getCellData(SheetName, "phonenumber", rowNum));
-		 CommonMethod.ClickCheckbox("MPContactdetailscheckbox");
-		 CommonMethod.click("MPContinuebutton");
-		 /*
-			 * Owner details
-			 */
-		 CommonMethod.WaitUntilVisibility("MPOwnername", 30);
-			CommonMethod.sendKeys("MPOwnername", firstName);
-			CommonMethod.sendKeys("MPOwnerEmail", data.getCellData(SheetName, "email", rowNum));
-			CommonMethod.sendKeys("MPOwnerjob", data.getCellData(SheetName, "jobtitle", rowNum));
-			CommonMethod.sendKeys("MPOwnernumber", data.getCellData(SheetName, "phonenumber", rowNum));
-			 CommonMethod.click("MPMembershipOwnerContinue");
-			 /*
-				 * Office Address
-				 */
-			 CommonMethod.WaitUntilVisibility("MPOfficecountry", 30);
-			    CommonMethod.selectdropdown("MPOfficecountry", data.getCellData(SheetName, "country", rowNum));
-				CommonMethod.selectdropdown("MPOfficestate", data.getCellData(SheetName, "state", rowNum));
-				String ProjectAddress = USfaker.address().streetAddress();
-				String ProjectCity = USfaker.address().cityName();
-				String PostalCode = USfaker.address().zipCode();
-				CommonMethod.sendKeys("MPOfficestreet", ProjectAddress);
-				CommonMethod.sendKeys("MPOfficecity", ProjectCity);
-				CommonMethod.sendKeys("MPOfficePostalCode", PostalCode);
-				 CommonMethod.click("MPOfficecontinuebtn");
-				 /*
-					 * Term
-					 */
-				 CommonMethod.WaitUntilVisibility("MPTermscheckbox", 30);
-				 CommonMethod.ClickCheckbox("MPTermscheckbox");
-				 CommonMethod.scrolldowntoElement("MPProcedtopaymentbtn");
-				 CommonMethod.click("MPProcedtopaymentbtn");
-				 CommonMethod.WaitUntilVisibility("MPTermscheckbox", 30);
-				 CommonMethod.click("MPProcedtoConfirmationPaymentbtn");
-				 
+		CommonMethod.ClickCheckbox("MPContactdetailscheckbox");
+		CommonMethod.click("MPContinuebutton");
+		/*
+		 * Owner details
+		 */
+		CommonMethod.WaitUntilVisibility("MPOwnername", 30);
+		CommonMethod.sendKeys("MPOwnername", firstName);
+		CommonMethod.sendKeys("MPOwnerEmail", data.getCellData(SheetName, "email", rowNum));
+		CommonMethod.sendKeys("MPOwnerjob", data.getCellData(SheetName, "jobtitle", rowNum));
+		CommonMethod.sendKeys("MPOwnernumber", data.getCellData(SheetName, "phonenumber", rowNum));
+		CommonMethod.click("MPMembershipOwnerContinue");
+		/*
+		 * Office Address
+		 */
+		CommonMethod.WaitUntilVisibility("MPOfficecountry", 30);
+		CommonMethod.selectdropdown("MPOfficecountry", data.getCellData(SheetName, "country", rowNum));
+		CommonMethod.selectdropdown("MPOfficestate", data.getCellData(SheetName, "state", rowNum));
+		String ProjectAddress = USfaker.address().streetAddress();
+		String ProjectCity = USfaker.address().cityName();
+		String PostalCode = USfaker.address().zipCode();
+		CommonMethod.sendKeys("MPOfficestreet", ProjectAddress);
+		CommonMethod.sendKeys("MPOfficecity", ProjectCity);
+		CommonMethod.sendKeys("MPOfficePostalCode", PostalCode);
+		CommonMethod.click("MPOfficecontinuebtn");
+		/*
+		 * Term
+		 */
+		CommonMethod.WaitUntilVisibility("MPTermscheckbox", 30);
+		CommonMethod.ClickCheckbox("MPTermscheckbox");
+		CommonMethod.scrolldowntoElement("MPProcedtopaymentbtn");
+		CommonMethod.click("MPProcedtopaymentbtn");
+		CommonMethod.WaitUntilVisibility("MPTermscheckbox", 30);
+		CommonMethod.click("MPProcedtoConfirmationPaymentbtn");
+		CommonMethod.WaitUntilVisibility("BillingLanding", 60);
 	}
-	public void BillingMembership(String SheetName, int rowNum) throws IOException, InterruptedException {
-		v2project.Billing(SheetName, rowNum);	
-		Thread.sleep(2000);
+
+	public void BillingMembership(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
+		v2project.Billing(SheetName, rowNum);
+		CommonMethod.WaitUntilVisibility("MPValidMembershipeType", 60);
+		if (MembershipName.equalsIgnoreCase("Cornerstone")) {
+			CommonMethod.assertcontainsmessage("MPValidMembershipeType", "CORNERSTONE MEMBERSHIP", "Verified Cornerstone Membership Name");
+		}
+		
 	}
 
 }
