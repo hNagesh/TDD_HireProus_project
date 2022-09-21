@@ -79,7 +79,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.sendKeys("V2ProjectownerEmail", "www.auto@gmail.com");
 		String PostalCode = USfaker.address().zipCode();
 		CommonMethod.sendKeys("V2Projectownerphone", PostalCode);
-		CommonMethod.selectdropdownrandom("OrgIndustry");
+		CommonMethod.selectdropdownrandom("PortfolioOrgIndustry");
 		CommonMethod.sendKeys("V2Projectorganizationwebsite", Ownername);
 		CommonMethod.sendKeys("V2ProjectorganizationOverview", Ownername);
 		CommonMethod.ClickCheckbox("V2ProjectconstructionOrrenovation");
