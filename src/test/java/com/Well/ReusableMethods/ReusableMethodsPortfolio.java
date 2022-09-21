@@ -148,9 +148,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 
 	public void PortfolioBuildScorecard() throws IOException, InterruptedException {
-		Thread.sleep(2000);
-		CommonMethod.refreshBrowser();
-		CommonMethod.WaitUntilVisibility("WellV2Tab", 60);
+		CommonMethod.WaitUntilClickble("WellV2Tab", 120);
 		CommonMethod.click("WellV2Tab");
 		CommonMethod.click("WellV2ScorecardTab");
 		if (CommonMethod.isElementsExist("PortfolioScorecardFinishedButton", 30)) {

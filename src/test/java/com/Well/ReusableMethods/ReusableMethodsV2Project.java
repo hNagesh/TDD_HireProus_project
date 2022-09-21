@@ -60,6 +60,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void SearchV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.click("WELLCertificationNavBar");
+		CommonMethod.WaitUntilClickble("V2ProjectId", 60);
 		CommonMethod.sendKeys("V2ProjectId", data.getCellData(SheetName, "projectId", rowNum));
 		CommonMethod.click("V2ProjectApplybtn");
 		Thread.sleep(2000);
@@ -124,8 +125,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.switchToParentFrame();
 		Thread.sleep(2000);
 		CommonMethod.switchToFrame("CardExpDateIframe");
-		CommonMethod.WaitUntilClickble("CardHolderExpDate", 60);
-		CommonMethod.sendKeys("CardHolderExpDate", "0925");
+		CommonMethod.WaitUntilClickble("CardHolderExpDate", 60).sendKeys("0925");
 		CommonMethod.switchToParentFrame();
 		Thread.sleep(2000);
 		CommonMethod.switchToFrame("CardCVVIframe");

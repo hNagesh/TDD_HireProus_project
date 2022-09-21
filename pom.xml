@@ -188,7 +188,7 @@
 				   <suiteXmlFile>src/main/resources/TestNG/Examtestng.xml</suiteXmlFile>
 				   <suiteXmlFile>src/main/resources/TestNG/Facultytestng.xml</suiteXmlFile>				   		
                    <suiteXmlFile>src/main/resources/TestNG/Membershiptestng.xml</suiteXmlFile>
-				   <suiteXmlFile>src/main/resources/TestNG/Portfoliotestng.xml</suiteXmlFile>				   					
+				   				   					
 				   </suiteXmlFiles>
 				</configuration>
 			</plugin>
