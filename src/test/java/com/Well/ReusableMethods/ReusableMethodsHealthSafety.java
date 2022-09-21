@@ -64,7 +64,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
       String[] stringArray = getId.split(": ");
       String getHsrId = stringArray[1].trim();
       data.setCellData("Hsr", "hsrId", 2, getHsrId);
-      CommonMethod.WaitUntilVisibility("WPRDashboard", 60);
+      
 	}
 	
 	public void SearchHealthSafetyByID (String SheetName,int rowNum) throws IOException, InterruptedException {
