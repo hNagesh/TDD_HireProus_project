@@ -34,7 +34,7 @@ public class JSWaiter extends BaseClass {
                 .executeScript("return jQuery.active") == 0);
 
             boolean jqueryReady = (Boolean) jsExec.executeScript("return jQuery.active==0");
-
+            System.out.println(jqueryReady);
             if (!jqueryReady) {
             	System.out.println("jQuery loading");
                 jsWait.until(jQueryLoad);
@@ -54,7 +54,7 @@ public class JSWaiter extends BaseClass {
                 .executeScript("return document.readyState").toString().equals("complete");
 
             boolean jsReady = jsExec.executeScript("return document.readyState").toString().equals("complete");
-
+System.out.println(jsReady);
             if (!jsReady) {
             	System.out.println("js loading");
                 jsWait.until(jsLoad);
