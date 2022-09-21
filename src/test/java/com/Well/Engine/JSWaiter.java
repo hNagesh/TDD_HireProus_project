@@ -17,7 +17,7 @@ public class JSWaiter extends BaseClass {
     //Get the driver 
     public static void setDriver (WebDriver driver) {
         jsWaitDriver = driver;
-        jsWait = new WebDriverWait(jsWaitDriver, Duration.ofSeconds(10));
+        jsWait = new WebDriverWait(jsWaitDriver, Duration.ofSeconds(300));
         jsExec = (JavascriptExecutor) jsWaitDriver;
     }
 
