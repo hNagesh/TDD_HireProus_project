@@ -111,8 +111,8 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	
 	public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		Thread.sleep(3000);
-		CommonMethod.WaitUntilVisibility("WellV2ScorecardTab", 300);
-		CommonMethod.click("WellV2ScorecardTab");
+		CommonMethod.WaitUntilVisibility("ScorecardTab", 300);
+		CommonMethod.click("ScorecardTab");
 		CommonMethod.WaitUntilVisibility("HsrScorecard", 300);
 		ScorecardfillHSRWPR(15,1,27,27); 
 		
