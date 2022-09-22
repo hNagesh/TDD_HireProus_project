@@ -41,9 +41,9 @@ public class ReusableMethodsHealthSafety extends BaseClass {
        CommonMethod.click("HsrTypeoneEnrollbtn");
        CommonMethod.scrollUp();
        CommonMethod.sendKeys("Hsrlocations", "10");
-       CommonMethod.click("HsrlocationsSpacetype");
+       CommonMethod.click("HsrWPRlocationsSpacetype");
        Thread.sleep(2000);
-       CommonMethod.click("HsrlocationsSpaceOption");
+       CommonMethod.click("HsrWPRlocationsSpaceOption");
        CommonMethod.clear("Hsrlocationsize");
        CommonMethod.sendKeys("Hsrlocationsize", "10");
 	   CommonMethod.click("HsrLocContinuebutton");

@@ -82,7 +82,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.sendKeys("WFApproved", FirstName);
 		CommonMethod.WaitUntilVisibility("WFExpireDate", 10);
 		CommonMethod.click("WFExpireDate");
-		CommonMethod.click("V2ProjectdocsubOkbtn");
+		CommonMethod.click("DatePickerOkButton");
 		String sampleText = "WELL Faculty Application";
 		CommonMethod.sendKeys("WFReasonnarration", sampleText);
 		CommonMethod.sendKeys("WFRegion", sampleText);
@@ -95,7 +95,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.ClickCheckbox("WFRedflagrbn");
 		CommonMethod.ClickCheckbox("WFWorkshops");
 		CommonMethod.click("WFNextDate");
-		CommonMethod.click("V2ProjectdocsubOkbtn");
+		CommonMethod.click("DatePickerOkButton");
 		CommonMethod.uploadFile("WFProvideUpload", SamplePdffile);
 		CommonMethod.sendKeys("WFAdminNote3narration", sampleText);
 		CommonMethod.sendKeys("WFAdminNote2narration", sampleText);

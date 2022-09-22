@@ -351,7 +351,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("WellV2ProjectDocumentTab", 60);
 		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
-		CommonMethod.selectdropdown("V2ProjectDocType", "Legal");
+		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Legal");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
 		CommonMethod.click("V2ProjectDocSubmit");
@@ -363,15 +363,15 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("WellV2ProjectDocumentTab", 60);
 		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
-		CommonMethod.selectdropdown("V2ProjectDocType", "Ongoing data reports");
+		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Ongoing data reports");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectResetbtn");
 		Thread.sleep(1000);
-		CommonMethod.selectdropdown("V2ProjectDocType", "Legal");
+		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Legal");
 		Thread.sleep(1000);
 		CommonMethod.click("V2ProjectResetbtn");
 		Thread.sleep(2000);
-		CommonMethod.selectdropdown("V2ProjectDocType", "Ongoing data reports");
+		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Ongoing data reports");
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
 		CommonMethod.click("OwnerOrgClick");
 		CommonMethod.sendKeys("OwnerOrg", "R");
@@ -391,7 +391,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
 		Thread.sleep(2000);
-		CommonMethod.selectdropdown("V2ProjectDocType", "Feature");
+		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Feature");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
 		CommonMethod.click("OwnerOrgClick");

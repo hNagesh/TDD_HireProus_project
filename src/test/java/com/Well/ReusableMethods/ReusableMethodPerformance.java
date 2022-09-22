@@ -130,7 +130,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		List<WebElement> Feature;
 		Feature = CommonMethod.findElements("V2ProjectWPRPFeature");
 		Feature = Feature.subList(0, LastFeatureNumber);
-		CommonMethod.scrolldowntoElement("WPRScorecardLanding");
+		CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
 		for (WebElement f : Feature) {
 			CommonMethod.click(f);
 			CommonMethod.WaitUntilVisibility("WPRVerficationTab", 60);
@@ -154,7 +154,7 @@ public class ReusableMethodPerformance extends BaseClass {
 			CommonMethod.uploadFile("WPRDocUpload", PortfolioLocationImportfile);
 			Thread.sleep(2000);
 			CommonMethod.Robustclick("WPRUploadDocTaskSavebtn");
-			CommonMethod.scrolldowntoElement("WPRScorecardLanding");
+			CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
 			CommonMethod.click(f);
 		}
 	}
