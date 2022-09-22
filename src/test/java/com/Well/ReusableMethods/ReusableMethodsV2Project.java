@@ -64,7 +64,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectIdCompare");
-		CommonMethod.WaitUntilVisibility("EnrollTab", 300);
+		//CommonMethod.WaitUntilVisibility("EnrollTab", 300);
 	}
 
 	public void EnrollV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -446,10 +446,11 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectIdCompare");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 60);
 		CommonMethod.click("ReviewTab");
-		CommonMethod.WaitUntilVisibility("ReviewViewButton", 20);
+		CommonMethod.WaitUntilVisibility("Reviewlanding", 60);
+		CommonMethod.WaitUntilVisibility("ReviewViewButton", 60);
 		CommonMethod.click("ReviewViewButton");
 		Thread.sleep(2000);
-		CommonMethod.click("WPRV2ProjectReturnReviewbtn");
+		CommonMethod.click("ReviewReturnButton");
 		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60)
 				.sendKeys("Preliminary Precertification Review");
 		CommonMethod.sendKeys("V2ProjectGeneralCommentNarrative", "Preliminary Precertification Review");
@@ -459,11 +460,11 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("DatePickerOkButton");
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
-		CommonMethod.ClickCheckbox("V2ProjectPaymentstatus");
-		CommonMethod.click("V2ProjectReturnReviewSubmit");
+		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
+		CommonMethod.click("ReviewReturnSubmit");
 		Thread.sleep(2000);
-		CommonMethod.WaitUntilVisibility("V2ProjectReviwedStatus", 60);
-		CommonMethod.assertcontainsmessage("V2ProjectReviwedStatus", "REVIEWED", "Verified Review status");
+		CommonMethod.WaitUntilVisibility("ReviewedStatus", 60);
+		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
 	}
 
 	public void HealthSafetyV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -534,23 +535,21 @@ public class ReusableMethodsV2Project extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectHSRReviewViewbtn");
 		Thread.sleep(2000);
-		CommonMethod.click("V2ProjectReturnReviewbtn");
+		CommonMethod.click("ReviewReturnButton");
 		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60).sendKeys("Final Precertification Review");
 		CommonMethod.sendKeys("V2ProjectGeneralCommentNarrative", "Final Precertification Review");
-		CommonMethod.WaitUntilClickble("V2ProjectdocsubUpdatebtn", 60);
+		CommonMethod.WaitUntilClickble("DatePickerButton", 60);
 		Thread.sleep(1000);
-		CommonMethod.click("V2ProjectdocsubUpdatebtn");
-		CommonMethod.WaitUntilClickble("V2ProjectdocsubOkbtn", 60);
-		CommonMethod.click("V2ProjectdocsubOkbtn");
+		CommonMethod.click("DatePickerButton");
+		CommonMethod.WaitUntilClickble("DatePickerOkButton", 60);
+		CommonMethod.click("DatePickerOkButton");
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
-		CommonMethod.WaitUntilClickble("V2ProjectPaymentstatus", 60);
-		CommonMethod.ClickCheckbox("V2ProjectPaymentstatus");
-		CommonMethod.WaitUntilClickble("V2ProjectReturnReviewSubmit", 60);
-		CommonMethod.click("V2ProjectReturnReviewSubmit");
+		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
+		CommonMethod.click("ReviewReturnSubmit");
 		Thread.sleep(2000);
-		CommonMethod.WaitUntilClickble("V2ProjectReviwedStatus", 60);
-		CommonMethod.assertcontainsmessage("V2ProjectReviwedStatus", "REVIEWED", "Verified Review status");
+		CommonMethod.WaitUntilVisibility("ReviewedStatus", 60);
+		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
 	}
 
 	public void performanceV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -601,24 +600,24 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectIdCompare");
 		CommonMethod.click("ReviewTab");
 		Thread.sleep(2000);
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRReviewViewbtn", 300);
-		CommonMethod.click("V2ProjectWPRReviewViewbtn");
+		CommonMethod.WaitUntilVisibility("ReviewReturnButton", 30);
+		CommonMethod.click("ReviewReturnButton");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("V2ProjectReturnReviewbtn", 300);
 		CommonMethod.click("V2ProjectReturnReviewbtn");
 		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60).sendKeys("Preliminary Precertification Review");
 		CommonMethod.sendKeys("V2ProjectGeneralCommentNarrative", "Preliminary Precertification Review");
-		CommonMethod.WaitUntilVisibility("V2ProjectdocsubUpdatebtn", 300);
+		CommonMethod.WaitUntilVisibility("DatePickerButton", 300);
 		Thread.sleep(1000);
-		CommonMethod.click("V2ProjectdocsubUpdatebtn");
-		CommonMethod.click("V2ProjectdocsubOkbtn");
+		CommonMethod.click("DatePickerButton");
+		CommonMethod.click("DatePickerOkButton");
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
-		CommonMethod.WaitUntilVisibility("V2ProjectReturnReviewSubmit", 300);
-		CommonMethod.click("V2ProjectReturnReviewSubmit");
+		CommonMethod.WaitUntilVisibility("ReviewReturnSubmit", 300);
+		CommonMethod.click("ReviewReturnSubmit");
 		Thread.sleep(2000);
-		CommonMethod.WaitUntilVisibility("V2ProjectReviwedStatus", 300);
-		CommonMethod.assertcontainsmessage("V2ProjectReviwedStatus", "REVIEWED", "Verified Review status");
+		CommonMethod.WaitUntilVisibility("ReviewedStatus", 60);
+		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
 	}
 
 	public void teamV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
