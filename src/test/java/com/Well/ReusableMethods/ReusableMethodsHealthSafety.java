@@ -101,9 +101,9 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 			  int RemainingYes = YesButton.size(); 
 			  do {
 		  CommonMethod.WaitUntilClickble("V2ProjectHsrPurseYes", 60);
-		  CommonMethod.click("V2ProjectPurseYes"); 
+		  CommonMethod.click("V2ProjectHsrPurseYes"); 
 		  Thread.sleep(1000); 
-		  YesButton = CommonMethod.findElements("V2ProjectPurseYes");
+		  YesButton = CommonMethod.findElements("V2ProjectHsrPurseYes");
 		  }while(YesButton.size()==RemainingYes); RemainingYes--; }
 		 
 		

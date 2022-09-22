@@ -446,7 +446,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectIdCompare");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 60);
 		CommonMethod.click("ReviewTab");
-		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 20);
+		CommonMethod.WaitUntilVisibility("ReviewViewButton", 20);
 		CommonMethod.click("ReviewViewButton");
 		Thread.sleep(2000);
 		CommonMethod.click("WPRV2ProjectReturnReviewbtn");
