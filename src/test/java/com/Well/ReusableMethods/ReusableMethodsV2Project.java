@@ -34,8 +34,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectspacetypeContinuebtn", 300);
 		CommonMethod.click("V2ProjectspacetypeContinuebtn");
 		CommonMethod.click("V2Projectwellcorecertification");
-		CommonMethod.WaitUntilVisibility("V2ProjectdocsubUpdatebtn", 300);
-		CommonMethod.RobustclickElementVisible("V2ProjectdocsubUpdatebtn", "V2ProjectDatePopupWeekday");
+		CommonMethod.WaitUntilVisibility("DatePickerButton", 300);
+		CommonMethod.RobustclickElementVisible("DatePickerButton", "V2ProjectDatePopupWeekday");
 		CommonMethod.WaitUntilVisibility("V2ProjectnextMonthbtn", 300);
 		CommonMethod.Robustclick("V2ProjectnextMonthbtn", "V2ProjectDatePopupWeekday");
 		CommonMethod.WaitUntilVisibility("V2ProjectselectNextMonth", 300);
@@ -43,8 +43,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectselectNextMonth");
 		Thread.sleep(1000);
 		CommonMethod.WaitUntilVisibility("V2ProjectdocsubOkbtn", 300);
-		CommonMethod.click("V2ProjectdocsubOkbtn");
-		CommonMethod.click("V2ProjectdocsubOkbtn");
+		CommonMethod.click("DatePickerOkButton");
+		CommonMethod.click("DatePickerOkButton");
 		CommonMethod.WaitUntilClickble("V2ProjectdocsubConfirmbtn", 60);
 		CommonMethod.click("V2ProjectdocsubConfirmbtn");
 		CommonMethod.click("V2Projectcontinuethejourneybtn");
@@ -79,7 +79,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.sendKeys("V2ProjectownerEmail", "www.auto@gmail.com");
 		String PostalCode = USfaker.address().zipCode();
 		CommonMethod.sendKeys("V2Projectownerphone", PostalCode);
-		CommonMethod.selectdropdownrandom("PortfolioOrgIndustry");
+		CommonMethod.selectdropdownrandom("OrgIndustry");
 		CommonMethod.sendKeys("V2Projectorganizationwebsite", Ownername);
 		CommonMethod.sendKeys("V2ProjectorganizationOverview", Ownername);
 		CommonMethod.ClickCheckbox("V2ProjectconstructionOrrenovation");
@@ -164,28 +164,28 @@ public class ReusableMethodsV2Project extends BaseClass {
 			throws IOException, InterruptedException {
 		List<WebElement> YesButton;
 		List<WebElement> NoButton;
-		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
+		YesButton = CommonMethod.findElements("V2ProjectHsrPurseYes");
 		for (int i = 1; i <= YesEnd; i++) {
 			int RemainingYes = YesButton.size();
 			System.out.println(RemainingYes);
 			do {
-				CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
+				CommonMethod.WaitUntilClickble("V2ProjectHsrPurseYes", 60);
 				CommonMethod.click("V2ProjectPurseYes");
 				Thread.sleep(1000);
-				YesButton = CommonMethod.findElements("V2ProjectPurseYes");
+				YesButton = CommonMethod.findElements("V2ProjectHsrPurseYes");
 				System.out.println(YesButton);
 			} while (YesButton.size() == RemainingYes);
 			RemainingYes--;
 		}
 
-		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
+		NoButton = CommonMethod.findElements("V2ProjectHsrPurseNo");
 		int j = DifferencePlusOne;
 		for (int i = NoStart; i <= NoEnd; i++) {
 			int RemainingNo = NoButton.size();
 			do {
 				CommonMethod.click(NoButton.get(RemainingNo - j));
 				Thread.sleep(1000);
-				NoButton = CommonMethod.findElements("V2ProjectPurseNo");
+				NoButton = CommonMethod.findElements("V2ProjectHsrPurseNo");
 			} while (NoButton.size() == RemainingNo);
 			RemainingNo--;
 			j--;
@@ -197,28 +197,27 @@ public class ReusableMethodsV2Project extends BaseClass {
 			throws IOException, InterruptedException {
 		List<WebElement> YesButton;
 		List<WebElement> NoButton;
-
-		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
+		NoButton = CommonMethod.findElements("V2ProjectHsrPurseNo");
 		int j = DifferencePlusOne;
 		for (int i = NoStart; i <= NoEnd; i++) {
 			int RemainingNo = NoButton.size();
 			do {
 				CommonMethod.click(NoButton.get(RemainingNo - j));
 				Thread.sleep(1000);
-				NoButton = CommonMethod.findElements("V2ProjectPurseNo");
+				NoButton = CommonMethod.findElements("V2ProjectHsrPurseNo");
 			} while (NoButton.size() == RemainingNo);
 			RemainingNo--;
 			j--;
 		}
 		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
-		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
+		YesButton = CommonMethod.findElements("V2ProjectHsrPurseYes");
 		for (int i = 1; i <= YesEnd; i++) {
 			int RemainingYes = YesButton.size();
 			do {
-				CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
-				CommonMethod.click("V2ProjectPurseYes");
+				CommonMethod.WaitUntilClickble("V2ProjectHsrPurseYes", 60);
+				CommonMethod.click("V2ProjectHsrPurseYes");
 				Thread.sleep(1000);
-				YesButton = CommonMethod.findElements("V2ProjectPurseYes");
+				YesButton = CommonMethod.findElements("V2ProjectHsrPurseYes");
 			} while (YesButton.size() == RemainingYes);
 			RemainingYes--;
 		}
@@ -341,7 +340,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("WellV2ProjectDocumentTab", 60);
 		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
-		CommonMethod.selectdropdown("V2ProjectDocType", "General");
+		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "General");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
 		CommonMethod.click("V2ProjectDocSubmit");
@@ -426,9 +425,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 	}
 
 	public void ReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("ReviwTab", 60);
-		CommonMethod.click("ReviwTab");
-		CommonMethod.WaitUntilVisibility("PortfolioReviewlanding", 20);
+		CommonMethod.WaitUntilVisibility("ReviewTab", 60);
+		CommonMethod.click("ReviewTab");
+		CommonMethod.WaitUntilVisibility("Reviewlanding", 20);
 		CommonMethod.WaitUntilVisibility("V2ProjectsubmitReview", 60);
 		CommonMethod.click("V2ProjectsubmitReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Preliminary Precertification Review");
@@ -446,19 +445,19 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("AdminV2ProjectApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectIdCompare");
-		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 60);
-		CommonMethod.click("ReviwTab");
-		CommonMethod.WaitUntilVisibility("PortfolioReviewlanding", 20);
-		CommonMethod.click("V2ProjectReviewViewbtn");
+		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
+		CommonMethod.click("ReviewTab");
+		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 20);
+		CommonMethod.click("ReviewViewButton");
 		Thread.sleep(2000);
-		CommonMethod.click("V2ProjectReturnReviewbtn");
+		CommonMethod.click("WPRV2ProjectReturnReviewbtn");
 		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60)
 				.sendKeys("Preliminary Precertification Review");
 		CommonMethod.sendKeys("V2ProjectGeneralCommentNarrative", "Preliminary Precertification Review");
-		CommonMethod.WaitUntilClickble("V2ProjectdocsubUpdatebtn", 60);
+		CommonMethod.WaitUntilClickble("DatePickerButton", 60);
 		Thread.sleep(1000);
-		CommonMethod.click("V2ProjectdocsubUpdatebtn");
-		CommonMethod.click("V2ProjectdocsubOkbtn");
+		CommonMethod.click("DatePickerButton");
+		CommonMethod.click("DatePickerOkButton");
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
 		CommonMethod.ClickCheckbox("V2ProjectPaymentstatus");
@@ -532,7 +531,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("AdminV2ProjectApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectIdCompare");
-		CommonMethod.click("ReviwTab");
+		CommonMethod.click("ReviewTab");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectHSRReviewViewbtn");
 		Thread.sleep(2000);
@@ -601,7 +600,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("AdminV2ProjectApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectIdCompare");
-		CommonMethod.click("ReviwTab");
+		CommonMethod.click("ReviewTab");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRReviewViewbtn", 300);
 		CommonMethod.click("V2ProjectWPRReviewViewbtn");

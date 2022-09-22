@@ -23,8 +23,8 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	   CommonMethod.sendKeys("OwnerOrg", "R");
 	   CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
 	   CommonMethod.click("SelectOwnerOrg");
-	   CommonMethod.selectdropdownrandom("HsrorgIndustry");
-	   data.setCellData("Hsr", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("HsrorgIndustry"));
+	   CommonMethod.selectdropdownrandom("OrgIndustry");
+	   data.setCellData("Hsr", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("PortfolioHsrOrgIndustry"));
 	   CommonMethod.selectdropdown("Hsrenrollcountry",  data.getCellData(SheetName, "country", rowNum));
 	   CommonMethod.selectdropdown("Hsrenrollstate", data.getCellData(SheetName, "state", rowNum));
        String ProjectAddress = USfaker.address().streetAddress();
@@ -47,8 +47,8 @@ public class ReusableMethodsHealthSafety extends BaseClass {
        CommonMethod.clear("Hsrlocationsize");
        CommonMethod.sendKeys("Hsrlocationsize", "10");
 	   CommonMethod.click("HsrLocContinuebutton");
-	   CommonMethod.WaitUntilClickble("HsrYesMyOrganizationCbx", 30);
-	   CommonMethod.ClickCheckbox("HsrYesMyOrganizationCbx");
+	   CommonMethod.WaitUntilClickble("HsrWPRYesMyOrganizationCbx", 30);
+	   CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
 	   CommonMethod.click("HsrLocContinuebutton");
 	   CommonMethod.WaitUntilClickble("HsrProgramFeePublicrbtn", 60);
 	   CommonMethod.ClickCheckbox("HsrProgramFeePublicrbtn");
@@ -58,7 +58,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	  
 	}
 	public void StoreIdHealthSafety(String SheetName,int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("WPRDashboard", 60);
+		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
 		CommonMethod.WaitUntilVisibility("StoreId", 300);
 		String getId =CommonMethod.getText("StoreId"); 
       String[] stringArray = getId.split(": ");
@@ -78,29 +78,29 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		   CommonMethod.click("HsrapplySearch");
 		  Thread.sleep(3000);
 		   CommonMethod.click("Hsrprojectidcompare");
-		   CommonMethod.WaitUntilVisibility("WPRDashboard", 60);
+		   CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
 	}
 	public void ScorecardfillHSRWPR(int YesEnd,int NoStart, int NoEnd,int DifferencePlusOne) throws IOException, InterruptedException {
 		List<WebElement> YesButton;
 		List<WebElement> NoButton;
-		NoButton = CommonMethod.findElements("V2ProjectPurseNo");
+		NoButton = CommonMethod.findElements("V2ProjectHsrPurseNo");
 		int j=DifferencePlusOne;
 		for (int i = NoStart; i <= NoEnd; i++) {
 			int RemainingNo = NoButton.size();
 			do {
 			CommonMethod.click(NoButton.get(RemainingNo-j));
 			Thread.sleep(1000);
-			NoButton = CommonMethod.findElements("V2ProjectPurseNo");
+			NoButton = CommonMethod.findElements("V2ProjectHsrPurseNo");
 			}while(NoButton.size()==RemainingNo);
 			RemainingNo--;
 			j--;
 		}
 		CommonMethod.scrolldowntoElement("HsrScorecard");
-		YesButton = CommonMethod.findElements("V2ProjectPurseYes");
+		YesButton = CommonMethod.findElements("V2ProjectHsrPurseYes");
 		  for (int i = 1; i<= YesEnd; i++) { 
 			  int RemainingYes = YesButton.size(); 
 			  do {
-		  CommonMethod.WaitUntilClickble("V2ProjectPurseYes", 60);
+		  CommonMethod.WaitUntilClickble("V2ProjectHsrPurseYes", 60);
 		  CommonMethod.click("V2ProjectPurseYes"); 
 		  Thread.sleep(1000); 
 		  YesButton = CommonMethod.findElements("V2ProjectPurseYes");
@@ -151,9 +151,9 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		uploadDocumentInFeature(15);	
 }
 	public void ReviewHsr(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("ReviwTab", 60);
-		CommonMethod.click("ReviwTab");
-		CommonMethod.WaitUntilVisibility("PortfolioReviewlanding", 20);
+		CommonMethod.WaitUntilVisibility("ReviewTab", 60);
+		CommonMethod.click("ReviewTab");
+		CommonMethod.WaitUntilVisibility("Reviewlanding", 20);
 		CommonMethod.WaitUntilVisibility("HsrSubmitReview", 60);
 		CommonMethod.click("HsrSubmitReview");
 		CommonMethod.WaitUntilPresence("HsrCommentReview", 60).sendKeys("Preliminary Health-Safety Review");
@@ -162,7 +162,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilClickble("HsrSubmitDocReview", 60);
 		CommonMethod.click("HsrSubmitDocReview");
 		Thread.sleep(2000);
-		CommonMethod.WaitUntilVisibility("PortfolioReviewlanding", 60);
+		CommonMethod.WaitUntilVisibility("Reviewlanding", 60);
 		/*
 		 * Admin Review
 		 */
@@ -177,27 +177,22 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.click("HsrAdminIdClick");
 		Thread.sleep(3000);
-		CommonMethod.WaitUntilVisibility("ReviwTab", 300);
-		CommonMethod.click("ReviwTab");
-		CommonMethod.WaitUntilVisibility("HsrReviewViewbtn", 60);
-		CommonMethod.click("HsrReviewViewbtn");
-		CommonMethod.WaitUntilVisibility("V2ProjectReturnReviewbtn", 60);
-		CommonMethod.click("V2ProjectReturnReviewbtn");
-		CommonMethod.WaitUntilClickble("HsrReturnComment", 60).sendKeys("Preliminary Precertification Review");;
-		CommonMethod.WaitUntilClickble("V2ProjectdocsubUpdatebtn", 60);
-		Thread.sleep(1000);
-		CommonMethod.click("V2ProjectdocsubUpdatebtn");
-		CommonMethod.WaitUntilClickble("V2ProjectdocsubOkbtn", 60);
-		CommonMethod.click("V2ProjectdocsubOkbtn");
+		CommonMethod.WaitUntilVisibility("ReviewTab", 300);
+		CommonMethod.click("ReviewTab");
+		CommonMethod.WaitUntilVisibility("ReviewViewButton", 60);
+		CommonMethod.click("ReviewViewButton");
+		CommonMethod.WaitUntilVisibility("ReviewReturnButton", 60);
+		CommonMethod.click("ReviewReturnButton");
+		CommonMethod.WaitUntilClickble("ReturnComment", 60).sendKeys("Preliminary Precertification Review");;
+		CommonMethod.click("DatePickerButton");
+		CommonMethod.click("DatePickerOkButton");
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
-		CommonMethod.WaitUntilClickble("V2ProjectPaymentstatus", 60);
-		CommonMethod.ClickCheckbox("V2ProjectPaymentstatus");
-		CommonMethod.WaitUntilClickble("V2ProjectReturnReviewSubmit", 60);
-		CommonMethod.click("V2ProjectReturnReviewSubmit");
+		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
+		CommonMethod.click("ReviewReturnSubmit");
 		Thread.sleep(2000);
-		CommonMethod.WaitUntilClickble("V2ProjectReviwedStatus", 60);
-		CommonMethod.assertcontainsmessage("V2ProjectReviwedStatus", "REVIEWED", "Verified Review status");
+		CommonMethod.WaitUntilClickble("ReviewedStatus", 60);
+		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
 }
 	public void UploadDocumentHsr() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WellV2ProjectDocumentTab", 300);
