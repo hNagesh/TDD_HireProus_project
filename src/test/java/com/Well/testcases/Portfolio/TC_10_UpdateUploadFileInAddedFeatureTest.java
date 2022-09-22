@@ -18,7 +18,7 @@ public class TC_10_UpdateUploadFileInAddedFeatureTest extends BaseClass {
 		StartTest(TestCaseName);
 
 		try {
-			//portfolio.UpdateUploadFileinAddedFeature("Meet Thresholds for Organic Gases");
+			portfolio.UpdateUploadFileinAddedFeature("Meet Thresholds for Organic Gases");
 			
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

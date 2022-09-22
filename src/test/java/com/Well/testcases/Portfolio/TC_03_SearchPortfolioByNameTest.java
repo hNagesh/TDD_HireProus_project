@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class TC_03_SearchPortfolioByNameTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_02_RegisterPortfolioTest.TC_02_RegisterPortfolio" })
+	@Test//(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_02_RegisterPortfolioTest.TC_02_RegisterPortfolio" })
 	@Parameters({ "SheetName","rowNum" })
 	public void TC_03_SearchPortfolioByName(String SheetName,int rowNum) throws IOException {
 
