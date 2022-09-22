@@ -506,7 +506,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 	}
 
 	public void uploadHsrDocV2Project() throws IOException, InterruptedException {
-		uploadDocumentInFeature(15);
+		uploadDocumentInFeature(16);
 
 	}
 
@@ -537,12 +537,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.click("ReviewReturnButton");
 		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60).sendKeys("Final Precertification Review");
-		CommonMethod.sendKeys("V2ProjectGeneralCommentNarrative", "Final Precertification Review");
-		CommonMethod.WaitUntilClickble("DatePickerButton", 60);
-		Thread.sleep(1000);
-		CommonMethod.click("DatePickerButton");
-		CommonMethod.WaitUntilClickble("DatePickerOkButton", 60);
-		CommonMethod.click("DatePickerOkButton");
+		CommonMethod.sendKeys("ReturnComment", "Final Precertification Review");
+		CommonMethod.WaitUntilClickble("DatePickerButton", 60).click();
+		CommonMethod.WaitUntilClickble("DatePickerOkButton", 60).click();
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
 		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
