@@ -170,7 +170,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			System.out.println(RemainingYes);
 			do {
 				CommonMethod.WaitUntilClickble("V2ProjectHsrPurseYes", 60);
-				CommonMethod.click("V2ProjectPurseYes");
+				CommonMethod.click("V2ProjectHsrPurseYes");
 				Thread.sleep(1000);
 				YesButton = CommonMethod.findElements("V2ProjectHsrPurseYes");
 				System.out.println(YesButton);
