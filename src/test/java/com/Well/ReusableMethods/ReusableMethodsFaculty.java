@@ -75,8 +75,8 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WFStatus", 60);
 		CommonMethod.ClickCheckbox("WFStatus");
 		CommonMethod.click("WFApprovedDate");
-		CommonMethod.WaitUntilVisibility("V2ProjectdocsubOkbtn", 10);
-		CommonMethod.click("V2ProjectdocsubOkbtn");
+		CommonMethod.WaitUntilVisibility("DatePickerOkButton", 10);
+		CommonMethod.click("DatePickerOkButton");
 		Thread.sleep(1000);
 		String FirstName = USfaker.address().firstName();
 		CommonMethod.sendKeys("WFApproved", FirstName);

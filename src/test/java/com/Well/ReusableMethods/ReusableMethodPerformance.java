@@ -160,7 +160,7 @@ public class ReusableMethodPerformance extends BaseClass {
 	}
 
 	public void UploadWPRDocForFeature() throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("WPRScorecardLanding", 300);
+		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
 		uploadDocumentInFeature(21);
 	}
 

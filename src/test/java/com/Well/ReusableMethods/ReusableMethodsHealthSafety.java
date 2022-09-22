@@ -24,7 +24,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	   CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
 	   CommonMethod.click("SelectOwnerOrg");
 	   CommonMethod.selectdropdownrandom("OrgIndustry");
-	   data.setCellData("Hsr", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("PortfolioHsrOrgIndustry"));
+	   data.setCellData("Hsr", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
 	   CommonMethod.selectdropdown("Hsrenrollcountry",  data.getCellData(SheetName, "country", rowNum));
 	   CommonMethod.selectdropdown("Hsrenrollstate", data.getCellData(SheetName, "state", rowNum));
        String ProjectAddress = USfaker.address().streetAddress();

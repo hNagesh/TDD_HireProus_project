@@ -87,7 +87,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectdocsubEstidateOkbtn");
 		CommonMethod.click("V2ProjectdocsubAnticdate");
 		CommonMethod.click("V2ProjectdocsubEstidateOkbtn");
-		CommonMethod.click("V2ProjectdocsubEstidateOkbtn");
 		CommonMethod.click("V2ProjectprojectOwnerContinuebtn");
 		CommonMethod.selectdropdown("V2ProjectprojectaddressCountry", "United States");
 		CommonMethod.WaitUntilVisibility("V2ProjectprojectState", 10);
