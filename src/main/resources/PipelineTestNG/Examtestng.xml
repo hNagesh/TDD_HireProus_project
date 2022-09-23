@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name="WELLAutomation">
+
+<parameter name="browserName" value="chrome"/>
+<parameter name="environment" value="${env}"/>
+
+ <test name="WELL-Tests" >
+<parameter name="SheetName" value="Exam"/>
+<parameter name="rowNum" value="2"/>
+<classes>
+<class name="com.Well.testcases.login.TC_01_LoginTest"></class>
+<class name="com.Well.testcases.Exam.TC_02_RegisterExamTest"></class>
+<class name="com.Well.testcases.Exam.TC_03_EnrollExamTest"></class>
+<class name="com.Well.testcases.Exam.TC_04_BillingV2ProjectTest"></class>
+<class name="com.Well.testcases.Exam.TC_05_StoreExamIdTest"></class> 
+<class name="com.Well.testcases.Exam.TC_06_CancelExamByIdTest"></class>
+</classes>
+</test>
+
+</suite>  

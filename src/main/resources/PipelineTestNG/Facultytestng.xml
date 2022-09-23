@@ -1,0 +1,21 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name="WELLAutomation">
+
+<parameter name="browserName" value="chrome"/>
+<parameter name="environment" value="${env}"/>
+
+ <test name="WELL-Tests" >
+<parameter name="SheetName" value="Faculty"/>
+<parameter name="rowNum" value="2"/>
+<classes>
+<class name="com.Well.testcases.Faculty.TC_05_BulkDeleteInitialTest"></class>
+  <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
+ <class name="com.Well.testcases.Faculty.TC_02_RegisterFacultyTest"></class>
+ <class name="com.Well.testcases.Faculty.TC_03_AgreementFacultyTest"></class>
+ <class name="com.Well.testcases.Faculty.TC_04_SubmitReviewTest"></class>
+<class name="com.Well.testcases.Faculty.TC_05_BulkDeleteTest"></class>
+</classes>
+</test>
+</suite>  

@@ -1,0 +1,25 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name="WELLAutomation">
+
+<parameter name="browserName" value="chrome"/>
+<parameter name="environment" value="${env}"/>
+
+ <test name="WELL-Tests" >
+<parameter name="SheetName" value="Wpr"/>
+<parameter name="rowNum" value="2"/>
+<classes>
+<class name="com.Well.testcases.login.TC_01_LoginTest"></class>
+<class name="com.Well.testcases.Performance.TC_02_RegisterPerformanceTest"></class>
+<class name="com.Well.testcases.Performance.TC_03_SubscribeAndStoreIdTest"></class>
+<class name="com.Well.testcases.Performance.TC_04_SearchPerformanceByIdTest"></class>
+<class name="com.Well.testcases.Performance.TC_05_AgreementSignTest"></class>
+<class name="com.Well.testcases.Performance.TC_06_LocationTest"></class>
+<class name="com.Well.testcases.Performance.TC_07_ScorecardTest"></class>
+<class name="com.Well.testcases.Performance.TC_08_ReviewTest"></class>
+<class name="com.Well.testcases.Performance.TC_09_DocumentTest"></class>
+</classes>
+</test>
+
+</suite>  
