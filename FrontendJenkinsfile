@@ -9,13 +9,13 @@ options {
   }
 agent any 
 triggers {
-    cron(env.Branch == 'env/test' ? 'H 11 * * *' : '')
+    cron(env.Branch == 'env/testing' ? 'H 11 * * *' : '')
   }
 stages {
         stage('Build') {
 		when {
                    anyOf { 
-		   branch 'origin/env/stg'; branch 'origin/env/test' ; 
+		   branch 'origin/env/stg'; branch 'origin/env/testing' ; 
 		   }
 	           beforeAgent true
 		   }
@@ -25,9 +25,9 @@ stages {
                    if ("${env.GIT_BRANCH}" == "origin/env/stg") {
                    env.environment = "STG"
                    env.Branch = "env/stg"
-		    } else if("${env.GIT_BRANCH}" == "origin/env/test"){
+		    } else if("${env.GIT_BRANCH}" == "origin/env/testing"){
                    env.environment = "TEST"
-                   env.Branch = "env/test"
+                   env.Branch = "env/testing"
 		    } else {
                     env.environment = "false"
                    }
@@ -72,7 +72,7 @@ stage('Test Results'){
                    }
                    else{
                    env.JOB_NAME = "WellFrontendExecution-TEST"
-                   env.Branch = "env/test"
+                   env.Branch = "env/testing"
                    }
 	                echo 'Set Test1'
 	            }
