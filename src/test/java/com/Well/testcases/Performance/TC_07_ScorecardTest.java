@@ -12,7 +12,7 @@ public class TC_07_ScorecardTest extends BaseClass {
 
 	@Test(dependsOnMethods = { "com.Well.testcases.Performance.TC_06_LocationTest.tc_06_LocationTest" })
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_07_ScorecardTest(String SheetName,int rowNum) throws IOException {
+	public void TC_07_Scorecard(String SheetName,int rowNum) throws IOException {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName);
 		try {

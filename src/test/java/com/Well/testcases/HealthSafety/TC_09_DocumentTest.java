@@ -11,7 +11,7 @@ public class TC_09_DocumentTest extends BaseClass {
 
 	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.TC_08_ReviewTest.tc_08_ReviewTest" })
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_09_DocumentTest(String SheetName,int rowNum) throws IOException {
+	public void TC_09_Document(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

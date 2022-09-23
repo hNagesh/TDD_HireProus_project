@@ -11,7 +11,7 @@ public class TC_03_SubscribeAndStoreIdTest extends BaseClass {
 
 	@Test(dependsOnMethods = { "com.Well.testcases.Performance.TC_02_RegisterPerformanceTest.TC_02_RegisterPerformance" })
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_03_SubscribeAndStoreIdTest(String SheetName,int rowNum) throws IOException {
+	public void TC_03_SubscribeAndStoreId(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName);

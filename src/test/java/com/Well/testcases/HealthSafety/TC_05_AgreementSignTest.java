@@ -11,7 +11,7 @@ public class TC_05_AgreementSignTest extends BaseClass {
 
 	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.TC_02_SearchHealthSafetyByIdTest.tc_02_SearchHealthSafetyByIdTest" })
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_05_AgreementSignTest(String SheetName,int rowNum) throws IOException {
+	public void TC_05_AgreementSign(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

@@ -11,7 +11,7 @@ public class TC_08_ReviewTest extends BaseClass {
 
 	@Test(dependsOnMethods = { "com.Well.testcases.Performance.TC_07_ScorecardTest.tc_07_ScorecardTest" })
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_08_ReviewTest(String SheetName,int rowNum) throws IOException {
+	public void TC_08_Review(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

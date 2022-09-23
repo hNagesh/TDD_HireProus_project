@@ -11,7 +11,7 @@ public class TC_04_EnrollV2ProjectTest extends BaseClass {
 
 	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.TC_03_SearchV2ProjectByIdTest.tc_03_SearchV2ProjectByIdTest" })
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_04_EnrollV2ProjectTest(String SheetName,int rowNum) throws IOException {
+	public void TC_04_EnrollV2Project(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

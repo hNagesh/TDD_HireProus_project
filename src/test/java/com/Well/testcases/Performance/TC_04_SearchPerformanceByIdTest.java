@@ -11,7 +11,7 @@ public class TC_04_SearchPerformanceByIdTest extends BaseClass {
 
 	@Test(dependsOnMethods = { "com.Well.testcases.Performance.TC_03_SubscribeAndStoreIdTest.tc_03_SubscribeAndStoreIdTest" })
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_02_SearchHealthSafetyByIdTest(String SheetName,int rowNum) throws IOException {
+	public void TC_04_SearchPerformanceById(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
