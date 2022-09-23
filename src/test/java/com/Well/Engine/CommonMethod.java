@@ -330,6 +330,7 @@ public class CommonMethod extends BaseClass {
 
 		CommonMethod.WaitUntilClickble(objectLocater, timeout);
 		findElement(objectLocater).click();
+		
 
 	}
 	
@@ -403,7 +404,7 @@ public class CommonMethod extends BaseClass {
 	// user defined sendkeys Method
 	public static void sendKeys(String objectLocater, String value) throws IOException {
 		findElement(objectLocater).sendKeys(value);
-		testlog.pass("Feeding Textvalue " + value);
+		
 	}
 	public static void sendKeyEnter(String objectLocater) throws IOException {
 		findElement(objectLocater).sendKeys( Keys.ENTER);
@@ -1839,6 +1840,7 @@ public class CommonMethod extends BaseClass {
 	}
 
 	public static WebElement WaitUntilClickble(String objectlocator, int TimeinSeconds) throws IOException {
+		
 		JSWaiter.waitAllRequest();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeinSeconds));
 		Properties OR = new Properties();

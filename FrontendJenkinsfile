@@ -5,7 +5,6 @@ pipeline {
 options {
     buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
     disableConcurrentBuilds()
-    quietPeriod(900)
     lock resource: 'shared_resource_lock'
   }
 agent any 
