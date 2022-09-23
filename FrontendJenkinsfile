@@ -1,5 +1,5 @@
 env.environment =""
-env.Branch=""
+env.Branch = ""
 pipeline {
 
 options {
@@ -9,8 +9,7 @@ options {
   }
 agent any 
 triggers {
-    cron(${env.GIT_BRANCH} == 'origin/env/stg' ? 'H 11 * * *' : '')
-    cron(${env.GIT_BRANCH} == 'origin/env/test' ? 'H 10 * * *' : '')
+    cron(env.Branch == 'env/test' ? 'H 11 * * *' : '')
   }
 stages {
         stage('Build') {
@@ -25,8 +24,10 @@ stages {
                    script {			    	
                    if ("${env.GIT_BRANCH}" == "origin/env/stg") {
                    env.environment = "STG"
+                   env.Branch = "env/stg"
 		    } else if("${env.GIT_BRANCH}" == "origin/env/test"){
                    env.environment = "TEST"
+                   env.Branch = "env/test"
 		    } else {
                     env.environment = "false"
                    }
