@@ -9,9 +9,9 @@ import com.Well.Engine.BaseClass;
 
 public class TC_05_StoreExamIdTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Exam.TC_04_BillingV2ProjectTest.tc_04_BillingV2ProjectTest" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Exam.TC_04_BillingV2ProjectTest.TC_04_BillingV2Project" })
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_05_StoreExamIdTest(String SheetName,int rowNum) throws IOException {
+	public void TC_05_StoreExamId(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

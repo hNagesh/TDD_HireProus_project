@@ -9,9 +9,9 @@ import com.Well.Engine.BaseClass;
 
 public class TC_06_CancelExamByIdTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Exam.TC_05_StoreExamIdTest.tc_05_StoreExamIdTest" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Exam.TC_05_StoreExamIdTest.TC_05_StoreExamId" })
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_06_CancelExamByIdTest(String SheetName,int rowNum) throws IOException {
+	public void TC_06_CancelExamById(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

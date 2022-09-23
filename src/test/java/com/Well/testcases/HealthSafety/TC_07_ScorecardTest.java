@@ -10,7 +10,7 @@ import com.Well.Engine.BaseClass;
 public class TC_07_ScorecardTest extends BaseClass {
 
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.TC_06_LocationTest.tc_06_LocationTest" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.TC_06_LocationTest.TC_06_Location" })
 	@Parameters({ "SheetName","rowNum" })
 	public void TC_07_Scorecard(String SheetName,int rowNum) throws IOException {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();

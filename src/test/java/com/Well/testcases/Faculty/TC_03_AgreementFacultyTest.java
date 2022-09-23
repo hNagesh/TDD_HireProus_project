@@ -11,7 +11,7 @@ public class TC_03_AgreementFacultyTest extends BaseClass {
 
 	@Test(dependsOnMethods = { "com.Well.testcases.Faculty.TC_02_RegisterFacultyTest.TC_02_RegisterFaculty" })
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_03_AgreementFacultyTest(String SheetName,int rowNum) throws IOException {
+	public void TC_03_AgreementFaculty(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
