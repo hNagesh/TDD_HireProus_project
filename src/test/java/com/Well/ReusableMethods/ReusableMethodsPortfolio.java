@@ -278,8 +278,8 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 
 	public void clickDocument() throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("WellV2Tab", 60);
-		CommonMethod.click("WellV2Tab");
+		//CommonMethod.WaitUntilVisibility("WellV2Tab", 60);
+		//CommonMethod.click("WellV2Tab");
 		CommonMethod.WaitUntilVisibility("DocumentLibraryTab", 60);
 		CommonMethod.click("DocumentLibraryTab");
 	}
