@@ -536,8 +536,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectHSRReviewViewbtn");
 		Thread.sleep(2000);
 		CommonMethod.click("ReviewReturnButton");
+		CommonMethod.WaitUntilClickble("ReturnComment", 60).sendKeys("Final Review");
 		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60).sendKeys("Final Precertification Review");
-		CommonMethod.sendKeys("ReturnComment", "Final Precertification Review");
 		CommonMethod.WaitUntilClickble("DatePickerButton", 60).click();
 		CommonMethod.WaitUntilClickble("DatePickerOkButton", 60).click();
 		CommonMethod.scrollDown();
@@ -601,8 +601,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("ReviewReturnButton", 30);
 		CommonMethod.click("ReviewReturnButton");
 		Thread.sleep(2000);
-		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60).sendKeys("Preliminary Precertification Review");
-		CommonMethod.sendKeys("V2ProjectGeneralCommentNarrative", "Preliminary Precertification Review");
+		CommonMethod.WaitUntilClickble("ReturnComment", 60).sendKeys("Final Review");
+		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60).sendKeys("Final Precertification Review");
 		CommonMethod.WaitUntilVisibility("DatePickerButton", 300);
 		Thread.sleep(1000);
 		CommonMethod.click("DatePickerButton");
