@@ -11,7 +11,7 @@ public class TC_09_UploadFileInAuditTest extends BaseClass {
 
 	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_08_UploadFileInFeatureTest.TC_08_UploadFileInFeature" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_09_uploadFileInAudit() throws IOException {
+	public void TC_09_UploadFileInAudit() throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

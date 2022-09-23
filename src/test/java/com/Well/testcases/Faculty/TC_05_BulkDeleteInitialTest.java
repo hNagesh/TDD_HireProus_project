@@ -10,7 +10,7 @@ import com.Well.Engine.BaseClass;
 public class TC_05_BulkDeleteInitialTest extends BaseClass {
 
 	@SuppressWarnings("static-access")
-	@Test//(dependsOnMethods = { "com.Well.testcases.Faculty.TC_04_SubmitReviewTest.tc_04_SubmitReviewTest" })
+	@Test//(dependsOnMethods = { "com.Well.testcases.Faculty.TC_04_SubmitReviewTest.TC_04_SubmitReview" })
 	@Parameters({ "SheetName","rowNum" })
 	public void TC_05_BulkDelete(String SheetName,int rowNum) throws IOException {
 

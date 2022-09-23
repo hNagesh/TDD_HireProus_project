@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class TC_05_AgreementSignTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Performance.TC_04_SearchPerformanceByIdTest.tc_02_SearchHealthSafetyByIdTest" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Performance.TC_04_SearchPerformanceByIdTest.TC_04_SearchPerformanceById" })
 	@Parameters({ "SheetName","rowNum" })
 	public void TC_05_AgreementSign(String SheetName,int rowNum) throws IOException {
 

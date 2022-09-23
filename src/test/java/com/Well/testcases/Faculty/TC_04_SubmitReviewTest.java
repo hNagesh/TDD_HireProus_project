@@ -9,9 +9,9 @@ import com.Well.Engine.BaseClass;
 
 public class TC_04_SubmitReviewTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Faculty.TC_03_AgreementFacultyTest.tc_03_AgreementFacultyTest" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Faculty.TC_03_AgreementFacultyTest.TC_03_AgreementFaculty" })
 	@Parameters({ "SheetName","rowNum" })
-	public void tc_04_SubmitReviewTest(String SheetName,int rowNum) throws IOException {
+	public void TC_04_SubmitReview(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

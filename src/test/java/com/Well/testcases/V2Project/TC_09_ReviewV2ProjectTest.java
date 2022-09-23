@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class TC_09_ReviewV2ProjectTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.TC_08_DocumentV2ProjectTest.tc_08_DocumentV2ProjectTest" })
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.TC_08_DocumentV2ProjectTest.TC_08_DocumentV2Project" })
 	@Parameters({ "SheetName","rowNum" })
 	public void TC_09_ReviewV2Project(String SheetName,int rowNum) throws IOException {
 
