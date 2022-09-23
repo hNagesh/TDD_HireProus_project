@@ -90,12 +90,11 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.click("PortfolioSubscribeDone");
 		CommonMethod.WaitUntilVisibility("PortfolioGoToBilling", 60);
 		CommonMethod.Robustclick("PortfolioGoToBilling");
+		CommonMethod.WaitUntilVisibility("PortfolioPayNowButton", 20);
 		CommonMethod.navigateBack();
-		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
 	}
 
 	public void PortfolioClickOnBilling() throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 30);
 		CommonMethod.WaitUntilVisibility("BiilingTab", 60);
 		CommonMethod.click("BiilingTab");
 		CommonMethod.WaitUntilVisibility("PortfolioPayNowButton", 20);
@@ -149,13 +148,12 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("PortfolioImportCloseButton", 30);
 		CommonMethod.click("PortfolioImportCloseButton");
 		CommonMethod.WaitUntilVisibility("PortfolioLocationLanding", 60);
-		
 	}
 
 	public void PortfolioBuildScorecard() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("WellV2Tab", 120);
 		CommonMethod.click("WellV2Tab");
-		CommonMethod.click("WellV2ScorecardTab");
+		CommonMethod.click("ScorecardTab");
 		if (CommonMethod.isElementsExist("PortfolioScorecardFinishedButton", 30)) {
 			Thread.sleep(2000);
 			CommonMethod.click("PortfolioScorecardFinishedButton");
@@ -167,50 +165,53 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 
 	public void UploadFileinFeature(String FeatureName) throws IOException, InterruptedException {
-	List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
-	testlog.info("Fetching total no. of credits on page");
-	for (WebElement ele : Feature) {
-		  String Creditname = ele.getText(); 
-		  Creditname = Creditname.replaceAll("\\.",""); 
-		  if (Creditname.equalsIgnoreCase(FeatureName)) {
-	CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
-		CommonMethod.click(ele);
-		CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
-		CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
-		CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 10);
-		CommonMethod.click("PortfolioScoreCardAddOptionbutton");
-		CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddButton", 10);
-		CommonMethod.Robustclick("PortfolioScoreCardAddButton");
-		CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
-		CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
-		List<WebElement> AssignButton;
-		AssignButton = CommonMethod.findElements("PortfolioScoreCardVerificationAssignbtn");
-		for (WebElement f : AssignButton) {
-			CommonMethod.WaitUntilClickble(f, 30).click();
-		    CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationAssignChildLocCbx", 30);
-			CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocCbx", "PortfolioScorecardValidDisable");
-			CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationAssignLocSavebtn", 30);
-			CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocSavebtn","PortfolioScoreCardVerificationAssignLocCancelbtn");
-		}
-		Thread.sleep(2000);
-		CommonMethod.scrollDown();
-		List<WebElement> UploadTaskbtn;
-		UploadTaskbtn = CommonMethod.findElements("PortfolioScoreCardVerificationUploadbtn");
-		for (WebElement f : UploadTaskbtn) {
-			CommonMethod.WaitUntilClickble(f, 30).click();
-			CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", PortfolioLocationImportfile);
-			CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
-			CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn","PortfolioScoreCardVerificationAddNote");
-			if(CommonMethod.isElementsExist("PortfolioScorecardDocumentAddedPopup", 3)) {
-			CommonMethod.WaitUntilInVisibility("PortfolioScorecardDocumentAddedPopup", 30);
+		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
+		testlog.info("Fetching total no. of credits on page");
+		for (WebElement ele : Feature) {
+			String Creditname = ele.getText();
+			Creditname = Creditname.replaceAll("\\.", "");
+			if (Creditname.equalsIgnoreCase(FeatureName)) {
+				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
+				CommonMethod.click(ele);
+				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
+				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
+				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 10);
+				CommonMethod.click("PortfolioScoreCardAddOptionbutton");
+				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddButton", 10);
+				CommonMethod.Robustclick("PortfolioScoreCardAddButton");
+				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
+				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
+				List<WebElement> AssignButton;
+				AssignButton = CommonMethod.findElements("PortfolioScoreCardVerificationAssignbtn");
+				for (WebElement f : AssignButton) {
+					CommonMethod.WaitUntilClickble(f, 30).click();
+					CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationAssignChildLocCbx", 30);
+					CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocCbx",
+							"PortfolioScorecardValidDisable");
+					CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationAssignLocSavebtn", 30);
+					CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocSavebtn",
+							"PortfolioScoreCardVerificationAssignLocCancelbtn");
+				}
+				Thread.sleep(2000);
+				CommonMethod.scrollDown();
+				List<WebElement> UploadTaskbtn;
+				UploadTaskbtn = CommonMethod.findElements("PortfolioScoreCardVerificationUploadbtn");
+				for (WebElement f : UploadTaskbtn) {
+					CommonMethod.WaitUntilClickble(f, 30).click();
+					CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", PortfolioLocationImportfile);
+					CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
+					CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn",
+							"PortfolioScoreCardVerificationAddNote");
+					if (CommonMethod.isElementsExist("PortfolioScorecardDocumentAddedPopup", 3)) {
+						CommonMethod.WaitUntilInVisibility("PortfolioScorecardDocumentAddedPopup", 30);
+					}
+				}
+				CommonMethod.WaitUntilVisibility("PortfolioScorecardVerifyLoc", 30);
+				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
+				CommonMethod.click(ele);
 			}
 		}
-		CommonMethod.WaitUntilVisibility("PortfolioScorecardVerifyLoc", 30);
-		CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
-		CommonMethod.click(ele);
 	}
-	}
-}
 
 	public void UploadFileinAudit() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ScoreCardSupportOrgFeature", 60);
@@ -239,24 +240,26 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
 		CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn", "PortfolioScoreCardVerificationAddNote");
 	}
+
 	public void UpdateUploadFileinAddedFeature(String FeatureName) throws IOException, InterruptedException {
 		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
 		testlog.info("Fetching total no. of credits on page");
 		for (WebElement ele : Feature) {
-			  String Creditname = ele.getText(); 
-			  Creditname = Creditname.replaceAll("\\.",""); 
-			  if (Creditname.equalsIgnoreCase(FeatureName)) {
-		CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
-			CommonMethod.click(ele);
-			CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
-			CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
-			  }
+			String Creditname = ele.getText();
+			Creditname = Creditname.replaceAll("\\.", "");
+			if (Creditname.equalsIgnoreCase(FeatureName)) {
+				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
+				CommonMethod.click(ele);
+				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
+				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
+			}
 		}
-			CommonMethod.scrollDown();
-			CommonMethod.WaitUntilVisibility("PortfolioDocListEditIcon", 60);
-			CommonMethod.click("PortfolioDocListEditIcon");
-			CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadAddfeature", 30);
-			CommonMethod.click("PortfolioScoreCardVerificationUploadAddfeature");
+		CommonMethod.scrollDown();
+		CommonMethod.WaitUntilVisibility("PortfolioDocListEditIcon", 60);
+		CommonMethod.click("PortfolioDocListEditIcon");
+		CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadAddfeature", 30);
+		CommonMethod.click("PortfolioScoreCardVerificationUploadAddfeature");
+		Thread.sleep(20000);
 //			CommonMethod.selectdropdownIndex("PortfolioScoreCardVerificationSelectFeature", 1);
 //			CommonMethod.selectdropdownIndex("PortfolioScoreCardVerificationSelectSpaceType", 1);
 //			CommonMethod.selectdropdownIndex("PortfolioScoreCardVerificationSelectOption", 1);
@@ -271,46 +274,49 @@ public class ReusableMethodsPortfolio extends BaseClass {
 //				CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn","PortfolioScoreCardVerificationAddNote");
 //				if(CommonMethod.isElementsExist("PortfolioScorecardDocumentAddedPopup", 3)) {
 //				CommonMethod.WaitUntilInVisibility("PortfolioScorecardDocumentAddedPopup", 30);
-			//	}	
+		// }
 	}
+
 	public void clickDocument() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WellV2Tab", 60);
 		CommonMethod.click("WellV2Tab");
-		CommonMethod.WaitUntilVisibility("WellV2DocLibraryTab", 60);
-		CommonMethod.click("WellV2DocLibraryTab");
+		CommonMethod.WaitUntilVisibility("DocumentLibraryTab", 60);
+		CommonMethod.click("DocumentLibraryTab");
 	}
 
 	public void ValidatingUploadDocument() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadbutton", 30);
-		CommonMethod.click("PortfolioDocumentUploadbutton");	
+		CommonMethod.click("PortfolioDocumentUploadbutton");
 		CommonMethod.selectdropdownIndex("V2ProjectPortfolioDocType", 1);
 		CommonMethod.selectdropdownIndex("PortfolioSelectdocumenttype", 1);
 		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadSubmitbutton", 60);
 		CommonMethod.Robustclick("PortfolioDocumentUploadSubmitbutton");
 		CommonMethod.WaitUntilClickble("PortfolioDocumentListLink", 30).click();
-	CommonMethod.WaitUntilVisibility("PortfolioDocumentList", 60);
+		CommonMethod.WaitUntilVisibility("PortfolioDocumentList", 60);
 //		CommonMethod.assertcontainsmessage("PortfolioDocumentList", "3", "Verified Upload File Count");
 	}
+
 	public void ReviewDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ReviewTab", 30);
-		CommonMethod.click("ReviewTab");	
+		CommonMethod.click("ReviewTab");
 		CommonMethod.WaitUntilVisibility("PortfolioReviewSubmitButton", 30);
 		CommonMethod.click("PortfolioReviewSubmitButton");
-		CommonMethod.WaitUntilVisibility("PortfolioReviewlanding", 30);
+		CommonMethod.WaitUntilVisibility("Reviewlanding", 30);
 		CommonMethod.WaitUntilVisibility("PortfolioReviewTextbox", 30);
 		CommonMethod.sendKeys("PortfolioReviewTextbox", "Submit Documentation for Year 1, Review Cycle #1");
 		CommonMethod.click("PortfolioReviewSubmitDocButton");
 		CommonMethod.WaitUntilVisibility("PortfolioReviewListViewButton", 60);
-	
-	/*
-	 * Admin Review
-	 */
+
+		/*
+		 * Admin Review
+		 */
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
 		CommonMethod.click("AdminNavBar");
 		CommonMethod.WaitUntilVisibility("AdminWELLAtScaleNavBar", 60);
 		CommonMethod.click("AdminWELLAtScaleNavBar");
-		CommonMethod.WaitUntilClickble("PortfolioAdminNameSearch", 60).sendKeys(data.getCellData(SheetName, "AccountName", rowNum));
+		CommonMethod.WaitUntilClickble("PortfolioAdminNameSearch", 60)
+				.sendKeys(data.getCellData(SheetName, "AccountName", rowNum));
 		CommonMethod.click("PortfolioAdminApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.click("PortfolioAdminIdClick");
@@ -327,6 +333,6 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		Thread.sleep(1000);
 		CommonMethod.click("PortfolioReviewSubmitResponse");
 		CommonMethod.WaitUntilVisibility("PortfolioReviewStatus", 60);
-			}
-	
+	}
+
 }
