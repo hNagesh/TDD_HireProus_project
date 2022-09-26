@@ -16,12 +16,12 @@ public class ReusableMethodsExam extends BaseClass {
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
 		String PostalCode = USfaker.address().zipCode();
-		testlog.info("ProjectAddress" + ProjectAddress);
-		testlog.info("ProjectCity" + ProjectCity);
-		testlog.info("PostalCode" + PostalCode);
-		CommonMethod.sendKeys("WPRExamOrgAddress:", ProjectAddress);
-		CommonMethod.sendKeys("WPRExamOrgCity:", ProjectCity);
-		CommonMethod.sendKeys("WPRExamOrgPostalcode:", PostalCode);
+		testlog.info("ProjectAddress :" + ProjectAddress);
+		testlog.info("ProjectCity :" + ProjectCity);
+		testlog.info("PostalCode :" + PostalCode);
+		CommonMethod.sendKeys("WPRExamOrgAddress", ProjectAddress);
+		CommonMethod.sendKeys("WPRExamOrgCity", ProjectCity);
+		CommonMethod.sendKeys("WPRExamOrgPostalcode", PostalCode);
 		CommonMethod.sendKeys("APPhoneNo", "9999999999");
 		CommonMethod.click("APRegContinue");
 		CommonMethod.WaitUntilVisibility("APJobtitle", 60);
@@ -31,7 +31,7 @@ public class ReusableMethodsExam extends BaseClass {
 	public void EnrollExam(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("APJobtitle", 60);
 		String firstName = USfaker.address().firstName();
-		testlog.info("firstName:" + firstName);
+		testlog.info("firstName: " + firstName);
 		CommonMethod.sendKeys("APJobtitle", firstName);
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
 		CommonMethod.click("OwnerOrgClick");
