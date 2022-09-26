@@ -148,7 +148,10 @@ public class ReusableMethodsV2Project extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.switchToFrame("CardExpDateIframe");
 		testlog.info("CardHolderExpDate:"+"0925");
-		CommonMethod.WaitUntilClickble("CardHolderExpDate", 60).sendKeys("0925");
+		CommonMethod.WaitUntilClickble("CardHolderExpDate", 60).sendKeys("0");
+		CommonMethod.sendKeys("CardHolderExpDate", "9");
+		CommonMethod.sendKeys("CardHolderExpDate", "2");
+		CommonMethod.sendKeys("CardHolderExpDate", "5");
 		CommonMethod.switchToParentFrame();
 		Thread.sleep(2000);
 		CommonMethod.switchToFrame("CardCVVIframe");
@@ -160,6 +163,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("PayNowButton", 10);
 		CommonMethod.click("PayNowButton");
 		Thread.sleep(2000);
+		CommonMethod.WaitUntilInVisibility("CardHolderName", 180);
 		testlog.pass("**Verifies the Completed Card Payment Billing successfully**");
 	}
 
