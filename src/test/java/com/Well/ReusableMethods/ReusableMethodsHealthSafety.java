@@ -17,6 +17,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	   CommonMethod.click("HsrEnrollbtn");
 	   CommonMethod.WaitUntilClickble("HsrenrollName", 30);
 	   String erollName = "Automation HSR Project "+CommonMethod.randomNumber(8000000);
+	   testlog.info("ProjectName"+erollName);
 	   CommonMethod.sendKeys("HsrenrollName", erollName);
 	   CommonMethod.ClickCheckbox("Hsrenrollcheckbox");
 	   CommonMethod.click("OwnerOrgClick");
@@ -30,6 +31,9 @@ public class ReusableMethodsHealthSafety extends BaseClass {
        String ProjectAddress = USfaker.address().streetAddress();
 	   String ProjectCity = USfaker.address().cityName();
 	   String PostalCode = USfaker.address().zipCode();
+	   testlog.info("ProjectAddress"+ProjectAddress);
+		testlog.info("ProjectCity"+ProjectCity);
+		testlog.info("PostalCode"+PostalCode);
 	   CommonMethod.sendKeys("Hsrenrollstreet", ProjectAddress);
        CommonMethod.sendKeys("Hsrenrollcity", ProjectCity);
        CommonMethod.sendKeys("Hsrenrollpostalcode", PostalCode);
@@ -40,11 +44,13 @@ public class ReusableMethodsHealthSafety extends BaseClass {
        CommonMethod.click("HsrRegcontinuebtn");
        CommonMethod.click("HsrTypeoneEnrollbtn");
        CommonMethod.scrollUp();
+       testlog.info("Locations"+"10");
        CommonMethod.sendKeys("Hsrlocations", "10");
        CommonMethod.click("HsrWPRlocationsSpacetype");
        Thread.sleep(2000);
        CommonMethod.click("HsrWPRlocationsSpaceOption");
        CommonMethod.clear("Hsrlocationsize");
+       testlog.info("Locationsize"+"10");
        CommonMethod.sendKeys("Hsrlocationsize", "10");
 	   CommonMethod.click("HsrLocContinuebutton");
 	   CommonMethod.WaitUntilClickble("HsrWPRYesMyOrganizationCbx", 30);
@@ -55,7 +61,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	   CommonMethod.ClickCheckbox("HsrAcknowledecbx");
 	   CommonMethod.click("HsrReviewbtn");
 	   CommonMethod.WaitUntilVisibility("BillingLanding", 60);
-	  
+	   testlog.pass("**Verifies the Registration successful**");
 	}
 	public void StoreIdHealthSafety(String SheetName,int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
@@ -64,7 +70,8 @@ public class ReusableMethodsHealthSafety extends BaseClass {
       String[] stringArray = getId.split(": ");
       String getHsrId = stringArray[1].trim();
       data.setCellData("Hsr", "hsrId", 2, getHsrId);
-      
+      testlog.info("HealthSafety Id:" +getHsrId);
+      testlog.pass("**Stored the Registered id  in excel successfully**");
 	}
 	
 	public void SearchHealthSafetyByID (String SheetName,int rowNum) throws IOException, InterruptedException {
@@ -74,11 +81,20 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		   CommonMethod.click("WELLHealthSafetyNavBar");
 		   CommonMethod.WaitUntilVisibility("HsrIdSearch", 300);
 		   CommonMethod.click("HsrIdSearch");
+		   testlog.info("HealthSafety ID:" + data.getCellData(SheetName, "hsrId", rowNum));
 		   CommonMethod.sendKeys("HsrIdSearch", data.getCellData(SheetName, "hsrId", rowNum));
 		   CommonMethod.click("HsrapplySearch");
 		  Thread.sleep(3000);
 		   CommonMethod.click("Hsrprojectidcompare");
 		   CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
+		   testlog.pass("**Verifies the Search HealthSafety ByID successfully**");
+	}
+	public void HSRBilling(String SheetName, int rowNum) throws IOException, InterruptedException {
+		v2project.Billing(SheetName, rowNum);
+		testlog.pass("**Completed Card Payment Billing successfully**");
+	}
+	public void HSRLocation(String SheetName, int rowNum) throws IOException, InterruptedException {
+	portfolio.PortfolioLocationImport(SheetName, rowNum);
 	}
 	public void ScorecardfillHSRWPR(int YesEnd,int NoStart, int NoEnd,int DifferencePlusOne) throws IOException, InterruptedException {
 		List<WebElement> YesButton;
@@ -115,7 +131,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.click("ScorecardTab");
 		CommonMethod.WaitUntilVisibility("HsrScorecard", 300);
 		ScorecardfillHSRWPR(15,1,27,27); 
-		
+		testlog.pass("**Verifies the 15 Purse Yes Scorecard HealthSafety in V2Project successfully**");
 	}
 	public void uploadDocumentInFeature(int LastFeatureNumber) throws IOException, InterruptedException {
 		List<WebElement> Feature;
@@ -148,7 +164,8 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	}
 	public void UploadHsrDocForFeature() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("HsrScorecard", 300);
-		uploadDocumentInFeature(15);	
+		uploadDocumentInFeature(15);
+		testlog.pass("**Upload 15 Scorecard Documents successfully**");
 }
 	public void ReviewHsr(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ReviewTab", 60);
@@ -163,6 +180,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.click("HsrSubmitDocReview");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("Reviewlanding", 60);
+		testlog.pass("**Submitted Preliminary Health-Safety Review successfully**");
 		/*
 		 * Admin Review
 		 */
@@ -193,6 +211,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilClickble("ReviewedStatus", 60);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
+		testlog.pass("**Completed Reviewed Preliminary Health-Safety Review successfully**");
 }
 	public void UploadDocumentHsr() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WellV2ProjectDocumentTab", 300);
@@ -207,6 +226,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.sendKeys("HsrReasonnarration", "Submitting Document");
 		CommonMethod.Robustclick("HsrDocumentUploadbtn");
 		CommonMethod.click("V2ProjectGeneralDoc");
-		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);	
+		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
+		testlog.pass("**Upload Document successfully**");
 }
 }

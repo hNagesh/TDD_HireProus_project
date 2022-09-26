@@ -1,13 +1,8 @@
 package com.Well.ReusableMethods;
 
 import java.io.IOException;
-
-import org.json.simple.JSONObject;
-
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
-import io.restassured.response.Response;
-import static io.restassured.RestAssured.given;
 
 public class ReusableMethodsExam extends BaseClass {
 
@@ -21,17 +16,22 @@ public class ReusableMethodsExam extends BaseClass {
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
 		String PostalCode = USfaker.address().zipCode();
-		CommonMethod.sendKeys("WPRExamOrgAddress", ProjectAddress);
-		CommonMethod.sendKeys("WPRExamOrgCity", ProjectCity);
-		CommonMethod.sendKeys("WPRExamOrgPostalcode", PostalCode);
+		testlog.info("ProjectAddress" + ProjectAddress);
+		testlog.info("ProjectCity" + ProjectCity);
+		testlog.info("PostalCode" + PostalCode);
+		CommonMethod.sendKeys("WPRExamOrgAddress:", ProjectAddress);
+		CommonMethod.sendKeys("WPRExamOrgCity:", ProjectCity);
+		CommonMethod.sendKeys("WPRExamOrgPostalcode:", PostalCode);
 		CommonMethod.sendKeys("APPhoneNo", "9999999999");
 		CommonMethod.click("APRegContinue");
 		CommonMethod.WaitUntilVisibility("APJobtitle", 60);
+		testlog.pass("**Verifies the Registration successful**");
 	}
 
 	public void EnrollExam(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("APJobtitle", 60);
 		String firstName = USfaker.address().firstName();
+		testlog.info("firstName:" + firstName);
 		CommonMethod.sendKeys("APJobtitle", firstName);
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
 		CommonMethod.click("OwnerOrgClick");
@@ -59,18 +59,23 @@ public class ReusableMethodsExam extends BaseClass {
 		CommonMethod.click("APAlmostContinuebtn");
 		CommonMethod.click("APPay");
 		CommonMethod.WaitUntilVisibility("BillingLanding", 60);
-		
+		testlog.pass("**Verifies the Enroll Exam successfully**");
 	}
+
 	public void BillingExam(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("BillingLanding", 30);
-		v2project.Billing(SheetName, rowNum);	
+		v2project.Billing(SheetName, rowNum);
 		CommonMethod.WaitUntilVisibility("APStoreExamId", 60);
+		testlog.pass("**Completed Card Payment Billing successfully**");
 	}
+
 	public void StoreExam(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("APStoreExamId", 30);
 		String getId = CommonMethod.getText("APStoreExamId");
 		data.setCellData("Exam", "examId", 2, getId);
+		testlog.pass("**Stored the Registered id  in excel successfully**");
 	}
+
 	public void CancelExam(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
 		CommonMethod.click("AdminNavBar");
@@ -83,6 +88,6 @@ public class ReusableMethodsExam extends BaseClass {
 		CommonMethod.click("APClickId");
 		CommonMethod.WaitUntilVisibility("APCancelExam", 60);
 		CommonMethod.Robustclick("APCancelExam");
+		testlog.pass("**Verifies Cancel the Exam successfully**");
 	}
 }
-	

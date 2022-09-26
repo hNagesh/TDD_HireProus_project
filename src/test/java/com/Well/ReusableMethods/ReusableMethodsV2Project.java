@@ -16,18 +16,25 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2Projectstartav2projectbtn");
 		CommonMethod.click("V2ProjectstartProjectcontinuebtn");
 		String ProjectName = "Automation V2 Project" + CommonMethod.randomNumber(8000000);
+		testlog.info("Organization Address:" +ProjectName);
 		data.setCellData("V2Project", "projectName", 2, ProjectName);
 		CommonMethod.sendKeys("V2Projectprojectnickname", ProjectName);
 		CommonMethod.click("V2ProjectnicknameContinuebtn");
+		testlog.info("Area:" +data.getCellData(SheetName, "country", rowNum));
+		testlog.info("Area:" +data.getCellData(SheetName, "state", rowNum));
 		CommonMethod.selectdropdown("V2ProjectlocationCountry", data.getCellData(SheetName, "country", rowNum));
 		CommonMethod.selectdropdown("V2ProjectlocationState", data.getCellData(SheetName, "state", rowNum));
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
 		String PostalCode = USfaker.address().zipCode();
+		testlog.info("Organization Address:" +ProjectAddress);
+		testlog.info("Organization City:" +ProjectCity);
+		testlog.info("Organization Postalcode:" +PostalCode);
 		CommonMethod.sendKeys("V2ProjectlocationStreet", ProjectAddress);
 		CommonMethod.sendKeys("V2ProjectlocationCity", ProjectCity);
 		CommonMethod.sendKeys("V2ProjectlocationPostalcode", PostalCode);
 		CommonMethod.click("V2ProjectlocationContinuebtn");
+		testlog.info("Area:" +data.getCellData(SheetName, "area", rowNum));
 		CommonMethod.sendKeys("V2ProjectareaSize", data.getCellData(SheetName, "area", rowNum));
 		CommonMethod.click("V2ProjectareaContinuebtn");
 		CommonMethod.ClickCheckbox("V2ProjectspaceType");
@@ -54,17 +61,21 @@ public class ReusableMethodsV2Project extends BaseClass {
 		String[] stringArray = getId.split(": ");
 		String getProjectId = stringArray[1].trim();
 		data.setCellData("V2Project", "projectId", 2, getProjectId);
+		testlog.pass("**Stored the Registered id  in excel successfully**");
+		testlog.pass("**Verifies the Registration successful**");
 	}
 
 	public void SearchV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.click("WELLCertificationNavBar");
 		CommonMethod.WaitUntilClickble("V2ProjectId", 60);
+		testlog.info("ProjectId:" +data.getCellData(SheetName, "projectId", rowNum));
 		CommonMethod.sendKeys("V2ProjectId", data.getCellData(SheetName, "projectId", rowNum));
 		CommonMethod.click("V2ProjectApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectIdCompare");
 		//CommonMethod.WaitUntilVisibility("EnrollTab", 300);
+		testlog.pass("**Verifies the Search V2Project ByID successfully**");
 	}
 
 	public void EnrollV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -75,7 +86,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
 		CommonMethod.click("SelectOwnerOrg");
 		String Ownername = USfaker.address().cityName();
+		testlog.info("Ownername:" +Ownername);
 		CommonMethod.sendKeys("V2ProjectownerName", Ownername);
+		testlog.info("Ownername:" +"www.auto@gmail.com");
 		CommonMethod.sendKeys("V2ProjectownerEmail", "www.auto@gmail.com");
 		String PostalCode = USfaker.address().zipCode();
 		CommonMethod.sendKeys("V2Projectownerphone", PostalCode);
@@ -88,11 +101,15 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectdocsubAnticdate");
 		CommonMethod.click("V2ProjectdocsubEstidateOkbtn");
 		CommonMethod.click("V2ProjectprojectOwnerContinuebtn");
+		testlog.info("Country:" +"United States");
 		CommonMethod.selectdropdown("V2ProjectprojectaddressCountry", "United States");
 		CommonMethod.WaitUntilVisibility("V2ProjectprojectState", 10);
 		CommonMethod.selectdropdownrandom("V2ProjectprojectState");
 		String ProjectAddress1 = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
+		testlog.info("Organization Address:" +ProjectAddress1);
+		testlog.info("Organization City:" +ProjectCity);
+		testlog.info("Organization Postalcode:" +PostalCode);
 		CommonMethod.sendKeys("V2ProjectprojectaddressStreet", ProjectAddress1);
 		CommonMethod.sendKeys("V2ProjectprojectaddressCity", ProjectCity);
 		CommonMethod.sendKeys("V2ProjectprojectaddressPostalcode", PostalCode);
@@ -105,39 +122,45 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.ClickCheckbox("V2Projectisthisapublicproject");
 		CommonMethod.click("V2ProjectprojectaddressContinuebtn");
 		CommonMethod.WaitUntilVisibility("BiilingTab", 300);
+		testlog.pass("**Verifies the Enrolling successfully**");
 	}
 
 	public void ClickBilling(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("BiilingTab", 300);
 		CommonMethod.click("BiilingTab");
 		CommonMethod.click("PortfolioPayNowButton");
+		testlog.pass("**Nagavited to Billing successfully**");
 	}
 
 	public void Billing(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("BillingLanding", 300);
 		CommonMethod.scrolldowntoElement("CardHolderName");
 		CommonMethod.WaitUntilClickble("CardHolderName", 60);
+		testlog.info("firstName:"+USfaker.address().firstName());
 		CommonMethod.sendKeys("CardHolderName", USfaker.address().firstName());
 		Thread.sleep(2000);
 		CommonMethod.switchToFrame("CardNumberIframe");
 		CommonMethod.WaitUntilClickble("CardHolderNumber", 60);
 		Thread.sleep(2000);
+		testlog.info("CardHolderNumber:"+"4111111111111111");
 		CommonMethod.sendKeys("CardHolderNumber", "4111111111111111");
 		CommonMethod.switchToParentFrame();
 		Thread.sleep(2000);
 		CommonMethod.switchToFrame("CardExpDateIframe");
+		testlog.info("CardHolderExpDate:"+"0925");
 		CommonMethod.WaitUntilClickble("CardHolderExpDate", 60).sendKeys("0925");
 		CommonMethod.switchToParentFrame();
 		Thread.sleep(2000);
 		CommonMethod.switchToFrame("CardCVVIframe");
 		CommonMethod.WaitUntilClickble("CardHolderCVC", 60);
+		testlog.info("CardHolderCVC:"+"999");
 		CommonMethod.sendKeys("CardHolderCVC", "999");
 		CommonMethod.switchToParentFrame();
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilClickble("PayNowButton", 10);
 		CommonMethod.click("PayNowButton");
 		Thread.sleep(2000);
-
+		testlog.pass("**Verifies the Completed Card Payment Billing successfully**");
 	}
 
 	public void AgreementV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -146,12 +169,14 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("V2ProjectSignNow", 60);
 		CommonMethod.Robustclick("V2ProjectSignNow");
 		CommonMethod.WaitUntilVisibility("WellV2DashboardTab", 30);
+		testlog.pass("**Verifies Agreement V2Project successfully**");
 	}
 
 	public void BuildScorecardV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("V2ProjectStartBuilding", 60);
 		CommonMethod.click("V2ProjectStartBuilding");
 		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 300);
+		testlog.pass("**Verfies Scorecard Page successfully**");
 	}
 
 	public void RefreshScorecard() throws IOException {
@@ -227,6 +252,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WellV2ScorecardTab", 300);
 		CommonMethod.click("WellV2ScorecardTab");
 		Scorecardfill(15, 16, 27, 8);
+		testlog.pass("**Verifies the 15 Purse Yes Scorecard HealthSafety ByID successfully**");
 	}
 
 	public void CompleteScorecardV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -302,7 +328,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 //		int NoFeatureCount = CommonMethod.ElementSize("V2ProjectScorecardNoCount");
 //		String noFeatureCount = Integer.toString(NoFeatureCount);
 //		CommonMethod.assertActualContainsExpected(noFeatureCount, "86", "Verified Scorecard part No Count");
-
+		testlog.pass("**Verifies the 134 Purse Yes Scorecard V2Project successfully**");
+		testlog.pass("**Verifies the 86 Purse Yes Scorecard V2Project successfully**");
 	}
 
 	public void UploadFeatureDocV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -310,12 +337,14 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectScorecardFeature");
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
 		CommonMethod.click("V2ProjectscorecardDocbtn");
+		testlog.info("TaskName"+"Performance Test OR Sensor Data");
 		CommonMethod.selectdropdown("V2Projectscorecardverificationdropdown", "Performance Test OR Sensor Data");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
 		CommonMethod.click("V2Projectscorecarddocuploadsubmit");
 		CommonMethod.Isdisplayed("V2ProjectscorecardVerifyUploadDoc", 60);
 		CommonMethod.refreshBrowser();
+		testlog.pass("**Verifies the Upload Document in Scorecard Feature successfully**");
 
 	}
 
@@ -324,6 +353,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectScorecardAuditFeature");
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
 		CommonMethod.click("V2ProjectscorecardDocbtn");
+		testlog.info("TaskName"+"Technical Document (Audited)");
 		CommonMethod.selectdropdown("V2Projectscorecardverificationdropdown", "Technical Document (Audited)");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
@@ -331,6 +361,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.Isdisplayed("V2ProjectscorecardVerifyUploadDoc", 60);
 		Thread.sleep(2000);
 		CommonMethod.refreshBrowser();
+		testlog.pass("**Verifies the Upload Document in Scorecard Audit Feature successfully**");
 
 	}
 
@@ -339,11 +370,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("WellV2ProjectDocumentTab", 60);
 		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
+		testlog.info("Document Type"+"General");
 		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "General");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
 		CommonMethod.click("V2ProjectDocSubmit");
 		Thread.sleep(2000);
+		testlog.pass("**Upload Document successfully**");
 	}
 
 	public void UploadLegalDocumentInDocV2Project(String SheetName, int rowNum)
@@ -351,11 +384,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("WellV2ProjectDocumentTab", 60);
 		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
+		testlog.info("Document Type"+"Legal");
 		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Legal");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
 		CommonMethod.click("V2ProjectDocSubmit");
 		Thread.sleep(2000);
+		testlog.pass("**Upload Document successfully**");
 	}
 
 	public void UploadOngoingDocumentInDocV2Project(String SheetName, int rowNum)
@@ -363,6 +398,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("WellV2ProjectDocumentTab", 60);
 		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
+		testlog.info("Document Type"+"Ongoing data reports");
 		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Ongoing data reports");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectResetbtn");
@@ -383,6 +419,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectDocSubmit");
 		Thread.sleep(4000);
 		CommonMethod.refreshBrowser();
+		testlog.pass("**Upload Document successfully**");
 	}
 
 	public void UploadFeatureDocumentInDocV2Project(String SheetName, int rowNum)
@@ -391,6 +428,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
 		Thread.sleep(2000);
+		testlog.info("Document Type"+"Feature");
 		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Feature");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
@@ -407,6 +445,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
 		CommonMethod.click("V2ProjectDocSubmit");
 		Thread.sleep(2000);
+		testlog.pass("**Upload Document successfully**");
 	}
 
 	public void UploadDocumentCountInDocV2Project(String SheetName, int rowNum)
@@ -420,7 +459,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		int V2ProjectScoreDocCount = CommonMethod.ElementSize("V2ProjectScorecardDocCount");
 		String V2ProjectDocCounts = Integer.toString(V2ProjectScoreDocCount);
 		CommonMethod.assertActualContainsExpected(V2ProjectDocCounts, "4");
-
+		testlog.pass("**Verifies Uploaded Document successfully**");
 	}
 
 	public void ReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -465,6 +504,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("ReviewedStatus", 60);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
+		testlog.pass("**Reviewed Preliminary Precertification Review successfully**");
+		testlog.pass("**Completed Reviewed Preliminary Precertification Review successfully**");
 	}
 
 	public void HealthSafetyV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -483,6 +524,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectHsrAccountbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrScorecard", 300);
 		ScorecardfillHSRWPR(15, 1, 27, 27);
+		testlog.pass("**Verifies the 15 Purse Yes Scorecard Performance ByID successfully**");
 	}
 
 	public void uploadDocumentInFeature(int LastFeatureNumber) throws IOException, InterruptedException {
@@ -507,7 +549,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void uploadHsrDocV2Project() throws IOException, InterruptedException {
 		uploadDocumentInFeature(16);
-
+		testlog.pass("**Upload 15 Scorecard Documents successfully**");
 	}
 
 	public void hsrReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -521,6 +563,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingHsrcbx");
 		CommonMethod.click("V2ProjectSubmitPhaseReview");
 		Thread.sleep(2000);
+		testlog.pass("**Reviewed Final Precertification Review successfully**");
 		/*
 		 * Admin Review
 		 */
@@ -547,6 +590,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("ReviewedStatus", 60);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
+		testlog.pass("**Completed Final Precertification Review successfully**");
 	}
 
 	public void performanceV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -565,10 +609,12 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectWPRAccountbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrScorecard", 300);
 		ScorecardfillHSRWPR(21, 1, 38, 38);
+		testlog.pass("**Verifies the 21 Purse Yes Scorecard Performance successfully**");
 	}
 
 	public void uploadPerformanceDocV2Project() throws IOException, InterruptedException {
 		uploadDocumentInFeature(21);
+		testlog.pass("**Upload 21 Scorecard Documents successfully**");
 	}
 
 	public void wprReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -584,6 +630,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingWprcbx");
 		CommonMethod.click("V2ProjectSubmitPhaseReview");
 		Thread.sleep(2000);
+		testlog.pass("**Reviewed Final Precertification Review successfully**");
+		
 		/*
 		 * Admin Review
 		 */
@@ -614,6 +662,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("ReviewedStatus", 60);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
+		testlog.pass("**Completed Final Precertification Review successfully**");
 	}
 
 	public void teamV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -632,5 +681,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 30);
 		CommonMethod.click("V2ProjectDeleteIcon");
 		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
+		testlog.pass("**Created Team member successfully**");
 	}
 }

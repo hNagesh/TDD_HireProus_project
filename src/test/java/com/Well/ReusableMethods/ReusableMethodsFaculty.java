@@ -25,12 +25,16 @@ public class ReusableMethodsFaculty extends BaseClass {
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
 		String PostalCode = USfaker.address().zipCode();
+		testlog.info("ProjectAddress"+ProjectAddress);
+		testlog.info("ProjectCity"+ProjectCity);
+		testlog.info("PostalCode"+PostalCode);
 		CommonMethod.sendKeys("WPRExamOrgAddress", ProjectAddress);
 		CommonMethod.sendKeys("WPRExamOrgCity", ProjectCity);
 		CommonMethod.sendKeys("WPRExamOrgPostalcode", PostalCode);
 		CommonMethod.sendKeys("WFEmp", ProjectCity);
 		CommonMethod.sendKeys("WFPostion", PostalCode);
 		CommonMethod.click("OwnerOrgClick");
+		testlog.info("Language"+"English");
 		CommonMethod.sendKeys("OwnerOrg", "English");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
 		CommonMethod.click("SelectOwnerOrg");
@@ -45,6 +49,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WFAddrContinuebtn", 30);
 		CommonMethod.click("WFAddrContinuebtn");
 		CommonMethod.WaitUntilVisibility("WFFacultyApplication", 60);
+		testlog.pass("**Verifies the Registration successful**");
 	}
 
 	public void AgreementFaculty(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -66,7 +71,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		Thread.sleep(1000);
 		CommonMethod.click("WFAddrContinuebtn");
 		CommonMethod.WaitUntilVisibility("WFFacultyApplication", 60);
-
+		testlog.pass("**Verifies the Agreement Faculty successfully**");
 	}
 
 	public void SubmitReviewFaculty(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -79,6 +84,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.click("DatePickerOkButton");
 		Thread.sleep(1000);
 		String FirstName = USfaker.address().firstName();
+		testlog.info("firstName"+FirstName);
 		CommonMethod.sendKeys("WFApproved", FirstName);
 		CommonMethod.WaitUntilVisibility("WFExpireDate", 10);
 		CommonMethod.click("WFExpireDate");
@@ -108,6 +114,8 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.RobustclickElementVisible("WFSubmitApplicationbtn","WFReturnbtn");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("WFReturnbtn", 60);
+		testlog.pass("**Verifies Submitted Review successfully**");
+		
 	}
 
 	@SuppressWarnings("unchecked")
@@ -135,5 +143,6 @@ public class ReusableMethodsFaculty extends BaseClass {
 		Response res = given().contentType("application/json").header("Authorization", admin_Header).when()
 				.delete("https://test-v2-api.wellcertified.com/api/admin/qa/automation/bulk-delete/" + username);
 		return res;
+		
 	}
 }

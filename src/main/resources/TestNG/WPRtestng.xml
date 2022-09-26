@@ -18,7 +18,7 @@
   <class name="com.Well.testcases.Performance.TC_06_LocationTest"></class>
   <class name="com.Well.testcases.Performance.TC_07_ScorecardTest"></class>
    <class name="com.Well.testcases.Performance.TC_08_ReviewTest"></class>
-   <class name="com.Well.testcases.Performance.TC_09_DocumentTest"></class>
+  <class name="com.Well.testcases.Performance.TC_09_DocumentTest"></class>
 </classes>
 </test>
 
