@@ -9,7 +9,7 @@ options {
   }
 agent any 
 triggers {
-    cron('H 7 * * *')
+    cron('H 20 * * *')
   }
 stages {
         stage('Build') {
