@@ -305,7 +305,8 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("PortfolioReviewTextbox", 30);
 		CommonMethod.sendKeys("PortfolioReviewTextbox", "Submit Documentation for Year 1, Review Cycle #1");
 		CommonMethod.click("PortfolioReviewSubmitDocButton");
-		CommonMethod.WaitUntilVisibility("PortfolioReviewListViewButton", 60);
+		CommonMethod.WaitUntilVisibility("PortfolioReviewListStatus", 120);
+		CommonMethod.assertcontainsmessage("PortfolioReviewListStatus", "ROUND 1 REVIEW IN PROGRESS", "Verified Submitted Review list status");
 		testlog.pass("**Submitted Documentation for Year 1, Review Cycle #1 successfully**");
 		/*
 		 * Admin Review
