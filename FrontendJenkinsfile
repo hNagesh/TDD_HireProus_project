@@ -9,7 +9,7 @@ options {
   }
 agent any 
 triggers {
-    cron(env.Branch == 'env/testing' ? 'H 11 * * *' : '')
+    cron('H 7 * * *')
   }
 stages {
         stage('Build') {
@@ -107,16 +107,6 @@ stage('Test Results'){
         	echo "failed"
         	 
 
-        }
-        cleanup {
-        script {
-        git branch: env.BRANCH , credentialsId: 'AbhishekGit', url: 'git@github.com:IWBI/IWBI-Nuxt.git'
-        }
-        }
-        aborted {
-        script {
-        git branch: env.BRANCH , credentialsId: 'AbhishekGit', url: 'git@github.com:IWBI/IWBI-Nuxt.git'
-        }
         }
      }
    }
