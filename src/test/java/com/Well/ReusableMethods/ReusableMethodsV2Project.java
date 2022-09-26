@@ -8,7 +8,7 @@ import com.Well.Engine.CommonMethod;
 
 public class ReusableMethodsV2Project extends BaseClass {
 
-	public void RegisterV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
+	public void RegisterV2Project(String SheetName, int rowNum, String ProjectType) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.click("WELLCertificationNavBar");
@@ -40,7 +40,17 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.ClickCheckbox("V2ProjectspaceType");
 		CommonMethod.WaitUntilVisibility("V2ProjectspacetypeContinuebtn", 300);
 		CommonMethod.click("V2ProjectspacetypeContinuebtn");
-		CommonMethod.click("V2Projectwellcorecertification");
+		if (ProjectType.equalsIgnoreCase("WELLCore")) {
+			CommonMethod.WaitUntilVisibility("V2Projectwellcorecertification", 30);
+			CommonMethod.click("V2Projectwellcorecertification");
+		}
+		else if (ProjectType.equalsIgnoreCase("WELLCertification")) {
+			CommonMethod.WaitUntilVisibility("V2ProjectwellCertification", 30);
+			CommonMethod.click("V2ProjectwellCertification");
+			CommonMethod.WaitUntilVisibility("V2ProjectownershipOflocation", 30);
+			CommonMethod.ClickCheckbox("V2ProjectownershipOflocation");
+			CommonMethod.click("V2ProjectownershipContinuebtn");
+		}
 		CommonMethod.WaitUntilVisibility("DatePickerButton", 300);
 		CommonMethod.RobustclickElementVisible("DatePickerButton", "V2ProjectDatePopupWeekday");
 		CommonMethod.WaitUntilVisibility("V2ProjectnextMonthbtn", 300);
