@@ -185,13 +185,7 @@
                     <environment>${env}</environment>
                 </systemPropertyVariables>
 					<suiteXmlFiles>	   					
-		<suiteXmlFile>src/main/resources/TestNG/V2Projecttestng.xml</suiteXmlFile>
-		<suiteXmlFile>src/main/resources/TestNG/HSRtestng.xml</suiteXmlFile>
-		<suiteXmlFile>src/main/resources/TestNG/WPRtestng.xml</suiteXmlFile>
-		<suiteXmlFile>src/main/resources/TestNG/Examtestng.xml</suiteXmlFile>
-		<suiteXmlFile>src/main/resources/TestNG/Facultytestng.xml</suiteXmlFile>
-		<suiteXmlFile>src/main/resources/TestNG/Membershiptestng.xml</suiteXmlFile>
-		<suiteXmlFile>src/main/resources/TestNG/Portfoliotestng.xml</suiteXmlFile>		   					
+		<suiteXmlFile>src/main/resources/TestNG/Portfoliotestng.xml</suiteXmlFile>
 				   </suiteXmlFiles>
 				</configuration>
 			</plugin>
@@ -203,6 +197,14 @@
                  <filesets>
                     <fileset>
                         <directory>${project.basedir}/Screenshots</directory>
+                        <includes>
+                            <include>**/*</include>
+                        </includes>
+                        <followSymlinks>false</followSymlinks>
+     
+                    </fileset>
+                    <fileset>
+                        <directory>${project.basedir}/bin</directory>
                         <includes>
                             <include>**/*</include>
                         </includes>
