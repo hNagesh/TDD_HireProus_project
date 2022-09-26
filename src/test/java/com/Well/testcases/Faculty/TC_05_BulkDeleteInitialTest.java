@@ -10,7 +10,7 @@ import com.Well.Engine.BaseClass;
 public class TC_05_BulkDeleteInitialTest extends BaseClass {
 
 	@SuppressWarnings("static-access")
-	@Test//(dependsOnMethods = { "com.Well.testcases.Faculty.TC_04_SubmitReviewTest.TC_04_SubmitReview" })
+	@Test
 	@Parameters({ "SheetName","rowNum" })
 	public void TC_05_BulkDelete(String SheetName,int rowNum) throws IOException {
 
@@ -19,6 +19,7 @@ public class TC_05_BulkDeleteInitialTest extends BaseClass {
 		try {
 			faculty.PostRequestAuthenticate();
 			faculty.DeleteFacultyOrMembership();
+			testlog.pass("**Verifies Bulk Delete successfully**");
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

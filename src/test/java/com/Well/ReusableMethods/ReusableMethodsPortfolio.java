@@ -26,10 +26,14 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
 		CommonMethod.click("SelectOwnerOrg");
 		CommonMethod.selectdropdownrandom("OrgIndustry");
+		testlog.info("OrgIndustry:" +CommonMethod.getSelectedDropdownValue("OrgIndustry"));
 		data.setCellData("Portfolio", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
 		CommonMethod.click("PortfolioNotSureRadio");
+		testlog.info("PortfolioNumberOfLocation:" +"15");
 		CommonMethod.sendKeys("PortfolioNumberOfLocation", "15");
+		testlog.info("PortfolioEstimatedNumberOfLocation:" +"10");
 		CommonMethod.sendKeys("PortfolioEstimatedNumberOfLocation", "10");
+		testlog.info("PortfolioGrossAreaSQFT:" +"15000");
 		CommonMethod.sendKeys("PortfolioGrossAreaSQFT", "15000");
 		CommonMethod.scrolldowntoElement("PortfolioPrimarlyLocated");
 		CommonMethod.click("PortfolioPrimarlyLocated");
@@ -37,29 +41,36 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.click("SelectOwnerOrg");
 		CommonMethod.click("PortfolioSpaceType");
 		CommonMethod.click("PortfolioSelectSpaceType");
+		testlog.info("PortfolioOwnerCountry:" +"United States");
 		CommonMethod.selectdropdown("PortfolioOwnerCountry", "United States");
 		CommonMethod.WaitUntilVisibility("PortfolioOwnerState", 10);
 		CommonMethod.selectdropdownrandom("PortfolioOwnerState");
 		String ProjectAddress1 = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
 		String PostalCode = USfaker.address().zipCode();
+		testlog.info("Organization Address:" +ProjectAddress1);
+		testlog.info("Organization City:" +ProjectCity);
+		testlog.info("Organization Postalcode:" +PostalCode);
 		CommonMethod.sendKeys("PortfolioOwnerStreetAddress", ProjectAddress1);
 		CommonMethod.sendKeys("PortfolioOwnerCity", ProjectCity);
 		CommonMethod.sendKeys("PortfolioOwnerPostalCode", PostalCode);
 		CommonMethod.click("PortfolioCreateAccountSubmit");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
+		testlog.pass("**Verifies the Registration successful**");
 	}
 
 	public void SearchPortfolioByName(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.click("WellAtScaleNavBar");
+		testlog.info("Portfolio Name:" +data.getCellData(SheetName, "AccountName", rowNum));
 		CommonMethod.WaitUntilClickble("PortfolioSearchByName", 60)
 				.sendKeys(data.getCellData(SheetName, "AccountName", rowNum));
 		CommonMethod.click("PortfolioSearchApplyFilter");
 		Thread.sleep(2000);
 		CommonMethod.click("PortfolioClickSearchResult");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
+		testlog.pass("**Verifies the Search Portfolio Name successfully**");
 	}
 
 	public void SignAgreementPortfolio() throws IOException, InterruptedException {
@@ -67,6 +78,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("PortfolioClickSignNow", 60);
 		CommonMethod.Robustclick("PortfolioClickSignNow");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
+		testlog.pass("**Verifies the Portfolio Sign Agreement successfully**");
 	}
 
 	public void SubscribePortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -77,6 +89,9 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		String OwnerName = USfaker.address().firstName();
 		String OwnerEmail = USfaker.internet().emailAddress();
 		String OwnerPhone = USfaker.number().digits(10);
+		testlog.info("OwnerName:" +OwnerName);
+		testlog.info("OwnerEmail:" +OwnerEmail);
+		testlog.info("OwnerPhone:" +OwnerPhone);
 		CommonMethod.sendKeys("PortfolioOwnerName", OwnerName);
 		CommonMethod.sendKeys("PortfolioOwnerEmail", OwnerEmail);
 		CommonMethod.sendKeys("PortfolioOwnerPhone", OwnerPhone);
@@ -92,6 +107,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.Robustclick("PortfolioGoToBilling");
 		CommonMethod.WaitUntilVisibility("PortfolioPayNowButton", 20);
 		CommonMethod.navigateBack();
+		testlog.pass("**Verifies Subscribe Portfolio successfully**");
 	}
 
 	public void PortfolioClickOnBilling() throws IOException, InterruptedException {
@@ -100,33 +116,11 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("PortfolioPayNowButton", 20);
 		CommonMethod.click("PortfolioPayNowButton");
 		CommonMethod.WaitUntilVisibility("BillingLanding", 30);
+		testlog.pass("**Nagavited to Billing successfully**");
 	}
 
 	public void PortfolioCardPayment(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("BillingLanding", 300);
-		if (!CommonMethod.isElementsExist("CardHolderName", 3)) {
-			Boolean B = CommonMethod.IsElementPresentTrue("PortfolioPayNowButton");
-			if (B.equals(true)) {
-				CommonMethod.click("PortfolioPayNowButton");
-			}
-		}
-		CommonMethod.scrolldowntoElement("CardHolderName");
-		CommonMethod.WaitUntilClickble("CardHolderName", 60).sendKeys(USfaker.address().firstName());
-		Thread.sleep(2000);
-		CommonMethod.switchToFrame("CardNumberIframe");
-		CommonMethod.WaitUntilClickble("CardHolderNumber", 60).sendKeys("4111111111111111");
-		CommonMethod.switchToParentFrame();
-		Thread.sleep(2000);
-		CommonMethod.switchToFrame("CardExpDateIframe");
-		CommonMethod.WaitUntilClickble("CardHolderExpDate", 60).sendKeys("0925");
-		CommonMethod.switchToParentFrame();
-		Thread.sleep(2000);
-		CommonMethod.switchToFrame("CardCVVIframe");
-		CommonMethod.WaitUntilClickble("CardHolderCVC", 60).sendKeys("999");
-		CommonMethod.switchToParentFrame();
-		Thread.sleep(2000);
-		CommonMethod.click("PayNowButton");
-		Thread.sleep(2000);
+		v2project.Billing(SheetName, rowNum);
 	}
 
 	public void PortfolioLocationImport(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -148,6 +142,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("PortfolioImportCloseButton", 30);
 		CommonMethod.click("PortfolioImportCloseButton");
 		CommonMethod.WaitUntilVisibility("PortfolioLocationLanding", 60);
+		testlog.pass("**Imported Locations successfully**");
 	}
 
 	public void PortfolioBuildScorecard() throws IOException, InterruptedException {
@@ -162,6 +157,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 			CommonMethod.click("PortfolioScorecardPopupButton");
 		}
 		CommonMethod.WaitUntilVisibility("PortFolioScoreCardPageLand", 300);
+		testlog.pass("**Verfies Scorecard Page successfully**");
 	}
 
 	public void UploadFileinFeature(String FeatureName) throws IOException, InterruptedException {
@@ -211,6 +207,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 				CommonMethod.click(ele);
 			}
 		}
+		testlog.pass("**Upload Scorecard Documents in feature successfully**");
 	}
 
 	public void UploadFileinAudit() throws IOException, InterruptedException {
@@ -239,6 +236,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
 		CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn", "PortfolioScoreCardVerificationAddNote");
+		testlog.pass("**Upload Scorecard Documents in Audit successfully**");
 	}
 
 	public void UpdateUploadFileinAddedFeature(String FeatureName) throws IOException, InterruptedException {
@@ -257,6 +255,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.scrollDown();
 		CommonMethod.WaitUntilVisibility("PortfolioDocListEditIcon", 60);
 		CommonMethod.click("PortfolioDocListEditIcon");
+		CommonMethod.scrollDown();
 		CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadAddfeature", 30);
 		CommonMethod.click("PortfolioScoreCardVerificationUploadAddfeature");
 		Thread.sleep(20000);
@@ -278,10 +277,9 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 
 	public void clickDocument() throws IOException, InterruptedException {
-		//CommonMethod.WaitUntilVisibility("WellV2Tab", 60);
-		//CommonMethod.click("WellV2Tab");
 		CommonMethod.WaitUntilVisibility("DocumentLibraryTab", 60);
 		CommonMethod.click("DocumentLibraryTab");
+		testlog.pass("**Navigate Document successfully**");
 	}
 
 	public void ValidatingUploadDocument() throws IOException, InterruptedException {
@@ -295,6 +293,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilClickble("PortfolioDocumentListLink", 30).click();
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentList", 60);
 //		CommonMethod.assertcontainsmessage("PortfolioDocumentList", "3", "Verified Upload File Count");
+		testlog.pass("**Upload Document successfully**");
 	}
 
 	public void ReviewDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -307,7 +306,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.sendKeys("PortfolioReviewTextbox", "Submit Documentation for Year 1, Review Cycle #1");
 		CommonMethod.click("PortfolioReviewSubmitDocButton");
 		CommonMethod.WaitUntilVisibility("PortfolioReviewListViewButton", 60);
-
+		testlog.pass("**Submitted Documentation for Year 1, Review Cycle #1 successfully**");
 		/*
 		 * Admin Review
 		 */
@@ -333,6 +332,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		Thread.sleep(1000);
 		CommonMethod.click("PortfolioReviewSubmitResponse");
 		CommonMethod.WaitUntilVisibility("PortfolioReviewStatus", 60);
+		testlog.pass("**Completed Reviewed Preliminary Precertification Review successfully**");
 	}
 
 }

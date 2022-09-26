@@ -17,6 +17,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.click("WPREnrollOption");
 		CommonMethod.click("WPRenrollbtn");
 		String ProjectName = "Automation WPR Project" + CommonMethod.randomNumber(8000000);
+		testlog.info("ProjectName" + ProjectName);
 		data.setCellData("Wpr", "projectName", 2, ProjectName);
 		CommonMethod.sendKeys("WPROrgName", ProjectName);
 		CommonMethod.ClickCheckbox("WPROwnerInfocbx");
@@ -30,6 +31,9 @@ public class ReusableMethodPerformance extends BaseClass {
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
 		String PostalCode = USfaker.address().zipCode();
+		testlog.info("Organization Address:" + ProjectAddress);
+		testlog.info("Organization City:" + ProjectCity);
+		testlog.info("Organization Postalcode:" + PostalCode);
 		CommonMethod.sendKeys("WPRExamOrgAddress", ProjectAddress);
 		CommonMethod.sendKeys("WPRExamOrgCity", ProjectCity);
 		CommonMethod.sendKeys("WPRExamOrgPostalcode", PostalCode);
@@ -49,6 +53,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		Thread.sleep(1000);
 		CommonMethod.scrollDown();
 		CommonMethod.clear("WPRlocationsize");
+		testlog.info("Locationsize:" + "100");
 		CommonMethod.sendKeys("WPRlocationsize", "100");
 		CommonMethod.WaitUntilClickble("WPROwnerRegContinuebtn", 60);
 		CommonMethod.click("WPROwnerRegContinuebtn");
@@ -62,6 +67,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.ClickCheckbox("WPRAcknowledecbx");
 		CommonMethod.click("WPRtermContinuebutton");
 		CommonMethod.WaitUntilVisibility("BillingLanding", 60);
+		testlog.pass("**Verifies the Registration successful**");
 	}
 
 	public void StoreIdPerformance(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -70,7 +76,10 @@ public class ReusableMethodPerformance extends BaseClass {
 		String getId = CommonMethod.getText("StoreId");
 		String[] stringArray = getId.split(": ");
 		String getWprId = stringArray[1].trim();
+		testlog.info("Performance Id:" + getWprId);
 		data.setCellData("Wpr", "wprId", 2, getWprId);
+		testlog.info("Performance ID:" + getWprId);
+		testlog.pass("**Stored the Registered id  into excel successfully**");
 	}
 
 	public void SearchPerformanceByID(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -78,11 +87,23 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.WaitUntilVisibility("WELLPerformanceRatingNavBar", 300);
 		CommonMethod.click("WELLPerformanceRatingNavBar");
-		CommonMethod.WaitUntilClickble("WPRId", 60).sendKeys(data.getCellData(SheetName, "wprId", rowNum));
+		String wprId = data.getCellData(SheetName, "wprId", rowNum);
+		testlog.info("Performance ID:" + wprId);
+		CommonMethod.WaitUntilClickble("WPRId", 60).sendKeys(wprId);
 		CommonMethod.click("WPRApplybtn");
 		Thread.sleep(3000);
 		CommonMethod.click("WPRIdClick");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 300);
+		testlog.pass("**Verifies the Search Performance ByID successfully**");
+	}
+
+	public void PerformanceBilling(String SheetName, int rowNum) throws IOException, InterruptedException {
+		v2project.Billing(SheetName, rowNum);
+		testlog.pass("**Completed Card Payment Billing successfully**");
+	}
+
+	public void PerformanceLocation(String SheetName, int rowNum) throws IOException, InterruptedException {
+		portfolio.PortfolioLocationImport(SheetName, rowNum);
 	}
 
 	public void ScorecardfillHSRWPR(int YesEnd, int NoStart, int NoEnd, int DifferencePlusOne, String purseYes,
@@ -123,7 +144,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.click("ScorecardTab");
 		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
 		ScorecardfillHSRWPR(21, 21, 36, 16, "WPRPurseYes", "WPRPurseNo");
-
+		testlog.pass("**Verifies the 15 Purse Yes Scorecard Performance successfully**");
 	}
 
 	public void uploadDocumentInFeature(int LastFeatureNumber) throws IOException, InterruptedException {
@@ -157,11 +178,13 @@ public class ReusableMethodPerformance extends BaseClass {
 			CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
 			CommonMethod.click(f);
 		}
+
 	}
 
 	public void UploadWPRDocForFeature() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
 		uploadDocumentInFeature(21);
+		testlog.pass("**Upload 21 Scorecard Documents successfully**");
 	}
 
 	public void WPRReview(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -175,6 +198,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.click("WPRReviewSubmitDocbtn");
 		CommonMethod.WaitUntilVisibility("Reviewlanding", 60);
 		Thread.sleep(2000);
+		testlog.pass("**Submitted Preliminary Precertification Review successfully**");
 		/*
 		 * Admin Review
 		 */
@@ -201,7 +225,8 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
 		CommonMethod.click("ReviewReturnSubmit");
 		Thread.sleep(2000);
-		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
+		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status successfully");
+		testlog.pass("**Completed Reviewing Preliminary Precertification Review successfully**");
 	}
 
 	public void UploadWPRDocument() throws IOException, InterruptedException {
@@ -217,6 +242,6 @@ public class ReusableMethodPerformance extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.sendKeys("WPRAddNote", "Submitting Document");
 		CommonMethod.Robustclick("WPRSumbitUploadDocLib");
-
+		testlog.pass("**Upload Document successfully**");
 	}
 }
