@@ -11,8 +11,10 @@ import com.Well.Engine.CommonMethod;
 public class ReusableMethodPerformance extends BaseClass {
 
 	public void RegisterPerformance(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.click("WELLPerformanceRatingNavBar");
+		CommonMethod.WaitUntilVisibility("WPRstartNewProject", 60);
 		CommonMethod.click("WPRstartNewProject");
 		CommonMethod.click("WPREnrollOption");
 		CommonMethod.click("WPRenrollbtn");
@@ -24,10 +26,12 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.click("OwnerOrgClick");
 		CommonMethod.sendKeys("OwnerOrg", "R");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
-		CommonMethod.click("SelectOwnerOrg");
+		CommonMethod.ClickRandomWebElement("SelectOwnerOrgDyn");
+		data.setCellData("Wpr", "Org", 2, CommonMethod.getText("OwnerOrgClick"));
 		CommonMethod.selectdropdownrandom("OrgIndustry");
-		CommonMethod.selectdropdown("WPRExamOwnerCountry", data.getCellData(SheetName, "country", rowNum));
-		CommonMethod.selectdropdown("WPRExamOwnerState", data.getCellData(SheetName, "state", rowNum));
+		data.setCellData("Wpr", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
+		CommonMethod.selectdropdown("WPRExamOwnerCountry", "United States");
+		CommonMethod.selectdropdownrandom("WPRExamOwnerState");
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
 		String PostalCode = USfaker.address().zipCode();
@@ -37,6 +41,11 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.sendKeys("WPRExamOrgAddress", ProjectAddress);
 		CommonMethod.sendKeys("WPRExamOrgCity", ProjectCity);
 		CommonMethod.sendKeys("WPRExamOrgPostalcode", PostalCode);
+		data.setCellData("Wpr", "Country", 2, CommonMethod.getattributeValue("WPRExamOwnerCountry"));
+		data.setCellData("Wpr", "State", 2, CommonMethod.getattributeValue("WPRExamOwnerState"));
+		data.setCellData("Wpr", "Street", 2, CommonMethod.getattributeValue("WPRExamOrgAddress"));
+		data.setCellData("Wpr", "City", 2, CommonMethod.getattributeValue("WPRExamOrgCity"));
+		data.setCellData("Wpr", "PostalCode", 2, CommonMethod.getattributeValue("WPRExamOrgPostalcode"));
 		CommonMethod.ClickCheckbox("WPROwnercbx");
 		CommonMethod.scrollDown();
 		CommonMethod.click("WPROrgContinebtn");
@@ -44,21 +53,25 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.scrollUp();
 		CommonMethod.ClickCheckbox("WPRBehalfCbx");
 		CommonMethod.selectdropdown("WPRSelectMember", "No");
+		data.setCellData("Wpr", "WPRSelectMember", 2, CommonMethod.getSelectedDropdownValue("WPRSelectMember"));
 		CommonMethod.click("WPROwnerRegContinuebtn");
 		Thread.sleep(2000);
 		CommonMethod.scrollUp();
 		CommonMethod.sendKeys("WPRlocations", "10");
+		data.setCellData("Wpr", "WPRlocations", 2, CommonMethod.getattributeValue("WPRlocations"));
 		CommonMethod.click("HsrWPRlocationsSpacetype");
 		CommonMethod.click("HsrWPRlocationsSpaceOption");
 		Thread.sleep(1000);
 		CommonMethod.scrollDown();
 		CommonMethod.clear("WPRlocationsize");
-		testlog.info("Locationsize:" + "100");
-		CommonMethod.sendKeys("WPRlocationsize", "100");
+		String Area = CommonMethod.randomNumberBetweenRanges(100,50000);
+		testlog.info("Locationsize:" + Area);
+		CommonMethod.sendKeys("WPRlocationsize", Area);
+		data.setCellData("Wpr", "WPRlocationsize", 2, CommonMethod.getattributeValue("WPRlocationsize"));
 		CommonMethod.WaitUntilClickble("WPROwnerRegContinuebtn", 60);
 		CommonMethod.click("WPROwnerRegContinuebtn");
-		CommonMethod.WaitUntilClickble("HsrWPRYesMyOrganizationCbx", 30);
-		CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
+		//CommonMethod.WaitUntilClickble("HsrWPRYesMyOrganizationCbx", 30);
+		//CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
 		CommonMethod.click("WPRReviewContinuebutton");
 		CommonMethod.WaitUntilClickble("WPRProgramFeePublicrbtn", 60);
 		CommonMethod.ClickCheckbox("WPRProgramFeePublicrbtn");
