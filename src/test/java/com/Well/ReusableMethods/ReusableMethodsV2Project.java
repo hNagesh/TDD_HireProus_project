@@ -102,7 +102,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
 		CommonMethod.click("OwnerOrgClick");
 		CommonMethod.sendKeys("OwnerOrg", "R");
-		CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
+		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
 		CommonMethod.ClickRandomWebElement("SelectOwnerOrgDyn");
 		data.setCellData("V2Project", "Org", 2, CommonMethod.getText("OwnerOrgClick"));
 		String Ownername = USfaker.address().firstName();
