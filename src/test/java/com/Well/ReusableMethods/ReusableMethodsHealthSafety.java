@@ -10,6 +10,7 @@ import com.Well.Engine.CommonMethod;
 public class ReusableMethodsHealthSafety extends BaseClass {
 	
 	public void RegisterHealthSafety(String SheetName,int rowNum) throws IOException, InterruptedException {
+	   CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
 	   CommonMethod.click("ProjectNavBar");
 	   CommonMethod.click("WELLHealthSafetyNavBar");
 	   CommonMethod.click("HsrWellhealthstartprojectbtn");
@@ -59,17 +60,19 @@ public class ReusableMethodsHealthSafety extends BaseClass {
        Thread.sleep(2000);
        CommonMethod.click("HsrWPRlocationsSpaceOption");
        CommonMethod.clear("Hsrlocationsize");
-       testlog.info("Locationsize"+"10");
        String Area = CommonMethod.randomNumberBetweenRanges(100, 50000);
        CommonMethod.sendKeys("Hsrlocationsize", Area);
        data.setCellData("Hsr", "Area", 2, CommonMethod.getattributeValue("Hsrlocationsize"));
        testlog.info("Hsrlocations: "+data.getCellData(SheetName, "Area", rowNum));
-	   CommonMethod.click("HsrLocContinuebutton");
-	   CommonMethod.WaitUntilClickble("HsrWPRYesMyOrganizationCbx", 30);
-	   CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
-	   CommonMethod.click("HsrLocContinuebutton");
-	   CommonMethod.WaitUntilClickble("HsrProgramFeePublicrbtn", 60);
-	   CommonMethod.ClickCheckbox("HsrProgramFeePublicrbtn");
+       if(CommonMethod.isElementsExist("HsrWPRYesMyOrganizationCbx", 20)) {
+			CommonMethod.WaitUntilClickble("HsrWPRYesMyOrganizationCbx", 60);
+			CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
+			}
+       CommonMethod.WaitUntilVisibility("HsrLocContinuebutton", 120);
+	   CommonMethod.Robustclick("HsrLocContinuebutton");
+		CommonMethod.WaitUntilClickble("HsrProgramFeePublicrbtn", 60);
+		CommonMethod.ClickCheckbox("HsrProgramFeePublicrbtn");
+	   CommonMethod.WaitUntilVisibility("HsrAcknowledecbx", 60);
 	   CommonMethod.ClickCheckbox("HsrAcknowledecbx");
 	   CommonMethod.click("HsrReviewbtn");
 	   CommonMethod.WaitUntilVisibility("BillingLanding", 60);

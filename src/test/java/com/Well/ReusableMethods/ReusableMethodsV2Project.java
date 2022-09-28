@@ -5,7 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
-import com.github.javafaker.Internet.UserAgent;
+
 
 public class ReusableMethodsV2Project extends BaseClass {
 
@@ -18,7 +18,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2Projectstartav2projectbtn");
 		CommonMethod.click("V2ProjectstartProjectcontinuebtn");
 		String ProjectName = "Automation V2 Project" + CommonMethod.randomNumber(8000000);
-
 		testlog.info("ProjectName: " + ProjectName);
 		data.setCellData("V2Project", "ProjectName", 2, ProjectName);
 		CommonMethod.sendKeys("V2Projectprojectnickname", ProjectName);
@@ -70,7 +69,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectselectNextMonth");
 		Thread.sleep(1000);
 		CommonMethod.WaitUntilVisibility("DatePickerOkButton", 300);
-		CommonMethod.Robustclick("DatePickerOkButton","V2ProjectselectNextMonth");
+		CommonMethod.Robustclick("DatePickerOkButton", "V2ProjectselectNextMonth");
 		CommonMethod.click("DatePickerOkButton");
 		CommonMethod.WaitUntilClickble("V2ProjectdocsubConfirmbtn", 60);
 		CommonMethod.click("V2ProjectdocsubConfirmbtn");
@@ -107,7 +106,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
 		CommonMethod.ClickRandomWebElement("SelectOwnerOrgDyn");
 		data.setCellData("V2Project", "Org", 2, CommonMethod.getText("OrgName"));
-		testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
+		testlog.info("OrganizationName: " + data.getCellData(SheetName, "Org", rowNum));
 		String Ownername = USfaker.address().firstName();
 		String Email = USfaker.internet().emailAddress();
 		String Phoneno = USfaker.number().digits(10);
@@ -520,7 +519,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 				.sendKeys(data.getCellData(SheetName, "projectId", rowNum));
 		CommonMethod.click("AdminV2ProjectApplybtn");
 		Thread.sleep(2000);
-		CommonMethod.assertcontainsmessage("Adminv2ProjectNameVerify", "Automation", "Project name doesn't matches in search");
+		CommonMethod.assertcontainsmessage("Adminv2ProjectNameVerify", "Automation",
+				"Project name doesn't matches in search");
 		CommonMethod.click("V2ProjectIdCompare");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 60);
 		CommonMethod.click("ReviewTab");
@@ -741,10 +741,10 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
 		CommonMethod.ClickRandomWebElement("SelectOwnerOrgDyn");
 		data.setCellData("V2Project", "Org", 2, CommonMethod.getText("OrgName"));
-		testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
+		testlog.info("OrganizationName: " + data.getCellData(SheetName, "Org", rowNum));
 		CommonMethod.WaitUntilClickble("V2ProjectSubjectInputField", 60).sendKeys("Testing");
 		data.setCellData("V2Project", "Subject", 2, CommonMethod.getattributeValue("V2ProjectSubjectInputField"));
-		testlog.info("FeatureName"+data.getCellData(SheetName, "Subject", rowNum));
+		testlog.info("FeatureName" + data.getCellData(SheetName, "Subject", rowNum));
 		CommonMethod.WaitUntilClickble("V2ProjectDescriptionTextArea", 60).sendKeys("Testing");
 		CommonMethod.uploadFile("DocumentsUpload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilVisibility("SubmitButton", 60);
@@ -753,7 +753,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		testlog.pass("**Raised support ticket successfully**");
 	}
 
-	public void alternativesV2Project(String SheetName, int rowNum, String alternativeOption) throws IOException, InterruptedException {
+	public void alternativesV2Project(String SheetName, int rowNum, String alternativeOption)
+			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectAlternativesButton", 60);
 		CommonMethod.click("V2ProjectAlternativesButton");
 		if (alternativeOption.equalsIgnoreCase("EP")) {
@@ -777,8 +778,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.click("V2ProjectAapSubmitButton");
 			CommonMethod.WaitUntilVisibility("V2ProjectFeatureDropdown", 60);
 			CommonMethod.selectdropdown("V2ProjectFeatureDropdown", "A01 Air Quality");
-			data.setCellData("V2Project", "FeatureName", 2, CommonMethod.getSelectedDropdownValue("V2ProjectFeatureDropdown"));
-			testlog.info("FeatureName"+data.getCellData(SheetName, "FeatureName", rowNum));
+			data.setCellData("V2Project", "FeatureName", 2,
+					CommonMethod.getSelectedDropdownValue("V2ProjectFeatureDropdown"));
+			testlog.info("FeatureName" + data.getCellData(SheetName, "FeatureName", rowNum));
 			CommonMethod.WaitUntilVisibility("V2ProjectApplicablePartCheckBox", 60);
 			CommonMethod.click("V2ProjectApplicablePartCheckBox");
 			CommonMethod.WaitUntilClickble("V2ProjectAlternativesReasonTextArea", 60)
