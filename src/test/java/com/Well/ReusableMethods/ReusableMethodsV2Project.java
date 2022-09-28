@@ -106,7 +106,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.sendKeys("OwnerOrg", "R");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
 		CommonMethod.ClickRandomWebElement("SelectOwnerOrgDyn");
-		data.setCellData("V2Project", "Org", 2, CommonMethod.getText("OwnerOrgClick"));
+		data.setCellData("V2Project", "Org", 2, CommonMethod.getText("OrgName"));
+		testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
 		String Ownername = USfaker.address().firstName();
 		String Email = USfaker.internet().emailAddress();
 		String Phoneno = USfaker.number().digits(10);
