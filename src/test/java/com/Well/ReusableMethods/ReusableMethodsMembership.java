@@ -26,8 +26,6 @@ public class ReusableMethodsMembership extends BaseClass {
 			CommonMethod.click("MPKeystonebtn");
 		}
 		String firstName = USfaker.address().firstName();
-		testlog.info("organizationName: "+ firstName);
-		testlog.info("organizationwebsite: " +"https://test-nuxt.wellcertified.com/");
 		CommonMethod.sendKeys("MPorganization", firstName);
 		data.setCellData("Membership", "Organization", 2, CommonMethod.getattributeValue("MPorganization"));
 		CommonMethod.uploadFile("WFProvideUpload", SampleJpgfile);
@@ -35,6 +33,8 @@ public class ReusableMethodsMembership extends BaseClass {
 		CommonMethod.sendKeys("MPorganizationwebsite", "https://test-nuxt.wellcertified.com/");
 		data.setCellData("Membership", "Organizationwebsite", 2, CommonMethod.getattributeValue("MPorganizationwebsite"));
 		CommonMethod.WaitUntilVisibility("MPorgcontinuebtn", 30);
+		testlog.info("organizationName: "+ data.getCellData(SheetName, "Organization", rowNum));
+		testlog.info("organizationwebsite: " +data.getCellData(SheetName, "Organizationwebsite", rowNum));
 		CommonMethod.click("MPorgcontinuebtn");
 		CommonMethod.WaitUntilVisibility("MPNamePointContact", 30);
 		testlog.pass("**Verifies the Registration successful**");
@@ -60,6 +60,9 @@ public class ReusableMethodsMembership extends BaseClass {
 		CommonMethod.sendKeys("MPPhonenumber", PhoneNumber);
 		data.setCellData("Membership", "PhoneNumber", 2, CommonMethod.getattributeValue("MPPhonenumber"));
 		CommonMethod.ClickCheckbox("MPContactdetailscheckbox");
+		testlog.info("Name: " +data.getCellData(SheetName, "Name", rowNum));
+		testlog.info("Email: " +data.getCellData(SheetName, "Email", rowNum));
+		testlog.info("JobTitle: " +data.getCellData(SheetName, "JobTitle", rowNum));
 		CommonMethod.click("MPContinuebutton");
 		/*
 		 * Owner details
@@ -86,13 +89,16 @@ public class ReusableMethodsMembership extends BaseClass {
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
 		String PostalCode = USfaker.address().zipCode();
-		testlog.info("PostalCode:" +PostalCode);
 		CommonMethod.sendKeys("MPOfficestreet", ProjectAddress);
-		data.setCellData("Membership", "PostalCode", 2, CommonMethod.getattributeValue("MPOfficestreet"));
+		data.setCellData("Membership", "Street", 2, CommonMethod.getattributeValue("MPOfficestreet"));
 		CommonMethod.sendKeys("MPOfficecity", ProjectCity);
-		data.setCellData("Membership", "PostalCode", 2, CommonMethod.getattributeValue("MPOfficecity"));
+		data.setCellData("Membership", "City", 2, CommonMethod.getattributeValue("MPOfficecity"));
 		CommonMethod.sendKeys("MPOfficePostalCode", PostalCode);
 		data.setCellData("Membership", "PostalCode", 2, CommonMethod.getattributeValue("MPOfficePostalCode"));
+		testlog.info("Country: " +data.getCellData(SheetName, "Country", rowNum));
+		testlog.info("State: " +data.getCellData(SheetName, "State", rowNum));
+		testlog.info("Street: " +data.getCellData(SheetName, "Street", rowNum));
+		testlog.info("PostalCode: " +data.getCellData(SheetName, "PostalCode", rowNum));
 		CommonMethod.click("MPOfficecontinuebtn");
 		/*
 		 * Term
