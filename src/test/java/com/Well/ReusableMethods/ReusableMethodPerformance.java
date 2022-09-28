@@ -73,8 +73,10 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilClickble("HsrWPRYesMyOrganizationCbx", 30);
 		CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
 		CommonMethod.click("WPRReviewContinuebutton");
+		if(CommonMethod.isElementsExist("WPRProgramFeePublicrbtn", 2)) {
 		CommonMethod.WaitUntilClickble("WPRProgramFeePublicrbtn", 60);
 		CommonMethod.ClickCheckbox("WPRProgramFeePublicrbtn");
+		}
 		CommonMethod.scrollDown();
 		CommonMethod.WaitUntilClickble("WPRAcknowledecbx", 60);
 		CommonMethod.ClickCheckbox("WPRAcknowledecbx");
