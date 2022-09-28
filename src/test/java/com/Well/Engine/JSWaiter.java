@@ -54,7 +54,6 @@ public class JSWaiter extends BaseClass {
                 .executeScript("return document.readyState").toString().equals("complete");
 
             boolean jsReady = jsExec.executeScript("return document.readyState").toString().equals("complete");
-System.out.println(jsReady);
             if (!jsReady) {
             	//System.out.println("js loading");
                 jsWait.until(jsLoad);
@@ -141,12 +140,14 @@ System.out.println(jsReady);
     }
 
     public static void waitAllRequest() {
-    	waitUntilLayer0Error(driver);
-        waitUntilJSReady();
-        ajaxComplete();
-        waitUntilJQueryReady();
-        waitUntilAngularReady();
-        waitUntilAngular5Ready();
+		
+		waitUntilLayer0Error(driver);
+		waitUntilJSReady();
+		ajaxComplete();
+		waitUntilJQueryReady();
+		waitUntilAngularReady();
+		waitUntilAngular5Ready();
+
     }
 
     /**
