@@ -5,8 +5,7 @@
 
 <parameter name="browserName" value="chrome"/>
 <parameter name="environment" value="Test"/>
-
-
+<parameter name="ProjectType" value="WELLCore"/>
  <test name="WELL-Tests" >
 <parameter name="SheetName" value="V2Project"/>
 <parameter name="rowNum" value="2"/>
@@ -27,11 +26,6 @@
 <class name="com.Well.testcases.V2Project.TC_14_TeamV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.TC_15_SupportV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.TC_16_AlternativesV2ProjectTest"></class>
-
-
-
 </classes>
 </test>
-
-
 </suite>  

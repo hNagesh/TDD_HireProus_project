@@ -17,8 +17,8 @@ public class TC_08_DocumentV2ProjectTest extends BaseClass {
 
 		StartTest(TestCaseName);
 		try {
-		v2project.UploadGeneralDocumentInDocV2Project(SheetName, rowNum);	
-		v2project.UploadLegalDocumentInDocV2Project(SheetName, rowNum);	
+		v2project.UploadDocumentInDocV2Project(SheetName, rowNum,"General");	
+		v2project.UploadDocumentInDocV2Project(SheetName, rowNum,"Legal");	
 		v2project.UploadOngoingDocumentInDocV2Project(SheetName, rowNum);	
 		v2project.UploadFeatureDocumentInDocV2Project(SheetName, rowNum);
 		v2project.UploadDocumentCountInDocV2Project(SheetName, rowNum);

@@ -5,7 +5,7 @@
 
 <parameter name="browserName" value="chrome"/>
 <parameter name="environment" value="${env}"/>
-
+<parameter name="ProjectType" value="WELLCore"/>
 
  <test name="WELL-Tests" >
 <parameter name="SheetName" value="V2Project"/>

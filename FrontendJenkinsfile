@@ -9,7 +9,7 @@ options {
   }
 agent any 
 triggers {
-    cron('H 7 * * *')
+    cron('H 20 * * *')
   }
 stages {
         stage('Build') {
@@ -64,6 +64,9 @@ stages {
             
 stage('Test Results'){
 	            steps{
+	            echo "ZIP"
+    zip zipFile: 'ExecutionReport.zip', glob: '**/Report/*.html'
+    echo "END - ZIP"
 			    echo env.GIT_BRANCH
 			     script {
 			     if ("${env.GIT_BRANCH}" == "origin/env/stg") {
@@ -84,7 +87,7 @@ stage('Test Results'){
         success {
             echo "success" 
             
-            emailext attachmentsPattern: '',
+            emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report2.html',
         body: '''${SCRIPT, template="groovy-html.template"}''',
         mimeType: 'text/html',
         subject: "[Jenkins] ${env.JOB_NAME}-${env.BUILD_NUMBER}",
@@ -94,7 +97,7 @@ stage('Test Results'){
         }
         unstable(message: "${STAGE_NAME} is unstable") {  
              echo 'This will run only if the run was marked as unstable'
-              emailext attachmentsPattern: '',
+              emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report2.html',
         body: '''${SCRIPT, template="groovy-html.template"}''',
         mimeType: 'text/html',
         subject: "[Jenkins] ${env.JOB_NAME}-${env.BUILD_NUMBER}",

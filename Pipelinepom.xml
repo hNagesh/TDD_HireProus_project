@@ -185,8 +185,8 @@
                     <environment>${env}</environment>
                 </systemPropertyVariables>
 					<suiteXmlFiles>	   					
-		<suiteXmlFile>src/main/resources/TestNG/Portfoliotestng.xml</suiteXmlFile>
-				   </suiteXmlFiles>
+        <suiteXmlFile>src/main/resources/PipelineTestNG/PipelineCombinedRegression.xml</suiteXmlFile>
+						   </suiteXmlFiles>
 				</configuration>
 			</plugin>
 			<plugin>
