@@ -733,8 +733,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
 		CommonMethod.click("OwnerOrgClick");
 		CommonMethod.sendKeys("OwnerOrg", "R");
-		CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
-		CommonMethod.click("SelectOwnerOrg");
+		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
+		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 6).click();
 		CommonMethod.WaitUntilClickble("SubjectInputField", 60).sendKeys("Test1");
 		CommonMethod.WaitUntilClickble("DescriptionTextArea", 60).sendKeys("Testing");
 		CommonMethod.uploadFile("DocumentsUpload", PortfolioLocationImportfile);
@@ -745,7 +745,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 	}
 
 	public void alternativesV2Project(String alternativeOption) throws IOException, InterruptedException {
-		Thread.sleep(20000);
 		CommonMethod.WaitUntilVisibility("AlternativesButton", 60);
 		CommonMethod.click("AlternativesButton");
 
@@ -762,8 +761,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.WaitUntilClickble("V2ProjectDifferencesTextArea", 60).sendKeys("Testing");
 
 		} else if (alternativeOption.equalsIgnoreCase("AAP")) {
-			Thread.sleep(30000);
-			CommonMethod.scrolldowntoElement("V2ProjectAditionalButton");;
+			
+			CommonMethod.scrollUp();
 			CommonMethod.WaitUntilVisibility("AapSubmitButton", 60);
 			CommonMethod.click("AapSubmitButton");
 			CommonMethod.WaitUntilVisibility("FeatureDropdown", 60);
