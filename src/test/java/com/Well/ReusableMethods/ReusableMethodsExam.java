@@ -46,7 +46,7 @@ public class ReusableMethodsExam extends BaseClass {
 		CommonMethod.click("OwnerOrgClick");
 		CommonMethod.sendKeys("OwnerOrg", "R");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
-		CommonMethod.ClickRandomWebElement("SelectOwnerOrgDyn");
+		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 6).click();
 		data.setCellData("Exam", "Org", 2, CommonMethod.getText("OwnerOrgClick"));
 		CommonMethod.selectdropdownIndex("APIndustry", 1);
 		data.setCellData("Exam", "APIndustry", 2, CommonMethod.getSelectedDropdownValue("APIndustry"));

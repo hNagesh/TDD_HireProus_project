@@ -24,7 +24,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.click("OwnerOrgClick");
 		CommonMethod.sendKeys("OwnerOrg", "R");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
-		CommonMethod.ClickRandomWebElement("SelectOwnerOrgDyn");
+		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 6).click();
 		CommonMethod.selectdropdownrandom("OrgIndustry");
 		testlog.info("OrgIndustry:" +CommonMethod.getSelectedDropdownValue("OrgIndustry"));
 		data.setCellData("Portfolio", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("OrgIndustry"));

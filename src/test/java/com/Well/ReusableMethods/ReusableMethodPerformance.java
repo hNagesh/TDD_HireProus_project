@@ -26,7 +26,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.click("OwnerOrgClick");
 		CommonMethod.sendKeys("OwnerOrg", "R");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
-		CommonMethod.ClickRandomWebElement("SelectOwnerOrgDyn");
+		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 6).click();
 		data.setCellData("Wpr", "Org", 2, CommonMethod.getText("OwnerOrgClick"));
 		CommonMethod.selectdropdownrandom("OrgIndustry");
 		data.setCellData("Wpr", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("OrgIndustry"));

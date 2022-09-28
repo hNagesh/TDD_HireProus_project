@@ -513,6 +513,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("AdminV2ProjectId", 60).sendKeys(data.getCellData(SheetName, "projectId", rowNum));
 		CommonMethod.click("AdminV2ProjectApplybtn");
 		Thread.sleep(2000);
+		CommonMethod.assertcontainsmessage("Adminv2ProjectNameVerify", "Automation", "Project name doesn't matches in search");
 		CommonMethod.click("V2ProjectIdCompare");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 60);
 		CommonMethod.click("ReviewTab");
