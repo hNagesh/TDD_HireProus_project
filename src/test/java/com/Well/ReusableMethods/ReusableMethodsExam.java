@@ -12,9 +12,9 @@ public class ReusableMethodsExam extends BaseClass {
 		CommonMethod.click("WELLExamRatingNavBar");
 		CommonMethod.click("WFExamContinuebtn");
 		CommonMethod.selectdropdown("WPRExamOwnerCountry", "United States");
-		data.setCellData("Exam", "Country", 2, CommonMethod.getattributeValue("WPRExamOwnerCountry"));
+		data.setCellData("Exam", "Country", 2, CommonMethod.getSelectedDropdownValue("WPRExamOwnerCountry"));
 		CommonMethod.selectdropdownrandom("WPRExamOwnerState");
-		data.setCellData("Exam", "State", 2, CommonMethod.getattributeValue("WPRExamOwnerState"));
+		data.setCellData("Exam", "State", 2, CommonMethod.getSelectedDropdownValue("WPRExamOwnerState"));
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
 		String PostalCode = USfaker.address().zipCode();
