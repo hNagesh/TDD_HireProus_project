@@ -5,6 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
+import com.github.javafaker.Internet.UserAgent;
 
 public class ReusableMethodsV2Project extends BaseClass {
 
@@ -16,6 +17,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2Projectstartav2projectbtn");
 		CommonMethod.click("V2ProjectstartProjectcontinuebtn");
 		String ProjectName = "Automation V2 Project" + CommonMethod.randomNumber(8000000);
+
 		testlog.info("ProjectName: " +ProjectName);
 		data.setCellData("V2Project", "ProjectName", 2, ProjectName);
 		CommonMethod.sendKeys("V2Projectprojectnickname", ProjectName);
@@ -131,7 +133,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectdocsubAnticdate");
 		CommonMethod.click("V2ProjectdocsubEstidateOkbtn");
 		CommonMethod.click("V2ProjectprojectOwnerContinuebtn");
-		testlog.info("Country:" +"United States");
+		testlog.info("Country:" + "United States");
 		CommonMethod.selectdropdown("V2ProjectprojectaddressCountry", "United States");
 		data.setCellData("V2Project", "Country", 2, CommonMethod.getSelectedDropdownValue("V2ProjectprojectaddressCountry"));
 		CommonMethod.WaitUntilVisibility("V2ProjectprojectState", 10);
@@ -139,9 +141,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 		data.setCellData("V2Project", "State", 2, CommonMethod.getSelectedDropdownValue("V2ProjectprojectState"));
 		String ProjectAddress1 = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
-		testlog.info("Organization Address:" +ProjectAddress1);
-		testlog.info("Organization City:" +ProjectCity);
-		testlog.info("Organization Postalcode:" +PostalCode);
+		testlog.info("Organization Address:" + ProjectAddress1);
+		testlog.info("Organization City:" + ProjectCity);
+		testlog.info("Organization Postalcode:" + PostalCode);
 		CommonMethod.sendKeys("V2ProjectprojectaddressStreet", ProjectAddress1);
 		CommonMethod.sendKeys("V2ProjectprojectaddressCity", ProjectCity);
 		CommonMethod.sendKeys("V2ProjectprojectaddressPostalcode", PostalCode);
@@ -171,14 +173,14 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("BillingLanding", 300);
 		CommonMethod.scrolldowntoElement("CardHolderName");
 		CommonMethod.WaitUntilClickble("CardHolderName", 60);
-		testlog.info("firstName:"+USfaker.address().firstName());
+		testlog.info("firstName:" + USfaker.address().firstName());
 		CommonMethod.sendKeys("CardHolderName", USfaker.address().firstName());
 		data.setCellData("V2Project", "CardHolderName", 2, CommonMethod.getattributeValue("CardHolderName"));
 		Thread.sleep(2000);
 		CommonMethod.switchToFrame("CardNumberIframe");
 		CommonMethod.WaitUntilClickble("CardHolderNumber", 60);
 		Thread.sleep(2000);
-		testlog.info("CardHolderNumber:"+"4111111111111111");
+		testlog.info("CardHolderNumber:" + "4111111111111111");
 		CommonMethod.sendKeys("CardHolderNumber", "4111111111111111");
 		data.setCellData("V2Project", "CardHolderNumber", 2, CommonMethod.getattributeValue("CardHolderNumber"));
 		CommonMethod.switchToParentFrame();
@@ -194,7 +196,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.switchToFrame("CardCVVIframe");
 		CommonMethod.WaitUntilClickble("CardHolderCVC", 60);
-		testlog.info("CardHolderCVC:"+"999");
+		testlog.info("CardHolderCVC:" + "999");
 		CommonMethod.sendKeys("CardHolderCVC", "999");
 		data.setCellData("V2Project", "CardHolderCVC", 2, CommonMethod.getattributeValue("CardHolderCVC"));
 		CommonMethod.switchToParentFrame();
@@ -428,7 +430,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("WellV2ProjectDocumentTab", 60);
 		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
-		testlog.info("Document Type"+"Ongoing data reports");
+		testlog.info("Document Type" + "Ongoing data reports");
 		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Ongoing data reports");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectResetbtn");
@@ -458,7 +460,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
 		Thread.sleep(2000);
-		testlog.info("Document Type"+"Feature");
+		testlog.info("Document Type" + "Feature");
 		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Feature");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
@@ -510,7 +512,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
 		CommonMethod.click("AdminNavBar");
 		CommonMethod.click("AdminWELLCertificationNavBar");
-		CommonMethod.WaitUntilClickble("AdminV2ProjectId", 60).sendKeys(data.getCellData(SheetName, "projectId", rowNum));
+		CommonMethod.WaitUntilClickble("AdminV2ProjectId", 60)
+				.sendKeys(data.getCellData(SheetName, "projectId", rowNum));
 		CommonMethod.click("AdminV2ProjectApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("Adminv2ProjectNameVerify", "Automation", "Project name doesn't matches in search");
@@ -663,14 +666,15 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectSubmitPhaseReview");
 		Thread.sleep(2000);
 		testlog.pass("**Reviewed Final Precertification Review successfully**");
-		
+
 		/*
 		 * Admin Review
 		 */
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 300);
 		CommonMethod.click("AdminNavBar");
 		CommonMethod.click("AdminWELLCertificationNavBar");
-		CommonMethod.WaitUntilVisibility("AdminV2ProjectId", 300).sendKeys(data.getCellData(SheetName, "projectId", rowNum));
+		CommonMethod.WaitUntilVisibility("AdminV2ProjectId", 300)
+				.sendKeys(data.getCellData(SheetName, "projectId", rowNum));
 		CommonMethod.click("AdminV2ProjectApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectIdCompare");
@@ -715,4 +719,75 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
 		testlog.pass("**Created Team member successfully**");
 	}
+
+	public void supportV2Project() throws IOException, InterruptedException {
+
+		CommonMethod.WaitUntilVisibility("SupportButton", 60);
+		CommonMethod.click("SupportButton");
+		CommonMethod.WaitUntilVisibility("GetHelpButton", 60);
+		CommonMethod.click("GetHelpButton");
+		CommonMethod.WaitUntilVisibility("QuestionAboutDropdown", 60);
+		CommonMethod.selectdropdown("QuestionAboutDropdown", "Feature");
+		CommonMethod.WaitUntilVisibility("IssueSubTypeDropdown", 60);
+		CommonMethod.selectdropdown("IssueSubTypeDropdown", "A01 Air Quality");
+		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
+		CommonMethod.click("OwnerOrgClick");
+		CommonMethod.sendKeys("OwnerOrg", "R");
+		CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
+		CommonMethod.click("SelectOwnerOrg");
+		CommonMethod.WaitUntilClickble("SubjectInputField", 60).sendKeys("Test1");
+		CommonMethod.WaitUntilClickble("DescriptionTextArea", 60).sendKeys("Testing");
+		CommonMethod.uploadFile("DocumentsUpload", PortfolioLocationImportfile);
+		CommonMethod.WaitUntilVisibility("SubmitButton", 60);
+		CommonMethod.click("SubmitButton");
+		CommonMethod.assertcontainsmessage("NewStatus", "New", "Verified New status");
+		testlog.pass("**Raised support ticket successfully**");
+	}
+
+	public void alternativesV2Project(String alternativeOption) throws IOException, InterruptedException {
+		Thread.sleep(20000);
+		CommonMethod.WaitUntilVisibility("AlternativesButton", 60);
+		CommonMethod.click("AlternativesButton");
+
+		if (alternativeOption.equalsIgnoreCase("EP")) {
+			CommonMethod.click("EPSubmitButton");
+			CommonMethod.WaitUntilVisibility("FeatureDropdown", 60);
+			CommonMethod.selectdropdown("FeatureDropdown", "A01 Air Quality");
+			CommonMethod.WaitUntilVisibility("ApplicablePartCheckBox", 60);
+			CommonMethod.click("ApplicablePartCheckBox");
+			CommonMethod.WaitUntilClickble("V2ProjectEquivalencyReason", 60).sendKeys("xyz");
+			CommonMethod.WaitUntilClickble("V2ProjectEquivalencyCountriesInput", 60).sendKeys("abc");
+			CommonMethod.WaitUntilClickble("V2ProjectVerificationTextArea", 60).sendKeys("pqr");
+			CommonMethod.WaitUntilClickble("V2ProjectSimilaritiesTextArea", 60).sendKeys("mno");
+			CommonMethod.WaitUntilClickble("V2ProjectDifferencesTextArea", 60).sendKeys("Testing");
+
+		} else if (alternativeOption.equalsIgnoreCase("AAP")) {
+			Thread.sleep(30000);
+			CommonMethod.scrolldowntoElement("V2ProjectAditionalButton");;
+			CommonMethod.WaitUntilVisibility("AapSubmitButton", 60);
+			CommonMethod.click("AapSubmitButton");
+			CommonMethod.WaitUntilVisibility("FeatureDropdown", 60);
+			CommonMethod.selectdropdown("FeatureDropdown", "A01 Air Quality");
+			CommonMethod.WaitUntilVisibility("ApplicablePartCheckBox", 60);
+			CommonMethod.click("ApplicablePartCheckBox");
+			CommonMethod.WaitUntilClickble("AlternativesReasonTextArea", 60).sendKeys("Test2");
+		}
+
+		CommonMethod.WaitUntilClickble("AlternativesProposedTextArea", 60).sendKeys("For testing");
+		CommonMethod.uploadFile("DocumentsUpload", PortfolioLocationImportfile);
+		CommonMethod.WaitUntilVisibility("SubmitButton", 60);
+		CommonMethod.click("SubmitButton");
+		if (alternativeOption.equalsIgnoreCase("EP")) {
+
+			CommonMethod.WaitUntilVisibility("V2projectEPTypeStatus", 60);
+			CommonMethod.assertcontainsmessage("V2projectEPTypeStatus", "EP", "Verified EP status");
+			testlog.pass("**Added alternative EP documents successfully**");
+		} else if (alternativeOption.equalsIgnoreCase("AAP")) {
+
+			CommonMethod.WaitUntilVisibility("V2projectAAPTypeStatus", 60);
+			CommonMethod.assertcontainsmessage("V2projectAAPTypeStatus", "AAP", "Verified AAP status");
+			testlog.pass("**Added alternative AAP documents successfully**");
+		}
+	}
+
 }
