@@ -3,23 +3,26 @@
 
 <suite name="WELLAutomation">
 
-<parameter name="browserName" value="chrome"/>
-<parameter name="environment" value="Test"/>
- <test name="WELL-Tests" >
-<parameter name="SheetName" value="Portfolio"/>
-<parameter name="rowNum" value="2"/>
-<classes>
-	<class name="com.Well.testcases.login.TC_01_LoginTest"></class>
-    <class name="com.Well.testcases.Portfolio.TC_02_RegisterPortfolioTest"></class>
-	<class name="com.Well.testcases.Portfolio.TC_03_SearchPortfolioByNameTest"></class> 
-	 <class name="com.Well.testcases.Portfolio.TC_04_SignAndSubscribePortfolioTest"></class>
-	<class name="com.Well.testcases.Portfolio.TC_05_PortfolioPaymentTest"></class>
-	<class name="com.Well.testcases.Portfolio.TC_06_PortfolioLocationImportTest"></class>
-	<class name="com.Well.testcases.Portfolio.TC_07_PortfolioBuildScorecardTest"></class>
-	 <class name="com.Well.testcases.Portfolio.TC_08_UploadFileInFeatureTest"></class>
- 	<class name="com.Well.testcases.Portfolio.TC_09_UploadFileInAuditTest"></class>
- 	<class name="com.Well.testcases.Portfolio.TC_11_DocumentTest"></class>
- 	<class name="com.Well.testcases.Portfolio.TC_12_ReviewTest"></class>
-</classes>
-</test>
+	<parameter name="browserName" value="chrome" />
+	<parameter name="environment" value="Test" />
+	<test name="WELL-Tests">
+		<parameter name="SheetName" value="Portfolio" />
+		<parameter name="rowNum" value="2" />
+		<classes>
+			<class name="com.Well.testcases.login.TC_01_LoginTest"></class>
+			<!-- <class
+				name="com.Well.testcases.Portfolio.TC_02_RegisterPortfolioTest"></class> -->
+			<class
+				name="com.Well.testcases.Portfolio.TC_03_SearchPortfolioByNameTest"></class>
+			<!-- <class name="com.Well.testcases.Portfolio.TC_04_SignAndSubscribePortfolioTest"></class> 
+				<class name="com.Well.testcases.Portfolio.TC_05_PortfolioPaymentTest"></class> 
+				<class name="com.Well.testcases.Portfolio.TC_06_PortfolioLocationImportTest"></class> 
+				<class name="com.Well.testcases.Portfolio.TC_07_PortfolioBuildScorecardTest"></class> 
+				<class name="com.Well.testcases.Portfolio.TC_08_UploadFileInFeatureTest"></class> 
+				<class name="com.Well.testcases.Portfolio.TC_09_UploadFileInAuditTest"></class> 
+				<class name="com.Well.testcases.Portfolio.TC_11_DocumentTest"></class> <class 
+				name="com.Well.testcases.Portfolio.TC_12_ReviewTest"></class> -->
+			<class name="com.Well.testcases.Portfolio.TC_13_SupportTest"></class>
+		</classes>
+	</test>
 </suite>  
