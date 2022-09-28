@@ -18,7 +18,7 @@ public class TC_13_SupportTest extends BaseClass {
 		StartTest(TestCaseName);
 
 		try {
-			v2project.supportV2Project();	
+//			v2project.supportV2Project();	
 
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
