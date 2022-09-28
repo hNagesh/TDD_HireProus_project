@@ -127,7 +127,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("LocationsTab", 60);
 		CommonMethod.click("LocationsTab");
 		CommonMethod.WaitUntilVisibility("PortfolioLocationLanding", 60);
-		CommonMethod.click("PortfolioLocationsImportButton");
+		CommonMethod.RobustclickElementVisible("PortfolioLocationsImportButton","PortfolioUploadFileNextButton");
 		CommonMethod.scrolldowntoElement("PortfolioUploadLocationButton");
 		CommonMethod.uploadFile("PortfolioUploadLocationButton", PortfolioLocationImportfile);
 		CommonMethod.click("PortfolioUploadFileNextButton");

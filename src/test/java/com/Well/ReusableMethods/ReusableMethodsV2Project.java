@@ -380,7 +380,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectScorecardFeature");
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
 		CommonMethod.click("V2ProjectscorecardDocbtn");
-		testlog.info("TaskName"+"Performance Test OR Sensor Data");
+		testlog.info("TaskName : Performance Test OR Sensor Data");
 		CommonMethod.selectdropdown("V2Projectscorecardverificationdropdown", "Performance Test OR Sensor Data");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
@@ -396,7 +396,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectScorecardAuditFeature");
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
 		CommonMethod.click("V2ProjectscorecardDocbtn");
-		testlog.info("TaskName"+"Technical Document (Audited)");
+		testlog.info("TaskName : Technical Document (Audited)");
 		CommonMethod.selectdropdown("V2Projectscorecardverificationdropdown", "Technical Document (Audited)");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
@@ -408,31 +408,18 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	}
 
-	public void UploadGeneralDocumentInDocV2Project(String SheetName, int rowNum)
+	public void UploadDocumentInDocV2Project(String SheetName, int rowNum, String DocumentType)
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("WellV2ProjectDocumentTab", 60);
 		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
-		testlog.info("Document Type"+"General");
-		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "General");
+		testlog.info("Document Type : General");
+		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", DocumentType);
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
 		CommonMethod.click("V2ProjectDocSubmit");
 		Thread.sleep(2000);
-		testlog.pass("**Upload Document successfully**");
-	}
-
-	public void UploadLegalDocumentInDocV2Project(String SheetName, int rowNum)
-			throws IOException, InterruptedException {
-		CommonMethod.WaitUntilClickble("WellV2ProjectDocumentTab", 60);
-		CommonMethod.click("WellV2ProjectDocumentTab");
-		CommonMethod.click("V2ProjectDocUploadbtn");
-		testlog.info("Document Type"+"Legal");
-		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Legal");
-		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
-		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
-		CommonMethod.click("V2ProjectDocSubmit");
-		Thread.sleep(2000);
+		CommonMethod.WaitUntilClickble("V2ProjectDocUploadbtn", 30);
 		testlog.pass("**Upload Document successfully**");
 	}
 
@@ -460,8 +447,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
 		CommonMethod.click("V2ProjectDocSubmit");
-		Thread.sleep(4000);
-		CommonMethod.refreshBrowser();
+		Thread.sleep(2000);
+		CommonMethod.WaitUntilClickble("V2ProjectDocUploadbtn", 30);
 		testlog.pass("**Upload Document successfully**");
 	}
 
@@ -488,6 +475,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
 		CommonMethod.click("V2ProjectDocSubmit");
 		Thread.sleep(2000);
+		CommonMethod.WaitUntilClickble("V2ProjectDocUploadbtn", 30);
 		testlog.pass("**Upload Document successfully**");
 	}
 
