@@ -11,14 +11,14 @@ public class TC_02_RegisterPortfolioTest extends BaseClass {
 
 	@Test(dependsOnMethods = { "com.Well.testcases.login.TC_01_LoginTest.TC_01_Login" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_02_RegisterPortfolio() throws IOException {
+	public void TC_02_RegisterPortfolio(String SheetName, int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
 
 		try {
-        portfolio.RegisterPortfolio();
+        portfolio.RegisterPortfolio(SheetName, rowNum);
 			
 		} 
 		catch (Throwable t) {
