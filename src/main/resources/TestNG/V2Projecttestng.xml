@@ -12,9 +12,9 @@
 <parameter name="rowNum" value="2"/>
 <classes>
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
-<!-- <class name="com.Well.testcases.V2Project.TC_02_RegisterV2ProjectTest"></class> -->
+<class name="com.Well.testcases.V2Project.TC_02_RegisterV2ProjectTest"></class>
  <class name="com.Well.testcases.V2Project.TC_03_SearchV2ProjectByIdTest"></class>
-<!--<class name="com.Well.testcases.V2Project.TC_04_EnrollV2ProjectTest"></class>
+<class name="com.Well.testcases.V2Project.TC_04_EnrollV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.TC_05_BillingV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.TC_06_AgreementV2ProjectTest"></class> 
 <class name="com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest"></class>
@@ -24,8 +24,8 @@
 <class name="com.Well.testcases.V2Project.TC_11_HealthSafetyReviewV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.TC_12_PerformanceV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.TC_13_PerformanceReviewV2ProjectTest"></class>
-<class name="com.Well.testcases.V2Project.TC_14_TeamV2ProjectTest"></class> -->
-<!-- <class name="com.Well.testcases.V2Project.TC_15_SupportV2ProjectTest"></class> -->
+<class name="com.Well.testcases.V2Project.TC_14_TeamV2ProjectTest"></class>
+<class name="com.Well.testcases.V2Project.TC_15_SupportV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.TC_16_AlternativesV2ProjectTest"></class>
 
 
