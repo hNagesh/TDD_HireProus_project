@@ -851,15 +851,17 @@ public class CommonMethod extends BaseClass {
 	}
 
 	public static boolean isElementsExist(String objectLocator, int TimeInSec) throws IOException {
-		long t= System.currentTimeMillis();
-		long end = t+(15*1000);
-		boolean boo;
-		do {
-		boo = findElements(objectLocator).size() > 0;
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TimeInSec));
+		boolean boo = findElements(objectLocator).size() > 0;
 		System.out.println(boo);
-		
-		}while(System.currentTimeMillis() < end);
 		return boo;
+		/*
+		 * long t= System.currentTimeMillis(); long end = t+(TimeInSec*1000); boolean
+		 * boo; do { boo = findElements(objectLocator).size() > 0;
+		 * System.out.println(boo);
+		 * 
+		 * }while(System.currentTimeMillis() < end || !boo); return boo;
+		 */
 	}
 	
 
