@@ -2112,5 +2112,11 @@ public class CommonMethod extends BaseClass {
 		 int size = findElements(objectLocator).size();
 		return size;
 	}
+	
+	public static String getCurrentDateTime() {
+		Calendar currentDate = Calendar.getInstance();
+		SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy:HH.mm.ss");
+		return formatter.format(currentDate.getTime());
+	}
 
 }

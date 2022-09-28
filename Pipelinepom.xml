@@ -185,13 +185,8 @@
                     <environment>${env}</environment>
                 </systemPropertyVariables>
 					<suiteXmlFiles>	   					
-        <suiteXmlFile>src/main/resources/PipelineTestNG/V2Projecttestng.xml</suiteXmlFile>
-		<suiteXmlFile>src/main/resources/PipelineTestNG/HSRtestng.xml</suiteXmlFile>
-		<suiteXmlFile>src/main/resources/PipelineTestNG/WPRtestng.xml</suiteXmlFile>
-		<suiteXmlFile>src/main/resources/PipelineTestNG/Examtestng.xml</suiteXmlFile>
-		<suiteXmlFile>src/main/resources/PipelineTestNG/Facultytestng.xml</suiteXmlFile>
-		<suiteXmlFile>src/main/resources/PipelineTestNG/Membershiptestng.xml</suiteXmlFile>
-		<suiteXmlFile>src/main/resources/PipelineTestNG/Portfoliotestng.xml</suiteXmlFile>				   </suiteXmlFiles>
+        <suiteXmlFile>src/main/resources/PipelineTestNG/PipelineCombinedRegression.xml</suiteXmlFile>
+						   </suiteXmlFiles>
 				</configuration>
 			</plugin>
 			<plugin>
