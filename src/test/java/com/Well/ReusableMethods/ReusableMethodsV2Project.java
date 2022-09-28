@@ -70,7 +70,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectselectNextMonth");
 		Thread.sleep(1000);
 		CommonMethod.WaitUntilVisibility("DatePickerOkButton", 300);
-		CommonMethod.click("DatePickerOkButton");
+		CommonMethod.Robustclick("DatePickerOkButton","V2ProjectselectNextMonth");
 		CommonMethod.click("DatePickerOkButton");
 		CommonMethod.WaitUntilClickble("V2ProjectdocsubConfirmbtn", 60);
 		CommonMethod.click("V2ProjectdocsubConfirmbtn");
