@@ -45,7 +45,9 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.sendKeys("OwnerOrg", "English");
 		data.setCellData("Faculty", "Communication", 2, CommonMethod.getattributeValue("OwnerOrg"));
 		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
-		CommonMethod.ClickRandomWebElement("SelectOwnerOrgDyn");
+		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 6).click();
+		data.setCellData("Faculty", "Org", 2, CommonMethod.getText("OrgName"));
+		testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
 		CommonMethod.uploadFile("WFCvUpload", SamplePdffile);
 		CommonMethod.ClickCheckbox("WFUsgbcFacultyrbtn");
 		CommonMethod.ClickCheckbox("WFCredentialsrbtn");

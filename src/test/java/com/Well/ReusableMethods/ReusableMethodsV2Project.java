@@ -70,7 +70,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectselectNextMonth");
 		Thread.sleep(1000);
 		CommonMethod.WaitUntilVisibility("DatePickerOkButton", 300);
-		CommonMethod.click("DatePickerOkButton");
+		CommonMethod.Robustclick("DatePickerOkButton","V2ProjectselectNextMonth");
 		CommonMethod.click("DatePickerOkButton");
 		CommonMethod.WaitUntilClickble("V2ProjectdocsubConfirmbtn", 60);
 		CommonMethod.click("V2ProjectdocsubConfirmbtn");
@@ -106,7 +106,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.sendKeys("OwnerOrg", "R");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
 		CommonMethod.ClickRandomWebElement("SelectOwnerOrgDyn");
-		data.setCellData("V2Project", "Org", 2, CommonMethod.getText("OwnerOrgClick"));
+		data.setCellData("V2Project", "Org", 2, CommonMethod.getText("OrgName"));
+		testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
 		String Ownername = USfaker.address().firstName();
 		String Email = USfaker.internet().emailAddress();
 		String Phoneno = USfaker.number().digits(10);
@@ -519,6 +520,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 				.sendKeys(data.getCellData(SheetName, "projectId", rowNum));
 		CommonMethod.click("AdminV2ProjectApplybtn");
 		Thread.sleep(2000);
+		CommonMethod.assertcontainsmessage("Adminv2ProjectNameVerify", "Automation", "Project name doesn't matches in search");
 		CommonMethod.click("V2ProjectIdCompare");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 60);
 		CommonMethod.click("ReviewTab");

@@ -2118,5 +2118,11 @@ public class CommonMethod extends BaseClass {
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy:HH.mm.ss");
 		return formatter.format(currentDate.getTime());
 	}
+	
+	public static WebElement SelectRandomfromList(String objectLocator, int Startindex, int Endindex) throws IOException, NumberFormatException, InterruptedException {
+		int index = Integer.parseInt(randomNumberBetweenRanges(Startindex, Endindex));
+		List<WebElement> ele = CommonMethod.findElements(objectLocator);
+		return ele.get(index);
+	}
 
 }

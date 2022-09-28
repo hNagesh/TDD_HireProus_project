@@ -22,8 +22,10 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	   CommonMethod.ClickCheckbox("Hsrenrollcheckbox");
 	   CommonMethod.click("OwnerOrgClick");
 	   CommonMethod.sendKeys("OwnerOrg", "R");
-	   CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
-	   CommonMethod.click("SelectOwnerOrg");
+	   CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
+		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 6).click();
+		data.setCellData("Hsr", "Org", 2, CommonMethod.getText("OrgName"));
+		testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
 	   CommonMethod.selectdropdownrandom("OrgIndustry");
 	   data.setCellData("Hsr", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
 	   CommonMethod.selectdropdown("Hsrenrollcountry",  data.getCellData(SheetName, "country", rowNum));
