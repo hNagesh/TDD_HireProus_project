@@ -23,8 +23,8 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
 		CommonMethod.click("OwnerOrgClick");
 		CommonMethod.sendKeys("OwnerOrg", "R");
-		CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
-		CommonMethod.click("SelectOwnerOrg");
+		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
+		CommonMethod.ClickRandomWebElement("SelectOwnerOrgDyn");
 		CommonMethod.selectdropdownrandom("OrgIndustry");
 		testlog.info("OrgIndustry:" +CommonMethod.getSelectedDropdownValue("OrgIndustry"));
 		data.setCellData("Portfolio", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
@@ -33,8 +33,9 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.sendKeys("PortfolioNumberOfLocation", "15");
 		testlog.info("PortfolioEstimatedNumberOfLocation:" +"10");
 		CommonMethod.sendKeys("PortfolioEstimatedNumberOfLocation", "10");
-		testlog.info("PortfolioGrossAreaSQFT:" +"15000");
-		CommonMethod.sendKeys("PortfolioGrossAreaSQFT", "15000");
+		String Area = CommonMethod.randomNumberBetweenRanges(100,50000);
+		testlog.info("PortfolioGrossAreaSQFT:" +Area);
+		CommonMethod.sendKeys("PortfolioGrossAreaSQFT", Area);
 		CommonMethod.scrolldowntoElement("PortfolioPrimarlyLocated");
 		CommonMethod.click("PortfolioPrimarlyLocated");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
@@ -285,8 +286,8 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	public void ValidatingUploadDocument() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadbutton", 30);
 		CommonMethod.click("PortfolioDocumentUploadbutton");
-		CommonMethod.selectdropdownIndex("V2ProjectPortfolioDocType", 1);
-		CommonMethod.selectdropdownIndex("PortfolioSelectdocumenttype", 1);
+		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Upload the requested general information items");
+		CommonMethod.selectdropdown("PortfolioSelectdocumenttype", "Project overview");
 		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadSubmitbutton", 60);
 		CommonMethod.Robustclick("PortfolioDocumentUploadSubmitbutton");
