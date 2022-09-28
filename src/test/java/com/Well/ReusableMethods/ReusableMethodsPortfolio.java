@@ -303,7 +303,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	public void ValidatingUploadDocument() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadbutton", 30);
 		CommonMethod.click("PortfolioDocumentUploadbutton");
-		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Upload the requested general information items");
+		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "general");
 		CommonMethod.selectdropdown("PortfolioSelectdocumenttype", "Project overview");
 		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadSubmitbutton", 60);

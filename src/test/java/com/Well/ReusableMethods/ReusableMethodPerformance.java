@@ -71,10 +71,12 @@ public class ReusableMethodPerformance extends BaseClass {
 		data.setCellData("Wpr", "WPRlocationsize", 2, CommonMethod.getattributeValue("WPRlocationsize"));
 		CommonMethod.WaitUntilClickble("WPROwnerRegContinuebtn", 60);
 		CommonMethod.click("WPROwnerRegContinuebtn");
+		if(CommonMethod.isElementsExist("HsrWPRYesMyOrganizationCbx", 2)) {
 		CommonMethod.WaitUntilClickble("HsrWPRYesMyOrganizationCbx", 30);
 		CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
+		}
 		CommonMethod.click("WPRReviewContinuebutton");
-		if(CommonMethod.isElementsExist("WPRProgramFeePublicrbtn", 2)) {
+		if(CommonMethod.isElementsExist("WPRProgramFeePublicrbtn", 20)) {
 		CommonMethod.WaitUntilClickble("WPRProgramFeePublicrbtn", 60);
 		CommonMethod.ClickCheckbox("WPRProgramFeePublicrbtn");
 		}

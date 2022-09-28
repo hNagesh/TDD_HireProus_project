@@ -178,6 +178,7 @@ public class CommonMethod extends BaseClass {
 
 	public static WebElement findElement(final String objectLocater) throws IOException {
 		JSWaiter.waitAllRequest();
+		waitForPageLoaded();
 		Properties OR = new Properties();
 		FileInputStream fp = new FileInputStream(
 				System.getProperty("user.dir") + "/src/main/resources/ObjectLocator.properties");
@@ -227,6 +228,7 @@ public class CommonMethod extends BaseClass {
 
 	public static List<WebElement> findElements(String objectLocater) throws IOException {
 		JSWaiter.waitAllRequest();
+		waitForPageLoaded();
 		Properties OR = new Properties();
 		FileInputStream fp = new FileInputStream(
 				System.getProperty("user.dir") + "/src/main/resources/ObjectLocator.properties");
@@ -277,6 +279,7 @@ public class CommonMethod extends BaseClass {
 	public static List<WebElement> findElementsCustom(String objectLocater) throws IOException {
 
 		JSWaiter.waitAllRequest();
+		waitForPageLoaded();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
 		Properties OR = new Properties();
 		FileInputStream fp = new FileInputStream(
@@ -848,9 +851,14 @@ public class CommonMethod extends BaseClass {
 	}
 
 	public static boolean isElementsExist(String objectLocator, int TimeInSec) throws IOException {
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TimeInSec));
-		boolean boo = findElements(objectLocator).size() > 0;
+		long t= System.currentTimeMillis();
+		long end = t+(15*1000);
+		boolean boo;
+		do {
+		boo = findElements(objectLocator).size() > 0;
 		System.out.println(boo);
+		
+		}while(System.currentTimeMillis() < end);
 		return boo;
 	}
 	
@@ -1658,23 +1666,30 @@ public class CommonMethod extends BaseClass {
 		return fetchedID;
 	}
 
-	/*
-	 * public static void waitForPageLoaded(int timeout) throws IOException {
-	 * ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
-	 * public Boolean apply(WebDriver driver) { return ((JavascriptExecutor)
-	 * driver).executeScript("return document.readyState").toString()
-	 * .equals("complete"); } }; try { Thread.sleep(1000); WebDriverWait wait = new
-	 * WebDriverWait(driver, Duration.ofSeconds(timeout)); wait.until(expectation);
-	 * } catch (Exception e) {
-	 * System.out.println("Timeout waiting for Page Load Request to complete.");
-	 * refreshBrowser(); } }
-	 */
+	
+	public static void waitForPageLoaded() throws IOException {
+		ExpectedCondition<Boolean> expectation = new ExpectedCondition<Boolean>() {
+			public Boolean apply(WebDriver driver) {
+				return ((JavascriptExecutor) driver).executeScript("return document.readyState").toString()
+						.equals("complete");
+			}
+		};
+		try {
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(300));
+			wait.until(expectation);
+		} catch (Exception e) {
+			System.out.println("Timeout waiting for Page Load Request to complete.");
+			
+		}
+	}
+	 
 	
 	
 
 
 	public static WebElement WaitUntilPresence(String objectlocator, int TimeinSeconds) throws IOException {
 		JSWaiter.waitAllRequest();
+		waitForPageLoaded();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeinSeconds));
 		Properties OR = new Properties();
 		FileInputStream fp = new FileInputStream(
@@ -1736,6 +1751,7 @@ public class CommonMethod extends BaseClass {
 	/***** Added on Nov 27 11.30 AM *****/
 	public static Boolean WaitUntilInVisibility(String objectlocator, int TimeinSeconds) throws IOException {
 		JSWaiter.waitAllRequest();
+		waitForPageLoaded();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeinSeconds));
 		Properties OR = new Properties();
 		FileInputStream fp = new FileInputStream(
@@ -1788,6 +1804,7 @@ public class CommonMethod extends BaseClass {
 
 	public static WebElement WaitUntilVisibility(String objectlocator, int TimeinSeconds) throws IOException {
 		JSWaiter.waitAllRequest();
+		waitForPageLoaded();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeinSeconds));
 		Properties OR = new Properties();
 		FileInputStream fp = new FileInputStream(
@@ -1842,6 +1859,7 @@ public class CommonMethod extends BaseClass {
 	public static WebElement WaitUntilClickble(String objectlocator, int TimeinSeconds) throws IOException {
 		
 		JSWaiter.waitAllRequest();
+		waitForPageLoaded();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeinSeconds));
 		Properties OR = new Properties();
 		FileInputStream fp = new FileInputStream(
@@ -1897,6 +1915,7 @@ public class CommonMethod extends BaseClass {
 	
 	public static WebElement WaitUntilClickble(WebElement objectlocator, int TimeinSeconds) throws IOException {
 		JSWaiter.waitAllRequest();
+		waitForPageLoaded();
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeinSeconds));
 		
 			return (wait.until(ExpectedConditions.elementToBeClickable(objectlocator)));

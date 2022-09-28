@@ -41,13 +41,21 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.sendKeys("WFPostion", "Testing");
 		CommonMethod.click("OwnerOrgClick");
 		data.setCellData("Faculty", "WFPostion", 2, CommonMethod.getattributeValue("WFPostion"));
-		testlog.info("Language"+"English");
-		CommonMethod.sendKeys("OwnerOrg", "English");
-		data.setCellData("Faculty", "Communication", 2, CommonMethod.getattributeValue("OwnerOrg"));
-		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
-		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 6).click();
-		data.setCellData("Faculty", "Org", 2, CommonMethod.getText("OrgName"));
-		testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
+		/*
+		 * testlog.info("Language"+"English"); CommonMethod.sendKeys("OwnerOrg",
+		 * "English"); data.setCellData("Faculty", "Communication", 2,
+		 * CommonMethod.getattributeValue("OwnerOrg"));
+		 */
+		//What is this code ??
+		
+		  CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
+		  CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 6).click();
+			/*
+			 * data.setCellData("Faculty", "Org", 2, CommonMethod.getText("OrgName"));
+			 * testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org",
+			 * rowNum));
+			 */
+		//What is this code ??
 		CommonMethod.uploadFile("WFCvUpload", SamplePdffile);
 		CommonMethod.ClickCheckbox("WFUsgbcFacultyrbtn");
 		CommonMethod.ClickCheckbox("WFCredentialsrbtn");
