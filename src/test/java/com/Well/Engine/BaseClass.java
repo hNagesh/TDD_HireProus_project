@@ -63,7 +63,7 @@ public class BaseClass {
 	public static String PortfolioLocationImportfile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"portfoliolocations.xlsm";
 	public static String FeaturefileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"FeatureFile.xlsx";
 	public static String GeneralfileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"GeneralFile.xlsx";
-	public static String LegalfileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"LegalFile.xlsm";
+	public static String LegalfileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"LegalFile.xlsx";
 	public static String OngoingfileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"OngoingFile.xlsx";
 	public static Faker USfaker = new Faker(new Locale("en-US"));
 	public static String downloadPath = System.getProperty("user.dir") +File.separator +"Downloads"+File.separator;
