@@ -5,11 +5,12 @@
 
 <parameter name="browserName" value="chrome"/>
 <parameter name="environment" value="Test"/>
-<parameter name="ProjectType" value="WELLCore"/>
-<parameter name="Country" value="United States"/>
+
  <test name="WELL-Tests" >
 <parameter name="SheetName" value="V2Project"/>
 <parameter name="rowNum" value="2"/>
+<parameter name="ProjectType" value="WELLCore"/>
+<parameter name="Country" value="United States"/>
 <classes>
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
 <class name="com.Well.testcases.V2Project.TC_02_RegisterV2ProjectTest"></class>
@@ -25,7 +26,7 @@
 <class name="com.Well.testcases.V2Project.TC_12_PerformanceV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.TC_13_PerformanceReviewV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.TC_14_TeamV2ProjectTest"></class>
-<class name="com.Well.testcases.V2Project.TC_15_SupportV2ProjectTest"></class>
+<!-- <class name="com.Well.testcases.V2Project.TC_15_SupportV2ProjectTest"></class> -->
 <!-- <class name="com.Well.testcases.V2Project.TC_16_AlternativesV2ProjectTest"></class> -->
 </classes>
 </test>

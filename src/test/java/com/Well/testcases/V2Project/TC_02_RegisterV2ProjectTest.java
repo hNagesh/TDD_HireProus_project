@@ -10,7 +10,7 @@ import com.Well.Engine.BaseClass;
 public class TC_02_RegisterV2ProjectTest extends BaseClass {
 
 	@Test(dependsOnMethods = { "com.Well.testcases.login.TC_01_LoginTest.TC_01_Login" })
-	@Parameters({ "SheetName","rowNum", "ProjectType" })
+	@Parameters({ "SheetName","rowNum", "ProjectType", "Country" })
 	public void TC_02_RegisterV2Project(String SheetName,int rowNum, String ProjectType,String Country) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
