@@ -776,16 +776,10 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.WaitUntilVisibility("V2ProjectAapSubmitButton", 60);
 			CommonMethod.click("V2ProjectAapSubmitButton");
 			CommonMethod.WaitUntilVisibility("V2ProjectFeatureDropdown", 60);
-<<<<<<< HEAD
 			CommonMethod.selectdropdownVisibletext("V2ProjectFeatureDropdown", "A01 Air Quality");
-			data.setCellData("V2Project", "FeatureName", 2, CommonMethod.getSelectedDropdownValue("V2ProjectFeatureDropdown"));
-			testlog.info("FeatureName"+data.getCellData(SheetName, "FeatureName", rowNum));
-=======
-			CommonMethod.selectdropdown("V2ProjectFeatureDropdown", "A01 Air Quality");
 			data.setCellData("V2Project", "FeatureName", 2,
 					CommonMethod.getSelectedDropdownValue("V2ProjectFeatureDropdown"));
 			testlog.info("FeatureName" + data.getCellData(SheetName, "FeatureName", rowNum));
->>>>>>> 61b475e7abd3c87c75669ac173bf86933be2bef4
 			CommonMethod.WaitUntilVisibility("V2ProjectApplicablePartCheckBox", 60);
 			CommonMethod.click("V2ProjectApplicablePartCheckBox");
 			CommonMethod.WaitUntilClickble("V2ProjectAlternativesReasonTextArea", 60)
