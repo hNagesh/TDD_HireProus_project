@@ -21,7 +21,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		testlog.info("V2 ProjectName is: " + ProjectName);
 		data.setCellData(SheetName, "ProjectName", rowNum, ProjectName);
 		CommonMethod.sendKeys("V2Projectprojectnickname", ProjectName);
-		CommonMethod.Robustclick("V2ProjectnicknameContinuebtn");
+		CommonMethod.Robustclick("V2ProjectnicknameContinuebtn","V2ProjectlocationContinuebtn");
 		rc.SelectCountryAndState(Country, SheetName, rowNum);
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
@@ -35,16 +35,16 @@ public class ReusableMethodsV2Project extends BaseClass {
 		data.setCellData(SheetName, "City", rowNum, CommonMethod.getText("V2ProjectlocationCity"));
 		CommonMethod.sendKeys("V2ProjectlocationPostalcode", PostalCode);
 		data.setCellData(SheetName, "PostalCode", rowNum, CommonMethod.getText("V2ProjectlocationPostalcode"));
-		CommonMethod.Robustclick("V2ProjectlocationContinuebtn");
+		CommonMethod.Robustclick("V2ProjectlocationContinuebtn","V2ProjectareaContinuebtn");
 		String Area = CommonMethod.randomNumberBetweenRanges(100, 50000);
 		CommonMethod.clear("V2ProjectareaSize");
 		CommonMethod.sendKeys("V2ProjectareaSize", Area);
 		data.setCellData(SheetName, "Area", rowNum, CommonMethod.getattributeValue("V2ProjectareaSize"));
 		testlog.info("Area: " + data.getCellData(SheetName, "Area", rowNum));
-		CommonMethod.Robustclick("V2ProjectareaContinuebtn");
+		CommonMethod.Robustclick("V2ProjectareaContinuebtn","V2ProjectspacetypeContinuebtn");
 		CommonMethod.ClickCheckbox("V2ProjectspaceType");
 		CommonMethod.WaitUntilVisibility("V2ProjectspacetypeContinuebtn", 60);
-		CommonMethod.Robustclick("V2ProjectspacetypeContinuebtn");
+		CommonMethod.Robustclick("V2ProjectspacetypeContinuebtn","V2Projectwellcorecertification");
 		if (ProjectType.equalsIgnoreCase("WELLCore")) {
 			CommonMethod.WaitUntilVisibility("V2Projectwellcorecertification", 30);
 			CommonMethod.click("V2Projectwellcorecertification");
@@ -150,7 +150,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		data.setCellData(SheetName, "PostalCode", rowNum,
 				CommonMethod.getattributeValue("V2ProjectowneraddressPostalcode"));
 		CommonMethod.ClickCheckbox("V2Projectisthisapublicproject");
-		CommonMethod.Robustclick("V2ProjectprojectaddressContinuebtn");
+		CommonMethod.Robustclick("V2ProjectprojectaddressContinuebtn","BiilingTab");
 		CommonMethod.WaitUntilVisibility("BiilingTab", 300);
 		testlog.pass("**Verifies the Enrolling successfully**");
 	}
