@@ -98,7 +98,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.WaitUntilVisibility("WELLPerformanceRatingNavBar", 300);
-		CommonMethod.click("WELLPerformanceRatingNavBar");
+		CommonMethod.RobustclickElementVisible("WELLPerformanceRatingNavBar","WPRIdClick");
 		String wprId = data.getCellData(SheetName, "ProjectID", rowNum);
 		testlog.info("Performance ID:" + wprId);
 		CommonMethod.WaitUntilClickble("ProjectID", 60).sendKeys(wprId);
@@ -211,7 +211,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
 		CommonMethod.click("AdminNavBar");
 		CommonMethod.WaitUntilVisibility("AdminWELLPerformanceNavBar", 60);
-		CommonMethod.click("AdminWELLPerformanceNavBar");
+		CommonMethod.RobustclickElementVisible("AdminWELLPerformanceNavBar","WPRAdminIdSearch");
 		CommonMethod.WaitUntilClickble("WPRAdminIdSearch", 60).sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("WPRAdminApplybtn");
 		Thread.sleep(2000);

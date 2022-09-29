@@ -16,14 +16,14 @@ public class ReusableMethodsFaculty extends BaseClass {
 	public void RegisterFaculty(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("TrainingNavBar", 60);
 		CommonMethod.click("TrainingNavBar");
-		CommonMethod.click("WELLFacultyNavBar");
+		CommonMethod.RobustclickElementVisible("WELLFacultyNavBar","WFExamContinuebtn");
 		CommonMethod.WaitUntilVisibility("WFExamContinuebtn", 30);
-		CommonMethod.click("WFExamContinuebtn");
+		CommonMethod.RobustclickElementVisible("WFExamContinuebtn","WPRExamOwnerCountry");
 		CommonMethod.WaitUntilVisibility("WPRExamOwnerCountry", 60);
-		CommonMethod.selectdropdownVisibletext("WPRExamOwnerCountry", "United States");
-		data.setCellData("Faculty", "Country", 2, CommonMethod.getattributeValue("WPRExamOwnerCountry"));
+		CommonMethod.selectdropdownValue("WPRExamOwnerCountry", "US");
+		data.setCellData(SheetName, "Country", rowNum, CommonMethod.getattributeValue("WPRExamOwnerCountry"));
 		CommonMethod.selectdropdownrandom("WPRExamOwnerState");
-		data.setCellData("Faculty", "State", 2, CommonMethod.getattributeValue("WPRExamOwnerState"));
+		data.setCellData(SheetName, "State", rowNum, CommonMethod.getattributeValue("WPRExamOwnerState"));
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
 		String PostalCode = USfaker.address().zipCode();
@@ -31,31 +31,21 @@ public class ReusableMethodsFaculty extends BaseClass {
 		testlog.info("ProjectCity"+ProjectCity);
 		testlog.info("PostalCode"+PostalCode);
 		CommonMethod.sendKeys("WPRExamOrgAddress", ProjectAddress);
-		data.setCellData("Faculty", "Street", 2, CommonMethod.getattributeValue("WPRExamOrgAddress"));
+		data.setCellData(SheetName, "Street", rowNum, CommonMethod.getattributeValue("WPRExamOrgAddress"));
 		CommonMethod.sendKeys("WPRExamOrgCity", ProjectCity);
-		data.setCellData("Faculty", "City", 2, CommonMethod.getattributeValue("WPRExamOrgCity"));
+		data.setCellData(SheetName, "City", rowNum, CommonMethod.getattributeValue("WPRExamOrgCity"));
 		CommonMethod.sendKeys("WPRExamOrgPostalcode", PostalCode);
-		data.setCellData("Faculty", "PostalCode", 2, CommonMethod.getattributeValue("WPRExamOrgPostalcode"));
+		data.setCellData(SheetName, "PostalCode", rowNum, CommonMethod.getattributeValue("WPRExamOrgPostalcode"));
 		CommonMethod.sendKeys("WFEmp", "FullTime");
-		data.setCellData("Faculty", "WFEmp", 2, CommonMethod.getattributeValue("WFEmp"));
+		data.setCellData(SheetName, "WFEmp", rowNum, CommonMethod.getattributeValue("WFEmp"));
 		CommonMethod.sendKeys("WFPostion", "Testing");
+		data.setCellData(SheetName, "WFPostion", rowNum, CommonMethod.getattributeValue("WFPostion"));
+		testlog.info("Language : English");
+		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
 		CommonMethod.click("OwnerOrgClick");
-		data.setCellData("Faculty", "WFPostion", 2, CommonMethod.getattributeValue("WFPostion"));
-		/*
-		 * testlog.info("Language"+"English"); CommonMethod.sendKeys("OwnerOrg",
-		 * "English"); data.setCellData("Faculty", "Communication", 2,
-		 * CommonMethod.getattributeValue("OwnerOrg"));
-		 */
-		//What is this code ??
-		
-		  CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
-		  CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 6).click();
-			/*
-			 * data.setCellData("Faculty", "Org", 2, CommonMethod.getText("OrgName"));
-			 * testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org",
-			 * rowNum));
-			 */
-		//What is this code ??
+		CommonMethod.sendKeys("OwnerOrg", "R");
+		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
+		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 5).click();
 		CommonMethod.uploadFile("WFCvUpload", SamplePdffile);
 		CommonMethod.ClickCheckbox("WFUsgbcFacultyrbtn");
 		CommonMethod.ClickCheckbox("WFCredentialsrbtn");
@@ -65,8 +55,8 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.ClickCheckbox("WFLeedFaculty");
 		CommonMethod.scrolldowntoElement("WFLeedFaculty");
 		CommonMethod.WaitUntilVisibility("WFAddrContinuebtn", 30);
-		CommonMethod.click("WFAddrContinuebtn");
-		CommonMethod.WaitUntilVisibility("WFFacultyApplication", 60);
+		CommonMethod.RobustclickElementVisible("WFAddrContinuebtn","WFFacultyApplication");
+		CommonMethod.WaitUntilVisibility("WFFacultyApplication", 180);
 		testlog.pass("**Verifies the Registration successful**");
 	}
 
@@ -75,7 +65,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.scrolldowntoElement("WFFacultyApplication");
 		String sampleText = "WELL Faculty Application";
 		CommonMethod.sendKeys("WFFacilitation", sampleText);
-		data.setCellData("Faculty", "WFFacilitation", 2, CommonMethod.getattributeValue("WFFacilitation"));
+		data.setCellData(SheetName, "WFFacilitation", rowNum, CommonMethod.getattributeValue("WFFacilitation"));
 		CommonMethod.uploadFile("WFProvideUpload", SamplePdffile);
 		CommonMethod.uploadFile("WFClientUpload", SamplePdffile);
 		Thread.sleep(1000);
@@ -83,14 +73,14 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.uploadFile("WFSurveyUpload", SamplePdffile);
 		Thread.sleep(2000);
 		CommonMethod.sendKeys("WFExp", sampleText);
-		data.setCellData("Faculty", "WFExp", 2, CommonMethod.getattributeValue("WFExp"));
+		data.setCellData(SheetName, "WFExp", rowNum, CommonMethod.getattributeValue("WFExp"));
 		CommonMethod.sendKeys("WFTravel", sampleText);
-		data.setCellData("Faculty", "WFTravel", 2, CommonMethod.getattributeValue("WFTravel"));
+		data.setCellData(SheetName, "WFTravel", rowNum, CommonMethod.getattributeValue("WFTravel"));
 		CommonMethod.ClickCheckbox("WFTermcbx");
 		CommonMethod.scrolldowntoElement("WFTermcbx");
 		CommonMethod.WaitUntilVisibility("WFAddrContinuebtn", 60);
 		Thread.sleep(1000);
-		CommonMethod.click("WFAddrContinuebtn");
+		CommonMethod.RobustclickElementVisible("WFAddrContinuebtn","WFFacultyApplication");
 		CommonMethod.WaitUntilVisibility("WFFacultyApplication", 60);
 		testlog.pass("**Verifies the Agreement Faculty successfully**");
 	}
@@ -107,7 +97,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		String FirstName = USfaker.address().firstName();
 		testlog.info("firstName"+FirstName);
 		CommonMethod.sendKeys("WFApproved", FirstName);
-		data.setCellData("Faculty", "WFApproved", 2, CommonMethod.getattributeValue("WFApproved"));
+		data.setCellData(SheetName, "WFApproved", rowNum, CommonMethod.getattributeValue("WFApproved"));
 		CommonMethod.WaitUntilVisibility("WFExpireDate", 10);
 		CommonMethod.click("WFExpireDate");
 		CommonMethod.click("DatePickerOkButton");
@@ -131,7 +121,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.sendKeys("WFNextnarration", sampleText);
 		CommonMethod.WaitUntilClickble("WFEventsnarration", 60).sendKeys(sampleText);
 		CommonMethod.sendKeys("WFTeachingnarration", sampleText);
-		CommonMethod.click("WFExamContinuebtn");
+		CommonMethod.RobustclickElementVisible("WFExamContinuebtn","WFSubmitApplicationbtn");
 		CommonMethod.WaitUntilVisibility("WFSubmitApplicationbtn", 60);
 		CommonMethod.RobustclickElementVisible("WFSubmitApplicationbtn","WFReturnbtn");
 		Thread.sleep(2000);

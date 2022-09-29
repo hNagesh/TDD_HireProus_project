@@ -82,7 +82,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void SearchV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
 		CommonMethod.click("ProjectNavBar");
-		CommonMethod.click("WELLCertificationNavBar");
+		CommonMethod.RobustclickElementVisible("WELLCertificationNavBar","V2ProjectId");
 		CommonMethod.WaitUntilClickble("V2ProjectId", 60);
 		testlog.info("ProjectId:" + data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.sendKeys("V2ProjectId", data.getCellData(SheetName, "ProjectID", rowNum));
@@ -424,9 +424,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectPart");
 		Thread.sleep(1000);
-		CommonMethod.click("V2ProjectSelectPartDoc");
+		CommonMethod.Robustclick("V2ProjectSelectPartDoc");
 		Thread.sleep(1000);
-		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
+		CommonMethod.uploadFile("V2Projectscorecarddocupload", FeaturefileUpload);
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
 		CommonMethod.click("V2ProjectDocSubmit");
 		Thread.sleep(2000);
@@ -465,7 +465,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		 */
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
 		CommonMethod.click("AdminNavBar");
-		CommonMethod.click("AdminWELLCertificationNavBar");
+		CommonMethod.RobustclickElementVisible("AdminWELLCertificationNavBar","AdminV2ProjectId");
 		CommonMethod.WaitUntilClickble("AdminV2ProjectId", 60)
 				.sendKeys(data.getCellData(SheetName, "projectID", rowNum));
 		CommonMethod.click("AdminV2ProjectApplybtn");

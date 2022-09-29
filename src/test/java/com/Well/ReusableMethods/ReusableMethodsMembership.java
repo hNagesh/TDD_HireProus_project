@@ -14,8 +14,8 @@ public class ReusableMethodsMembership extends BaseClass {
 	public void RegisterMembership(String SheetName, int rowNum, String MembershipName)
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("MPUserMenu", 60);
-		CommonMethod.click("MPUserMenu");
-		CommonMethod.click("MPMyMembership");
+		CommonMethod.RobustclickElementVisible("MPUserMenu","MPMyMembership");
+		CommonMethod.RobustclickElementVisible("MPMyMembership","MPMembershipLanding");
 		CommonMethod.WaitUntilVisibility("MPMembershipLanding", 60);
 		CommonMethod.refreshBrowser();
 		CommonMethod.scrolldowntoElement("MPCornerstoneAmount");
@@ -27,15 +27,15 @@ public class ReusableMethodsMembership extends BaseClass {
 		}
 		String firstName = USfaker.address().firstName();
 		CommonMethod.sendKeys("MPorganization", firstName);
-		data.setCellData("Membership", "Organization", 2, CommonMethod.getattributeValue("MPorganization"));
+		data.setCellData(SheetName, "Organization", rowNum, CommonMethod.getattributeValue("MPorganization"));
 		CommonMethod.uploadFile("WFProvideUpload", SampleJpgfile);
 		CommonMethod.ClickCheckbox("MPNumberofyearsrtn");
 		CommonMethod.sendKeys("MPorganizationwebsite", "https://test-nuxt.wellcertified.com/");
-		data.setCellData("Membership", "Organizationwebsite", 2, CommonMethod.getattributeValue("MPorganizationwebsite"));
+		data.setCellData(SheetName, "Organizationwebsite", rowNum, CommonMethod.getattributeValue("MPorganizationwebsite"));
 		CommonMethod.WaitUntilVisibility("MPorgcontinuebtn", 30);
 		testlog.info("organizationName: "+ data.getCellData(SheetName, "Organization", rowNum));
 		testlog.info("organizationwebsite: " +data.getCellData(SheetName, "Organizationwebsite", rowNum));
-		CommonMethod.click("MPorgcontinuebtn");
+		CommonMethod.RobustclickElementVisible("MPorgcontinuebtn","MPNamePointContact");
 		CommonMethod.WaitUntilVisibility("MPNamePointContact", 30);
 		testlog.pass("**Verifies the Registration successful**");
 	}
@@ -52,54 +52,54 @@ public class ReusableMethodsMembership extends BaseClass {
 		testlog.info("firstName:" +firstName);
 		testlog.info("phonenumber: " +PhoneNumber);
 		CommonMethod.sendKeys("MPNamePointContact", firstName);
-		data.setCellData("Membership", "Name", 2, CommonMethod.getattributeValue("MPNamePointContact"));
+		data.setCellData(SheetName, "Name", rowNum, CommonMethod.getattributeValue("MPNamePointContact"));
 		CommonMethod.sendKeys("MPEmail", email);
-		data.setCellData("Membership", "Email", 2, CommonMethod.getattributeValue("MPEmail"));
+		data.setCellData(SheetName, "Email", rowNum, CommonMethod.getattributeValue("MPEmail"));
 		CommonMethod.sendKeys("MPJobtitle", "Testing");
-		data.setCellData("Membership", "JobTitle", 2, CommonMethod.getattributeValue("MPJobtitle"));
+		data.setCellData(SheetName, "JobTitle", rowNum, CommonMethod.getattributeValue("MPJobtitle"));
 		CommonMethod.sendKeys("MPPhonenumber", PhoneNumber);
-		data.setCellData("Membership", "PhoneNumber", 2, CommonMethod.getattributeValue("MPPhonenumber"));
+		data.setCellData(SheetName, "PhoneNumber", rowNum, CommonMethod.getattributeValue("MPPhonenumber"));
 		CommonMethod.ClickCheckbox("MPContactdetailscheckbox");
 		testlog.info("Name: " +data.getCellData(SheetName, "Name", rowNum));
 		testlog.info("Email: " +data.getCellData(SheetName, "Email", rowNum));
 		testlog.info("JobTitle: " +data.getCellData(SheetName, "JobTitle", rowNum));
-		CommonMethod.click("MPContinuebutton");
+		CommonMethod.RobustclickElementVisible("MPContinuebutton","MPMembershipOwnerContinue");
 		/*
 		 * Owner details
 		 */
 		CommonMethod.WaitUntilVisibility("MPOwnername", 30);
 		CommonMethod.sendKeys("MPOwnername", firstName);
-		data.setCellData("Membership", "Name", 2, CommonMethod.getattributeValue("MPOwnername"));
+		data.setCellData(SheetName, "Name", rowNum, CommonMethod.getattributeValue("MPOwnername"));
 		CommonMethod.sendKeys("MPOwnerEmail", email);
-		data.setCellData("Membership", "Email", 2, CommonMethod.getattributeValue("MPOwnerEmail"));
+		data.setCellData(SheetName, "Email", rowNum, CommonMethod.getattributeValue("MPOwnerEmail"));
 		testlog.info("Ownerjob:" +"Testing");
 		CommonMethod.sendKeys("MPOwnerjob", "Testing");
-		data.setCellData("Membership", "JobTitle", 2, CommonMethod.getattributeValue("MPOwnerjob"));
+		data.setCellData(SheetName, "JobTitle", rowNum, CommonMethod.getattributeValue("MPOwnerjob"));
 		CommonMethod.sendKeys("MPOwnernumber", PhoneNumber);
-		data.setCellData("Membership", "PhoneNumber", 2, CommonMethod.getattributeValue("MPOwnernumber"));
-		CommonMethod.click("MPMembershipOwnerContinue");
+		data.setCellData(SheetName, "PhoneNumber", rowNum, CommonMethod.getattributeValue("MPOwnernumber"));
+		CommonMethod.RobustclickElementVisible("MPMembershipOwnerContinue","MPOfficecontinuebtn");
 		/*
 		 * Office Address
 		 */
 		CommonMethod.WaitUntilVisibility("MPOfficecountry", 30);
 		CommonMethod.selectdropdownVisibletext("MPOfficecountry", "United States");
-		data.setCellData("Membership", "Country", 2, CommonMethod.getSelectedDropdownValue("WPRExamOwnerCountry"));
+		data.setCellData(SheetName, "Country", rowNum, CommonMethod.getSelectedDropdownValue("WPRExamOwnerCountry"));
 		CommonMethod.selectdropdownrandom("MPOfficestate");
-		data.setCellData("Membership", "State", 2, CommonMethod.getSelectedDropdownValue("MPOfficestate"));
+		data.setCellData(SheetName, "State", rowNum, CommonMethod.getSelectedDropdownValue("MPOfficestate"));
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
 		String PostalCode = USfaker.address().zipCode();
 		CommonMethod.sendKeys("MPOfficestreet", ProjectAddress);
-		data.setCellData("Membership", "Street", 2, CommonMethod.getattributeValue("MPOfficestreet"));
+		data.setCellData(SheetName, "Street", rowNum, CommonMethod.getattributeValue("MPOfficestreet"));
 		CommonMethod.sendKeys("MPOfficecity", ProjectCity);
-		data.setCellData("Membership", "City", 2, CommonMethod.getattributeValue("MPOfficecity"));
+		data.setCellData(SheetName, "City", rowNum, CommonMethod.getattributeValue("MPOfficecity"));
 		CommonMethod.sendKeys("MPOfficePostalCode", PostalCode);
-		data.setCellData("Membership", "PostalCode", 2, CommonMethod.getattributeValue("MPOfficePostalCode"));
+		data.setCellData(SheetName, "PostalCode", rowNum, CommonMethod.getattributeValue("MPOfficePostalCode"));
 		testlog.info("Country: " +data.getCellData(SheetName, "Country", rowNum));
 		testlog.info("State: " +data.getCellData(SheetName, "State", rowNum));
 		testlog.info("Street: " +data.getCellData(SheetName, "Street", rowNum));
 		testlog.info("PostalCode: " +data.getCellData(SheetName, "PostalCode", rowNum));
-		CommonMethod.click("MPOfficecontinuebtn");
+		CommonMethod.RobustclickElementVisible("MPOfficecontinuebtn","MPTermscheckbox");
 		/*
 		 * Term
 		 */
@@ -108,7 +108,7 @@ public class ReusableMethodsMembership extends BaseClass {
 		CommonMethod.scrolldowntoElement("MPProcedtopaymentbtn");
 		CommonMethod.click("MPProcedtopaymentbtn");
 		CommonMethod.WaitUntilVisibility("MPTermscheckbox", 30);
-		CommonMethod.click("MPProcedtoConfirmationPaymentbtn");
+		CommonMethod.RobustclickElementVisible("MPProcedtoConfirmationPaymentbtn","BillingLanding");
 		CommonMethod.WaitUntilVisibility("BillingLanding", 60);
 		testlog.pass("**Verifies Enrollment successfully**");
 	}

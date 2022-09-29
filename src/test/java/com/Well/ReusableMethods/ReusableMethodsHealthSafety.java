@@ -90,7 +90,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
 		CommonMethod.click("ProjectNavBar");
 		 CommonMethod.WaitUntilVisibility("WELLHealthSafetyNavBar", 300);
-		   CommonMethod.click("WELLHealthSafetyNavBar");
+		   CommonMethod.RobustclickElementVisible("WELLHealthSafetyNavBar","HsrIdSearch");
 		   CommonMethod.WaitUntilVisibility("HsrIdSearch", 300);
 		   CommonMethod.click("HsrIdSearch");
 		   testlog.info("HealthSafety ID:" + data.getCellData(SheetName, "ProjectID", rowNum));
@@ -196,7 +196,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
 		CommonMethod.click("AdminNavBar");
 		CommonMethod.WaitUntilVisibility("AdminWELLHealthsafetyNavBar", 60);
-		CommonMethod.click("AdminWELLHealthsafetyNavBar");
+		CommonMethod.RobustclickElementVisible("AdminWELLHealthsafetyNavBar","HsrAdminIdSearch");
 		CommonMethod.WaitUntilVisibility("HsrAdminIdSearch", 300);
 		CommonMethod.click("HsrAdminIdSearch");
 		CommonMethod.sendKeys("HsrAdminIdSearch", data.getCellData(SheetName, "ProjectID", rowNum));

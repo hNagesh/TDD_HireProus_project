@@ -88,7 +88,7 @@ public class ReusableMethodsExam extends BaseClass {
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
 		CommonMethod.click("AdminNavBar");
 		CommonMethod.WaitUntilVisibility("AdminWELLExamNavBar", 60);
-		CommonMethod.click("AdminWELLExamNavBar");
+		CommonMethod.RobustclickElementVisible("AdminWELLExamNavBar","APId");
 		CommonMethod.WaitUntilClickble("APId", 60).sendKeys(data.getCellData(SheetName, "examId", rowNum));
 		CommonMethod.click("APApplybtn");
 		CommonMethod.scrolldowntoLast();
