@@ -19,7 +19,7 @@ public class TC_06_LocationTest extends BaseClass {
 
 		try {
 
-			performance.PerformanceLocation(SheetName, rowNum);
+			rc.LocationImport(SheetName, rowNum);
 			
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

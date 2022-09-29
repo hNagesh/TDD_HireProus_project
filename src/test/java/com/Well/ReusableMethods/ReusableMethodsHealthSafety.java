@@ -108,9 +108,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		rc.Billing(SheetName, rowNum);
 		testlog.pass("**Completed Card Payment Billing successfully**");
 	}
-	public void HSRLocation(String SheetName, int rowNum) throws IOException, InterruptedException {
-	portfolio.PortfolioLocationImport(SheetName, rowNum);
-	}
+	
 	public void ScorecardfillHSRWPR(int YesEnd,int NoStart, int NoEnd,int DifferencePlusOne) throws IOException, InterruptedException {
 		List<WebElement> YesButton;
 		List<WebElement> NoButton;

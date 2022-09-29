@@ -74,7 +74,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		String getId = CommonMethod.getText("StoreId");
 		String[] stringArray = getId.split(": ");
 		String getProjectId = stringArray[1].trim();
-		data.setCellData(SheetName, "ProjectId", rowNum, getProjectId);
+		data.setCellData(SheetName, "ProjectID", rowNum, getProjectId);
 		testlog.pass("**Stored the Registered id  in excel successfully**");
 		testlog.pass("**Verifies the Registration successful**");
 	}
@@ -84,11 +84,11 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.click("WELLCertificationNavBar");
 		CommonMethod.WaitUntilClickble("V2ProjectId", 60);
-		testlog.info("ProjectId:" + data.getCellData(SheetName, "ProjectId", rowNum));
-		CommonMethod.sendKeys("V2ProjectId", data.getCellData(SheetName, "ProjectId", rowNum));
+		testlog.info("ProjectId:" + data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.sendKeys("V2ProjectId", data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("V2ProjectApplybtn");
 		Thread.sleep(2000);
-		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify", data.getCellData(SheetName, "projectId", rowNum),
+		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
 		CommonMethod.click("V2ProjectIdCompare");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 300);
@@ -463,10 +463,10 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("AdminNavBar");
 		CommonMethod.click("AdminWELLCertificationNavBar");
 		CommonMethod.WaitUntilClickble("AdminV2ProjectId", 60)
-				.sendKeys(data.getCellData(SheetName, "projectId", rowNum));
+				.sendKeys(data.getCellData(SheetName, "projectID", rowNum));
 		CommonMethod.click("AdminV2ProjectApplybtn");
 		Thread.sleep(2000);
-		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify", data.getCellData(SheetName, "projectId", rowNum),
+		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
 		CommonMethod.click("V2ProjectIdCompare");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 60);
@@ -558,10 +558,10 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("AdminNavBar");
 		CommonMethod.click("AdminWELLCertificationNavBar");
 		CommonMethod.WaitUntilClickble("AdminV2ProjectId", 60)
-				.sendKeys(data.getCellData(SheetName, "ProjectId", rowNum));
+				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("AdminV2ProjectApplybtn");
 		Thread.sleep(2000);
-		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify", data.getCellData(SheetName, "projectId", rowNum),"Project ID doesn't matches");
+		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify", data.getCellData(SheetName, "projectID", rowNum),"Project ID doesn't matches");
 		CommonMethod.click("V2ProjectIdCompare");
 		CommonMethod.click("ReviewTab");
 		Thread.sleep(2000);
@@ -630,7 +630,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("AdminNavBar");
 		CommonMethod.click("AdminWELLCertificationNavBar");
 		CommonMethod.WaitUntilVisibility("AdminV2ProjectId", 300)
-				.sendKeys(data.getCellData(SheetName, "projectId", rowNum));
+				.sendKeys(data.getCellData(SheetName, "projectID", rowNum));
 		CommonMethod.click("AdminV2ProjectApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectIdCompare");

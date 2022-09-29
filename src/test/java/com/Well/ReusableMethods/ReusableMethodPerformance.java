@@ -89,7 +89,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		String[] stringArray = getId.split(": ");
 		String getWprId = stringArray[1].trim();
 		testlog.info("Performance Id:" + getWprId);
-		data.setCellData(SheetName, "wprId", rowNum, getWprId);
+		data.setCellData(SheetName, "ProjectID", rowNum, getWprId);
 		testlog.info("Performance ID:" + getWprId);
 		testlog.pass("**Stored the Registered id  into excel successfully**");
 	}
@@ -99,24 +99,18 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.WaitUntilVisibility("WELLPerformanceRatingNavBar", 300);
 		CommonMethod.click("WELLPerformanceRatingNavBar");
-		String wprId = data.getCellData(SheetName, "wprId", rowNum);
+		String wprId = data.getCellData(SheetName, "ProjectID", rowNum);
 		testlog.info("Performance ID:" + wprId);
-		CommonMethod.WaitUntilClickble("WPRId", 60).sendKeys(wprId);
+		CommonMethod.WaitUntilClickble("ProjectID", 60).sendKeys(wprId);
 		CommonMethod.click("WPRApplybtn");
 		Thread.sleep(3000);
+		CommonMethod.assertcontainsmessage("WPRIdClick", data.getCellData(SheetName, "projectID", rowNum),
+				"Project name doesn't matches in search");
 		CommonMethod.click("WPRIdClick");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 300);
 		testlog.pass("**Verifies the Search Performance ByID successfully**");
 	}
 
-	public void PerformanceBilling(String SheetName, int rowNum) throws IOException, InterruptedException {
-		rc.Billing(SheetName, rowNum);
-		testlog.pass("**Completed Card Payment Billing successfully**");
-	}
-
-	public void PerformanceLocation(String SheetName, int rowNum) throws IOException, InterruptedException {
-		portfolio.PortfolioLocationImport(SheetName, rowNum);
-	}
 
 	public void ScorecardfillHSRWPR(int YesEnd, int NoStart, int NoEnd, int DifferencePlusOne, String purseYes,
 			String purseNo) throws IOException, InterruptedException {
@@ -184,7 +178,7 @@ public class ReusableMethodPerformance extends BaseClass {
 			CommonMethod.WaitUntilVisibility("WPRUploadDocTaskbtn", 60);
 			CommonMethod.click("WPRUploadDocTaskbtn");
 			CommonMethod.scrolldowntoLast();
-			CommonMethod.uploadFile("WPRDocUpload", PortfolioLocationImportfile);
+			CommonMethod.uploadFile("WPRDocUpload", FeaturefileUpload);
 			Thread.sleep(2000);
 			CommonMethod.Robustclick("WPRUploadDocTaskSavebtn");
 			CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
@@ -218,9 +212,11 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.click("AdminNavBar");
 		CommonMethod.WaitUntilVisibility("AdminWELLPerformanceNavBar", 60);
 		CommonMethod.click("AdminWELLPerformanceNavBar");
-		CommonMethod.WaitUntilClickble("WPRAdminIdSearch", 60).sendKeys(data.getCellData(SheetName, "wprId", rowNum));
+		CommonMethod.WaitUntilClickble("WPRAdminIdSearch", 60).sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("WPRAdminApplybtn");
 		Thread.sleep(2000);
+		CommonMethod.assertcontainsmessage("WPRIdClick", data.getCellData(SheetName, "projectID", rowNum),
+				"Project name doesn't matches in search");
 		CommonMethod.click("WPRAdminIdClick");
 		Thread.sleep(3000);
 		CommonMethod.click("ReviewTab");
@@ -235,7 +231,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
 		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
-		CommonMethod.click("ReviewReturnSubmit");
+		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit","ReviewedStatus");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status successfully");
 		testlog.pass("**Completed Reviewing Preliminary Precertification Review successfully**");
@@ -248,9 +244,9 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 60);
 		CommonMethod.click("WPRUploadDocLib");
 		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
-		CommonMethod.selectdropdownIndex("WPRSelectDocType", 1);
-		CommonMethod.selectdropdownIndex("WPRSelectType", 1);
-		CommonMethod.uploadFile("WPRDocUpload", PortfolioLocationImportfile);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", "general");
+		CommonMethod.selectdropdownValue("WPRSelectType", "Project overview");
+		CommonMethod.uploadFile("WPRDocUpload", GeneralfileUpload);
 		Thread.sleep(2000);
 		CommonMethod.sendKeys("WPRAddNote", "Submitting Document");
 		CommonMethod.Robustclick("WPRSumbitUploadDocLib");

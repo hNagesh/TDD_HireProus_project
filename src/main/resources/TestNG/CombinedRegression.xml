@@ -6,8 +6,8 @@
 </listeners>
 <suite-files>
     <suite-file path="V2Projecttestng.xml"></suite-file>
-    <!-- <suite-file path="HSRtestng.xml"></suite-file>
     <suite-file path="WPRtestng.xml"></suite-file>
+    <!-- <suite-file path="HSRtestng.xml"></suite-file>
     <suite-file path="Examtestng.xml"></suite-file>
     <suite-file path="Facultytestng.xml"></suite-file>
     <suite-file path="Membershiptestng.xml"></suite-file>

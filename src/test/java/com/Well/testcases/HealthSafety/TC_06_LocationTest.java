@@ -18,7 +18,7 @@ public class TC_06_LocationTest extends BaseClass {
 		StartTest(TestCaseName);
 
 		try {
-			hsr.HSRLocation(SheetName, rowNum);
+			rc.LocationImport(SheetName, rowNum);
 			
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

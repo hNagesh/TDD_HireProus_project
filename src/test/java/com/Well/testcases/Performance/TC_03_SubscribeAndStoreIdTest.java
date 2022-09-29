@@ -17,7 +17,7 @@ public class TC_03_SubscribeAndStoreIdTest extends BaseClass {
 		StartTest(TestCaseName);
 
 		try {
-			performance.PerformanceBilling(SheetName, rowNum);	
+			rc.Billing(SheetName, rowNum);
 			performance.StoreIdPerformance(SheetName, rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

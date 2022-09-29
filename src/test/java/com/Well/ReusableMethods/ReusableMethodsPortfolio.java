@@ -141,27 +141,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		rc.Billing(SheetName, rowNum);
 	}
 
-	public void PortfolioLocationImport(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("LocationsTab", 60);
-		CommonMethod.click("LocationsTab");
-		CommonMethod.WaitUntilVisibility("PortfolioLocationLanding", 60);
-		CommonMethod.RobustclickElementVisible("PortfolioLocationsImportButton","PortfolioUploadFileNextButton");
-		CommonMethod.scrolldowntoElement("PortfolioUploadLocationButton");
-		CommonMethod.uploadFile("PortfolioUploadLocationButton", PortfolioLocationImportfile);
-		CommonMethod.click("PortfolioUploadFileNextButton");
-		if (CommonMethod.isElementsExist("PortfolioUnmatchFieldcbx", 3)) {
-			CommonMethod.WaitUntilVisibility("PortfolioUnmatchFieldcbx", 30);
-			CommonMethod.ClickCheckbox("PortfolioUnmatchFieldcbx");
-		}
-		CommonMethod.WaitUntilVisibility("PortfolioUploadFileNextButton", 30);
-		CommonMethod.click("PortfolioUploadFileNextButton");
-		CommonMethod.WaitUntilVisibility("PortfolioFinishImportButton", 30);
-		CommonMethod.click("PortfolioFinishImportButton");
-		CommonMethod.WaitUntilVisibility("PortfolioImportCloseButton", 30);
-		CommonMethod.click("PortfolioImportCloseButton");
-		CommonMethod.WaitUntilVisibility("PortfolioLocationLanding", 60);
-		testlog.pass("**Imported Locations successfully**");
-	}
+	
 
 	public void PortfolioBuildScorecard() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("WellV2Tab", 120);
