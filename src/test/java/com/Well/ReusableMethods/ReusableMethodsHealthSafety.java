@@ -14,47 +14,42 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	   CommonMethod.click("ProjectNavBar");
 	   CommonMethod.click("WELLHealthSafetyNavBar");
 	   CommonMethod.click("HsrWellhealthstartprojectbtn");
-	   CommonMethod.click("HsrEnrollnowbtn");
-	   CommonMethod.click("HsrEnrollbtn");
+	   CommonMethod.RobustclickElementVisible("HsrEnrollnowbtn","HsrEnrollbtn");
+	   CommonMethod.RobustclickElementVisible("HsrEnrollbtn","Hsrenrollcontinuebtn");
 	   CommonMethod.WaitUntilClickble("HsrenrollName", 30);
 	   String erollName = "Automation HSR Project "+CommonMethod.randomNumber(8000000);
 	   CommonMethod.sendKeys("HsrenrollName", erollName);
-	   data.setCellData("Hsr", "HsrName", 2, CommonMethod.getattributeValue("HsrenrollName"));
+	   data.setCellData(SheetName, "HsrName", rowNum, CommonMethod.getattributeValue("HsrenrollName"));
 		testlog.info("HsrName: "+data.getCellData(SheetName, "HsrName", rowNum));
 	   CommonMethod.ClickCheckbox("Hsrenrollcheckbox");
-	   CommonMethod.click("OwnerOrgClick");
-	   CommonMethod.sendKeys("OwnerOrg", "R");
-	   CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
-		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 6).click();
-		data.setCellData("Hsr", "Org", 2, CommonMethod.getText("OrgName"));
-		testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
+	   rc.SelectOwnerOrg(SheetName, rowNum);
 	   CommonMethod.selectdropdownrandom("OrgIndustry");
-	   data.setCellData("Hsr", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
-	   CommonMethod.selectdropdownVisibletext("Hsrenrollcountry",  "United States");
-	   data.setCellData("Hsr", "Country", 2, CommonMethod.getSelectedDropdownValue("Hsrenrollcountry"));
+	   data.setCellData(SheetName, "OrgIndustry", rowNum, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
+	   CommonMethod.selectdropdownValue("Hsrenrollcountry",  "US");
+	   data.setCellData(SheetName, "Country", rowNum, CommonMethod.getSelectedDropdownValue("Hsrenrollcountry"));
 	   CommonMethod.selectdropdownrandom("Hsrenrollstate");
-	   data.setCellData("Hsr", "State", 2, CommonMethod.getSelectedDropdownValue("Hsrenrollstate"));
+	   data.setCellData(SheetName, "State", rowNum, CommonMethod.getSelectedDropdownValue("Hsrenrollstate"));
        String ProjectAddress = USfaker.address().streetAddress();
 	   String ProjectCity = USfaker.address().cityName();
 	   String PostalCode = USfaker.address().zipCode();
 	   CommonMethod.sendKeys("Hsrenrollstreet", ProjectAddress);
-	   data.setCellData("Hsr", "Street", 2, CommonMethod.getattributeValue("Hsrenrollstreet"));
+	   data.setCellData(SheetName, "Street", rowNum, CommonMethod.getattributeValue("Hsrenrollstreet"));
 		testlog.info("Hsrenrollstreet: "+data.getCellData(SheetName, "Street", rowNum));
        CommonMethod.sendKeys("Hsrenrollcity", ProjectCity);
-       data.setCellData("Hsr", "City", 2, CommonMethod.getattributeValue("Hsrenrollcity"));
+       data.setCellData(SheetName, "City", rowNum, CommonMethod.getattributeValue("Hsrenrollcity"));
 		testlog.info("City: "+data.getCellData(SheetName, "City", rowNum));
        CommonMethod.sendKeys("Hsrenrollpostalcode", PostalCode);
-       data.setCellData("Hsr", "PostalCode", 2, CommonMethod.getattributeValue("Hsrenrollpostalcode"));
+       data.setCellData(SheetName, "PostalCode", rowNum, CommonMethod.getattributeValue("Hsrenrollpostalcode"));
 		testlog.info("PostalCode: "+data.getCellData(SheetName, "PostalCode", rowNum));
        CommonMethod.ClickCheckbox("Hsrbilladdcheckbox");
-       CommonMethod.click("Hsrenrollcontinuebtn");
+       CommonMethod.RobustclickElementVisible("Hsrenrollcontinuebtn","HsrRegcontinuebtn");
        CommonMethod.ClickCheckbox("Hsrregcheckbox");
        CommonMethod.selectdropdownVisibletext("HsrIwbimemberdropdown","No");
-       CommonMethod.click("HsrRegcontinuebtn");
-       CommonMethod.click("HsrTypeoneEnrollbtn");
+       CommonMethod.RobustclickElementVisible("HsrRegcontinuebtn","HsrTypeoneEnrollbtn");
+       CommonMethod.RobustclickElementVisible("HsrTypeoneEnrollbtn","HsrLocContinuebutton");
        CommonMethod.scrollUp();
        CommonMethod.sendKeys("Hsrlocations", "10");
-       data.setCellData("Hsr", "Location", 2, CommonMethod.getattributeValue("Hsrlocations"));
+       data.setCellData(SheetName, "Location", rowNum, CommonMethod.getattributeValue("Hsrlocations"));
 		testlog.info("Hsrlocations: "+data.getCellData(SheetName, "Location", rowNum));
        CommonMethod.click("HsrWPRlocationsSpacetype");
        Thread.sleep(2000);
@@ -62,19 +57,21 @@ public class ReusableMethodsHealthSafety extends BaseClass {
        CommonMethod.clear("Hsrlocationsize");
        String Area = CommonMethod.randomNumberBetweenRanges(100, 50000);
        CommonMethod.sendKeys("Hsrlocationsize", Area);
-       data.setCellData("Hsr", "Area", 2, CommonMethod.getattributeValue("Hsrlocationsize"));
+       data.setCellData(SheetName, "Area", rowNum, CommonMethod.getattributeValue("Hsrlocationsize"));
        testlog.info("Hsrlocations: "+data.getCellData(SheetName, "Area", rowNum));
+       CommonMethod.WaitUntilVisibility("HsrLocContinuebutton", 120);
+	   CommonMethod.RobustclickElementVisible("HsrLocContinuebutton","HSRApplyButton");
        if(CommonMethod.isElementsExist("HsrWPRYesMyOrganizationCbx", 20)) {
 			CommonMethod.WaitUntilClickble("HsrWPRYesMyOrganizationCbx", 60);
 			CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
 			}
-       CommonMethod.WaitUntilVisibility("HsrLocContinuebutton", 120);
-	   CommonMethod.Robustclick("HsrLocContinuebutton");
+       
+       CommonMethod.RobustclickElementVisible("HsrLocContinuebutton","HsrReviewbtn");
 		CommonMethod.WaitUntilClickble("HsrProgramFeePublicrbtn", 60);
 		CommonMethod.ClickCheckbox("HsrProgramFeePublicrbtn");
 	   CommonMethod.WaitUntilVisibility("HsrAcknowledecbx", 60);
 	   CommonMethod.ClickCheckbox("HsrAcknowledecbx");
-	   CommonMethod.click("HsrReviewbtn");
+	   CommonMethod.RobustclickElementVisible("HsrReviewbtn","BillingLanding");
 	   CommonMethod.WaitUntilVisibility("BillingLanding", 60);
 	   testlog.pass("**Verifies the Registration successful**");
 	}
@@ -84,7 +81,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		String getId =CommonMethod.getText("StoreId"); 
       String[] stringArray = getId.split(": ");
       String getHsrId = stringArray[1].trim();
-      data.setCellData("Hsr", "hsrId", 2, getHsrId);
+      data.setCellData(SheetName, "ProjectID", rowNum, getHsrId);
       testlog.info("HealthSafety Id:" +getHsrId);
       testlog.pass("**Stored the Registered id  in excel successfully**");
 	}
@@ -96,18 +93,17 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		   CommonMethod.click("WELLHealthSafetyNavBar");
 		   CommonMethod.WaitUntilVisibility("HsrIdSearch", 300);
 		   CommonMethod.click("HsrIdSearch");
-		   testlog.info("HealthSafety ID:" + data.getCellData(SheetName, "hsrId", rowNum));
-		   CommonMethod.sendKeys("HsrIdSearch", data.getCellData(SheetName, "hsrId", rowNum));
+		   testlog.info("HealthSafety ID:" + data.getCellData(SheetName, "ProjectID", rowNum));
+		   CommonMethod.sendKeys("HsrIdSearch", data.getCellData(SheetName, "ProjectID", rowNum));
 		   CommonMethod.click("HsrapplySearch");
 		  Thread.sleep(3000);
-		   CommonMethod.click("Hsrprojectidcompare");
+		  CommonMethod.assertcontainsmessage("HSRIdClick", data.getCellData(SheetName, "projectID", rowNum),
+					"Project name doesn't matches in search");
+		   CommonMethod.click("HSRIdClick");
 		   CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
 		   testlog.pass("**Verifies the Search HealthSafety ByID successfully**");
 	}
-	public void HSRBilling(String SheetName, int rowNum) throws IOException, InterruptedException {
-		rc.Billing(SheetName, rowNum);
-		testlog.pass("**Completed Card Payment Billing successfully**");
-	}
+	
 	
 	public void ScorecardfillHSRWPR(int YesEnd,int NoStart, int NoEnd,int DifferencePlusOne) throws IOException, InterruptedException {
 		List<WebElement> YesButton;
@@ -168,7 +164,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 					CommonMethod.WaitUntilClickble("HsrSelectLoc", 10);
 					CommonMethod.selectdropdownIndex("HsrSelectLoc", 1);
 				}
-				CommonMethod.uploadFile("V2ProjectDocUpload", PortfolioLocationImportfile);
+				CommonMethod.uploadFile("V2ProjectDocUpload", FeaturefileUpload);
 				Thread.sleep(2000);
 				CommonMethod.Robustclick("HsrUploadDocFeature");
 				CommonMethod.scrolldowntoElement("HsrScorecard");
@@ -203,9 +199,11 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.click("AdminWELLHealthsafetyNavBar");
 		CommonMethod.WaitUntilVisibility("HsrAdminIdSearch", 300);
 		CommonMethod.click("HsrAdminIdSearch");
-		CommonMethod.sendKeys("HsrAdminIdSearch", data.getCellData(SheetName, "hsrId", rowNum));
+		CommonMethod.sendKeys("HsrAdminIdSearch", data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("HsrAdminApplybtn");
 		Thread.sleep(2000);
+		CommonMethod.assertcontainsmessage("HsrAdminIdClick", data.getCellData(SheetName, "projectID", rowNum),
+				"Project name doesn't matches in search");
 		CommonMethod.click("HsrAdminIdClick");
 		Thread.sleep(3000);
 		CommonMethod.WaitUntilVisibility("ReviewTab", 300);
@@ -213,14 +211,14 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilVisibility("ReviewViewButton", 60);
 		CommonMethod.click("ReviewViewButton");
 		CommonMethod.WaitUntilVisibility("ReviewReturnButton", 60);
-		CommonMethod.click("ReviewReturnButton");
+		CommonMethod.RobustclickElementVisible("ReviewReturnButton","ReviewReturnSubmit");
 		CommonMethod.WaitUntilClickble("ReturnComment", 60).sendKeys("Preliminary Precertification Review");;
-		CommonMethod.click("DatePickerButton");
-		CommonMethod.click("DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerButton","DatePickerOkButton");
+		CommonMethod.Robustclick("DatePickerOkButton");
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
 		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
-		CommonMethod.click("ReviewReturnSubmit");
+		CommonMethod.Robustclick("ReviewReturnSubmit");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilClickble("ReviewedStatus", 60);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
@@ -230,15 +228,15 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WellV2ProjectDocumentTab", 300);
 		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
-		CommonMethod.click("HsrAddDoc");
+		CommonMethod.Robustclick("HsrAddDoc","V2ProjectDocUpload");
 		CommonMethod.WaitUntilVisibility("HsrSelectTypeDoc", 60);
-		CommonMethod.selectdropdownIndex("HsrSelectTypeDoc", 1);
+		CommonMethod.selectdropdownValue("HsrSelectTypeDoc", "general");
 		CommonMethod.selectdropdownIndex("HsrType", 1);
-		CommonMethod.uploadFile("V2ProjectDocUpload", PortfolioLocationImportfile);
+		CommonMethod.uploadFile("V2ProjectDocUpload", GeneralfileUpload);
 		Thread.sleep(2000);
 		CommonMethod.sendKeys("HsrReasonnarration", "Submitting Document");
 		CommonMethod.Robustclick("HsrDocumentUploadbtn");
-		CommonMethod.click("V2ProjectGeneralDoc");
+		/* CommonMethod.click("V2ProjectGeneralDoc"); */
 		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
 		testlog.pass("**Upload Document successfully**");
 }

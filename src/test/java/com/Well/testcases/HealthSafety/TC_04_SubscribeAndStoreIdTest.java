@@ -17,7 +17,7 @@ public class TC_04_SubscribeAndStoreIdTest extends BaseClass {
 		StartTest(TestCaseName);
 
 		try {
-			hsr.HSRBilling(SheetName, rowNum);	
+			rc.Billing(SheetName, rowNum);	
 			hsr.StoreIdHealthSafety(SheetName, rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
