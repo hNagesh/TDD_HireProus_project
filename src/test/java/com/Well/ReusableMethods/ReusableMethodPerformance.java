@@ -2,9 +2,7 @@ package com.Well.ReusableMethods;
 
 import java.io.IOException;
 import java.util.List;
-
 import org.openqa.selenium.WebElement;
-
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
 
@@ -16,22 +14,17 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.click("WELLPerformanceRatingNavBar");
 		CommonMethod.WaitUntilVisibility("WPRstartNewProject", 60);
 		CommonMethod.click("WPRstartNewProject");
-		CommonMethod.click("WPREnrollOption");
-		CommonMethod.click("WPRenrollbtn");
+		CommonMethod.RobustclickElementVisible("WPREnrollOption","WPRenrollbtn");
+		CommonMethod.RobustclickElementVisible("WPRenrollbtn","WPROrgContinebtn");
 		String ProjectName = "Automation WPR Project" + CommonMethod.randomNumber(8000000);
 		testlog.info("ProjectName" + ProjectName);
-		data.setCellData("Wpr", "projectName", 2, ProjectName);
+		data.setCellData(SheetName, "projectName", rowNum, ProjectName);
 		CommonMethod.sendKeys("WPROrgName", ProjectName);
 		CommonMethod.ClickCheckbox("WPROwnerInfocbx");
-		CommonMethod.click("OwnerOrgClick");
-		CommonMethod.sendKeys("OwnerOrg", "R");
-		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
-		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 6).click();
-		data.setCellData("Wpr", "Org", 2, CommonMethod.getText("OrgName"));
-		testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
+		rc.SelectOwnerOrg(SheetName, rowNum);
 		CommonMethod.selectdropdownrandom("OrgIndustry");
-		data.setCellData("Wpr", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
-		CommonMethod.selectdropdownVisibletext("WPRExamOwnerCountry", "United States");
+		data.setCellData(SheetName, "OrgIndustry", rowNum, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
+		CommonMethod.selectdropdownValue("WPRExamOwnerCountry", "US");
 		CommonMethod.selectdropdownrandom("WPRExamOwnerState");
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
@@ -42,24 +35,24 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.sendKeys("WPRExamOrgAddress", ProjectAddress);
 		CommonMethod.sendKeys("WPRExamOrgCity", ProjectCity);
 		CommonMethod.sendKeys("WPRExamOrgPostalcode", PostalCode);
-		data.setCellData("Wpr", "Country", 2, CommonMethod.getattributeValue("WPRExamOwnerCountry"));
-		data.setCellData("Wpr", "State", 2, CommonMethod.getattributeValue("WPRExamOwnerState"));
-		data.setCellData("Wpr", "Street", 2, CommonMethod.getattributeValue("WPRExamOrgAddress"));
-		data.setCellData("Wpr", "City", 2, CommonMethod.getattributeValue("WPRExamOrgCity"));
-		data.setCellData("Wpr", "PostalCode", 2, CommonMethod.getattributeValue("WPRExamOrgPostalcode"));
+		data.setCellData(SheetName, "Country", rowNum, CommonMethod.getattributeValue("WPRExamOwnerCountry"));
+		data.setCellData(SheetName, "State", rowNum, CommonMethod.getattributeValue("WPRExamOwnerState"));
+		data.setCellData(SheetName, "Street", rowNum, CommonMethod.getattributeValue("WPRExamOrgAddress"));
+		data.setCellData(SheetName, "City", rowNum, CommonMethod.getattributeValue("WPRExamOrgCity"));
+		data.setCellData(SheetName, "PostalCode", rowNum, CommonMethod.getattributeValue("WPRExamOrgPostalcode"));
 		CommonMethod.ClickCheckbox("WPROwnercbx");
 		CommonMethod.scrollDown();
-		CommonMethod.click("WPROrgContinebtn");
+		CommonMethod.RobustclickElementVisible("WPROrgContinebtn","WPROwnerRegContinuebtn");
 		Thread.sleep(2000);
 		CommonMethod.scrollUp();
 		CommonMethod.ClickCheckbox("WPRBehalfCbx");
 		CommonMethod.selectdropdownVisibletext("WPRSelectMember", "No");
-		data.setCellData("Wpr", "WPRSelectMember", 2, CommonMethod.getSelectedDropdownValue("WPRSelectMember"));
+		data.setCellData(SheetName, "WPRSelectMember", rowNum, CommonMethod.getSelectedDropdownValue("WPRSelectMember"));
 		CommonMethod.click("WPROwnerRegContinuebtn");
 		Thread.sleep(2000);
 		CommonMethod.scrollUp();
 		CommonMethod.sendKeys("WPRlocations", "10");
-		data.setCellData("Wpr", "WPRlocations", 2, CommonMethod.getattributeValue("WPRlocations"));
+		data.setCellData(SheetName, "WPRlocations", rowNum, CommonMethod.getattributeValue("WPRlocations"));
 		CommonMethod.click("HsrWPRlocationsSpacetype");
 		CommonMethod.click("HsrWPRlocationsSpaceOption");
 		Thread.sleep(1000);
@@ -68,15 +61,15 @@ public class ReusableMethodPerformance extends BaseClass {
 		String Area = CommonMethod.randomNumberBetweenRanges(100,50000);
 		testlog.info("Locationsize:" + Area);
 		CommonMethod.sendKeys("WPRlocationsize", Area);
-		data.setCellData("Wpr", "WPRlocationsize", 2, CommonMethod.getattributeValue("WPRlocationsize"));
+		data.setCellData(SheetName, "WPRlocationsize", rowNum, CommonMethod.getattributeValue("WPRlocationsize"));
 		CommonMethod.WaitUntilClickble("WPROwnerRegContinuebtn", 60);
-		CommonMethod.click("WPROwnerRegContinuebtn");
+		CommonMethod.RobustclickElementVisible("WPROwnerRegContinuebtn","WPRReviewContinuebutton");
 		if(CommonMethod.isElementsExist("HsrWPRYesMyOrganizationCbx", 2)) {
 		CommonMethod.WaitUntilClickble("HsrWPRYesMyOrganizationCbx", 30);
 		CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
 		}
-		CommonMethod.click("WPRReviewContinuebutton");
-		Thread.sleep(10000);
+		CommonMethod.RobustclickElementVisible("WPRReviewContinuebutton","WPRtermContinuebutton");
+		
 		if(CommonMethod.isElementsExist("WPRProgramFeePublicrbtn", 20)) {
 		CommonMethod.WaitUntilClickble("WPRProgramFeePublicrbtn", 60);
 		CommonMethod.ClickCheckbox("WPRProgramFeePublicrbtn");
@@ -84,19 +77,19 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.scrollDown();
 		CommonMethod.WaitUntilClickble("WPRAcknowledecbx", 60);
 		CommonMethod.ClickCheckbox("WPRAcknowledecbx");
-		CommonMethod.click("WPRtermContinuebutton");
+		CommonMethod.RobustclickElementVisible("WPRtermContinuebutton","BillingLanding");
 		CommonMethod.WaitUntilVisibility("BillingLanding", 60);
 		testlog.pass("**Verifies the Registration successful**");
 	}
 
 	public void StoreIdPerformance(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 50);
+		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 300);
 		CommonMethod.WaitUntilVisibility("StoreId", 30);
 		String getId = CommonMethod.getText("StoreId");
 		String[] stringArray = getId.split(": ");
 		String getWprId = stringArray[1].trim();
 		testlog.info("Performance Id:" + getWprId);
-		data.setCellData("Wpr", "wprId", 2, getWprId);
+		data.setCellData(SheetName, "wprId", rowNum, getWprId);
 		testlog.info("Performance ID:" + getWprId);
 		testlog.pass("**Stored the Registered id  into excel successfully**");
 	}
