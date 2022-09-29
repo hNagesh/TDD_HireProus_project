@@ -10,6 +10,7 @@ import com.Well.Engine.CommonMethod;
 public class ReusableMethodsHealthSafety extends BaseClass {
 	
 	public void RegisterHealthSafety(String SheetName,int rowNum) throws IOException, InterruptedException {
+	   CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
 	   CommonMethod.click("ProjectNavBar");
 	   CommonMethod.click("WELLHealthSafetyNavBar");
 	   CommonMethod.click("HsrWellhealthstartprojectbtn");
@@ -17,8 +18,9 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	   CommonMethod.click("HsrEnrollbtn");
 	   CommonMethod.WaitUntilClickble("HsrenrollName", 30);
 	   String erollName = "Automation HSR Project "+CommonMethod.randomNumber(8000000);
-	   testlog.info("ProjectName"+erollName);
 	   CommonMethod.sendKeys("HsrenrollName", erollName);
+	   data.setCellData("Hsr", "HsrName", 2, CommonMethod.getattributeValue("HsrenrollName"));
+		testlog.info("HsrName: "+data.getCellData(SheetName, "HsrName", rowNum));
 	   CommonMethod.ClickCheckbox("Hsrenrollcheckbox");
 	   CommonMethod.click("OwnerOrgClick");
 	   CommonMethod.sendKeys("OwnerOrg", "R");
@@ -28,17 +30,22 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
 	   CommonMethod.selectdropdownrandom("OrgIndustry");
 	   data.setCellData("Hsr", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
-	   CommonMethod.selectdropdownVisibletext("Hsrenrollcountry",  data.getCellData(SheetName, "country", rowNum));
-	   CommonMethod.selectdropdownVisibletext("Hsrenrollstate", data.getCellData(SheetName, "state", rowNum));
+	   CommonMethod.selectdropdownVisibletext("Hsrenrollcountry",  "United States");
+	   data.setCellData("Hsr", "Country", 2, CommonMethod.getSelectedDropdownValue("Hsrenrollcountry"));
+	   CommonMethod.selectdropdownrandom("Hsrenrollstate");
+	   data.setCellData("Hsr", "State", 2, CommonMethod.getSelectedDropdownValue("Hsrenrollstate"));
        String ProjectAddress = USfaker.address().streetAddress();
 	   String ProjectCity = USfaker.address().cityName();
 	   String PostalCode = USfaker.address().zipCode();
-	   testlog.info("ProjectAddress"+ProjectAddress);
-		testlog.info("ProjectCity"+ProjectCity);
-		testlog.info("PostalCode"+PostalCode);
 	   CommonMethod.sendKeys("Hsrenrollstreet", ProjectAddress);
+	   data.setCellData("Hsr", "Street", 2, CommonMethod.getattributeValue("Hsrenrollstreet"));
+		testlog.info("Hsrenrollstreet: "+data.getCellData(SheetName, "Street", rowNum));
        CommonMethod.sendKeys("Hsrenrollcity", ProjectCity);
+       data.setCellData("Hsr", "City", 2, CommonMethod.getattributeValue("Hsrenrollcity"));
+		testlog.info("City: "+data.getCellData(SheetName, "City", rowNum));
        CommonMethod.sendKeys("Hsrenrollpostalcode", PostalCode);
+       data.setCellData("Hsr", "PostalCode", 2, CommonMethod.getattributeValue("Hsrenrollpostalcode"));
+		testlog.info("PostalCode: "+data.getCellData(SheetName, "PostalCode", rowNum));
        CommonMethod.ClickCheckbox("Hsrbilladdcheckbox");
        CommonMethod.click("Hsrenrollcontinuebtn");
        CommonMethod.ClickCheckbox("Hsrregcheckbox");
@@ -46,20 +53,26 @@ public class ReusableMethodsHealthSafety extends BaseClass {
        CommonMethod.click("HsrRegcontinuebtn");
        CommonMethod.click("HsrTypeoneEnrollbtn");
        CommonMethod.scrollUp();
-       testlog.info("Locations"+"10");
        CommonMethod.sendKeys("Hsrlocations", "10");
+       data.setCellData("Hsr", "Location", 2, CommonMethod.getattributeValue("Hsrlocations"));
+		testlog.info("Hsrlocations: "+data.getCellData(SheetName, "Location", rowNum));
        CommonMethod.click("HsrWPRlocationsSpacetype");
        Thread.sleep(2000);
        CommonMethod.click("HsrWPRlocationsSpaceOption");
        CommonMethod.clear("Hsrlocationsize");
-       testlog.info("Locationsize"+"10");
-       CommonMethod.sendKeys("Hsrlocationsize", "10");
-	   CommonMethod.click("HsrLocContinuebutton");
-	   CommonMethod.WaitUntilClickble("HsrWPRYesMyOrganizationCbx", 30);
-	   CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
-	   CommonMethod.click("HsrLocContinuebutton");
-	   CommonMethod.WaitUntilClickble("HsrProgramFeePublicrbtn", 60);
-	   CommonMethod.ClickCheckbox("HsrProgramFeePublicrbtn");
+       String Area = CommonMethod.randomNumberBetweenRanges(100, 50000);
+       CommonMethod.sendKeys("Hsrlocationsize", Area);
+       data.setCellData("Hsr", "Area", 2, CommonMethod.getattributeValue("Hsrlocationsize"));
+       testlog.info("Hsrlocations: "+data.getCellData(SheetName, "Area", rowNum));
+       if(CommonMethod.isElementsExist("HsrWPRYesMyOrganizationCbx", 20)) {
+			CommonMethod.WaitUntilClickble("HsrWPRYesMyOrganizationCbx", 60);
+			CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
+			}
+       CommonMethod.WaitUntilVisibility("HsrLocContinuebutton", 120);
+	   CommonMethod.Robustclick("HsrLocContinuebutton");
+		CommonMethod.WaitUntilClickble("HsrProgramFeePublicrbtn", 60);
+		CommonMethod.ClickCheckbox("HsrProgramFeePublicrbtn");
+	   CommonMethod.WaitUntilVisibility("HsrAcknowledecbx", 60);
 	   CommonMethod.ClickCheckbox("HsrAcknowledecbx");
 	   CommonMethod.click("HsrReviewbtn");
 	   CommonMethod.WaitUntilVisibility("BillingLanding", 60);
