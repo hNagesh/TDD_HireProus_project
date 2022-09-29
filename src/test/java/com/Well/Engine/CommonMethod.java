@@ -353,7 +353,7 @@ public class CommonMethod extends BaseClass {
 				
 			}
 			}
-		}while(!(!CommonMethod.isElementsExist(objectLocater, 2) || !((System.currentTimeMillis()-startTime)<20000)));
+		}while(!(!CommonMethod.isElementsExist(objectLocater, 2) || !((System.currentTimeMillis()-startTime)<60000)));
         
 	}
 	
@@ -373,7 +373,7 @@ public class CommonMethod extends BaseClass {
 				
 			}
 			}
-		}while(!(!CommonMethod.isElementsExist(objectLocater1, 2) || !((System.currentTimeMillis()-startTime)<20000)));
+		}while(!(!CommonMethod.isElementsExist(objectLocater1, 2) || !((System.currentTimeMillis()-startTime)<60000)));
         
 	}
 	
@@ -393,7 +393,7 @@ public class CommonMethod extends BaseClass {
 				
 			}
 			}
-		}while(!(CommonMethod.isElementsExist(objectLocater1, 2)  || !((System.currentTimeMillis()-startTime)<120000)));
+		}while(!(CommonMethod.isElementsExist(objectLocater1, 2)  || !((System.currentTimeMillis()-startTime)<60000)));
         
 	}
 	
