@@ -101,7 +101,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.RobustclickElementVisible("WELLPerformanceRatingNavBar","WPRIdClick");
 		String wprId = data.getCellData(SheetName, "ProjectID", rowNum);
 		testlog.info("Performance ID:" + wprId);
-		CommonMethod.WaitUntilClickble("ProjectID", 60).sendKeys(wprId);
+		CommonMethod.WaitUntilClickble("WPRId", 60).sendKeys(wprId);
 		CommonMethod.click("WPRApplybtn");
 		Thread.sleep(3000);
 		CommonMethod.assertcontainsmessage("WPRIdClick", data.getCellData(SheetName, "projectID", rowNum),

@@ -12,7 +12,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void RegisterV2Project(String SheetName, int rowNum, String ProjectType, String Country)
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
-		CommonMethod.click("ProjectNavBar");
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLCertificationNavBar");
 		CommonMethod.click("WELLCertificationNavBar");
 		CommonMethod.WaitUntilVisibility("V2Projectstartav2projectbtn", 300);
 		CommonMethod.Robustclick("V2Projectstartav2projectbtn");

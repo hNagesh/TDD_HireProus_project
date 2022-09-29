@@ -338,7 +338,7 @@ public class CommonMethod extends BaseClass {
 	}
 	
 	public static void Robustclick(String objectLocater) throws IOException, InterruptedException {
-
+		long startTime = System.currentTimeMillis();
 		do {
 			System.out.println("1");
 			Thread.sleep(3000);
@@ -353,12 +353,12 @@ public class CommonMethod extends BaseClass {
 				
 			}
 			}
-		}while(CommonMethod.isElementsExist(objectLocater, 2));
+		}while(!(!CommonMethod.isElementsExist(objectLocater, 2) || !((System.currentTimeMillis()-startTime)<20000)));
         
 	}
 	
 	public static void Robustclick(String objectLocater,String objectLocater1) throws IOException, InterruptedException {
-
+		long startTime = System.currentTimeMillis();
 		do {
 			System.out.println("1");
 			Thread.sleep(2000);
@@ -373,12 +373,12 @@ public class CommonMethod extends BaseClass {
 				
 			}
 			}
-		}while(CommonMethod.isElementsExist(objectLocater1, 2));
+		}while(!(!CommonMethod.isElementsExist(objectLocater1, 2) || !((System.currentTimeMillis()-startTime)<20000)));
         
 	}
 	
 	public static void RobustclickElementVisible(String objectLocater,String objectLocater1) throws IOException, InterruptedException {
-
+		long startTime = System.currentTimeMillis();
 		do {
 			System.out.println("1");
 			Thread.sleep(2000);
@@ -393,7 +393,7 @@ public class CommonMethod extends BaseClass {
 				
 			}
 			}
-		}while(!CommonMethod.isElementsExist(objectLocater1, 2));
+		}while(!(CommonMethod.isElementsExist(objectLocater1, 2)  || !((System.currentTimeMillis()-startTime)<120000)));
         
 	}
 	

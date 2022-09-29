@@ -228,7 +228,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WellV2ProjectDocumentTab", 300);
 		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
-		CommonMethod.Robustclick("HsrAddDoc","V2ProjectDocUpload");
+		CommonMethod.RobustclickElementVisible("HsrAddDoc","V2ProjectDocUpload");
 		CommonMethod.WaitUntilVisibility("HsrSelectTypeDoc", 60);
 		CommonMethod.selectdropdownValue("HsrSelectTypeDoc", "general");
 		CommonMethod.selectdropdownIndex("HsrType", 1);
