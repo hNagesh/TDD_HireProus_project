@@ -75,6 +75,8 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.scrolldowntoElement("PortfolioUploadLocationButton");
 		CommonMethod.uploadFile("PortfolioUploadLocationButton", PortfolioLocationImportfile);
 		CommonMethod.click("PortfolioUploadFileNextButton");
+		Thread.sleep(2000);
+		CommonMethod.WaitUntilVisibility("PortfolioUploadFileNextButton", 30);
 		if (CommonMethod.isElementsExist("PortfolioUnmatchFieldcbx", 3)) {
 			CommonMethod.WaitUntilVisibility("PortfolioUnmatchFieldcbx", 30);
 			CommonMethod.ClickCheckbox("PortfolioUnmatchFieldcbx");
