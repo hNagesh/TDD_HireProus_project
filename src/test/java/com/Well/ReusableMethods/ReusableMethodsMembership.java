@@ -82,7 +82,7 @@ public class ReusableMethodsMembership extends BaseClass {
 		 * Office Address
 		 */
 		CommonMethod.WaitUntilVisibility("MPOfficecountry", 30);
-		CommonMethod.selectdropdown("MPOfficecountry", "United States");
+		CommonMethod.selectdropdownVisibletext("MPOfficecountry", "United States");
 		data.setCellData("Membership", "Country", 2, CommonMethod.getSelectedDropdownValue("WPRExamOwnerCountry"));
 		CommonMethod.selectdropdownrandom("MPOfficestate");
 		data.setCellData("Membership", "State", 2, CommonMethod.getSelectedDropdownValue("MPOfficestate"));

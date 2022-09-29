@@ -20,7 +20,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WFExamContinuebtn", 30);
 		CommonMethod.click("WFExamContinuebtn");
 		CommonMethod.WaitUntilVisibility("WPRExamOwnerCountry", 60);
-		CommonMethod.selectdropdown("WPRExamOwnerCountry", "United States");
+		CommonMethod.selectdropdownVisibletext("WPRExamOwnerCountry", "United States");
 		data.setCellData("Faculty", "Country", 2, CommonMethod.getattributeValue("WPRExamOwnerCountry"));
 		CommonMethod.selectdropdownrandom("WPRExamOwnerState");
 		data.setCellData("Faculty", "State", 2, CommonMethod.getattributeValue("WPRExamOwnerState"));

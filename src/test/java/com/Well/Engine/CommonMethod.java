@@ -934,10 +934,17 @@ public class CommonMethod extends BaseClass {
 		return ele.size();
 	}
 
-	public static void selectdropdown(String objectLocator, String value) throws IOException {
+	public static void selectdropdownVisibletext(String objectLocator, String text) throws IOException {
 
 		Select se = new Select(findElement(objectLocator));
-		se.selectByVisibleText(value);
+		se.selectByVisibleText(text);
+
+	}
+	
+	public static void selectdropdownValue(String objectLocator, String value) throws IOException {
+
+		Select se = new Select(findElement(objectLocator));
+		se.selectByValue(value);
 
 	}
 

@@ -23,7 +23,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		data.setCellData("V2Project", "ProjectName", 2, ProjectName);
 		CommonMethod.sendKeys("V2Projectprojectnickname", ProjectName);
 		CommonMethod.click("V2ProjectnicknameContinuebtn");
-		CommonMethod.selectdropdown("V2ProjectlocationCountry", "United States");
+		CommonMethod.selectdropdownVisibletext("V2ProjectlocationCountry", "United States");
 		data.setCellData("V2Project", "Country", 2, CommonMethod.getSelectedDropdownValue("V2ProjectlocationCountry"));
 		CommonMethod.selectdropdownrandom("V2ProjectlocationState");
 		data.setCellData("V2Project", "State", 2, CommonMethod.getSelectedDropdownValue("V2ProjectlocationState"));
@@ -105,7 +105,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("OwnerOrgClick");
 		CommonMethod.sendKeys("OwnerOrg", "R");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
-		CommonMethod.ClickRandomWebElement("SelectOwnerOrgDyn");
+		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 5).click();
 		data.setCellData("V2Project", "Org", 2, CommonMethod.getText("OrgName"));
 		testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
 		String Ownername = USfaker.address().firstName();
@@ -136,7 +136,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectdocsubEstidateOkbtn");
 		CommonMethod.click("V2ProjectprojectOwnerContinuebtn");
 		testlog.info("Country:" + "United States");
-		CommonMethod.selectdropdown("V2ProjectprojectaddressCountry", "United States");
+		CommonMethod.selectdropdownVisibletext("V2ProjectprojectaddressCountry", "United States");
 		data.setCellData("V2Project", "Country", 2,
 				CommonMethod.getSelectedDropdownValue("V2ProjectprojectaddressCountry"));
 		CommonMethod.WaitUntilVisibility("V2ProjectprojectState", 10);
@@ -150,7 +150,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.sendKeys("V2ProjectprojectaddressStreet", ProjectAddress1);
 		CommonMethod.sendKeys("V2ProjectprojectaddressCity", ProjectCity);
 		CommonMethod.sendKeys("V2ProjectprojectaddressPostalcode", PostalCode);
-		CommonMethod.selectdropdown("V2ProjectowneraddressCountry", "United States");
+		CommonMethod.selectdropdownVisibletext("V2ProjectowneraddressCountry", "United States");
 		CommonMethod.WaitUntilVisibility("V2ProjectowneraddressState", 10);
 		CommonMethod.selectdropdownrandom("V2ProjectowneraddressState");
 		CommonMethod.sendKeys("V2ProjectowneraddressStreet", ProjectAddress1);
@@ -387,7 +387,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
 		CommonMethod.click("V2ProjectscorecardDocbtn");
 		testlog.info("TaskName : Performance Test OR Sensor Data");
-		CommonMethod.selectdropdown("V2Projectscorecardverificationdropdown", "Performance Test OR Sensor Data");
+		CommonMethod.selectdropdownVisibletext("V2Projectscorecardverificationdropdown", "Performance Test OR Sensor Data");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
 		CommonMethod.click("V2Projectscorecarddocuploadsubmit");
@@ -403,7 +403,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
 		CommonMethod.click("V2ProjectscorecardDocbtn");
 		testlog.info("TaskName : Technical Document (Audited)");
-		CommonMethod.selectdropdown("V2Projectscorecardverificationdropdown", "Technical Document (Audited)");
+		CommonMethod.selectdropdownVisibletext("V2Projectscorecardverificationdropdown", "Technical Document (Audited)");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
 		CommonMethod.click("V2Projectscorecarddocuploadsubmit");
@@ -420,7 +420,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
 		testlog.info("Document Type : General");
-		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", DocumentType);
+		CommonMethod.selectdropdownVisibletext("V2ProjectPortfolioDocType", DocumentType);
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
 		CommonMethod.click("V2ProjectDocSubmit");
@@ -435,21 +435,21 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.click("V2ProjectDocUploadbtn");
 		testlog.info("Document Type" + "Ongoing data reports");
-		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Ongoing data reports");
+		CommonMethod.selectdropdownVisibletext("V2ProjectPortfolioDocType", "Ongoing data reports");
 		Thread.sleep(2000);
 		CommonMethod.click("V2ProjectResetbtn");
 		Thread.sleep(1000);
-		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Legal");
+		CommonMethod.selectdropdownVisibletext("V2ProjectPortfolioDocType", "Legal");
 		Thread.sleep(1000);
 		CommonMethod.click("V2ProjectResetbtn");
 		Thread.sleep(2000);
-		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Ongoing data reports");
+		CommonMethod.selectdropdownVisibletext("V2ProjectPortfolioDocType", "Ongoing data reports");
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
 		CommonMethod.click("OwnerOrgClick");
 		CommonMethod.sendKeys("OwnerOrg", "R");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
 		CommonMethod.click("SelectOwnerOrg");
-		CommonMethod.selectdropdown("V2ProjectDocPeriod", "Year 1 reporting");
+		CommonMethod.selectdropdownVisibletext("V2ProjectDocPeriod", "Year 1 reporting");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
 		CommonMethod.click("V2ProjectDocSubmit");
@@ -465,7 +465,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectDocUploadbtn");
 		Thread.sleep(2000);
 		testlog.info("Document Type" + "Feature");
-		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "Feature");
+		CommonMethod.selectdropdownVisibletext("V2ProjectPortfolioDocType", "Feature");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
 		CommonMethod.click("OwnerOrgClick");
@@ -507,7 +507,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectsubmitReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Preliminary Precertification Review");
 		Thread.sleep(4000);
-		CommonMethod.selectdropdown("V2ProjectSelectPhase", "Preliminary Precertification Review");
+		CommonMethod.selectdropdownVisibletext("V2ProjectSelectPhase", "Preliminary Precertification Review");
 		CommonMethod.click("V2ProjectSubmitPhaseReview");
 		Thread.sleep(2000);
 		/*
@@ -598,7 +598,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectsubmitReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Final Documentation Review");
 		Thread.sleep(4000);
-		CommonMethod.selectdropdown("V2ProjectSelectPhase", "Final Documentation Review");
+		CommonMethod.selectdropdownVisibletext("V2ProjectSelectPhase", "Final Documentation Review");
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingHsrcbx");
 		CommonMethod.click("V2ProjectSubmitPhaseReview");
 		Thread.sleep(2000);
@@ -665,7 +665,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectsubmitReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Final Performance Review");
 		Thread.sleep(4000);
-		CommonMethod.selectdropdown("V2ProjectSelectPhase", "Final Performance Review");
+		CommonMethod.selectdropdownVisibletext("V2ProjectSelectPhase", "Final Performance Review");
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingHsrcbx");
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingWprcbx");
 		CommonMethod.click("V2ProjectSubmitPhaseReview");
@@ -713,7 +713,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectAddMemberbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectEmailAddress", 30);
 		CommonMethod.sendKeys("V2ProjectEmailAddress", "gokulthiru22@gmail.com");
-		CommonMethod.selectdropdown("V2ProjectRole", "Acoustician");
+		CommonMethod.selectdropdownVisibletext("V2ProjectRole", "Acoustician");
 		CommonMethod.ClickCheckbox("V2ProjectMembercbx");
 		CommonMethod.WaitUntilVisibility("V2ProjectInvitebtn", 30);
 		CommonMethod.click("V2ProjectInvitebtn");
@@ -731,17 +731,16 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectGetHelpButton", 60);
 		CommonMethod.click("V2ProjectGetHelpButton");
 		CommonMethod.WaitUntilVisibility("V2ProjectQuestionAboutDropdown", 60);
-		CommonMethod.selectdropdown("V2ProjectQuestionAboutDropdown", "Feature");
+		CommonMethod.selectdropdownVisibletext("V2ProjectQuestionAboutDropdown", "Feature");
 		CommonMethod.WaitUntilVisibility("V2ProjectIssueSubTypeDropdown", 60);
-		CommonMethod.selectdropdown("V2ProjectIssueSubTypeDropdown", "A01 Air Quality");
+		CommonMethod.selectdropdownVisibletext("V2ProjectIssueSubTypeDropdown", "A01 Air Quality");
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
 		CommonMethod.click("OwnerOrgClick");
 		CommonMethod.sendKeys("OwnerOrg", "R");
-		CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
 		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
-		CommonMethod.ClickRandomWebElement("SelectOwnerOrgDyn");
-		data.setCellData("V2Project", "Org", 2, CommonMethod.getText("OrgName"));
-		testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
+		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 5).click();
+		//data.setCellData("V2Project", "Org", 2, CommonMethod.getText("OrgName"));
+		//testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
 		CommonMethod.WaitUntilClickble("V2ProjectSubjectInputField", 60).sendKeys("Testing");
 		data.setCellData("V2Project", "Subject", 2, CommonMethod.getattributeValue("V2ProjectSubjectInputField"));
 		testlog.info("FeatureName"+data.getCellData(SheetName, "Subject", rowNum));
@@ -759,7 +758,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		if (alternativeOption.equalsIgnoreCase("EP")) {
 			CommonMethod.click("V2ProjectEPSubmitButton");
 			CommonMethod.WaitUntilVisibility("V2ProjectFeatureDropdown", 60);
-			CommonMethod.selectdropdown("V2ProjectFeatureDropdown", "A01 Air Quality");
+			CommonMethod.selectdropdownVisibletext("V2ProjectFeatureDropdown", "A01 Air Quality");
 			CommonMethod.WaitUntilVisibility("V2ProjectApplicablePartCheckBox", 60);
 			CommonMethod.click("V2ProjectApplicablePartCheckBox");
 			CommonMethod.WaitUntilClickble("V2ProjectEquivalencyReason", 60).sendKeys("Reason for Equivalency Request");
@@ -776,7 +775,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.WaitUntilVisibility("V2ProjectAapSubmitButton", 60);
 			CommonMethod.click("V2ProjectAapSubmitButton");
 			CommonMethod.WaitUntilVisibility("V2ProjectFeatureDropdown", 60);
-			CommonMethod.selectdropdown("V2ProjectFeatureDropdown", "A01 Air Quality");
+			CommonMethod.selectdropdownVisibletext("V2ProjectFeatureDropdown", "A01 Air Quality");
 			data.setCellData("V2Project", "FeatureName", 2, CommonMethod.getSelectedDropdownValue("V2ProjectFeatureDropdown"));
 			testlog.info("FeatureName"+data.getCellData(SheetName, "FeatureName", rowNum));
 			CommonMethod.WaitUntilVisibility("V2ProjectApplicablePartCheckBox", 60);

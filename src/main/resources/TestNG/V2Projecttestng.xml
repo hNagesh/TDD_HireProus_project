@@ -25,7 +25,7 @@
 <class name="com.Well.testcases.V2Project.TC_13_PerformanceReviewV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.TC_14_TeamV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.TC_15_SupportV2ProjectTest"></class>
-<class name="com.Well.testcases.V2Project.TC_16_AlternativesV2ProjectTest"></class>
+<!-- <class name="com.Well.testcases.V2Project.TC_16_AlternativesV2ProjectTest"></class> -->
 </classes>
 </test>
 </suite>  

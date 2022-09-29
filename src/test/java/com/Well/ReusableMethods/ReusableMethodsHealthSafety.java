@@ -28,8 +28,8 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
 	   CommonMethod.selectdropdownrandom("OrgIndustry");
 	   data.setCellData("Hsr", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
-	   CommonMethod.selectdropdown("Hsrenrollcountry",  data.getCellData(SheetName, "country", rowNum));
-	   CommonMethod.selectdropdown("Hsrenrollstate", data.getCellData(SheetName, "state", rowNum));
+	   CommonMethod.selectdropdownVisibletext("Hsrenrollcountry",  data.getCellData(SheetName, "country", rowNum));
+	   CommonMethod.selectdropdownVisibletext("Hsrenrollstate", data.getCellData(SheetName, "state", rowNum));
        String ProjectAddress = USfaker.address().streetAddress();
 	   String ProjectCity = USfaker.address().cityName();
 	   String PostalCode = USfaker.address().zipCode();
@@ -42,7 +42,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
        CommonMethod.ClickCheckbox("Hsrbilladdcheckbox");
        CommonMethod.click("Hsrenrollcontinuebtn");
        CommonMethod.ClickCheckbox("Hsrregcheckbox");
-       CommonMethod.selectdropdown("HsrIwbimemberdropdown","No");
+       CommonMethod.selectdropdownVisibletext("HsrIwbimemberdropdown","No");
        CommonMethod.click("HsrRegcontinuebtn");
        CommonMethod.click("HsrTypeoneEnrollbtn");
        CommonMethod.scrollUp();
@@ -177,7 +177,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.click("HsrSubmitReview");
 		CommonMethod.WaitUntilPresence("HsrCommentReview", 60).sendKeys("Preliminary Health-Safety Review");
 		Thread.sleep(4000);
-		CommonMethod.selectdropdown("HsrSelectedProjectPhaseReview", "Preliminary Health-Safety Review");
+		CommonMethod.selectdropdownVisibletext("HsrSelectedProjectPhaseReview", "Preliminary Health-Safety Review");
 		CommonMethod.WaitUntilClickble("HsrSubmitDocReview", 60);
 		CommonMethod.click("HsrSubmitDocReview");
 		Thread.sleep(2000);

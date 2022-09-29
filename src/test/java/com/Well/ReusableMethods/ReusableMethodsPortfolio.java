@@ -48,7 +48,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.click("SelectOwnerOrg");
 		CommonMethod.click("PortfolioSpaceType");
 		CommonMethod.click("PortfolioSelectSpaceType");
-		CommonMethod.selectdropdown("PortfolioOwnerCountry", "United States");
+		CommonMethod.selectdropdownVisibletext("PortfolioOwnerCountry", "United States");
 		data.setCellData("Portfolio", "Country", 2, CommonMethod.getSelectedDropdownValue("PortfolioOwnerCountry"));
 		testlog.info("PortfolioOwnerCountry: " +data.getCellData(SheetName, "Country", rowNum));
 		CommonMethod.WaitUntilVisibility("PortfolioOwnerState", 10);
@@ -303,8 +303,8 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	public void ValidatingUploadDocument() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadbutton", 30);
 		CommonMethod.click("PortfolioDocumentUploadbutton");
-		CommonMethod.selectdropdown("V2ProjectPortfolioDocType", "general");
-		CommonMethod.selectdropdown("PortfolioSelectdocumenttype", "Project overview");
+		CommonMethod.selectdropdownValue("V2ProjectPortfolioDocType", "general");
+		CommonMethod.selectdropdownVisibletext("PortfolioSelectdocumenttype", "Project overview");
 		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadSubmitbutton", 60);
 		CommonMethod.Robustclick("PortfolioDocumentUploadSubmitbutton");

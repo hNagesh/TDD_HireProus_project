@@ -31,7 +31,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
 		CommonMethod.selectdropdownrandom("OrgIndustry");
 		data.setCellData("Wpr", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
-		CommonMethod.selectdropdown("WPRExamOwnerCountry", "United States");
+		CommonMethod.selectdropdownVisibletext("WPRExamOwnerCountry", "United States");
 		CommonMethod.selectdropdownrandom("WPRExamOwnerState");
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
@@ -53,7 +53,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.scrollUp();
 		CommonMethod.ClickCheckbox("WPRBehalfCbx");
-		CommonMethod.selectdropdown("WPRSelectMember", "No");
+		CommonMethod.selectdropdownVisibletext("WPRSelectMember", "No");
 		data.setCellData("Wpr", "WPRSelectMember", 2, CommonMethod.getSelectedDropdownValue("WPRSelectMember"));
 		CommonMethod.click("WPROwnerRegContinuebtn");
 		Thread.sleep(2000);
@@ -212,7 +212,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.click("ReviewTab");
 		CommonMethod.click("WPRReviewSubmitbtn");
 		CommonMethod.WaitUntilVisibility("WPRReviewSubmitDocbtn", 30);
-		CommonMethod.selectdropdown("WPRReviewProjectPhase", "Preliminary Performance Rating Review");
+		CommonMethod.selectdropdownVisibletext("WPRReviewProjectPhase", "Preliminary Performance Rating Review");
 		CommonMethod.WaitUntilClickble("WPRReviewComment", 60).sendKeys("Preliminary Performance Rating Review");
 		CommonMethod.click("WPRReviewSubmitDocbtn");
 		CommonMethod.WaitUntilVisibility("Reviewlanding", 60);
