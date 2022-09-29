@@ -9,12 +9,12 @@ public class ReusableMethodsExam extends BaseClass {
 	public void RegisterExam(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("TrainingNavBar", 60);
 		CommonMethod.click("TrainingNavBar");
-		CommonMethod.click("WELLExamRatingNavBar");
-		CommonMethod.click("WFExamContinuebtn");
-		CommonMethod.selectdropdownVisibletext("WPRExamOwnerCountry", "United States");
-		data.setCellData("Exam", "Country", 2, CommonMethod.getSelectedDropdownValue("WPRExamOwnerCountry"));
+		CommonMethod.RobustclickElementVisible("WELLExamRatingNavBar","WFExamContinuebtn");
+		CommonMethod.RobustclickElementVisible("WFExamContinuebtn","APRegContinue");
+		CommonMethod.selectdropdownValue("WPRExamOwnerCountry", "US");
+		data.setCellData(SheetName, "Country", rowNum, CommonMethod.getSelectedDropdownValue("WPRExamOwnerCountry"));
 		CommonMethod.selectdropdownrandom("WPRExamOwnerState");
-		data.setCellData("Exam", "State", 2, CommonMethod.getSelectedDropdownValue("WPRExamOwnerState"));
+		data.setCellData(SheetName, "State", rowNum, CommonMethod.getSelectedDropdownValue("WPRExamOwnerState"));
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
 		String PostalCode = USfaker.address().zipCode();
@@ -24,15 +24,15 @@ public class ReusableMethodsExam extends BaseClass {
 		testlog.info("PostalCode :" + PostalCode);
 		testlog.info("Phoneno :" + Phoneno);
 		CommonMethod.sendKeys("WPRExamOrgAddress", ProjectAddress);
-		data.setCellData("Exam", "Street", 2, CommonMethod.getattributeValue("WPRExamOrgAddress"));
+		data.setCellData(SheetName, "Street", rowNum, CommonMethod.getattributeValue("WPRExamOrgAddress"));
 		CommonMethod.sendKeys("WPRExamOrgCity", ProjectCity);
-		data.setCellData("Exam", "City", 2, CommonMethod.getattributeValue("WPRExamOrgCity"));
+		data.setCellData(SheetName, "City", rowNum, CommonMethod.getattributeValue("WPRExamOrgCity"));
 		CommonMethod.sendKeys("WPRExamOrgPostalcode", PostalCode);
-		data.setCellData("Exam", "PostalCode", 2, CommonMethod.getattributeValue("WPRExamOrgPostalcode"));
+		data.setCellData(SheetName, "PostalCode", rowNum, CommonMethod.getattributeValue("WPRExamOrgPostalcode"));
 		CommonMethod.sendKeys("APPhoneNo", Phoneno);
-		data.setCellData("Exam", "PhoneNo", 2, CommonMethod.getattributeValue("APPhoneNo"));
-		CommonMethod.click("APRegContinue");
-		CommonMethod.WaitUntilVisibility("APJobtitle", 60);
+		data.setCellData(SheetName, "PhoneNo", rowNum, CommonMethod.getattributeValue("APPhoneNo"));
+		CommonMethod.RobustclickElementVisible("APRegContinue","APJobtitle");
+		CommonMethod.WaitUntilVisibility("APJobtitle", 180);
 		testlog.pass("**Verifies the Registration successful**");
 	}
 
@@ -41,16 +41,10 @@ public class ReusableMethodsExam extends BaseClass {
 		String firstName = USfaker.address().firstName();
 		testlog.info("firstName: " + firstName);
 		CommonMethod.sendKeys("APJobtitle", firstName);
-		data.setCellData("Exam", "APJobtitle", 2, CommonMethod.getattributeValue("APJobtitle"));
-		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
-		CommonMethod.click("OwnerOrgClick");
-		CommonMethod.sendKeys("OwnerOrg", "R");
-		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
-		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 5).click();
-		data.setCellData("Exam", "Org", 2, CommonMethod.getText("OrgName"));
-		testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
-		CommonMethod.selectdropdownIndex("APIndustry", 1);
-		data.setCellData("Exam", "APIndustry", 2, CommonMethod.getSelectedDropdownValue("APIndustry"));
+		data.setCellData(SheetName, "APJobtitle", rowNum, CommonMethod.getattributeValue("APJobtitle"));
+		rc.SelectOwnerOrg(SheetName, rowNum);
+		CommonMethod.selectdropdownrandom("APIndustry");
+		data.setCellData(SheetName, "APIndustry", rowNum, CommonMethod.getSelectedDropdownValue("APIndustry"));
 		CommonMethod.ClickCheckbox("APDesignationscbx");
 		CommonMethod.ClickCheckbox("APGender");
 		CommonMethod.WaitUntilVisibility("DatePickerButton", 30);
@@ -63,16 +57,16 @@ public class ReusableMethodsExam extends BaseClass {
 		CommonMethod.WaitUntilVisibility("DatePickerOkButton", 30);
 		CommonMethod.click("DatePickerOkButton");
 		CommonMethod.click("DatePickerOkButton");
-		CommonMethod.click("APJobtitleContinuebtn");
+		CommonMethod.RobustclickElementVisible("APJobtitleContinuebtn","APAlmostContinuebtn");
 		CommonMethod.selectdropdownIndex("APSelectWELLAP", 1);
-		data.setCellData("Exam", "APSelectWELLAP", 2, CommonMethod.getSelectedDropdownValue("APSelectWELLAP"));
+		data.setCellData(SheetName, "APSelectWELLAP", rowNum, CommonMethod.getSelectedDropdownValue("APSelectWELLAP"));
 		CommonMethod.ClickCheckbox("APPrimaryReason");
 		CommonMethod.selectdropdownIndex("APLanguage", 1);
-		data.setCellData("Exam", "APLanguage", 2, CommonMethod.getSelectedDropdownValue("APLanguage"));
+		data.setCellData(SheetName, "APLanguage", rowNum, CommonMethod.getSelectedDropdownValue("APLanguage"));
 		CommonMethod.ClickCheckbox("APAgree");
-		CommonMethod.click("APAlmostContinuebtn");
-		CommonMethod.click("APPay");
-		CommonMethod.WaitUntilVisibility("BillingLanding", 60);
+		CommonMethod.RobustclickElementVisible("APAlmostContinuebtn","APPay");
+		CommonMethod.RobustclickElementVisible("APPay","BillingLanding");
+		CommonMethod.WaitUntilVisibility("BillingLanding", 180);
 		testlog.pass("**Verifies the Enroll Exam successfully**");
 	}
 
@@ -86,7 +80,7 @@ public class ReusableMethodsExam extends BaseClass {
 	public void StoreExam(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("APStoreExamId", 30);
 		String getId = CommonMethod.getText("APStoreExamId");
-		data.setCellData("Exam", "examId", 2, getId);
+		data.setCellData(SheetName, "examId", rowNum, getId);
 		testlog.pass("**Stored the Registered id  in excel successfully**");
 	}
 

@@ -396,7 +396,11 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectResetbtn");
 		Thread.sleep(2000);
 		CommonMethod.selectdropdownVisibletext("V2ProjectPortfolioDocType", "Ongoing data reports");
-		rc.SelectOwnerOrg(SheetName, rowNum);
+		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
+		CommonMethod.click("OwnerOrgClick");
+		CommonMethod.sendKeys("OwnerOrg", "R");
+		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
+		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 5).click();
 		CommonMethod.selectdropdownVisibletext("V2ProjectDocPeriod", "Year 1 reporting");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", OngoingfileUpload);
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);

@@ -237,6 +237,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.sendKeys("HsrReasonnarration", "Submitting Document");
 		CommonMethod.Robustclick("HsrDocumentUploadbtn");
 		/* CommonMethod.click("V2ProjectGeneralDoc"); */
+		//Add Doc count validation
 		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
 		testlog.pass("**Upload Document successfully**");
 }
