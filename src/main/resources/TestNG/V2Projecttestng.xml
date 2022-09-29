@@ -10,7 +10,7 @@
 <parameter name="SheetName" value="V2Project"/>
 <parameter name="rowNum" value="2"/>
 <parameter name="ProjectType" value="WELLCore"/>
-<parameter name="Country" value="United States"/>
+<parameter name="Country" value="US"/>
 <classes>
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
 <class name="com.Well.testcases.V2Project.TC_02_RegisterV2ProjectTest"></class>

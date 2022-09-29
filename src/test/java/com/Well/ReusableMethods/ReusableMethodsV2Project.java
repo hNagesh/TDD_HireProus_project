@@ -158,7 +158,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void ClickBilling(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("BiilingTab", 120);
 		CommonMethod.click("BiilingTab");
-		CommonMethod.click("PortfolioPayNowButton");
+		CommonMethod.click("PayNowButton");
 		testlog.pass("**Nagavited to Billing successfully**");
 	}
 

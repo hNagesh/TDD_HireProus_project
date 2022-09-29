@@ -9,9 +9,9 @@ public class ReusableMethodCommon extends BaseClass {
 	
 	public void SelectCountryAndState(String Country,String SheetName,int rowNum) throws IOException, InterruptedException {
 
-		CommonMethod.selectdropdownVisibletext("V2ProjectlocationCountry", Country);
+		CommonMethod.selectdropdownValue("ProjectlocationCountry", Country);
 		data.setCellData(SheetName, "Country", rowNum, CommonMethod.getSelectedDropdownValue("ProjectlocationCountry"));
-		CommonMethod.selectdropdownrandom("V2ProjectlocationState");
+		CommonMethod.selectdropdownrandom("ProjectlocationState");
 		data.setCellData(SheetName, "State", rowNum, CommonMethod.getSelectedDropdownValue("ProjectlocationState"));
 		testlog.info("Country: " + data.getCellData(SheetName, "Country", rowNum));
 		testlog.info("State: " + data.getCellData(SheetName, "State", rowNum));
