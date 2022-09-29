@@ -23,6 +23,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
+
+import com.Well.ReusableMethods.ReusableMethodCommon;
 import com.Well.ReusableMethods.ReusableMethodPerformance;
 import com.Well.ReusableMethods.ReusableMethodsExam;
 import com.Well.ReusableMethods.ReusableMethodsFaculty;
@@ -57,9 +59,12 @@ public class BaseClass {
 	public static String SamplePdffile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"Resume.pdf";
 	public static String SamplePdffile1 = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"SampleResume.pdf";
 	public static String SampleJpgfile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"Favicon.jpg";
-	
+	public static String AuditfileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"AuditFile.xlsx";
 	public static String PortfolioLocationImportfile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"portfoliolocations.xlsm";
-	public static String featurefileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"FeatureFile.xlsx";
+	public static String FeaturefileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"FeatureFile.xlsx";
+	public static String GeneralfileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"GeneralFile.xlsx";
+	public static String LegalfileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"LegalFile.xlsm";
+	public static String OngoingfileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"OngoingFile.xlsx";
 	public static Faker USfaker = new Faker(new Locale("en-US"));
 	public static String downloadPath = System.getProperty("user.dir") +File.separator +"Downloads"+File.separator;
 	public static ReusableMethodsLogin login = new ReusableMethodsLogin();
@@ -70,6 +75,7 @@ public class BaseClass {
 	public static ReusableMethodsFaculty faculty = new ReusableMethodsFaculty();
 	public static ReusableMethodsExam exam = new ReusableMethodsExam();
 	public static ReusableMethodsMembership membership = new ReusableMethodsMembership();
+	public static ReusableMethodCommon rc = new ReusableMethodCommon();
 	@BeforeSuite
 	@Parameters({ "browserName", "environment" })
 	public void setup(String browserName, String environment) throws InterruptedException, IOException {

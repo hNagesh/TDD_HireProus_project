@@ -114,7 +114,7 @@ public class ReusableMethodsMembership extends BaseClass {
 	}
 
 	public void BillingMembership(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
-		v2project.Billing(SheetName, rowNum);
+		rc.Billing(SheetName, rowNum);
 		testlog.info("MembershipName:" +MembershipName);
 		CommonMethod.WaitUntilVisibility("MPValidMembershipeType", 60);
 		if (MembershipName.equalsIgnoreCase("Cornerstone")) {

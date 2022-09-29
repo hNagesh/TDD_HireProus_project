@@ -138,7 +138,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 
 	public void PortfolioCardPayment(String SheetName, int rowNum) throws IOException, InterruptedException {
-		v2project.Billing(SheetName, rowNum);
+		rc.Billing(SheetName, rowNum);
 	}
 
 	public void PortfolioLocationImport(String SheetName, int rowNum) throws IOException, InterruptedException {

@@ -117,7 +117,7 @@ public class ReusableMethodPerformance extends BaseClass {
 	}
 
 	public void PerformanceBilling(String SheetName, int rowNum) throws IOException, InterruptedException {
-		v2project.Billing(SheetName, rowNum);
+		rc.Billing(SheetName, rowNum);
 		testlog.pass("**Completed Card Payment Billing successfully**");
 	}
 

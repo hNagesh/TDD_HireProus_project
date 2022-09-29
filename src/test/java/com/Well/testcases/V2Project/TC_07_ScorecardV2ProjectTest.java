@@ -20,8 +20,8 @@ public class TC_07_ScorecardV2ProjectTest extends BaseClass {
 		try {
 		v2project.BuildScorecardV2ProjectById(SheetName, rowNum);	
 		v2project.CompleteScorecardV2ProjectById(SheetName, rowNum);
-		v2project.UploadFeatureDocV2ProjectById(SheetName, rowNum);
-		v2project.UploadAuditDocV2ProjectById(SheetName, rowNum);
+		v2project.UploadFeatureDocV2ProjectInsideScorecard(SheetName, rowNum);
+		v2project.UploadAuditDocV2ProjectInsideScorecard(SheetName, rowNum);
 
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

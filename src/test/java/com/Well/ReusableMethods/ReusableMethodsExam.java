@@ -78,7 +78,7 @@ public class ReusableMethodsExam extends BaseClass {
 
 	public void BillingExam(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("BillingLanding", 30);
-		v2project.Billing(SheetName, rowNum);
+		rc.Billing(SheetName, rowNum);
 		CommonMethod.WaitUntilVisibility("APStoreExamId", 60);
 		testlog.pass("**Completed Card Payment Billing successfully**");
 	}

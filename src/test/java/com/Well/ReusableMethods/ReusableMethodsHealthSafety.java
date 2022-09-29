@@ -105,7 +105,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		   testlog.pass("**Verifies the Search HealthSafety ByID successfully**");
 	}
 	public void HSRBilling(String SheetName, int rowNum) throws IOException, InterruptedException {
-		v2project.Billing(SheetName, rowNum);
+		rc.Billing(SheetName, rowNum);
 		testlog.pass("**Completed Card Payment Billing successfully**");
 	}
 	public void HSRLocation(String SheetName, int rowNum) throws IOException, InterruptedException {

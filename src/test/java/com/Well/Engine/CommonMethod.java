@@ -406,6 +406,7 @@ public class CommonMethod extends BaseClass {
 
 	// user defined sendkeys Method
 	public static void sendKeys(String objectLocater, String value) throws IOException {
+		CommonMethod.WaitUntilClickble(objectLocater, timeout);
 		findElement(objectLocater).sendKeys(value);
 		
 	}

@@ -18,7 +18,7 @@ public class TC_05_BillingV2ProjectTest extends BaseClass {
 		StartTest(TestCaseName);
 		try {
 		v2project.ClickBilling(SheetName, rowNum);
-		v2project.Billing(SheetName, rowNum);	
+		rc.Billing(SheetName, rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
