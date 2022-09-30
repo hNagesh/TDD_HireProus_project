@@ -215,7 +215,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilClickble("WPRAdminIdSearch", 60).sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("WPRAdminApplybtn");
 		Thread.sleep(2000);
-		CommonMethod.assertcontainsmessage("WPRIdClick", data.getCellData(SheetName, "projectID", rowNum),
+		CommonMethod.assertcontainsmessage("WPRAdminIdClick", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
 		CommonMethod.click("WPRAdminIdClick");
 		Thread.sleep(3000);
