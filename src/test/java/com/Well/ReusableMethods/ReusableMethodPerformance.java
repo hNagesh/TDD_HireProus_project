@@ -192,7 +192,6 @@ public class ReusableMethodPerformance extends BaseClass {
 		uploadDocumentInFeature(21);
 		testlog.pass("**Upload 21 Scorecard Documents successfully**");
 	}
-
 	public void WPRReview(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("ReviewTab", 60);
 		Thread.sleep(3000);
