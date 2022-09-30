@@ -202,6 +202,14 @@
      
                     </fileset>
                     <fileset>
+                        <directory>${project.basedir}/bin</directory>
+                        <includes>
+                            <include>**/*</include>
+                        </includes>
+                        <followSymlinks>false</followSymlinks>
+     
+                    </fileset>
+                    <fileset>
                         <directory>${project.basedir}/Downloads</directory>
                         <includes>
                             <include>**/*</include>
