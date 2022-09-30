@@ -524,7 +524,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
 		for (WebElement f : Feature) {
 			CommonMethod.click(f);
-			CommonMethod.WaitUntilVisibility("V2ProjectWPRPDocIcon", 60);
+			CommonMethod.WaitUntilPresence("V2ProjectWPRPDocIcon", 60);
 			CommonMethod.click("V2ProjectWPRPDocIcon");
 			CommonMethod.WaitUntilVisibility("V2ProjectWPRVerificationMethod", 60);
 			CommonMethod.selectdropdownIndex("V2ProjectWPRVerificationMethod", 1);
