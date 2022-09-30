@@ -21,7 +21,6 @@ public class ReusableMethodsLogin extends BaseClass {
 			Username = data.getCellData("Login", "UserName", 2);
 		    Password = data.getCellData("Login", "Password", 2);
 		}
-			
 		CommonMethod.scrolldowntoElement("Username");
 		CommonMethod.sendKeys("Username", Username);
 		testlog.info("Sending Username " + Username);
@@ -34,8 +33,8 @@ public class ReusableMethodsLogin extends BaseClass {
 		CommonMethod.WaitUntilVisibility("SuccessfulLogin", 30);
 		testlog.pass("Verfies Login Successful");
 
-		}
-
+		
+	}
 	}
 
 
