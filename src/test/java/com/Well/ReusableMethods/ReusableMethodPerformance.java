@@ -14,8 +14,8 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.click("WELLPerformanceRatingNavBar");
 		CommonMethod.WaitUntilVisibility("WPRstartNewProject", 60);
 		CommonMethod.click("WPRstartNewProject");
-		CommonMethod.RobustclickElementVisible("WPREnrollOption","WPRenrollbtn");
-		CommonMethod.RobustclickElementVisible("WPRenrollbtn","WPROrgContinebtn");
+		CommonMethod.RobustclickElementVisible("WPREnrollOption", "WPRenrollbtn");
+		CommonMethod.RobustclickElementVisible("WPRenrollbtn", "WPROrgContinebtn");
 		String ProjectName = "Automation WPR Project" + CommonMethod.randomNumber(8000000);
 		testlog.info("ProjectName: " + ProjectName);
 		data.setCellData(SheetName, "projectName", rowNum, ProjectName);
@@ -42,12 +42,13 @@ public class ReusableMethodPerformance extends BaseClass {
 		data.setCellData(SheetName, "PostalCode", rowNum, CommonMethod.getattributeValue("WPRExamOrgPostalcode"));
 		CommonMethod.ClickCheckbox("WPROwnercbx");
 		CommonMethod.scrollDown();
-		CommonMethod.RobustclickElementVisible("WPROrgContinebtn","WPROwnerRegContinuebtn");
+		CommonMethod.RobustclickElementVisible("WPROrgContinebtn", "WPROwnerRegContinuebtn");
 		Thread.sleep(2000);
 		CommonMethod.scrollUp();
 		CommonMethod.ClickCheckbox("WPRBehalfCbx");
 		CommonMethod.selectdropdownVisibletext("WPRSelectMember", "No");
-		data.setCellData(SheetName, "WPRSelectMember", rowNum, CommonMethod.getSelectedDropdownValue("WPRSelectMember"));
+		data.setCellData(SheetName, "WPRSelectMember", rowNum,
+				CommonMethod.getSelectedDropdownValue("WPRSelectMember"));
 		CommonMethod.click("WPROwnerRegContinuebtn");
 		Thread.sleep(2000);
 		CommonMethod.scrollUp();
@@ -58,26 +59,26 @@ public class ReusableMethodPerformance extends BaseClass {
 		Thread.sleep(1000);
 		CommonMethod.scrollDown();
 		CommonMethod.clear("WPRlocationsize");
-		String Area = CommonMethod.randomNumberBetweenRanges(100,50000);
+		String Area = CommonMethod.randomNumberBetweenRanges(100, 50000);
 		testlog.info("Locationsize: " + Area);
 		CommonMethod.sendKeys("WPRlocationsize", Area);
 		data.setCellData(SheetName, "WPRlocationsize", rowNum, CommonMethod.getattributeValue("WPRlocationsize"));
 		CommonMethod.WaitUntilClickble("WPROwnerRegContinuebtn", 60);
-		CommonMethod.RobustclickElementVisible("WPROwnerRegContinuebtn","WPRReviewContinuebutton");
-		if(CommonMethod.isElementsExist("HsrWPRYesMyOrganizationCbx", 2)) {
-		CommonMethod.WaitUntilClickble("HsrWPRYesMyOrganizationCbx", 30);
-		CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
+		CommonMethod.RobustclickElementVisible("WPROwnerRegContinuebtn", "WPRReviewContinuebutton");
+		if (CommonMethod.isElementsExist("HsrWPRYesMyOrganizationCbx", 2)) {
+			CommonMethod.WaitUntilClickble("HsrWPRYesMyOrganizationCbx", 30);
+			CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
 		}
-		CommonMethod.RobustclickElementVisible("WPRReviewContinuebutton","WPRtermContinuebutton");
-		
-		if(CommonMethod.isElementsExist("WPRProgramFeePublicrbtn", 20)) {
-		CommonMethod.WaitUntilClickble("WPRProgramFeePublicrbtn", 60);
-		CommonMethod.ClickCheckbox("WPRProgramFeePublicrbtn");
+		CommonMethod.RobustclickElementVisible("WPRReviewContinuebutton", "WPRtermContinuebutton");
+
+		if (CommonMethod.isElementsExist("WPRProgramFeePublicrbtn", 20)) {
+			CommonMethod.WaitUntilClickble("WPRProgramFeePublicrbtn", 60);
+			CommonMethod.ClickCheckbox("WPRProgramFeePublicrbtn");
 		}
 		CommonMethod.scrollDown();
 		CommonMethod.WaitUntilClickble("WPRAcknowledecbx", 60);
 		CommonMethod.ClickCheckbox("WPRAcknowledecbx");
-		CommonMethod.RobustclickElementVisible("WPRtermContinuebutton","BillingLanding");
+		CommonMethod.RobustclickElementVisible("WPRtermContinuebutton", "BillingLanding");
 		CommonMethod.WaitUntilVisibility("BillingLanding", 60);
 		testlog.pass("**Verifies the Registration successful**");
 	}
@@ -98,7 +99,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.WaitUntilVisibility("WELLPerformanceRatingNavBar", 300);
-		CommonMethod.RobustclickElementVisible("WELLPerformanceRatingNavBar","WPRIdClick");
+		CommonMethod.RobustclickElementVisible("WELLPerformanceRatingNavBar", "WPRIdClick");
 		String wprId = data.getCellData(SheetName, "ProjectID", rowNum);
 		testlog.info("Performance ID: " + wprId);
 		CommonMethod.WaitUntilClickble("WPRId", 60).sendKeys(wprId);
@@ -110,7 +111,6 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 300);
 		testlog.pass("**Verifies the Search Performance ByID successfully**");
 	}
-
 
 	public void ScorecardfillHSRWPR(int YesEnd, int NoStart, int NoEnd, int DifferencePlusOne, String purseYes,
 			String purseNo) throws IOException, InterruptedException {
@@ -192,6 +192,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		uploadDocumentInFeature(21);
 		testlog.pass("**Upload 21 Scorecard Documents successfully**");
 	}
+
 	public void WPRReview(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("ReviewTab", 60);
 		Thread.sleep(3000);
@@ -210,8 +211,9 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
 		CommonMethod.click("AdminNavBar");
 		CommonMethod.WaitUntilVisibility("AdminWELLPerformanceNavBar", 60);
-		CommonMethod.RobustclickElementVisible("AdminWELLPerformanceNavBar","WPRAdminIdSearch");
-		CommonMethod.WaitUntilClickble("WPRAdminIdSearch", 60).sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.RobustclickElementVisible("AdminWELLPerformanceNavBar", "WPRAdminIdSearch");
+		CommonMethod.WaitUntilClickble("WPRAdminIdSearch", 60)
+				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("WPRAdminApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("WPRAdminIdClick", data.getCellData(SheetName, "ProjectID", rowNum),
@@ -230,7 +232,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
 		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
-		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit","ReviewedStatus");
+		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit", "ReviewedStatus");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status successfully");
 		testlog.pass("**Completed Reviewing Preliminary Precertification Review successfully**");
