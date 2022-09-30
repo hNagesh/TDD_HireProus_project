@@ -686,27 +686,27 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void supportV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectSupportButton", 60);
-		CommonMethod.click("V2ProjectSupportButton");
+		CommonMethod.RobustclickElementVisible("V2ProjectSupportButton","V2ProjectGetHelpButton");
 		CommonMethod.WaitUntilVisibility("V2ProjectGetHelpButton", 60);
-		CommonMethod.click("V2ProjectGetHelpButton");
+		CommonMethod.RobustclickElementVisible("V2ProjectGetHelpButton","V2ProjectQuestionAboutDropdown");
 		CommonMethod.WaitUntilVisibility("V2ProjectQuestionAboutDropdown", 60);
-		CommonMethod.selectdropdownVisibletext("V2ProjectQuestionAboutDropdown", "Feature");
+		CommonMethod.selectdropdownValue("V2ProjectQuestionAboutDropdown", "well-v2-feature");
 		CommonMethod.WaitUntilVisibility("V2ProjectIssueSubTypeDropdown", 60);
-		CommonMethod.selectdropdownVisibletext("V2ProjectIssueSubTypeDropdown", "A01 Air Quality");
+		CommonMethod.selectdropdownValue("V2ProjectIssueSubTypeDropdown", "A01 Air Quality");
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
 		CommonMethod.click("OwnerOrgClick");
 		CommonMethod.sendKeys("OwnerOrg", "R");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
 		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 5).click();
-		//data.setCellData(SheetName, "Org", rowNum, CommonMethod.getText("OrgName"));
-		//testlog.info("OrganizationName: " +data.getCellData(SheetName, "Org", rowNum));
 		CommonMethod.WaitUntilClickble("V2ProjectSubjectInputField", 60).sendKeys("Testing");
 		data.setCellData(SheetName, "Subject", rowNum, CommonMethod.getattributeValue("V2ProjectSubjectInputField"));
 		testlog.info("FeatureName" + data.getCellData(SheetName, "Subject", rowNum));
 		CommonMethod.WaitUntilClickble("V2ProjectDescriptionTextArea", 60).sendKeys("Testing");
-		CommonMethod.uploadFile("DocumentsUpload", PortfolioLocationImportfile);
+		CommonMethod.uploadFile("DocumentsUpload", FeaturefileUpload);
+		CommonMethod.WaitUntilVisibility("V2ProjectUploadFeatureVerify", 120);
 		CommonMethod.WaitUntilVisibility("SubmitButton", 60);
-		CommonMethod.click("SubmitButton");
+		CommonMethod.RobustclickElementVisible("SubmitButton","V2ProjectNewStatus");
+		CommonMethod.WaitUntilVisibility("V2ProjectNewStatus", 60);
 		CommonMethod.assertcontainsmessage("V2ProjectNewStatus", "New", "Verified New status");
 		testlog.pass("**Raised support ticket successfully**");
 	}
@@ -714,13 +714,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void alternativesV2Project(String SheetName, int rowNum, String alternativeOption)
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectAlternativesButton", 60);
-		CommonMethod.click("V2ProjectAlternativesButton");
+		CommonMethod.RobustclickElementVisible("V2ProjectAlternativesButton","V2ProjectEPSubmitButton");
 		if (alternativeOption.equalsIgnoreCase("EP")) {
-			CommonMethod.click("V2ProjectEPSubmitButton");
+			CommonMethod.RobustclickElementVisible("V2ProjectEPSubmitButton","V2ProjectFeatureDropdown");
 			CommonMethod.WaitUntilVisibility("V2ProjectFeatureDropdown", 60);
 			CommonMethod.selectdropdownVisibletext("V2ProjectFeatureDropdown", "A01 Air Quality");
 			CommonMethod.WaitUntilVisibility("V2ProjectApplicablePartCheckBox", 60);
-			CommonMethod.click("V2ProjectApplicablePartCheckBox");
+			CommonMethod.ClickCheckbox("V2ProjectApplicablePartCheckBox");
 			CommonMethod.WaitUntilClickble("V2ProjectEquivalencyReason", 60).sendKeys("Reason for Equivalency Request");
 			CommonMethod.WaitUntilClickble("V2ProjectEquivalencyCountriesInput", 60)
 					.sendKeys("Regions/Countries where Equivalency may be Applicable");
@@ -733,14 +733,14 @@ public class ReusableMethodsV2Project extends BaseClass {
 		} else if (alternativeOption.equalsIgnoreCase("AAP")) {
 			CommonMethod.scrolldowntoElement("V2ProjectAditionalButton");
 			CommonMethod.WaitUntilVisibility("V2ProjectAapSubmitButton", 60);
-			CommonMethod.click("V2ProjectAapSubmitButton");
+			CommonMethod.RobustclickElementVisible("V2ProjectAapSubmitButton","V2ProjectFeatureDropdown");
 			CommonMethod.WaitUntilVisibility("V2ProjectFeatureDropdown", 60);
 			CommonMethod.selectdropdownVisibletext("V2ProjectFeatureDropdown", "A01 Air Quality");
 			data.setCellData(SheetName, "FeatureName", rowNum,
 					CommonMethod.getSelectedDropdownValue("V2ProjectFeatureDropdown"));
 			testlog.info("FeatureName" + data.getCellData(SheetName, "FeatureName", rowNum));
 			CommonMethod.WaitUntilVisibility("V2ProjectApplicablePartCheckBox", 60);
-			CommonMethod.click("V2ProjectApplicablePartCheckBox");
+			CommonMethod.ClickCheckbox("V2ProjectApplicablePartCheckBox");
 			CommonMethod.WaitUntilClickble("V2ProjectAlternativesReasonTextArea", 60)
 					.sendKeys("Reason for Alternative Means and Methods");
 		}
@@ -748,7 +748,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 				.sendKeys("Proposed Alternative Means of Compliance");
 		CommonMethod.uploadFile("DocumentsUpload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilVisibility("SubmitButton", 60);
-		CommonMethod.click("SubmitButton");
+		CommonMethod.RobustclickElementVisible("SubmitButton","V2projectEPTypeStatus");
 		if (alternativeOption.equalsIgnoreCase("EP")) {
 			CommonMethod.WaitUntilVisibility("V2projectEPTypeStatus", 60);
 			CommonMethod.assertcontainsmessage("V2projectEPTypeStatus", "EP", "Verified EP status");
