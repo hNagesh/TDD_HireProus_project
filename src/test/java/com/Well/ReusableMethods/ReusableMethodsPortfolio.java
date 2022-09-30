@@ -13,34 +13,27 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	public void RegisterPortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
 		CommonMethod.click("ProjectNavBar");
-		CommonMethod.click("WellAtScaleNavBar");
+		CommonMethod.RobustclickElementVisible("WellAtScaleNavBar","PortfolioCreateAccountButton");
 		CommonMethod.WaitUntilVisibility("PortfolioCreateAccountButton", 60);
-		CommonMethod.click("PortfolioCreateAccountButton");
+		CommonMethod.RobustclickElementVisible("PortfolioCreateAccountButton","PortfolioAccountName");
 		String AccountName = "Automation portfolio " + CommonMethod.randomNumber(8000000);
 		CommonMethod.WaitUntilVisibility("PortfolioAccountName", 30);
 		CommonMethod.sendKeys("PortfolioAccountName", AccountName);
-		data.setCellData("Portfolio", "AccountName", 2, AccountName);
-		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
-		CommonMethod.click("OwnerOrgClick");
-		CommonMethod.sendKeys("OwnerOrg", "R");
-		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
-		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 6).click();
-		CommonMethod.WaitUntilVisibility("OrgName", 60);
-		data.setCellData("Portfolio", "OrganizationName", 2, CommonMethod.getText("OrgName"));
-		testlog.info("OrganizationName: " +data.getCellData(SheetName, "OrganizationName", rowNum));
+		data.setCellData(SheetName, "AccountName", rowNum, AccountName);
+		rc.SelectOwnerOrg(SheetName, rowNum);
 		CommonMethod.selectdropdownrandom("OrgIndustry");
-		data.setCellData("Portfolio", "OrgIndustry", 2, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
+		data.setCellData(SheetName, "OrgIndustry", rowNum, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
 		testlog.info("OrgIndustry: " +data.getCellData(SheetName, "OrgIndustry", rowNum));
-		CommonMethod.click("PortfolioNotSureRadio");
+		CommonMethod.ClickCheckbox("PortfolioNotSureRadio");
 		CommonMethod.sendKeys("PortfolioNumberOfLocation", "15");
-		data.setCellData("Portfolio", "Location", 2, CommonMethod.getattributeValue("PortfolioNumberOfLocation"));
+		data.setCellData(SheetName, "Location", rowNum, CommonMethod.getattributeValue("PortfolioNumberOfLocation"));
 		testlog.info("PortfolioNumberOfLocation: "+data.getCellData(SheetName, "Location", rowNum));
 		CommonMethod.sendKeys("PortfolioEstimatedNumberOfLocation", "10");
-		data.setCellData("Portfolio", "EstimatedNumberOfLocation", 2, CommonMethod.getattributeValue("PortfolioEstimatedNumberOfLocation"));
+		data.setCellData(SheetName, "EstimatedNumberOfLocation", rowNum, CommonMethod.getattributeValue("PortfolioEstimatedNumberOfLocation"));
 		testlog.info("EstimatedNumberOfLocation: "+data.getCellData(SheetName, "EstimatedNumberOfLocation", rowNum));
 		String Area = CommonMethod.randomNumberBetweenRanges(100,50000);
 		CommonMethod.sendKeys("PortfolioGrossAreaSQFT", Area);
-		data.setCellData("Portfolio", "AreaSQFT", 2, CommonMethod.getattributeValue("PortfolioGrossAreaSQFT"));
+		data.setCellData(SheetName, "AreaSQFT", rowNum, CommonMethod.getattributeValue("PortfolioGrossAreaSQFT"));
 		testlog.info("PortfolioGrossAreaSQFT: "+data.getCellData(SheetName, "AreaSQFT", rowNum));
 		CommonMethod.scrolldowntoElement("PortfolioPrimarlyLocated");
 		CommonMethod.click("PortfolioPrimarlyLocated");
@@ -48,26 +41,26 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.click("SelectOwnerOrg");
 		CommonMethod.click("PortfolioSpaceType");
 		CommonMethod.click("PortfolioSelectSpaceType");
-		CommonMethod.selectdropdownVisibletext("PortfolioOwnerCountry", "United States");
-		data.setCellData("Portfolio", "Country", 2, CommonMethod.getSelectedDropdownValue("PortfolioOwnerCountry"));
+		CommonMethod.selectdropdownValue("PortfolioOwnerCountry", "US");
+		data.setCellData(SheetName, "Country", rowNum, CommonMethod.getSelectedDropdownValue("PortfolioOwnerCountry"));
 		testlog.info("PortfolioOwnerCountry: " +data.getCellData(SheetName, "Country", rowNum));
 		CommonMethod.WaitUntilVisibility("PortfolioOwnerState", 10);
 		CommonMethod.selectdropdownrandom("PortfolioOwnerState");
-		data.setCellData("Portfolio", "State", 2, CommonMethod.getSelectedDropdownValue("PortfolioOwnerState"));
+		data.setCellData(SheetName, "State", rowNum, CommonMethod.getSelectedDropdownValue("PortfolioOwnerState"));
 		testlog.info("PortfolioOwnerCountry: " +data.getCellData(SheetName, "State", rowNum));
 		String ProjectAddress1 = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
 		String PostalCode = USfaker.address().zipCode();
 		CommonMethod.sendKeys("PortfolioOwnerStreetAddress", ProjectAddress1);
-		data.setCellData("Portfolio", "Street", 2, CommonMethod.getattributeValue("PortfolioOwnerStreetAddress"));
+		data.setCellData(SheetName, "Street", rowNum, CommonMethod.getattributeValue("PortfolioOwnerStreetAddress"));
 		testlog.info("PortfolioOwnerStreetAddress: "+data.getCellData(SheetName, "Street", rowNum));
 		CommonMethod.sendKeys("PortfolioOwnerCity", ProjectCity);
-		data.setCellData("Portfolio", "City", 2, CommonMethod.getattributeValue("PortfolioOwnerCity"));
+		data.setCellData(SheetName, "City", rowNum, CommonMethod.getattributeValue("PortfolioOwnerCity"));
 		testlog.info("PortfolioOwnerCity: "+data.getCellData(SheetName, "City", rowNum));
 		CommonMethod.sendKeys("PortfolioOwnerPostalCode", PostalCode);
-		data.setCellData("Portfolio", "PostalCode", 2, CommonMethod.getattributeValue("PortfolioOwnerPostalCode"));
+		data.setCellData(SheetName, "PostalCode", rowNum, CommonMethod.getattributeValue("PortfolioOwnerPostalCode"));
 		testlog.info("PortfolioOwnerPostalCode: "+data.getCellData(SheetName, "PostalCode", rowNum));
-		CommonMethod.click("PortfolioCreateAccountSubmit");
+		CommonMethod.RobustclickElementVisible("PortfolioCreateAccountSubmit", "WPRHsrPortfolioDashboard");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
 		testlog.pass("**Verifies the Registration successful**");
 	}
@@ -75,12 +68,14 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	public void SearchPortfolioByName(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
 		CommonMethod.click("ProjectNavBar");
-		CommonMethod.click("WellAtScaleNavBar");
+		CommonMethod.RobustclickElementVisible("WellAtScaleNavBar", "PortfolioSearchByName");
 		testlog.info("Portfolio Name:" +data.getCellData(SheetName, "AccountName", rowNum));
 		CommonMethod.WaitUntilClickble("PortfolioSearchByName", 60)
 				.sendKeys(data.getCellData(SheetName, "AccountName", rowNum));
 		CommonMethod.click("PortfolioSearchApplyFilter");
 		Thread.sleep(2000);
+		CommonMethod.assertcontainsmessage("PortfolioNameVerify", data.getCellData(SheetName, "AccountName", rowNum),
+			"Portfolio name doesn't matches in search");
 		CommonMethod.click("PortfolioClickSearchResult");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
 		testlog.pass("**Verifies the Search Portfolio Name successfully**");
@@ -103,27 +98,27 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		String OwnerEmail = USfaker.internet().emailAddress();
 		String OwnerPhone = USfaker.number().digits(10);
 		CommonMethod.sendKeys("PortfolioOwnerName", OwnerName);
-		data.setCellData("Portfolio", "OwnerName", 2, CommonMethod.getattributeValue("PortfolioOwnerName"));
+		data.setCellData(SheetName, "OwnerName", rowNum, CommonMethod.getattributeValue("PortfolioOwnerName"));
 		testlog.info("OwnerName: "+data.getCellData(SheetName, "OwnerName", rowNum));
 		CommonMethod.sendKeys("PortfolioOwnerEmail", OwnerEmail);
-		data.setCellData("Portfolio", "OwnerEmail", 2, CommonMethod.getattributeValue("PortfolioOwnerEmail"));
+		data.setCellData(SheetName, "OwnerEmail", rowNum, CommonMethod.getattributeValue("PortfolioOwnerEmail"));
 		testlog.info("OwnerEmail: "+data.getCellData(SheetName, "OwnerEmail", rowNum));
 		CommonMethod.sendKeys("PortfolioOwnerPhone", OwnerPhone);
-		data.setCellData("Portfolio", "OwnerPhone", 2, CommonMethod.getattributeValue("PortfolioOwnerPhone"));
+		data.setCellData(SheetName, "OwnerPhone", rowNum, CommonMethod.getattributeValue("PortfolioOwnerPhone"));
 		testlog.info("OwnerPhone: "+data.getCellData(SheetName, "OwnerPhone", rowNum));
 		CommonMethod.scrolldowntoElement("PortfolioSubcribeContinueButton");
 		CommonMethod.click("PortfolioSubcribeContinueButton");
 		CommonMethod.ClickCheckbox("PortfolioQuestionRadio");
 		CommonMethod.WaitUntilVisibility("PortfolioLocationDescriptionTextbox", 20);
 		CommonMethod.sendKeys("PortfolioLocationDescriptionTextbox", "Test Description");
-		data.setCellData("Portfolio", "PostalCode", 2, CommonMethod.getattributeValue("PortfolioOwnerPostalCode"));
+		data.setCellData(SheetName, "PostalCode", rowNum, CommonMethod.getattributeValue("PortfolioOwnerPostalCode"));
 		testlog.info("PortfolioOwnerPostalCode: "+data.getCellData(SheetName, "PostalCode", rowNum));
 		CommonMethod.scrolldowntoElement("PortfolioSubcribeContinueButton2");
 		CommonMethod.click("PortfolioSubcribeContinueButton2");
 		CommonMethod.click("PortfolioSubscribeDone");
 		CommonMethod.WaitUntilVisibility("PortfolioGoToBilling", 60);
 		CommonMethod.Robustclick("PortfolioGoToBilling");
-		CommonMethod.WaitUntilVisibility("PortfolioPayNowButton", 20);
+		CommonMethod.WaitUntilVisibility("V2ProjectPreBillingPayNowButton", 20);
 		CommonMethod.navigateBack();
 		testlog.pass("**Verifies Subscribe Portfolio successfully**");
 	}
@@ -131,8 +126,8 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	public void PortfolioClickOnBilling() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("BiilingTab", 60);
 		CommonMethod.click("BiilingTab");
-		CommonMethod.WaitUntilVisibility("PortfolioPayNowButton", 20);
-		CommonMethod.click("PortfolioPayNowButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectPreBillingPayNowButton", 20);
+		CommonMethod.RobustclickElementVisible("V2ProjectPreBillingPayNowButton","BillingLanding");
 		CommonMethod.WaitUntilVisibility("BillingLanding", 30);
 		testlog.pass("**Nagavited to Billing successfully**");
 	}
@@ -140,8 +135,6 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	public void PortfolioCardPayment(String SheetName, int rowNum) throws IOException, InterruptedException {
 		rc.Billing(SheetName, rowNum);
 	}
-
-	
 
 	public void PortfolioBuildScorecard() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("WellV2Tab", 120);
