@@ -52,7 +52,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.switchToFrame("CardCVVIframe");
 		CommonMethod.WaitUntilClickble("CardHolderCVC", 60);
 		testlog.info("CardHolderCVC:" + "999");
-		CommonMethod.sendKeys("CardHolderCVC", data.getCellData(SheetName, "CardCVV", rowNum));
+		CommonMethod.sendKeys("CardHolderCVC", data.getCellData(SheetName, "CardCVC", rowNum));
 		CommonMethod.switchToParentFrame();
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilClickble("PayNowButton", 10);
