@@ -17,7 +17,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.RobustclickElementVisible("WPREnrollOption","WPRenrollbtn");
 		CommonMethod.RobustclickElementVisible("WPRenrollbtn","WPROrgContinebtn");
 		String ProjectName = "Automation WPR Project" + CommonMethod.randomNumber(8000000);
-		testlog.info("ProjectName" + ProjectName);
+		testlog.info("ProjectName: " + ProjectName);
 		data.setCellData(SheetName, "projectName", rowNum, ProjectName);
 		CommonMethod.sendKeys("WPROrgName", ProjectName);
 		CommonMethod.ClickCheckbox("WPROwnerInfocbx");
@@ -29,9 +29,9 @@ public class ReusableMethodPerformance extends BaseClass {
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
 		String PostalCode = USfaker.address().zipCode();
-		testlog.info("Organization Address:" + ProjectAddress);
-		testlog.info("Organization City:" + ProjectCity);
-		testlog.info("Organization Postalcode:" + PostalCode);
+		testlog.info("Organization Address: " + ProjectAddress);
+		testlog.info("Organization City: " + ProjectCity);
+		testlog.info("Organization Postalcode: " + PostalCode);
 		CommonMethod.sendKeys("WPRExamOrgAddress", ProjectAddress);
 		CommonMethod.sendKeys("WPRExamOrgCity", ProjectCity);
 		CommonMethod.sendKeys("WPRExamOrgPostalcode", PostalCode);
@@ -59,7 +59,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.scrollDown();
 		CommonMethod.clear("WPRlocationsize");
 		String Area = CommonMethod.randomNumberBetweenRanges(100,50000);
-		testlog.info("Locationsize:" + Area);
+		testlog.info("Locationsize: " + Area);
 		CommonMethod.sendKeys("WPRlocationsize", Area);
 		data.setCellData(SheetName, "WPRlocationsize", rowNum, CommonMethod.getattributeValue("WPRlocationsize"));
 		CommonMethod.WaitUntilClickble("WPROwnerRegContinuebtn", 60);
@@ -88,9 +88,9 @@ public class ReusableMethodPerformance extends BaseClass {
 		String getId = CommonMethod.getText("StoreId");
 		String[] stringArray = getId.split(": ");
 		String getWprId = stringArray[1].trim();
-		testlog.info("Performance Id:" + getWprId);
+		testlog.info("Performance Id: " + getWprId);
 		data.setCellData(SheetName, "ProjectID", rowNum, getWprId);
-		testlog.info("Performance ID:" + getWprId);
+		testlog.info("Performance ID: " + getWprId);
 		testlog.pass("**Stored the Registered id  into excel successfully**");
 	}
 
@@ -100,7 +100,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WELLPerformanceRatingNavBar", 300);
 		CommonMethod.RobustclickElementVisible("WELLPerformanceRatingNavBar","WPRIdClick");
 		String wprId = data.getCellData(SheetName, "ProjectID", rowNum);
-		testlog.info("Performance ID:" + wprId);
+		testlog.info("Performance ID: " + wprId);
 		CommonMethod.WaitUntilClickble("WPRId", 60).sendKeys(wprId);
 		CommonMethod.click("WPRApplybtn");
 		Thread.sleep(3000);
@@ -215,10 +215,10 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilClickble("WPRAdminIdSearch", 60).sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("WPRAdminApplybtn");
 		Thread.sleep(2000);
-		CommonMethod.assertcontainsmessage("WPRIdClick", data.getCellData(SheetName, "projectID", rowNum),
+		CommonMethod.assertcontainsmessage("WPRAdminIdClick", data.getCellData(SheetName, "ProjectID", rowNum),
 				"Project name doesn't matches in search");
 		CommonMethod.click("WPRAdminIdClick");
-		Thread.sleep(3000);
+		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 300);
 		CommonMethod.click("ReviewTab");
 		CommonMethod.WaitUntilVisibility("ReviewViewButton", 60);
 		CommonMethod.click("ReviewViewButton");

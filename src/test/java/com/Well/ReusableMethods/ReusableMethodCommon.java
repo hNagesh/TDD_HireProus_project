@@ -8,7 +8,6 @@ import com.Well.Engine.CommonMethod;
 public class ReusableMethodCommon extends BaseClass {
 	
 	public void SelectCountryAndState(String Country,String SheetName,int rowNum) throws IOException, InterruptedException {
-
 		CommonMethod.selectdropdownValue("ProjectlocationCountry", Country);
 		data.setCellData(SheetName, "Country", rowNum, CommonMethod.getSelectedDropdownValue("ProjectlocationCountry"));
 		CommonMethod.selectdropdownrandom("ProjectlocationState");
@@ -18,14 +17,13 @@ public class ReusableMethodCommon extends BaseClass {
 	}
 	
 	public void SelectOwnerOrg(String SheetName,int rowNum) throws IOException, InterruptedException {
-		
 	CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
 	CommonMethod.click("OwnerOrgClick");
 	CommonMethod.sendKeys("OwnerOrg", "R");
 	CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
 	CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 5).click();
 	data.setCellData(SheetName, "OrgName", 2, CommonMethod.getText("OrgName"));
-	testlog.info("OrganizationName: " + data.getCellData(SheetName, "Org", rowNum));
+	testlog.info("OrganizationName: " + data.getCellData(SheetName, "OrgName", rowNum));
 	
 	}
 	public void Billing(String SheetName, int rowNum) throws IOException, InterruptedException {
