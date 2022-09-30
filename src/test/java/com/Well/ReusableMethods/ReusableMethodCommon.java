@@ -38,8 +38,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilClickble("CardHolderNumber", 60);
 		Thread.sleep(2000);
 		testlog.info("CardHolderNumber:" + "4111111111111111");
-		CommonMethod.sendKeys("CardHolderNumber", "4111111111111111");
-		data.setCellData(SheetName, "CardHolderNumber", rowNum, CommonMethod.getattributeValue("CardHolderNumber"));
+		CommonMethod.sendKeys("CardHolderNumber", data.getCellData(SheetName, "CardNumber", rowNum));
 		CommonMethod.switchToParentFrame();
 		Thread.sleep(2000);
 		CommonMethod.switchToFrame("CardExpDateIframe");
@@ -48,14 +47,12 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.sendKeys("CardHolderExpDate", "9");
 		CommonMethod.sendKeys("CardHolderExpDate", "2");
 		CommonMethod.sendKeys("CardHolderExpDate", "5");
-		data.setCellData(SheetName, "CardHolderExpDate", rowNum, CommonMethod.getattributeValue("CardHolderExpDate"));
 		CommonMethod.switchToParentFrame();
 		Thread.sleep(2000);
 		CommonMethod.switchToFrame("CardCVVIframe");
 		CommonMethod.WaitUntilClickble("CardHolderCVC", 60);
 		testlog.info("CardHolderCVC:" + "999");
-		CommonMethod.sendKeys("CardHolderCVC", "999");
-		data.setCellData(SheetName, "CardHolderCVC", rowNum, CommonMethod.getattributeValue("CardHolderCVC"));
+		CommonMethod.sendKeys("CardHolderCVC", data.getCellData(SheetName, "CardCVV", rowNum));
 		CommonMethod.switchToParentFrame();
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilClickble("PayNowButton", 10);

@@ -19,7 +19,7 @@ public class TC_05_PortfolioPaymentTest extends BaseClass {
 
 		try {
 			portfolio.PortfolioClickOnBilling();
-			portfolio.PortfolioCardPayment(SheetName, rowNum);
+			rc.Billing(SheetName, rowNum);
 			
 			
 		} catch (Throwable t) {

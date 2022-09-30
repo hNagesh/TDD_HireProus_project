@@ -2,9 +2,7 @@ package com.Well.ReusableMethods;
 
 import java.io.IOException;
 import java.util.List;
-
 import org.openqa.selenium.WebElement;
-
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
 
@@ -62,21 +60,28 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		testlog.info("PortfolioOwnerPostalCode: "+data.getCellData(SheetName, "PostalCode", rowNum));
 		CommonMethod.RobustclickElementVisible("PortfolioCreateAccountSubmit", "WPRHsrPortfolioDashboard");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
+		String getId = CommonMethod.getText("StoreId");
+		String[] stringArray = getId.split(": ");
+		String getProjectId = stringArray[1].trim();
+		data.setCellData(SheetName, "ProjectID", rowNum, getProjectId);
+		testlog.pass("**Stored the Registered id  in excel successfully**");
+		testlog.pass("**Verifies the Registration successful**");
 		testlog.pass("**Verifies the Registration successful**");
 	}
 
 	public void SearchPortfolioByName(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
 		CommonMethod.click("ProjectNavBar");
-		CommonMethod.RobustclickElementVisible("WellAtScaleNavBar", "PortfolioSearchByName");
+		CommonMethod.RobustclickElementVisible("WellAtScaleNavBar", "PortfolioSearchByID");
 		testlog.info("Portfolio Name:" +data.getCellData(SheetName, "AccountName", rowNum));
-		CommonMethod.WaitUntilClickble("PortfolioSearchByName", 60)
-				.sendKeys(data.getCellData(SheetName, "AccountName", rowNum));
+		testlog.info("Portfolio ID:" +data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.WaitUntilClickble("PortfolioSearchByID", 60)
+				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("PortfolioSearchApplyFilter");
 		Thread.sleep(2000);
-		CommonMethod.assertcontainsmessage("PortfolioNameVerify", data.getCellData(SheetName, "AccountName", rowNum),
-			"Portfolio name doesn't matches in search");
-		CommonMethod.click("PortfolioClickSearchResult");
+		CommonMethod.assertcontainsmessage("PortfolioIDVerify", data.getCellData(SheetName, "ProjectID", rowNum),
+			"Portfolio ID doesn't matches in search");
+		CommonMethod.RobustclickElementVisible("PortfolioIDVerify","WPRHsrPortfolioDashboard");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
 		testlog.pass("**Verifies the Search Portfolio Name successfully**");
 	}
@@ -92,7 +97,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	public void SubscribePortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
 		CommonMethod.WaitUntilVisibility("SubscribeTab", 30);
-		CommonMethod.click("SubscribeTab");
+		CommonMethod.Robustclick("SubscribeTab","PortfolioOwnerName");
 		CommonMethod.scrolldowntoElement("PortfolioOwnerName");
 		String OwnerName = USfaker.address().firstName();
 		String OwnerEmail = USfaker.internet().emailAddress();
@@ -107,15 +112,15 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		data.setCellData(SheetName, "OwnerPhone", rowNum, CommonMethod.getattributeValue("PortfolioOwnerPhone"));
 		testlog.info("OwnerPhone: "+data.getCellData(SheetName, "OwnerPhone", rowNum));
 		CommonMethod.scrolldowntoElement("PortfolioSubcribeContinueButton");
-		CommonMethod.click("PortfolioSubcribeContinueButton");
+		CommonMethod.RobustclickElementVisible("PortfolioSubcribeContinueButton","PortfolioSubcribeContinueButton2");
 		CommonMethod.ClickCheckbox("PortfolioQuestionRadio");
 		CommonMethod.WaitUntilVisibility("PortfolioLocationDescriptionTextbox", 20);
 		CommonMethod.sendKeys("PortfolioLocationDescriptionTextbox", "Test Description");
 		data.setCellData(SheetName, "PostalCode", rowNum, CommonMethod.getattributeValue("PortfolioOwnerPostalCode"));
 		testlog.info("PortfolioOwnerPostalCode: "+data.getCellData(SheetName, "PostalCode", rowNum));
 		CommonMethod.scrolldowntoElement("PortfolioSubcribeContinueButton2");
-		CommonMethod.click("PortfolioSubcribeContinueButton2");
-		CommonMethod.click("PortfolioSubscribeDone");
+		CommonMethod.RobustclickElementVisible("PortfolioSubcribeContinueButton2","PortfolioSubscribeDone");
+		CommonMethod.RobustclickElementVisible("PortfolioSubscribeDone","PortfolioGoToBilling");
 		CommonMethod.WaitUntilVisibility("PortfolioGoToBilling", 60);
 		CommonMethod.Robustclick("PortfolioGoToBilling");
 		CommonMethod.WaitUntilVisibility("V2ProjectPreBillingPayNowButton", 20);
@@ -125,20 +130,16 @@ public class ReusableMethodsPortfolio extends BaseClass {
 
 	public void PortfolioClickOnBilling() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("BiilingTab", 60);
-		CommonMethod.click("BiilingTab");
+		CommonMethod.RobustclickElementVisible("BiilingTab","V2ProjectPreBillingPayNowButton");
 		CommonMethod.WaitUntilVisibility("V2ProjectPreBillingPayNowButton", 20);
 		CommonMethod.RobustclickElementVisible("V2ProjectPreBillingPayNowButton","BillingLanding");
 		CommonMethod.WaitUntilVisibility("BillingLanding", 30);
 		testlog.pass("**Nagavited to Billing successfully**");
 	}
 
-	public void PortfolioCardPayment(String SheetName, int rowNum) throws IOException, InterruptedException {
-		rc.Billing(SheetName, rowNum);
-	}
-
 	public void PortfolioBuildScorecard() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("WellV2Tab", 120);
-		CommonMethod.click("WellV2Tab");
+		CommonMethod.RobustclickElementVisible("WellV2Tab","ScorecardTab");
 		CommonMethod.click("ScorecardTab");
 		if (CommonMethod.isElementsExist("PortfolioScorecardFinishedButton", 30)) {
 			Thread.sleep(2000);
@@ -185,7 +186,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 				UploadTaskbtn = CommonMethod.findElements("PortfolioScoreCardVerificationUploadbtn");
 				for (WebElement f : UploadTaskbtn) {
 					CommonMethod.WaitUntilClickble(f, 30).click();
-					CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", PortfolioLocationImportfile);
+					CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload);
 					CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
 					CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn",
 							"PortfolioScoreCardVerificationAddNote");
@@ -224,7 +225,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadbtn", 60);
 		CommonMethod.click("PortfolioScoreCardVerificationUploadbtn");
 		CommonMethod.scrolldowntoLast();
-		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", PortfolioLocationImportfile);
+		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", AuditfileUpload);
 		CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
 		CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn", "PortfolioScoreCardVerificationAddNote");
 		testlog.pass("**Upload Scorecard Documents in Audit successfully**");
@@ -269,19 +270,19 @@ public class ReusableMethodsPortfolio extends BaseClass {
 
 	public void clickDocument() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("DocumentLibraryTab", 60);
-		CommonMethod.click("DocumentLibraryTab");
+		CommonMethod.RobustclickElementVisible("DocumentLibraryTab","PortfolioDocumentUploadbutton");
 		testlog.pass("**Navigate Document successfully**");
 	}
 
 	public void ValidatingUploadDocument() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadbutton", 30);
-		CommonMethod.click("PortfolioDocumentUploadbutton");
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadbutton","V2ProjectPortfolioDocType");
 		CommonMethod.selectdropdownValue("V2ProjectPortfolioDocType", "general");
 		CommonMethod.selectdropdownVisibletext("PortfolioSelectdocumenttype", "Project overview");
-		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", PortfolioLocationImportfile);
+		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", GeneralfileUpload);
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadSubmitbutton", 60);
 		CommonMethod.Robustclick("PortfolioDocumentUploadSubmitbutton");
-		CommonMethod.WaitUntilClickble("PortfolioDocumentListLink", 30).click();
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioDocumentList");
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentList", 60);
 //		CommonMethod.assertcontainsmessage("PortfolioDocumentList", "3", "Verified Upload File Count");
 		testlog.pass("**Upload Document successfully**");
@@ -303,16 +304,18 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		 * Admin Review
 		 */
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
-		CommonMethod.click("AdminNavBar");
+		CommonMethod.RobustclickElementVisible("AdminNavBar","AdminWELLAtScaleNavBar");
 		CommonMethod.WaitUntilVisibility("AdminWELLAtScaleNavBar", 60);
-		CommonMethod.click("AdminWELLAtScaleNavBar");
-		CommonMethod.WaitUntilClickble("PortfolioAdminNameSearch", 60)
-				.sendKeys(data.getCellData(SheetName, "AccountName", rowNum));
+		CommonMethod.RobustclickElementVisible("AdminWELLAtScaleNavBar","PortfolioSearchByID");
+		CommonMethod.WaitUntilClickble("PortfolioSearchByID", 60)
+				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("PortfolioAdminApplybtn");
+		CommonMethod.assertcontainsmessage("PortfolioIDVerify", data.getCellData(SheetName, "ProjectID", rowNum),
+				"Portfolio ID doesn't matches in search");
 		Thread.sleep(2000);
-		CommonMethod.click("PortfolioAdminIdClick");
+		CommonMethod.RobustclickElementVisible("PortfolioIDVerify","ReviewTab");
 		CommonMethod.WaitUntilVisibility("ReviewTab", 60);
-		CommonMethod.click("ReviewTab");
+		CommonMethod.RobustclickElementVisible("ReviewTab","PortfolioReviewListViewButton");
 		CommonMethod.WaitUntilVisibility("PortfolioReviewListViewButton", 60);
 		CommonMethod.click("PortfolioReviewListViewButton");
 		CommonMethod.WaitUntilVisibility("PortfolioReturnReview", 60);
@@ -322,7 +325,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		Thread.sleep(1000);
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
-		CommonMethod.click("PortfolioReviewSubmitResponse");
+		CommonMethod.RobustclickElementVisible("PortfolioReviewSubmitResponse","PortfolioReviewStatus");
 		CommonMethod.WaitUntilVisibility("PortfolioReviewStatus", 60);
 		testlog.pass("**Completed Reviewed Preliminary Precertification Review successfully**");
 	}
