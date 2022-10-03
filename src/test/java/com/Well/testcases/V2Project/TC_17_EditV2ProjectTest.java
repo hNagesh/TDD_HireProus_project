@@ -17,10 +17,10 @@ public class TC_17_EditV2ProjectTest extends BaseClass {
 
 		StartTest(TestCaseName);
 		try {
-//		v2project.editAndValidateProjectInformationV2Project(SheetName, rowNum);
-//		v2project.editAndValidateOwnerInformationV2Project(SheetName, rowNum);
+		v2project.editAndValidateProjectInformationV2Project(SheetName, rowNum);
+		v2project.editAndValidateOwnerInformationV2Project(SheetName, rowNum);
 		v2project.editAndValidateAddressV2Project(SheetName, rowNum);
-//		v2project.editAndValidateAdminV2Project(SheetName, rowNum);
+		v2project.editAndValidateAdminV2Project(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
