@@ -2151,5 +2151,15 @@ public class CommonMethod extends BaseClass {
 		List<WebElement> ele = CommonMethod.findElements(objectLocator);
 		return ele.get(index);
 	}
+	public static boolean verifyTextPresentInElement(String objectLocater, String expected, String message)
+			throws Exception {
+		boolean flag = false;
+		String getText = getText(objectLocater);
+		if (getText.contains(expected)) {
+			Assert.assertTrue(getText(objectLocater).contains(expected), message);
+		 flag = true;
+		}
+		return flag;
+	}
 
 }
