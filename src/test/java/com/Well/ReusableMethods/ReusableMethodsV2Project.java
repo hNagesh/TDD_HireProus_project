@@ -759,4 +759,166 @@ public class ReusableMethodsV2Project extends BaseClass {
 			testlog.pass("**Added alternative AAP documents successfully**");
 		}
 	}
+	public void editAndValidateProjectInformationV2Project(String SheetName, int rowNum) throws Exception {
+		CommonMethod.WaitUntilVisibility("V2ProjectEditButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectEditButton", "V2ProjectProjectInformationButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectProjectInformationButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectProjectInformationButton", "V2ProjectProjectScope");
+		CommonMethod.WaitUntilVisibility("V2ProjectProjectNameInput", 60);
+		CommonMethod.clearAndSendKey("V2ProjectProjectNameInput",data.getCellData(SheetName, "ProjectName", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectProjectScope", 60);
+		CommonMethod.sendKeys("V2ProjectProjectScope", data.getCellData(SheetName, "ProjectScope", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectProjectGoals", 60);
+		CommonMethod.sendKeys("V2ProjectProjectGoals", data.getCellData(SheetName, "ProjectGoals", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectSaveChangesButton", 60);
+		CommonMethod.click("V2ProjectSaveChangesButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectSuccessToastMessage", 60);
+		CommonMethod.assertExpectedContainsActual("V2ProjectSuccessToastMessage", "Fields updated successfully!",
+				"Verified success toast message");
+		testlog.pass("**Project Information data updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2ProjectEditButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectEditButton", "V2ProjectProjectInformationButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectProjectInformationButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectProjectInformationButton", "V2ProjectProjectScope");
+		testlog.pass("**Project id data updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2ProjectProjectScope", 60);
+		CommonMethod.assertExpectedContainsActual(CommonMethod.getattributeValue("V2ProjectProjectScope"),
+				data.getCellData(SheetName, "ProjectScope", rowNum), "Verified project scope data match");
+		testlog.pass("**Project scope data updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2ProjectProjectGoals", 60);
+		CommonMethod.assertExpectedContainsActual(CommonMethod.getattributeValue("V2ProjectProjectGoals"), data.getCellData(SheetName, "ProjectGoals", rowNum),
+				"Verified project goals data match");
+		testlog.pass("**Project goals data updated successfully**");
+	}
+	
+	public void editAndValidateOwnerInformationV2Project(String SheetName, int rowNum) throws Exception {
+		CommonMethod.WaitUntilVisibility("V2ProjectEditButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectEditButton", "V2ProjectOwnerInformationButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectOwnerInformationButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectOwnerInformationButton", "V2ProjectOrganizationIndustry");
+		CommonMethod.WaitUntilVisibility("V2ProjectOrganizationIndustry", 60);
+		CommonMethod.selectdropdownVisibletext("V2ProjectOrganizationIndustry", data.getCellData(SheetName, "OrgIndustry", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectCountry", 60);
+		CommonMethod.selectdropdownVisibletext("V2ProjectCountry", data.getCellData(SheetName, "Country", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectState", 60);
+		CommonMethod.selectdropdownVisibletext("V2ProjectState", data.getCellData(SheetName, "State", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectSaveChangesButton", 60);
+		CommonMethod.click("V2ProjectSaveChangesButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectSuccessToastMessage", 60);
+		CommonMethod.assertExpectedContainsActual("V2ProjectSuccessToastMessage", "Fields updated",
+				"Verified success toast message");
+		testlog.pass("**Owner Information data updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2ProjectEditButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectEditButton", "V2ProjectOwnerInformationButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectOwnerInformationButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectOwnerInformationButton", "V2ProjectOrganizationIndustry");
+		CommonMethod.WaitUntilVisibility("V2ProjectCountry", 60);
+		CommonMethod.assertExpectedContainsActual(CommonMethod.getSelectedDropdownValue("V2ProjectCountry"),
+				data.getCellData(SheetName, "Country", rowNum), "Verified country name match");
+		testlog.pass("**Country name updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2ProjectState", 60);
+		CommonMethod.assertExpectedContainsActual(CommonMethod.getattributeValue("V2ProjectState"),
+				data.getCellData(SheetName, "State", rowNum), "Verified state name match");
+		testlog.pass("**State name updated successfully**");
+	}
+	public void editAndValidateAddressV2Project(String SheetName, int rowNum) throws Exception {
+		CommonMethod.WaitUntilVisibility("V2ProjectEditButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectEditButton", "V2ProjectAddressButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectAddressButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectAddressButton", "V2ProjectBillingName");
+		CommonMethod.WaitUntilVisibility("V2ProjectBillingName", 60);
+		CommonMethod.clearAndSendKey("V2ProjectBillingName",data.getCellData(SheetName, "BillingName", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectBillingOrganization", 60);
+		CommonMethod.clearAndSendKey("V2ProjectBillingOrganization",data.getCellData(SheetName, "BillingOrganization", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectBillingCountry", 60);
+		CommonMethod.selectdropdownVisibletext("V2ProjectBillingCountry",data.getCellData(SheetName, "Country", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectBillingState", 60);
+		CommonMethod.selectdropdownValue("V2ProjectBillingState",data.getCellData(SheetName, "State", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectBillingStreetAddress", 60);
+		CommonMethod.clearAndSendKey("V2ProjectBillingStreetAddress",data.getCellData(SheetName, "Street", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectBillingCity", 60);
+		CommonMethod.clearAndSendKey("V2ProjectBillingCity",data.getCellData(SheetName, "City", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectBillingPostalCode", 60);
+		CommonMethod.clearAndSendKey("V2ProjectBillingPostalCode",data.getCellData(SheetName, "PostalCode", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectEditButton", 60);
+		CommonMethod.click("V2ProjectSaveChangesButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectSuccessToastMessage", 60);
+		CommonMethod.assertExpectedContainsActual("V2ProjectSuccessToastMessage", "Fields updated",
+				"Verified success toast message");
+		testlog.pass("**Address data updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2ProjectEditButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectEditButton", "V2ProjectAddressButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectAddressButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectAddressButton", "V2ProjectBillingName");
+		CommonMethod.WaitUntilVisibility("V2ProjectBillingName", 60);
+		CommonMethod.assertExpectedContainsActual(CommonMethod.getattributeValue("V2ProjectBillingName"),
+				data.getCellData(SheetName, "BillingName", rowNum), "Verified billing name match");
+		testlog.pass("**Billing name updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2ProjectBillingOrganization", 60);
+		CommonMethod.assertExpectedContainsActual(CommonMethod.getattributeValue("V2ProjectBillingOrganization"),
+				data.getCellData(SheetName, "BillingOrganization", rowNum), "Verified billing organization name match");
+		testlog.pass("**Billing organization name updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2ProjectBillingCountry", 60);
+		CommonMethod.assertExpectedContainsActual(CommonMethod.getSelectedDropdownValue("V2ProjectBillingCountry"),
+				data.getCellData(SheetName, "Country", rowNum), "Verified country name match");
+		testlog.pass("**Country name updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2ProjectBillingState", 60);
+		CommonMethod.assertExpectedContainsActual(CommonMethod.getattributeValue("V2ProjectBillingState"),
+				data.getCellData(SheetName, "State", rowNum), "Verified state name match");
+		testlog.pass("**State name updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2ProjectBillingStreetAddress", 60);
+		CommonMethod.assertExpectedContainsActual(CommonMethod.getattributeValue("V2ProjectBillingStreetAddress"),
+				data.getCellData(SheetName, "Street", rowNum), "Verified street address name match");
+		testlog.pass("**Street address name updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2ProjectBillingCity", 60);
+		CommonMethod.assertExpectedContainsActual(CommonMethod.getattributeValue("V2ProjectBillingCity"),
+				data.getCellData(SheetName, "City", rowNum), "Verified city name match");
+		testlog.pass("**City name updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2ProjectBillingPostalCode", 60);
+		CommonMethod.assertExpectedContainsActual(CommonMethod.getattributeValue("V2ProjectBillingPostalCode"),
+				data.getCellData(SheetName, "PostalCode", rowNum), "Verified postal code match");
+		testlog.pass("**Postal code updated successfully**");
+		
+	}
+	public void editAndValidateAdminV2Project(String SheetName, int rowNum) throws Exception {
+		CommonMethod.WaitUntilVisibility("V2ProjectEditButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectEditButton", "V2ProjectAdminFieldsButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectAdminFieldsButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectAdminFieldsButton", "V2projectAdminBillingStatus");
+		CommonMethod.WaitUntilVisibility("V2projectAdminBillingStatus", 60);
+		CommonMethod.sendKeys("V2projectAdminBillingStatus", data.getCellData(SheetName, "BillingStatus", rowNum));
+		CommonMethod.WaitUntilVisibility("V2projectAdminBillingChallengeNote", 60);
+		CommonMethod.sendKeys("V2projectAdminBillingChallengeNote", data.getCellData(SheetName, "ChallengeNote", rowNum));
+		CommonMethod.WaitUntilVisibility("V2projectAdminBillingCommunicationNote", 60);
+		CommonMethod.sendKeys("V2projectAdminBillingCommunicationNote", data.getCellData(SheetName, "CommunicationNote", rowNum));
+		CommonMethod.WaitUntilVisibility("V2projectAdminBillingNote", 60);
+		CommonMethod.sendKeys("V2projectAdminBillingNote", data.getCellData(SheetName, "BillingNote", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectEditButton", 60);
+		CommonMethod.click("V2ProjectSaveChangesButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectSuccessToastMessage", 60);
+		CommonMethod.assertExpectedContainsActual("V2ProjectSuccessToastMessage", "Fields updated",
+				"Verified success toast message");
+		testlog.pass("**Admin data updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2ProjectEditButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectEditButton", "V2ProjectAdminFieldsButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectAdminFieldsButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectAdminFieldsButton", "V2projectAdminBillingStatus");
+		CommonMethod.WaitUntilVisibility("V2projectAdminBillingStatus", 60);
+		CommonMethod.assertExpectedContainsActual(CommonMethod.getattributeValue("V2projectAdminBillingStatus"),
+				data.getCellData(SheetName, "BillingStatus", rowNum), "Verified billing code match");
+		testlog.pass("**Billing status updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2projectAdminBillingChallengeNote", 60);
+		CommonMethod.assertExpectedContainsActual(CommonMethod.getattributeValue("V2projectAdminBillingChallengeNote"),
+				data.getCellData(SheetName, "ChallengeNote", rowNum), "Verified challenge note match");
+		testlog.pass("**Challenge note updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2projectAdminBillingCommunicationNote", 60);
+		CommonMethod.assertExpectedContainsActual(CommonMethod.getattributeValue("V2projectAdminBillingCommunicationNote"),
+				data.getCellData(SheetName, "CommunicationNote", rowNum), "Verified Communication note match");
+		testlog.pass("**Communication updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2projectAdminBillingNote", 60);
+		CommonMethod.assertExpectedContainsActual(CommonMethod.getattributeValue("V2projectAdminBillingNote"),
+				data.getCellData(SheetName, "BillingNote", rowNum), "Verified billing note match");
+		testlog.pass("**Billing note updated successfully**");
+		
+	}
 }

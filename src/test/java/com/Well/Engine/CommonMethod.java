@@ -2151,6 +2151,11 @@ public class CommonMethod extends BaseClass {
 		List<WebElement> ele = CommonMethod.findElements(objectLocator);
 		return ele.get(index);
 	}
+	public static void clearAndSendKey(String objectLocator, String value) throws IOException {
+
+		findElement(objectLocator).sendKeys(Keys.chord(Keys.CONTROL, "a"), value);
+		System.out.println("Clear the input and updated the value");
+	}
 	public static boolean verifyTextPresentInElement(String objectLocater, String expected, String message)
 			throws Exception {
 		boolean flag = false;
