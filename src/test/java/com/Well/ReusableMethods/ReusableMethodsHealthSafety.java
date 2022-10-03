@@ -182,7 +182,8 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilVisibility("Reviewlanding", 20);
 		CommonMethod.WaitUntilVisibility("HsrSubmitReview", 60);
 		CommonMethod.click("HsrSubmitReview");
-		CommonMethod.WaitUntilPresence("HsrCommentReview", 60).sendKeys("Preliminary Health-Safety Review");
+		CommonMethod.WaitUntilVisibility("HsrSubmitDocReview", 60);
+		CommonMethod.WaitUntilVisibility("HsrCommentReview", 60).sendKeys("Preliminary Health-Safety Review");
 		Thread.sleep(4000);
 		CommonMethod.selectdropdownVisibletext("HsrSelectedProjectPhaseReview", "Preliminary Health-Safety Review");
 		CommonMethod.WaitUntilClickble("HsrSubmitDocReview", 60);
