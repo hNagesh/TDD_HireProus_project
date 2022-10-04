@@ -54,9 +54,8 @@ public class ReusableMethodsHealthSafety extends BaseClass {
        CommonMethod.click("HsrWPRlocationsSpacetype");
        Thread.sleep(2000);
        CommonMethod.click("HsrWPRlocationsSpaceOption");
-       CommonMethod.clear("Hsrlocationsize");
        String Area = CommonMethod.randomNumberBetweenRanges(100, 50000);
-       CommonMethod.sendKeys("Hsrlocationsize", Area);
+       CommonMethod.clearAndSendKey("Hsrlocationsize",Area);
        data.setCellData(SheetName, "Area", rowNum, CommonMethod.getattributeValue("Hsrlocationsize"));
        testlog.info("Hsrlocations: "+data.getCellData(SheetName, "Area", rowNum));
        CommonMethod.WaitUntilVisibility("HsrLocContinuebutton", 120);
@@ -242,4 +241,35 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
 		testlog.pass("**Upload Document successfully**");
 }
+	public void registerFieldValidationTest(String SheetName, int rowNum) throws Exception {
+		CommonMethod.WaitUntilVisibility("EditTab", 30);
+		CommonMethod.RobustclickElementVisible("EditTab","HsrOrganizationInformation");
+		CommonMethod.WaitUntilVisibility("HsrOrganizationInformation", 30);
+		CommonMethod.RobustclickElementVisible("HsrOrganizationInformation","HsrEditProjectName");
+		CommonMethod.WaitUntilVisibility("HsrEditProjectName", 30);
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditProjectName"),
+				data.getCellData(SheetName, "HsrName", rowNum), "Verified Portfolio Project Name matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditArea"),
+				data.getCellData(SheetName, "Area", rowNum), "Verified Hsr Area matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditLocation"),
+				data.getCellData(SheetName, "Location", rowNum), "Verified Location matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getText("OrgName"),
+				data.getCellData(SheetName, "OrgName", rowNum), "Verified Organization Name matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditOwnerName"),
+				data.getCellData(SheetName, "AccountName", rowNum), "Verified OwnerName matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditOwnerEmailAddress"),
+				data.getCellData(SheetName, "AccountName", rowNum), "Verified Owner EmailAddress matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditOwnerPhoneNumber"),
+				data.getCellData(SheetName, "AccountName", rowNum), "Verified Owner PhoneNumber matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getSelectedDropdownValue("HsrEditOrgIndustry"),
+				data.getCellData(SheetName, "OrgIndustry", rowNum), "Verified OrganizationIndustry matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditState"),
+				data.getCellData(SheetName, "State", rowNum), "Verified State matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditStreet"),
+				data.getCellData(SheetName, "Street", rowNum), "Verified StreetAddress matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditCity"),
+				data.getCellData(SheetName, "City", rowNum), "Verified City matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrPostalCode"),
+				data.getCellData(SheetName, "PostalCode", rowNum), "Verified postal code matched with excel");
+	}
 }

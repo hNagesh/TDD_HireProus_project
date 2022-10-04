@@ -80,7 +80,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.click("PortfolioSearchApplyFilter");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("PortfolioIDVerify", data.getCellData(SheetName, "ProjectID", rowNum),
-			"Portfolio ID doesn't matches in search");
+			"Portfolio ID doesn't matched with exceles in search");
 		CommonMethod.RobustclickElementVisible("PortfolioIDVerify","WPRHsrPortfolioDashboard");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
 		testlog.pass("**Verifies the Search Portfolio Name successfully**");
@@ -311,7 +311,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("PortfolioAdminApplybtn");
 		CommonMethod.assertcontainsmessage("PortfolioIDVerify", data.getCellData(SheetName, "ProjectID", rowNum),
-				"Portfolio ID doesn't matches in search");
+				"Portfolio ID doesn't matched with exceles in search");
 		Thread.sleep(2000);
 		CommonMethod.RobustclickElementVisible("PortfolioIDVerify","ReviewTab");
 		CommonMethod.WaitUntilVisibility("ReviewTab", 60);
@@ -329,5 +329,42 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("PortfolioReviewStatus", 60);
 		testlog.pass("**Completed Reviewed Preliminary Precertification Review successfully**");
 	}
-
+	public void registerFieldValidationTest(String SheetName, int rowNum) throws Exception {
+		CommonMethod.WaitUntilVisibility("EditTab", 30);
+		CommonMethod.RobustclickElementVisible("EditTab","PortfolioEditAccounttab");
+		CommonMethod.WaitUntilVisibility("PortfolioEditAccounttab", 30);
+		CommonMethod.RobustclickElementVisible("PortfolioEditAccounttab","PortfolioEditAccountName");
+		CommonMethod.WaitUntilVisibility("PortfolioEditAccountName", 30);
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("PortfolioEditAccountName"),
+				data.getCellData(SheetName, "AccountName", rowNum), "Verified Portfolio Account Name matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("PortfolioEditApproximatelyLoc"),
+				data.getCellData(SheetName, "Location", rowNum), "Verified Approximately Location matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("PortfolioEditLocationSubscribing"),
+				data.getCellData(SheetName, "EstimatedNumberOfLocation", rowNum), "Verified Location Subscribing matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("PortfolioEditAreaSqft"),
+				data.getCellData(SheetName, "AreaSQFT", rowNum), "Verified AreaSqft matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getText("OrgName"),
+				data.getCellData(SheetName, "OrgName", rowNum), "Verified Organization Name matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getSelectedDropdownValue("PortfolioEditOrganizationIndustry"),
+				data.getCellData(SheetName, "OrgIndustry", rowNum), "Verified OrganizationIndustry matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getText("PortfolioEditCountry"),
+				data.getCellData(SheetName, "Country", rowNum), "Verified Country matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("PortfolioEditState"),
+				data.getCellData(SheetName, "State", rowNum), "Verified State matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("PortfolioEditStreetAddress"),
+				data.getCellData(SheetName, "Street", rowNum), "Verified StreetAddress matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("PortfolioEditCity"),
+				data.getCellData(SheetName, "City", rowNum), "Verified City matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("PortfolioEditPostalCode"),
+				data.getCellData(SheetName, "PostalCode", rowNum), "Verified postal code matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("PortfolioEditOrganizationOverview"),
+				data.getCellData(SheetName, "Overview", rowNum), "Verified OrganizationOverview matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("PortfolioEditOwnerName"),
+				data.getCellData(SheetName, "OwnerName", rowNum), "Verified OwnerName matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("PortfolioEditOwnerEmail"),
+				data.getCellData(SheetName, "OwnerEmail", rowNum), "Verified OwnerEmail matched with excel");
+		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("PortfolioEditOwnerPhone"),
+				data.getCellData(SheetName, "OwnerPhone", rowNum), "Verified OwnerPhone matched with excel");
+		testlog.pass("**Register Field Validation successfully**");
+	}
 }
