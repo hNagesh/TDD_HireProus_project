@@ -23,6 +23,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
+import org.testng.asserts.SoftAssert;
 
 import com.Well.ReusableMethods.ReusableMethodCommon;
 import com.Well.ReusableMethods.ReusableMethodPerformance;
@@ -56,6 +57,7 @@ public class BaseClass {
 	public static ExtentTest testlog;
 	public static ExtentReports extent;
 	public static String TestCaseName;
+	public static SoftAssert softAssert = new SoftAssert();
 	public static String SamplePdffile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"Resume.pdf";
 	public static String SamplePdffile1 = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"SampleResume.pdf";
 	public static String SampleJpgfile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"Favicon.jpg";
