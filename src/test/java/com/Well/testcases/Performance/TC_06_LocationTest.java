@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class TC_06_LocationTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Performance.TC_05_AgreementSignTest.TC_05_AgreementSign" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Performance.TC_03_SubscribeAndStoreIdTest.TC_03_SubscribeAndStoreId" })
 	@Parameters({ "SheetName","rowNum" })
 	public void TC_06_Location(String SheetName,int rowNum) throws IOException {
 

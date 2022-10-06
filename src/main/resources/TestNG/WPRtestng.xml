@@ -14,12 +14,12 @@
 <class name="com.Well.testcases.Performance.TC_02_RegisterPerformanceTest"></class>
 <class name="com.Well.testcases.Performance.TC_03_SubscribeAndStoreIdTest"></class>
  <class name="com.Well.testcases.Performance.TC_04_SearchPerformanceByIdTest"></class>
- <class name="com.Well.testcases.Performance.TC_05_AgreementSignTest"></class>
-  <class name="com.Well.testcases.Performance.TC_06_LocationTest"></class>
+ <class name="com.Well.testcases.Performance.TC_05_WprProjectFieldValidationTest"></class>
+ <class name="com.Well.testcases.Performance.TC_06_LocationTest"></class>
   <class name="com.Well.testcases.Performance.TC_07_ScorecardTest"></class>
    <class name="com.Well.testcases.Performance.TC_08_ReviewTest"></class>
   <class name="com.Well.testcases.Performance.TC_09_DocumentTest"></class>
-  <class name="com.Well.testcases.Performance.TC_10_RegisterValidationTest"></class>
+ 
 </classes>
 </test>
 

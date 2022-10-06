@@ -241,36 +241,30 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
 		testlog.pass("**Upload Document successfully**");
 }
-	public void registerFieldValidationTest(String SheetName, int rowNum) throws Exception {
-		CommonMethod.WaitUntilVisibility("EditTab", 30);
-		CommonMethod.RobustclickElementVisible("EditTab","HsrOrganizationInformation");
-		CommonMethod.WaitUntilVisibility("HsrOrganizationInformation", 30);
-		CommonMethod.RobustclickElementVisible("HsrOrganizationInformation","HsrEditProjectName");
-		CommonMethod.WaitUntilVisibility("HsrEditProjectName", 30);
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrEditProjectName"),
-				data.getCellData(SheetName, "HsrName", rowNum), "Portfolio Project Name doesn't match");
-		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditArea"),
-				data.getCellData(SheetName, "Area", rowNum), "Verified Hsr Area matched with excel");
-		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditLocation"),
-				data.getCellData(SheetName, "Location", rowNum), "Verified Location matched with excel");
-		CommonMethod.verifyTextPresentInElement(CommonMethod.getText("OrgName"),
-				data.getCellData(SheetName, "OrgName", rowNum), "Verified Organization Name matched with excel");
-		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditOwnerName"),
-				data.getCellData(SheetName, "AccountName", rowNum), "Verified OwnerName matched with excel");
-		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditOwnerEmailAddress"),
-				data.getCellData(SheetName, "AccountName", rowNum), "Verified Owner EmailAddress matched with excel");
-		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditOwnerPhoneNumber"),
-				data.getCellData(SheetName, "AccountName", rowNum), "Verified Owner PhoneNumber matched with excel");
-		CommonMethod.verifyTextPresentInElement(CommonMethod.getSelectedDropdownValue("HsrEditOrgIndustry"),
-				data.getCellData(SheetName, "OrgIndustry", rowNum), "Verified OrganizationIndustry matched with excel");
-		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditState"),
-				data.getCellData(SheetName, "State", rowNum), "Verified State matched with excel");
-		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditStreet"),
-				data.getCellData(SheetName, "Street", rowNum), "Verified StreetAddress matched with excel");
-		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditCity"),
-				data.getCellData(SheetName, "City", rowNum), "Verified City matched with excel");
-		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrPostalCode"),
-				data.getCellData(SheetName, "PostalCode", rowNum), "Verified postal code matched with excel");
+	public void HsrProjectFieldValidationTest(String SheetName, int rowNum) throws Exception {
+		CommonMethod.WaitUntilVisibility("EditTab", 120);
+		CommonMethod.RobustclickElementVisible("EditTab","HsrWprOrganizationInformation");
+		CommonMethod.WaitUntilVisibility("HsrWprOrganizationInformation", 60);
+		CommonMethod.RobustclickElementVisible("HsrWprOrganizationInformation","HsrWprEditProjectName");
+		CommonMethod.WaitUntilVisibility("HsrWprEditProjectName", 30);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditProjectName"),
+				data.getCellData(SheetName, "HsrName", rowNum), "Project Name doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditArea"),
+				data.getCellData(SheetName, "Area", rowNum), "Area doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditLocation"),
+				data.getCellData(SheetName, "Location", rowNum), "Location count doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("OrgName"),
+				data.getCellData(SheetName, "OrgName", rowNum), "OrgName doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownValue("HsrWprEditOrgIndustry"),
+				data.getCellData(SheetName, "OrgIndustry", rowNum), "OrgIndustry doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditState"),
+				data.getCellData(SheetName, "State", rowNum), "State Name doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditStreet"),
+				data.getCellData(SheetName, "Street", rowNum), "Street Name doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditCity"),
+				data.getCellData(SheetName, "City", rowNum), "City doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprPostalCode"),
+				data.getCellData(SheetName, "PostalCode", rowNum), "PostalCode doesn't match");
         softAssert.assertAll();
 	}
 }

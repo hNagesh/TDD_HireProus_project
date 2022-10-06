@@ -1,4 +1,4 @@
-package com.Well.testcases.Performance;
+package com.Well.testcases.Portfolio;
 
 import java.io.IOException;
 
@@ -7,17 +7,19 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class TC_10_RegisterValidationTest extends BaseClass {
+public class TC_14_PortfolioProjectFieldValidationTest extends BaseClass {
 
-	@Test//(dependsOnMethods = { "com.Well.testcases.HealthSafety.TC_08_ReviewTest.TC_08_Review" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_05_PortfolioPaymentTest.TC_05_PortfolioPayment" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_10_RegisterValidation(String SheetName,int rowNum) throws IOException {
+	public void TC_14_PortfolioProjectFieldValidation(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
+
 		try {
-		hsr.registerFieldValidationTest(SheetName, rowNum);	
+			portfolio.registerFieldValidationTest(SheetName, rowNum);	
+
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
