@@ -729,7 +729,10 @@ public class CommonMethod extends BaseClass {
 			} while (!CommonMethod.isSelected(objectlocator));
 
 		}
-	
+	public static void softAssertEqualsMessage(String Actual, String expected, String message) {
+
+		softAssert.assertEquals(Actual, expected, message);
+	}
 
 	public static void assertTruebooleanCondition(boolean boo, String message) {
 

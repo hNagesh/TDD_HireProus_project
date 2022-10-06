@@ -247,8 +247,8 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilVisibility("HsrOrganizationInformation", 30);
 		CommonMethod.RobustclickElementVisible("HsrOrganizationInformation","HsrEditProjectName");
 		CommonMethod.WaitUntilVisibility("HsrEditProjectName", 30);
-		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditProjectName"),
-				data.getCellData(SheetName, "HsrName", rowNum), "Verified Portfolio Project Name matched with excel");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrEditProjectName"),
+				data.getCellData(SheetName, "HsrName", rowNum), "Portfolio Project Name doesn't match");
 		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditArea"),
 				data.getCellData(SheetName, "Area", rowNum), "Verified Hsr Area matched with excel");
 		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrEditLocation"),
@@ -271,5 +271,6 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 				data.getCellData(SheetName, "City", rowNum), "Verified City matched with excel");
 		CommonMethod.verifyTextPresentInElement(CommonMethod.getattributeValue("HsrPostalCode"),
 				data.getCellData(SheetName, "PostalCode", rowNum), "Verified postal code matched with excel");
+        softAssert.assertAll();
 	}
 }
