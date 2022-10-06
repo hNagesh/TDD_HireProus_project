@@ -274,12 +274,12 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		testlog.pass("**Navigate Document successfully**");
 	}
 
-	public void ValidatingUploadDocument() throws IOException, InterruptedException {
+	public void ValidatingLegalUploadDocument() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadbutton", 30);
 		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadbutton","V2ProjectPortfolioDocType");
-		CommonMethod.selectdropdownValue("V2ProjectPortfolioDocType", "general");
-		CommonMethod.selectdropdownVisibletext("PortfolioSelectdocumenttype", "Project overview");
-		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", GeneralfileUpload);
+		CommonMethod.selectdropdownValue("V2ProjectPortfolioDocType", "legal");
+		CommonMethod.selectdropdownVisibletext("PortfolioSelectdocumenttype", "Signed certification agreement");
+		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", LegalfileUpload);
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadSubmitbutton", 60);
 		CommonMethod.Robustclick("PortfolioDocumentUploadSubmitbutton");
 		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioDocumentList");

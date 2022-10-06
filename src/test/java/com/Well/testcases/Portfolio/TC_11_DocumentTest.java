@@ -20,7 +20,7 @@ public class TC_11_DocumentTest extends BaseClass {
 		try {
 
 			portfolio.clickDocument();
-			portfolio.ValidatingUploadDocument();
+			portfolio.ValidatingLegalUploadDocument();
 
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

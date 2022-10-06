@@ -30,7 +30,7 @@ public class ReusableMethodsLogin extends BaseClass {
 		CommonMethod.scrolldowntoElement("LoginButton");
 		CommonMethod.click("LoginButton");
 		testlog.info("Clicking on Submit Button");
-		CommonMethod.WaitUntilVisibility("SuccessfulLogin", 30);
+		CommonMethod.WaitUntilVisibility("SuccessfulLogin", 300);
 		testlog.pass("Verfies Login Successful");
 
 		
