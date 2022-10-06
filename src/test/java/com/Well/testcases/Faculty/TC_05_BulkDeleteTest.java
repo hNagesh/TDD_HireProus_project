@@ -19,6 +19,7 @@ public class TC_05_BulkDeleteTest extends BaseClass {
 		try {
 			faculty.PostRequestAuthenticate();
 			faculty.DeleteFacultyOrMembership();
+			testlog.pass("**Verifies Bulk Delete successfully**");
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
