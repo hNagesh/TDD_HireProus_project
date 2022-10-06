@@ -16,12 +16,13 @@
 		<class name="com.Well.testcases.Portfolio.TC_05_PortfolioPaymentTest"></class> 
 		<class name="com.Well.testcases.Portfolio.TC_06_PortfolioLocationImportTest"></class> 
 		<class name="com.Well.testcases.Portfolio.TC_07_PortfolioBuildScorecardTest"></class> 
-	    <class name="com.Well.testcases.Portfolio.TC_08_UploadFileInFeatureTest"></class> 
+		<class name="com.Well.testcases.Portfolio.TC_14_RegisterFieldValidationTest"></class>
+	   <!--  <class name="com.Well.testcases.Portfolio.TC_08_UploadFileInFeatureTest"></class> 
 		<class name="com.Well.testcases.Portfolio.TC_09_UploadFileInAuditTest"></class> 
 		<class name="com.Well.testcases.Portfolio.TC_11_DocumentTest"></class> 
 		<class name="com.Well.testcases.Portfolio.TC_12_ReviewTest"></class>
-		<class name="com.Well.testcases.Portfolio.TC_13_SupportTest"></class>
-		<class name="com.Well.testcases.Portfolio.TC_14_RegisterFieldValidationTest"></class>
+		<class name="com.Well.testcases.Portfolio.TC_13_SupportTest"></class> -->
+		
 		</classes>
 	</test>
 </suite>  
