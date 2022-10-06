@@ -148,8 +148,8 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.scrolldowntoElement("HsrScorecard");
 		  for (WebElement f:Feature) {
 			  CommonMethod.WaitUntilClickble(f, 30).click();
-			  CommonMethod.WaitUntilVisibility("V2ProjectWPRPDocIcon", 60);
-				CommonMethod.click("V2ProjectWPRPDocIcon");
+			  CommonMethod.WaitUntilPresence("V2ProjectWPRPDocIcon", 60);
+				CommonMethod.RobustclickElementVisible("V2ProjectWPRPDocIcon","HsrSelectTypeDoc");
 				CommonMethod.WaitUntilVisibility("HsrSelectTypeDoc", 60);
 				CommonMethod.selectdropdownIndex("HsrSelectTypeDoc", 1);
 				if(CommonMethod.isElementsExist("HsrLocationrtn",3)) {

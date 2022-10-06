@@ -479,7 +479,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("ReviewViewButton", 60);
 		CommonMethod.click("ReviewViewButton");
 		Thread.sleep(2000);
-		CommonMethod.click("ReviewReturnButton");
+		CommonMethod.RobustclickElementVisible("ReviewReturnButton","V2ProjectReviewCommentNarrative");
 		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60)
 				.sendKeys("Preliminary Precertification Review");
 		CommonMethod.sendKeys("V2ProjectGeneralCommentNarrative", "Preliminary Precertification Review");

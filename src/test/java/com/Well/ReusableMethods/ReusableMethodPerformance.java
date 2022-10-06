@@ -49,7 +49,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.selectdropdownVisibletext("WPRSelectMember", "No");
 		data.setCellData(SheetName, "WPRSelectMember", rowNum,
 				CommonMethod.getSelectedDropdownValue("WPRSelectMember"));
-		CommonMethod.click("WPROwnerRegContinuebtn");
+		CommonMethod.RobustclickElementVisible("WPROwnerRegContinuebtn","WPRlocations");
 		Thread.sleep(2000);
 		CommonMethod.scrollUp();
 		CommonMethod.sendKeys("WPRlocations", "10");
