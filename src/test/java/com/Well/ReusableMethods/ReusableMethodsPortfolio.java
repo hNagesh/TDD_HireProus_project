@@ -311,7 +311,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("PortfolioAdminApplybtn");
 		CommonMethod.assertcontainsmessage("PortfolioIDVerify", data.getCellData(SheetName, "ProjectID", rowNum),
-				"Portfolio ID doesn't matched with exceles in search");
+				"Portfolio ID doesn't matched with excel in search");
 		Thread.sleep(2000);
 		CommonMethod.RobustclickElementVisible("PortfolioIDVerify","ReviewTab");
 		CommonMethod.WaitUntilVisibility("ReviewTab", 60);

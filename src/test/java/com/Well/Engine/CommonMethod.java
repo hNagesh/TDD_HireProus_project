@@ -761,8 +761,8 @@ public class CommonMethod extends BaseClass {
 		Assert.assertNotSame((findElement(objectLocator)).getText(), expected, message);
 	}
 
-	public static void assertcontainsmessage(String objectLocater, String expected, String message) throws IOException {
-
+	public static void assertcontainsmessage(String objectLocater, String expected, String message) throws IOException, InterruptedException {
+        Thread.sleep(2000);
 		System.out.println(CommonMethod.getText(objectLocater));
 		testlog.info("Message captured : " + CommonMethod.getText(objectLocater));
 		Assert.assertTrue(getText(objectLocater).contains(expected), message);
