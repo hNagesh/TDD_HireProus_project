@@ -21,7 +21,7 @@
 		<class name="com.Well.testcases.Portfolio.TC_09_UploadFileInAuditTest"></class> 
 		<class name="com.Well.testcases.Portfolio.TC_11_DocumentTest"></class> 
 		<class name="com.Well.testcases.Portfolio.TC_12_ReviewTest"></class>
-		<class name="com.Well.testcases.Portfolio.TC_13_SupportTest"></class>
+		
 		
 		</classes>
 	</test>

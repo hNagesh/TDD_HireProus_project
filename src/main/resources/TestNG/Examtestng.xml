@@ -14,7 +14,7 @@
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
 <class name="com.Well.testcases.Exam.TC_02_RegisterExamTest"></class>
 <class name="com.Well.testcases.Exam.TC_03_EnrollExamTest"></class>
-<class name="com.Well.testcases.Exam.TC_04_BillingV2ProjectTest"></class>
+<class name="com.Well.testcases.Exam.TC_04_BillingTest"></class>
 <class name="com.Well.testcases.Exam.TC_05_StoreExamIdTest"></class> 
 <class name="com.Well.testcases.Exam.TC_06_CancelExamByIdTest"></class>
 </classes>

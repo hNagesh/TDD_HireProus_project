@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class TC_04_BillingV2ProjectTest extends BaseClass {
+public class TC_04_BillingTest extends BaseClass {
 
 	@Test(dependsOnMethods = { "com.Well.testcases.Exam.TC_03_EnrollExamTest.TC_03_EnrollExam" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_04_BillingV2Project(String SheetName,int rowNum) throws IOException {
+	public void TC_04_Billing(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
