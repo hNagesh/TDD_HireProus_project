@@ -2156,15 +2156,19 @@ public class CommonMethod extends BaseClass {
 		findElement(objectLocator).sendKeys(Keys.chord(Keys.CONTROL, "a"), value);
 		System.out.println("Clear the input and updated the value");
 	}
-	public static boolean verifyTextPresentInElement(String objectLocater, String expected, String message)
+	public static boolean verifyTextPresentInElement(String Actual, String expected, String message)
 			throws Exception {
 		boolean flag = false;
-		String getText = getText(objectLocater);
-		if (getText.contains(expected)) {
-			Assert.assertTrue(getText(objectLocater).contains(expected), message);
-		 flag = true;
+		if (Actual.contains(expected)) {
+			Assert.assertTrue(Actual.contains(expected), message);
+			testlog.info(message);
+			System.out.println("matched");
+			flag = true;	
 		}
+		else {
+		testlog.fail("Did not match --- Actual : "+Actual+ " Expected : "+expected);
+		System.out.println("Not matching");
+	}
 		return flag;
 	}
-
 }
