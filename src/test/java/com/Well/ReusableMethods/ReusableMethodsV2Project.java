@@ -30,11 +30,11 @@ public class ReusableMethodsV2Project extends BaseClass {
 		testlog.info("City: " + ProjectCity);
 		testlog.info("Postalcode: " + PostalCode);
 		CommonMethod.sendKeys("V2ProjectlocationStreet", ProjectAddress);
-		data.setCellData(SheetName, "Street", rowNum, CommonMethod.getText("V2ProjectlocationStreet"));
+		data.setCellData(SheetName, "Street", rowNum, CommonMethod.getattributeValue("V2ProjectlocationStreet"));
 		CommonMethod.sendKeys("V2ProjectlocationCity", ProjectCity);
-		data.setCellData(SheetName, "City", rowNum, CommonMethod.getText("V2ProjectlocationCity"));
+		data.setCellData(SheetName, "City", rowNum, CommonMethod.getattributeValue("V2ProjectlocationCity"));
 		CommonMethod.sendKeys("V2ProjectlocationPostalcode", PostalCode);
-		data.setCellData(SheetName, "PostalCode", rowNum, CommonMethod.getText("V2ProjectlocationPostalcode"));
+		data.setCellData(SheetName, "PostalCode", rowNum, CommonMethod.getattributeValue("V2ProjectlocationPostalcode"));
 		CommonMethod.RobustclickElementVisible("V2ProjectlocationContinuebtn","V2ProjectareaContinuebtn");
 		String Area = CommonMethod.randomNumberBetweenRanges(100, 50000);
 		CommonMethod.clear("V2ProjectareaSize");
