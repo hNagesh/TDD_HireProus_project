@@ -467,7 +467,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("AdminNavBar");
 		CommonMethod.RobustclickElementVisible("AdminWELLCertificationNavBar","AdminV2ProjectId");
 		CommonMethod.WaitUntilClickble("AdminV2ProjectId", 60)
-				.sendKeys(data.getCellData(SheetName, "projectID", rowNum));
+				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("AdminV2ProjectApplybtn");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify", data.getCellData(SheetName, "ProjectID", rowNum),
