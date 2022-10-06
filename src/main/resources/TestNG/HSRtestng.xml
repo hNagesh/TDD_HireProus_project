@@ -19,6 +19,7 @@
  <class name="com.Well.testcases.HealthSafety.TC_07_ScorecardTest"></class>
 <class name="com.Well.testcases.HealthSafety.TC_08_ReviewTest"></class>
  <class name="com.Well.testcases.HealthSafety.TC_09_DocumentTest"></class> 
+ <class name="com.Well.testcases.HealthSafety.TC_10_RegisterValidationTest"></class> 
 </classes>
 </test>
 </suite>  
