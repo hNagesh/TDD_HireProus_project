@@ -249,8 +249,7 @@ public void flushReport() {
 public void quit() throws InterruptedException, IOException {
 	
 	System.out.println("EndTest");
-	//login.SignOut();
-	//driver.close();
+	driver.quit();
 	
 }
 

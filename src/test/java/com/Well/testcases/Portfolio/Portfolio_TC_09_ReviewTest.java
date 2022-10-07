@@ -9,9 +9,9 @@ import com.Well.Engine.BaseClass;
 
 public class Portfolio_TC_09_ReviewTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_06_PortfolioLocationImportTest.Portfolio_TC_06_PortfolioLocationImport" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_08_DocumentTest.Portfolio_TC_08_LegalUploadDocument" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Portfolio_TC_12_Review(String SheetName,int rowNum) throws IOException {
+	public void Portfolio_TC_09_Review(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

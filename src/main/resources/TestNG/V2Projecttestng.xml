@@ -31,7 +31,7 @@
 </classes>
 </test>
 
-<test name="WELL-WELLCertificationProject" >
+<test name="WELL-V2-CertificationProject" >
 <parameter name="SheetName" value="V2Project"/>
 <parameter name="rowNum" value="2"/>
 <parameter name="ProjectType" value="WELLCertification"/>
