@@ -6,19 +6,19 @@
 <parameter name="browserName" value="chrome"/>
 <parameter name="environment" value="TEST"/>
 
-<test name="WELL-Tests" >
+<test name="WELL-HealthSafety" >
 <parameter name="SheetName" value="Hsr"/>
 <parameter name="rowNum" value="2"/>
 <classes>
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
-<class name="com.Well.testcases.HealthSafety.TC_03_RegisterHealthSafetyTest"></class>
-<class name="com.Well.testcases.HealthSafety.TC_04_SubscribeAndStoreIdTest"></class>
-<class name="com.Well.testcases.HealthSafety.TC_02_SearchHealthSafetyByIdTest"></class>
-<class name="com.Well.testcases.HealthSafety.TC_05_HsrProjectFieldValidationTest"></class>
-<class name="com.Well.testcases.HealthSafety.TC_06_LocationTest"></class>
- <class name="com.Well.testcases.HealthSafety.TC_07_ScorecardTest"></class>
-<class name="com.Well.testcases.HealthSafety.TC_08_ReviewTest"></class>
- <class name="com.Well.testcases.HealthSafety.TC_09_DocumentTest"></class> 
+<class name="com.Well.testcases.HealthSafety.Healthsafey_TC_02_RegisterHealthSafetyTest"></class>
+<class name="com.Well.testcases.HealthSafety.Healthsafey_TC_03_SubscribeAndStoreIdTest"></class>
+<class name="com.Well.testcases.HealthSafety.Healthsafey_TC_04_SearchHealthSafetyByIdTest"></class>
+<class name="com.Well.testcases.HealthSafety.Healthsafey_TC_05_HsrProjectFieldValidationTest"></class>
+<class name="com.Well.testcases.HealthSafety.Healthsafey_TC_06_LocationTest"></class>
+ <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_07_ScorecardTest"></class>
+<class name="com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest"></class>
+ <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_09_DocumentTest"></class> 
 
 </classes>
 </test>

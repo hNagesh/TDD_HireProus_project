@@ -1,0 +1,27 @@
+package com.Well.testcases.V2Project;
+
+import java.io.IOException;
+
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+import com.Well.Engine.BaseClass;
+
+public class V2_TC_04_EnrollV2ProjectTest extends BaseClass {
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_03_SearchV2ProjectByIdTest.V2_TC_03_SearchV2ProjectById" })
+	@Parameters({ "SheetName","rowNum" })
+	public void V2_TC_04_EnrollV2Project(String SheetName,int rowNum) throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+
+		StartTest(TestCaseName);
+		try {
+		v2project.EnrollV2ProjectById(SheetName, rowNum);	
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
+}
