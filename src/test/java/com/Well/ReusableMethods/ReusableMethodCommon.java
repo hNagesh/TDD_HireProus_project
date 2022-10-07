@@ -7,6 +7,17 @@ import com.Well.Engine.CommonMethod;
 
 public class ReusableMethodCommon extends BaseClass {
 	
+	public void SignOut() throws InterruptedException, IOException {
+
+		if(Environment.equalsIgnoreCase("Test")) {
+		driver.get("https://test-nuxt.wellcertified.com/logout");
+		}
+		else {
+	    driver.get("https://stg-nuxt.wellcertified.com/logout");
+		}
+		CommonMethod.WaitUntilPresence("Username", 10);
+	}
+	
 	public void SelectCountryAndState(String Country,String SheetName,int rowNum) throws IOException, InterruptedException {
 		CommonMethod.selectdropdownValue("ProjectlocationCountry", Country);
 		data.setCellData(SheetName, "Country", rowNum, CommonMethod.getSelectedDropdownValue("ProjectlocationCountry"));

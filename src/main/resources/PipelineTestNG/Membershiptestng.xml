@@ -6,7 +6,7 @@
 <parameter name="browserName" value="chrome"/>
 <parameter name="environment" value="Test"/>
 
- <test name="Cornerstone Membership" >
+ <test name="WELL Membership" >
 <parameter name="SheetName" value="Membership"/>
 <parameter name="rowNum" value="2"/>
 <parameter name="MembershipName" value="Cornerstone"/>
