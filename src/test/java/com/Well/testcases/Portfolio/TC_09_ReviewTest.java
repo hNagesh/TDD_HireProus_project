@@ -7,18 +7,18 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class TC_14_PortfolioProjectFieldValidationTest extends BaseClass {
+public class TC_09_ReviewTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_05_PortfolioPaymentTest.TC_05_PortfolioPayment" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_11_DocumentTest.TC_11_Document" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_14_PortfolioProjectFieldValidation(String SheetName,int rowNum) throws IOException {
+	public void TC_12_Review(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
 
 		try {
-			portfolio.registerFieldValidationTest(SheetName, rowNum);	
+			portfolio.ReviewDocument(SheetName, rowNum);
 
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

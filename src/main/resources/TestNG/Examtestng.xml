@@ -6,7 +6,7 @@
 <parameter name="browserName" value="chrome"/>
 <parameter name="environment" value="Test"/>
 
- <test name="WELL-Tests" >
+ <test name="WELL-Exam" >
 <parameter name="SheetName" value="Exam"/>
 <parameter name="rowNum" value="2"/>
 <classes>

@@ -6,7 +6,7 @@
 <parameter name="browserName" value="chrome"/>
 <parameter name="environment" value="Test"/>
 
- <test name="WELL-V2-Core" >
+ <test name="WELL-V2-CoreProject" >
 <parameter name="SheetName" value="V2Project"/>
 <parameter name="rowNum" value="2"/>
 <parameter name="ProjectType" value="WELLCore"/>
@@ -31,7 +31,7 @@
 </classes>
 </test>
 
-<test name="WELL-Tests" >
+<test name="WELL-WELLCertificationProject" >
 <parameter name="SheetName" value="V2Project"/>
 <parameter name="rowNum" value="2"/>
 <parameter name="ProjectType" value="WELLCertification"/>

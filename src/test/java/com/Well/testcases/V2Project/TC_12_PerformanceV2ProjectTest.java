@@ -11,13 +11,29 @@ public class TC_12_PerformanceV2ProjectTest extends BaseClass {
 
 	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.TC_11_HealthSafetyReviewV2ProjectTest.TC_11_HealthSafetyReviewV2Project" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_12_PerformanceV2Project(String SheetName,int rowNum) throws IOException {
+	public void TC_12_00_CompletePerformanceScorecardV2Project(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
 		try {
 		v2project.performanceV2Project(SheetName, rowNum);	
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
+	
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.TC_12_PerformanceV2ProjectTest.TC_12_00_CompletePerformanceScorecardV2Project" })
+	@Parameters({ "SheetName","rowNum" })
+	public void TC_12_ploadPerformanceScorecardDocV2Project(String SheetName,int rowNum) throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+
+		StartTest(TestCaseName);
+		try {
 		v2project.uploadPerformanceDocV2Project();	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

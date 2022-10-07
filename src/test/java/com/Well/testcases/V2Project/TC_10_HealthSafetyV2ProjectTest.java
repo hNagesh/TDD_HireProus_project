@@ -11,7 +11,7 @@ public class TC_10_HealthSafetyV2ProjectTest extends BaseClass {
 
 	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.TC_09_ReviewV2ProjectTest.TC_09_ReviewV2Project" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_10_HealthSafetyV2Project(String SheetName,int rowNum) throws IOException {
+	public void TC_10_00_CompleteScorecardHealthSafetyV2Project(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
@@ -20,6 +20,23 @@ public class TC_10_HealthSafetyV2ProjectTest extends BaseClass {
 		v2project.HealthSafetyV2Project(SheetName, rowNum);	
 		v2project.uploadHsrDocV2Project();
 		
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
+	
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.TC_09_ReviewV2ProjectTest.TC_09_ReviewV2Project" })
+	@Parameters({ "SheetName","rowNum" })
+	public void TC_10_01_UploadHealthSafetyScorecardDocV2Project(String SheetName,int rowNum) throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+
+		StartTest(TestCaseName);
+		try {
+		v2project.uploadHsrDocV2Project();
 		
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

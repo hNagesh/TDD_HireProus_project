@@ -1,4 +1,4 @@
-package com.Well.testcases.V2Project;
+package com.Well.testcases.Portfolio;
 
 import java.io.IOException;
 
@@ -7,18 +7,20 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class TC_07_ScorecardV2ProjectTest extends BaseClass {
+public class TC_07_PortfolioScorecardTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.TC_06_AgreementV2ProjectTest.TC_06_AgreementV2Project" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_06_PortfolioLocationImportTest.TC_06_PortfolioLocationImport" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_07_00_BuildScorecardV2ProjectById(String SheetName,int rowNum) throws IOException {
+	public void TC_07_00_PortfolioBuildScorecard(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
+
 		try {
-		v2project.BuildScorecardV2ProjectById(SheetName, rowNum);	
-		
+
+			portfolio.PortfolioBuildScorecard();
+			
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -27,16 +29,17 @@ public class TC_07_ScorecardV2ProjectTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest.TC_07_00_BuildScorecardV2ProjectById" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_07_PortfolioBuildScorecardTest.TC_07_PortfolioBuildScorecard" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_07_01_CompleteScorecardV2ProjectById(String SheetName,int rowNum) throws IOException {
+	public void TC_07_01_UploadFileInFeatureScorecard() throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
+
 		try {
-		v2project.CompleteScorecardV2ProjectById(SheetName, rowNum);
-	
+			portfolio.UploadFileinFeature("Meet Thresholds for Organic Gases");
+			
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -45,15 +48,17 @@ public class TC_07_ScorecardV2ProjectTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest.TC_07_00_BuildScorecardV2ProjectById" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_08_UploadFileInFeatureTest.TC_08_UploadFileInFeature" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_07_02_UploadFeatureDocV2ProjectInsideScorecard(String SheetName,int rowNum) throws IOException {
+	public void TC_07_02_UploadFileInAudit() throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
+
 		try {
-		v2project.UploadFeatureDocV2ProjectInsideScorecard(SheetName, rowNum);
+
+			portfolio.UploadFileinFeature("Support Mindful Eating");
 
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
@@ -63,16 +68,17 @@ public class TC_07_ScorecardV2ProjectTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.TC_07_ScorecardV2ProjectTest.TC_07_00_BuildScorecardV2ProjectById" })
+	@Test//(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_07_PortfolioBuildScorecardTest.TC_07_PortfolioBuildScorecard" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_07_03_UploadAuditDocV2ProjectInsideScorecard(String SheetName,int rowNum) throws IOException {
+	public void TC_07_03_UpdateUploadFileInAddedFeature() throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
-		try {
-		v2project.UploadAuditDocV2ProjectInsideScorecard(SheetName, rowNum);
 
+		try {
+			//portfolio.UpdateUploadFileinAddedFeature("Meet Thresholds for Organic Gases");
+			
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

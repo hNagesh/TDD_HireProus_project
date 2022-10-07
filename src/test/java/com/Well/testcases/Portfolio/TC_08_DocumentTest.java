@@ -7,19 +7,21 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class TC_08_UploadFileInFeatureTest extends BaseClass {
+public class TC_08_DocumentTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_07_PortfolioBuildScorecardTest.TC_07_PortfolioBuildScorecard" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.TC_07_PortfolioScorecardTest.TC_07_02_UploadFileInAudit" })
 	@Parameters({ "SheetName","rowNum" })
-	public void TC_08_UploadFileInFeature() throws IOException {
+	public void TC_11_Document() throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
 
 		try {
-			portfolio.UploadFileinFeature("Meet Thresholds for Organic Gases");
-			
+
+			portfolio.clickDocument();
+			portfolio.ValidatingLegalUploadDocument();
+
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
