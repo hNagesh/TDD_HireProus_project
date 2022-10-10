@@ -28,6 +28,10 @@
 <class name="com.Well.testcases.V2Project.V2_TC_14_TeamV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_15_SupportV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_16_AlternativesV2ProjectTest"></class> 
+<class name="com.Well.testcases.V2Project.V2_TC_17_OverviewAndValidateRegisterFieldsV2ProjectTest"></class> 
+<class name="com.Well.testcases.V2Project.V2_TC_18_PromotionV2ProjectTest"></class> 
+<class name="com.Well.testcases.V2Project.V2_TC_19_ProfileV2ProjectTest"></class> 
+<class name="com.Well.testcases.V2Project.V2_TC_20_EditV2ProjectTest"></class> 
 </classes>
 </test>
 
