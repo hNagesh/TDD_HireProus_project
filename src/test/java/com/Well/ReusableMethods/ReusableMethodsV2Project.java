@@ -95,7 +95,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		testlog.pass("**Verifies the Search V2Project ByID successfully**");
 	}
 
-	public void EnrollV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
+	public void EnrollV2ProjectById(String SheetName, int rowNum, String ProjectType) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("EnrollTab", 60);
 		CommonMethod.click("EnrollTab");
 		rc.SelectOwnerOrg(SheetName, rowNum);
@@ -123,8 +123,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectdocsubEstidateOkbtn");
 		CommonMethod.click("V2ProjectdocsubAnticdate");
 		CommonMethod.click("V2ProjectdocsubEstidateOkbtn");
+		if (ProjectType.equalsIgnoreCase("WELLCore")) {
+			CommonMethod.selectdropdownValue("V2ProjectSector", "government/municipal-buildings");
+		}
+		data.setCellData(SheetName, "MarketSector", rowNum, CommonMethod.getSelectedDropdownValue("V2ProjectSector"));
+		testlog.info("MarketSector: " + data.getCellData(SheetName, "MarketSector", rowNum));
 		CommonMethod.click("V2ProjectprojectOwnerContinuebtn");
-		testlog.info("Country:" + "United States");
+		testlog.info("Country: " + "United States");
 		CommonMethod.selectdropdownVisibletext("V2ProjectprojectaddressCountry", "United States");
 		data.setCellData(SheetName, "OwnerCountry", rowNum,
 				CommonMethod.getSelectedDropdownValue("V2ProjectprojectaddressCountry"));
@@ -171,6 +176,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 		testlog.pass("**Verifies Agreement V2Project successfully**");
 	}
 
+	public void PricingV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("PricingTab", 300);
+		CommonMethod.RobustclickElementVisible("PricingTab","V2ProjectPricingEnrollFee");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectProjectScope"),
+				data.getCellData(SheetName, "ProjectScope", rowNum), "Project scope data doesn't match");
+		
+	}
 	public void BuildScorecardV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("V2ProjectStartBuilding", 60);
 		CommonMethod.click("V2ProjectStartBuilding");
@@ -976,6 +988,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.uploadFile("V2ProjectLogo", SampleJpgfile);
 		CommonMethod.WaitUntilVisibility("V2ProjectPrimaryProfileImageDeleteVerify", 120);
 		CommonMethod.uploadFile("V2ProjectProfileImage", SampleJpgfile);
+		CommonMethod.WaitUntilVisibility("V2ProjectFeviconLogo", 60);
+		CommonMethod.WaitUntilVisibility("V2ProjectPrimaryProfileImageDeleteVerify", 120);
 		CommonMethod.WaitUntilVisibility("V2ProjectProfileImageDeleteVerify", 120);
 		CommonMethod.RobustclickElementVisible("V2ProjectSave", "V2ProjectGeneralInformation");
 		CommonMethod.WaitUntilVisibility("V2ProjectProfileUpdatedToastMessage", 60);
