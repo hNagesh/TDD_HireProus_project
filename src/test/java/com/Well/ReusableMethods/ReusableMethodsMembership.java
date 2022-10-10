@@ -118,7 +118,7 @@ public class ReusableMethodsMembership extends BaseClass {
 		testlog.info("MembershipName:" +MembershipName);
 		CommonMethod.WaitUntilVisibility("MPValidMembershipeType", 60);
 		if (MembershipName.equalsIgnoreCase("Cornerstone")) {
-			CommonMethod.assertcontainsmessage("MPValidMembershipeType", "CORNERSTONE MEMBERSHIP", "Verified Cornerstone Membership Name");
+			CommonMethod.assertcontainsmessage("MPValidMembershipeType", "CORNERSTONE MEMBERSHIP", "Mismatch Cornerstone Membership Name");
 		}
 		testlog.pass("**Verified Membership Name successfully**");
 	}
