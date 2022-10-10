@@ -9,14 +9,14 @@ import com.Well.Engine.BaseClass;
 
 public class V2_TC_04_EnrollV2ProjectTest extends BaseClass {
 	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_03_SearchV2ProjectByIdTest.V2_TC_03_SearchV2ProjectById" })
-	@Parameters({ "SheetName","rowNum" })
-	public void V2_TC_04_EnrollV2Project(String SheetName,int rowNum) throws IOException {
+	@Parameters({ "SheetName","rowNum","ProjectType" })
+	public void V2_TC_04_EnrollV2Project(String SheetName,int rowNum, String ProjectType) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
 		try {
-		v2project.EnrollV2ProjectById(SheetName, rowNum);	
+		v2project.EnrollV2ProjectById(SheetName, rowNum, ProjectType);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
