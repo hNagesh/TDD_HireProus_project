@@ -83,13 +83,13 @@ stage('Test Results'){
         post {
          always {
             junit '**/target/surefire-reports/junitreports/*.xml'
-            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, includes: '**/*.html', keepAll: true, reportDir: '/Report', reportFiles: 'WELL_AutomationReport.html', reportName: 'Frontend-Execution-Report', reportTitles: ''])  
+            publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, includes: '**/*.html', keepAll: true, reportDir: 'Report', reportFiles: 'WELL_AutomationReport.html', reportName: 'Frontend-Execution-Report', reportTitles: ''])  
         }
         success {
             echo "success" 
             script {
             buildSummary = "Job: *${env.JOB_NAME}[${env.BUILD_NUMBER}]*\n Status: *SUCCESS*\n Execution Report: ${env.BUILD_URL}Frontend-Execution-Report"
-            slackSend (color: 'good', message: "Frontend Nightly Build Intact. Great effort!!\n${buildSummary}")
+            slackSend (color: 'good', message: "Frontend Nightly Regression Intact. Great effort!!\n${buildSummary}")
             }
             emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report2.html',
         body: '''${SCRIPT, template="groovy-html.template"}''',
@@ -102,7 +102,7 @@ stage('Test Results'){
         unstable(message: "${STAGE_NAME} is unstable") { 
         script{
             buildSummary = "Job: *${env.JOB_NAME}[${env.BUILD_NUMBER}]*\n Status: *UNSTABLE*\n Execution Report: ${env.BUILD_URL}Frontend-Execution-Report"
-            slackSend (color: 'danger', message: "Frontend Nightly Build broken. Please refer to below execution report for failures.\n${buildSummary}")
+            slackSend (color: 'danger', message: "Frontend Nightly Regression broken. Please refer to below execution report for failures.\n${buildSummary}")
             }  
              echo 'This will run only if the run was marked as unstable'
               emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report2.html',
