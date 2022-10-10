@@ -973,7 +973,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.clearAndSendKey("V2ProjectProjectBio", "Project bio testing");
 		CommonMethod.uploadFile("V2ProjectLogo", SampleJpgfile);
 		CommonMethod.WaitUntilVisibility("V2ProjectFeviconLogo", 60);
-		CommonMethod.uploadFile("V2ProjectPrimaryProfileImage", SampleJpgfile);
+		CommonMethod.uploadFile("V2ProjectLogo", SampleJpgfile);
 		CommonMethod.WaitUntilVisibility("V2ProjectPrimaryProfileImageDeleteVerify", 120);
 		CommonMethod.uploadFile("V2ProjectProfileImage", SampleJpgfile);
 		CommonMethod.WaitUntilVisibility("V2ProjectProfileImageDeleteVerify", 120);
