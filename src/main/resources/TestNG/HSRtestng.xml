@@ -1,12 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 
-<suite name="WELLAutomation">
+<suite name="HealthSafetyRating Module">
 
 <parameter name="browserName" value="chrome"/>
 <parameter name="environment" value="TEST"/>
 
-<test name="WELL-HealthSafety" >
+<test name="WELL-HSR" >
 <parameter name="SheetName" value="Hsr"/>
 <parameter name="rowNum" value="2"/>
 <classes>
