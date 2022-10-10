@@ -35,7 +35,7 @@
 </classes>
 </test>
 
-<test name="WELL-V2-CertificationProject" >
+<!-- <test name="WELL-V2-CertificationProject" >
 <parameter name="SheetName" value="V2Project"/>
 <parameter name="rowNum" value="2"/>
 <parameter name="ProjectType" value="WELLCertification"/>
@@ -51,5 +51,5 @@
 <class name="com.Well.testcases.V2Project.V2_TC_08_DocumentV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_09_ReviewV2ProjectTest"></class>
 </classes>
-</test>
+</test> -->
 </suite>  
