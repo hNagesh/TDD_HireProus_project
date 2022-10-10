@@ -1,11 +1,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 
-<suite name="WELLAutomation">
+<suite name="Portfolio module">
 
 	<parameter name="browserName" value="chrome" />
 	<parameter name="environment" value="Test" />
-	<test name="WELL-At Scale">
+	<test name="WELL-At-Scale">
 		<parameter name="SheetName" value="Portfolio" />
 		<parameter name="rowNum" value="2" />
 		<classes>

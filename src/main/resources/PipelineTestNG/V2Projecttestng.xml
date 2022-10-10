@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 
-<suite name="WELLAutomation">
+<suite name="V2 Project module">
 
 <parameter name="browserName" value="chrome"/>
 <parameter name="environment" value="Test"/>

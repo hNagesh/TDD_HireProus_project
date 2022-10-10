@@ -1,12 +1,12 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 
-<suite name="WELLAutomation">
+<suite name="Membership module">
 
 <parameter name="browserName" value="chrome"/>
 <parameter name="environment" value="Test"/>
 
- <test name="WELL Membership" >
+ <test name="WELL-Membership" >
 <parameter name="SheetName" value="Membership"/>
 <parameter name="rowNum" value="2"/>
 <parameter name="MembershipName" value="Cornerstone"/>
