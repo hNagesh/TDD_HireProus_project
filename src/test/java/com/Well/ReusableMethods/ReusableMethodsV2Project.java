@@ -189,10 +189,10 @@ public class ReusableMethodsV2Project extends BaseClass {
 		data.setCellData(SheetName, SheetName, rowNum, String.valueOf(Enroll));
 		Double InterimProgramfee = Area*0.08;
 		if(InterimProgramfee<=6500) {
-			Programfee = Math.round(6500*.35);
+			Programfee = (6500-Math.round(6500*.35));
 		}
 		else if(InterimProgramfee>=98000) {
-			Programfee = Math.round(98000*.35);
+			Programfee = (98000-Math.round(98000*.35));
 		}
 		else {
 			Programfee = Math.round(InterimProgramfee-(InterimProgramfee*.35));
