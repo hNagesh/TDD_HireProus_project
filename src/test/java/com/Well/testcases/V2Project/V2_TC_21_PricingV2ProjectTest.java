@@ -8,17 +8,19 @@ import com.Well.Engine.BaseClass;
 public class V2_TC_21_PricingV2ProjectTest extends BaseClass {
 
 	@Test//(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_17_OverviewAndValidateRegisterFieldsV2ProjectTest.V2_TC_17_OverviewAndValidateRegisterFieldsV2Project" })
-	@Parameters({ "SheetName","rowNum","Discount" })
-	public void V2_TC_21_PricingV2Project(String SheetName,int rowNum, String Discount) throws IOException {
+	@Parameters({ "SheetName","rowNum","Discount","ProjectType" })
+	public void V2_TC_21_PricingV2Project(String SheetName,int rowNum, String Discount, String ProjectType) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
 		try {
 			if (Discount.equalsIgnoreCase("SectorDiscount")) {
+				v2project.CalculatePricingV2Project(SheetName, rowNum, ProjectType);
 				v2project.PricingSectorDiscountValidationV2Project(SheetName, rowNum);
 			}
 			else if (Discount.equalsIgnoreCase("NoDiscount")) {
+				v2project.CalculatePricingV2Project(SheetName, rowNum, ProjectType);
 				v2project.PricingNoDiscountValidationV2Project(SheetName, rowNum);
 			}
 			

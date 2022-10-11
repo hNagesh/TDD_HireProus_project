@@ -471,6 +471,11 @@ public class CommonMethod extends BaseClass {
 		
 
 	}
+	
+	public static void uploadFile(String objectLocater, String file, String VerifyobjectLocater) throws IOException {
+		findElement(objectLocater).sendKeys(file);
+		WaitUntilVisibility("VerifyobjectLocater", 60);
+	}
 
 	public static void uploadFile(WebElement objectLocater, String file) throws IOException {
 		objectLocater.sendKeys(file);

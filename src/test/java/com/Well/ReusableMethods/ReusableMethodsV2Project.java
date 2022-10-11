@@ -175,7 +175,40 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WellV2DashboardTab", 30);
 		testlog.pass("**Verifies Agreement V2Project successfully**");
 	}
-
+	
+	public void CalculatePricingV2Project(String SheetName, int rowNum, String ProjectType) throws IOException, InterruptedException {
+	
+	long Enroll;
+	long Programfee;
+	
+	Double Area = Double.valueOf(data.getCellData(SheetName, "", rowNum));
+	
+	if(ProjectType.equalsIgnoreCase("WellCore")) {
+		
+		Enroll = Math.round(2500-(2500*.35));
+		data.setCellData(SheetName, SheetName, rowNum, String.valueOf(Enroll));
+		Double InterimProgramfee = Area*0.08;
+		if(InterimProgramfee<=6500) {
+			Programfee = 6500;
+		}
+		else if(InterimProgramfee>=98000) {
+			Programfee = 98000;
+		}
+		else {
+			Programfee = Math.round(InterimProgramfee-(InterimProgramfee*.35));
+		}
+		data.setCellData(SheetName, SheetName, rowNum, String.valueOf(Programfee));
+		}
+	
+	
+	else {
+		
+		
+	}
+	
+	
+	
+	}
 	public void PricingSectorDiscountValidationV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("PricingTab", 300);
 		CommonMethod.RobustclickElementVisible("PricingTab","V2ProjectPricingEnrollFee");
