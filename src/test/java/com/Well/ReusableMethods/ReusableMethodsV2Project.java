@@ -176,13 +176,42 @@ public class ReusableMethodsV2Project extends BaseClass {
 		testlog.pass("**Verifies Agreement V2Project successfully**");
 	}
 
-	public void PricingV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
+	public void PricingSectorDiscountValidationV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("PricingTab", 300);
 		CommonMethod.RobustclickElementVisible("PricingTab","V2ProjectPricingEnrollFee");
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectProjectScope"),
-				data.getCellData(SheetName, "ProjectScope", rowNum), "Project scope data doesn't match");
-		
+		testlog.info("PricingEnrollFee: "+data.getCellData(SheetName, "EnrollFee", rowNum));
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingEnrollFee"),
+				data.getCellData(SheetName, "EnrollFee", rowNum), "PricingEnrollFee data doesn't match");
+		testlog.info("Sector DiscountName:"+data.getCellData(SheetName, "MarketSectorName", rowNum));
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingSectorDiscountName"),
+				data.getCellData(SheetName, "MarketSectorName", rowNum), "Pricing Sector DiscountName data doesn't match");
+		testlog.info("ProgramFee: "+data.getCellData(SheetName, "ProgramFee", rowNum));
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingProgramFee"),
+				data.getCellData(SheetName, "ProgramFee", rowNum), "Pricing ProgramFee data doesn't match");
+		testlog.info("Discount Applied: "+data.getCellData(SheetName, "DiscountAppliedAmount", rowNum));
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingDiscountApplied"),
+				data.getCellData(SheetName, "DiscountAppliedAmount", rowNum), "PricingDiscount Applied data doesn't match");
+		testlog.info("TotalFee: "+data.getCellData(SheetName, "TotalFee", rowNum));
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingTotalWellFees"),
+				data.getCellData(SheetName, "TotalFee", rowNum), "Pricing Total WellFees data doesn't match");
+		testlog.pass("**Verifies Pricing Sector Discount successfully**");
 	}
+	
+	public void PricingNoDiscountValidationV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("PricingTab", 300);
+		CommonMethod.RobustclickElementVisible("PricingTab","V2ProjectPricingEnrollFee");
+		testlog.info("PricingEnrollFee: "+data.getCellData(SheetName, "EnrollFee", rowNum));
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingEnrollFee"),
+				data.getCellData(SheetName, "EnrollFee", rowNum), "PricingEnrollFee data doesn't match");
+		testlog.info("ProgramFee: "+data.getCellData(SheetName, "ProgramFee", rowNum));
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingProgramFee"),
+				data.getCellData(SheetName, "ProgramFee", rowNum), "Pricing ProgramFee data doesn't match");
+		testlog.info("TotalFee: "+data.getCellData(SheetName, "TotalFee", rowNum));
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingNoTotalWellFees"),
+				data.getCellData(SheetName, "TotalFee", rowNum), "Pricing Total WellFees data doesn't match");
+		testlog.pass("**Verifies Pricing No Discount successfully**");
+	}
+	
 	public void BuildScorecardV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("V2ProjectStartBuilding", 60);
 		CommonMethod.click("V2ProjectStartBuilding");
