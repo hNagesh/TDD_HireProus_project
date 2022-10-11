@@ -95,7 +95,7 @@ stage('Test Results'){
         body: '''${SCRIPT, template="groovy-html.template"}''',
         mimeType: 'text/html',
         subject: "[Jenkins] ${env.JOB_NAME}-${env.BUILD_NUMBER}",
-        to: 'abhishek.gupta@wellcertified.com, gokul@promantus.com',
+        to: 'abhishek.gupta@wellcertified.com, gokul@promantus.com, avinash.singh@wellcertified.com, devi.dayalan@wellcertified.com, adil.mian@wellcertified.com, gaurav.arora@wellcertified.com, himanshu.bansal@wellcertified.com, ashutosh.kumar@wellcertified.com, kumar@promantus.com, cc: shekhar.chikara@wellcertified.com',
         replyTo: "abhishek.gupta@wellcertified.com"
         
         }
