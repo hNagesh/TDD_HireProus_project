@@ -17,7 +17,7 @@
 <class name="com.Well.testcases.V2Project.V2_TC_02_RegisterV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_03_SearchV2ProjectByIdTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_04_EnrollV2ProjectTest"></class>
-<class name="com.Well.testcases.V2Project.V2_TC_21_PricingV2ProjectTest"></class>
+<!-- <class name="com.Well.testcases.V2Project.V2_TC_21_PricingV2ProjectTest"></class> -->
 <class name="com.Well.testcases.V2Project.V2_TC_05_BillingV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_06_AgreementV2ProjectTest"></class> 
 <class name="com.Well.testcases.V2Project.V2_TC_07_ScorecardV2ProjectTest"></class>
@@ -48,7 +48,7 @@
 <class name="com.Well.testcases.V2Project.V2_TC_02_RegisterV2ProjectTest"></class>
  <class name="com.Well.testcases.V2Project.V2_TC_03_SearchV2ProjectByIdTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_04_EnrollV2ProjectTest"></class>
-<class name="com.Well.testcases.V2Project.V2_TC_21_PricingV2ProjectTest"></class>
+<!-- <class name="com.Well.testcases.V2Project.V2_TC_21_PricingV2ProjectTest"></class> -->
 <class name="com.Well.testcases.V2Project.V2_TC_05_BillingV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_06_AgreementV2ProjectTest"></class> 
 <class name="com.Well.testcases.V2Project.V2_TC_07_ScorecardV2ProjectTest"></class>
