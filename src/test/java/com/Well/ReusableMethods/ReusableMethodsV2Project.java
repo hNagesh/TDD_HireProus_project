@@ -229,8 +229,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 		long NoDiscTotalFee = Programfee + 2500;
 		data.setCellData(SheetName, "NoDiscTotalFee", rowNum, String.valueOf(NoDiscTotalFee));
 		}
-	
-	
 	}
 	public void PricingSectorDiscountValidationV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("PricingTab", 300);
@@ -263,8 +261,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.RobustclickElementVisible("PricingTab","V2ProjectPricingEnrollFee");
 		rowNum = rowNum-1;
 		String PricingEnrollFee = CommonMethod.getText("V2ProjectPricingEnrollFee").replaceAll("USD", "").replaceAll("\\W", "");
-		System.out.println("PricingEnrollFee"+PricingEnrollFee);
-		System.out.println("excelPricingEnrollFee"+data.getCellData(SheetName, "NoDiscEnrollFee", rowNum));
 		testlog.info("PricingEnrollFee: "+PricingEnrollFee);
 		CommonMethod.softAssertEqualsMessage(PricingEnrollFee,
 				data.getCellData(SheetName, "NoDiscEnrollFee", rowNum), "PricingEnrollFee data doesn't match");
