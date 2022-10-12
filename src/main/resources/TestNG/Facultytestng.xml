@@ -15,7 +15,6 @@
  <class name="com.Well.testcases.Faculty.Faculty_TC_02_RegisterFacultyTest"></class>
  <class name="com.Well.testcases.Faculty.Faculty_TC_03_AgreementFacultyTest"></class>
  <class name="com.Well.testcases.Faculty.Faculty_TC_04_SubmitReviewTest"></class>
-
 </classes>
 </test>
 </suite>  

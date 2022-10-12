@@ -84,8 +84,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WFFacultyApplication", 60);
 		testlog.pass("**Verifies the Agreement Faculty successfully**");
 	}
-
-	public void SubmitReviewFaculty(String SheetName, int rowNum) throws IOException, InterruptedException {
+	public void SubmitReview(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WFFacultyApplication", 60);
 		CommonMethod.scrolldowntoElement("WFFacultyApplication");
 		CommonMethod.WaitUntilVisibility("WFStatus", 60);
@@ -122,24 +121,25 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.WaitUntilClickble("WFEventsnarration", 60).sendKeys(sampleText);
 		CommonMethod.sendKeys("WFTeachingnarration", sampleText);
 		CommonMethod.RobustclickElementVisible("WFExamContinuebtn","WFSubmitApplicationbtn");
-		
-		if (CommonMethod.isElementsExist("WFSubmitApplicationbtn", 3)) {
-			CommonMethod.WaitUntilVisibility("WFSubmitApplicationbtn", 60);
-			CommonMethod.RobustclickElementVisible("WFSubmitApplicationbtn","WFReturnbtn");
-			Thread.sleep(2000);
-			CommonMethod.WaitUntilVisibility("WFReturnbtn", 60);
-		}
-		
+	}
+
+	public void SubmitReviewFaculty(String SheetName, int rowNum) throws IOException, InterruptedException {
+		SubmitReview(SheetName, rowNum);
+		CommonMethod.WaitUntilVisibility("WFSubmitApplicationbtn", 60);
+		CommonMethod.RobustclickElementVisible("WFSubmitApplicationbtn","WFReturnbtn");
+		Thread.sleep(2000);
+		CommonMethod.WaitUntilVisibility("WFReturnbtn", 60);
+		CommonMethod.RobustclickElementVisible("WFReturnbtn","AdminNavBar");
 		testlog.pass("**Verifies Submitted Review successfully**");
 		
 	}
-	public void ReviewResultFaculty(String SheetName, int rowNum) throws IOException, InterruptedException {
+	public void ReviewSubmitResultFaculty(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
 		CommonMethod.click("AdminNavBar");
 		CommonMethod.WaitUntilVisibility("AdminWELLFacultyNavBar", 60);
 		CommonMethod.RobustclickElementVisible("AdminWELLFacultyNavBar", "WFAdminEmail");
 		CommonMethod.WaitUntilClickble("WFAdminEmail", 60)
-				.sendKeys(data.getCellData("Login", "UserName", rowNum));
+				.sendKeys(data.getCellData("Login", "UserName", 3));
 		CommonMethod.RobustclickElementVisible("ApplyButton","WFViewButton");
 		CommonMethod.RobustclickElementVisible("WFViewButton","WFReviewApplicationButton");
 		CommonMethod.RobustclickElementVisible("WFReviewApplicationButton","WFAddrContinuebtn");
@@ -149,12 +149,89 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WFAddrContinuebtn", 60);
 		Thread.sleep(1000);
 		CommonMethod.RobustclickElementVisible("WFAddrContinuebtn","WFFacultyApplication");
-		SubmitReviewFaculty(SheetName, rowNum);
-		CommonMethod.click("WFReturnSubmitButton");
+		SubmitReview(SheetName, rowNum);
+		CommonMethod.RobustclickElementVisible("WFReturnSubmitButton","WFAdminReviewApprovedStatus");
 		CommonMethod.assertcontainsmessage("WFAdminReviewApprovedStatus", "APPROVED", "Verified Review status");
 		testlog.pass("**Verifies Review Result successfully**");
 	}
+	
+	public void ReviewBillingFaculty(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("TrainingNavBar", 60);
+		CommonMethod.click("TrainingNavBar");
+		CommonMethod.RobustclickElementVisible("WELLFacultyNavBar","WFExamContinuebtn");
+		CommonMethod.WaitUntilVisibility("WFExamContinuebtn", 30);
+		CommonMethod.RobustclickElementVisible("WFExamContinuebtn","BillingLanding");
+		rc.Billing(SheetName, rowNum);
+	}
+	
+	public static void orientationCardValdationFaculty() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("TrainingNavBar", 60);
+		CommonMethod.click("TrainingNavBar");
+		CommonMethod.RobustclickElementVisible("WELLFacultyNavBar", "WFOrientationTab");
+		CommonMethod.WaitUntilVisibility("WFOrientationTab", 60);
+		CommonMethod.RobustclickElementVisible("WFOrientationTab", "FacultyRenew");
+		CommonMethod.WaitUntilVisibility("FacultyRenew", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("FacultyRenew"), "Renew", "Renew doesn't match");
+		CommonMethod.WaitUntilVisibility("FacultyDownloadCertificate", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("FacultyDownloadCertificate"),
+				"Download Ceritificate", "Download Ceritificate doesn't match");
+		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
+		String cardCount = Integer.toString(countCard);
+		CommonMethod.assertActualContainsExpected(cardCount, "4");
+		testlog.info("Card count: " + cardCount);
+		testlog.pass("**Verify card count successfully**");
 
+	}
+
+	public static void keepLearingCardValdationFaculty() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("WFKeepLearningTab", 60);
+		CommonMethod.RobustclickElementVisible("WFKeepLearningTab", "FacultyRenew");
+		CommonMethod.WaitUntilVisibility("FacultyRenew", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("FacultyRenew"), "Renew", "Renew doesn't match");
+		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
+		String cardCount = Integer.toString(countCard);
+		CommonMethod.assertActualContainsExpected(cardCount, "3");
+		testlog.info("Card count: " + cardCount);
+		testlog.pass("**Verify card count successfully**");
+		
+	}
+
+	public static void resourcesCardValdationFaculty() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("WFResourceTab", 60);
+		CommonMethod.RobustclickElementVisible("WFResourceTab", "FacultyRenew");
+		CommonMethod.WaitUntilVisibility("FacultyRenew", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("FacultyRenew"), "Renew", "Renew doesn't match");
+		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
+		String cardCount = Integer.toString(countCard);
+		CommonMethod.assertActualContainsExpected(cardCount, "22");
+		testlog.info("Card count: " + cardCount);
+		testlog.pass("**Verify card count successfully**");
+	}
+
+	public static void marketingToolKitCardValdationFaculty() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("WFMarketingToolkitTab", 60);
+		CommonMethod.RobustclickElementVisible("WFMarketingToolkitTab", "FacultyRenew");
+		CommonMethod.WaitUntilVisibility("FacultyRenew", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("FacultyRenew"), "Renew", "Renew doesn't match");
+		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
+		String cardCount = Integer.toString(countCard);
+		CommonMethod.assertActualContainsExpected(cardCount, "2");
+		testlog.info("Card count: " + cardCount);
+		testlog.pass("**Verify card count successfully**");
+	}
+	
+	public static void reportingCardValdationFaculty() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("WFReportingTab", 60);
+		CommonMethod.RobustclickElementVisible("WFReportingTab", "FacultyRenew");
+		CommonMethod.WaitUntilVisibility("FacultyRenew", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("FacultyRenew"), "Renew", "Renew doesn't match");
+		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
+		String cardCount = Integer.toString(countCard);
+		CommonMethod.assertActualContainsExpected(cardCount, "2");
+		testlog.info("Card count: " + cardCount);
+		testlog.pass("**Verify card count successfully**");
+	}
+	
 	@SuppressWarnings("unchecked")
 	public static Response PostRequestAuthenticate() {
 		/*
