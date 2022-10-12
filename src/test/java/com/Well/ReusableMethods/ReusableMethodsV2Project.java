@@ -2,14 +2,8 @@ package com.Well.ReusableMethods;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
 
@@ -131,10 +125,10 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectdocsubAnticdate");
 		CommonMethod.click("V2ProjectdocsubEstidateOkbtn");
 		if (ProjectType.equalsIgnoreCase("WELLCore")) {
-			CommonMethod.selectdropdownrandom("V2ProjectSector");
+			CommonMethod.selectdropdownValue("V2ProjectSector", "government/municipal-buildings");
+			data.setCellData(SheetName, "MarketSectorName", rowNum, CommonMethod.getSelectedDropdownValue("V2ProjectSector"));
+			testlog.info("MarketSector: " + data.getCellData(SheetName, "MarketSectorName", rowNum));	
 		}
-		data.setCellData(SheetName, "MarketSector", rowNum, CommonMethod.getSelectedDropdownValue("V2ProjectSector"));
-		testlog.info("MarketSector: " + data.getCellData(SheetName, "MarketSector", rowNum));
 		CommonMethod.click("V2ProjectprojectOwnerContinuebtn");
 		testlog.info("Country: " + Country);
 		CommonMethod.selectdropdownValue("V2ProjectprojectaddressCountry", Country);
@@ -241,34 +235,48 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void PricingSectorDiscountValidationV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("PricingTab", 300);
 		CommonMethod.RobustclickElementVisible("PricingTab","V2ProjectPricingEnrollFee");
-		testlog.info("PricingEnrollFee: "+data.getCellData(SheetName, "EnrollFee", rowNum));
-		CommonMethod.WaitUntilVisibility("V2ProjectPricingEnrollFee", 120);
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingEnrollFee"),
+		CommonMethod.WaitUntilPresence("V2ProjectPricingLanding", 120);
+		String PricingEnrollFee = CommonMethod.getText("V2ProjectPricingEnrollFee").replaceAll("USD", "").replaceAll("\\W", "");
+		testlog.info("PricingEnrollFee: "+PricingEnrollFee);
+		CommonMethod.softAssertEqualsMessage(PricingEnrollFee,
 				data.getCellData(SheetName, "EnrollFee", rowNum), "PricingEnrollFee data doesn't match");
-		testlog.info("Sector DiscountName:"+data.getCellData(SheetName, "MarketSectorName", rowNum));
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingSectorDiscountName"),
+		String DiscountName = CommonMethod.getText("V2ProjectPricingSectorDiscountName").split(":")[1].toString().trim();
+		testlog.info("Sector DiscountName:"+DiscountName);
+		DiscountName = DiscountName.replace("(-35%)", "").trim();
+		testlog.info("Sector DiscountName:"+CommonMethod.getText("V2ProjectPricingSectorDiscountName"));
+		CommonMethod.softAssertEqualsMessage(DiscountName,
 				data.getCellData(SheetName, "MarketSectorName", rowNum), "Pricing Sector DiscountName data doesn't match");
-		testlog.info("ProgramFee: "+data.getCellData(SheetName, "ProgramFee", rowNum));
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingProgramFee"),
+		String ProgramFee = CommonMethod.getText("V2ProjectPricingProgramFee").replaceAll("USD", "").replaceAll("\\W", "");
+		testlog.info("ProgramFee: "+ProgramFee);
+		CommonMethod.softAssertEqualsMessage(ProgramFee,
 				data.getCellData(SheetName, "ProgramFee", rowNum), "Pricing ProgramFee data doesn't match");
-		testlog.info("TotalFee: "+data.getCellData(SheetName, "TotalFee", rowNum));
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingTotalWellFees"),
+		String TotalFee = CommonMethod.getText("V2ProjectPricingTotalWellFees").replaceAll("USD", "").replaceAll("\\W", "");
+		testlog.info("TotalFee: "+TotalFee);
+		CommonMethod.softAssertEqualsMessage(TotalFee,
 				data.getCellData(SheetName, "TotalFee", rowNum), "Pricing Total WellFees data doesn't match");
+		softAssert.assertAll();
 		testlog.pass("**Verifies Pricing Sector Discount successfully**");
 	}
 	
 	public void PricingNoDiscountValidationV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("PricingTab", 300);
 		CommonMethod.RobustclickElementVisible("PricingTab","V2ProjectPricingEnrollFee");
-		testlog.info("PricingEnrollFee: "+data.getCellData(SheetName, "EnrollFee", rowNum));
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingEnrollFee"),
-				data.getCellData(SheetName, "EnrollFee", rowNum), "PricingEnrollFee data doesn't match");
-		testlog.info("ProgramFee: "+data.getCellData(SheetName, "ProgramFee", rowNum));
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingProgramFee"),
-				data.getCellData(SheetName, "ProgramFee", rowNum), "Pricing ProgramFee data doesn't match");
-		testlog.info("TotalFee: "+data.getCellData(SheetName, "TotalFee", rowNum));
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingNoTotalWellFees"),
-				data.getCellData(SheetName, "TotalFee", rowNum), "Pricing Total WellFees data doesn't match");
+		rowNum = rowNum-1;
+		String PricingEnrollFee = CommonMethod.getText("V2ProjectPricingEnrollFee").replaceAll("USD", "").replaceAll("\\W", "");
+		System.out.println("PricingEnrollFee"+PricingEnrollFee);
+		System.out.println("excelPricingEnrollFee"+data.getCellData(SheetName, "NoDiscEnrollFee", rowNum));
+		testlog.info("PricingEnrollFee: "+PricingEnrollFee);
+		CommonMethod.softAssertEqualsMessage(PricingEnrollFee,
+				data.getCellData(SheetName, "NoDiscEnrollFee", rowNum), "PricingEnrollFee data doesn't match");
+		String ProgramFee = CommonMethod.getText("V2ProjectPricingProgramFee").replaceAll("USD", "").replaceAll("\\W", "");
+		testlog.info("ProgramFee: "+ProgramFee);
+		CommonMethod.softAssertEqualsMessage(ProgramFee,
+				data.getCellData(SheetName, "NoDiscProgramFee", rowNum), "Pricing ProgramFee data doesn't match");
+		String TotalFee = CommonMethod.getText("V2ProjectPricingNoTotalWellFees").replaceAll("USD", "").replaceAll("\\W", "");
+		testlog.info("TotalFee: "+TotalFee);
+		CommonMethod.softAssertEqualsMessage(TotalFee,
+				data.getCellData(SheetName, "NoDiscTotalFee", rowNum), "Pricing Total WellFees data doesn't match");
+		softAssert.assertAll();
 		testlog.pass("**Verifies Pricing No Discount successfully**");
 	}
 	
@@ -889,6 +897,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectProjectGoals", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectProjectGoals"),
 				data.getCellData(SheetName, "ProjectGoals", rowNum), "Project goals data doesn't match");
+		softAssert.assertAll();
 		testlog.pass("**Project goals data updated successfully**");
 	}
 
@@ -923,6 +932,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectState", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectState"),
 				data.getCellData(SheetName, "State", rowNum), "State name doesn't match");
+		softAssert.assertAll();
 		testlog.pass("**State name updated successfully**");
 	}
 
@@ -980,6 +990,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectBillingPostalCode", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectBillingPostalCode"),
 				data.getCellData(SheetName, "PostalCode", rowNum), "Billing postal code doesn't match");
+		softAssert.assertAll();
 		testlog.pass("**Postal code updated successfully**");
 	}
 
@@ -1025,6 +1036,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2projectAdminBillingNote", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2projectAdminBillingNote"),
 				data.getCellData(SheetName, "BillingNote", rowNum), "Billing note value doesn't match");
+		softAssert.assertAll();
 		testlog.pass("**Billing note updated successfully**");
 	}
 
@@ -1062,6 +1074,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectOwnerIndustry", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectOwnerIndustry"),
 				data.getCellData(SheetName, "OrgIndustry", rowNum), "Owner industry name doesn't match");
+		softAssert.assertAll();
 		testlog.pass("**Owner industry name matched successfully**");
 	}
 
@@ -1112,6 +1125,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectProfileUpdatedToastMessage", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProfileUpdatedToastMessage"),
 				"Updated Profile!", "Verified profile updated toast message");
+		softAssert.assertAll();
 		testlog.pass("**Certification story data updated successfully**");
 	}
 

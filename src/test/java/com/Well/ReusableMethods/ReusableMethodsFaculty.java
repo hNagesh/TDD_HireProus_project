@@ -178,9 +178,9 @@ public class ReusableMethodsFaculty extends BaseClass {
 		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
 		String cardCount = Integer.toString(countCard);
 		CommonMethod.assertActualContainsExpected(cardCount, "4");
+		softAssert.assertAll();
 		testlog.info("Card count: " + cardCount);
 		testlog.pass("**Verify card count successfully**");
-
 	}
 
 	public static void keepLearingCardValdationFaculty() throws IOException, InterruptedException {
@@ -191,9 +191,9 @@ public class ReusableMethodsFaculty extends BaseClass {
 		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
 		String cardCount = Integer.toString(countCard);
 		CommonMethod.assertActualContainsExpected(cardCount, "3");
+		softAssert.assertAll();
 		testlog.info("Card count: " + cardCount);
-		testlog.pass("**Verify card count successfully**");
-		
+		testlog.pass("**Verify card count successfully**");	
 	}
 
 	public static void resourcesCardValdationFaculty() throws IOException, InterruptedException {
@@ -204,6 +204,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
 		String cardCount = Integer.toString(countCard);
 		CommonMethod.assertActualContainsExpected(cardCount, "22");
+		softAssert.assertAll();
 		testlog.info("Card count: " + cardCount);
 		testlog.pass("**Verify card count successfully**");
 	}
@@ -216,6 +217,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
 		String cardCount = Integer.toString(countCard);
 		CommonMethod.assertActualContainsExpected(cardCount, "2");
+		softAssert.assertAll();
 		testlog.info("Card count: " + cardCount);
 		testlog.pass("**Verify card count successfully**");
 	}
@@ -228,6 +230,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
 		String cardCount = Integer.toString(countCard);
 		CommonMethod.assertActualContainsExpected(cardCount, "2");
+		softAssert.assertAll();
 		testlog.info("Card count: " + cardCount);
 		testlog.pass("**Verify card count successfully**");
 	}

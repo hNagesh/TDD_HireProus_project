@@ -365,6 +365,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 				data.getCellData(SheetName, "OwnerEmail", rowNum), "Portfolio OwnerEmail doesn't match");
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioEditOwnerPhone"),
 				data.getCellData(SheetName, "OwnerPhone", rowNum), "Portfolio OwnerPhone doesn't match");
+		softAssert.assertAll();
 		testlog.pass("**Register Field Validation successfully**");
 	}
 }
