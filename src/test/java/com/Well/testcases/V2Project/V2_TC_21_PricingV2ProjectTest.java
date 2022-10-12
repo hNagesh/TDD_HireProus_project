@@ -7,7 +7,7 @@ import com.Well.Engine.BaseClass;
 
 public class V2_TC_21_PricingV2ProjectTest extends BaseClass {
 
-	@Test//(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_17_OverviewAndValidateRegisterFieldsV2ProjectTest.V2_TC_17_OverviewAndValidateRegisterFieldsV2Project" })
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_04_EnrollV2ProjectTest.V2_TC_04_EnrollV2Project" })
 	@Parameters({ "SheetName","rowNum","Discount","ProjectType" })
 	public void V2_TC_21_PricingV2Project(String SheetName,int rowNum, String Discount, String ProjectType) throws IOException {
 

@@ -122,12 +122,37 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.WaitUntilClickble("WFEventsnarration", 60).sendKeys(sampleText);
 		CommonMethod.sendKeys("WFTeachingnarration", sampleText);
 		CommonMethod.RobustclickElementVisible("WFExamContinuebtn","WFSubmitApplicationbtn");
-		CommonMethod.WaitUntilVisibility("WFSubmitApplicationbtn", 60);
-		CommonMethod.RobustclickElementVisible("WFSubmitApplicationbtn","WFReturnbtn");
-		Thread.sleep(2000);
-		CommonMethod.WaitUntilVisibility("WFReturnbtn", 60);
+		
+		if (CommonMethod.isElementsExist("WFSubmitApplicationbtn", 3)) {
+			CommonMethod.WaitUntilVisibility("WFSubmitApplicationbtn", 60);
+			CommonMethod.RobustclickElementVisible("WFSubmitApplicationbtn","WFReturnbtn");
+			Thread.sleep(2000);
+			CommonMethod.WaitUntilVisibility("WFReturnbtn", 60);
+		}
+		
 		testlog.pass("**Verifies Submitted Review successfully**");
 		
+	}
+	public void ReviewResultFaculty(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
+		CommonMethod.click("AdminNavBar");
+		CommonMethod.WaitUntilVisibility("AdminWELLFacultyNavBar", 60);
+		CommonMethod.RobustclickElementVisible("AdminWELLFacultyNavBar", "WFAdminEmail");
+		CommonMethod.WaitUntilClickble("WFAdminEmail", 60)
+				.sendKeys(data.getCellData("Login", "UserName", rowNum));
+		CommonMethod.RobustclickElementVisible("ApplyButton","WFViewButton");
+		CommonMethod.RobustclickElementVisible("WFViewButton","WFReviewApplicationButton");
+		CommonMethod.RobustclickElementVisible("WFReviewApplicationButton","WFAddrContinuebtn");
+		CommonMethod.RobustclickElementVisible("WFAddrContinuebtn","WFFacultyApplication");
+		CommonMethod.ClickCheckbox("WFTermcbx");
+		CommonMethod.scrolldowntoElement("WFTermcbx");
+		CommonMethod.WaitUntilVisibility("WFAddrContinuebtn", 60);
+		Thread.sleep(1000);
+		CommonMethod.RobustclickElementVisible("WFAddrContinuebtn","WFFacultyApplication");
+		SubmitReviewFaculty(SheetName, rowNum);
+		CommonMethod.click("WFReturnSubmitButton");
+		CommonMethod.assertcontainsmessage("WFAdminReviewApprovedStatus", "APPROVED", "Verified Review status");
+		testlog.pass("**Verifies Review Result successfully**");
 	}
 
 	@SuppressWarnings("unchecked")

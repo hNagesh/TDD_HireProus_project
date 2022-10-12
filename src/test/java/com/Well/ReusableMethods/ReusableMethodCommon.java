@@ -33,7 +33,7 @@ public class ReusableMethodCommon extends BaseClass {
 	CommonMethod.sendKeys("OwnerOrg", "R");
 	CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
 	CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 5).click();
-	data.setCellData(SheetName, "OrgName", 2, CommonMethod.getText("OrgName"));
+	data.setCellData(SheetName, "OrgName", rowNum, CommonMethod.getText("OrgName"));
 	testlog.info("OrganizationName: " + data.getCellData(SheetName, "OrgName", rowNum));
 	
 	}

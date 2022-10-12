@@ -1,4 +1,4 @@
-package com.Well.testcases.V2Project;
+package com.Well.testcases.Faculty;
 
 import java.io.IOException;
 
@@ -7,20 +7,18 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class V2_TC_05_BillingV2ProjectTest extends BaseClass {
+public class Faculty_TC_06_ResultReviewTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_04_EnrollV2ProjectTest.V2_TC_04_EnrollV2Project" })
+	@Test//(dependsOnMethods = { "com.Well.testcases.Faculty.Faculty_TC_03_AgreementFacultyTest.Faculty_TC_03_AgreementFaculty" })
 	@Parameters({ "SheetName","rowNum" })
-	public void V2_TC_05_BillingV2Project(String SheetName,int rowNum) throws IOException {
+	public void Faculty_TC_06_ResultReview(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName);
+
 		try {
-		v2project.ClickBilling(SheetName, rowNum);
-		rc.Billing(SheetName, rowNum);	
-		v2project.DownloadBillingReceiptAndValidate(SheetName, rowNum);
-		
+			faculty.ReviewResultFaculty(SheetName, rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

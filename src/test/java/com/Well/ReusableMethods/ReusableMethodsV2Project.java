@@ -36,8 +36,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.sendKeys("V2ProjectlocationPostalcode", PostalCode);
 		data.setCellData(SheetName, "PostalCode", rowNum, CommonMethod.getattributeValue("V2ProjectlocationPostalcode"));
 		CommonMethod.RobustclickElementVisible("V2ProjectlocationContinuebtn","V2ProjectareaContinuebtn");
-		String Area = CommonMethod.randomNumberBetweenRanges(100, 50000);
-		CommonMethod.clear("V2ProjectareaSize");
+		String Area =CommonMethod.randomNumberBetweenRanges(100, 85000);
+		CommonMethod.clear("V2ProjectareaSize");//50000
 		CommonMethod.sendKeys("V2ProjectareaSize", Area);
 		data.setCellData(SheetName, "Area", rowNum, CommonMethod.getattributeValue("V2ProjectareaSize"));
 		testlog.info("Area: " + data.getCellData(SheetName, "Area", rowNum));
@@ -80,7 +80,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 	}
 
 	public void SearchV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 120);
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.RobustclickElementVisible("WELLCertificationNavBar","V2ProjectId");
 		CommonMethod.WaitUntilClickble("V2ProjectId", 60);
@@ -95,7 +95,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		testlog.pass("**Verifies the Search V2Project ByID successfully**");
 	}
 
-	public void EnrollV2ProjectById(String SheetName, int rowNum, String ProjectType) throws IOException, InterruptedException {
+	public void EnrollV2ProjectById(String SheetName, int rowNum, String ProjectType,String Country) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("EnrollTab", 60);
 		CommonMethod.click("EnrollTab");
 		rc.SelectOwnerOrg(SheetName, rowNum);
@@ -124,13 +124,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.click("V2ProjectdocsubAnticdate");
 		CommonMethod.click("V2ProjectdocsubEstidateOkbtn");
 		if (ProjectType.equalsIgnoreCase("WELLCore")) {
-			CommonMethod.selectdropdownValue("V2ProjectSector", "government/municipal-buildings");
+			CommonMethod.selectdropdownrandom("V2ProjectSector");
 		}
 		data.setCellData(SheetName, "MarketSector", rowNum, CommonMethod.getSelectedDropdownValue("V2ProjectSector"));
 		testlog.info("MarketSector: " + data.getCellData(SheetName, "MarketSector", rowNum));
 		CommonMethod.click("V2ProjectprojectOwnerContinuebtn");
-		testlog.info("Country: " + "United States");
-		CommonMethod.selectdropdownVisibletext("V2ProjectprojectaddressCountry", "United States");
+		testlog.info("Country: " + Country);
+		CommonMethod.selectdropdownValue("V2ProjectprojectaddressCountry", Country);
 		data.setCellData(SheetName, "OwnerCountry", rowNum,
 				CommonMethod.getSelectedDropdownValue("V2ProjectprojectaddressCountry"));
 		CommonMethod.WaitUntilVisibility("V2ProjectprojectState", 10);
@@ -144,7 +144,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.sendKeys("V2ProjectprojectaddressStreet", ProjectAddress1);
 		CommonMethod.sendKeys("V2ProjectprojectaddressCity", ProjectCity);
 		CommonMethod.sendKeys("V2ProjectprojectaddressPostalcode", PostalCode);
-		CommonMethod.selectdropdownVisibletext("V2ProjectowneraddressCountry", "United States");
+		CommonMethod.selectdropdownValue("V2ProjectowneraddressCountry", Country);
 		CommonMethod.WaitUntilVisibility("V2ProjectowneraddressState", 10);
 		CommonMethod.selectdropdownrandom("V2ProjectowneraddressState");
 		CommonMethod.sendKeys("V2ProjectowneraddressStreet", ProjectAddress1);
@@ -166,7 +166,10 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.RobustclickElementVisible("V2ProjectPreBillingPayNowButton","BillingLanding");
 		testlog.pass("**Nagavited to Billing successfully**");
 	}
-
+	public void DownloadBillingReceiptAndValidate(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("DownloadReceipt", 120);
+		CommonMethod.click("DownloadReceipt");
+	}
 	public void AgreementV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WellV2DashboardTab", 300);
 		CommonMethod.click("WellV2DashboardTab");
@@ -181,12 +184,12 @@ public class ReusableMethodsV2Project extends BaseClass {
 	long Enroll;
 	long Programfee;
 	
-	Double Area = Double.valueOf(data.getCellData(SheetName, "", rowNum));
+	Double Area = Double.valueOf(data.getCellData(SheetName, "Area", rowNum));
 	
 	if(ProjectType.equalsIgnoreCase("WellCore")) {
 		
 		Enroll = Math.round(2500-(2500*.35));
-		data.setCellData(SheetName, SheetName, rowNum, String.valueOf(Enroll));
+		data.setCellData(SheetName, "EnrollFee", rowNum, String.valueOf(Enroll));
 		Double InterimProgramfee = Area*0.08;
 		if(InterimProgramfee<=6500) {
 			Programfee = (6500-Math.round(6500*.35));
@@ -197,15 +200,29 @@ public class ReusableMethodsV2Project extends BaseClass {
 		else {
 			Programfee = Math.round(InterimProgramfee-(InterimProgramfee*.35));
 		}
-		data.setCellData(SheetName, SheetName, rowNum, String.valueOf(Programfee));
+		data.setCellData(SheetName, "ProgramFee", rowNum, String.valueOf(Programfee));
+		long TotalFee = Programfee + Enroll;
+		data.setCellData(SheetName, "TotalFee", rowNum, String.valueOf(TotalFee));
 		}
 	
 	
-	else {
-		
-		
-	}
-	
+	else if(ProjectType.equalsIgnoreCase("WELLCertification"))  {
+		rowNum= rowNum-1;
+		data.setCellData(SheetName, "NoDiscEnrollFee", rowNum, "2500");
+		Double InterimProgramfee = Area*0.16;
+		if(InterimProgramfee<=6500) {
+			Programfee = 6500;
+		}
+		else if(InterimProgramfee>=98000) {
+			Programfee = 98000;
+		}
+		else {
+			Programfee = Math.round(InterimProgramfee);
+		}
+		data.setCellData(SheetName, "NoDiscProgramFee", rowNum, String.valueOf(Programfee));
+		long NoDiscTotalFee = Programfee + 2500;
+		data.setCellData(SheetName, "NoDiscTotalFee", rowNum, String.valueOf(NoDiscTotalFee));
+		}
 	
 	
 	}
@@ -213,6 +230,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("PricingTab", 300);
 		CommonMethod.RobustclickElementVisible("PricingTab","V2ProjectPricingEnrollFee");
 		testlog.info("PricingEnrollFee: "+data.getCellData(SheetName, "EnrollFee", rowNum));
+		System.out.println(""+CommonMethod.getattributeValue("V2ProjectPricingEnrollFee"));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingEnrollFee"),
 				data.getCellData(SheetName, "EnrollFee", rowNum), "PricingEnrollFee data doesn't match");
 		testlog.info("Sector DiscountName:"+data.getCellData(SheetName, "MarketSectorName", rowNum));
@@ -221,9 +239,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 		testlog.info("ProgramFee: "+data.getCellData(SheetName, "ProgramFee", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingProgramFee"),
 				data.getCellData(SheetName, "ProgramFee", rowNum), "Pricing ProgramFee data doesn't match");
-		testlog.info("Discount Applied: "+data.getCellData(SheetName, "DiscountAppliedAmount", rowNum));
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingDiscountApplied"),
-				data.getCellData(SheetName, "DiscountAppliedAmount", rowNum), "PricingDiscount Applied data doesn't match");
 		testlog.info("TotalFee: "+data.getCellData(SheetName, "TotalFee", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingTotalWellFees"),
 				data.getCellData(SheetName, "TotalFee", rowNum), "Pricing Total WellFees data doesn't match");
