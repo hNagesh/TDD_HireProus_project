@@ -6,7 +6,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.time.Duration;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Properties;
 import javax.imageio.ImageIO;
 import org.openqa.selenium.OutputType;
@@ -69,6 +71,7 @@ public class BaseClass {
 	public static String OngoingfileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"OngoingFile.xlsx";
 	public static Faker USfaker = new Faker(new Locale("en-US"));
 	public static String downloadPath = System.getProperty("user.dir") +File.separator +"Downloads"+File.separator;
+	public static String BillingReceiptPdffile = System.getProperty("user.dir") +File.separator +"Downloads"+File.separator;
 	public static ReusableMethodsLogin login = new ReusableMethodsLogin();
 	public static ReusableMethodsPortfolio portfolio = new ReusableMethodsPortfolio();
 	public static ReusableMethodsV2Project v2project = new ReusableMethodsV2Project();
@@ -106,15 +109,14 @@ public class BaseClass {
 			driver = new FirefoxDriver();
 			
 		} else if (browserName.equalsIgnoreCase("chrome")) {
-			
-			
-			
 			ChromeOptions options = new ChromeOptions();
 			WebDriverManager.chromedriver().setup();
-			
+			Map<String, Object> prefs = new HashMap<String, Object>();
+			prefs.put("download.default_directory",  downloadPath);
+			options.setExperimentalOption("prefs", prefs);
 			options.setHeadless(false);
 			driver = new ChromeDriver(options);
-			JSWaiter.setDriver(driver);
+	        JSWaiter.setDriver(driver);
 		}
 		
 		driver.manage().window().maximize();
@@ -211,6 +213,7 @@ ImageIO.write(img, "png", new File(
 
 }
 
+
 @AfterMethod(alwaysRun = true)
 public void getResult(ITestResult result) throws Exception {
 	/*String RS = RatingSystem;
@@ -250,7 +253,6 @@ public void quit() throws InterruptedException, IOException {
 	
 	System.out.println("EndTest");
 	rc.SignOut();
-	
 }
 
 @AfterSuite(alwaysRun = true)
@@ -258,6 +260,12 @@ public void end(){
 	
 	System.out.println("EndSuite");
 		driver.quit();
+		 File path = new File(downloadPath);
+		    File[] files = path.listFiles();
+		    for (File file : files) {
+		        System.out.println("Deleted filename :"+ file.getName());
+		        file.delete();
+		    }
 }
 
 

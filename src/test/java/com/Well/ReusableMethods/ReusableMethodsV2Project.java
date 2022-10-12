@@ -1,8 +1,15 @@
 package com.Well.ReusableMethods;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
 
@@ -169,6 +176,11 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void DownloadBillingReceiptAndValidate(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("DownloadReceipt", 120);
 		CommonMethod.click("DownloadReceipt");
+		File path = new File(downloadPath);
+	    File[] files = path.listFiles();
+	    for (File file : files) {
+		CommonMethod.VerifyDownloadWithFileName(file.toString());
+	    }
 	}
 	public void AgreementV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WellV2DashboardTab", 300);
@@ -230,7 +242,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("PricingTab", 300);
 		CommonMethod.RobustclickElementVisible("PricingTab","V2ProjectPricingEnrollFee");
 		testlog.info("PricingEnrollFee: "+data.getCellData(SheetName, "EnrollFee", rowNum));
-		System.out.println(""+CommonMethod.getattributeValue("V2ProjectPricingEnrollFee"));
+		CommonMethod.WaitUntilVisibility("V2ProjectPricingEnrollFee", 120);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectPricingEnrollFee"),
 				data.getCellData(SheetName, "EnrollFee", rowNum), "PricingEnrollFee data doesn't match");
 		testlog.info("Sector DiscountName:"+data.getCellData(SheetName, "MarketSectorName", rowNum));

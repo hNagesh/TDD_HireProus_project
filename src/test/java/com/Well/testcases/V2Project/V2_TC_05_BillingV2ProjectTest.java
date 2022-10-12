@@ -19,7 +19,7 @@ public class V2_TC_05_BillingV2ProjectTest extends BaseClass {
 		try {
 		v2project.ClickBilling(SheetName, rowNum);
 		rc.Billing(SheetName, rowNum);	
-		v2project.DownloadBillingReceiptAndValidate(SheetName, rowNum);
+		//v2project.DownloadBillingReceiptAndValidate(SheetName, rowNum);
 		
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
