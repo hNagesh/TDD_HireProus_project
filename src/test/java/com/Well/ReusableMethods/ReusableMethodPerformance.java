@@ -261,7 +261,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditProjectName"),
 				data.getCellData(SheetName, "projectName", rowNum), "Project Name doesn't match");
 		testlog.info("WPRlocationsize: " + data.getCellData(SheetName, "WPRlocationsize", rowNum));
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditArea"),
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditArea").replace("sq ft", "").replace(",", "").trim(),
 				data.getCellData(SheetName, "WPRlocationsize", rowNum), "Area doesn't match");
 		testlog.info("WPRlocations: " + data.getCellData(SheetName, "WPRlocations", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditLocation"),
