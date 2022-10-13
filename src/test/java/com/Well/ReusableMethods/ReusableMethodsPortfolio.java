@@ -341,7 +341,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 				data.getCellData(SheetName, "Location", rowNum), "Portfolio Approximately Location doesn't match");
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioEditLocationSubscribing"),
 				data.getCellData(SheetName, "EstimatedNumberOfLocation", rowNum), "Portfolio Location Subscribing doesn't match");
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioEditAreaSqft"),
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioEditAreaSqft").replace("sq ft", "").replace(",", "").trim(),
 				data.getCellData(SheetName, "AreaSQFT", rowNum), "Portfolio AreaSqft doesn't match");
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("OrgName"),
 				data.getCellData(SheetName, "OrgName", rowNum), "Portfolio Organization Name doesn't match");

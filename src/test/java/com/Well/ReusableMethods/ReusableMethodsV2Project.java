@@ -30,16 +30,17 @@ public class ReusableMethodsV2Project extends BaseClass {
 		testlog.info("City: " + ProjectCity);
 		testlog.info("Postalcode: " + PostalCode);
 		CommonMethod.sendKeys("V2ProjectlocationStreet", ProjectAddress);
+		System.out.println("V2ProjectlocationStreet"+CommonMethod.getattributeValue("V2ProjectlocationStreet"));
 		data.setCellData(SheetName, "Street", rowNum, CommonMethod.getattributeValue("V2ProjectlocationStreet"));
 		CommonMethod.sendKeys("V2ProjectlocationCity", ProjectCity);
+		System.out.println("V2ProjectlocationCity"+CommonMethod.getattributeValue("V2ProjectlocationCity"));
 		data.setCellData(SheetName, "City", rowNum, CommonMethod.getattributeValue("V2ProjectlocationCity"));
 		CommonMethod.sendKeys("V2ProjectlocationPostalcode", PostalCode);
 		data.setCellData(SheetName, "PostalCode", rowNum,
 				CommonMethod.getattributeValue("V2ProjectlocationPostalcode"));
 		CommonMethod.RobustclickElementVisible("V2ProjectlocationContinuebtn", "V2ProjectareaContinuebtn");
 		String Area = CommonMethod.randomNumberBetweenRanges(100, 85000);
-		CommonMethod.clear("V2ProjectareaSize");// 50000
-		CommonMethod.sendKeys("V2ProjectareaSize", Area);
+		CommonMethod.clearAndSendKey("V2ProjectareaSize", Area);
 		data.setCellData(SheetName, "Area", rowNum, CommonMethod.getattributeValue("V2ProjectareaSize"));
 		testlog.info("Area: " + data.getCellData(SheetName, "Area", rowNum));
 		CommonMethod.RobustclickElementVisible("V2ProjectareaContinuebtn", "V2ProjectspacetypeContinuebtn");
@@ -155,9 +156,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.sendKeys("V2ProjectowneraddressStreet", ProjectAddress1);
 		CommonMethod.sendKeys("V2ProjectowneraddressCity", ProjectCity);
 		CommonMethod.sendKeys("V2ProjectowneraddressPostalcode", PostalCode);
-		data.setCellData(SheetName, "Street", rowNum, CommonMethod.getattributeValue("V2ProjectowneraddressStreet"));
-		data.setCellData(SheetName, "City", rowNum, CommonMethod.getattributeValue("V2ProjectowneraddressCity"));
-		data.setCellData(SheetName, "PostalCode", rowNum,
+		data.setCellData(SheetName, "OwnerStreet", rowNum, CommonMethod.getattributeValue("V2ProjectowneraddressStreet"));
+		data.setCellData(SheetName, "OwnerCity", rowNum, CommonMethod.getattributeValue("V2ProjectowneraddressCity"));
+		data.setCellData(SheetName, "OwnerPostalCode", rowNum,
 				CommonMethod.getattributeValue("V2ProjectowneraddressPostalcode"));
 		CommonMethod.ClickCheckbox("V2Projectisthisapublicproject");
 		CommonMethod.RobustclickElementVisible("V2ProjectprojectaddressContinuebtn", "BiilingTab");
@@ -244,7 +245,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 				.trim();
 		testlog.info("Sector DiscountName:" + DiscountName);
 		DiscountName = DiscountName.replace("(-35%)", "").trim();
-		testlog.info("Sector DiscountName:" + CommonMethod.getText("V2ProjectPricingSectorDiscountName"));
 		CommonMethod.softAssertEqualsMessage(DiscountName, data.getCellData(SheetName, "MarketSectorName", rowNum),
 				"Pricing Sector DiscountName data doesn't match");
 		String ProgramFee = CommonMethod.getText("V2ProjectPricingProgramFee").replaceAll("USD", "").replaceAll("\\W",
@@ -1058,37 +1058,39 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.RobustclickElementVisible("OverviewTab", "V2ProjectProjectID");
 		CommonMethod.WaitUntilVisibility("V2ProjectProjectID", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProjectID"),
-				data.getCellData(SheetName, "ProjectID", rowNum), "Product id value doesn't match");
-		testlog.pass("**Product id matched successfully**");
+				data.getCellData(SheetName, "ProjectID", rowNum), "Product id value doesn't match");	
 		CommonMethod.WaitUntilVisibility("V2ProjectProjectName", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProjectName"),
 				data.getCellData(SheetName, "ProjectName", rowNum), "Product name doesn't match");
-		testlog.pass("**Product name matched successfully**");
 		CommonMethod.WaitUntilVisibility("V2ProjectProjectArea", 60);
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProjectArea"),
-				data.getCellData(SheetName, "Area", rowNum), "Product area value doesn't match");
-		testlog.pass("**Product area matched successfully**");
+		String getArea =  CommonMethod.getText("V2ProjectProjectArea").replace("sq ft", "").replace(",", "").trim();
+		CommonMethod.softAssertEqualsMessage(getArea,
+				data.getCellData(SheetName, "Area", rowNum), "Project area value doesn't match");
 		CommonMethod.WaitUntilVisibility("V2ProjectProjectStreet", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProjectStreet"),
 				data.getCellData(SheetName, "Street", rowNum), "Street name doesn't match");
-		testlog.pass("**Street name matched successfully**");
 		CommonMethod.WaitUntilVisibility("V2ProjectProjectCity", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProjectCity"),
 				data.getCellData(SheetName, "City", rowNum), "City name doesn't match");
-		testlog.pass("**City name matched successfully**");
 		CommonMethod.WaitUntilVisibility("V2ProjectProjectState", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProjectState"),
 				data.getCellData(SheetName, "State", rowNum), "State name doesn't match");
-		testlog.pass("**State name matched successfully**");
 		CommonMethod.WaitUntilVisibility("V2ProjectProjectCountry", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProjectCountry"),
 				data.getCellData(SheetName, "Country", rowNum), "Country name doesn't match");
-		testlog.pass("**Country name matched successfully**");
 		CommonMethod.WaitUntilVisibility("V2ProjectOwnerIndustry", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectOwnerIndustry"),
 				data.getCellData(SheetName, "OrgIndustry", rowNum), "Owner industry name doesn't match");
 		softAssert.assertAll();
+		testlog.pass("**Project id matched successfully**");
+		testlog.pass("**State name matched successfully**");
+		testlog.pass("**Street name matched successfully**");
+		testlog.pass("**Product area matched successfully**");
+		testlog.pass("**ProjectName matched successfully**");
+		testlog.pass("**City name matched successfully**");
+		testlog.pass("**Country name matched successfully**");
 		testlog.pass("**Owner industry name matched successfully**");
+		testlog.pass("**verifies overview fields successfully**");
 	}
 
 	public void profileV2Project(String SheetName, int rowNum) throws Exception {
