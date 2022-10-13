@@ -243,7 +243,8 @@ public void getResult(ITestResult result) throws Exception {
 		ImageIO.write(img, "png", new File(filetest + File.separator + "Screenshots"
 				+ File.separator /* +SuiteName+"_"+TestNGTestName +"-"+*/+TestCaseName +".png"));
 		testlog.info("Details of " + "Test screenshot", MediaEntityBuilder
-				.createScreenCaptureFromPath(System.getProperty("user.dir") + "\\Screenshots\\" + TestCaseName +".png")
+				.createScreenCaptureFromPath(System.getProperty("user.dir") + File.separator + "Screenshots"
+						+ File.separator + TestCaseName +".png")
 				.build());
 		//search.SearchProjectOnFailure(SheetName, rowNum);
 	} else if (result.getStatus() == ITestResult.SKIP) {
