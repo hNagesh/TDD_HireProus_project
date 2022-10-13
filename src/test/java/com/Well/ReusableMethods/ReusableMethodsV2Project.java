@@ -843,7 +843,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectUploadFeatureVerify", 120);
 		CommonMethod.WaitUntilVisibility("SubmitButton", 60);
 		CommonMethod.RobustclickElementVisible("SubmitButton", "V2ProjectNewStatus");
-		CommonMethod.WaitUntilVisibility("V2ProjectNewStatus", 60);
+		CommonMethod.WaitUntilPresence("V2ProjectNewStatus", 60);
 		CommonMethod.assertcontainsmessage("V2ProjectNewStatus", "New", "Verified New status");
 		testlog.pass("**Raised support ticket successfully**");
 	}
