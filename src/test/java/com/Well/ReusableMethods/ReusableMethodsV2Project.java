@@ -844,11 +844,11 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectUploadFeatureVerify", 120);
 		CommonMethod.WaitUntilVisibility("SubmitButton", 60);
 		CommonMethod.RobustclickElementVisible("SubmitButton", "V2ProjectBackToTicket");
-		CommonMethod.WaitUntilPresence("V2ProjectBackToTicket", 120);
-		CommonMethod.WaitUntilVisibility("V2ProjectNewStatus", 60);
-		String TicketStatus = CommonMethod.getText("V2ProjectNewStatus");
+		CommonMethod.RobustclickElementVisible("V2ProjectBackToTicket", "V2ProjectTicketListStatus");
+		CommonMethod.WaitUntilPresence("V2ProjectTicketListStatus", 60);
+		String TicketStatus = CommonMethod.getText("V2ProjectTicketListStatus");
 		testlog.info("TicketStatus: " + TicketStatus);
-		CommonMethod.assertActualContainsExpected(TicketStatus, "New");
+		CommonMethod.assertActualContainsExpected(TicketStatus, "NEW");
 		testlog.pass("**Raised support ticket successfully**");
 	}
 
