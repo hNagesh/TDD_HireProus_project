@@ -58,11 +58,9 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.click("HsrWPRlocationsSpaceOption");
 		Thread.sleep(1000);
 		CommonMethod.scrollDown();
-		//CommonMethod.clear("WPRlocationsize");
 		String Area = CommonMethod.randomNumberBetweenRanges(100, 50000);
 		testlog.info("Locationsize: " + Area);
 		CommonMethod.clearAndSendKey("WPRlocationsize", Area);
-		//CommonMethod.sendKeys("WPRlocationsize", Area);
 		data.setCellData(SheetName, "WPRlocationsize", rowNum, CommonMethod.getattributeValue("WPRlocationsize"));
 		CommonMethod.WaitUntilClickble("WPROwnerRegContinuebtn", 60);
 		CommonMethod.RobustclickElementVisible("WPROwnerRegContinuebtn", "WPRReviewContinuebutton");
@@ -71,7 +69,6 @@ public class ReusableMethodPerformance extends BaseClass {
 			CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
 		}
 		CommonMethod.RobustclickElementVisible("WPRReviewContinuebutton", "WPRtermContinuebutton");
-
 		if (CommonMethod.isElementsExist("WPRProgramFeePublicrbtn", 20)) {
 			CommonMethod.WaitUntilClickble("WPRProgramFeePublicrbtn", 60);
 			CommonMethod.ClickCheckbox("WPRProgramFeePublicrbtn");
