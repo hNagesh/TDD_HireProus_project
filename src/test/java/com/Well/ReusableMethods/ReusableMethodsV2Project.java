@@ -198,6 +198,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 				}
 			}
 		}
+		testlog.pass("**Verifies Download Billing Receipt And Validate successfully**");
 	}
 
 	public void AgreementV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -844,7 +845,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("SubmitButton", 60);
 		CommonMethod.RobustclickElementVisible("SubmitButton", "V2ProjectNewStatus");
 		CommonMethod.WaitUntilPresence("V2ProjectNewStatus", 60);
-		CommonMethod.assertcontainsmessage("V2ProjectNewStatus", "New", "Verified New status");
+		String TicketStatus = CommonMethod.getText("V2ProjectNewStatus");
+		testlog.info("TicketStatus: " + TicketStatus);
+		CommonMethod.assertActualContainsExpected(TicketStatus, "New");
 		testlog.pass("**Raised support ticket successfully**");
 	}
 
