@@ -159,6 +159,7 @@ public class BaseClass {
 	
 	@BeforeMethod(alwaysRun = true)
 	public static ExtentReports ExtentReportConfig() throws IOException {
+		softAssert = new SoftAssert();
 		 if (extent == null) {
 			 final File CONF = new File(System.getProperty("user.dir")+"/src/main/resources/Extentconfig.json");
 			 extent = new ExtentReports();
@@ -260,12 +261,11 @@ public void end(){
 	
 	System.out.println("EndSuite");
 		driver.quit();
-		 File path = new File(downloadPath);
-		    File[] files = path.listFiles();
-		    for (File file : files) {
-		        System.out.println("Deleted filename :"+ file.getName());
-		        file.delete();
-		    }
+		/*
+		 * File path = new File(downloadPath); File[] files = path.listFiles(); for
+		 * (File file : files) { System.out.println("Deleted filename :"+
+		 * file.getName()); file.delete(); }
+		 */
 }
 
 
