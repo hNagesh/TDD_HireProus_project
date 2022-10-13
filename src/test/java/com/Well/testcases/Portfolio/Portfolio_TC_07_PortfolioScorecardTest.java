@@ -15,7 +15,7 @@ public class Portfolio_TC_07_PortfolioScorecardTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Build WELL At Scale Scorecard Functionality");
 
 		try {
 
@@ -32,11 +32,8 @@ public class Portfolio_TC_07_PortfolioScorecardTest extends BaseClass {
 	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_07_PortfolioScorecardTest.Portfolio_TC_07_00_PortfolioBuildScorecard" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Portfolio_TC_07_01_UploadFileInFeatureScorecard() throws IOException {
-
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
-		StartTest(TestCaseName);
-
+		StartTest(TestCaseName,"Upload Document In Feature Scorecard Functionality");
 		try {
 			portfolio.UploadFileinFeature("Meet Thresholds for Organic Gases");
 			
@@ -53,11 +50,8 @@ public class Portfolio_TC_07_PortfolioScorecardTest extends BaseClass {
 	public void Portfolio_TC_07_02_UploadFileInAudit() throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
-		StartTest(TestCaseName);
-
+		StartTest(TestCaseName,"Upload Document In Audit Functionality");
 		try {
-
 			portfolio.UploadFileinFeature("Support Mindful Eating");
 
 		} catch (Throwable t) {

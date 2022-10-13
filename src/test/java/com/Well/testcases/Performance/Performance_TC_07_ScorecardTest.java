@@ -14,7 +14,7 @@ public class Performance_TC_07_ScorecardTest extends BaseClass {
 	@Parameters({ "SheetName","rowNum" })
 	public void Performance_TC_07_00_CompleteScorecard(String SheetName,int rowNum) throws IOException {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Performance Scorecard Complete Functionality");
 		try {
 		performance.CompleteScorecardWprById(SheetName, rowNum);	
 	
@@ -30,7 +30,7 @@ public class Performance_TC_07_ScorecardTest extends BaseClass {
 	@Parameters({ "SheetName","rowNum" })
 	public void Performance_TC_07_01_UploadDocumentScorecard(String SheetName,int rowNum) throws IOException {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Upload Document Scorecard Functionality");
 		try {
 		performance.UploadWPRDocForFeature();
 		} catch (Throwable t) {

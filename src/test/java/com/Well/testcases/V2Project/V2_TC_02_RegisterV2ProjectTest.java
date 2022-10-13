@@ -15,7 +15,7 @@ public class V2_TC_02_RegisterV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Register WELL V2 Certification Project Functionality");
 		try {
 		v2project.RegisterV2Project(SheetName, rowNum, ProjectType,Country);	
 		} catch (Throwable t) {

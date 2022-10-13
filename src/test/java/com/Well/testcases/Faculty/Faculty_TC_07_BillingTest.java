@@ -14,7 +14,7 @@ public class Faculty_TC_07_BillingTest extends BaseClass {
 	public void Faculty_TC_07_Billing(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Faculty Card Payment Functionality");
 		try {
 			faculty.ReviewBillingFaculty(SheetName, rowNum);	
 		} catch (Throwable t) {

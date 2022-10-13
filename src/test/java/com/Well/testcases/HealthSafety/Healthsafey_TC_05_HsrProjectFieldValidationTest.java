@@ -15,7 +15,7 @@ public class Healthsafey_TC_05_HsrProjectFieldValidationTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"HealthSafety Project Field Validation");
 		try {
 		hsr.HsrProjectFieldValidationTest(SheetName, rowNum);	
 		} catch (Throwable t) {

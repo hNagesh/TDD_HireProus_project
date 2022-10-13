@@ -15,7 +15,7 @@ public class Faculty_TC_11_FacultyMarketingToolkitTest extends BaseClass {
 	public void Faculty_TC_11_FacultyMarketingToolkit(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"MarketingToolkit");
 		try {
 			faculty.marketingToolKitCardValdationFaculty();
 		} catch (Throwable t) {

@@ -15,7 +15,7 @@ public class V2_TC_11_HealthSafetyReviewV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"V2Project Review Submit Functionality");
 		try {
 		v2project.hsrReviewV2Project(SheetName, rowNum);	
 		} catch (Throwable t) {

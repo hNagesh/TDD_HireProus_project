@@ -15,7 +15,7 @@ public class Membership_TC_02_RegisterMembershipTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Register Membership Functionality");
 
 		try {
 			membership.RegisterMembership(SheetName, rowNum, MembershipName);	

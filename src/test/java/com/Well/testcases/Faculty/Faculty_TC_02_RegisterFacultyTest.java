@@ -15,7 +15,7 @@ public class Faculty_TC_02_RegisterFacultyTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Register Faculty Functionality");
 
 		try {
 			faculty.RegisterFaculty(SheetName, rowNum);	

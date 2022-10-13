@@ -15,7 +15,7 @@ public class V2_TC_20_EditV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Edit Project Information Functionality");
 		try {
 		v2project.editAndValidateProjectInformationV2Project(SheetName, rowNum);
 		} catch (Throwable t) {
@@ -32,7 +32,7 @@ public class V2_TC_20_EditV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Edit Owner Information V2Project");
 		try {
 		v2project.editAndValidateOwnerInformationV2Project(SheetName, rowNum);
 		} catch (Throwable t) {
@@ -49,7 +49,7 @@ public class V2_TC_20_EditV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Edit Address in V2Project Functionality");
 		try {
 		
 		v2project.editAndValidateAddressV2Project(SheetName, rowNum);
@@ -68,7 +68,7 @@ public class V2_TC_20_EditV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Edit Admin fields in V2Project");
 		try {
 		v2project.editAndValidateAdminV2Project(SheetName, rowNum);
 		} catch (Throwable t) {

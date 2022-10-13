@@ -15,7 +15,7 @@ public class Performance_TC_02_RegisterPerformanceTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Register WELL Performance Project Functionality");
 
 		try {
 		performance.RegisterPerformance(SheetName, rowNum);	

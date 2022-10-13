@@ -15,7 +15,7 @@ public class Faculty_TC_04_SubmitReviewTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Submit Review Faculty Functionality");
 
 		try {
 			faculty.SubmitReviewFaculty(SheetName, rowNum);	

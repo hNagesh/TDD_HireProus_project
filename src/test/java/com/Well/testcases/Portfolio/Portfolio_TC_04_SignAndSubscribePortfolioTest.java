@@ -14,12 +14,9 @@ public class Portfolio_TC_04_SignAndSubscribePortfolioTest extends BaseClass {
 	public void Portfolio_TC_04_00_SignAgreementPortfolio(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
-		StartTest(TestCaseName);
-
+		StartTest(TestCaseName,"Portfolio Agreement Sign Functionality");
 		try {
-			portfolio.SignAgreementPortfolio();
-			
+			portfolio.SignAgreementPortfolio();	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -34,7 +31,7 @@ public class Portfolio_TC_04_SignAndSubscribePortfolioTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"WELL At Scale Subscribe Functionality");
 
 		try {
 			portfolio.SubscribePortfolio(SheetName, rowNum);

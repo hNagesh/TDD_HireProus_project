@@ -15,7 +15,7 @@ public class V2_TC_10_HealthSafetyV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Complete HealthSafety Scorecard for V2Project");
 		try {
 		v2project.HealthSafetyV2Project(SheetName, rowNum);	
 		
@@ -33,7 +33,7 @@ public class V2_TC_10_HealthSafetyV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Upload HealthSafety Scorecard Document V2Project");
 		try {
 		v2project.uploadHsrDocV2Project();
 		

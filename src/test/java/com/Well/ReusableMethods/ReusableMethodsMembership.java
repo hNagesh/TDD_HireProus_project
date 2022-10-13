@@ -120,8 +120,8 @@ public class ReusableMethodsMembership extends BaseClass {
 		if (MembershipName.equalsIgnoreCase("Cornerstone")) {
 			CommonMethod.assertcontainsmessage("MPValidMembershipeType", "CORNERSTONE MEMBERSHIP", "Mismatch Cornerstone Membership Name");
 		}
-		else {
-			ll
+		else if(MembershipName.equalsIgnoreCase("Keystone")) {
+			CommonMethod.assertcontainsmessage("MPValidMembershipeType", "KEYSTONE MEMBERSHIP", "Mismatch KEYSTONE Membership Name");
 		}
 		testlog.pass("**Verified Membership Name successfully**");
 	}

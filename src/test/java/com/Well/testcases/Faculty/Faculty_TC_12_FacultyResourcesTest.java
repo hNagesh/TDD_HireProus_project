@@ -15,7 +15,7 @@ public class Faculty_TC_12_FacultyResourcesTest extends BaseClass {
 	public void Faculty_TC_12_FacultyResources(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Faculty Resources Card validation");
 		try {
 			faculty.resourcesCardValdationFaculty();
 		} catch (Throwable t) {

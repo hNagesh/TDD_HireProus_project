@@ -15,7 +15,7 @@ public class Portfolio_TC_09_ReviewTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"WELL At Scale Review Submit Functionality");
 
 		try {
 			portfolio.ReviewDocument(SheetName, rowNum);

@@ -9,13 +9,13 @@ import com.Well.Engine.BaseClass;
 
 public class Performance_TC_05_WprProjectFieldValidationTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_03_SubscribeAndStoreIdTest.Performance_TC_03_SubscribeAndStoreId" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_04_SearchPerformanceByIdTest.Performance_TC_04_SearchPerformanceById" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Performance_TC_05_WprProjectFieldValidation(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Performance Project Field Validation");
 		try {
 		performance.WprProjectFieldValidationTest(SheetName, rowNum);	
 		} catch (Throwable t) {

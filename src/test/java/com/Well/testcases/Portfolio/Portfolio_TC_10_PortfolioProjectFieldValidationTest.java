@@ -15,7 +15,7 @@ public class Portfolio_TC_10_PortfolioProjectFieldValidationTest extends BaseCla
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"WELL At Scale Project Field Validation");
 
 		try {
 			portfolio.registerFieldValidationTest(SheetName, rowNum);	

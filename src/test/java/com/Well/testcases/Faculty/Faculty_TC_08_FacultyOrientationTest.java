@@ -15,7 +15,7 @@ public class Faculty_TC_08_FacultyOrientationTest extends BaseClass {
 	public void Faculty_TC_08_FacultyOrientation(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName, "Faculty Orientation Field Validation");
+		StartTest(TestCaseName, "Faculty Orientation Card Validation");
 		try {
 			faculty.orientationCardValdationFaculty();
 		} catch (Throwable t) {

@@ -15,7 +15,7 @@ public class V2_TC_16_AlternativesV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"EP Alternatives V2Project Functionality");
 		try {
 		v2project.alternativesV2Project(SheetName,rowNum,"EP");
 	
@@ -33,7 +33,7 @@ public class V2_TC_16_AlternativesV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"AAP Alternatives V2Project Functionality");
 		try {
 		v2project.alternativesV2Project(SheetName,rowNum,"AAP");
 	

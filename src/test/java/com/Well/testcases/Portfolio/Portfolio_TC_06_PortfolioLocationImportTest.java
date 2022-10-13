@@ -15,7 +15,7 @@ public class Portfolio_TC_06_PortfolioLocationImportTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Importing Locations to WELL At Scale Project");
 
 		try {
 

@@ -15,7 +15,7 @@ public class V2_TC_08_DocumentV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Upload General Document in DocumentLibrary");
 		try {
 			v2project.UploadLegalAndGeneralDocumentFromDocumentLibrary(SheetName, rowNum,"General",GeneralfileUpload);	
 			
@@ -33,7 +33,7 @@ public class V2_TC_08_DocumentV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Upload Legal Document in DocumentLibrary");
 		try {
 			v2project.UploadLegalAndGeneralDocumentFromDocumentLibrary(SheetName, rowNum,"Legal",LegalfileUpload);	
 			
@@ -51,7 +51,7 @@ public class V2_TC_08_DocumentV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Upload Ongoing Document in DocumentLibrary");
 		try {
 			
 			v2project.UploadOngoingDocumentInDocV2Project(SheetName, rowNum);	
@@ -70,7 +70,7 @@ public class V2_TC_08_DocumentV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Upload Feature Document in DocumentLibrary");
 		try {
 			v2project.UploadFeatureDocumentInDocV2Project(SheetName, rowNum);
 			
@@ -88,7 +88,7 @@ public class V2_TC_08_DocumentV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Upload Document Count");
 		try {
 			
 			v2project.UploadDocumentCountInDocV2Project(SheetName, rowNum);

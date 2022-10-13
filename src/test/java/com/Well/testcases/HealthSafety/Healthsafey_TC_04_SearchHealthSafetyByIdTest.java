@@ -15,7 +15,7 @@ public class Healthsafey_TC_04_SearchHealthSafetyByIdTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"HealthSafety Enrollment Search list Functionality");
 
 		try {
      hsr.SearchHealthSafetyByID(SheetName,rowNum);

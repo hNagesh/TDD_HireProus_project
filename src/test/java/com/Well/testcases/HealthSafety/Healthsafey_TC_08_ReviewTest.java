@@ -15,7 +15,7 @@ public class Healthsafey_TC_08_ReviewTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Healthsafey Review Submit Functionality");
 		try {
 		hsr.ReviewHsr(SheetName, rowNum);	
 		} catch (Throwable t) {

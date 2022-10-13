@@ -13,7 +13,7 @@ public class V2_TC_21_PricingV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Pricing Estimate in V2 Project");
 		try {
 			if (Discount.equalsIgnoreCase("SectorDiscount")) {
 				v2project.CalculatePricingV2Project(SheetName, rowNum, ProjectType);

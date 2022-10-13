@@ -15,7 +15,7 @@ public class V2_TC_19_ProfileV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Filling Profile in V2 Project");
 		try {
 		v2project.profileV2Project(SheetName, rowNum);	
 	

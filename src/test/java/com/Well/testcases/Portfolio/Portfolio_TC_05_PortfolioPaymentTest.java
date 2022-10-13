@@ -15,7 +15,7 @@ public class Portfolio_TC_05_PortfolioPaymentTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"WELL At Scale Card Payment Functionality");
 
 		try {
 			portfolio.PortfolioClickOnBilling();

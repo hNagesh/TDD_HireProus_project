@@ -15,7 +15,7 @@ public class Faculty_TC_05_BulkDeleteTest extends BaseClass {
 	public void Faculty_TC_05_BulkDelete(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Bulk Delete Functionality");
 		try {
 			faculty.PostRequestAuthenticate();
 			faculty.DeleteFacultyOrMembership();

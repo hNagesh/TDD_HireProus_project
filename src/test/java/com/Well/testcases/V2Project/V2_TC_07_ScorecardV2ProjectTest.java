@@ -15,7 +15,7 @@ public class V2_TC_07_ScorecardV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"WELL V2Project Build Scorecard Functionality");
 		try {
 		v2project.BuildScorecardV2ProjectById(SheetName, rowNum);	
 		
@@ -33,7 +33,7 @@ public class V2_TC_07_ScorecardV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"WELL V2 Project Scorecard Complete Functionality");
 		try {
 		v2project.CompleteScorecardV2ProjectById(SheetName, rowNum);
 	
@@ -51,7 +51,7 @@ public class V2_TC_07_ScorecardV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Upload Document in Scorecard Feature");
 		try {
 		v2project.UploadFeatureDocV2ProjectInsideScorecard(SheetName, rowNum);
 
@@ -69,7 +69,7 @@ public class V2_TC_07_ScorecardV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Upload Audit Document in Scorecard Feature");
 		try {
 		v2project.UploadAuditDocV2ProjectInsideScorecard(SheetName, rowNum);
 

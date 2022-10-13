@@ -15,7 +15,7 @@ public class Performance_TC_09_DocumentTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Upload Document in Document");
 		try {
 		performance.UploadWPRDocument();	
 		} catch (Throwable t) {

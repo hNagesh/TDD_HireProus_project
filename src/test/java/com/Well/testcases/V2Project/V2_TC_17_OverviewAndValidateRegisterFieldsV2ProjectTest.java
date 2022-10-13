@@ -15,7 +15,7 @@ public class V2_TC_17_OverviewAndValidateRegisterFieldsV2ProjectTest extends Bas
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Overview V2 Project And Validate Register Fields");
 		try {
 		v2project.overviewV2Project(SheetName, rowNum);	
 	

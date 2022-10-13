@@ -14,7 +14,7 @@ public class Healthsafey_TC_03_SubscribeAndStoreIdTest extends BaseClass {
 	public void Healthsafey_TC_03_00_SubscribeAndStoreId(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Subscribe the HealthSafety Functionality");
 
 		try {
 			rc.Billing(SheetName, rowNum);	
@@ -31,7 +31,7 @@ public class Healthsafey_TC_03_SubscribeAndStoreIdTest extends BaseClass {
 		public void Healthsafey_TC_03_01_SubscribeAndStoreId(String SheetName,int rowNum) throws IOException {
 
 			TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-			StartTest(TestCaseName);
+			StartTest(TestCaseName,"Store Health Safety Id");
 
 			try {
 				hsr.StoreIdHealthSafety(SheetName, rowNum);	

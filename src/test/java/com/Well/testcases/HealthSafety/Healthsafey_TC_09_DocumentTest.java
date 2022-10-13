@@ -15,7 +15,7 @@ public class Healthsafey_TC_09_DocumentTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"HealthSafety Upload Scorecard Document");
 		try {
 		hsr.UploadDocumentHsr();	
 		} catch (Throwable t) {

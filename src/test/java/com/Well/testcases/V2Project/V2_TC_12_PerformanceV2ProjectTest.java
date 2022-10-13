@@ -15,7 +15,7 @@ public class V2_TC_12_PerformanceV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Complete Scorecard HealthSafety V2Project");
 		try {
 		v2project.performanceV2Project(SheetName, rowNum);	
 		} catch (Throwable t) {
@@ -32,7 +32,7 @@ public class V2_TC_12_PerformanceV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Upload Performance Scorecard Document V2Project");
 		try {
 		v2project.uploadPerformanceDocV2Project();	
 		} catch (Throwable t) {

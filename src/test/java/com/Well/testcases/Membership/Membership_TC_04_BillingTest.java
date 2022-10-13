@@ -15,7 +15,7 @@ public class Membership_TC_04_BillingTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Membership Card Payment Functionality");
 		try {
 		membership.BillingMembership(SheetName, rowNum,MembershipName);
 		} catch (Throwable t) {

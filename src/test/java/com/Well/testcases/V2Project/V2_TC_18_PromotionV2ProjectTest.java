@@ -15,7 +15,7 @@ public class V2_TC_18_PromotionV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Promotion Card Validation");
 		try {
 		v2project.promotionCardValidationV2Project(SheetName, rowNum);	
 	

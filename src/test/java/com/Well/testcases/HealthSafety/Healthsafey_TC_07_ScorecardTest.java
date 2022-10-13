@@ -14,7 +14,7 @@ public class Healthsafey_TC_07_ScorecardTest extends BaseClass {
 	@Parameters({ "SheetName","rowNum" })
 	public void Healthsafey_TC_07_00_CompleteScorecard(String SheetName,int rowNum) throws IOException {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"HealthSafety Scorecard Complete Functionality");
 		try {
 		hsr.CompleteScorecardHsrById(SheetName, rowNum);	
 		} catch (Throwable t) {
@@ -29,7 +29,7 @@ public class Healthsafey_TC_07_ScorecardTest extends BaseClass {
 	@Parameters({ "SheetName","rowNum" })
 	public void Healthsafey_TC_07_01_UploadScorecardDocument(String SheetName,int rowNum) throws IOException {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Upload Scorecard Document Functionality");
 		try {
 		hsr.UploadHsrDocForFeature();
 		} catch (Throwable t) {

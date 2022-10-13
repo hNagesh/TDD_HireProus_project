@@ -15,7 +15,7 @@ public class Membership_TC_03_EnrollTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Enroll Membership Functionality");
 
 		try {
 			membership.EnrollMembership(SheetName, rowNum);	

@@ -14,7 +14,7 @@ public class V2_TC_04_EnrollV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Enroll WELL Certification Project");
 		try {
 		v2project.EnrollV2ProjectById(SheetName, rowNum, ProjectType, Country);	
 		} catch (Throwable t) {

@@ -15,7 +15,7 @@ public class Faculty_TC_09_FacultyKeepLearningTest extends BaseClass {
 	public void Faculty_TC_09_FacultyKeepLearning(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Faculty KeepLearning Card Validation");
 		try {
 			faculty.keepLearingCardValdationFaculty();
 		} catch (Throwable t) {

@@ -15,7 +15,7 @@ public class V2_TC_09_ReviewV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"V2Project Review Submit Functionality");
 		try {
 		v2project.ReviewV2Project(SheetName, rowNum);	
 	

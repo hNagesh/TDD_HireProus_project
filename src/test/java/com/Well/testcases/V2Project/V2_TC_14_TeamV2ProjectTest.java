@@ -15,7 +15,7 @@ public class V2_TC_14_TeamV2ProjectTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Add member to Team for V2Project");
 		try {
 		v2project.teamV2Project(SheetName, rowNum);	
 	

@@ -15,7 +15,7 @@ public class Portfolio_TC_08_DocumentTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Type Legal Upload Document");
 
 		try {
 
