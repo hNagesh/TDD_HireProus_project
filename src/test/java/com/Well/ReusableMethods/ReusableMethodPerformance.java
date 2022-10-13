@@ -260,24 +260,34 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilVisibility("HsrWprOrganizationInformation", 60);
 		CommonMethod.RobustclickElementVisible("HsrWprOrganizationInformation","HsrWprEditProjectName");
 		CommonMethod.WaitUntilVisibility("HsrWprEditProjectName", 30);
+		testlog.info("projectName: " + data.getCellData(SheetName, "projectName", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditProjectName"),
 				data.getCellData(SheetName, "projectName", rowNum), "Project Name doesn't match");
+		testlog.info("WPRlocationsize: " + data.getCellData(SheetName, "WPRlocationsize", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditArea"),
 				data.getCellData(SheetName, "WPRlocationsize", rowNum), "Area doesn't match");
+		testlog.info("WPRlocations: " + data.getCellData(SheetName, "WPRlocations", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditLocation"),
 				data.getCellData(SheetName, "WPRlocations", rowNum), "Location count doesn't match");
+		testlog.info("OrgName: " + data.getCellData(SheetName, "OrgName", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("OrgName"),
 				data.getCellData(SheetName, "OrgName", rowNum), "OrgName doesn't match");
+		testlog.info("OrgIndustry: " + data.getCellData(SheetName, "OrgIndustry", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownValue("HsrWprEditOrgIndustry"),
 				data.getCellData(SheetName, "OrgIndustry", rowNum), "OrgIndustry doesn't match");
+		testlog.info("State: " + data.getCellData(SheetName, "State", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditState"),
 				data.getCellData(SheetName, "State", rowNum), "State Name doesn't match");
+		testlog.info("Street: " + data.getCellData(SheetName, "Street", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditStreet"),
 				data.getCellData(SheetName, "Street", rowNum), "Street Name doesn't match");
+		testlog.info("City: " + data.getCellData(SheetName, "City", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditCity"),
 				data.getCellData(SheetName, "City", rowNum), "City doesn't match");
+		testlog.info("PostalCode: " + data.getCellData(SheetName, "PostalCode", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprPostalCode"),
 				data.getCellData(SheetName, "PostalCode", rowNum), "PostalCode doesn't match");
         softAssert.assertAll();
+        testlog.pass("**Verifies the Wpr Field Validation successfully**");
 	}
 }
