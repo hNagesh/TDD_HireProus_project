@@ -262,9 +262,11 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		testlog.info("OrgIndustry: " + data.getCellData(SheetName, "OrgIndustry", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownValue("HsrWprEditOrgIndustry"),
 				data.getCellData(SheetName, "OrgIndustry", rowNum), "OrgIndustry doesn't match");
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditCountry"),
-				data.getCellData(SheetName, "Country", rowNum), "Country doesn't match");
-		testlog.info("State: " + data.getCellData(SheetName, "State", rowNum));
+		/*
+		 * CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue(
+		 * "HsrWprEditCountry"), data.getCellData(SheetName, "Country", rowNum),
+		 * "Country doesn't match");
+		 */testlog.info("State: " + data.getCellData(SheetName, "State", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditState"),
 				data.getCellData(SheetName, "State", rowNum), "State Name doesn't match");
 		testlog.info("Street: " + data.getCellData(SheetName, "Street", rowNum));
