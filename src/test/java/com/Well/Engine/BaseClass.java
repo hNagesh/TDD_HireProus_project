@@ -161,6 +161,7 @@ public class BaseClass {
 	
 	@BeforeMethod(alwaysRun = true)
 	public static ExtentReports ExtentReportConfig() throws IOException {
+		softAssert = new SoftAssert();
 		 if (extent == null) {
 			 final File CONF = new File(System.getProperty("user.dir")+"/src/main/resources/Extentconfig.json");
 			 extent = new ExtentReports();
@@ -264,6 +265,6 @@ public void end(){
 	
 	System.out.println("EndSuite");
 		driver.quit();
-		    }
+}
 	}
 
