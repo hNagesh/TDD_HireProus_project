@@ -11,6 +11,8 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
 import javax.imageio.ImageIO;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -246,6 +248,7 @@ public void flushReport() {
 	extent.flush();
 	//extent=null;
 	System.out.println("EndClass");
+	
 }
 
 @AfterTest(alwaysRun = true)
@@ -253,6 +256,7 @@ public void quit() throws InterruptedException, IOException {
 	
 	System.out.println("EndTest");
 	rc.SignOut();
+	FileUtils.cleanDirectory(new File(downloadPath)); 
 }
 
 @AfterSuite(alwaysRun = true)
@@ -260,14 +264,6 @@ public void end(){
 	
 	System.out.println("EndSuite");
 		driver.quit();
-		 File path = new File(downloadPath);
-		    File[] files = path.listFiles();
-		    for (File file : files) {
-		        System.out.println("Deleted filename :"+ file.getName());
-		        file.delete();
 		    }
-}
-
-
 	}
 
