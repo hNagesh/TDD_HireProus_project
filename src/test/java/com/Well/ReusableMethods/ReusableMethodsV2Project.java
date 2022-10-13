@@ -173,14 +173,30 @@ public class ReusableMethodsV2Project extends BaseClass {
 		testlog.pass("**Nagavited to Billing successfully**");
 	}
 
-	public void DownloadBillingReceiptAndValidate(String SheetName, int rowNum)
+	public void DownloadBillingReceiptAndValidate(String SheetName, int rowNum, String Country)
 			throws IOException, InterruptedException {
+		String Amount = data.getCellData(SheetName, "EnrollFee", rowNum);
+		String Email = data.getCellData("Login", "UserName", rowNum);
+		String Address=null;
+		if(Country.equalsIgnoreCase("US")) {
+		Address = "New York, NY 10014";
+		}
+		else {
+	    Address	= "IWBI China(HK) Limited";
+		}
+		String [] ProjDetails = {Amount,Email,Address};
 		CommonMethod.WaitUntilVisibility("DownloadReceipt", 120);
 		CommonMethod.click("DownloadReceipt");
-		File path = new File(downloadPath);
-		File[] files = path.listFiles();
-		for (File file : files) {
-			CommonMethod.VerifyDownloadWithFileName(file.toString());
+		
+		if(CommonMethod.isFileExists(downloadPath)) {
+			File path = new File(downloadPath); 
+			File[] files = path.listFiles(); 
+			for(File file : files) {
+				String ReceiptContent = CommonMethod.extractPDFContent(file.toString());
+				for(String s:ProjDetails) {
+				CommonMethod.assertActualContainsExpected(ReceiptContent, s);
+				}
+			}
 		}
 	}
 

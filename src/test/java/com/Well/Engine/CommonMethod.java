@@ -1238,7 +1238,7 @@ public class CommonMethod extends BaseClass {
 	}
 
 	public static void switchToParentWindow() {
-
+		wait.until(ExpectedConditions.numberOfWindowsToBe(2));
 		ArrayList<String> windows = new ArrayList<String>(driver.getWindowHandles());
 
 		for (String handle : windows) {

@@ -347,9 +347,9 @@ public class ReusableMethodsPortfolio extends BaseClass {
 				data.getCellData(SheetName, "OrgName", rowNum), "Portfolio Organization Name doesn't match");
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownValue("PortfolioEditOrganizationIndustry"),
 				data.getCellData(SheetName, "OrgIndustry", rowNum), "Portfolio OrganizationIndustry doesn't match");
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("PortfolioEditCountry"),
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownValue("PortfolioEditCountry"),
 				data.getCellData(SheetName, "Country", rowNum), "Portfolio Country doesn't match");
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioEditState"),
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownValue("PortfolioEditState"),
 				data.getCellData(SheetName, "State", rowNum), "Portfolio State doesn't match");
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioEditStreetAddress"),
 				data.getCellData(SheetName, "Street", rowNum), "Portfolio StreetAddress doesn't match");

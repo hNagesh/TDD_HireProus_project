@@ -272,8 +272,10 @@ public class ReusableMethodPerformance extends BaseClass {
 		testlog.info("OrgIndustry: " + data.getCellData(SheetName, "OrgIndustry", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownValue("HsrWprEditOrgIndustry"),
 				data.getCellData(SheetName, "OrgIndustry", rowNum), "OrgIndustry doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownValue("HsrWprEditCountry"),
+				data.getCellData(SheetName, "Country", rowNum), "Country doesn't match");
 		testlog.info("State: " + data.getCellData(SheetName, "State", rowNum));
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditState"),
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownValue("HsrWprEditState"),
 				data.getCellData(SheetName, "State", rowNum), "State Name doesn't match");
 		testlog.info("Street: " + data.getCellData(SheetName, "Street", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditStreet"),
