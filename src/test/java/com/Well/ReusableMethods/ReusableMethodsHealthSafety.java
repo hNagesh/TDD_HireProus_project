@@ -251,7 +251,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditProjectName"),
 				data.getCellData(SheetName, "HsrName", rowNum), "Project Name doesn't match");
 		testlog.info("Area: " + data.getCellData(SheetName, "Area", rowNum));
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditArea"),
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditArea").replace("sq ft", "").replace(",", "").trim(),
 				data.getCellData(SheetName, "Area", rowNum), "Area doesn't match");
 		testlog.info("Location: " + data.getCellData(SheetName, "Location", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprEditLocation"),
