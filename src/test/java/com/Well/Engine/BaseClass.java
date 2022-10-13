@@ -189,9 +189,9 @@ public class BaseClass {
 		    return extent;
 		}
 	
-public void StartTest(String TestcaseName) {
+public void StartTest(String TestcaseName, String Description) {
 		
-		testlog = extent.createTest(TestcaseName);
+		testlog = extent.createTest(TestcaseName, "This Test is intented to verify -"+Description);
 		//System.out.println("Starting TestSuite : "+ SuiteName+" and Test : "+ TestNGTestName);
 		//testlog.info("Starting TestSuite : "+ SuiteName+" and Test : "+ TestNGTestName);
 	}

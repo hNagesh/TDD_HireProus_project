@@ -715,9 +715,9 @@ public class CommonMethod extends BaseClass {
 
 			do {
 				// CommonMethod.scrolldowntoElement(check);
-				testlog.pass("Moving to Checkbox");
+				//testlog.pass("Moving to Checkbox");
 				CommonMethod.click(check);
-				testlog.pass("Checkbox is clicked");
+				//testlog.pass("Checkbox is clicked");
 			} while (!CommonMethod.isSelected(check));
 
 		}
@@ -728,9 +728,9 @@ public class CommonMethod extends BaseClass {
 			do {
 				// CommonMethod.scrolldowntoElement(check);
 				CommonMethod.WaitUntilClickble(objectlocator, 30);
-				testlog.pass("Moving to Checkbox");
+				//testlog.pass("Moving to Checkbox");
 				CommonMethod.click(objectlocator);
-				testlog.pass("Checkbox is clicked");
+				//testlog.pass("Checkbox is clicked");
 			} while (!CommonMethod.isSelected(objectlocator));
 
 		}

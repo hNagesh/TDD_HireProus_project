@@ -15,7 +15,7 @@ public class Exam_TC_05_StoreExamIdTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Capturing of Exam ID");
 		try {
 		exam.StoreExam(SheetName, rowNum);	
 		} catch (Throwable t) {

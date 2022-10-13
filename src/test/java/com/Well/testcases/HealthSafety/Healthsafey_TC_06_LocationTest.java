@@ -15,7 +15,7 @@ public class Healthsafey_TC_06_LocationTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Importing Locations to HSR Project");
 
 		try {
 			rc.LocationImport(SheetName, rowNum);

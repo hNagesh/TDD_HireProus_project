@@ -15,7 +15,7 @@ public class Exam_TC_02_RegisterExamTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Register Exam Functionality");
 
 		try {
 			exam.RegisterExam(SheetName, rowNum);	

@@ -15,7 +15,7 @@ public class Exam_TC_04_BillingTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Payment is Successful");
 		try {
 		exam.BillingExam(SheetName, rowNum);	
 		} catch (Throwable t) {

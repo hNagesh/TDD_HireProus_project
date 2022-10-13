@@ -15,7 +15,7 @@ public class Exam_TC_06_CancelExamByIdTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Admin Cancel Exam functionality");
 		try {
 		exam.CancelExam(SheetName, rowNum);	
 		} catch (Throwable t) {
