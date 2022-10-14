@@ -162,7 +162,7 @@ public class ReusableMethodPerformance extends BaseClass {
 			CommonMethod.WaitUntilVisibility("WPRVerficationTab", 60);
 			CommonMethod.click("WPRVerficationTab");
 			CommonMethod.WaitUntilVisibility("WPRAddOption", 60);
-			CommonMethod.click("WPRAddOption");
+			CommonMethod.Robustclick("WPRAddOption","WPRAddOptionbtn");
 			CommonMethod.WaitUntilVisibility("WPRAddOptionbtn", 60);
 			CommonMethod.Robustclick("WPRAddOptionbtn");
 			CommonMethod.WaitUntilVisibility("WPRAddOptionCloseIcon", 60);
