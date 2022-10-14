@@ -289,14 +289,15 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 
 	public void ReviewDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("ReviewTab", 30);
-		CommonMethod.click("ReviewTab");
-		CommonMethod.WaitUntilVisibility("PortfolioReviewSubmitButton", 30);
-		CommonMethod.click("PortfolioReviewSubmitButton");
+		CommonMethod.WaitUntilVisibility("ReviewTab", 60);
+		CommonMethod.RobustclickElementVisible("ReviewTab","Reviewlanding");
 		CommonMethod.WaitUntilVisibility("Reviewlanding", 30);
-		CommonMethod.WaitUntilVisibility("PortfolioReviewTextbox", 30);
+		CommonMethod.WaitUntilVisibility("PortfolioReviewSubmitButton", 30);
+		CommonMethod.RobustclickElementVisible("PortfolioReviewSubmitButton","OwnerOrgClick");
+		CommonMethod.RobustclickElementVisible("OwnerOrgClick","PortfolioSelectProgram");
+		CommonMethod.WaitUntilClickble("PortfolioSelectProgram", 10).click();
 		CommonMethod.sendKeys("PortfolioReviewTextbox", "Submit Documentation for Year 1, Review Cycle #1");
-		CommonMethod.click("PortfolioReviewSubmitDocButton");
+		CommonMethod.RobustclickElementVisible("PortfolioReviewSubmitDocButton","PortfolioReviewListStatus");
 		CommonMethod.WaitUntilVisibility("PortfolioReviewListStatus", 120);
 		CommonMethod.assertcontainsmessage("PortfolioReviewListStatus", "ROUND 1 REVIEW IN PROGRESS", "Verified Submitted Review list status");
 		testlog.pass("**Submitted Documentation for Year 1, Review Cycle #1 successfully**");
