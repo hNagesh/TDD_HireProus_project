@@ -14,12 +14,10 @@ public class V2_TC_05_BillingV2ProjectTest extends BaseClass {
 	public void V2_TC_05_00_BillingV2Project(String SheetName,int rowNum, String Country) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
 		StartTest(TestCaseName,"WELL v2 Project Card Payment Functionality");
 		try {
 		v2project.ClickBilling(SheetName, rowNum);
 		rc.Billing(SheetName, rowNum);	
-		
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -33,11 +31,9 @@ public class V2_TC_05_BillingV2ProjectTest extends BaseClass {
 	public void V2_TC_05_01_DownloadBillingReceiptAndValidate(String SheetName,int rowNum, String Country) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
 		StartTest(TestCaseName,"Download and Validate Billing Receipt");
 		try {	
 		v2project.DownloadBillingReceiptAndValidate(SheetName, rowNum,Country);
-		
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

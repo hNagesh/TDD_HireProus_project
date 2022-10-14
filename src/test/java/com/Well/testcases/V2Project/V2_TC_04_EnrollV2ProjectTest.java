@@ -13,7 +13,6 @@ public class V2_TC_04_EnrollV2ProjectTest extends BaseClass {
 	public void V2_TC_04_EnrollV2Project(String SheetName,int rowNum, String ProjectType, String Country) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
 		StartTest(TestCaseName,"Enroll WELL Certification Project");
 		try {
 		v2project.EnrollV2ProjectById(SheetName, rowNum, ProjectType, Country);	

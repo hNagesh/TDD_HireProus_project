@@ -25,6 +25,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.selectdropdownrandom("OrgIndustry");
 		data.setCellData(SheetName, "OrgIndustry", rowNum, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
 		CommonMethod.selectdropdownValue("WPRExamOwnerCountry", "US");
+		testlog.info("Country: " + CommonMethod.getSelectedDropdownAttribute("WPRExamOwnerCountry"));
 		CommonMethod.selectdropdownrandom("WPRExamOwnerState");
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
@@ -35,7 +36,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.sendKeys("WPRExamOrgAddress", ProjectAddress);
 		CommonMethod.sendKeys("WPRExamOrgCity", ProjectCity);
 		CommonMethod.sendKeys("WPRExamOrgPostalcode", PostalCode);
-		data.setCellData(SheetName, "Country", rowNum, CommonMethod.getattributeValue("WPRExamOwnerCountry"));
+		data.setCellData(SheetName, "Country", rowNum, CommonMethod.getSelectedDropdownAttribute("WPRExamOwnerCountry"));
 		data.setCellData(SheetName, "State", rowNum, CommonMethod.getattributeValue("WPRExamOwnerState"));
 		data.setCellData(SheetName, "Street", rowNum, CommonMethod.getattributeValue("WPRExamOrgAddress"));
 		data.setCellData(SheetName, "City", rowNum, CommonMethod.getattributeValue("WPRExamOrgCity"));
@@ -272,11 +273,11 @@ public class ReusableMethodPerformance extends BaseClass {
 		testlog.info("OrgIndustry: " + data.getCellData(SheetName, "OrgIndustry", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownValue("HsrWprEditOrgIndustry"),
 				data.getCellData(SheetName, "OrgIndustry", rowNum), "OrgIndustry doesn't match");
-		/*
-		 * CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue(
-		 * "HsrWprEditCountry"), data.getCellData(SheetName, "Country", rowNum),
-		 * "Country doesn't match");
-		 */testlog.info("State: " + data.getCellData(SheetName, "State", rowNum));
+		testlog.info("Country: " + CommonMethod.getSelectedDropdownAttribute("HsrWprEditCountry"));
+		  CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownAttribute(
+		  "HsrWprEditCountry"), data.getCellData(SheetName, "Country", rowNum),
+		  "Country doesn't match");
+		 testlog.info("State: " + data.getCellData(SheetName, "State", rowNum));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownValue("HsrWprEditState"),
 				data.getCellData(SheetName, "State", rowNum), "State Name doesn't match");
 		testlog.info("Street: " + data.getCellData(SheetName, "Street", rowNum));

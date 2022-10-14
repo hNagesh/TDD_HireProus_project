@@ -14,7 +14,6 @@ public class V2_TC_06_AgreementV2ProjectTest extends BaseClass {
 	public void V2_TC_06_AgreementV2Project(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
 		StartTest(TestCaseName,"WELL v2 Project Agreement Sign");
 		try {
 		v2project.AgreementV2ProjectById(SheetName, rowNum);	

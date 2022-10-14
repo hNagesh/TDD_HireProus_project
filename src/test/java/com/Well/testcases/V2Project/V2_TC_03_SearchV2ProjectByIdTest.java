@@ -14,9 +14,7 @@ public class V2_TC_03_SearchV2ProjectByIdTest extends BaseClass {
 	public void V2_TC_03_SearchV2ProjectById(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
 		StartTest(TestCaseName,"WELL V2 Project Certification Enrollment list Functionality");
-		
 		try {
 		v2project.SearchV2ProjectById(SheetName, rowNum);	
 		} catch (Throwable t) {
