@@ -368,9 +368,7 @@ public class CommonMethod extends BaseClass {
 		    Thread.sleep(2000);
 			System.out.println("Inside");
 			}
-			
-			catch(Exception e) {
-				
+			catch(Exception e) {	
 			}
 			}
 		}while(!(!CommonMethod.isElementsExist(objectLocater1, 2) || !((System.currentTimeMillis()-startTime)<60000)));
@@ -1251,9 +1249,11 @@ public class CommonMethod extends BaseClass {
 		driver.switchTo().window(windows.get(0));
 	}
 
-	public static void JavascriptClickElement(String Objectlocator) {
-
-		((JavascriptExecutor) driver).executeScript("arguments[0].click();", Objectlocator);
+	public static void JavascriptClickElement(String Objectlocator) throws IOException {
+		WebElement ele = findElement(Objectlocator);
+		JavascriptExecutor executor = (JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click();", ele);
+		//((JavascriptExecutor) driver).executeScript("arguments[0].click();", Objectlocator);
 	}
 
 	public static void JavascriptRemoveWebElement() {
