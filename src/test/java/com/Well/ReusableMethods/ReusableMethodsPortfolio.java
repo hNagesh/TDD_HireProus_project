@@ -297,7 +297,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.RobustclickElementVisible("OwnerOrgClick","PortfolioSelectProgram");
 		CommonMethod.WaitUntilClickble("PortfolioSelectProgram", 10).click();
 		CommonMethod.sendKeys("PortfolioReviewTextbox", "Submit Documentation for Year 1, Review Cycle #1");
-		CommonMethod.click("PortfolioReviewSubmitDocButton");
+		CommonMethod.RobustclickElementVisible("PortfolioReviewSubmitDocButton","PortfolioReviewListStatus");
 		CommonMethod.WaitUntilVisibility("PortfolioReviewListStatus", 120);
 		CommonMethod.assertcontainsmessage("PortfolioReviewListStatus", "ROUND 1 REVIEW IN PROGRESS", "Verified Submitted Review list status");
 		testlog.pass("**Submitted Documentation for Year 1, Review Cycle #1 successfully**");
