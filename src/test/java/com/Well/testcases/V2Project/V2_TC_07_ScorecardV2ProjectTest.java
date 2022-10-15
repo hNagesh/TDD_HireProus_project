@@ -43,7 +43,24 @@ public class V2_TC_07_ScorecardV2ProjectTest extends BaseClass {
 	
 	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_07_ScorecardV2ProjectTest.V2_TC_07_01_CompleteScorecardV2ProjectById" })
 	@Parameters({ "SheetName","rowNum" })
-	public void V2_TC_07_02_UploadFeatureDocV2ProjectInsideScorecard(String SheetName,int rowNum) throws IOException {
+	public void V2_TC_07_02_ScorecardPurseStatusCount(String SheetName,int rowNum) throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		StartTest(TestCaseName,"WELL V2 Project Scorecard Complete Functionality");
+		try {
+		v2project.ScorecardPurseStatusCount(SheetName, rowNum);
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
+	
+	
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_07_ScorecardV2ProjectTest.V2_TC_07_02_ScorecardPurseStatusCount" })
+	@Parameters({ "SheetName","rowNum" })
+	public void V2_TC_07_03_UploadFeatureDocV2ProjectInsideScorecard(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Upload Document in Scorecard Feature");
@@ -57,9 +74,9 @@ public class V2_TC_07_ScorecardV2ProjectTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_07_ScorecardV2ProjectTest.V2_TC_07_02_UploadFeatureDocV2ProjectInsideScorecard" })
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_07_ScorecardV2ProjectTest.V2_TC_07_03_UploadFeatureDocV2ProjectInsideScorecard" })
 	@Parameters({ "SheetName","rowNum" })
-	public void V2_TC_07_03_UploadAuditDocV2ProjectInsideScorecard(String SheetName,int rowNum) throws IOException {
+	public void V2_TC_07_04_UploadAuditDocV2ProjectInsideScorecard(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Upload Audit Document in Scorecard Feature");

@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class V2_TC_08_DocumentV2ProjectTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_07_ScorecardV2ProjectTest.V2_TC_07_03_UploadAuditDocV2ProjectInsideScorecard" })
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_07_ScorecardV2ProjectTest.V2_TC_07_04_UploadAuditDocV2ProjectInsideScorecard" })
 	@Parameters({ "SheetName","rowNum" })
 	public void V2_TC_08_00_UploadGeneralDocumentFromDocumentLibrary(String SheetName,int rowNum) throws IOException {
 
@@ -25,7 +25,7 @@ public class V2_TC_08_DocumentV2ProjectTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_06_AgreementV2ProjectTest.V2_TC_06_AgreementV2Project" })
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_08_DocumentV2ProjectTest.V2_TC_08_00_UploadGeneralDocumentFromDocumentLibrary" })
 	@Parameters({ "SheetName","rowNum" })
 	public void V2_TC_08_01_UploadLegalDocumentFromDocumentLibrary(String SheetName,int rowNum) throws IOException {
 
@@ -41,9 +41,9 @@ public class V2_TC_08_DocumentV2ProjectTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_06_AgreementV2ProjectTest.V2_TC_06_AgreementV2Project" })
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_08_DocumentV2ProjectTest.V2_TC_08_01_UploadLegalDocumentFromDocumentLibrary" })
 	@Parameters({ "SheetName","rowNum" })
-	public void V2_TC_08_02_UploadOngoingDocumentInDocV2Projec(String SheetName,int rowNum) throws IOException {
+	public void V2_TC_08_02_UploadOngoingDocumentInDocV2Project(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Upload Ongoing Document in DocumentLibrary");
@@ -57,7 +57,7 @@ public class V2_TC_08_DocumentV2ProjectTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_06_AgreementV2ProjectTest.V2_TC_06_AgreementV2Project" })
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_08_DocumentV2ProjectTest.V2_TC_08_02_UploadOngoingDocumentInDocV2Project" })
 	@Parameters({ "SheetName","rowNum" })
 	public void V2_TC_08_03_UploadFeatureDocumentInDocV2Project(String SheetName,int rowNum) throws IOException {
 
