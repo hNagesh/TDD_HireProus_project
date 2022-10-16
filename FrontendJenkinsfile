@@ -102,6 +102,7 @@ stage('Test Results'){
         unstable(message: "${STAGE_NAME} is unstable") { 
         script{
             buildSummary = "Job: *${env.JOB_NAME}[${env.BUILD_NUMBER}]*\n Status: *UNSTABLE*\n Execution Report: ${env.BUILD_URL}Frontend-Execution-Report"
+            slackSend (color: 'danger', message: "Frontend Nightly Regression broken. Please refer to below execution report for failures.\n${buildSummary}")
             }  
              echo 'This will run only if the run was marked as unstable'
               emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report2.html',
