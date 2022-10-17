@@ -3,8 +3,6 @@ package com.Well.ReusableMethods;
 import java.io.IOException;
 import java.util.List;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
 
@@ -186,8 +184,9 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationAssignLocSavebtn", 30);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocSavebtn",
 						"PortfolioScoreCardVerificationAssignLocCancelbtn");
-				Thread.sleep(20000);
+				Thread.sleep(2000);
 				CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationUploadbtn", 60);
+				Thread.sleep(20000);
 				CommonMethod.clickListWebelementFromIndex("PortfolioScoreCardVerificationUploadbtn", 0);
 				CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload,"UploadFileVerifyScorecard");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
@@ -200,12 +199,103 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				testlog.info("Fetching Data from Upload Table");
 				CommonMethod.assertcontainsmessage(val.get(0), "Ready For Review", "Document table data mismatch");
 				testlog.info("Review Status is correct in Table in UplaodTab");
-				
-				
 				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
 				CommonMethod.click(ele);
 
 			}
 		}
 	}
+	
+	public void MeetThresholdsforOrganicGases(String FeatureName) throws IOException, InterruptedException {
+		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
+		testlog.info("Fetching total no. of credits on page");
+		for (WebElement ele : Feature) {
+			String Creditname = ele.getText();
+			Creditname = Creditname.replaceAll("\\.", "");
+			if (Creditname.equalsIgnoreCase(FeatureName)) {
+				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
+				CommonMethod.click(ele);
+				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
+				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
+				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 10);
+				CommonMethod.click("PortfolioScoreCardAddOptionbutton");
+				/*
+				 * ScoreCard Add option
+				 */
+				CommonMethod.Robustclick("PortfolioScoreCardAddButton");
+				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardRemoveButton", 2);
+				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
+				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
+				CommonMethod.WaitUntilVisibility("PortfolioScorecardOptionCount", 60);
+				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardOptionCount", 2);
+				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardTaskCount", 2);
+				/*
+				 * AssignButton
+				 */
+				List<WebElement> AssignButton;
+				AssignButton = CommonMethod.findElements("PortfolioScoreCardVerificationAssignbtn");
+				for (WebElement f : AssignButton) {
+					CommonMethod.WaitUntilClickble(f, 30).click();
+					CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationAssignChildLocCbx", 30);
+					
+					CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocCbx",
+							"PortfolioScorecardValidDisable");
+					CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationAssignLocSavebtn", 30);
+					CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocSavebtn",
+							"PortfolioScoreCardVerificationAssignLocCancelbtn");
+				}
+				Thread.sleep(2000);
+				CommonMethod.WaitUntilPresence("PortfolioScorecardOptionPurseLocation", 60);
+				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardOptionPurseLocation", 2);
+				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardTaskPurseLocation", 2);
+				CommonMethod.scrollDown();
+				/*
+				 * UploadTask
+				 */
+				List<WebElement> UploadTaskbtn;
+				UploadTaskbtn = CommonMethod.findElements("PortfolioScoreCardVerificationUploadbtn");
+				for (WebElement f : UploadTaskbtn) {
+					CommonMethod.WaitUntilClickble(f, 30).click();
+					/*
+					 * Uploading Document for Feature
+					 * Valid FeatureName, DocumentType and VerificationMethod
+					 */
+					CommonMethod.assertActualContainsExpected(CommonMethod.getattributeValue("PortfolioScorecardUploadFeatureName"), "Meet Thresholds for Organic Gases");
+					CommonMethod.assertActualContainsExpected(CommonMethod.getattributeValue("PortfolioScorecardDocumentType"), "Feature verification");
+					CommonMethod.assertActualContainsExpected(CommonMethod.getattributeValue("PortfolioScoreVerifyUploadVerificationMethod"), "Performance Test");
+					
+					CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload);
+					CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadAddfeature",
+							"PortfolioScoreCardVerificationSelectFeature");
+					String VerificationMethod = CommonMethod.getattributeValue("PortfolioScoreVerifyUploadVerificationMethod");
+					/*
+					 * Adding part A05.2
+					 */
+					if (VerificationMethod.equalsIgnoreCase("Performance Test")) {
+						CommonMethod.selectdropdownValue("PortfolioScoreCardVerificationSelectFeature", "A05.2");
+						CommonMethod.Robustclick("PortfolioScoreCardVerificationAddPart");
+				}
+					/*
+					 * Adding part
+					 */
+					else if(VerificationMethod.equalsIgnoreCase("Sensor Data")) {
+						CommonMethod.selectdropdownIndex("PortfolioScoreCardVerificationSelectFeature", 1);
+						CommonMethod.Robustclick("PortfolioScoreCardVerificationAddPart");
+					}
+					/*
+					 * Valid Added part remove link
+					 */
+					CommonMethod.WaitUntilPresence("PortfolioScorecardUploadRemovelink", 60);
+					CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
+					CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn",
+							"PortfolioScoreCardVerificationAddNote");
+					if (CommonMethod.isElementsExist("PortfolioScorecardDocumentAddedPopup", 3)) {
+						CommonMethod.WaitUntilInVisibility("PortfolioScorecardDocumentAddedPopup", 30);
+					}
+				}
+				
+				
+			}
+	}
+}
 }

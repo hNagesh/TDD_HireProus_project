@@ -34,7 +34,7 @@
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_05_PortfolioPaymentTest"></class> 
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_06_PortfolioLocationImportTest"></class> --> 
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_07_PortfolioScorecardTest"></class> 
-		<class name="com.Well.testcases.Portfolio.Portfolio_CTC_01_FeatureTest"></class>
+		<class name="com.Well.testcases.Portfolio.Portfolio_CTC_02_FeatureTest"></class>
 		
 		</classes>
 	</test>
