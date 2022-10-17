@@ -390,79 +390,112 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("V2ProjectAirconcept", 60);
 		CommonMethod.click("V2ProjectAirconcept");
 		Scorecardfill(15, 16, 25, 10);
+		testlog.pass("**Completed Scorecard Air concept Purse Status V2Project successfully**");
 		/*
 		 * Water concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectWaterconcept", 60);
 		CommonMethod.click("V2ProjectWaterconcept");
 		Scorecardfill(13, 14, 17, 4);
+		testlog.pass("**Completed Scorecard Water concept Purse Status V2Project successfully**");
 		/*
 		 * Nourisement concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectNourisementconcept", 60);
 		CommonMethod.click("V2ProjectNourisementconcept");
-		Scorecardfill(13, 14, 15, 2);
+		Scorecardfill(14, 15, 15, 1);
+		testlog.pass("**Completed Scorecard Nourisement concept Purse Status V2Project successfully**");
 		/*
 		 * Light concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectLightconcept", 60);
 		CommonMethod.click("V2ProjectLightconcept");
 		Scorecardfill(6, 7, 12, 6);
+		testlog.pass("**Completed Scorecard Light concept Purse Status V2Project successfully**");
 		/*
 		 * Movement concept
 		 */
 		CommonMethod.WaitUntilClickble("V2Projectmovementconcept", 60);
 		CommonMethod.click("V2Projectmovementconcept");
 		Scorecardfill(11, 12, 22, 11);
+		testlog.pass("**Completed Scorecard Movement concept Purse Status V2Project successfully**");
 		/*
 		 * Thermal concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectThermalconcept", 60);
 		CommonMethod.click("V2ProjectThermalconcept");
 		Scorecardfill(10, 11, 15, 5);
+		testlog.pass("**Completed Scorecard Thermal concept Purse Status V2Project successfully**");
 		/*
 		 * Sound concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectSoundconcept", 60);
 		CommonMethod.click("V2ProjectSoundconcept");
 		Scorecardfill(9, 10, 14, 5);
+		testlog.pass("**Completed Scorecard Sound concept Purse Status V2Project successfully**");
 		/*
 		 * Material concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectMaterialconcept", 60);
 		CommonMethod.click("V2ProjectMaterialconcept");
 		Scorecardfill(17, 18, 24, 7);
+		testlog.pass("**Completed Scorecard Material concept Purse Status V2Project successfully**");
 		/*
 		 * Mind concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectMindconcept", 60);
 		CommonMethod.click("V2ProjectMindconcept");
 		Scorecardfill(8, 9, 19, 11);
+		testlog.pass("**Completed Scorecard Mind concept Purse Status V2Project successfully**");
 		/*
 		 * Community concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectCommunityconcept", 60);
 		CommonMethod.click("V2ProjectCommunityconcept");
 		Scorecardfill(17, 18, 35, 18);
+		testlog.pass("**Completed Scorecard Community concept Purse Status V2Project successfully**");
 		/*
 		 * Innovation concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectInnovationconcept", 60);
 		CommonMethod.click("V2ProjectInnovationconcept");
-
 		Scorecardfill(10, 11, 18, 8);
-//		Thread.sleep(4000);
-//		CommonMethod.Isdisplayed("V2ProjectScorecardYesCount", 60);
-//		int YesFeatureCount = CommonMethod.ElementSize("V2ProjectScorecardYesCount");
-//		String yesFeatureCount = Integer.toString(YesFeatureCount);
-//		CommonMethod.assertActualContainsExpected(yesFeatureCount, "130", "Verified Scorecard part Yes Count");
-//		int NoFeatureCount = CommonMethod.ElementSize("V2ProjectScorecardNoCount");
-//		String noFeatureCount = Integer.toString(NoFeatureCount);
-//		CommonMethod.assertActualContainsExpected(noFeatureCount, "86", "Verified Scorecard part No Count");
-		testlog.pass("**Verifies the 134 Purse Yes Scorecard V2Project successfully**");
-		testlog.pass("**Verifies the 86 Purse Yes Scorecard V2Project successfully**");
+		testlog.pass("**Completed Scorecard Innovation concept Purse Status V2Project successfully**");
 	}
-
+	
+	public void ScorecardPurseStatusCount(String SheetName, int rowNum) throws IOException {
+		/*
+		 * Total FeaturePartCount
+		 */
+		RefreshScorecard();
+		int ScorecardPart = CommonMethod.ElementSize("V2ProjectScorecardPartCount");
+		String FeatureScorecardPartCount= Integer.toString(ScorecardPart);
+		testlog.info("FeatureScorecardPartCount: "+FeatureScorecardPartCount);
+		data.setCellData(SheetName, "ScorecardPartCount", rowNum, FeatureScorecardPartCount);
+		CommonMethod.softAssertEqualsMessage("216",data.getCellData(SheetName, "ScorecardPartCount", rowNum), "ScorecardPartCount doesn't match");
+  
+		/*
+		 * YesPurseCount
+		 */
+		int YesFeature = CommonMethod.ElementSize("V2ProjectSelectedPurseYes");
+		String YesFeatureCount= Integer.toString(YesFeature);
+		testlog.info("YesFeatureCount: "+YesFeatureCount);
+		data.setCellData(SheetName, "YesPurseCount", rowNum, YesFeatureCount);
+		CommonMethod.softAssertEqualsMessage("130",data.getCellData(SheetName, "YesPurseCount", rowNum), "YesPurseCount doesn't match");
+    /*
+     *    NoPurseCount 
+     */
+		int NoFeature = CommonMethod.ElementSize("V2ProjectSelectedPurseNo");
+		String NoFeatureCount= Integer.toString(NoFeature);
+		testlog.info("NoFeatureCount: "+NoFeatureCount);
+		data.setCellData(SheetName, "NoPurseCount", rowNum, NoFeatureCount);
+		CommonMethod.softAssertEqualsMessage("86",data.getCellData(SheetName, "NoPurseCount", rowNum), "NoPurseCount doesn't match");
+		softAssert.assertAll();
+		testlog.pass("**Verifies the 130 Purse Yes Scorecard V2Project successfully**");
+		testlog.pass("**Verifies the 86 Purse No Scorecard V2Project successfully**");
+		testlog.pass("**Verifies the 216 Purse Scorecard Part Count V2Project successfully**");
+}
+	
 	public void UploadFeatureDocV2ProjectInsideScorecard(String SheetName, int rowNum)
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("V2ProjectScorecardFeature", 60);
