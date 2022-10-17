@@ -33,6 +33,7 @@ import org.testng.asserts.SoftAssert;
 
 import com.Well.ReusableMethods.ReusableMethodCommon;
 import com.Well.ReusableMethods.ReusableMethodPerformance;
+import com.Well.ReusableMethods.ReusableMethodsCustomPortfolio;
 import com.Well.ReusableMethods.ReusableMethodsExam;
 import com.Well.ReusableMethods.ReusableMethodsFaculty;
 import com.Well.ReusableMethods.ReusableMethodsHealthSafety;
@@ -78,6 +79,7 @@ public class BaseClass {
 	public static String BillingReceiptPdffile = System.getProperty("user.dir") +File.separator +"Downloads"+File.separator;
 	public static ReusableMethodsLogin login = new ReusableMethodsLogin();
 	public static ReusableMethodsPortfolio portfolio = new ReusableMethodsPortfolio();
+	public static ReusableMethodsCustomPortfolio pf = new ReusableMethodsCustomPortfolio();
 	public static ReusableMethodsV2Project v2project = new ReusableMethodsV2Project();
 	public static ReusableMethodsHealthSafety hsr = new ReusableMethodsHealthSafety();
 	public static ReusableMethodPerformance performance = new ReusableMethodPerformance();

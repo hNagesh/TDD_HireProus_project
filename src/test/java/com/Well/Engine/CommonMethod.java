@@ -472,7 +472,7 @@ public class CommonMethod extends BaseClass {
 	
 	public static void uploadFile(String objectLocater, String file, String VerifyobjectLocater) throws IOException {
 		findElement(objectLocater).sendKeys(file);
-		WaitUntilVisibility("VerifyobjectLocater", 60);
+		WaitUntilVisibility(VerifyobjectLocater, 60);
 	}
 
 	public static void uploadFile(WebElement objectLocater, String file) throws IOException {
@@ -2178,5 +2178,22 @@ public class CommonMethod extends BaseClass {
 		System.out.println("Not matching");
 	}
 		return flag;
+	}
+	
+	public static void clickListWebelementFromIndex(String ObjectLocator, int Index) throws IOException {
+		List<WebElement> ele;
+		WebElement ele1;
+		ele = CommonMethod.findElements(ObjectLocator);
+		ele1 = ele.get(Index);
+		CommonMethod.WaitUntilClickble(ele1, 60);
+		click(ele1);
+
+	}
+	
+	public static void assertcountListWebelementFromIndex(String ObjectLocator, int Count) throws IOException {
+		List<WebElement> ele;
+		ele = CommonMethod.findElements(ObjectLocator);
+		Assert.assertEquals(ele.size(), Count,"Count Validation failed");
+
 	}
 }

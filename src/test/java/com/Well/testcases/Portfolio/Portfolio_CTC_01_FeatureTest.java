@@ -7,20 +7,20 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Portfolio_TC_03_SearchPortfolioByNameTest extends BaseClass {
+public class Portfolio_CTC_01_FeatureTest extends BaseClass {
 
-	@Test//(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_02_RegisterPortfolioTest.Portfolio_TC_02_RegisterPortfolio" })
+	@Test//(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_07_PortfolioScorecardTest.Portfolio_TC_07_02_UploadFileInAudit" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Portfolio_TC_03_SearchPortfolioByName(String SheetName,int rowNum) throws IOException {
+	public void Portfolio_CTC_01_Feature() throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName,"WELL At Scale Enrollment List Functionality");
+		StartTest(TestCaseName,"Meet Thresholds for Particulate Matter custom scenarios");
 
 		try {
 
-			portfolio.SearchPortfolioByName(SheetName,rowNum);
-			
+			pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
+
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
