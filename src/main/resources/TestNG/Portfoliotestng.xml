@@ -5,7 +5,7 @@
 
 	<parameter name="browserName" value="chrome" />
 	<parameter name="environment" value="Test" />
-	<test name="WELL-At-Scale">
+	<!-- <test name="WELL-At-Scale">
 		<parameter name="SheetName" value="Portfolio" />
 		<parameter name="rowNum" value="2" />
 		<classes>
@@ -19,6 +19,20 @@
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_08_DocumentTest"></class>
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_09_ReviewTest"></class>
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_10_PortfolioProjectFieldValidationTest"></class>
+		
+		</classes>
+	</test> -->
+	
+	<test name="WELL-At-Scale-Custom">
+		<parameter name="SheetName" value="Portfolio" />
+		<parameter name="rowNum" value="2" />
+		<classes>
+		<class name="com.Well.testcases.login.TC_01_LoginTest"></class>
+		<class name="com.Well.testcases.Portfolio.Portfolio_TC_02_RegisterPortfolioTest"></class>
+		<class name="com.Well.testcases.Portfolio.Portfolio_TC_03_SearchPortfolioByNameTest"></class>
+		<class name="com.Well.testcases.Portfolio.Portfolio_TC_04_SignAndSubscribePortfolioTest"></class> 
+		<class name="com.Well.testcases.Portfolio.Portfolio_TC_05_PortfolioPaymentTest"></class> 
+		<class name="com.Well.testcases.Portfolio.Portfolio_TC_06_PortfolioLocationImportTest"></class> 
 		
 		</classes>
 	</test>
