@@ -187,7 +187,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		String [] ProjDetails = {Amount,Email,Address};
 		CommonMethod.WaitUntilVisibility("DownloadReceipt", 120);
 		CommonMethod.click("DownloadReceipt");
-		
+		Thread.sleep(2000);
 		if(CommonMethod.isFileExists(downloadPath)) {
 			File path = new File(downloadPath); 
 			File[] files = path.listFiles(); 
