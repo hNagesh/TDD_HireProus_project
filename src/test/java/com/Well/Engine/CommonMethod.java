@@ -736,6 +736,11 @@ public class CommonMethod extends BaseClass {
 
 		softAssert.assertEquals(Actual, expected, message);
 	}
+	
+	public static void softAssertContainsMessage(String Actual, String expected, String message) {
+
+		softAssert.assertTrue(Actual.contains(expected), message);
+	}
 
 	public static void assertTruebooleanCondition(boolean boo, String message) {
 
@@ -2190,10 +2195,22 @@ public class CommonMethod extends BaseClass {
 
 	}
 	
+	public static void clickListWebelementFromRange(String ObjectLocator, int Start,int End) throws IOException {
+		List<WebElement> ele;
+		//WebElement ele1;
+		ele = CommonMethod.findElements(ObjectLocator);
+		ele = ele.subList(Start, End);
+		for(WebElement ele1:ele) {
+		CommonMethod.WaitUntilClickble(ele1, 60);
+		click(ele1);
+		}
+
+	}
+	
 	public static void assertcountListWebelementFromIndex(String ObjectLocator, int Count) throws IOException {
 		List<WebElement> ele;
 		ele = CommonMethod.findElements(ObjectLocator);
-		Assert.assertEquals(ele.size(), Count,"Count Validation failed");
+		softAssert.assertEquals(ele.size(), Count,"Count Validation failed");
 
 	}
 }

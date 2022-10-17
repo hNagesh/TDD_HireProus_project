@@ -3,6 +3,8 @@ package com.Well.ReusableMethods;
 import java.io.IOException;
 import java.util.List;
 import org.openqa.selenium.WebElement;
+import org.testng.asserts.SoftAssert;
+
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
 
@@ -239,9 +241,11 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				for (WebElement f : AssignButton) {
 					CommonMethod.WaitUntilClickble(f, 30).click();
 					CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationAssignChildLocCbx", 30);
-					
-					CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocCbx",
-							"PortfolioScorecardValidDisable");
+					CommonMethod.clickListWebelementFromRange("PortfolioScoreCardVerificationAssignLocCbxGeneral", 1, 4);
+					/*
+					 * CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocCbx",
+					 * "PortfolioScorecardValidDisable");
+					 */
 					CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationAssignLocSavebtn", 30);
 					CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocSavebtn",
 							"PortfolioScoreCardVerificationAssignLocCancelbtn");
@@ -262,9 +266,10 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 					 * Uploading Document for Feature
 					 * Valid FeatureName, DocumentType and VerificationMethod
 					 */
-					CommonMethod.assertActualContainsExpected(CommonMethod.getattributeValue("PortfolioScorecardUploadFeatureName"), "Meet Thresholds for Organic Gases");
-					CommonMethod.assertActualContainsExpected(CommonMethod.getattributeValue("PortfolioScorecardDocumentType"), "Feature verification");
-					CommonMethod.assertActualContainsExpected(CommonMethod.getattributeValue("PortfolioScoreVerifyUploadVerificationMethod"), "Performance Test");
+					CommonMethod.WaitUntilPresence("PortfolioScorecardUploadFeatureName", 60);
+					CommonMethod.softAssertContainsMessage(CommonMethod.getattributeValue("PortfolioScorecardUploadFeatureName"), "Meet Thresholds for Organic Gases","");
+					CommonMethod.softAssertContainsMessage(CommonMethod.getattributeValue("PortfolioScorecardDocumentType"), "Feature verification","");
+					CommonMethod.softAssertContainsMessage(CommonMethod.getattributeValue("PortfolioScoreVerifyUploadVerificationMethod"), "Performance Test","");
 					
 					CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload);
 					CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadAddfeature",
@@ -299,5 +304,6 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				
 			}
 	}
+		softAssert.assertAll();
 }
 }

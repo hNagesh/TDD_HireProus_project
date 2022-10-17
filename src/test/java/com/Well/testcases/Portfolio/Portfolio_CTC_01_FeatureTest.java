@@ -19,7 +19,8 @@ public class Portfolio_CTC_01_FeatureTest extends BaseClass {
 
 		try {
 
-			pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
+			//pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
+			pf.MeetThresholdsforOrganicGases("Meet Thresholds for Organic Gases");
 
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
