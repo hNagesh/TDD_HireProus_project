@@ -176,7 +176,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void DownloadBillingReceiptAndValidate(String SheetName, int rowNum, String Country)
 			throws IOException, InterruptedException {
 		//String Amount = data.getCellData(SheetName, "EnrollFee", rowNum);
-		String Email = data.getCellData("Login", "UserName", rowNum);
+		String Email = data.getCellData("Login", "UserName", 3);
 		String Address=null;
 		if(Country.equalsIgnoreCase("US")) {
 		Address = "New York, NY 10014";

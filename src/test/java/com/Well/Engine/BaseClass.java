@@ -126,7 +126,8 @@ public class BaseClass {
 			 options.addArguments("--disable-notifications");
 			 options.setExperimentalOption("useAutomationExtension", false);
 			 //options.setExperimentalOption("excludeSwitches",Collections.singletonList("enable-automation"));
-			 options.addArguments("--start-maximized");
+			 options.addArguments("--window-size=1920,1280");
+			 options.addArguments("--window-position=0,0");
 			 options.addArguments("--disable-web-security");
 			 options.addArguments("--no-proxy-server");
 			options.setHeadless(false);
@@ -134,7 +135,7 @@ public class BaseClass {
 	        JSWaiter.setDriver(driver);
 		}
 		
-		driver.manage().window().maximize();
+		//driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(120));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
 		driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(120));
