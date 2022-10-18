@@ -193,10 +193,12 @@
     <version>1.8</version>
     <executions>
         <execution>
+        <id>test</id>
             <phase>initialize</phase>
             <configuration>
                 <target>
                     <mkdir dir="${project.basedir}/Downloads" />
+                     <echo message="testing 1 2 3"/>
                 </target>
             </configuration>
             <goals>
