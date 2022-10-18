@@ -1266,6 +1266,12 @@ public class CommonMethod extends BaseClass {
 		JavascriptExecutor js = ((JavascriptExecutor) driver);
 		js.executeScript("return document.getElementsByTagName('h2').remove();");
 	}
+	
+	public static void JavascriptRemoveWebElementByClassName() {
+
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("return document.getElementsByClassName('ml-64 pr-72 shadow bg-white fixed z-10 left-0 mt-16 top-0 w-full py-4 px-11')[0].remove();");
+	}
 
 	public static void scrolldowntoLast() {
 

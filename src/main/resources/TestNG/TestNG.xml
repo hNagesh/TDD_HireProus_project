@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name="V2 Project module">
+
+<parameter name="browserName" value="chrome"/>
+<parameter name="environment" value="Test"/>
+
+<test name="WELL-V2-CoreProject" >
+<parameter name="SheetName" value="V2Project"/>
+<parameter name="rowNum" value="2"/>
+<parameter name="ProjectType" value="WELLCore"/>
+<parameter name="Country" value="US"/>
+<parameter name="Discount" value="SectorDiscount"/>
+<classes>
+ <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
+
+</classes>
+</test>
+
+ 
+</suite>  

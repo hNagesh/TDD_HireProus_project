@@ -713,8 +713,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void hsrReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 300);
-		String getCurrentUrl = driver.getCurrentUrl().replaceAll("hsr", "reviews");
-		CommonMethod.GotoURL(getCurrentUrl);
+		CommonMethod.JavascriptRemoveWebElementByClassName();
+		CommonMethod.Robustclick("V2ProjectHSRWPRSubmitReview");
 		CommonMethod.click("V2ProjectsubmitReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Final Documentation Review");
 		Thread.sleep(4000);
@@ -783,8 +783,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void wprReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 300);
-		String getCurrentUrl = driver.getCurrentUrl().replaceAll("wpr", "reviews");
-		CommonMethod.GotoURL(getCurrentUrl);
+		CommonMethod.JavascriptRemoveWebElementByClassName();
+		CommonMethod.Robustclick("V2ProjectHSRWPRSubmitReview");
 		CommonMethod.WaitUntilVisibility("V2ProjectsubmitReview", 300);
 		CommonMethod.click("V2ProjectsubmitReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Final Performance Review");
