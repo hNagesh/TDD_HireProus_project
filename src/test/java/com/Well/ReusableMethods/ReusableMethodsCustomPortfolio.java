@@ -189,7 +189,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 						"PortfolioScoreCardVerificationAssignLocCancelbtn");
 				Thread.sleep(2000);
 				CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationUploadbtn", 60);
-				Thread.sleep(20000);
+				Thread.sleep(2000);
 				CommonMethod.clickListWebelementFromIndex("PortfolioScoreCardVerificationUploadbtn", 0);
 				CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload,
 						"UploadFileVerifyScorecard");

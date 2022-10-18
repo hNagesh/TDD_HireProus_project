@@ -14,7 +14,8 @@
 <parameter name="Discount" value="SectorDiscount"/>
 <classes>
  <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
-
+<class name="com.Well.testcases.V2Project.V2_TC_03_SearchV2ProjectByIdTest"></class>
+<class name="com.Well.testcases.V2Project.V2_TC_11_HealthSafetyReviewV2ProjectTest"></class>
 </classes>
 </test>
 

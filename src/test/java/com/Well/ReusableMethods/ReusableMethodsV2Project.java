@@ -717,6 +717,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void hsrReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 600);
 		CommonMethod.JavascriptRemoveWebElementByClassName();
+		Thread.sleep(2000);
+		CommonMethod.scrollUp();
 		CommonMethod.Robustclick("V2ProjectHSRWPRSubmitReview");
 		CommonMethod.click("V2ProjectsubmitReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Final Documentation Review");
