@@ -125,7 +125,7 @@ public class BaseClass {
 			options.addArguments("disable-infobars");	           
 			 options.addArguments("--disable-notifications");
 			 options.setExperimentalOption("useAutomationExtension", false);
-			 options.setExperimentalOption("excludeSwitches",Collections.singletonList("enable-automation"));
+			 //options.setExperimentalOption("excludeSwitches",Collections.singletonList("enable-automation"));
 			 options.addArguments("--start-maximized");
 			 options.addArguments("--disable-web-security");
 			 options.addArguments("--no-proxy-server");
