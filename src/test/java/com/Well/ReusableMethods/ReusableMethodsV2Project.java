@@ -175,7 +175,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void DownloadBillingReceiptAndValidate(String SheetName, int rowNum, String Country)
 			throws IOException, InterruptedException {
-		String Amount = data.getCellData(SheetName, "EnrollFee", rowNum);
+		//String Amount = data.getCellData(SheetName, "EnrollFee", rowNum);
 		String Email = data.getCellData("Login", "UserName", rowNum);
 		String Address=null;
 		if(Country.equalsIgnoreCase("US")) {
@@ -184,7 +184,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		else {
 	    Address	= "IWBI China(HK) Limited";
 		}
-		String [] ProjDetails = {Amount,Email,Address};
+		String [] ProjDetails = {Email,Address};
 		CommonMethod.WaitUntilVisibility("DownloadReceipt", 120);
 		CommonMethod.click("DownloadReceipt");
 		Thread.sleep(2000);
@@ -312,7 +312,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void RefreshScorecard() throws IOException {
 		CommonMethod.refreshBrowser();
-		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 300);
+		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 600);
 	}
 
 	public void Scorecardfill(int YesEnd, int NoStart, int NoEnd, int DifferencePlusOne)
@@ -545,6 +545,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
 		CommonMethod.click("V2ProjectDocSubmit");
 		Thread.sleep(2000);
+		CommonMethod.WaitUntilInVisibility("V2ProjectScorecardWaitUntilDocUploaded", 120);
 		CommonMethod.WaitUntilClickble("V2ProjectDocUploadbtn", 30);
 		testlog.pass("**Upload Document successfully**");
 	}
@@ -575,6 +576,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
 		CommonMethod.click("V2ProjectDocSubmit");
 		Thread.sleep(2000);
+		CommonMethod.WaitUntilInVisibility("V2ProjectScorecardWaitUntilDocUploaded", 120);
 		CommonMethod.WaitUntilClickble("V2ProjectDocUploadbtn", 30);
 		testlog.pass("**Upload Document successfully**");
 	}
@@ -599,6 +601,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
 		CommonMethod.click("V2ProjectDocSubmit");
 		Thread.sleep(2000);
+		CommonMethod.WaitUntilInVisibility("V2ProjectScorecardWaitUntilDocUploaded", 120);
 		CommonMethod.WaitUntilClickble("V2ProjectDocUploadbtn", 30);
 		testlog.pass("**Upload Document successfully**");
 	}
@@ -712,7 +715,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 	}
 
 	public void hsrReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 300);
+		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 600);
 		CommonMethod.JavascriptRemoveWebElementByClassName();
 		CommonMethod.Robustclick("V2ProjectHSRWPRSubmitReview");
 		CommonMethod.click("V2ProjectsubmitReview");
