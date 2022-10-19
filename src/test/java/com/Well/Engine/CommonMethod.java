@@ -557,6 +557,16 @@ public class CommonMethod extends BaseClass {
 		action.moveToElement(objectLocator).click().build().perform();
 
 	}
+	
+	public static void movedownaction() throws IOException {
+
+		Actions actions = new Actions(driver);
+		// Page Down
+		actions.keyDown(Keys.CONTROL).sendKeys(Keys.END).perform();
+		// Page Up
+		actions.keyDown(Keys.CONTROL).sendKeys(Keys.UP).perform();
+
+	}
 
 	public static boolean isSelected(WebElement objectLocater) throws IOException {
 

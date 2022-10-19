@@ -716,10 +716,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void hsrReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 600);
-		CommonMethod.JavascriptRemoveWebElementByClassName();
-		Thread.sleep(2000);
-		CommonMethod.scrollUp();
-		CommonMethod.Robustclick("V2ProjectHSRWPRSubmitReview");
+		CommonMethod.Robustclick("ReviewTab","V2ProjectsubmitReview");
 		CommonMethod.click("V2ProjectsubmitReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Final Documentation Review");
 		Thread.sleep(4000);
@@ -787,9 +784,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 	}
 
 	public void wprReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 300);
-		CommonMethod.JavascriptRemoveWebElementByClassName();
-		CommonMethod.Robustclick("V2ProjectHSRWPRSubmitReview");
+		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 600);
+		CommonMethod.Robustclick("ReviewTab","V2ProjectsubmitReview");
 		CommonMethod.WaitUntilVisibility("V2ProjectsubmitReview", 300);
 		CommonMethod.click("V2ProjectsubmitReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Final Performance Review");
