@@ -527,6 +527,8 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 //				}
 //				testlog.pass("**Verifies updated Location Count successful**");
 				softAssert.assertAll();
+				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
+				CommonMethod.click(ele);
 			}
 		}
 	}
@@ -623,8 +625,61 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.WaitUntilVisibility("PortfolioDocListDeleteYesButton", 30);
 				CommonMethod.Robustclick("PortfolioDocListDeleteYesButton");
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioDocListTaskUploadList", 1);
-				
+				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
+				CommonMethod.click(ele);
 			}
 		}
 	}
+	public void OfferPhysicalActivityIncentives(String FeatureName) throws IOException, InterruptedException {
+		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
+		testlog.info("Fetching total no. of credits on page");
+		for (WebElement ele : Feature) {
+			String Creditname = ele.getText();
+			Creditname = Creditname.replaceAll("\\.", "");
+			if (Creditname.equalsIgnoreCase(FeatureName)) {
+				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
+				CommonMethod.click(ele);
+				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
+				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
+				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 10);
+				CommonMethod.click("PortfolioScoreCardAddOptionbutton");
+				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardAddOptionbutton", 1);
+				CommonMethod.Robustclick("PortfolioScoreCardAddButton");
+				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
+				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
+				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationAssignbtn", 60);
+				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardVerificationAssignbtn", 1);
+				testlog.pass("**Verifies Option Count successful**");
+				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardTaskOptionV09", 3);
+				testlog.pass("**Verifies Task Option Count successful**");
+				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardTaskUploadDisableCount", 3);
+				testlog.pass("**Verifies Upload button disable successful**");
+				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
+				CommonMethod.click(ele);
+			}
+	}
+	}
+	public void RestrictVOCEmissionsfromFurnitureArchitecturalandInteriorProducts(String FeatureName) throws IOException, InterruptedException {
+		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
+		testlog.info("Fetching total no. of credits on page");
+		for (WebElement ele : Feature) {
+			String Creditname = ele.getText();
+			Creditname = Creditname.replaceAll("\\.", "");
+			if (Creditname.equalsIgnoreCase(FeatureName)) {
+				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
+				CommonMethod.click(ele);
+				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
+				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
+				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 10);
+				CommonMethod.click("PortfolioScoreCardAddOptionbutton");
+				CommonMethod.softAssertContainsMessage(
+						CommonMethod.getSelectedDropdownValue("PortfolioScorecardTierDropdownValue"), "1",
+						"TierDropdown Defualt value doesn't match");
+				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlightX06"),"2", "Weight Point for 3 doesn't match");
+				testlog.pass("**Verifies Core Weight Point successful**");
+				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
+				CommonMethod.click(ele);
+			}
 }
+}
+	}
