@@ -410,15 +410,40 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				 * Test by adding the core point
 				 */
 				 
-				 CommonMethod.ClickCheckbox("PortfolioScoreCardVerificationAssignLocCbx");
-				 CommonMethod.scrolldowntoElement("PortfolioScoreCardVerificationAssignLocCbx");
-				 CommonMethod.ClickCheckbox("PortfolioScoreCardVerificationAssignChildLocCbx");
+				CommonMethod.clickListWebelementFromRange("PortfolioScoreCardVerificationAssignLocCbxGeneral", 0, 2);
 				CommonMethod.WaitUntilPresence("PortfolioScorecardWeightHighlighted", 30);
-				Thread.sleep(20000);
+				Thread.sleep(2000);
 				System.out.println("3point"+CommonMethod.getText("PortfolioScorecardWeightHighlighted"));
 				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlighted"),"3", "Weight Point for 3 doesn't match");
 				testlog.pass("**Verifies Core Weight Point successful**");
 
+				/*
+				 * Test by removing the core point from option 1
+				 */
+				CommonMethod.declickListWebelementFromIndex("PortfolioScoreCardVerificationAssignLocCbxGeneral", 0);
+				CommonMethod.WaitUntilPresence("PortfolioScorecardWeightHighlighted", 30);
+				Thread.sleep(2000);
+				System.out.println("3point"+CommonMethod.getText("PortfolioScorecardWeightHighlighted"));
+				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlighted"),"3", "Weight Point for 3 doesn't match");
+				testlog.pass("**Verifies Core Weight Point successful**");
+				
+				/*
+				 * Test by modifying tier point to 1 for option 1 and 2
+				 */
+				List<WebElement> dropdown = CommonMethod.findElements("PortfolioScorecardTierDropdownValueGeneral");
+				for (WebElement drop : dropdown) {
+					CommonMethod.selectdropdownWebelementByValue(drop, "1");
+					Thread.sleep(1000);
+					System.out.println(CommonMethod.getSelectedDropdownValue(drop));
+					CommonMethod.softAssertContainsMessage(
+							CommonMethod.getSelectedDropdownValue(drop), "1",
+							"TierDropdown value doesn't match");
+				}
+				CommonMethod.WaitUntilPresence("PortfolioScorecardWeightHighlighted", 30);
+				Thread.sleep(2000);
+				System.out.println("2point"+CommonMethod.getText("PortfolioScorecardWeightHighlighted"));
+				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlighted"),"2", "Weight Point for 2 doesn't match");
+				testlog.pass("**Verifies Core Weight Point successful**");
 //				/*
 //				 * Verify Upload button disable
 //				 */

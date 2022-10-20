@@ -981,6 +981,13 @@ public class CommonMethod extends BaseClass {
 		se.selectByVisibleText(value);
 
 	}
+	
+	public static void selectdropdownWebelementByValue(WebElement objectLocator, String value) throws IOException {
+
+		Select se = new Select(objectLocator);
+		se.selectByValue(value);
+
+	}
 
 	public static String getSelectedDropdownValue(String objectLocator) throws IOException {
 
@@ -2201,24 +2208,47 @@ public class CommonMethod extends BaseClass {
 		return flag;
 	}
 	
-	public static void clickListWebelementFromIndex(String ObjectLocator, int Index) throws IOException {
+	public static void clickListWebelementFromIndex(String ObjectLocator, int Index) throws IOException, InterruptedException {
 		List<WebElement> ele;
 		WebElement ele1;
 		ele = CommonMethod.findElements(ObjectLocator);
 		ele1 = ele.get(Index);
-		CommonMethod.WaitUntilClickble(ele1, 60);
-		click(ele1);
+		do {
+			CommonMethod.WaitUntilClickble(ele1, 60);
+			click(ele1);
+			Thread.sleep(2000);
+		} while (!CommonMethod.isSelected(ele1));
+
 
 	}
 	
-	public static void clickListWebelementFromRange(String ObjectLocator, int Start,int End) throws IOException {
+	public static void declickListWebelementFromIndex(String ObjectLocator, int Index) throws IOException, InterruptedException {
+		List<WebElement> ele;
+		WebElement ele1;
+		ele = CommonMethod.findElements(ObjectLocator);
+		ele1 = ele.get(Index);
+		do {
+			CommonMethod.WaitUntilClickble(ele1, 60);
+			click(ele1);
+			Thread.sleep(2000);
+		} while (CommonMethod.isSelected(ele1));
+
+
+	}
+	
+	
+	public static void clickListWebelementFromRange(String ObjectLocator, int Start,int End) throws IOException, InterruptedException {
 		List<WebElement> ele;
 		//WebElement ele1;
 		ele = CommonMethod.findElements(ObjectLocator);
 		ele = ele.subList(Start, End);
 		for(WebElement ele1:ele) {
-		CommonMethod.WaitUntilClickble(ele1, 60);
-		click(ele1);
+		do {
+			CommonMethod.WaitUntilClickble(ele1, 60);
+			click(ele1);
+			Thread.sleep(2000);
+		} while (!CommonMethod.isSelected(ele1));
+
 		}
 
 	}
