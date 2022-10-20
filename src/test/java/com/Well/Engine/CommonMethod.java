@@ -2227,6 +2227,6 @@ public class CommonMethod extends BaseClass {
 		List<WebElement> ele;
 		ele = CommonMethod.findElements(ObjectLocator);
 		softAssert.assertEquals(ele.size(), Count,"Count Validation failed");
-
+		
 	}
 }
