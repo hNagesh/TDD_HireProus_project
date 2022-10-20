@@ -20,16 +20,18 @@ public class Portfolio_CTC_01_FeatureTest extends BaseClass {
 		try {
 
 			 portfolio.PortfolioBuildScorecard();
-			
+			 pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
 			//pf.MeetThresholdsforOrganicGases("Meet Thresholds for Organic Gases");
 			//pf.MeetEnhancedThresholdsforOrganicGases("Meet Enhanced Thresholds for Organic Gases");
 			//pf.MitigateConstructionPollution("Mitigate Construction Pollution");
 			//pf.ManageWindowUse("Manage Window Use");
-			pf.EnhanceOccupantControllability("Enhance Occupant Controllability");
+			//pf.EnhanceOccupantControllability("Enhance Occupant Controllability");
 			// pf.ConductDaylightSimulation("Conduct Daylight Simulation");
+			//pf.OfferPhysicalActivityIncentives("Offer Physical Activity Incentives");
+			 //pf.RestrictVOCEmissionsfromFurnitureArchitecturalandInteriorProducts("Restrict VOC Emissions from Furniture, Architectural and Interior Products");
 /*
  * Waiting for Application
- * pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
+ pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
  * pf.MeetThresholdsforInOrganicGases("Meet Thresholds for Inorganic Gases");
  */
 
