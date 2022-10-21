@@ -1,15 +1,13 @@
 package com.Well.testcases.Performance;
 
 import java.io.IOException;
-
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
 import com.Well.Engine.BaseClass;
 
 public class Performance_TC_13_PromotionTest extends BaseClass {
 
-	@Test//(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_12_EditTest.Performance_TC_12_Edit" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_11_TeamTest.Performance_TC_11_Team" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Performance_TC_13_Promotion(String SheetName,int rowNum) throws IOException {
 
