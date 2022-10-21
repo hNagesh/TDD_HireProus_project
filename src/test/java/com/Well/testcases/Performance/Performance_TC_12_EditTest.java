@@ -15,7 +15,7 @@ public class Performance_TC_12_EditTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Updating the Project field and validating");
 		try {
 //			rc.editAndValidateOrganizationInformation(SheetName, rowNum);	
 			rc.editAndValidateAdmin(SheetName, rowNum);

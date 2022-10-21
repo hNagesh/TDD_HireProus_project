@@ -15,7 +15,7 @@ public class Performance_TC_10_AlternativesTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Adding feature in alternatives functionality");
 		try {
 			rc.alternatives(SheetName, rowNum, "EP");
 			rc.alternatives(SheetName, rowNum, "AAP");	

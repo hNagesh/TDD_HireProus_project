@@ -15,7 +15,7 @@ public class Performance_TC_13_PromotionTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName);
+		StartTest(TestCaseName,"Verifying Card link details");
 		try {
 			rc.promotionCardValidation(SheetName, rowNum,"1");
 		} catch (Throwable t) {
