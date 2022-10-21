@@ -43,7 +43,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationAssignLocSavebtn", 30);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocSavebtn",
 						"PortfolioScoreCardVerificationAssignLocCancelbtn");
-				Thread.sleep(2000);
+				//Thread.sleep(2000);
 				CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationUploadbtn", 60);
 				CommonMethod.clickListWebelementFromIndex("PortfolioScoreCardVerificationUploadbtn", 0);
 				CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload,
