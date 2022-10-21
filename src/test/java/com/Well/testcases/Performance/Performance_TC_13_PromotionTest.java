@@ -1,4 +1,4 @@
-package com.Well.testcases.V2Project;
+package com.Well.testcases.Performance;
 
 import java.io.IOException;
 
@@ -7,18 +7,17 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class V2_TC_14_TeamV2ProjectTest extends BaseClass {
+public class Performance_TC_13_PromotionTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_13_PerformanceReviewV2ProjectTest.V2_TC_13_PerformanceReviewV2Project" })
+	@Test//(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_08_ReviewTest.Performance_TC_08_Review" })
 	@Parameters({ "SheetName","rowNum" })
-	public void V2_TC_14_TeamV2Project(String SheetName,int rowNum) throws IOException {
+	public void Performance_TC_13_Promotion(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName,"Add member to Team for V2Project");
+		StartTest(TestCaseName);
 		try {
-		rc.team(SheetName, rowNum);	
-	
+			rc.promotionCardValidation(SheetName, rowNum,"1");
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

@@ -17,7 +17,7 @@ public class V2_TC_16_AlternativesV2ProjectTest extends BaseClass {
 
 		StartTest(TestCaseName,"EP Alternatives V2Project Functionality");
 		try {
-		v2project.alternativesV2Project(SheetName,rowNum,"EP");
+			rc.alternatives(SheetName, rowNum, "EP");
 	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
@@ -35,7 +35,7 @@ public class V2_TC_16_AlternativesV2ProjectTest extends BaseClass {
 
 		StartTest(TestCaseName,"AAP Alternatives V2Project Functionality");
 		try {
-		v2project.alternativesV2Project(SheetName,rowNum,"AAP");
+			rc.alternatives(SheetName, rowNum, "AAP");
 	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

@@ -96,6 +96,244 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilVisibility("PortfolioLocationLanding", 60);
 		testlog.pass("**Imported Locations successfully**");
 	}
+	
+	public void alternatives(String SheetName, int rowNum, String alternativeOption)
+			throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("AlternativesTab", 60);
+		CommonMethod.RobustclickElementVisible("AlternativesTab", "V2ProjectEPSubmitButton");
+		if (alternativeOption.equalsIgnoreCase("EP")) {
+			CommonMethod.RobustclickElementVisible("V2ProjectEPSubmitButton", "V2ProjectFeatureDropdown");
+			CommonMethod.WaitUntilVisibility("V2ProjectFeatureDropdown", 60);
+			CommonMethod.selectdropdownrandom("V2ProjectFeatureDropdown");
+			data.setCellData(SheetName, "EPFeatureName", rowNum,
+					CommonMethod.getSelectedDropdownValue("V2ProjectFeatureDropdown"));
+			testlog.info("EPFeatureName: " + data.getCellData(SheetName, "EPFeatureName", rowNum));
+			if (CommonMethod.isElementsExist("V2ProjectApplicablePartCheckBox", 10)) {
+				CommonMethod.ClickCheckbox("V2ProjectApplicablePartCheckBox");
+			}
+			CommonMethod.WaitUntilClickble("V2ProjectEquivalencyReason", 60).sendKeys("Reason for Equivalency Request");
+			CommonMethod.WaitUntilClickble("V2ProjectEquivalencyCountriesInput", 60)
+					.sendKeys("Regions/Countries where Equivalency may be Applicable");
+			if (CommonMethod.isElementsExist("V2ProjectVerificationTextArea", 10)) {
+				CommonMethod.WaitUntilVisibility("V2ProjectVerificationTextArea", 60);
+				CommonMethod.clearAndSendKey("V2ProjectVerificationTextArea",
+						"Verification method within proposed equivalent");
+			} else if (CommonMethod.isElementsExist("PortfolioVerificationTextArea", 10)) {
+				CommonMethod.WaitUntilVisibility("PortfolioVerificationTextArea", 60);
+				CommonMethod.clearAndSendKey("PortfolioVerificationTextArea",
+						"Verification method within proposed equivalent");
+			}
+			if (CommonMethod.isElementsExist("V2ProjectSimilaritiesTextArea", 10)) {
+				CommonMethod.WaitUntilVisibility("V2ProjectSimilaritiesTextArea", 60);
+				CommonMethod.clearAndSendKey("V2ProjectSimilaritiesTextArea",
+						"Similarities to WELL feature requirement");
+			} else if (CommonMethod.isElementsExist("PortfolioSimilaritiesTextArea", 10)) {
+				CommonMethod.WaitUntilVisibility("PortfolioSimilaritiesTextArea", 60);
+				CommonMethod.clearAndSendKey("PortfolioSimilaritiesTextArea",
+						"Similarities to WELL feature requirement");
+			}
+			if (CommonMethod.isElementsExist("V2ProjectDifferencesTextArea", 10)) {
+				CommonMethod.WaitUntilVisibility("V2ProjectDifferencesTextArea", 60);
+				CommonMethod.clearAndSendKey("V2ProjectDifferencesTextArea",
+						"Differences from WELL feature requirement");
+			} else if (CommonMethod.isElementsExist("PortfolioDifferencesTextArea", 10)) {
+				CommonMethod.WaitUntilVisibility("PortfolioDifferencesTextArea", 60);
+				CommonMethod.clearAndSendKey("PortfolioDifferencesTextArea",
+						"Differences from WELL feature requirement");
+			}
+		} else if (alternativeOption.equalsIgnoreCase("AAP")) {
+			CommonMethod.refreshBrowser();
+			CommonMethod.WaitUntilVisibility("V2ProjectAapSubmitButton", 60);
+			CommonMethod.RobustclickElementVisible("V2ProjectAapSubmitButton", "V2ProjectFeatureDropdown");
+			CommonMethod.WaitUntilVisibility("V2ProjectFeatureDropdown", 60);
+			CommonMethod.selectdropdownrandom("V2ProjectFeatureDropdown");
+			data.setCellData(SheetName, "AAPFeatureName", rowNum,
+					CommonMethod.getSelectedDropdownValue("V2ProjectFeatureDropdown"));
+			testlog.info("AAPFeatureName: " + data.getCellData(SheetName, "AAPFeatureName", rowNum));
+			if (CommonMethod.isElementsExist("V2ProjectApplicablePartCheckBox", 10)) {
+				CommonMethod.ClickCheckbox("V2ProjectApplicablePartCheckBox");
+			}
+			CommonMethod.WaitUntilClickble("V2ProjectAlternativesReasonTextArea", 60)
+					.sendKeys("Reason for Alternative Means and Methods");
+		}
+		CommonMethod.WaitUntilClickble("V2ProjectAlternativesProposedTextArea", 60)
+				.sendKeys("Proposed Alternative Means of Compliance");
+		CommonMethod.uploadFile("DocumentsUpload", PortfolioLocationImportfile);
+		CommonMethod.WaitUntilVisibility("SubmitButton", 60);
+		CommonMethod.RobustclickElementVisible("SubmitButton", "V2projectEPTypeStatus");
+		if (alternativeOption.equalsIgnoreCase("EP")) {
+			CommonMethod.WaitUntilVisibility("V2projectEPTypeStatus", 60);
+			CommonMethod.assertcontainsmessage("V2projectEPTypeStatus", "EP", "Verified EP status");
+			testlog.pass("**Added alternative EP documents successfully**");
+		} else if (alternativeOption.equalsIgnoreCase("AAP")) {
+			CommonMethod.WaitUntilVisibility("V2projectAAPTypeStatus", 60);
+			CommonMethod.assertcontainsmessage("V2projectAAPTypeStatus", "AAP", "Verified AAP status");
+			testlog.pass("**Added alternative AAP documents successfully**");
+		}
+	}
+
+	public void team(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("TeamTab", 300);
+		CommonMethod.click("TeamTab");
+		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 30);
+		CommonMethod.click("V2ProjectAddMemberbtn");
+		String TeamEmail = "gokulthiru22@gmail.com";
+		CommonMethod.WaitUntilVisibility("V2ProjectEmailAddress", 30);
+		CommonMethod.sendKeys("V2ProjectEmailAddress", TeamEmail);
+		data.setCellData(SheetName, "TeamEmailID", rowNum, TeamEmail);
+		CommonMethod.selectdropdownVisibletext("V2ProjectRole", "Acoustician");
+		CommonMethod.ClickCheckbox("V2ProjectMembercbx");
+		CommonMethod.WaitUntilVisibility("V2ProjectInvitebtn", 30);
+		CommonMethod.click("V2ProjectInvitebtn");
+		Thread.sleep(2000);
+		CommonMethod.refreshBrowser();
+		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 30);
+		CommonMethod.click("V2ProjectDeleteIcon");
+		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
+		testlog.pass("**Created Team member successfully**");
+	}
+	
+	public void editAndValidateOrganizationInformation(String SheetName, int rowNum) throws Exception {
+		CommonMethod.WaitUntilVisibility("EditTab", 60);
+		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectProjectNameInput");
+		if (CommonMethod.isElementsExist("V2ProjectProjectInformationButton", 10)) {
+			CommonMethod.WaitUntilVisibility("V2ProjectProjectInformationButton", 60);
+			CommonMethod.RobustclickElementVisible("V2ProjectProjectInformationButton", "V2ProjectProjectScope");
+			CommonMethod.WaitUntilVisibility("V2ProjectProjectNameInput", 60);
+			CommonMethod.clearAndSendKey("V2ProjectProjectNameInput",
+					data.getCellData(SheetName, "ProjectName", rowNum));
+		} else if (CommonMethod.isElementsExist("HSROrganizationInformationButton", 10)) {
+			CommonMethod.WaitUntilVisibility("HSROrganizationInformationButton", 60);
+			CommonMethod.RobustclickElementVisible("HSROrganizationInformationButton", "V2ProjectProjectScope");
+			CommonMethod.WaitUntilVisibility("V2ProjectProjectNameInput", 60);
+			CommonMethod.clearAndSendKey("V2ProjectProjectNameInput", data.getCellData(SheetName, "HsrName", rowNum));
+		}
+
+		CommonMethod.WaitUntilVisibility("V2ProjectProjectScope", 60);
+		CommonMethod.sendKeys("V2ProjectProjectScope", data.getCellData(SheetName, "ProjectScope", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectProjectGoals", 60);
+		CommonMethod.sendKeys("V2ProjectProjectGoals", data.getCellData(SheetName, "ProjectGoals", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectSaveChangesButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "V2ProjectSuccessToastMessage");
+		testlog.info("**Project Information data updated successfully**");
+		/*
+		 * Validate updated project information fields
+		 */
+		CommonMethod.WaitUntilVisibility("EditTab", 60);
+		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectProjectInformationButton");
+		if (CommonMethod.isElementsExist("V2ProjectProjectInformationButton", 10)) {
+			CommonMethod.WaitUntilVisibility("V2ProjectProjectInformationButton", 60);
+			CommonMethod.RobustclickElementVisible("V2ProjectProjectInformationButton", "V2ProjectProjectScope");
+		} else if (CommonMethod.isElementsExist("HSROrganizationInformationButton", 10)) {
+			CommonMethod.WaitUntilVisibility("HSROrganizationInformationButton", 60);
+			CommonMethod.RobustclickElementVisible("HSROrganizationInformationButton", "V2ProjectProjectScope");
+		}
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectProjectScope"),
+				data.getCellData(SheetName, "ProjectScope", rowNum), "Project scope data doesn't match");
+		testlog.info("**Project scope data updated successfully**");
+		CommonMethod.WaitUntilVisibility("V2ProjectProjectGoals", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectProjectGoals"),
+				data.getCellData(SheetName, "ProjectGoals", rowNum), "Project goals data doesn't match");
+		testlog.pass("**Project goals data updated successfully**");
+	}
+
+	public void editAndValidateAdmin(String SheetName, int rowNum) throws Exception {
+
+		CommonMethod.WaitUntilVisibility("EditTab", 60);
+		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectAdminFieldsButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectAdminFieldsButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectAdminFieldsButton", "CoachingContactsDropDown");
+		CommonMethod.WaitUntilVisibility("CoachingContactsDropDown", 60);
+		CommonMethod.selectdropdownrandom("CoachingContactsDropDown");
+		data.setCellData(SheetName, "CoachingContacts", rowNum,
+				CommonMethod.getSelectedDropdownValue("CoachingContactsDropDown"));
+		testlog.info("Coaching Contacts: " + data.getCellData(SheetName, "CoachingContacts", rowNum));
+		CommonMethod.WaitUntilVisibility("RelationshipManagerDropDown", 60);
+		CommonMethod.selectdropdownrandom("RelationshipManagerDropDown");
+		data.setCellData(SheetName, "RelationshipManager", rowNum,
+				CommonMethod.getSelectedDropdownValue("RelationshipManagerDropDown"));
+		testlog.info("Relationship Manager: " + data.getCellData(SheetName, "RelationshipManager", rowNum));
+		CommonMethod.WaitUntilVisibility("WellReviewerDropDown", 60);
+		CommonMethod.selectdropdownrandom("WellReviewerDropDown");
+		data.setCellData(SheetName, "WellReviewer", rowNum,
+				CommonMethod.getSelectedDropdownValue("WellReviewerDropDown"));
+		testlog.info("Well Reviewer: " + data.getCellData(SheetName, "WellReviewer", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectSaveChangesButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "V2ProjectSuccessToastMessage");
+		testlog.pass("**Admin data updated successfully**");
+		/*
+		 * Validate updated admin fields
+		 */
+		CommonMethod.WaitUntilVisibility("EditTab", 60);
+		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectAdminFieldsButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectAdminFieldsButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectAdminFieldsButton", "CoachingContactsDropDown");
+		CommonMethod.WaitUntilVisibility("CoachingContactsDropDown", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("CoachingContactsDropDown"),
+				data.getCellData(SheetName, "CoachingContacts", rowNum), "Coaching contacts value doesn't match");
+		testlog.pass("**Coaching contacts updated successfully**");
+		CommonMethod.WaitUntilVisibility("RelationshipManagerDropDown", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("RelationshipManagerDropDown"),
+				data.getCellData(SheetName, "RelationshipManager", rowNum), "Relationship Manager value doesn't match");
+		testlog.pass("**Relationship Manager value updated successfully**");
+		CommonMethod.WaitUntilVisibility("WellReviewerDropDown", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("WellReviewerDropDown"),
+				data.getCellData(SheetName, "WellReviewer", rowNum), "Well Reviewer value doesn't match");
+		testlog.pass("**Well Reviewer value updated successfully**");
+	}
+
+	public void promotionCardValidation(String SheetName, int rowNum, String cardValue) throws Exception {
+		CommonMethod.WaitUntilVisibility("PromotionTab", 60);
+		CommonMethod.RobustclickElementVisible("PromotionTab", "V2ProjectCardContainer");
+		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
+		String cardCount = Integer.toString(countCard);
+		CommonMethod.assertActualContainsExpected(cardCount, cardValue);
+		testlog.info("Card count: " + cardCount);
+		testlog.pass("**Verify card count successfully**");
+
+	}
+
+	public void profile(String SheetName, int rowNum) throws Exception {
+		CommonMethod.WaitUntilVisibility("ProfileTab", 60);
+		CommonMethod.RobustclickElementVisible("ProfileTab", "V2ProjectGeneralInformation");
+		CommonMethod.WaitUntilVisibility("V2ProjectGeneralInformation", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectGeneralInformation", "V2ProjectProjectBio");
+		CommonMethod.WaitUntilVisibility("V2ProjectProjectBio", 60);
+		CommonMethod.clearAndSendKey("V2ProjectProjectBio", "Project bio testing");
+		CommonMethod.uploadFile("V2ProjectLogo", SampleJpgfile);
+		CommonMethod.uploadFile("V2ProjectProfileImage", SampleJpgfile);
+		CommonMethod.WaitUntilVisibility("V2ProjectPrimaryProfileImageDeleteVerify", 120);
+		CommonMethod.WaitUntilVisibility("V2ProjectProfileImageDeleteVerify", 120);
+		CommonMethod.RobustclickElementVisible("V2ProjectSave", "V2ProjectProfileUpdatedToastMessage");
+		CommonMethod.WaitUntilVisibility("V2ProjectProfileUpdatedToastMessage", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProfileUpdatedToastMessage"),
+				"Updated Profile!", "Verified profile updated toast message");
+		testlog.pass("**General Information data updated successfully**");
+		CommonMethod.WaitUntilVisibility("ProfileTab", 60);
+		CommonMethod.RobustclickElementVisible("ProfileTab", "WellHealthSafty");
+		CommonMethod.WaitUntilVisibility("WellHealthSafty", 60);
+		CommonMethod.RobustclickElementVisible("WellHealthSafty", "V2ProjectYourObjective");
+		CommonMethod.WaitUntilVisibility("V2ProjectYourObjective", 60);
+		CommonMethod.clearAndSendKey("V2ProjectYourObjective", "Your objective testing");
+		CommonMethod.WaitUntilVisibility("V2ProjectYourOrganization", 60);
+		CommonMethod.clearAndSendKey("V2ProjectYourOrganization", "Your organization testing");
+		CommonMethod.WaitUntilVisibility("V2ProjectYourWellGoals", 60);
+		CommonMethod.clearAndSendKey("V2ProjectYourWellGoals", "Your well goals testing");
+		CommonMethod.WaitUntilVisibility("V2ProjectYourWellProject", 60);
+		CommonMethod.clearAndSendKey("V2ProjectYourWellProject", "Your well project testing");
+		CommonMethod.WaitUntilVisibility("V2ProjectYourWellFeatures", 60);
+		CommonMethod.clearAndSendKey("V2ProjectYourWellFeatures", "Your well features testing");
+		CommonMethod.WaitUntilVisibility("V2ProjectYourWellCertification", 60);
+		CommonMethod.clearAndSendKey("V2ProjectYourWellCertification", "Your well certification testing");
+		CommonMethod.WaitUntilVisibility("V2ProjectPostCertificationMetric", 60);
+		CommonMethod.clearAndSendKey("V2ProjectPostCertificationMetric", "Post certification metric testing");
+		CommonMethod.RobustclickElementVisible("V2ProjectSave", "V2ProjectProfileUpdatedToastMessage");
+		CommonMethod.WaitUntilVisibility("V2ProjectProfileUpdatedToastMessage", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProfileUpdatedToastMessage"),
+				"Updated Profile!", "Verified profile updated toast message");
+		testlog.pass("**Certification story data updated successfully**");
+	}
+
 }
 
 
