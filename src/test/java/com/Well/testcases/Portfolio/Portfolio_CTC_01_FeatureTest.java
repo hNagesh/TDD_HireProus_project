@@ -11,30 +11,25 @@ public class Portfolio_CTC_01_FeatureTest extends BaseClass {
 
 	@Test//(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_07_PortfolioScorecardTest.Portfolio_TC_07_02_UploadFileInAudit" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Portfolio_CTC_01_Feature() throws IOException {
+	public void A01_1_MeetThresholdsforParticulateMatter() throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
 		StartTest(TestCaseName,"Meet Thresholds for Particulate Matter custom scenarios");
-
 		try {
-
-			 portfolio.PortfolioBuildScorecard();
-			 pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
-			//pf.MeetThresholdsforOrganicGases("Meet Thresholds for Organic Gases");
-			//pf.MeetEnhancedThresholdsforOrganicGases("Meet Enhanced Thresholds for Organic Gases");
-			//pf.MitigateConstructionPollution("Mitigate Construction Pollution");
-			//pf.ManageWindowUse("Manage Window Use");
-			//pf.EnhanceOccupantControllability("Enhance Occupant Controllability");
-			// pf.ConductDaylightSimulation("Conduct Daylight Simulation");
-			//pf.OfferPhysicalActivityIncentives("Offer Physical Activity Incentives");
-			 //pf.RestrictVOCEmissionsfromFurnitureArchitecturalandInteriorProducts("Restrict VOC Emissions from Furniture, Architectural and Interior Products");
-/*
- * Waiting for Application
- pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
- * pf.MeetThresholdsforInOrganicGases("Meet Thresholds for Inorganic Gases");
- */
-
+             portfolio.PortfolioBuildScorecard();
+			// pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
+			// pf.MeetThresholdsforInOrganicGases("Meet Thresholds for Inorganic Gases");
+             
+           pf.MeetThresholdsforOrganicGases("Meet Thresholds for Organic Gases");
+			 pf.MitigateConstructionPollution("Mitigate Construction Pollution");
+			pf.MeetEnhancedThresholdsforOrganicGases("Meet Enhanced Thresholds for Organic Gases");
+			 pf.ManageWindowUse("Manage Window Use");
+			 pf.InstallIndoorAirMonitors("Install Indoor Air Monitors");
+			 pf.ConductDaylightSimulation("Conduct Daylight Simulation");
+			 pf.EnhanceOccupantControllability("Enhance Occupant Controllability");
+			 pf.OfferPhysicalActivityIncentives("Offer Physical Activity Incentives");
+			 pf.RestrictVOCEmissionsfromFurnitureArchitecturalandInteriorProducts("Restrict VOC Emissions from Furniture, Architectural and Interior Products");
+			 
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -42,4 +37,5 @@ public class Portfolio_CTC_01_FeatureTest extends BaseClass {
 			throw e1;
 		}
 	}
+	
 }
