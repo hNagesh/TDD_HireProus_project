@@ -657,10 +657,10 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.RobustclickElementVisible("PortfolioDocListDeleteIcon", "PortfolioDocListDeleteNoButton");
 				CommonMethod.WaitUntilVisibility("PortfolioDocListDeleteNoButton", 60);
 				CommonMethod.Robustclick("PortfolioDocListDeleteNoButton");
-				CommonMethod.assertcountListWebelementFromIndex("PortfolioDocListTaskUploadList", 1);
-				CommonMethod.WaitUntilPresence("PortfolioDocListDeleteYesButton", 120);
-				CommonMethod.Robustclick("PortfolioDocListDeleteYesButton");
-				CommonMethod.assertcountListWebelementFromIndex("PortfolioDocListTaskUploadList", 0);
+				//CommonMethod.assertcountListWebelementFromIndex("PortfolioDocListTaskUploadList", 1);
+				//CommonMethod.WaitUntilPresence("PortfolioDocListDeleteYesButton", 120);
+			//	CommonMethod.Robustclick("PortfolioDocListDeleteYesButton");
+				//CommonMethod.assertcountListWebelementFromIndex("PortfolioDocListTaskUploadList", 0);
 				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
 				CommonMethod.click(ele);
 			}
