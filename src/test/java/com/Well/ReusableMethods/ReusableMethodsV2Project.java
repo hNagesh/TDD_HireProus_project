@@ -1172,8 +1172,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		 * V2ProjectCertificationStory
 		 */
 		CommonMethod.refreshBrowser();
-		CommonMethod.WaitUntilVisibility("V2ProjectCertificationStory", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectCertificationStory", "V2ProjectProjectBio");
+		CommonMethod.WaitUntilVisibility("V2ProjectCertificationStory", 120);
+		CommonMethod.RobustclickElementVisible("V2ProjectCertificationStory", "V2ProjectYourObjective");
 		CommonMethod.WaitUntilVisibility("V2ProjectYourObjective", 60);
 		CommonMethod.clearAndSendKey("V2ProjectYourObjective", "Your objective testing");
 		CommonMethod.WaitUntilVisibility("V2ProjectYourOrganization", 60);

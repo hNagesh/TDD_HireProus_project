@@ -99,7 +99,7 @@ public class ReusableMethodCommon extends BaseClass {
 	
 	public void alternatives(String SheetName, int rowNum, String alternativeOption)
 			throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("AlternativesTab", 60);
+		CommonMethod.WaitUntilVisibility("AlternativesTab", 300);
 		CommonMethod.RobustclickElementVisible("AlternativesTab", "V2ProjectEPSubmitButton");
 		if (alternativeOption.equalsIgnoreCase("EP")) {
 			CommonMethod.RobustclickElementVisible("V2ProjectEPSubmitButton", "V2ProjectFeatureDropdown");
@@ -284,8 +284,8 @@ public class ReusableMethodCommon extends BaseClass {
 
 	public void promotionCardValidation(String SheetName, int rowNum, String cardValue) throws Exception {
 		CommonMethod.WaitUntilVisibility("PromotionTab", 60);
-		CommonMethod.RobustclickElementVisible("PromotionTab", "V2ProjectCardContainer");
-		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
+		CommonMethod.RobustclickElementVisible("PromotionTab", "PromotionCardContainer");
+		int countCard = CommonMethod.ElementSize("PromotionCardContainer");
 		String cardCount = Integer.toString(countCard);
 		CommonMethod.assertActualContainsExpected(cardCount, cardValue);
 		testlog.info("Card count: " + cardCount);

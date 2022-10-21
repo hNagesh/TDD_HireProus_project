@@ -396,12 +396,10 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				 /*
 				 * Test by adding the core point
 				 */
-				 CommonMethod.ClickCheckbox("PortfolioScoreCardVerificationAssignLocCbx");
-				 CommonMethod.scrolldowntoElement("PortfolioScoreCardVerificationAssignLocCbx");
-				 CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationAssignChildLocCbx", 60);
-				 CommonMethod.ClickCheckbox("PortfolioScoreCardVerificationAssignChildLocCbx");
+				 CommonMethod.clickListWebelementFromRange("PortfolioScoreCardVerificationAssignLocCbxGeneral", 0,1);
 				CommonMethod.WaitUntilPresence("PortfolioScorecardWeightHighlightA08", 30);
-				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlightA08"),"1", "Weight Point for 3 doesn't match");
+				CommonMethod.scrolldowntoElement("PortfolioScorecardWeightHighlightA08");
+				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlightA08"),"1", "Weight Point for doesn't match");
 				softAssert.assertAll();
 				testlog.info("**Verifies Weight Point Count successful**");
 				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
