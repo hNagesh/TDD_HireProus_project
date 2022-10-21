@@ -9,16 +9,17 @@ import com.Well.Engine.BaseClass;
 
 public class V2_TC_18_PromotionV2ProjectTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_17_OverviewAndValidateRegisterFieldsV2ProjectTest.V2_TC_17_OverviewAndValidateRegisterFieldsV2Project" })
-	@Parameters({ "SheetName","rowNum" })
-	public void V2_TC_18_PromotionV2Project(String SheetName,int rowNum) throws IOException {
+	@Test(dependsOnMethods = {
+			"com.Well.testcases.V2Project.V2_TC_17_OverviewAndValidateRegisterFieldsV2ProjectTest.V2_TC_17_OverviewAndValidateRegisterFieldsV2Project" })
+	@Parameters({ "SheetName", "rowNum" })
+	public void V2_TC_18_PromotionV2Project(String SheetName, int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName,"Promotion Card Validation");
+		StartTest(TestCaseName, "Promotion Card Validation");
 		try {
-		v2project.promotionCardValidationV2Project(SheetName, rowNum);	
-	
+			rc.promotionCardValidation(SheetName, rowNum, "5");
+
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

@@ -1197,15 +1197,4 @@ public class ReusableMethodsV2Project extends BaseClass {
 		softAssert.assertAll();
 		testlog.pass("**Certification story data updated successfully**");
 	}
-
-	public void promotionCardValidationV2Project(String SheetName, int rowNum) throws Exception {
-		CommonMethod.WaitUntilVisibility("PromotionTab", 60);
-		CommonMethod.RobustclickElementVisible("PromotionTab", "V2ProjectCardContainer");
-		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
-		String cardCount = Integer.toString(countCard);
-		CommonMethod.assertActualContainsExpected(cardCount, "2");
-		testlog.info("Card count: " + cardCount);
-		testlog.pass("**Verify card count successfully**");
-
-	}
 }
