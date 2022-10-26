@@ -28,11 +28,11 @@
 		<parameter name="rowNum" value="2" />
 		<classes>
 		<class name="com.Well.testcases.login.TC_01_LoginTest"></class>
-		<!-- <class name="com.Well.testcases.Portfolio.Portfolio_TC_02_RegisterPortfolioTest"></class> -->
+		<class name="com.Well.testcases.Portfolio.Portfolio_TC_02_RegisterPortfolioTest"></class> 
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_03_SearchPortfolioByNameTest"></class>
-		<!-- <class name="com.Well.testcases.Portfolio.Portfolio_TC_04_SignAndSubscribePortfolioTest"></class> 
+	 <class name="com.Well.testcases.Portfolio.Portfolio_TC_04_SignAndSubscribePortfolioTest"></class> 
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_05_PortfolioPaymentTest"></class> 
-		<class name="com.Well.testcases.Portfolio.Portfolio_TC_06_PortfolioLocationImportTest"></class> --> 
+		<class name="com.Well.testcases.Portfolio.Portfolio_TC_06_PortfolioLocationImportTest"></class>  
 		<class name="com.Well.testcases.Portfolio.Portfolio_CTC_01_FeatureTest"></class>
 		
 		</classes>
