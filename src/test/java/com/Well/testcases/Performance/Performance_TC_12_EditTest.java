@@ -17,7 +17,7 @@ public class Performance_TC_12_EditTest extends BaseClass {
 
 		StartTest(TestCaseName,"Updating the Project field and validating");
 		try {
-//			rc.editAndValidateOrganizationInformation(SheetName, rowNum);	
+			rc.editAndValidateOrganizationInformation(SheetName, rowNum);	
 			rc.editAndValidateAdmin(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

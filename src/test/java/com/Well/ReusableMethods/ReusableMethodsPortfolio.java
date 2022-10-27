@@ -11,9 +11,9 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	public void RegisterPortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
 		CommonMethod.click("ProjectNavBar");
-		CommonMethod.RobustclickElementVisible("WellAtScaleNavBar","PortfolioCreateAccountButton");
+		CommonMethod.RobustclickElementVisible("WellAtScaleNavBar", "PortfolioCreateAccountButton");
 		CommonMethod.WaitUntilVisibility("PortfolioCreateAccountButton", 60);
-		CommonMethod.RobustclickElementVisible("PortfolioCreateAccountButton","PortfolioAccountName");
+		CommonMethod.RobustclickElementVisible("PortfolioCreateAccountButton", "PortfolioAccountName");
 		String AccountName = "Automation portfolio " + CommonMethod.randomNumber(8000000);
 		CommonMethod.WaitUntilVisibility("PortfolioAccountName", 30);
 		CommonMethod.sendKeys("PortfolioAccountName", AccountName);
@@ -21,18 +21,19 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		rc.SelectOwnerOrg(SheetName, rowNum);
 		CommonMethod.selectdropdownrandom("OrgIndustry");
 		data.setCellData(SheetName, "OrgIndustry", rowNum, CommonMethod.getSelectedDropdownValue("OrgIndustry"));
-		testlog.info("OrgIndustry: " +data.getCellData(SheetName, "OrgIndustry", rowNum));
+		testlog.info("OrgIndustry: " + data.getCellData(SheetName, "OrgIndustry", rowNum));
 		CommonMethod.ClickCheckbox("PortfolioNotSureRadio");
 		CommonMethod.sendKeys("PortfolioNumberOfLocation", "15");
 		data.setCellData(SheetName, "Location", rowNum, CommonMethod.getattributeValue("PortfolioNumberOfLocation"));
-		testlog.info("PortfolioNumberOfLocation: "+data.getCellData(SheetName, "Location", rowNum));
+		testlog.info("PortfolioNumberOfLocation: " + data.getCellData(SheetName, "Location", rowNum));
 		CommonMethod.sendKeys("PortfolioEstimatedNumberOfLocation", "10");
-		data.setCellData(SheetName, "EstimatedNumberOfLocation", rowNum, CommonMethod.getattributeValue("PortfolioEstimatedNumberOfLocation"));
-		testlog.info("EstimatedNumberOfLocation: "+data.getCellData(SheetName, "EstimatedNumberOfLocation", rowNum));
-		String Area = CommonMethod.randomNumberBetweenRanges(100,50000);
+		data.setCellData(SheetName, "EstimatedNumberOfLocation", rowNum,
+				CommonMethod.getattributeValue("PortfolioEstimatedNumberOfLocation"));
+		testlog.info("EstimatedNumberOfLocation: " + data.getCellData(SheetName, "EstimatedNumberOfLocation", rowNum));
+		String Area = CommonMethod.randomNumberBetweenRanges(100, 50000);
 		CommonMethod.sendKeys("PortfolioGrossAreaSQFT", Area);
 		data.setCellData(SheetName, "AreaSQFT", rowNum, CommonMethod.getattributeValue("PortfolioGrossAreaSQFT"));
-		testlog.info("PortfolioGrossAreaSQFT: "+data.getCellData(SheetName, "AreaSQFT", rowNum));
+		testlog.info("PortfolioGrossAreaSQFT: " + data.getCellData(SheetName, "AreaSQFT", rowNum));
 		CommonMethod.scrolldowntoElement("PortfolioPrimarlyLocated");
 		CommonMethod.click("PortfolioPrimarlyLocated");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
@@ -41,23 +42,23 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.click("PortfolioSelectSpaceType");
 		CommonMethod.selectdropdownValue("PortfolioOwnerCountry", "US");
 		data.setCellData(SheetName, "Country", rowNum, CommonMethod.getSelectedDropdownValue("PortfolioOwnerCountry"));
-		testlog.info("PortfolioOwnerCountry: " +data.getCellData(SheetName, "Country", rowNum));
+		testlog.info("PortfolioOwnerCountry: " + data.getCellData(SheetName, "Country", rowNum));
 		CommonMethod.WaitUntilVisibility("PortfolioOwnerState", 10);
 		CommonMethod.selectdropdownrandom("PortfolioOwnerState");
 		data.setCellData(SheetName, "State", rowNum, CommonMethod.getSelectedDropdownValue("PortfolioOwnerState"));
-		testlog.info("PortfolioOwnerCountry: " +data.getCellData(SheetName, "State", rowNum));
+		testlog.info("PortfolioOwnerCountry: " + data.getCellData(SheetName, "State", rowNum));
 		String ProjectAddress1 = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
 		String PostalCode = USfaker.address().zipCode();
 		CommonMethod.sendKeys("PortfolioOwnerStreetAddress", ProjectAddress1);
 		data.setCellData(SheetName, "Street", rowNum, CommonMethod.getattributeValue("PortfolioOwnerStreetAddress"));
-		testlog.info("PortfolioOwnerStreetAddress: "+data.getCellData(SheetName, "Street", rowNum));
+		testlog.info("PortfolioOwnerStreetAddress: " + data.getCellData(SheetName, "Street", rowNum));
 		CommonMethod.sendKeys("PortfolioOwnerCity", ProjectCity);
 		data.setCellData(SheetName, "City", rowNum, CommonMethod.getattributeValue("PortfolioOwnerCity"));
-		testlog.info("PortfolioOwnerCity: "+data.getCellData(SheetName, "City", rowNum));
+		testlog.info("PortfolioOwnerCity: " + data.getCellData(SheetName, "City", rowNum));
 		CommonMethod.sendKeys("PortfolioOwnerPostalCode", PostalCode);
 		data.setCellData(SheetName, "PostalCode", rowNum, CommonMethod.getattributeValue("PortfolioOwnerPostalCode"));
-		testlog.info("PortfolioOwnerPostalCode: "+data.getCellData(SheetName, "PostalCode", rowNum));
+		testlog.info("PortfolioOwnerPostalCode: " + data.getCellData(SheetName, "PostalCode", rowNum));
 		CommonMethod.RobustclickElementVisible("PortfolioCreateAccountSubmit", "WPRHsrPortfolioDashboard");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
 		String getId = CommonMethod.getText("StoreId");
@@ -73,15 +74,15 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.RobustclickElementVisible("WellAtScaleNavBar", "PortfolioSearchByID");
-		testlog.info("Portfolio Name:" +data.getCellData(SheetName, "AccountName", rowNum));
-		testlog.info("Portfolio ID:" +data.getCellData(SheetName, "ProjectID", rowNum));
+		testlog.info("Portfolio Name:" + data.getCellData(SheetName, "AccountName", rowNum));
+		testlog.info("Portfolio ID:" + data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.WaitUntilClickble("PortfolioSearchByID", 60)
 				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("PortfolioSearchApplyFilter");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("PortfolioIDVerify", data.getCellData(SheetName, "ProjectID", rowNum),
-			"Portfolio ID doesn't matched with exceles in search");
-		CommonMethod.RobustclickElementVisible("PortfolioIDVerify","WPRHsrPortfolioDashboard");
+				"Portfolio ID doesn't matched with exceles in search");
+		CommonMethod.RobustclickElementVisible("PortfolioIDVerify", "WPRHsrPortfolioDashboard");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
 		testlog.pass("**Verifies the Search Portfolio Name successfully**");
 	}
@@ -97,30 +98,30 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	public void SubscribePortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
 		CommonMethod.WaitUntilVisibility("SubscribeTab", 30);
-		CommonMethod.Robustclick("SubscribeTab","PortfolioOwnerName");
+		CommonMethod.Robustclick("SubscribeTab", "PortfolioOwnerName");
 		CommonMethod.scrolldowntoElement("PortfolioOwnerName");
 		String OwnerName = USfaker.address().firstName();
 		String OwnerEmail = USfaker.internet().emailAddress();
 		String OwnerPhone = USfaker.number().digits(10);
 		CommonMethod.sendKeys("PortfolioOwnerName", OwnerName);
 		data.setCellData(SheetName, "OwnerName", rowNum, CommonMethod.getattributeValue("PortfolioOwnerName"));
-		testlog.info("OwnerName: "+data.getCellData(SheetName, "OwnerName", rowNum));
+		testlog.info("OwnerName: " + data.getCellData(SheetName, "OwnerName", rowNum));
 		CommonMethod.sendKeys("PortfolioOwnerEmail", OwnerEmail);
 		data.setCellData(SheetName, "OwnerEmail", rowNum, CommonMethod.getattributeValue("PortfolioOwnerEmail"));
-		testlog.info("OwnerEmail: "+data.getCellData(SheetName, "OwnerEmail", rowNum));
+		testlog.info("OwnerEmail: " + data.getCellData(SheetName, "OwnerEmail", rowNum));
 		CommonMethod.sendKeys("PortfolioOwnerPhone", OwnerPhone);
 		data.setCellData(SheetName, "OwnerPhone", rowNum, CommonMethod.getattributeValue("PortfolioOwnerPhone"));
-		testlog.info("OwnerPhone: "+data.getCellData(SheetName, "OwnerPhone", rowNum));
+		testlog.info("OwnerPhone: " + data.getCellData(SheetName, "OwnerPhone", rowNum));
 		CommonMethod.scrolldowntoElement("PortfolioSubcribeContinueButton");
-		CommonMethod.RobustclickElementVisible("PortfolioSubcribeContinueButton","PortfolioSubcribeContinueButton2");
+		CommonMethod.RobustclickElementVisible("PortfolioSubcribeContinueButton", "PortfolioSubcribeContinueButton2");
 		CommonMethod.ClickCheckbox("PortfolioQuestionRadio");
 		CommonMethod.WaitUntilVisibility("PortfolioLocationDescriptionTextbox", 20);
 		CommonMethod.sendKeys("PortfolioLocationDescriptionTextbox", "Test Description");
 		data.setCellData(SheetName, "PostalCode", rowNum, CommonMethod.getattributeValue("PortfolioOwnerPostalCode"));
-		testlog.info("PortfolioOwnerPostalCode: "+data.getCellData(SheetName, "PostalCode", rowNum));
+		testlog.info("PortfolioOwnerPostalCode: " + data.getCellData(SheetName, "PostalCode", rowNum));
 		CommonMethod.scrolldowntoElement("PortfolioSubcribeContinueButton2");
-		CommonMethod.RobustclickElementVisible("PortfolioSubcribeContinueButton2","PortfolioSubscribeDone");
-		CommonMethod.RobustclickElementVisible("PortfolioSubscribeDone","PortfolioGoToBilling");
+		CommonMethod.RobustclickElementVisible("PortfolioSubcribeContinueButton2", "PortfolioSubscribeDone");
+		CommonMethod.RobustclickElementVisible("PortfolioSubscribeDone", "PortfolioGoToBilling");
 		CommonMethod.WaitUntilVisibility("PortfolioGoToBilling", 60);
 		CommonMethod.Robustclick("PortfolioGoToBilling");
 		CommonMethod.WaitUntilVisibility("V2ProjectPreBillingPayNowButton", 20);
@@ -130,16 +131,16 @@ public class ReusableMethodsPortfolio extends BaseClass {
 
 	public void PortfolioClickOnBilling() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("BiilingTab", 60);
-		CommonMethod.RobustclickElementVisible("BiilingTab","V2ProjectPreBillingPayNowButton");
+		CommonMethod.RobustclickElementVisible("BiilingTab", "V2ProjectPreBillingPayNowButton");
 		CommonMethod.WaitUntilVisibility("V2ProjectPreBillingPayNowButton", 20);
-		CommonMethod.RobustclickElementVisible("V2ProjectPreBillingPayNowButton","BillingLanding");
+		CommonMethod.RobustclickElementVisible("V2ProjectPreBillingPayNowButton", "BillingLanding");
 		CommonMethod.WaitUntilVisibility("BillingLanding", 30);
 		testlog.pass("**Nagavited to Billing successfully**");
 	}
 
 	public void PortfolioBuildScorecard() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("WellV2Tab", 120);
-		CommonMethod.RobustclickElementVisible("WellV2Tab","ScorecardTab");
+		CommonMethod.RobustclickElementVisible("WellV2Tab", "ScorecardTab");
 		CommonMethod.click("ScorecardTab");
 		if (CommonMethod.isElementsExist("PortfolioScorecardFinishedButton", 30)) {
 			Thread.sleep(2000);
@@ -270,13 +271,13 @@ public class ReusableMethodsPortfolio extends BaseClass {
 
 	public void clickDocument() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("DocumentLibraryTab", 60);
-		CommonMethod.RobustclickElementVisible("DocumentLibraryTab","PortfolioDocumentUploadbutton");
+		CommonMethod.RobustclickElementVisible("DocumentLibraryTab", "PortfolioDocumentUploadbutton");
 		testlog.pass("**Navigate Document successfully**");
 	}
 
 	public void ValidatingLegalUploadDocument() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadbutton", 30);
-		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadbutton","V2ProjectPortfolioDocType");
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadbutton", "V2ProjectPortfolioDocType");
 		CommonMethod.selectdropdownValue("V2ProjectPortfolioDocType", "legal");
 		CommonMethod.selectdropdownVisibletext("PortfolioSelectdocumenttype", "Signed certification agreement");
 		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", LegalfileUpload);
@@ -290,33 +291,34 @@ public class ReusableMethodsPortfolio extends BaseClass {
 
 	public void ReviewDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ReviewTab", 60);
-		CommonMethod.RobustclickElementVisible("ReviewTab","Reviewlanding");
+		CommonMethod.RobustclickElementVisible("ReviewTab", "Reviewlanding");
 		CommonMethod.WaitUntilVisibility("Reviewlanding", 30);
 		CommonMethod.WaitUntilVisibility("PortfolioReviewSubmitButton", 30);
-		CommonMethod.RobustclickElementVisible("PortfolioReviewSubmitButton","OwnerOrgClick");
-		CommonMethod.RobustclickElementVisible("OwnerOrgClick","PortfolioSelectProgram");
-		//CommonMethod.WaitUntilClickble("PortfolioSelectProgram", 10).click();
+		CommonMethod.RobustclickElementVisible("PortfolioReviewSubmitButton", "OwnerOrgClick");
+		CommonMethod.RobustclickElementVisible("OwnerOrgClick", "PortfolioSelectProgram");
+		// CommonMethod.WaitUntilClickble("PortfolioSelectProgram", 10).click();
 		CommonMethod.sendKeys("PortfolioReviewTextbox", "Submit Documentation for Year 1, Review Cycle #1");
-		CommonMethod.RobustclickElementVisible("PortfolioReviewSubmitDocButton","PortfolioReviewListStatus");
+		CommonMethod.RobustclickElementVisible("PortfolioReviewSubmitDocButton", "PortfolioReviewListStatus");
 		CommonMethod.WaitUntilVisibility("PortfolioReviewListStatus", 120);
-		CommonMethod.assertcontainsmessage("PortfolioReviewListStatus", "ROUND 1 REVIEW IN PROGRESS", "Verified Submitted Review list status");
+		CommonMethod.assertcontainsmessage("PortfolioReviewListStatus", "ROUND 1 REVIEW IN PROGRESS",
+				"Verified Submitted Review list status");
 		testlog.pass("**Submitted Documentation for Year 1, Review Cycle #1 successfully**");
 		/*
 		 * Admin Review
 		 */
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
-		CommonMethod.RobustclickElementVisible("AdminNavBar","AdminWELLAtScaleNavBar");
+		CommonMethod.RobustclickElementVisible("AdminNavBar", "AdminWELLAtScaleNavBar");
 		CommonMethod.WaitUntilVisibility("AdminWELLAtScaleNavBar", 60);
-		CommonMethod.RobustclickElementVisible("AdminWELLAtScaleNavBar","PortfolioSearchByID");
+		CommonMethod.RobustclickElementVisible("AdminWELLAtScaleNavBar", "PortfolioSearchByID");
 		CommonMethod.WaitUntilClickble("PortfolioSearchByID", 60)
 				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("PortfolioAdminApplybtn");
 		CommonMethod.assertcontainsmessage("PortfolioIDVerify", data.getCellData(SheetName, "ProjectID", rowNum),
 				"Portfolio ID doesn't matched with excel in search");
 		Thread.sleep(2000);
-		CommonMethod.RobustclickElementVisible("PortfolioIDVerify","ReviewTab");
+		CommonMethod.RobustclickElementVisible("PortfolioIDVerify", "ReviewTab");
 		CommonMethod.WaitUntilVisibility("ReviewTab", 60);
-		CommonMethod.RobustclickElementVisible("ReviewTab","PortfolioReviewListViewButton");
+		CommonMethod.RobustclickElementVisible("ReviewTab", "PortfolioReviewListViewButton");
 		CommonMethod.WaitUntilVisibility("PortfolioReviewListViewButton", 60);
 		CommonMethod.click("PortfolioReviewListViewButton");
 		CommonMethod.WaitUntilVisibility("PortfolioReturnReview", 60);
@@ -326,23 +328,26 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		Thread.sleep(1000);
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
-		CommonMethod.RobustclickElementVisible("PortfolioReviewSubmitResponse","PortfolioReviewStatus");
+		CommonMethod.RobustclickElementVisible("PortfolioReviewSubmitResponse", "PortfolioReviewStatus");
 		CommonMethod.WaitUntilVisibility("PortfolioReviewStatus", 60);
 		testlog.pass("**Completed Reviewed Preliminary Precertification Review successfully**");
 	}
+
 	public void registerFieldValidationTest(String SheetName, int rowNum) throws Exception {
 		CommonMethod.WaitUntilVisibility("EditTab", 30);
-		CommonMethod.RobustclickElementVisible("EditTab","PortfolioEditAccounttab");
+		CommonMethod.RobustclickElementVisible("EditTab", "PortfolioEditAccounttab");
 		CommonMethod.WaitUntilVisibility("PortfolioEditAccounttab", 30);
-		CommonMethod.RobustclickElementVisible("PortfolioEditAccounttab","PortfolioEditAccountName");
+		CommonMethod.RobustclickElementVisible("PortfolioEditAccounttab", "PortfolioEditAccountName");
 		CommonMethod.WaitUntilVisibility("PortfolioEditAccountName", 30);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioEditAccountName"),
 				data.getCellData(SheetName, "AccountName", rowNum), "Portfolio Project Name doesn't match");
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioEditApproximatelyLoc"),
 				data.getCellData(SheetName, "Location", rowNum), "Portfolio Approximately Location doesn't match");
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioEditLocationSubscribing"),
-				data.getCellData(SheetName, "EstimatedNumberOfLocation", rowNum), "Portfolio Location Subscribing doesn't match");
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioEditAreaSqft").replace("sq ft", "").replace(",", "").trim(),
+				data.getCellData(SheetName, "EstimatedNumberOfLocation", rowNum),
+				"Portfolio Location Subscribing doesn't match");
+		CommonMethod.softAssertEqualsMessage(
+				CommonMethod.getattributeValue("PortfolioEditAreaSqft").replace("sq ft", "").replace(",", "").trim(),
 				data.getCellData(SheetName, "AreaSQFT", rowNum), "Portfolio AreaSqft doesn't match");
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("OrgName"),
 				data.getCellData(SheetName, "OrgName", rowNum), "Portfolio Organization Name doesn't match");
@@ -368,5 +373,97 @@ public class ReusableMethodsPortfolio extends BaseClass {
 				data.getCellData(SheetName, "OwnerPhone", rowNum), "Portfolio OwnerPhone doesn't match");
 		softAssert.assertAll();
 		testlog.pass("**Register Field Validation successfully**");
+	}
+
+	public void editAndValidateAccountInformationPortfolio(String SheetName, int rowNum) throws Exception {
+		CommonMethod.WaitUntilVisibility("EditTab", 60);
+		CommonMethod.RobustclickElementVisible("EditTab", "PortfolioAccountName");
+		CommonMethod.WaitUntilVisibility("PortfolioAccountInformation", 60);
+		CommonMethod.RobustclickElementVisible("PortfolioAccountInformation", "PortfolioGoal");
+		CommonMethod.WaitUntilVisibility("PortfolioAccountName", 60);
+		CommonMethod.clearAndSendKey("PortfolioAccountName", data.getCellData(SheetName, "AccountName", rowNum));
+		CommonMethod.WaitUntilVisibility("PortfolioGoal", 60);
+		CommonMethod.sendKeys("PortfolioGoal", data.getCellData(SheetName, "Goals", rowNum));
+		CommonMethod.WaitUntilVisibility("PortfolioScope", 60);
+		CommonMethod.sendKeys("PortfolioScope", data.getCellData(SheetName, "Scope", rowNum));
+		CommonMethod.WaitUntilVisibility("PortfolioSaveButton", 60);
+		CommonMethod.RobustclickElementVisible("PortfolioSaveButton", "WPRHsrPortfolioDashboard");
+		testlog.info("**Project Information data updated successfully**");
+		/*
+		 * Validate updated account information fields
+		 */
+		CommonMethod.WaitUntilVisibility("EditTab", 60);
+		CommonMethod.RobustclickElementVisible("EditTab", "PortfolioAccountInformation");
+		CommonMethod.WaitUntilVisibility("PortfolioAccountInformation", 60);
+		CommonMethod.RobustclickElementVisible("PortfolioAccountInformation", "PortfolioGoal");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioGoal"),
+				data.getCellData(SheetName, "Goals", rowNum), "Goals data doesn't match");
+		testlog.info("**Goals data updated successfully**");
+		CommonMethod.WaitUntilVisibility("PortfolioScope", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioScope"),
+				data.getCellData(SheetName, "Scope", rowNum), "Scope data doesn't match");
+		testlog.pass("**Scope data updated successfully**");
+	}
+
+	public void editAndValidateAdmin(String SheetName, int rowNum) throws Exception {
+		CommonMethod.WaitUntilVisibility("EditTab", 60);
+		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectAdminFieldsButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectAdminFieldsButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectAdminFieldsButton", "PortfolioCoachingContacts");
+		CommonMethod.WaitUntilVisibility("PortfolioCoachingContacts", 60);
+		CommonMethod.selectdropdownrandom("PortfolioCoachingContacts");
+		data.setCellData(SheetName, "CoachingContacts", rowNum,
+				CommonMethod.getSelectedDropdownValue("PortfolioCoachingContacts"));
+		testlog.info("Coaching Contacts: " + data.getCellData(SheetName, "CoachingContacts", rowNum));
+		CommonMethod.clearAndSendKey("PortfolioChallengesNotes",
+				data.getCellData(SheetName, "ChallengeNote", rowNum));
+		CommonMethod.clearAndSendKey("PortfolioCommunicationNotes",
+				data.getCellData(SheetName, "CommunicationNotes", rowNum));
+		CommonMethod.clearAndSendKey("PortfolioAccountNotes", data.getCellData(SheetName, "AccountNotes", rowNum));
+		CommonMethod.WaitUntilVisibility("PortfolioSaveButton", 60);
+		CommonMethod.RobustclickElementVisible("PortfolioSaveButton", "WPRHsrPortfolioDashboard");
+		testlog.pass("**Admin data updated successfully**");
+		/*
+		 * Validate updated admin fields
+		 */
+
+		CommonMethod.WaitUntilVisibility("EditTab", 60);
+		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectAdminFieldsButton");
+		CommonMethod.WaitUntilVisibility("V2ProjectAdminFieldsButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectAdminFieldsButton", "PortfolioCoachingContacts");
+		CommonMethod.WaitUntilVisibility("PortfolioCoachingContacts", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioCoachingContacts"),
+				data.getCellData(SheetName, "CoachingContacts", rowNum), "Coaching contacts value doesn't match");
+		testlog.pass("**Coaching contacts updated successfully**");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioChallengesNotes"),
+				data.getCellData(SheetName, "ChallengeNote", rowNum), "Challenges notes value doesn't match");
+		testlog.pass("**Rhallenges notes value updated successfully**");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioCommunicationNotes"),
+				data.getCellData(SheetName, "CommunicationNotes", rowNum), "Communication notes value doesn't match");
+		testlog.pass("**Communication notes value updated successfully**");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioAccountNotes"),
+				data.getCellData(SheetName, "AccountNotes", rowNum), "Account notes value doesn't match");
+		testlog.pass("**Account notes value updated successfully**");
+	}
+
+	public void teamPortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("TeamTab", 300);
+		CommonMethod.click("TeamTab");
+		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 30);
+		CommonMethod.click("V2ProjectAddMemberbtn");
+		String TeamEmail = "gokulthiru22@gmail.com";
+		CommonMethod.WaitUntilVisibility("PortfolioEmailAddress", 30);
+		CommonMethod.sendKeys("PortfolioEmailAddress", TeamEmail);
+		data.setCellData(SheetName, "TeamEmailID", rowNum, TeamEmail);
+		CommonMethod.selectdropdownVisibletext("PortfolioRole", "Acoustician");
+		CommonMethod.ClickCheckbox("V2ProjectMembercbx");
+		CommonMethod.WaitUntilVisibility("V2ProjectInvitebtn", 30);
+		CommonMethod.click("V2ProjectInvitebtn");
+		Thread.sleep(2000);
+		CommonMethod.refreshBrowser();
+		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 30);
+		CommonMethod.click("V2ProjectDeleteIcon");
+		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
+		testlog.pass("**Created Team member successfully**");
 	}
 }

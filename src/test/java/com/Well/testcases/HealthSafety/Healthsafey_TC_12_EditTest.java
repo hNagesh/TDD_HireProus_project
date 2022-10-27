@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Healthsafey_TC_12_EditTest extends BaseClass {
 
-	@Test//(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest.Healthsafey_TC_08_Review" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest.Healthsafey_TC_08_Review" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Healthsafey_TC_12_Edit(String SheetName,int rowNum) throws IOException {
 
@@ -18,6 +18,7 @@ public class Healthsafey_TC_12_EditTest extends BaseClass {
 		StartTest(TestCaseName,"Updating the Project field and validating");
 		try {
 			rc.editAndValidateOrganizationInformation(SheetName, rowNum);
+			rc.editAndValidateAdmin(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

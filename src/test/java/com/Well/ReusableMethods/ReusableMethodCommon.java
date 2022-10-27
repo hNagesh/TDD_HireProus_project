@@ -197,24 +197,24 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilVisibility("EditTab", 60);
 		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectProjectNameInput");
 		if (CommonMethod.isElementsExist("V2ProjectProjectInformationButton", 10)) {
-			CommonMethod.WaitUntilVisibility("V2ProjectProjectInformationButton", 60);
+//			CommonMethod.WaitUntilVisibility("V2ProjectProjectInformationButton", 60);
 			CommonMethod.RobustclickElementVisible("V2ProjectProjectInformationButton", "V2ProjectProjectScope");
-			CommonMethod.WaitUntilVisibility("V2ProjectProjectNameInput", 60);
+//			CommonMethod.WaitUntilVisibility("V2ProjectProjectNameInput", 60);
 			CommonMethod.clearAndSendKey("V2ProjectProjectNameInput",
 					data.getCellData(SheetName, "ProjectName", rowNum));
 		} else if (CommonMethod.isElementsExist("HSROrganizationInformationButton", 10)) {
-			CommonMethod.WaitUntilVisibility("HSROrganizationInformationButton", 60);
+//			CommonMethod.WaitUntilVisibility("HSROrganizationInformationButton", 60);
 			CommonMethod.RobustclickElementVisible("HSROrganizationInformationButton", "V2ProjectProjectScope");
-			CommonMethod.WaitUntilVisibility("V2ProjectProjectNameInput", 60);
+//			CommonMethod.WaitUntilVisibility("V2ProjectProjectNameInput", 60);
 			CommonMethod.clearAndSendKey("V2ProjectProjectNameInput", data.getCellData(SheetName, "HsrName", rowNum));
 		}
 
-		CommonMethod.WaitUntilVisibility("V2ProjectProjectScope", 60);
+//		CommonMethod.WaitUntilVisibility("V2ProjectProjectScope", 60);
 		CommonMethod.sendKeys("V2ProjectProjectScope", data.getCellData(SheetName, "ProjectScope", rowNum));
-		CommonMethod.WaitUntilVisibility("V2ProjectProjectGoals", 60);
+//		CommonMethod.WaitUntilVisibility("V2ProjectProjectGoals", 60);
 		CommonMethod.sendKeys("V2ProjectProjectGoals", data.getCellData(SheetName, "ProjectGoals", rowNum));
-		CommonMethod.WaitUntilVisibility("V2ProjectSaveChangesButton", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "V2ProjectSuccessToastMessage");
+//		CommonMethod.WaitUntilVisibility("V2ProjectSaveChangesButton", 60);
+		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "WPRHsrPortfolioDashboard");
 		testlog.info("**Project Information data updated successfully**");
 		/*
 		 * Validate updated project information fields
@@ -222,16 +222,16 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilVisibility("EditTab", 60);
 		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectProjectInformationButton");
 		if (CommonMethod.isElementsExist("V2ProjectProjectInformationButton", 10)) {
-			CommonMethod.WaitUntilVisibility("V2ProjectProjectInformationButton", 60);
+//			CommonMethod.WaitUntilVisibility("V2ProjectProjectInformationButton", 60);
 			CommonMethod.RobustclickElementVisible("V2ProjectProjectInformationButton", "V2ProjectProjectScope");
 		} else if (CommonMethod.isElementsExist("HSROrganizationInformationButton", 10)) {
-			CommonMethod.WaitUntilVisibility("HSROrganizationInformationButton", 60);
+//			CommonMethod.WaitUntilVisibility("HSROrganizationInformationButton", 60);
 			CommonMethod.RobustclickElementVisible("HSROrganizationInformationButton", "V2ProjectProjectScope");
 		}
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectProjectScope"),
 				data.getCellData(SheetName, "ProjectScope", rowNum), "Project scope data doesn't match");
 		testlog.info("**Project scope data updated successfully**");
-		CommonMethod.WaitUntilVisibility("V2ProjectProjectGoals", 60);
+//		CommonMethod.WaitUntilVisibility("V2ProjectProjectGoals", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectProjectGoals"),
 				data.getCellData(SheetName, "ProjectGoals", rowNum), "Project goals data doesn't match");
 		testlog.pass("**Project goals data updated successfully**");
@@ -259,7 +259,7 @@ public class ReusableMethodCommon extends BaseClass {
 				CommonMethod.getSelectedDropdownValue("WellReviewerDropDown"));
 		testlog.info("Well Reviewer: " + data.getCellData(SheetName, "WellReviewer", rowNum));
 		CommonMethod.WaitUntilVisibility("V2ProjectSaveChangesButton", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "V2ProjectSuccessToastMessage");
+		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "WPRHsrPortfolioDashboard");
 		testlog.pass("**Admin data updated successfully**");
 		/*
 		 * Validate updated admin fields

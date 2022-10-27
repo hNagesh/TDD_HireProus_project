@@ -947,10 +947,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectProjectGoals", 60);
 		CommonMethod.sendKeys("V2ProjectProjectGoals", data.getCellData(SheetName, "ProjectGoals", rowNum));
 		CommonMethod.WaitUntilVisibility("V2ProjectSaveChangesButton", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "V2ProjectSuccessToastMessage");
+		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "V2ProjectNextStep");
 		testlog.info("**Project Information data updated successfully**");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 60);
-//		CommonMethod.WaitUntilVisibility("V2ProjectWellCertifiedLogo", 60);
 		/*
 		 * Validate updated project information fields
 		 */
@@ -964,7 +963,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectProjectGoals", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectProjectGoals"),
 				data.getCellData(SheetName, "ProjectGoals", rowNum), "Project goals data doesn't match");
-		softAssert.assertAll();
+//		softAssert.assertAll();
 		testlog.pass("**Project goals data updated successfully**");
 	}
 
@@ -981,10 +980,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectState", 60);
 		CommonMethod.selectdropdownVisibletext("V2ProjectState", data.getCellData(SheetName, "State", rowNum));
 		CommonMethod.WaitUntilVisibility("V2ProjectSaveChangesButton", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "V2ProjectSuccessToastMessage");
+		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "V2ProjectNextStep");
 		testlog.info("**Owner Information data updated successfully**");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 60);
-//		CommonMethod.WaitUntilVisibility("V2ProjectWellCertifiedLogo", 60);
 		/*
 		 * Validate updated owner information fields
 		 */
@@ -1023,10 +1021,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectBillingPostalCode", 60);
 		CommonMethod.clearAndSendKey("V2ProjectBillingPostalCode", data.getCellData(SheetName, "PostalCode", rowNum));
 		CommonMethod.WaitUntilVisibility("V2ProjectSaveChangesButton", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "V2ProjectSuccessToastMessage");
+		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "V2ProjectNextStep");
 		testlog.pass("**Address data updated successfully**");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 60);
-//		CommonMethod.WaitUntilVisibility("V2ProjectWellCertifiedLogo", 60);
 		/*
 		 * Validate updated address fields
 		 */
@@ -1077,10 +1074,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2projectAdminBillingNote", 60);
 		CommonMethod.sendKeys("V2projectAdminBillingNote", data.getCellData(SheetName, "BillingNote", rowNum));
 		CommonMethod.WaitUntilVisibility("V2ProjectSaveChangesButton", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "V2ProjectSuccessToastMessage");
+		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "V2ProjectNextStep");
 		testlog.pass("**Admin data updated successfully**");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 60);
-//		CommonMethod.WaitUntilVisibility("V2ProjectWellCertifiedLogo", 60);
 		/*
 		 * Validate updated admin fields
 		 */
