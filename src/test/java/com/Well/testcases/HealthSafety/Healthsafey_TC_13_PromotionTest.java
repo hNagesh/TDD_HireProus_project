@@ -16,7 +16,7 @@ public class Healthsafey_TC_13_PromotionTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Verifying Card link details");
 		try {
-			rc.promotionCardValidation(SheetName, rowNum,"8");
+			rc.promotionCardValidation(SheetName, rowNum,"3");
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
