@@ -377,11 +377,11 @@ public class ReusableMethodsPortfolio extends BaseClass {
 
 	public void editAndValidateAccountInformationPortfolio(String SheetName, int rowNum) throws Exception {
 		CommonMethod.WaitUntilVisibility("EditTab", 60);
-		CommonMethod.RobustclickElementVisible("EditTab", "PortfolioAccountName");
+		CommonMethod.RobustclickElementVisible("EditTab", "PortfolioAccountNameEdit");
 		CommonMethod.WaitUntilVisibility("PortfolioAccountInformation", 60);
 		CommonMethod.RobustclickElementVisible("PortfolioAccountInformation", "PortfolioGoal");
-		CommonMethod.WaitUntilVisibility("PortfolioAccountName", 60);
-		CommonMethod.clearAndSendKey("PortfolioAccountName", data.getCellData(SheetName, "AccountName", rowNum));
+		CommonMethod.WaitUntilVisibility("PortfolioAccountNameEdit", 60);
+		CommonMethod.clearAndSendKey("PortfolioAccountNameEdit", data.getCellData(SheetName, "AccountName", rowNum));
 		CommonMethod.WaitUntilVisibility("PortfolioGoal", 60);
 		CommonMethod.sendKeys("PortfolioGoal", data.getCellData(SheetName, "Goals", rowNum));
 		CommonMethod.WaitUntilVisibility("PortfolioScope", 60);
