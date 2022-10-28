@@ -9,9 +9,9 @@ import com.Well.Engine.BaseClass;
 
 public class Portfolio_TC_11_SupportTest extends BaseClass {
 
-	@Test//(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_09_UploadFileInAuditTest.Portfolio_TC_09_UploadFileInAudit" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_10_PortfolioProjectFieldValidationTest.Portfolio_TC_10_PortfolioProjectFieldValidation" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Portfolio_TC_12_Review(String SheetName,int rowNum) throws IOException {
+	public void Portfolio_TC_11_Support(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Rasing the Ticket in Support Functionality");
