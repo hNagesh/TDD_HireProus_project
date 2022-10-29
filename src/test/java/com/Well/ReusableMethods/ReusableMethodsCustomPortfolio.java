@@ -6,9 +6,6 @@ import org.openqa.selenium.WebElement;
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
 
-import io.opentelemetry.exporter.logging.SystemOutLogExporter;
-
-
 public class ReusableMethodsCustomPortfolio extends BaseClass {
 
 	public void MeetThresholdsforParticulateMatter(String FeatureName) throws IOException, InterruptedException {
@@ -474,10 +471,10 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 					 */
 					CommonMethod.RobustclickElementVisible("PortfolioScorecardFilters", "OwnerOrgClick");
 					CommonMethod.click("OwnerOrgClick");
-					CommonMethod.sendKeys("OwnerOrg", "Afghanistan");
+					CommonMethod.sendKeys("OwnerOrg", "India");
 					CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10).click();
 					CommonMethod.WaitUntilVisibility("PortfolioScorecardVerifyCountryFilter", 120);
-					CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardVerifyCountryFilter"), "Afghanistan", "Country doesn't match");
+					CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardVerifyCountryFilter"), "India", "Country doesn't match");
 					CommonMethod.RobustclickElementVisible("PortfolioScorecardVerifyFilterReset","PortfolioScoreCardVerificationAssignChildLocCbx");
 					CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationAssignChildLocCbx", 30);
 					CommonMethod.clickListWebelementFromRange("PortfolioScoreCardVerificationAssignLocCbxGeneral", 1, 4);
@@ -546,7 +543,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.declickListWebelementFromIndex("PortfolioScoreCardVerificationAssignLocCbxGeneral", 1);
 				CommonMethod.WaitUntilPresence("PortfolioScorecardWeightHighlighted", 30);
 				Thread.sleep(2000);
-				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlighted"),"2", "Weight Point for 3 doesn't match");
+				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlighted"),"2", "Weight Point for 2 doesn't match");
 				testlog.pass("**Verifies Core Weight Point successful**");
 				
 				/*
