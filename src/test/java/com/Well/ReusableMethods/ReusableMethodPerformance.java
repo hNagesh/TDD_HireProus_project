@@ -170,7 +170,7 @@ public class ReusableMethodPerformance extends BaseClass {
 			CommonMethod.WaitUntilVisibility("WPRAssignLocbtn", 30);
 			Thread.sleep(1000);
 			CommonMethod.click("WPRAssignLocbtn");
-			CommonMethod.WaitUntilClickble("WPRAssignLocFirstChildCbx", 60);
+			CommonMethod.WaitUntilPresence("WPRAssignLocCbx", 60);
 			CommonMethod.Robustclick("WPRAssignLocCbx", "WPRAssignDisabledbtn");
 			CommonMethod.WaitUntilVisibility("WPRAssignSavebtn", 30);
 			CommonMethod.click("WPRAssignSavebtn");
