@@ -2221,6 +2221,14 @@ public class CommonMethod extends BaseClass {
 
 
 	}
+	public static void clickOnListWebelementFromIndex(String ObjectLocator, int Index) throws IOException, InterruptedException {
+		List<WebElement> ele;
+		WebElement ele1;
+		ele = CommonMethod.findElements(ObjectLocator);
+		ele1 = ele.get(Index);
+		CommonMethod.WaitUntilClickble(ele1, 60);
+		click(ele1);
+	}
 	
 	public static void declickListWebelementFromIndex(String ObjectLocator, int Index) throws IOException, InterruptedException {
 		List<WebElement> ele;
@@ -2255,6 +2263,7 @@ public class CommonMethod extends BaseClass {
 	
 	public static void assertcountListWebelementFromIndex(String ObjectLocator, int Count) throws IOException {
 		List<WebElement> ele;
+		
 		ele = CommonMethod.findElements(ObjectLocator);
 		softAssert.assertEquals(ele.size(), Count,"Count Validation failed");
 		
