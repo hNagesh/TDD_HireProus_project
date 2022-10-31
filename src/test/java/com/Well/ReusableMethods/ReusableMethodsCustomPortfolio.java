@@ -25,7 +25,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 10);
 				CommonMethod.click("PortfolioScoreCardAddOptionbutton");
-				CommonMethod.clickListWebelementFromIndex("PortfolioScoreCardAddButton", 0);
+				CommonMethod.clickOnListWebelementFromIndex("PortfolioScoreCardAddButton", 0);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardRemoveButton", 1);
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
@@ -37,7 +37,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				 */
 				CommonMethod.RobustclickElementVisible("PortfolioScorecardEditoption","PortfolioScorecardEditoption");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddButton", 30);
-				CommonMethod.clickListWebelementFromIndex("PortfolioScoreCardAddButton", 0);
+				CommonMethod.clickOnListWebelementFromIndex("PortfolioScoreCardAddButton", 0);
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
 				List<WebElement> AssignButton;
@@ -54,7 +54,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.scrollDown();
 				Thread.sleep(10000);
 				CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationUploadbtn", 60);
-				CommonMethod.clickListWebelementFromIndex("PortfolioScoreCardVerificationUploadbtn", 0);
+				CommonMethod.clickOnListWebelementFromIndex("PortfolioScoreCardVerificationUploadbtn", 0);
 				CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload,"UploadFileVerifyScorecard");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn",
