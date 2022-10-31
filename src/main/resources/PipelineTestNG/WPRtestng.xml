@@ -13,7 +13,7 @@
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
 <class name="com.Well.testcases.Performance.Performance_TC_02_RegisterPerformanceTest"></class>
 <class name="com.Well.testcases.Performance.Performance_TC_03_SubscribeAndStoreIdTest"></class>
- <class name="com.Well.testcases.Performance.Performance_TC_04_SearchPerformanceByIdTest"></class>
+<class name="com.Well.testcases.Performance.Performance_TC_04_SearchPerformanceByIdTest"></class>
  <class name="com.Well.testcases.Performance.Performance_TC_05_WprProjectFieldValidationTest"></class>
  <class name="com.Well.testcases.Performance.Performance_TC_06_LocationTest"></class>
   <class name="com.Well.testcases.Performance.Performance_TC_07_ScorecardTest"></class>
