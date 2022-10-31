@@ -2265,7 +2265,6 @@ public class CommonMethod extends BaseClass {
 		List<WebElement> ele;
 		
 		ele = CommonMethod.findElements(ObjectLocator);
-		System.out.println("@@@@@@@@@@@@remove: "+ele.size());
 		softAssert.assertEquals(ele.size(), Count,"Count Validation failed");
 		
 	}
