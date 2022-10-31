@@ -25,7 +25,7 @@
 		</classes>
 	</test> 
 	
-	<test name="WELL-At-Scale-Custom">
+	<!-- <test name="WELL-At-Scale-Custom">
 		<parameter name="SheetName" value="Portfolio" />
 		<parameter name="rowNum" value="2" />
 		<classes>
@@ -38,5 +38,5 @@
 		<class name="com.Well.testcases.Portfolio.Portfolio_CTC_01_FeatureTest"></class>
 		
 		</classes>
-	</test> 
+	</test>  -->
 </suite>  
