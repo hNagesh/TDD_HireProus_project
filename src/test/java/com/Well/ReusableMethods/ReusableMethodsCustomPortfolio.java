@@ -16,7 +16,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 			Creditname = Creditname.replaceAll("\\.", "");
 			if (Creditname.equalsIgnoreCase(FeatureName)) {
 				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
-				CommonMethod.clickListWebelementFromIndex("PortfolioScorecardPursueYesButton", 0);
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardA01PursueYesButton","PortfolioScorecardPursueToast");
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardPursueToast", 60);
 				CommonMethod.WaitUntilInVisibility("PortfolioScorecardPursueToast", 60);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardWeightPHighlighted", 1);
@@ -25,22 +25,37 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 10);
 				CommonMethod.click("PortfolioScoreCardAddOptionbutton");
-				CommonMethod.clickListWebelementFromIndex("PortfolioScoreCardAddButton", 0);
+				CommonMethod.clickOnListWebelementFromIndex("PortfolioScoreCardAddButton", 0);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardRemoveButton", 1);
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardOptionCount", 60);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardOptionCount", 1);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardTaskCount", 1);
-				CommonMethod.clickListWebelementFromIndex("PortfolioScoreCardVerificationAssignbtn", 0);
-				CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationAssignChildLocCbx", 30);
-				CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocCbx","PortfolioScorecardValidDisable");
-				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationAssignLocSavebtn", 30);
-				CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocSavebtn","PortfolioScoreCardVerificationAssignLocCancelbtn");
+				/*
+				 * Add 2 options with same verification method
+				 */
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardEditoption","PortfolioScorecardEditoption");
+				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddButton", 30);
+				CommonMethod.clickOnListWebelementFromIndex("PortfolioScoreCardAddButton", 0);
+				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
+				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
+				List<WebElement> AssignButton;
+				AssignButton = CommonMethod.findElements("PortfolioScoreCardVerificationAssignbtn");
+				for (WebElement f : AssignButton) {
+					CommonMethod.WaitUntilClickble(f, 30).click();
+					CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationAssignChildLocCbx", 30);
+					CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocCbx",
+							"PortfolioScorecardValidDisable");
+					CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationAssignLocSavebtn", 30);
+					CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocSavebtn",
+							"PortfolioScoreCardVerificationAssignLocCancelbtn");
+				}
+				CommonMethod.scrollDown();
+				Thread.sleep(10000);
 				CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationUploadbtn", 60);
-				CommonMethod.clickListWebelementFromIndex("PortfolioScoreCardVerificationUploadbtn", 0);
-				CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload,
-						"UploadFileVerifyScorecard");
+				CommonMethod.clickOnListWebelementFromIndex("PortfolioScoreCardVerificationUploadbtn", 0);
+				CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload,"UploadFileVerifyScorecard");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn",
 						"PortfolioScoreCardVerificationAddNote");
