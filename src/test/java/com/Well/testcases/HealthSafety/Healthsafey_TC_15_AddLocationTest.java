@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Healthsafey_TC_15_AddLocationTest extends BaseClass {
 
-	@Test//(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest.Healthsafey_TC_08_Review" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_14_ProfileTest.Healthsafey_TC_14_Profile" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Healthsafey_TC_15_AddLocation(String SheetName,int rowNum) throws IOException {
 
