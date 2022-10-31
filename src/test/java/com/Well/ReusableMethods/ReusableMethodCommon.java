@@ -97,12 +97,15 @@ public class ReusableMethodCommon extends BaseClass {
 		testlog.pass("**Imported Locations successfully**");
 	}
 	
-	public void alternatives(String SheetName, int rowNum, String alternativeOption)
-			throws IOException, InterruptedException {
+	public void clickOnAlternatives(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("AlternativesTab", 300);
 		CommonMethod.RobustclickElementVisible("AlternativesTab", "V2ProjectEPSubmitButton");
+		CommonMethod.RobustclickElementVisible("V2ProjectEPSubmitButton", "V2ProjectFeatureDropdown");
+}
+
+	public void alternatives(String SheetName, int rowNum, String alternativeOption)
+			throws IOException, InterruptedException {
 		if (alternativeOption.equalsIgnoreCase("EP")) {
-			CommonMethod.RobustclickElementVisible("V2ProjectEPSubmitButton", "V2ProjectFeatureDropdown");
 			CommonMethod.WaitUntilVisibility("V2ProjectFeatureDropdown", 60);
 			CommonMethod.selectdropdownrandom("V2ProjectFeatureDropdown");
 			data.setCellData(SheetName, "EPFeatureName", rowNum,

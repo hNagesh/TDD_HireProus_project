@@ -16,6 +16,8 @@ public class Healthsafey_TC_10_AlternativesTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName, "Adding feature in alternatives functionality");
 		try {
+			
+			rc.clickOnAlternatives(SheetName, rowNum);
 			rc.alternatives(SheetName, rowNum, "EP");
 			rc.alternatives(SheetName, rowNum, "AAP");
 		} catch (Throwable t) {
