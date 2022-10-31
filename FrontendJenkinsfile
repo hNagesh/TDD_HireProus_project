@@ -89,27 +89,27 @@ stage('Test Results'){
             echo "success" 
             script {
             buildSummary = "Job: *${env.JOB_NAME}[${env.BUILD_NUMBER}]*\n Status: *SUCCESS*\n Execution Report: ${env.BUILD_URL}Frontend-Execution-Report"
-           // slackSend (color: 'good', message: "Frontend Nightly Regression Intact. Great effort!!\n${buildSummary}")
+            slackSend (color: 'good', message: "Frontend Nightly Regression Intact. Great effort!!\n${buildSummary}")
             }
             emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report2.html',
         body: '''${SCRIPT, template="groovy-html.template"}''',
         mimeType: 'text/html',
         subject: "[Jenkins] ${env.JOB_NAME}-${env.BUILD_NUMBER}",
-        to: 'abhishek.gupta@wellcertified.com',
+        to: 'abhishek.gupta@wellcertified.com, gokul@promantus.com, avinash.singh@wellcertified.com, devi.dayalan@wellcertified.com, adil.mian@wellcertified.com, gaurav.arora@wellcertified.com, himanshu.bansal@wellcertified.com, ashutosh.kumar@wellcertified.com, kumar@promantus.com, cc: shekhar.chikara@wellcertified.com',
         replyTo: "abhishek.gupta@wellcertified.com"
         
         }
         unstable(message: "${STAGE_NAME} is unstable") { 
         script{
             buildSummary = "Job: *${env.JOB_NAME}[${env.BUILD_NUMBER}]*\n Status: *UNSTABLE*\n Execution Report: ${env.BUILD_URL}Frontend-Execution-Report"
-           // slackSend (color: 'danger', message: "Frontend Nightly Regression broken. Please refer to below execution report for failures.\n${buildSummary}")
+            slackSend (color: 'danger', message: "Frontend Nightly Regression broken. Please refer to below execution report for failures.\n${buildSummary}")
             }  
              echo 'This will run only if the run was marked as unstable'
               emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report2.html',
         body: '''${SCRIPT, template="groovy-html.template"}''',
         mimeType: 'text/html',
         subject: "[Jenkins] ${env.JOB_NAME}-${env.BUILD_NUMBER}",
-        to: 'abhishek.gupta@wellcertified.com',
+        to: 'abhishek.gupta@wellcertified.com, gokul@promantus.com, avinash.singh@wellcertified.com, devi.dayalan@wellcertified.com, adil.mian@wellcertified.com, gaurav.arora@wellcertified.com, himanshu.bansal@wellcertified.com, ashutosh.kumar@wellcertified.com, kumar@promantus.com, cc: shekhar.chikara@wellcertified.com',
         replyTo: "abhishek.gupta@wellcertified.com"
         
             
