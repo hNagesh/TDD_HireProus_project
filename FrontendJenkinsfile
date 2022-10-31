@@ -15,7 +15,7 @@ stages {
         stage('Build') {
 		when {
                    anyOf { 
-		   branch 'origin/env/stg'; branch 'env/test' ; 
+		   branch 'origin/env/stg'; branch 'origin/env/test' ; 
 		   }
 	           beforeAgent true
 		   }
@@ -25,7 +25,7 @@ stages {
                    if ("${env.GIT_BRANCH}" == "origin/env/stg") {
                    env.environment = "STG"
                    env.Branch = "env/stg"
-		    } else if("${env.GIT_BRANCH}" == "env/test"){
+		    } else if("${env.GIT_BRANCH}" == "origin/env/test"){
                    env.environment = "TEST"
                    env.Branch = "env/test"
 		    } else {
