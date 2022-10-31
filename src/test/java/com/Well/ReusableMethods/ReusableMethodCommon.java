@@ -333,7 +333,52 @@ public class ReusableMethodCommon extends BaseClass {
 				"Updated Profile!", "Verified profile updated toast message");
 		testlog.pass("**Certification story data updated successfully**");
 	}
+	public void addLocation(String SheetName, int rowNum, String module) throws Exception {
+		CommonMethod.WaitUntilVisibility("ProfileTab", 60);
+		CommonMethod.RobustclickElementVisible("LocationTab", "AddButton");
+		CommonMethod.RobustclickElementVisible("AddButton", "AddLocationButton");
+		CommonMethod.RobustclickElementVisible("AddLocationButton", "CountryName");
+		if (module.equalsIgnoreCase("WPR") || module.equalsIgnoreCase("HSR")) {			
+			CommonMethod.sendKeys("LocationName", data.getCellData(SheetName, "LocationName", rowNum));
+			CommonMethod.sendKeys("LocationArea", data.getCellData(SheetName, "Area", rowNum));
+			CommonMethod.selectdropdownrandom("SpaceType");
+			data.setCellData(SheetName, "SpaceTypes", rowNum, CommonMethod.getSelectedDropdownValue("SpaceType"));
+			testlog.info("Space type: " + data.getCellData(SheetName, "SpaceTypes", rowNum));
+			CommonMethod.selectdropdownrandom("OwnershipType");
+			data.setCellData(SheetName, "OwnerType", rowNum, CommonMethod.getSelectedDropdownValue("OwnershipType"));
+			testlog.info("Owner type: " + data.getCellData(SheetName, "OwnerType", rowNum));
+		} else {
+			CommonMethod.sendKeys("PortfolioProjectName", data.getCellData(SheetName, "ProjectName", rowNum));
+			CommonMethod.selectdropdownrandom("PortfolioProjectVersion");
+			data.setCellData(SheetName, "ProjectVersion", rowNum, CommonMethod.getSelectedDropdownValue("PortfolioProjectVersion"));
+			testlog.info("Project Version: " + data.getCellData(SheetName, "ProjectVersion", rowNum));
+			CommonMethod.sendKeys("PortfolioProjectArea", data.getCellData(SheetName, "AreaSQFT", rowNum));
+			CommonMethod.selectdropdownrandom("PortfolioSpaceType");
+			data.setCellData(SheetName, "SpaceTypes", rowNum, CommonMethod.getSelectedDropdownValue("PortfolioSpaceType"));
+			testlog.info("Space type: " + data.getCellData(SheetName, "SpaceTypes", rowNum));
+			CommonMethod.selectdropdownrandom("PortfolioOwnerType");
+			data.setCellData(SheetName, "OwnerType", rowNum, CommonMethod.getSelectedDropdownValue("PortfolioOwnerType"));
+			testlog.info("Owner type: " + data.getCellData(SheetName, "OwnerType", rowNum));
+		}
+		CommonMethod.sendKeys("CountryName", data.getCellData(SheetName, "Country", rowNum));
+		CommonMethod.sendKeys("StreetName", data.getCellData(SheetName, "Street", rowNum));
+		CommonMethod.sendKeys("CityName", data.getCellData(SheetName, "City", rowNum));
+		CommonMethod.sendKeys("PostalCode", data.getCellData(SheetName, "PostalCode", rowNum));
+		CommonMethod.click("SubmitButton");
 
+		/*
+		 * Validate location added successfully
+		 */
+		CommonMethod.WaitUntilVisibility("LocationColumn", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("LocationColumn"),
+				data.getCellData(SheetName, "LocationName", rowNum), "Well Reviewer value doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("CountryColumn"),
+				data.getCellData(SheetName, "Country", rowNum), "Well Reviewer value doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("CityColumn"),
+				data.getCellData(SheetName, "City", rowNum), "Well Reviewer value doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("StatusColumn"), "PENDING",
+				"Well Reviewer value doesn't match");
+	}
 }
 
 
