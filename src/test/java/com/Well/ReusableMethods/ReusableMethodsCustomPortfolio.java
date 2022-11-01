@@ -758,4 +758,57 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 }
 		testlog.pass("**Verifies Feature successful**");
 }
+	public void A01_1_FeatureDocumentUploadInDocumentLibrary() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("PortfolioTaskListTab", 60);
+		CommonMethod.RobustclickElementVisible("PortfolioTaskListTab","PortfolioTaskListPendingTab");
+		CommonMethod.WaitUntilVisibility("PortfolioTaskListPendingTab", 30);
+		CommonMethod.RobustclickElementVisible("PortfolioTaskListPendingTab","PortfolioDocumentVerifyA1.1InTaskList");
+		CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioDocumentVerifyA1.1InTaskList"),"A01.1", "A01.1 task doesn't match");
+		CommonMethod.WaitUntilVisibility("PortfolioDocumentTaskListUploadButton", 30);
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentTaskListUploadButton","PortfolioScoreVerifyUploadVerificationMethod");
+		CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScoreVerifyUploadVerificationMethod"),"A01.1", "A01.1 task doesn't match");
+		CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardUploadFeatureName"),"A01.1", "A01.1 task doesn't match");
+		CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardVerifyUpdateLocation"),"5 Locations assigned", "Selected Location Count doesn't match");
+		CommonMethod.WaitUntilVisibility("PortfolioTaskListEditLocation", 30);
+		CommonMethod.RobustclickElementVisible("PortfolioTaskListEditLocation", "PortfolioScorecardUncheckLoc");
+		CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioTaskListVerifySelectedLoctionCount"),"5 locations selected", "Selected Location Count doesn't match");
+		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload,"UploadFileVerifyScorecard");
+		CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
+		CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn",
+				"PortfolioScoreCardVerificationAddNote");
+		if (CommonMethod.isElementsExist("PortfolioScorecardDocumentAddedPopup", 3)) {
+			CommonMethod.WaitUntilInVisibility("PortfolioScorecardDocumentAddedPopup", 30);
+		}
+		CommonMethod.WaitUntilVisibility("PortfolioDocListTaskFullFilledTab", 30);
+		CommonMethod.RobustclickElementVisible("PortfolioDocListTaskFullFilledTab", "PortfolioDocumentVerifyA1.1InTaskList");
+		CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioDocumentVerifyA1.1InTaskList"),"A01.1", "A01.1 task doesn't match");
+		CommonMethod.WaitUntilVisibility("PortfolioDocumentListLink", 30);
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioDocumentVerifyA1.1InTaskList");
+		
+		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
+		testlog.info("Fetching Data from Upload Table");
+		CommonMethod.softAssertContainsMessage(val.get(3), "A01.1", "Document table data mismatch");
+		softAssert.assertAll();
+		
+	}
+	
+public void L09_AuditDocumentUploadInDocumentLibrary() throws IOException, InterruptedException {
+	
+		
+		
+	}
+public void UpdateAuditDocumentUploadInDocumentLibrary() throws IOException, InterruptedException {
+	
+}
+public void FilterInDocumentLibrary() throws IOException, InterruptedException {
+	
+	
+	
+}
+
+public void DeleteInDocumentLibrary() throws IOException, InterruptedException {
+	
+	
+	
+}
 	}

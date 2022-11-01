@@ -18,6 +18,7 @@ public class Portfolio_TC_12_AlternativesTest extends BaseClass {
 		StartTest(TestCaseName,"Verify alternatives fields values");
 
 		try {
+			rc.clickOnAlternatives(SheetName, rowNum);
 			rc.alternatives(SheetName, rowNum, "EP");
 			rc.alternatives(SheetName, rowNum, "AAP");
 		} catch (Throwable t) {

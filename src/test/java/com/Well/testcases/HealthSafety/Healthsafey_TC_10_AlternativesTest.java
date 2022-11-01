@@ -9,13 +9,15 @@ import com.Well.Engine.BaseClass;
 
 public class Healthsafey_TC_10_AlternativesTest extends BaseClass {
 
-	@Test//(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest.Healthsafey_TC_08_Review" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_09_DocumentTest.Healthsafey_TC_09_Document" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Healthsafey_TC_10_Alternatives(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName, "Adding feature in alternatives functionality");
 		try {
+			
+			rc.clickOnAlternatives(SheetName, rowNum);
 			rc.alternatives(SheetName, rowNum, "EP");
 			rc.alternatives(SheetName, rowNum, "AAP");
 		} catch (Throwable t) {
