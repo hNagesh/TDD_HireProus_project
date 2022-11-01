@@ -1084,7 +1084,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectAdminFieldsButton");
 		CommonMethod.WaitUntilVisibility("V2ProjectAdminFieldsButton", 60);
 		CommonMethod.RobustclickElementVisible("V2ProjectAdminFieldsButton", "V2projectAdminBillingStatus");
-		CommonMethod.WaitUntilVisibility("V2projectAdminBillingStatus", 60);
+		CommonMethod.scrolldowntoElement("V2projectAdminBillingStatus");
+		CommonMethod.WaitUntilVisibility("V2projectAdminBillingStatus", 120);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2projectAdminBillingStatus"),
 				data.getCellData(SheetName, "BillingStatus", rowNum), "Billing status value doesn't match");
 		testlog.pass("**Billing status updated successfully**");
