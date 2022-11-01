@@ -92,7 +92,7 @@ stage('Test Results'){
             Total = "${summary.totalCount}".toInteger()
             PassPercentage = pass/Total*100
             echo "${PassPercentage}"
-            buildSummary = "Job: *${env.JOB_NAME}[${env.BUILD_NUMBER}]*\n Status: *SUCCESS*\n Execution Report: ${env.BUILD_URL}Frontend-Execution-Report\n *Test Summary - ${summary.totalCount},Passed: ${summary.passCount}, Failures: ${summary.failCount}, Skipped: ${summary.skipCount}*\n *Test Success %* - ${PassPercentage}"
+            buildSummary = "Job: *${env.JOB_NAME}[${env.BUILD_NUMBER}]*\n Status: *SUCCESS*\n Execution Report: ${env.BUILD_URL}Frontend-Execution-Report\n *Test Summary - Passed: ${summary.passCount}, Failures: ${summary.failCount}, Skipped: ${summary.skipCount}*\n *Test Success %* - ${PassPercentage}"
             slackSend (color: 'good', message: "Frontend Nightly Regression Intact. Great effort!!\n${buildSummary}")
             }
             emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report2.html',
@@ -109,7 +109,7 @@ stage('Test Results'){
             Total = "${summary.totalCount}".toInteger()
             PassPercentage = pass/Total*100
             echo "${PassPercentage}"
-            buildSummary = "Job: *${env.JOB_NAME}[${env.BUILD_NUMBER}]*\n Status: *UNSTABLE*\n Execution Report: ${env.BUILD_URL}Frontend-Execution-Report\n *Test Summary - ${summary.totalCount},Passed: ${summary.passCount}, Failures: ${summary.failCount}, Skipped: ${summary.skipCount}*\n *Test Success %* - ${PassPercentage}"
+            buildSummary = "Job: *${env.JOB_NAME}[${env.BUILD_NUMBER}]*\n Status: *UNSTABLE*\n Execution Report: ${env.BUILD_URL}Frontend-Execution-Report\n *Test Summary - Passed: ${summary.passCount}, Failures: ${summary.failCount}, Skipped: ${summary.skipCount}*\n *Test Success %* - ${PassPercentage}"
             slackSend (color: 'danger', message: "Frontend Nightly Regression broken. Please refer to below execution report for failures.\n${buildSummary}")
             }  
              echo 'This will run only if the run was marked as unstable'
