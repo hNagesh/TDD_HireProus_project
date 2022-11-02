@@ -82,8 +82,10 @@ stage('Test Results'){
 	            }
         post {
          always {
+         script {
             summary = junit '**/target/surefire-reports/junitreports/*.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, includes: '**/*.html', keepAll: true, reportDir: 'Report', reportFiles: 'WELL_AutomationReport.html', reportName: 'Frontend-Execution-Report', reportTitles: ''])  
+        }
         }
         success {
             echo "success" 
