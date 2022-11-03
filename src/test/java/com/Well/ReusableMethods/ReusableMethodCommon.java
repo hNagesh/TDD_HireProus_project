@@ -333,10 +333,11 @@ public class ReusableMethodCommon extends BaseClass {
 	public void addLocation(String SheetName, int rowNum) throws Exception {
 		CommonMethod.WaitUntilVisibility("LocationTab", 60);
 		CommonMethod.RobustclickElementVisible("LocationTab", "AddButton");
+		CommonMethod.WaitUntilPresence("AddButton", 120);
 		CommonMethod.RobustclickElementVisible("AddButton", "AddLocationButton");
-		CommonMethod.RobustclickElementVisible("AddLocationButton", "LocationCountryName");
+		CommonMethod.click("AddLocationButton");
 		if (SheetName.equalsIgnoreCase("Wpr") || SheetName.equalsIgnoreCase("Hsr")) {
-			CommonMethod.WaitUntilVisibility("LocationName", 60);
+			CommonMethod.WaitUntilVisibility("LocationName", 120);
 			CommonMethod.sendKeys("LocationName", data.getCellData(SheetName, "LocationName", rowNum));
 			CommonMethod.sendKeys("LocationArea", data.getCellData(SheetName, "Area", rowNum));
 			CommonMethod.selectdropdownrandom("LocationSpaceType");
@@ -348,6 +349,7 @@ public class ReusableMethodCommon extends BaseClass {
 					CommonMethod.getSelectedDropdownValue("LocationOwnershipType"));
 			testlog.info("Owner type: " + data.getCellData(SheetName, "OwnerType", rowNum));
 		} else if (SheetName.equalsIgnoreCase("Portfolio")) {
+			CommonMethod.WaitUntilVisibility("PortfolioLocationProjectName", 120);
 			CommonMethod.sendKeys("PortfolioLocationProjectName", data.getCellData(SheetName, "ProjectName", rowNum));
 			CommonMethod.selectdropdownrandom("PortfolioLocationProjectVersion");
 			data.setCellData(SheetName, "ProjectVersion", rowNum,
