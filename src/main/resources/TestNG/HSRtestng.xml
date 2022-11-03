@@ -9,6 +9,7 @@
 <test name="WELL-HSR" >
 <parameter name="SheetName" value="Hsr"/>
 <parameter name="rowNum" value="2"/>
+<parameter name="Country" value="US"/>
 <classes>
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_02_RegisterHealthSafetyTest"></class>
@@ -21,9 +22,11 @@
  <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_09_DocumentTest"></class> 
 <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_10_AlternativesTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_11_TeamTest"></class>
-<!--  <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_12_EditTest"></class> -->
+ <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_12_EditTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_13_PromotionTest"></class>
  <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_14_ProfileTest"></class> 
+ <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_15_AddLocationTest"></class>
+  <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_16_BillingTest"></class>
 </classes>
 </test>
 </suite>  

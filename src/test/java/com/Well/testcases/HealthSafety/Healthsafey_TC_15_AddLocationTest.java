@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Healthsafey_TC_15_AddLocationTest extends BaseClass {
 
-	@Test//(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest.Healthsafey_TC_08_Review" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_14_ProfileTest.Healthsafey_TC_14_Profile" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Healthsafey_TC_15_AddLocation(String SheetName,int rowNum) throws IOException {
 
@@ -17,7 +17,7 @@ public class Healthsafey_TC_15_AddLocationTest extends BaseClass {
 
 		StartTest(TestCaseName,"Adding new location");
 		try {
-			rc.addLocation(SheetName, rowNum,"HSR");
+			rc.addLocation(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

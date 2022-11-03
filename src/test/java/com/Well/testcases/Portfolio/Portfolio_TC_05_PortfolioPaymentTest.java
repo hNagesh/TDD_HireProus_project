@@ -20,7 +20,24 @@ public class Portfolio_TC_05_PortfolioPaymentTest extends BaseClass {
 		try {
 			portfolio.PortfolioClickOnBilling();
 			rc.Billing(SheetName, rowNum);
-			
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
+	
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_05_PortfolioPaymentTest.Portfolio_TC_05_PortfolioPayment" })
+	@Parameters({ "SheetName","rowNum" })
+	public void Portfolio_TC_05_01_DownloadBillingReceiptAndValidate(String SheetName, int rowNum, String Country) throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+
+		StartTest(TestCaseName,"Validate billing receipt");
+
+		try {
+			rc.DownloadBillingReceiptAndValidate(SheetName, rowNum, Country);
 			
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
@@ -29,4 +46,5 @@ public class Portfolio_TC_05_PortfolioPaymentTest extends BaseClass {
 			throw e1;
 		}
 	}
+	
 }
