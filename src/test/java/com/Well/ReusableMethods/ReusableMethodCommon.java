@@ -336,6 +336,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.RobustclickElementVisible("AddButton", "AddLocationButton");
 		CommonMethod.RobustclickElementVisible("AddLocationButton", "LocationCountryName");
 		if (SheetName.equalsIgnoreCase("Wpr") || SheetName.equalsIgnoreCase("Hsr")) {
+			CommonMethod.WaitUntilVisibility("LocationName", 60);
 			CommonMethod.sendKeys("LocationName", data.getCellData(SheetName, "LocationName", rowNum));
 			CommonMethod.sendKeys("LocationArea", data.getCellData(SheetName, "Area", rowNum));
 			CommonMethod.selectdropdownrandom("LocationSpaceType");
@@ -368,10 +369,12 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.sendKeys("LocationCityName", data.getCellData(SheetName, "City", rowNum));
 		CommonMethod.sendKeys("LocationPostalCode", data.getCellData(SheetName, "PostalCode", rowNum));
 		CommonMethod.RobustclickElementVisible("SubmitButton", "LocationResultCount");
+		CommonMethod.refreshBrowser();
 		/*
 		 * Validate location added successfully
 		 */
-		CommonMethod.scrolldowntoLast();
+		CommonMethod.WaitUntilPresence("AddButton", 300);
+		CommonMethod.scrolldowntoElement("AddButton");
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("LocationResultCount"), "6",
 				"Result location count doesn't match");
 		softAssert.assertAll();

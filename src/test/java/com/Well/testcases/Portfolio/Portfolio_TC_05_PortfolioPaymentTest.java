@@ -29,7 +29,7 @@ public class Portfolio_TC_05_PortfolioPaymentTest extends BaseClass {
 	}
 	
 	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_05_PortfolioPaymentTest.Portfolio_TC_05_PortfolioPayment" })
-	@Parameters({ "SheetName","rowNum" })
+	@Parameters({ "SheetName","rowNum","Country" })
 	public void Portfolio_TC_05_01_DownloadBillingReceiptAndValidate(String SheetName, int rowNum, String Country) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
