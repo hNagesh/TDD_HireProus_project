@@ -9,6 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Healthsafey_TC_13_PromotionTest extends BaseClass {
 
+
 	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_12_EditTest.Healthsafey_TC_12_Edit" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Healthsafey_TC_13_Promotion(String SheetName,int rowNum) throws IOException {
@@ -16,7 +17,7 @@ public class Healthsafey_TC_13_PromotionTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Verifying Card link details");
 		try {
-			rc.promotionCardValidation(SheetName, rowNum,"3");
+			rc.promotionCardValidation(SheetName, rowNum,"8");
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

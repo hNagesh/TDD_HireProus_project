@@ -15,7 +15,7 @@ stages {
         stage('Build') {
 		when {
                    anyOf { 
-		   branch 'origin/env/stg'; branch 'origin/env/testing' ; 
+		   branch 'origin/env/stg'; branch 'origin/env/test' ; 
 		   }
 	           beforeAgent true
 		   }
@@ -25,9 +25,9 @@ stages {
                    if ("${env.GIT_BRANCH}" == "origin/env/stg") {
                    env.environment = "STG"
                    env.Branch = "env/stg"
-		    } else if("${env.GIT_BRANCH}" == "origin/env/testing"){
+		    } else if("${env.GIT_BRANCH}" == "origin/env/test"){
                    env.environment = "TEST"
-                   env.Branch = "env/testing"
+                   env.Branch = "env/test"
 		    } else {
                     env.environment = "false"
                    }
@@ -75,20 +75,26 @@ stage('Test Results'){
                    }
                    else{
                    env.JOB_NAME = "WellFrontendExecution-TEST"
-                   env.Branch = "env/testing"
+                   env.Branch = "env/test"
                    }
 	                echo 'Set Test1'
 	            }
 	            }
         post {
          always {
-            junit '**/target/surefire-reports/junitreports/*.xml'
+         script {
+            summary = junit '**/target/surefire-reports/junitreports/*.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, includes: '**/*.html', keepAll: true, reportDir: 'Report', reportFiles: 'WELL_AutomationReport.html', reportName: 'Frontend-Execution-Report', reportTitles: ''])  
+        }
         }
         success {
             echo "success" 
             script {
-            buildSummary = "Job: *${env.JOB_NAME}[${env.BUILD_NUMBER}]*\n Status: *SUCCESS*\n Execution Report: ${env.BUILD_URL}Frontend-Execution-Report"
+            pass = "${summary.passCount}".toInteger()
+            Total = "${summary.totalCount}".toInteger()
+            PassPercentage = pass/Total*100
+            echo "${PassPercentage}"
+            buildSummary = "Job: *${env.JOB_NAME}[${env.BUILD_NUMBER}]*\n Status: *SUCCESS*\n Execution Report: ${env.BUILD_URL}Frontend-Execution-Report\n *Test Summary - Passed: ${summary.passCount}, Failures: ${summary.failCount}, Skipped: ${summary.skipCount}*\n *Test Success %* - ${PassPercentage}"
             slackSend (color: 'good', message: "Frontend Nightly Regression Intact. Great effort!!\n${buildSummary}")
             }
             emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report2.html',
@@ -101,7 +107,11 @@ stage('Test Results'){
         }
         unstable(message: "${STAGE_NAME} is unstable") { 
         script{
-            buildSummary = "Job: *${env.JOB_NAME}[${env.BUILD_NUMBER}]*\n Status: *UNSTABLE*\n Execution Report: ${env.BUILD_URL}Frontend-Execution-Report"
+            pass = "${summary.passCount}".toInteger()
+            Total = "${summary.totalCount}".toInteger()
+            PassPercentage = pass/Total*100
+            echo "${PassPercentage}"
+            buildSummary = "Job: *${env.JOB_NAME}[${env.BUILD_NUMBER}]*\n Status: *UNSTABLE*\n Execution Report: ${env.BUILD_URL}Frontend-Execution-Report\n *Test Summary - Passed: ${summary.passCount}, Failures: ${summary.failCount}, Skipped: ${summary.skipCount}*\n *Test Success %* - ${PassPercentage}"
             slackSend (color: 'danger', message: "Frontend Nightly Regression broken. Please refer to below execution report for failures.\n${buildSummary}")
             }  
              echo 'This will run only if the run was marked as unstable'

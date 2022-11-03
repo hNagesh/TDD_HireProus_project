@@ -100,10 +100,14 @@ public class ReusableMethodCommon extends BaseClass {
 		testlog.pass("**Imported Locations successfully**");
 	}
 
-	public void alternatives(String SheetName, int rowNum, String alternativeOption)
-			throws IOException, InterruptedException {
+	public void clickOnAlternatives(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("AlternativesTab", 300);
 		CommonMethod.RobustclickElementVisible("AlternativesTab", "V2ProjectEPSubmitButton");
+
+	}
+
+	public void alternatives(String SheetName, int rowNum, String alternativeOption)
+			throws IOException, InterruptedException {
 		if (alternativeOption.equalsIgnoreCase("EP")) {
 			CommonMethod.RobustclickElementVisible("V2ProjectEPSubmitButton", "V2ProjectFeatureDropdown");
 			CommonMethod.WaitUntilVisibility("V2ProjectFeatureDropdown", 60);
@@ -335,10 +339,12 @@ public class ReusableMethodCommon extends BaseClass {
 			CommonMethod.sendKeys("LocationName", data.getCellData(SheetName, "LocationName", rowNum));
 			CommonMethod.sendKeys("LocationArea", data.getCellData(SheetName, "Area", rowNum));
 			CommonMethod.selectdropdownrandom("LocationSpaceType");
-			data.setCellData(SheetName, "SpaceTypes", rowNum, CommonMethod.getSelectedDropdownValue("LocationSpaceType"));
+			data.setCellData(SheetName, "SpaceTypes", rowNum,
+					CommonMethod.getSelectedDropdownValue("LocationSpaceType"));
 			testlog.info("Space type: " + data.getCellData(SheetName, "SpaceTypes", rowNum));
 			CommonMethod.selectdropdownrandom("LocationOwnershipType");
-			data.setCellData(SheetName, "OwnerType", rowNum, CommonMethod.getSelectedDropdownValue("LocationOwnershipType"));
+			data.setCellData(SheetName, "OwnerType", rowNum,
+					CommonMethod.getSelectedDropdownValue("LocationOwnershipType"));
 			testlog.info("Owner type: " + data.getCellData(SheetName, "OwnerType", rowNum));
 		} else if (SheetName.equalsIgnoreCase("Portfolio")) {
 			CommonMethod.sendKeys("PortfolioLocationProjectName", data.getCellData(SheetName, "ProjectName", rowNum));
@@ -366,31 +372,32 @@ public class ReusableMethodCommon extends BaseClass {
 		 * Validate location added successfully
 		 */
 		CommonMethod.scrolldowntoLast();
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("LocationResultCount"),"6","Result location count doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("LocationResultCount"), "6",
+				"Result location count doesn't match");
 		softAssert.assertAll();
 		testlog.pass("**Added single location successfully**");
 	}
+
 	public void DownloadBillingReceiptAndValidate(String SheetName, int rowNum, String Country)
 			throws IOException, InterruptedException {
 		String Amount = data.getCellData(SheetName, "EnrollFee", rowNum);
-		String Address=null;
-		if(Country.equalsIgnoreCase("US")) {
-		Address = "New York, NY 10014";
+		String Address = null;
+		if (Country.equalsIgnoreCase("US")) {
+			Address = "New York, NY 10014";
+		} else {
+			Address = "IWBI China(HK) Limited";
 		}
-		else {
-	    Address	= "IWBI China(HK) Limited";
-		}
-		String [] ProjDetails = {Address,Amount};
+		String[] ProjDetails = { Address, Amount };
 		CommonMethod.WaitUntilVisibility("DownloadReceipt", 120);
 		CommonMethod.click("DownloadReceipt");
 		Thread.sleep(2000);
-		if(CommonMethod.isFileExists(downloadPath)) {
-			File path = new File(downloadPath); 
-			File[] files = path.listFiles(); 
-			for(File file : files) {
+		if (CommonMethod.isFileExists(downloadPath)) {
+			File path = new File(downloadPath);
+			File[] files = path.listFiles();
+			for (File file : files) {
 				String ReceiptContent = CommonMethod.extractPDFContent(file.toString());
-				for(String s:ProjDetails) {
-				CommonMethod.assertActualContainsExpected(ReceiptContent, s);
+				for (String s : ProjDetails) {
+					CommonMethod.assertActualContainsExpected(ReceiptContent, s);
 				}
 			}
 		}

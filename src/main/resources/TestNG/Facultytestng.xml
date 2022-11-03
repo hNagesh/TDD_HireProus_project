@@ -16,13 +16,14 @@
  <class name="com.Well.testcases.Faculty.Faculty_TC_03_AgreementFacultyTest"></class>
  <class name="com.Well.testcases.Faculty.Faculty_TC_04_SubmitReviewTest"></class>
  <class name="com.Well.testcases.Faculty.Faculty_TC_06_ResultReviewTest"></class>
- <class name="com.Well.testcases.Faculty.Faculty_TC_07_BillingTest"></class>
+<!--  <class name="com.Well.testcases.Faculty.Faculty_TC_07_BillingTest"></class>
  <class name="com.Well.testcases.Faculty.Faculty_TC_08_FacultyOrientationTest"></class>
  <class name="com.Well.testcases.Faculty.Faculty_TC_09_FacultyKeepLearningTest"></class>
  <class name="com.Well.testcases.Faculty.Faculty_TC_10_FacultyReportingTest"></class>
  <class name="com.Well.testcases.Faculty.Faculty_TC_11_FacultyMarketingToolkitTest"></class>
- <class name="com.Well.testcases.Faculty.Faculty_TC_12_FacultyResourcesTest"></class>
+ <class name="com.Well.testcases.Faculty.Faculty_TC_12_FacultyResourcesTest"></class>-->
  <class name="com.Well.testcases.Faculty.Faculty_TC_05_BulkDeleteTest"></class>
+
 
 </classes>
 </test>

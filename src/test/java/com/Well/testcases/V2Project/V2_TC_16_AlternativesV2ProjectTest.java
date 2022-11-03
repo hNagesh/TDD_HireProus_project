@@ -17,6 +17,7 @@ public class V2_TC_16_AlternativesV2ProjectTest extends BaseClass {
 
 		StartTest(TestCaseName,"EP Alternatives V2Project Functionality");
 		try {
+			rc.clickOnAlternatives(SheetName, rowNum);
 			rc.alternatives(SheetName, rowNum, "EP");
 	
 		} catch (Throwable t) {
