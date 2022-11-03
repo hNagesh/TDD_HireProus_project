@@ -57,6 +57,11 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.ClickCheckbox("V2ProjectownershipOflocation");
 			CommonMethod.click("V2ProjectownershipContinuebtn");
 		}
+		CommonMethod.WaitUntilPresence("HsrIframe", 180);
+		CommonMethod.switchToFrame("HsrIframe");
+		CommonMethod.WaitUntilPresence("HsrCloseCard", 60);
+		CommonMethod.Robustclick("HsrCloseCard");
+		CommonMethod.switchToParentFrame();	
 		CommonMethod.WaitUntilVisibility("DatePickerButton", 300);
 		CommonMethod.RobustclickElementVisible("DatePickerButton", "V2ProjectDatePopupWeekday");
 		CommonMethod.WaitUntilVisibility("V2ProjectnextMonthbtn", 120);
