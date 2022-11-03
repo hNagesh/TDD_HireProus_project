@@ -30,10 +30,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		testlog.info("City: " + ProjectCity);
 		testlog.info("Postalcode: " + PostalCode);
 		CommonMethod.sendKeys("V2ProjectlocationStreet", ProjectAddress);
-		System.out.println("V2ProjectlocationStreet"+CommonMethod.getattributeValue("V2ProjectlocationStreet"));
 		data.setCellData(SheetName, "Street", rowNum, CommonMethod.getattributeValue("V2ProjectlocationStreet"));
 		CommonMethod.sendKeys("V2ProjectlocationCity", ProjectCity);
-		System.out.println("V2ProjectlocationCity"+CommonMethod.getattributeValue("V2ProjectlocationCity"));
 		data.setCellData(SheetName, "City", rowNum, CommonMethod.getattributeValue("V2ProjectlocationCity"));
 		CommonMethod.sendKeys("V2ProjectlocationPostalcode", PostalCode);
 		data.setCellData(SheetName, "PostalCode", rowNum,
@@ -50,6 +48,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 		if (ProjectType.equalsIgnoreCase("WELLCore")) {
 			CommonMethod.WaitUntilVisibility("V2Projectwellcorecertification", 30);
 			CommonMethod.click("V2Projectwellcorecertification");
+			
+			CommonMethod.WaitUntilPresence("HsrIframe", 180);
+			CommonMethod.switchToFrame("HsrIframe");
+			CommonMethod.WaitUntilPresence("HsrCloseCard", 60);
+			CommonMethod.Robustclick("HsrCloseCard");
+			CommonMethod.switchToParentFrame();	
+			
 		} else if (ProjectType.equalsIgnoreCase("WELLCertification")) {
 			CommonMethod.WaitUntilVisibility("V2ProjectwellCertification", 30);
 			CommonMethod.click("V2ProjectwellCertification");
@@ -57,11 +62,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.ClickCheckbox("V2ProjectownershipOflocation");
 			CommonMethod.click("V2ProjectownershipContinuebtn");
 		}
-		CommonMethod.WaitUntilPresence("HsrIframe", 180);
-		CommonMethod.switchToFrame("HsrIframe");
-		CommonMethod.WaitUntilPresence("HsrCloseCard", 60);
-		CommonMethod.Robustclick("HsrCloseCard");
-		CommonMethod.switchToParentFrame();	
+	
 		CommonMethod.WaitUntilVisibility("DatePickerButton", 300);
 		CommonMethod.RobustclickElementVisible("DatePickerButton", "V2ProjectDatePopupWeekday");
 		CommonMethod.WaitUntilVisibility("V2ProjectnextMonthbtn", 120);

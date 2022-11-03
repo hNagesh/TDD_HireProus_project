@@ -912,9 +912,7 @@ public void A01_2_DocumentUploadInDocumentLibrary() throws IOException, Interrup
 	
 	softAssert.assertAll();
 }
-public void ValidatingGeneralUploadDocument() throws IOException, InterruptedException {
-	
-}
+
 public void ValidatingLegalUploadDocument() throws IOException, InterruptedException {
 	CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadbutton", 30);
 	CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadbutton", "V2ProjectPortfolioDocType");
@@ -930,12 +928,71 @@ public void ValidatingLegalUploadDocument() throws IOException, InterruptedExcep
 }
 
 public void UpdateAuditDocumentUploadInDocumentLibrary() throws IOException, InterruptedException {
-	
+	/*
+	 * Edit Upload Document
+	 */
+	CommonMethod.RobustclickElementVisible("PortfolioDocListEditIcon",
+			"PortfolioScoreVerifyUploadVerificationMethod");
+	CommonMethod.scrolldowntoElement("PortfolioScoreCardVerificationUploadAddfeature");
+	/*
+	 * Edit location and verify count
+	 */
+	CommonMethod.RobustclickElementVisible("PortfolioScorecardEditLoc", "PortfolioScorecardUncheckLoc");
+	CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationAssignChildLocCbx", 30);
+	CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocCbx",
+			"PortfolioScorecardValidDisable");
+	CommonMethod.RobustclickElementVisible("PortfolioScorecardVerifyTaskUploadEditLocationsUpdateButton",
+			"PortfolioScoreCardVerificationAddNote");
+	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardVerifyUpdateLocation"),
+			"5 Locations assigned", "Task Upload Update Location Count doesn't match");
+	CommonMethod.sendKeys("PortfolioScoreCardVerificationAddNote", "document share with review team.");
+	CommonMethod.RobustclickElementVisible("PortfolioScorecardVerifyTaskUploadIntentStage",
+			"PortfolioScorecardVerifyTaskUploadUpdateButton");
+	CommonMethod.Robustclick("PortfolioScorecardVerifyTaskUploadUpdateButton",
+			"PortfolioScoreCardVerificationAddNote");
+	CommonMethod.scrolldowntoElement("PortfolioScorecardCompletedTaskLocCount");
+	CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardCompletedTaskLocCount", 2);
+	List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
+	testlog.info("Fetching Data from Upload Table");
+	CommonMethod.softAssertContainsMessage(val.get(4), "Intent", "Document table data mismatch");
+	CommonMethod.softAssertContainsMessage(val.get(7), "Ready For Review", "Document table data mismatch");
+	softAssert.assertAll();
 }
 public void FilterInDocumentLibrary() throws IOException, InterruptedException {
-	
-	
-	
+	CommonMethod.WaitUntilVisibility("PortfolioTaskListTab", 60);
+	CommonMethod.RobustclickElementVisible("PortfolioTaskListTab","PortfolioTaskListPendingTab");
+	CommonMethod.RobustclickElementVisible("PortfolioDocFliterByLocation","PortfolioSelectFliterByLocation");
+	CommonMethod.click("PortfolioSelectFliterByLocation");
+	List<WebElement> FliterVerifyLocation;
+	FliterVerifyLocation = CommonMethod.findElements("PortfolioFliterVerifyLocation");
+	for (WebElement f : FliterVerifyLocation) {
+		CommonMethod.softAssertContainsMessage(CommonMethod.getText(f), "0/1 Locations",
+				"Fliter Verify Location doesn't match");
+	}
+	CommonMethod.Robustclick("PortfolioFliterClearFilter");
+	//count
+	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterVerificationOption");
+	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioFliterVerificationOption"), "Verification", "Document table data mismatch");
+	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioFliterPartTypeOption"), "Part Type", "Document table data mismatch");
+	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioFliterConceptOption"), "Concept", "Document table data mismatch");
+	//Verification
+	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterVerificationOption");
+	CommonMethod.RobustclickElementVisible("PortfolioFliterVerificationOptionCheckbox","PortfolioFliterOptionApply");
+	CommonMethod.click("PortfolioFliterOptionApply");
+	//count
+	//PartType
+		CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterPartTypeOption");
+	CommonMethod.RobustclickElementVisible("PortfolioFliterPartTypeOptionCheckbox","");
+	CommonMethod.click("PortfolioFliterOptionApply");
+	//count
+	CommonMethod.click("PortfolioFliterOptionClear");
+		//Concept
+		CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterConceptOption");
+	CommonMethod.RobustclickElementVisible("PortfolioFliterPartTypeConceptCheckbox","");
+	CommonMethod.click("PortfolioFliterOptionApply");
+	//count
+	CommonMethod.click("PortfolioFliterOptionClear");
+	softAssert.assertAll();
 }
 
 public void DeleteInDocumentLibrary() throws IOException, InterruptedException {
