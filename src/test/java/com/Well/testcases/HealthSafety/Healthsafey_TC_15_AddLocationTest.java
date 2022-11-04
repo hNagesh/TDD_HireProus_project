@@ -17,7 +17,7 @@ public class Healthsafey_TC_15_AddLocationTest extends BaseClass {
 
 		StartTest(TestCaseName,"Adding new location");
 		try {
-			rc.addLocation(SheetName, rowNum,"HSR");
+			rc.addLocation(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

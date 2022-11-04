@@ -77,6 +77,11 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	}
 
 	public void StoreIdHealthSafety(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilPresence("HsrIframe", 180);
+		CommonMethod.switchToFrame("HsrIframe");
+		CommonMethod.WaitUntilPresence("HsrCloseCard", 60);
+		CommonMethod.Robustclick("HsrCloseCard");
+		CommonMethod.switchToParentFrame();	
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
 		CommonMethod.WaitUntilVisibility("StoreId", 300);
 		String getId = CommonMethod.getText("StoreId");

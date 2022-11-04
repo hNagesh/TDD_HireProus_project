@@ -294,8 +294,8 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.RobustclickElementVisible("ReviewTab", "Reviewlanding");
 		CommonMethod.WaitUntilVisibility("Reviewlanding", 30);
 		CommonMethod.WaitUntilVisibility("PortfolioReviewSubmitButton", 30);
-		CommonMethod.RobustclickElementVisible("PortfolioReviewSubmitButton", "OwnerOrgClick");
-		CommonMethod.RobustclickElementVisible("OwnerOrgClick", "PortfolioSelectProgram");
+		CommonMethod.RobustclickElementVisible("PortfolioReviewSubmitButton", "PortfolioReviewTextbox");
+	//	CommonMethod.RobustclickElementVisible("OwnerOrgClick", "PortfolioSelectProgram");
 		// CommonMethod.WaitUntilClickble("PortfolioSelectProgram", 10).click();
 		CommonMethod.sendKeys("PortfolioReviewTextbox", "Submit Documentation for Year 1, Review Cycle #1");
 		CommonMethod.RobustclickElementVisible("PortfolioReviewSubmitDocButton", "PortfolioReviewListStatus");
@@ -308,7 +308,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		 */
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
 		CommonMethod.RobustclickElementVisible("AdminNavBar", "AdminWELLAtScaleNavBar");
-		CommonMethod.WaitUntilVisibility("AdminWELLAtScaleNavBar", 60);
+		CommonMethod.WaitUntilPresence("AdminWELLAtScaleNavBar", 60);
 		CommonMethod.RobustclickElementVisible("AdminWELLAtScaleNavBar", "PortfolioSearchByID");
 		CommonMethod.WaitUntilClickble("PortfolioSearchByID", 60)
 				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));

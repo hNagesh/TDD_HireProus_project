@@ -1,24 +1,26 @@
 package com.Well.ReusableMethods;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
 
 public class ReusableMethodCommon extends BaseClass {
-	
+
 	public void SignOut() throws InterruptedException, IOException {
 
-		if(Environment.equalsIgnoreCase("Test")) {
-		driver.get("https://test-nuxt.wellcertified.com/logout");
-		}
-		else {
-	    driver.get("https://stg-nuxt.wellcertified.com/logout");
+		if (Environment.equalsIgnoreCase("Test")) {
+			driver.get("https://test-nuxt.wellcertified.com/logout");
+		} else {
+			driver.get("https://stg-nuxt.wellcertified.com/logout");
 		}
 		CommonMethod.WaitUntilPresence("Username", 10);
 	}
-	
-	public void SelectCountryAndState(String Country,String SheetName,int rowNum) throws IOException, InterruptedException {
+
+	public void SelectCountryAndState(String Country, String SheetName, int rowNum)
+			throws IOException, InterruptedException {
 		CommonMethod.selectdropdownValue("ProjectlocationCountry", Country);
 		data.setCellData(SheetName, "Country", rowNum, CommonMethod.getSelectedDropdownValue("ProjectlocationCountry"));
 		CommonMethod.selectdropdownrandom("ProjectlocationState");
@@ -26,17 +28,18 @@ public class ReusableMethodCommon extends BaseClass {
 		testlog.info("Country: " + data.getCellData(SheetName, "Country", rowNum));
 		testlog.info("State: " + data.getCellData(SheetName, "State", rowNum));
 	}
-	
-	public void SelectOwnerOrg(String SheetName,int rowNum) throws IOException, InterruptedException {
-	CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
-	CommonMethod.click("OwnerOrgClick");
-	CommonMethod.sendKeys("OwnerOrg", "R");
-	CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
-	CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 5).click();
-	data.setCellData(SheetName, "OrgName", rowNum, CommonMethod.getText("OrgName"));
-	testlog.info("OrganizationName: " + data.getCellData(SheetName, "OrgName", rowNum));
-	
+
+	public void SelectOwnerOrg(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
+		CommonMethod.click("OwnerOrgClick");
+		CommonMethod.sendKeys("OwnerOrg", "R");
+		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
+		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 5).click();
+		data.setCellData(SheetName, "OrgName", rowNum, CommonMethod.getText("OrgName"));
+		testlog.info("OrganizationName: " + data.getCellData(SheetName, "OrgName", rowNum));
+
 	}
+
 	public void Billing(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("BillingLanding", 300);
 		CommonMethod.scrolldowntoElement("CardHolderName");
@@ -72,12 +75,12 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilInVisibility("CardHolderName", 180);
 		testlog.pass("**Verifies the Completed Card Payment Billing successfully**");
 	}
-	
+
 	public void LocationImport(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("LocationsTab", 60);
 		CommonMethod.click("LocationsTab");
 		CommonMethod.WaitUntilVisibility("PortfolioLocationLanding", 60);
-		CommonMethod.RobustclickElementVisible("PortfolioLocationsImportButton","PortfolioUploadFileNextButton");
+		CommonMethod.RobustclickElementVisible("PortfolioLocationsImportButton", "PortfolioUploadFileNextButton");
 		CommonMethod.scrolldowntoElement("PortfolioUploadLocationButton");
 		CommonMethod.uploadFile("PortfolioUploadLocationButton", PortfolioLocationImportfile);
 		CommonMethod.click("PortfolioUploadFileNextButton");
@@ -96,12 +99,12 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilVisibility("PortfolioLocationLanding", 60);
 		testlog.pass("**Imported Locations successfully**");
 	}
-	
+
 	public void clickOnAlternatives(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("AlternativesTab", 300);
 		CommonMethod.RobustclickElementVisible("AlternativesTab", "V2ProjectEPSubmitButton");
-		
-}
+
+	}
 
 	public void alternatives(String SheetName, int rowNum, String alternativeOption)
 			throws IOException, InterruptedException {
@@ -196,28 +199,20 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
 		testlog.pass("**Created Team member successfully**");
 	}
-	
+
 	public void editAndValidateOrganizationInformation(String SheetName, int rowNum) throws Exception {
 		CommonMethod.WaitUntilVisibility("EditTab", 60);
 		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectProjectNameInput");
 		if (CommonMethod.isElementsExist("V2ProjectProjectInformationButton", 10)) {
-//			CommonMethod.WaitUntilVisibility("V2ProjectProjectInformationButton", 60);
 			CommonMethod.RobustclickElementVisible("V2ProjectProjectInformationButton", "V2ProjectProjectScope");
-//			CommonMethod.WaitUntilVisibility("V2ProjectProjectNameInput", 60);
 			CommonMethod.clearAndSendKey("V2ProjectProjectNameInput",
 					data.getCellData(SheetName, "ProjectName", rowNum));
 		} else if (CommonMethod.isElementsExist("HSROrganizationInformationButton", 10)) {
-//			CommonMethod.WaitUntilVisibility("HSROrganizationInformationButton", 60);
 			CommonMethod.RobustclickElementVisible("HSROrganizationInformationButton", "V2ProjectProjectScope");
-//			CommonMethod.WaitUntilVisibility("V2ProjectProjectNameInput", 60);
 			CommonMethod.clearAndSendKey("V2ProjectProjectNameInput", data.getCellData(SheetName, "HsrName", rowNum));
 		}
-
-//		CommonMethod.WaitUntilVisibility("V2ProjectProjectScope", 60);
 		CommonMethod.sendKeys("V2ProjectProjectScope", data.getCellData(SheetName, "ProjectScope", rowNum));
-//		CommonMethod.WaitUntilVisibility("V2ProjectProjectGoals", 60);
 		CommonMethod.sendKeys("V2ProjectProjectGoals", data.getCellData(SheetName, "ProjectGoals", rowNum));
-//		CommonMethod.WaitUntilVisibility("V2ProjectSaveChangesButton", 60);
 		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "WPRHsrPortfolioDashboard");
 		testlog.info("**Project Information data updated successfully**");
 		/*
@@ -226,16 +221,13 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilVisibility("EditTab", 60);
 		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectProjectInformationButton");
 		if (CommonMethod.isElementsExist("V2ProjectProjectInformationButton", 10)) {
-//			CommonMethod.WaitUntilVisibility("V2ProjectProjectInformationButton", 60);
 			CommonMethod.RobustclickElementVisible("V2ProjectProjectInformationButton", "V2ProjectProjectScope");
 		} else if (CommonMethod.isElementsExist("HSROrganizationInformationButton", 10)) {
-//			CommonMethod.WaitUntilVisibility("HSROrganizationInformationButton", 60);
 			CommonMethod.RobustclickElementVisible("HSROrganizationInformationButton", "V2ProjectProjectScope");
 		}
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectProjectScope"),
 				data.getCellData(SheetName, "ProjectScope", rowNum), "Project scope data doesn't match");
 		testlog.info("**Project scope data updated successfully**");
-//		CommonMethod.WaitUntilVisibility("V2ProjectProjectGoals", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectProjectGoals"),
 				data.getCellData(SheetName, "ProjectGoals", rowNum), "Project goals data doesn't match");
 		testlog.pass("**Project goals data updated successfully**");
@@ -337,52 +329,84 @@ public class ReusableMethodCommon extends BaseClass {
 				"Updated Profile!", "Verified profile updated toast message");
 		testlog.pass("**Certification story data updated successfully**");
 	}
-	public void addLocation(String SheetName, int rowNum, String module) throws Exception {
-		CommonMethod.WaitUntilVisibility("ProfileTab", 60);
+
+	public void addLocation(String SheetName, int rowNum) throws Exception {
+		CommonMethod.WaitUntilVisibility("LocationTab", 60);
 		CommonMethod.RobustclickElementVisible("LocationTab", "AddButton");
+		CommonMethod.WaitUntilPresence("AddButton", 120);
 		CommonMethod.RobustclickElementVisible("AddButton", "AddLocationButton");
-		CommonMethod.RobustclickElementVisible("AddLocationButton", "CountryName");
-		if (module.equalsIgnoreCase("WPR") || module.equalsIgnoreCase("HSR")) {			
+		CommonMethod.click("AddLocationButton");
+		if (SheetName.equalsIgnoreCase("Wpr") || SheetName.equalsIgnoreCase("Hsr")) {
+			CommonMethod.WaitUntilVisibility("LocationName", 120);
 			CommonMethod.sendKeys("LocationName", data.getCellData(SheetName, "LocationName", rowNum));
 			CommonMethod.sendKeys("LocationArea", data.getCellData(SheetName, "Area", rowNum));
-			CommonMethod.selectdropdownrandom("SpaceType");
-			data.setCellData(SheetName, "SpaceTypes", rowNum, CommonMethod.getSelectedDropdownValue("SpaceType"));
+			CommonMethod.selectdropdownrandom("LocationSpaceType");
+			data.setCellData(SheetName, "SpaceTypes", rowNum,
+					CommonMethod.getSelectedDropdownValue("LocationSpaceType"));
 			testlog.info("Space type: " + data.getCellData(SheetName, "SpaceTypes", rowNum));
-			CommonMethod.selectdropdownrandom("OwnershipType");
-			data.setCellData(SheetName, "OwnerType", rowNum, CommonMethod.getSelectedDropdownValue("OwnershipType"));
+			CommonMethod.selectdropdownrandom("LocationOwnershipType");
+			data.setCellData(SheetName, "OwnerType", rowNum,
+					CommonMethod.getSelectedDropdownValue("LocationOwnershipType"));
 			testlog.info("Owner type: " + data.getCellData(SheetName, "OwnerType", rowNum));
-		} else {
-			CommonMethod.sendKeys("PortfolioProjectName", data.getCellData(SheetName, "ProjectName", rowNum));
-			CommonMethod.selectdropdownrandom("PortfolioProjectVersion");
-			data.setCellData(SheetName, "ProjectVersion", rowNum, CommonMethod.getSelectedDropdownValue("PortfolioProjectVersion"));
+		} else if (SheetName.equalsIgnoreCase("Portfolio")) {
+			CommonMethod.WaitUntilVisibility("PortfolioLocationProjectName", 120);
+			CommonMethod.sendKeys("PortfolioLocationProjectName", data.getCellData(SheetName, "ProjectName", rowNum));
+			CommonMethod.selectdropdownrandom("PortfolioLocationProjectVersion");
+			data.setCellData(SheetName, "ProjectVersion", rowNum,
+					CommonMethod.getSelectedDropdownValue("PortfolioLocationProjectVersion"));
 			testlog.info("Project Version: " + data.getCellData(SheetName, "ProjectVersion", rowNum));
-			CommonMethod.sendKeys("PortfolioProjectArea", data.getCellData(SheetName, "AreaSQFT", rowNum));
-			CommonMethod.selectdropdownrandom("PortfolioSpaceType");
-			data.setCellData(SheetName, "SpaceTypes", rowNum, CommonMethod.getSelectedDropdownValue("PortfolioSpaceType"));
+			CommonMethod.sendKeys("PortfolioLocationProjectArea", data.getCellData(SheetName, "AreaSQFT", rowNum));
+			CommonMethod.selectdropdownrandom("PortfolioLocationSpaceType");
+			data.setCellData(SheetName, "SpaceTypes", rowNum,
+					CommonMethod.getSelectedDropdownValue("PortfolioLocationSpaceType"));
 			testlog.info("Space type: " + data.getCellData(SheetName, "SpaceTypes", rowNum));
-			CommonMethod.selectdropdownrandom("PortfolioOwnerType");
-			data.setCellData(SheetName, "OwnerType", rowNum, CommonMethod.getSelectedDropdownValue("PortfolioOwnerType"));
+			CommonMethod.selectdropdownrandom("PortfolioLocationOwnerType");
+			data.setCellData(SheetName, "OwnerType", rowNum,
+					CommonMethod.getSelectedDropdownValue("PortfolioLocationOwnerType"));
 			testlog.info("Owner type: " + data.getCellData(SheetName, "OwnerType", rowNum));
 		}
-		CommonMethod.sendKeys("CountryName", data.getCellData(SheetName, "Country", rowNum));
-		CommonMethod.sendKeys("StreetName", data.getCellData(SheetName, "Street", rowNum));
-		CommonMethod.sendKeys("CityName", data.getCellData(SheetName, "City", rowNum));
-		CommonMethod.sendKeys("PostalCode", data.getCellData(SheetName, "PostalCode", rowNum));
-		CommonMethod.click("SubmitButton");
-
+		CommonMethod.selectdropdownValue("LocationCountryName", "US");
+		CommonMethod.selectdropdownrandom("LocationStateName");
+		CommonMethod.sendKeys("LocationStreetName", data.getCellData(SheetName, "Street", rowNum));
+		CommonMethod.sendKeys("LocationCityName", data.getCellData(SheetName, "City", rowNum));
+		CommonMethod.sendKeys("LocationPostalCode", data.getCellData(SheetName, "PostalCode", rowNum));
+		CommonMethod.RobustclickElementVisible("SubmitButton", "LocationResultCount");
+		CommonMethod.refreshBrowser();
 		/*
 		 * Validate location added successfully
 		 */
-		CommonMethod.WaitUntilVisibility("LocationColumn", 60);
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("LocationColumn"),
-				data.getCellData(SheetName, "LocationName", rowNum), "Well Reviewer value doesn't match");
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("CountryColumn"),
-				data.getCellData(SheetName, "Country", rowNum), "Well Reviewer value doesn't match");
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("CityColumn"),
-				data.getCellData(SheetName, "City", rowNum), "Well Reviewer value doesn't match");
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("StatusColumn"), "PENDING",
-				"Well Reviewer value doesn't match");
+		CommonMethod.WaitUntilPresence("AddButton", 300);
+		CommonMethod.scrolldowntoElement("AddButton");
+		CommonMethod.WaitUntilPresence("LocationResultCount", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("LocationResultCount"), "6",
+				"Result location count doesn't match");
+		softAssert.assertAll();
+		testlog.pass("**Added single location successfully**");
+	}
+
+	public void DownloadBillingReceiptAndValidate(String SheetName, int rowNum, String Country)
+			throws IOException, InterruptedException {
+		String Amount = data.getCellData(SheetName, "EnrollFee", rowNum);
+		String Address = null;
+		if (Country.equalsIgnoreCase("US")) {
+			Address = "New York, NY 10014";
+		} else {
+			Address = "IWBI China(HK) Limited";
+		}
+		String[] ProjDetails = { Address, Amount };
+		CommonMethod.WaitUntilVisibility("DownloadReceipt", 120);
+		CommonMethod.click("DownloadReceipt");
+		Thread.sleep(2000);
+		if (CommonMethod.isFileExists(downloadPath)) {
+			File path = new File(downloadPath);
+			File[] files = path.listFiles();
+			for (File file : files) {
+				String ReceiptContent = CommonMethod.extractPDFContent(file.toString());
+				for (String s : ProjDetails) {
+					CommonMethod.assertActualContainsExpected(ReceiptContent, s);
+				}
+			}
+		}
+		testlog.pass("**Verifies Download Billing Receipt And Validate successfully**");
 	}
 }
-
-

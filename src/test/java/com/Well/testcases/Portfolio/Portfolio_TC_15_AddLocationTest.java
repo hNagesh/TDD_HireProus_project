@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Portfolio_TC_15_AddLocationTest extends BaseClass {
 
-	@Test//(dependsOnMethods = {"com.Well.testcases.Portfolio.Portfolio_TC_13_TeamTest.Portfolio_TC_13_Team"})
+	@Test//(dependsOnMethods = {"com.Well.testcases.Portfolio.Portfolio_TC_14_EditTest.Portfolio_TC_14_Edit"})
 	@Parameters({ "SheetName", "rowNum" })
 	public void Portfolio_TC_15_AddLocation(String SheetName, int rowNum) throws IOException {
 
@@ -18,7 +18,7 @@ public class Portfolio_TC_15_AddLocationTest extends BaseClass {
 		StartTest(TestCaseName,"Verify account and admin field value");
 
 		try {
-			rc.addLocation(SheetName, rowNum, "Portfolio");
+			rc.addLocation(SheetName, rowNum);
 			
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

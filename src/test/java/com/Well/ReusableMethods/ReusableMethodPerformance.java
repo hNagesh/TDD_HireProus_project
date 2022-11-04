@@ -83,6 +83,11 @@ public class ReusableMethodPerformance extends BaseClass {
 	}
 
 	public void StoreIdPerformance(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilPresence("HsrIframe", 180);
+		CommonMethod.switchToFrame("HsrIframe");
+		CommonMethod.WaitUntilPresence("HsrCloseCard", 60);
+		CommonMethod.Robustclick("HsrCloseCard");
+		CommonMethod.switchToParentFrame();	
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 300);
 		CommonMethod.WaitUntilVisibility("StoreId", 30);
 		String getId = CommonMethod.getText("StoreId");
