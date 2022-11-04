@@ -40,6 +40,8 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.HasDevTools;
+import org.openqa.selenium.devtools.v102.network.Network;
 import org.openqa.selenium.interactions.*;
 import org.openqa.selenium.support.locators.RelativeLocator;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -2268,4 +2270,11 @@ public class CommonMethod extends BaseClass {
 		softAssert.assertEquals(ele.size(), Count,"Count Validation failed");
 		
 	}
+	
+	/*
+	 * public static void clearDriverCache() { ((HasDevTools)
+	 * driver).getDevTools().createSessionIfThereIsNotOne(); ((HasDevTools)
+	 * driver).getDevTools().send(Network.clearBrowserCookies()); // you could also
+	 * use ((HasDevTools) driver).getDevTools().send(Network.clearBrowserCache()); }
+	 */
 }

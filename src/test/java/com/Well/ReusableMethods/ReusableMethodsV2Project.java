@@ -48,12 +48,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 		if (ProjectType.equalsIgnoreCase("WELLCore")) {
 			CommonMethod.WaitUntilVisibility("V2Projectwellcorecertification", 30);
 			CommonMethod.click("V2Projectwellcorecertification");
-			
+
 			CommonMethod.WaitUntilPresence("HsrIframe", 180);
 			CommonMethod.switchToFrame("HsrIframe");
 			CommonMethod.WaitUntilPresence("HsrCloseCard", 60);
 			CommonMethod.Robustclick("HsrCloseCard");
-			CommonMethod.switchToParentFrame();	
+			CommonMethod.switchToParentFrame();
+			
 			
 		} else if (ProjectType.equalsIgnoreCase("WELLCertification")) {
 			CommonMethod.WaitUntilVisibility("V2ProjectwellCertification", 30);
@@ -61,6 +62,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.WaitUntilVisibility("V2ProjectownershipOflocation", 30);
 			CommonMethod.ClickCheckbox("V2ProjectownershipOflocation");
 			CommonMethod.click("V2ProjectownershipContinuebtn");
+			
 		}
 	
 		CommonMethod.WaitUntilVisibility("DatePickerButton", 300);

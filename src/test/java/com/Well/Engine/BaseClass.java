@@ -19,6 +19,9 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.HasDevTools;
+import org.openqa.selenium.devtools.v101.network.Network;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestResult;
@@ -134,8 +137,11 @@ public class BaseClass {
 			driver = new ChromeDriver(options);
 	        JSWaiter.setDriver(driver);
 		}
-		
+		//DevTools chromeDevTools = ((HasDevTools) driver).getDevTools();
+	    //chromeDevTools.createSession();
 		//driver.manage().window().maximize();
+		//((HasDevTools) driver).getDevTools().send(Network.clearBrowserCookies());
+		//((HasDevTools) driver).getDevTools().send(Network.clearBrowserCache());
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(120));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(120));
 		driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(120));
