@@ -377,6 +377,7 @@ public class ReusableMethodCommon extends BaseClass {
 		 */
 		CommonMethod.WaitUntilPresence("AddButton", 300);
 		CommonMethod.scrolldowntoElement("AddButton");
+		CommonMethod.WaitUntilPresence("LocationResultCount", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("LocationResultCount"), "6",
 				"Result location count doesn't match");
 		softAssert.assertAll();
