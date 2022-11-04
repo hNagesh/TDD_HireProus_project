@@ -124,6 +124,7 @@ public class BaseClass {
 			prefs.put("download.default_directory",  downloadPath);
 			prefs.put("profile.default_content_settings.popups", 0);
 			prefs.put("safebrowsing.enabled", "false");
+			options.addArguments("--incognito");
 			options.setExperimentalOption("prefs", prefs);
 			options.addArguments("disable-infobars");	           
 			 options.addArguments("--disable-notifications");

@@ -49,11 +49,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.WaitUntilVisibility("V2Projectwellcorecertification", 30);
 			CommonMethod.click("V2Projectwellcorecertification");
 
-			CommonMethod.WaitUntilPresence("HsrIframe", 180);
-			CommonMethod.switchToFrame("HsrIframe");
-			CommonMethod.WaitUntilPresence("HsrCloseCard", 60);
-			CommonMethod.Robustclick("HsrCloseCard");
-			CommonMethod.switchToParentFrame();
 			
 			
 		} else if (ProjectType.equalsIgnoreCase("WELLCertification")) {
@@ -64,6 +59,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.click("V2ProjectownershipContinuebtn");
 			
 		}
+		
+		CommonMethod.WaitUntilPresence("HsrIframe", 180);
+		CommonMethod.switchToFrame("HsrIframe");
+		CommonMethod.WaitUntilPresence("HsrCloseCard", 60);
+		CommonMethod.Robustclick("HsrCloseCard");
+		CommonMethod.switchToParentFrame();
+		
 	
 		CommonMethod.WaitUntilVisibility("DatePickerButton", 300);
 		CommonMethod.RobustclickElementVisible("DatePickerButton", "V2ProjectDatePopupWeekday");
