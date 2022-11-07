@@ -10,7 +10,7 @@ import com.Well.Engine.BaseClass;
 public class Faculty_TC_10_FacultyReportingTest extends BaseClass {
 
 	@SuppressWarnings("static-access")
-	@Test
+	@Test(dependsOnMethods = { "com.Well.testcases.Faculty.Faculty_TC_09_FacultyKeepLearningTest.Faculty_TC_09_FacultyKeepLearning" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Faculty_TC_10_FacultyReporting(String SheetName,int rowNum) throws IOException {
 
