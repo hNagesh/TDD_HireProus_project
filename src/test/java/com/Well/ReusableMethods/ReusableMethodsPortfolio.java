@@ -299,7 +299,8 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 
 	public void ValidatingAuditUploadDocument() throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadbutton", 60);
+		CommonMethod.refreshBrowser();
+		CommonMethod.WaitUntilPresence("PortfolioDocumentUploadbutton", 120);
 		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadbutton", "V2ProjectPortfolioDocType");
 		CommonMethod.selectdropdownValue("V2ProjectPortfolioDocType", "audit");
 		CommonMethod.selectdropdownValue("PortfolioSelectverificationMethod", "2");
@@ -318,8 +319,8 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 	
 	public void ValidatingFeatureUploadDocument() throws IOException, InterruptedException {
-		
-		CommonMethod.WaitUntilPresence("PortfolioDocumentUploadbutton", 60);
+		CommonMethod.refreshBrowser();
+		CommonMethod.WaitUntilPresence("PortfolioDocumentUploadbutton", 120);
 		CommonMethod.scrolldowntoElement("PortfolioDocumentUploadbutton");
 		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadbutton", "V2ProjectPortfolioDocType");
 		CommonMethod.selectdropdownValue("V2ProjectPortfolioDocType", "feature");
