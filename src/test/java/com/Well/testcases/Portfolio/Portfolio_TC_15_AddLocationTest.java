@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Portfolio_TC_15_AddLocationTest extends BaseClass {
 
-	@Test//(dependsOnMethods = {"com.Well.testcases.Portfolio.Portfolio_TC_14_EditTest.Portfolio_TC_14_Edit"})
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_07_PortfolioScorecardTest.Portfolio_TC_07_02_UploadFileInAudit" })
 	@Parameters({ "SheetName", "rowNum" })
 	public void Portfolio_TC_15_AddLocation(String SheetName, int rowNum) throws IOException {
 
