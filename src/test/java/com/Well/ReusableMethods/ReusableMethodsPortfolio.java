@@ -271,6 +271,10 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 
 	public void clickDocument() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilPresence("WellV2DashboardTab", 120);
+		CommonMethod.RobustclickElementVisible("WellV2DashboardTab", "WellV2Tab");
+		CommonMethod.WaitUntilPresence("WellV2Tab", 120);
+		CommonMethod.RobustclickElementVisible("WellV2Tab", "DocumentLibraryTab");
 		CommonMethod.WaitUntilVisibility("DocumentLibraryTab", 60);
 		CommonMethod.RobustclickElementVisible("DocumentLibraryTab", "PortfolioDocumentUploadbutton");
 		testlog.pass("**Navigate Document successfully**");
