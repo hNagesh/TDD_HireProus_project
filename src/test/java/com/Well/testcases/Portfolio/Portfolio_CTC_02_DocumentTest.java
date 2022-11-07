@@ -14,14 +14,16 @@ public class Portfolio_CTC_02_DocumentTest extends BaseClass {
 	public void Portfolio_CTC_02_Document() throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName,"Meet Thresholds for Particulate Matter custom scenarios");
+		StartTest(TestCaseName,"Attach Document and verify");
 		try {
 			portfolio.clickDocument();
-			pf.A01_1_FeatureDocumentUploadInDocumentLibrary();
-			pf.L09_AuditDocumentUploadInDocumentLibrary();
-			pf.UpdateAuditDocumentUploadInDocumentLibrary();
-			pf.FilterInDocumentLibrary();
-			pf.DeleteInDocumentLibrary();
+		//	pf.A01_1_FeatureDocumentUploadInDocumentLibrary();
+			pf.A01_2_DocumentUploadInDocumentLibrary();
+		//	pf.L09_AuditDocumentUploadInDocumentLibrary();
+		
+		//	pf.UpdateAuditDocumentUploadInDocumentLibrary();
+		//	pf.FilterInDocumentLibrary();
+		//	pf.DeleteInDocumentLibrary();
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
