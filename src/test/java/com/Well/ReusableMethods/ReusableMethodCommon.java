@@ -331,7 +331,7 @@ public class ReusableMethodCommon extends BaseClass {
 	}
 
 	public void addLocation(String SheetName, int rowNum) throws Exception {
-		CommonMethod.WaitUntilVisibility("LocationTab", 60);
+		CommonMethod.WaitUntilPresence("LocationTab", 120);
 		CommonMethod.RobustclickElementVisible("LocationTab", "AddButton");
 		CommonMethod.WaitUntilPresence("AddButton", 120);
 		CommonMethod.RobustclickElementVisible("AddButton", "AddLocationButton");
