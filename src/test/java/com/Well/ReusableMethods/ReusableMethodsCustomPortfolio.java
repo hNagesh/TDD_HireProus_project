@@ -105,7 +105,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				testlog.info("**Verifies RemoveButton Count successful**");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 30);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
-				CommonMethod.WaitUntilVisibility("PortfolioScorecardOptionCount", 60);
+				CommonMethod.WaitUntilPresence("WPRAssignLocbtn", 60);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardOptionCount", 2);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardTaskCount", 2);
 				testlog.info("**Verifies Task Count successful**");
