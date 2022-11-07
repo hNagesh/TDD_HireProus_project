@@ -70,6 +70,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.uploadFile("WFClientUpload", SamplePdffile);
 		Thread.sleep(1000);
 		CommonMethod.uploadFile("WFClientUpload", SamplePdffile1);
+		
 		CommonMethod.uploadFile("WFSurveyUpload", SamplePdffile);
 		Thread.sleep(2000);
 		CommonMethod.sendKeys("WFExp", sampleText);
