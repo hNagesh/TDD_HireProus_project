@@ -281,11 +281,50 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 
 	public void ValidatingLegalUploadDocument() throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadbutton", 30);
+		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadbutton", 60);
 		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadbutton", "V2ProjectPortfolioDocType");
 		CommonMethod.selectdropdownValue("V2ProjectPortfolioDocType", "legal");
 		CommonMethod.selectdropdownVisibletext("PortfolioSelectdocumenttype", "Signed certification agreement");
-		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", LegalfileUpload);
+		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", LegalfileUpload, "UploadFileVerifyScorecard");
+		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadSubmitbutton", 60);
+		CommonMethod.Robustclick("PortfolioDocumentUploadSubmitbutton");
+		CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioScorecardDocumentUploadTable");
+		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
+		CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
+		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
+		CommonMethod.softAssertContainsMessage(val.get(6), "Legal", "Document table data mismatch");
+		softAssert.assertAll();
+		testlog.pass("**Upload Legal Document successfully**");
+	}
+
+	public void ValidatingAuditUploadDocument() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadbutton", 60);
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadbutton", "V2ProjectPortfolioDocType");
+		CommonMethod.selectdropdownValue("V2ProjectPortfolioDocType", "audit");
+		CommonMethod.selectdropdownValue("PortfolioSelectverificationMethod", "2");
+		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", AuditfileUpload, "UploadFileVerifyScorecard");
+		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadSubmitbutton", 60);
+		CommonMethod.Robustclick("PortfolioDocumentUploadSubmitbutton");
+		CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioScorecardDocumentUploadTable");
+		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
+		CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
+		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
+		CommonMethod.softAssertContainsMessage(val.get(6), "Audit", "Document table data mismatch");
+		softAssert.assertAll();
+		testlog.pass("**Upload Audit Document successfully**");
+	
+	}
+	
+	public void ValidatingFeatureUploadDocument() throws IOException, InterruptedException {
+		
+		CommonMethod.WaitUntilPresence("PortfolioDocumentUploadbutton", 60);
+		CommonMethod.scrolldowntoElement("PortfolioDocumentUploadbutton");
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadbutton", "V2ProjectPortfolioDocType");
+		CommonMethod.selectdropdownValue("V2ProjectPortfolioDocType", "feature");
+		CommonMethod.selectdropdownValue("PortfolioSelectverificationMethod", "19");
+		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload,"UploadFileVerifyScorecard");
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadSubmitbutton", 60);
 		CommonMethod.Robustclick("PortfolioDocumentUploadSubmitbutton");
 		CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
@@ -294,10 +333,11 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
 		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
 		testlog.info("Fetching Data from Upload Table");
-		CommonMethod.softAssertContainsMessage(val.get(3), "LegalFile", "Document table data mismatch");
-		testlog.pass("**Upload Document successfully**");
+		CommonMethod.softAssertContainsMessage(val.get(6), "Feature", "Document table data mismatch");
+		softAssert.assertAll();
+		testlog.pass("**Upload Feature Document successfully**");
+		
 	}
-
 	public void ReviewDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ReviewTab", 60);
 		CommonMethod.RobustclickElementVisible("ReviewTab", "Reviewlanding");
