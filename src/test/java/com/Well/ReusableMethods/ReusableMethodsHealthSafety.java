@@ -102,7 +102,8 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		testlog.info("HealthSafety ID:" + data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.sendKeys("HsrIdSearch", data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("HsrapplySearch");
-		Thread.sleep(3000);
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","HealthSafety Search failed");
 		CommonMethod.assertcontainsmessage("HSRIdClick", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
 		CommonMethod.click("HSRIdClick");

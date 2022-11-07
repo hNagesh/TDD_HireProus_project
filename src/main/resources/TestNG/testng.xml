@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name="PerformanceRating module">
+
+<parameter name="browserName" value="chrome"/>
+<parameter name="environment" value="Test"/>
+
+ <test name="WELL-WPR" >
+<parameter name="SheetName" value="Wpr"/>
+<parameter name="rowNum" value="2"/>
+<parameter name="Country" value="US"/>
+<classes>
+<class name="com.Well.testcases.login.TC_01_LoginTest"></class>
+ <class name="com.Well.testcases.Performance.Performance_TC_04_SearchPerformanceByIdTest"></class>
+ 
+</classes>
+</test>
+
+</suite>  

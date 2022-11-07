@@ -96,9 +96,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		testlog.info("ProjectId:" + data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.sendKeys("V2ProjectId", data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("V2ProjectApplybtn");
-		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 30).size();
-		CommonMethod.assertEqualsmessage(String.valueOf(var),"1","V2 Search failed");
-		Thread.sleep(2000);
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","V2 Search failed");
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
 		CommonMethod.click("V2ProjectIdCompare");

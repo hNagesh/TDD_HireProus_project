@@ -79,7 +79,8 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilClickble("PortfolioSearchByID", 60)
 				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.click("PortfolioSearchApplyFilter");
-		Thread.sleep(2000);
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Portfolio Search failed");
 		CommonMethod.assertcontainsmessage("PortfolioIDVerify", data.getCellData(SheetName, "ProjectID", rowNum),
 				"Portfolio ID doesn't matched with exceles in search");
 		CommonMethod.RobustclickElementVisible("PortfolioIDVerify", "WPRHsrPortfolioDashboard");

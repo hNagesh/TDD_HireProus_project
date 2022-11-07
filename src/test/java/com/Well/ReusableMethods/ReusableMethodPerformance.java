@@ -108,7 +108,8 @@ public class ReusableMethodPerformance extends BaseClass {
 		testlog.info("Performance ID: " + wprId);
 		CommonMethod.WaitUntilClickble("WPRId", 60).sendKeys(wprId);
 		CommonMethod.click("WPRApplybtn");
-		Thread.sleep(3000);
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Portfolio Search failed");
 		CommonMethod.assertcontainsmessage("WPRIdClick", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
 		CommonMethod.click("WPRIdClick");
