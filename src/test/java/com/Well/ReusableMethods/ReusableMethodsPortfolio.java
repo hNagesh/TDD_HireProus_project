@@ -288,9 +288,13 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", LegalfileUpload);
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadSubmitbutton", 60);
 		CommonMethod.Robustclick("PortfolioDocumentUploadSubmitbutton");
-		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioDocumentList");
-		CommonMethod.WaitUntilVisibility("PortfolioDocumentList", 60);
-//		CommonMethod.assertcontainsmessage("PortfolioDocumentList", "3", "Verified Upload File Count");
+		CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioScorecardDocumentUploadTable");
+		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
+		CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
+		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
+		testlog.info("Fetching Data from Upload Table");
+		CommonMethod.softAssertContainsMessage(val.get(3), "LegalFile", "Document table data mismatch");
 		testlog.pass("**Upload Document successfully**");
 	}
 
