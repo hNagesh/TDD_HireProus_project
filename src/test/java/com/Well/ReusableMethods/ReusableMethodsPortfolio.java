@@ -233,43 +233,6 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		testlog.pass("**Upload Scorecard Documents in Audit successfully**");
 	}
 
-	public void UpdateUploadFileinAddedFeature(String FeatureName) throws IOException, InterruptedException {
-		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
-		testlog.info("Fetching total no. of credits on page");
-		for (WebElement ele : Feature) {
-			String Creditname = ele.getText();
-			Creditname = Creditname.replaceAll("\\.", "");
-			if (Creditname.equalsIgnoreCase(FeatureName)) {
-				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
-				CommonMethod.click(ele);
-				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
-				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
-			}
-		}
-		CommonMethod.scrollDown();
-		CommonMethod.WaitUntilVisibility("PortfolioDocListEditIcon", 60);
-		CommonMethod.click("PortfolioDocListEditIcon");
-		CommonMethod.scrollDown();
-		CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadAddfeature", 30);
-		CommonMethod.click("PortfolioScoreCardVerificationUploadAddfeature");
-		Thread.sleep(20000);
-//			CommonMethod.selectdropdownIndex("PortfolioScoreCardVerificationSelectFeature", 1);
-//			CommonMethod.selectdropdownIndex("PortfolioScoreCardVerificationSelectSpaceType", 1);
-//			CommonMethod.selectdropdownIndex("PortfolioScoreCardVerificationSelectOption", 1);
-//			CommonMethod.click("PortfolioScoreCardVerificationAddPart");
-//			CommonMethod.WaitUntilVisibility("PortfolioScorecardEditLoc", 60);
-//			CommonMethod.click("PortfolioScorecardEditLoc");
-//			CommonMethod.click("PortfolioScoreCardVerificationAssignChildLocCbx");
-//			CommonMethod.click("PortfolioScorecardUncheckLoc");
-//			CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationAssignLocSavebtn", 30);
-//			CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocSavebtn","PortfolioScoreCardVerificationAssignLocCancelbtn");
-//				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
-//				CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn","PortfolioScoreCardVerificationAddNote");
-//				if(CommonMethod.isElementsExist("PortfolioScorecardDocumentAddedPopup", 3)) {
-//				CommonMethod.WaitUntilInVisibility("PortfolioScorecardDocumentAddedPopup", 30);
-		// }
-	}
-
 	public void clickDocument() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilPresence("WellV2DashboardTab", 120);
 		CommonMethod.RobustclickElementVisible("WellV2DashboardTab", "WellV2Tab");

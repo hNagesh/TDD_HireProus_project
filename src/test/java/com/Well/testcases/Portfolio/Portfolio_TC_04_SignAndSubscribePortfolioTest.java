@@ -25,7 +25,7 @@ public class Portfolio_TC_04_SignAndSubscribePortfolioTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_03_SearchPortfolioByNameTest.Portfolio_TC_03_SearchPortfolioByName" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_04_SignAndSubscribePortfolioTest.Portfolio_TC_04_00_SignAgreementPortfolio" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Portfolio_TC_04_01_SubscribePortfolio(String SheetName,int rowNum) throws IOException {
 
