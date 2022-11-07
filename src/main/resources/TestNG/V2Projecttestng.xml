@@ -14,10 +14,10 @@
 <parameter name="Discount" value="SectorDiscount"/>
 <classes>
  <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
- <class name="com.Well.testcases.Faculty.Faculty_TC_05_BulkDeleteInitialTest"></class>
-<class name="com.Well.testcases.V2Project.V2_TC_02_RegisterV2ProjectTest"></class>
-<!-- <class name="com.Well.testcases.V2Project.V2_TC_03_SearchV2ProjectByIdTest"></class>
-<class name="com.Well.testcases.V2Project.V2_TC_04_EnrollV2ProjectTest"></class>
+ <!-- <class name="com.Well.testcases.Faculty.Faculty_TC_05_BulkDeleteInitialTest"></class>
+<class name="com.Well.testcases.V2Project.V2_TC_02_RegisterV2ProjectTest"></class> -->
+<class name="com.Well.testcases.V2Project.V2_TC_03_SearchV2ProjectByIdTest"></class>
+<!-- <class name="com.Well.testcases.V2Project.V2_TC_04_EnrollV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_21_PricingV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_05_BillingV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_06_AgreementV2ProjectTest"></class> 
@@ -38,7 +38,7 @@
  --></classes>
 </test>
 
- <test name="WELL-V2-CertificationProject" >
+ <!-- <test name="WELL-V2-CertificationProject" >
 <parameter name="SheetName" value="V2Project"/>
 <parameter name="rowNum" value="3"/>
 <parameter name="ProjectType" value="WELLCertification"/>
@@ -47,7 +47,7 @@
 <classes>
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_02_RegisterV2ProjectTest"></class>
- <!-- <class name="com.Well.testcases.V2Project.V2_TC_03_SearchV2ProjectByIdTest"></class>
+ <class name="com.Well.testcases.V2Project.V2_TC_03_SearchV2ProjectByIdTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_04_EnrollV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_21_PricingV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_05_BillingV2ProjectTest"></class>
@@ -55,7 +55,7 @@
 <class name="com.Well.testcases.V2Project.V2_TC_07_ScorecardV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_08_DocumentV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_09_ReviewV2ProjectTest"></class>
- -->
+
 </classes>
-</test> 
+</test>  -->
 </suite>  

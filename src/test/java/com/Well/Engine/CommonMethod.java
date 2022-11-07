@@ -1956,8 +1956,60 @@ public class CommonMethod extends BaseClass {
 		// By css = findElement(objectlocator);
 
 	}
-	
-	
+public static  List<WebElement> WaitUntilNumberOfElementToBePresent(String objectlocator,int Number, int TimeinSeconds) throws IOException {
+		
+		JSWaiter.waitAllRequest();
+		waitForPageLoaded();
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(TimeinSeconds));
+		Properties OR = new Properties();
+		FileInputStream fp = new FileInputStream(
+				System.getProperty("user.dir") + "/src/main/resources/ObjectLocator.properties");
+		OR.load(fp);
+
+		String objecttypeandvalues = OR.getProperty(objectlocator);
+
+		System.out.println(objecttypeandvalues);
+		String[] splits = objecttypeandvalues.split("~");
+		String objecttype = splits[0];
+		System.out.println("obj type: " + objecttype);
+		String objectvalue = splits[1];
+		System.out.println("obj val: " + objectvalue);
+		switch (objecttype) {
+
+		case "id":
+
+			return (wait.until(ExpectedConditions.numberOfElementsToBe(By.id(objectvalue),Number)));
+
+		case "xpath":
+
+			return (wait.until(ExpectedConditions.numberOfElementsToBe(By.xpath(objectvalue),Number)));
+
+		case "name":
+
+			return (wait.until(ExpectedConditions.numberOfElementsToBe(By.name(objectvalue),Number)));
+
+		case "class":
+
+			return (wait.until(ExpectedConditions.numberOfElementsToBe(By.className(objectvalue),Number)));
+
+		case "tagname":
+
+			return (wait.until(ExpectedConditions.numberOfElementsToBe(By.tagName(objectvalue),Number)));
+
+		case "css":
+
+			return (wait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector(objectvalue),Number)));
+
+		case "linkText":
+
+			return (wait.until(ExpectedConditions.numberOfElementsToBe(By.linkText(objectvalue),Number)));
+		default:
+
+			return null;
+		}
+		// By css = findElement(objectlocator);
+
+	}
 	
 	public static WebElement WaitUntilClickble(WebElement objectlocator, int TimeinSeconds) throws IOException {
 		JSWaiter.waitAllRequest();
