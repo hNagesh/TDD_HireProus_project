@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Portfolio_CTC_01_FeatureTest extends BaseClass {
 
-	@Test(dependsOnMethods = {"com.Well.testcases.Portfolio.Portfolio_TC_06_PortfolioLocationImportTest.Portfolio_TC_06_PortfolioLocationImport" })
+	@Test//(dependsOnMethods = {"com.Well.testcases.Portfolio.Portfolio_TC_06_PortfolioLocationImportTest.Portfolio_TC_06_PortfolioLocationImport" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Portfolio_CTC_01_Feature() throws IOException {
 
@@ -17,18 +17,18 @@ public class Portfolio_CTC_01_FeatureTest extends BaseClass {
 		StartTest(TestCaseName,"Meet Thresholds for Particulate Matter custom scenarios");
 		try {
              portfolio.PortfolioBuildScorecard();
-             /*
+          
+            /*
               * Air A01.1
-              */
-			// pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
-             /*
+               pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
               * Air A01.3
-              */
-			// pf.MeetThresholdsforInOrganicGases("Meet Thresholds for Inorganic Gases");
+               pf.MeetThresholdsforInOrganicGases("Meet Thresholds for Inorganic Gases");
+			 */
+             
              /*
               * Air A01.2 
               */
-            pf.MeetThresholdsforOrganicGases("Meet Thresholds for Organic Gases");
+              pf.MeetThresholdsforOrganicGases("Meet Thresholds for Organic Gases");
              /*
               * Air A04.1
               */
@@ -40,11 +40,11 @@ public class Portfolio_CTC_01_FeatureTest extends BaseClass {
              /*
               * Air A07.2
               */
-			 pf.ManageWindowUse("Manage Window Use");
+			pf.ManageWindowUse("Manage Window Use");
              /*
               * Air A08.1
               */
-			 pf.InstallIndoorAirMonitors("Install Indoor Air Monitors");
+			pf.InstallIndoorAirMonitors("Install Indoor Air Monitors");
              /*
               * Light L06.1
               */
@@ -52,11 +52,11 @@ public class Portfolio_CTC_01_FeatureTest extends BaseClass {
              /*
               * Light L09.1
               */
-			 pf.EnhanceOccupantControllability("Enhance Occupant Controllability");
+			  pf.EnhanceOccupantControllability("Enhance Occupant Controllability");
              /*
               * V09.1
               */
-			 pf.OfferPhysicalActivityIncentives("Offer Physical Activity Incentives");
+			pf.OfferPhysicalActivityIncentives("Offer Physical Activity Incentives");
              
              /*
               * X06.2

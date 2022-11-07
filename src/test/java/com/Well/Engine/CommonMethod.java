@@ -750,7 +750,7 @@ public class CommonMethod extends BaseClass {
 	}
 	
 	public static void softAssertContainsMessage(String Actual, String expected, String message) {
-
+ 
 		softAssert.assertTrue(Actual.contains(expected), message);
 	}
 
