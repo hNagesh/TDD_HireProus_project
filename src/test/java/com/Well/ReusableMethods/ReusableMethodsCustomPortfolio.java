@@ -110,6 +110,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardTaskCount", 2);
 				testlog.info("**Verifies Task Count successful**");
 				testlog.info("**Verifies Option Count successful**");
+				
 				/*
 				 * Assign 3 Location
 				 */
@@ -369,16 +370,18 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.Robustclick("PortfolioScoreCardAddButton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
+				CommonMethod.WaitUntilPresence("WPRAssignLocbtn", 60);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardMangeOptionCount", 1);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardMigrationOptionCount", 1);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardTaskCount", 3);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardTaskUploadDisableCount", 3);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardVerificationAssignbtn", 1);
+				softAssert.assertAll();
 				String VerifyAndText = CommonMethod.getText("PortfolioScorecardVerifyAndOption");
 				testlog.info("And Condition: " + VerifyAndText);
 				CommonMethod.assertActualContainsExpected(VerifyAndText, "AND");
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardManageWeightHightlighting", 1);
-				softAssert.assertAll();
+				//softAssert.assertAll();
 				testlog.info("**Verifies Option Count successful**");
 				testlog.info("**Verifies Task count successful**");
 				testlog.info("**Verifies Assign button count successful**");
@@ -417,8 +420,10 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.Robustclick("PortfolioScoreCardAddButton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
+				CommonMethod.WaitUntilPresence("WPRAssignLocbtn", 60);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardCorePointCheckbox", 3);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardVerificationAssignbtn", 2);
+				softAssert.assertAll();
 				testlog.info("**Verifies CorePoint Checkbox Count successful**");
 				testlog.info("**Verifies Assign button Count successful**");
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardCorePointCheckbox", 60);
@@ -429,7 +434,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.WaitUntilPresence("PortfolioScorecardWeightHighlightA08", 30);
 				CommonMethod.scrolldowntoElement("PortfolioScorecardWeightHighlightA08");
 				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlightA08"),"1", "Weight Point for doesn't match");
-				softAssert.assertAll();
+				//softAssert.assertAll();
 				testlog.info("**Verifies Weight Point Count successful**");
 				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
 				CommonMethod.click(ele);
@@ -628,6 +633,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.Robustclick("PortfolioScoreCardAddButton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
+				CommonMethod.WaitUntilPresence("WPRAssignLocbtn", 60);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardVerifyAuditInOptionTask", 2);
 				List<WebElement> AssignButton;
 				AssignButton = CommonMethod.findElements("PortfolioScoreCardVerificationAssignbtn");
@@ -702,6 +708,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.RobustclickElementVisible("PortfolioDocListDeleteIcon", "PortfolioDocListDeleteNoButton");
 				CommonMethod.WaitUntilVisibility("PortfolioDocListDeleteNoButton", 60);
 				CommonMethod.RobustclickElementVisible("PortfolioDocListDeleteNoButton","PortfolioDocListTaskUploadList");
+				CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioDocListTaskUploadList", 1);
 				softAssert.assertAll();
 				CommonMethod.WaitUntilPresence("PortfolioDocListDeleteIcon", 120);
