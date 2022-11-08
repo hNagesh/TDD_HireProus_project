@@ -376,12 +376,11 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardTaskCount", 3);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardTaskUploadDisableCount", 3);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardVerificationAssignbtn", 1);
-				softAssert.assertAll();
 				String VerifyAndText = CommonMethod.getText("PortfolioScorecardVerifyAndOption");
 				testlog.info("And Condition: " + VerifyAndText);
 				CommonMethod.assertActualContainsExpected(VerifyAndText, "AND");
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardManageWeightHightlighting", 1);
-				//softAssert.assertAll();
+				softAssert.assertAll();
 				testlog.info("**Verifies Option Count successful**");
 				testlog.info("**Verifies Task count successful**");
 				testlog.info("**Verifies Assign button count successful**");
