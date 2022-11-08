@@ -15,7 +15,7 @@ public class Portfolio_TC_15_AddLocationTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName,"Verify account and admin field value");
+		StartTest(TestCaseName,"Verify Adding Portfolio Single Location Successfully");
 
 		try {
 			rc.addLocation(SheetName, rowNum);
