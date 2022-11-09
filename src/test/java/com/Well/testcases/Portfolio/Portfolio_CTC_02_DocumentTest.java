@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Portfolio_CTC_02_DocumentTest extends BaseClass {
 
-	@Test//(dependsOnMethods = {"com.Well.testcases.Portfolio.Portfolio_CTC_01_FeatureTest.Portfolio_CTC_01_Feature" })
+	@Test(dependsOnMethods = {"com.Well.testcases.Portfolio.Portfolio_CTC_01_FeatureTest.Portfolio_CTC_01_Feature" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Portfolio_CTC_02_Document() throws IOException {
 
