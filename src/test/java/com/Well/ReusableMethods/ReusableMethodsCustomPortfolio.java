@@ -837,14 +837,14 @@ public void L09_AuditDocumentUploadInDocumentLibrary() throws IOException, Inter
 	CommonMethod.RobustclickElementVisible("PortfolioDocListUploadTaskL09Technical","PortfolioScoreVerifyUploadVerificationMethod");
 	CommonMethod.WaitUntilVisibility("PortfolioScoreVerifyUploadVerificationMethod", 60);
 	String VerificationMethod = CommonMethod.getText("PortfolioScoreVerifyUploadVerificationMethod");
-	CommonMethod.softAssertContainsMessage(VerificationMethod, "Professional Narrative",
+	CommonMethod.softAssertContainsMessage(VerificationMethod, "Technical Document (Audited)",
 			"Verification Method doesn't match");
 	testlog.info("VerificationMethod: " + VerificationMethod);
 	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardUploadFeatureName"),"Enhance Occupant Controllability", "Feature name doesn't match");
 	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardVerifyUpdateLocation"),"2 Locations assigned", "Selected Location Count doesn't match");
 	CommonMethod.WaitUntilVisibility("PortfolioTaskListEditLocation", 30);
 	CommonMethod.RobustclickElementVisible("PortfolioTaskListEditLocation", "PortfolioScorecardUncheckLoc");
-	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioTaskListVerifySelectedLoctionCount"),"2 locations selected", "Selected Location Count doesn't match");
+	CommonMethod.WaitUntilPresence("PortfolioTaskListVerifySelectedLoctionCount", 60);
 	CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload,"UploadFileVerifyScorecard");
 	CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
 	CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn", "PortfolioScoreCardVerificationAddNote");
@@ -856,8 +856,9 @@ public void L09_AuditDocumentUploadInDocumentLibrary() throws IOException, Inter
 	CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioScorecardDocumentUploadTable");
 	List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
 	testlog.info("Fetching Data from Upload Table");
-	CommonMethod.softAssertContainsMessage(val.get(2), "2 Assigned", "Document table data mismatch");
-	CommonMethod.softAssertContainsMessage(val.get(3), "L09.1", "Document table data mismatch");
+	CommonMethod.softAssertContainsMessage(val.get(1), "2 Assigned", "Document table Location data mismatch");
+	CommonMethod.softAssertContainsMessage(val.get(2), "L09.1", "Document table Feature name data mismatch");
+	softAssert.assertAll();
 	testlog.info("**Verifies Feature Name in Docuement Upload successfully**");
 	testlog.info("**Verifies Verification Method in Docuement Upload successfully**");
 	testlog.info("**Verifies Table Content successfully**");
@@ -1002,8 +1003,8 @@ public void FilterInDocumentLibrary() throws IOException, InterruptedException {
 	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterVerificationOption");
 	CommonMethod.click("PortfolioFliterOptionClear");
 	//PartType
-		CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterPartTypeOption");
-		CommonMethod.RobustclickElementVisible("PortfolioFliterPartTypeOption","PortfolioFliterPartTypeOptionCheckbox");
+	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterPartTypeOption");
+	CommonMethod.RobustclickElementVisible("PortfolioFliterPartTypeOption","PortfolioFliterPartTypeOptionCheckbox");
 	CommonMethod.RobustclickElementVisible("PortfolioFliterPartTypeOptionCheckbox","PortfolioFliterOptionApply");
 	CommonMethod.RobustclickElementVisible("PortfolioFliterPartTypeOption","PortfolioFliterOptionApply");
 	CommonMethod.RobustclickElementVisible("PortfolioFliterOptionApply","PortfolioDocListFilterPreOption");
