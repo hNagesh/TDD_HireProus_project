@@ -1003,8 +1003,8 @@ public void FilterInDocumentLibrary() throws IOException, InterruptedException {
 	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterVerificationOption");
 	CommonMethod.click("PortfolioFliterOptionClear");
 	//PartType
-		CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterPartTypeOption");
-		CommonMethod.RobustclickElementVisible("PortfolioFliterPartTypeOption","PortfolioFliterPartTypeOptionCheckbox");
+	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterPartTypeOption");
+	CommonMethod.RobustclickElementVisible("PortfolioFliterPartTypeOption","PortfolioFliterPartTypeOptionCheckbox");
 	CommonMethod.RobustclickElementVisible("PortfolioFliterPartTypeOptionCheckbox","PortfolioFliterOptionApply");
 	CommonMethod.RobustclickElementVisible("PortfolioFliterPartTypeOption","PortfolioFliterOptionApply");
 	CommonMethod.RobustclickElementVisible("PortfolioFliterOptionApply","PortfolioDocListFilterPreOption");
