@@ -125,5 +125,20 @@ public class ReusableMethodsMembership extends BaseClass {
 		}
 		testlog.pass("**Verified Membership Name successfully**");
 	}
-
+	
+	public void AdminMembershipNavigation(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
+		
+	}
+public void UploadDocumentInLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
+		
+	}
+public void CreateLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
+	
+}
+public void UpdateLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
+	
+}
+public void DeleteLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
+	
+}
 }
