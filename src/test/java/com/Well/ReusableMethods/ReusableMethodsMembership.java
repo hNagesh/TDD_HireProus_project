@@ -1,13 +1,10 @@
 package com.Well.ReusableMethods;
 
+import java.io.File;
 import java.io.IOException;
-
-import org.json.simple.JSONObject;
-
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
-import io.restassured.response.Response;
-import static io.restassured.RestAssured.given;
+
 
 public class ReusableMethodsMembership extends BaseClass {
 
@@ -127,18 +124,56 @@ public class ReusableMethodsMembership extends BaseClass {
 	}
 	
 	public void AdminMembershipNavigation(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
+		CommonMethod.RobustclickElementVisible("AdminNavBar", "AdminMembershipNavBar");
+		CommonMethod.WaitUntilPresence("AdminMembershipNavBar", 60);
+		CommonMethod.RobustclickElementVisible("AdminMembershipNavBar", "MPViewButton");
+		CommonMethod.WaitUntilPresence("MPViewButton", 60);
+		CommonMethod.RobustclickElementVisible("MPViewButton","ProfileTab");
+		CommonMethod.RobustclickElementVisible("ProfileTab","MPLicensingProgramCheckbox");
+		CommonMethod.RobustclickElementVisible("MPLicensingProgramCheckbox", "MPProfileUpdateButton");
+		CommonMethod.RobustclickElementVisible("MPProfileUpdateButton", "MPLicensingTab");
+		CommonMethod.RobustclickElementVisible("MPLicensingTab", "MPDownloadApplicationform");
+		CommonMethod.WaitUntilVisibility("MPDownloadApplicationform", 120);
+		CommonMethod.RobustclickElementVisible("MPDownloadApplicationform","MPLicensingContinue");
+		Thread.sleep(2000);
+		CommonMethod.isFileExists(downloadPath);
+		CommonMethod.RobustclickElementVisible("MPLicensingContinue", "MPDownloadApplicationform");
 		
 	}
 public void UploadDocumentInLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
-		
+	CommonMethod.uploadFile("MPApplicationform", ProductInfoFormfileUpload,"MPApplicationformDeleteIcon");
+	
 	}
 public void CreateLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
-	
+	CommonMethod.selectdropdownValue("MPSelectProductCategories", "Openings");
+	CommonMethod.selectdropdownrandom("MPSelectproductType");
+	CommonMethod.WaitUntilVisibility("MPSelectPartname", 120);
+	CommonMethod.RobustclickElementVisible("MPSelectPartname","MPSelectPartnameChild");
+	CommonMethod.click("MPSelectPartnameChild");
+	CommonMethod.sendKeys("MPGroupName","QA Team");
+	CommonMethod.uploadFile("MPApplicationform", ProductInfoFormfileUpload,"MPApplicationformDeleteIcon");
+	CommonMethod.uploadFile("MPSupportingdocuments", ProductInfoFormfileUpload,"MPSupportingdocumentsIcon");
+	CommonMethod.sendKeys("MPLicenseComment","QA Team");
+	CommonMethod.RobustclickElementVisible("MPSaveProductButton","MPValidGroupName");
+	CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("MPValidGroupName"),"QA Team" , "GroupName doesn't match");
+	CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("MPValidCategory"),"Openings" , "Category doesn't match");	
+	softAssert.assertAll();
 }
 public void UpdateLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
-	
+	CommonMethod.WaitUntilVisibility("MPLicenseEdit", 120);
+	CommonMethod.RobustclickElementVisible("MPLicenseEdit","MPSelectPartnameChild");
+	CommonMethod.selectdropdownValue("MPSelectProductCategories", "Communications");
+	CommonMethod.sendKeys("MPLicenseComment","Testing");
+	CommonMethod.WaitUntilVisibility("MPLicenseUpdateSaveButton", 120);
+	CommonMethod.RobustclickElementVisible("MPLicenseUpdateSaveButton","MPDeleteIcon");
+	CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("MPValidGroupName"),"Testing" , "GroupName doesn't match");
+	CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("MPValidCategory"),"Communications" , "Category doesn't match");	
+	softAssert.assertAll();
 }
 public void DeleteLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
-	
+	CommonMethod.WaitUntilVisibility("MPDeleteIcon", 120);
+	CommonMethod.RobustclickElementVisible("MPDeleteIcon","MPSelectProductCategories");
+	CommonMethod.WaitUntilInVisibility("MPDeleteIcon", 120);
 }
 }

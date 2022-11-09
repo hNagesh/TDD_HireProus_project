@@ -77,6 +77,7 @@ public class BaseClass {
 	public static String GeneralfileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"GeneralFile.xlsx";
 	public static String LegalfileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"LegalFile.xlsx";
 	public static String OngoingfileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"OngoingFile.xlsx";
+	public static String ProductInfoFormfileUpload = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"UploadProductInfoForm.xlsx";
 	public static Faker USfaker = new Faker(new Locale("en-US"));
 	public static String downloadPath = System.getProperty("user.dir") +File.separator +"Downloads"+File.separator;
 	public static String BillingReceiptPdffile = System.getProperty("user.dir") +File.separator +"Downloads"+File.separator;
