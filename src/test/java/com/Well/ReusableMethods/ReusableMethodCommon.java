@@ -180,18 +180,24 @@ public class ReusableMethodCommon extends BaseClass {
 	}
 
 	public void team(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("TeamTab", 300);
-		CommonMethod.click("TeamTab");
 		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 30);
 		CommonMethod.click("V2ProjectAddMemberbtn");
-		String TeamEmail = "gokulthiru22@gmail.com";
+		String TeamEmail = data.getCellData(SheetName, "TeamEmailID", rowNum);
 		CommonMethod.WaitUntilVisibility("V2ProjectEmailAddress", 30);
 		CommonMethod.sendKeys("V2ProjectEmailAddress", TeamEmail);
-		data.setCellData(SheetName, "TeamEmailID", rowNum, TeamEmail);
+		testlog.info("Team Email ID: " +TeamEmail);
 		CommonMethod.selectdropdownVisibletext("V2ProjectRole", "Acoustician");
 		CommonMethod.ClickCheckbox("V2ProjectMembercbx");
 		CommonMethod.WaitUntilVisibility("V2ProjectInvitebtn", 30);
 		CommonMethod.click("V2ProjectInvitebtn");
+//		Thread.sleep(2000);
+//		CommonMethod.refreshBrowser();
+//		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 30);
+//		CommonMethod.click("V2ProjectDeleteIcon");
+//		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
+		testlog.pass("**Created Team member successfully**");
+	}
+	public void deleteAddedTeamMember(String SheetName, int rowNum) throws IOException, InterruptedException {
 		Thread.sleep(2000);
 		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 30);
@@ -199,7 +205,6 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
 		testlog.pass("**Created Team member successfully**");
 	}
-
 	public void editAndValidateOrganizationInformation(String SheetName, int rowNum) throws Exception {
 		CommonMethod.WaitUntilVisibility("EditTab", 60);
 		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectProjectNameInput");
@@ -408,5 +413,37 @@ public class ReusableMethodCommon extends BaseClass {
 			}
 		}
 		testlog.pass("**Verifies Download Billing Receipt And Validate successfully**");
+	}
+	
+	public void commonLogin(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.scrolldowntoElement("Username");
+		CommonMethod.sendKeys("Username",data.getCellData(SheetName, "TeamEmailID", rowNum));
+		testlog.info("Sending Username " + data.getCellData(SheetName, "TeamEmailID", rowNum));
+		CommonMethod.findElementWithRelative("LoginButton", "Password", "above").sendKeys(data.getCellData("Login", "Password", 3));;
+		testlog.info("Sending Password " + data.getCellData("Login", "Password", 3));
+		Thread.sleep(1000);
+		CommonMethod.scrolldowntoElement("LoginButton");
+		CommonMethod.click("LoginButton");
+		testlog.info("Clicking on Submit Button");
+		CommonMethod.WaitUntilVisibility("SuccessfulLogin", 300);
+		testlog.pass("Verfies Login Successful");
+	}
+	public void validateTeams(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 120);
+		CommonMethod.click("ProjectNavBar");
+		CommonMethod.RobustclickElementVisible("WELLCertificationNavBar", "V2ProjectId");
+		testlog.info("ProjectId:" + data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.WaitUntilClickble("V2ProjectId", 60).sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.click("V2ProjectApplybtn");
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","V2 Search failed");
+		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
+				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
+		testlog.pass("**Verifies user able to access the invited project**");
+	}
+	public void clickOnTeamTab(String SheetName, int rowNum) throws IOException, InterruptedException {
+		Thread.sleep(5000);
+		CommonMethod.WaitUntilVisibility("TeamTab", 300);
+		CommonMethod.click("TeamTab");
 	}
 }

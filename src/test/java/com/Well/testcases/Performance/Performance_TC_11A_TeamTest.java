@@ -7,19 +7,20 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Performance_TC_11_TeamTest extends BaseClass {
+public class Performance_TC_11A_TeamTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_10_AlternativesTest.Performance_TC_10_Alternatives" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_11_TeamTest.Performance_TC_11_Team" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Performance_TC_11_Team(String SheetName,int rowNum) throws IOException {
+	public void Performance_TC_11A_Team(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName,"Adding Inviting Team member for Project Functionality");
+		StartTest(TestCaseName,"Verifies user able to access the invited WPR project");
 		try {
-			rc.clickOnTeamTab(SheetName, rowNum);
 			rc.team(SheetName, rowNum);
-			rc.deleteAddedTeamMember(SheetName, rowNum);
+			rc.SignOut();
+			rc.commonLogin(SheetName, rowNum);
+			performance.validateTeamsWPR(SheetName, rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

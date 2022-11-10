@@ -296,4 +296,20 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		softAssert.assertAll();
 		testlog.pass("**Verifies the Hsr Field Validation successfully**");
 	}
+	public void validateTeamsHSR(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
+		CommonMethod.click("ProjectNavBar");
+		CommonMethod.WaitUntilVisibility("WELLHealthSafetyNavBar", 300);
+		CommonMethod.RobustclickElementVisible("WELLHealthSafetyNavBar", "HsrIdSearch");
+		CommonMethod.WaitUntilVisibility("HsrIdSearch", 300);
+		CommonMethod.click("HsrIdSearch");
+		testlog.info("HealthSafety ID:" + data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.sendKeys("HsrIdSearch", data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.click("HsrapplySearch");
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","HealthSafety Search failed");
+		CommonMethod.assertcontainsmessage("HSRIdClick", data.getCellData(SheetName, "projectID", rowNum),
+				"Project name doesn't matches in search");
+		testlog.pass("**Verifies user able to access the invited project**");
+	}
 }

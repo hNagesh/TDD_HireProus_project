@@ -9,16 +9,17 @@ import com.Well.Engine.BaseClass;
 
 public class V2_TC_14_TeamV2ProjectTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_13_PerformanceReviewV2ProjectTest.V2_TC_13_PerformanceReviewV2Project" })
-	@Parameters({ "SheetName","rowNum" })
-	public void V2_TC_14_TeamV2Project(String SheetName,int rowNum) throws IOException {
+	@Test(dependsOnMethods = {"com.Well.testcases.V2Project.V2_TC_13_PerformanceReviewV2ProjectTest.V2_TC_13_PerformanceReviewV2Project" })
+	@Parameters({ "SheetName", "rowNum" })
+	public void V2_TC_14_TeamV2Project(String SheetName, int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName,"Add member to Team for V2Project");
+		StartTest(TestCaseName, "Add member to Team for V2Project");
 		try {
-		rc.team(SheetName, rowNum);	
-	
+			rc.clickOnTeamTab(SheetName, rowNum);
+			rc.team(SheetName, rowNum);
+			rc.deleteAddedTeamMember(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

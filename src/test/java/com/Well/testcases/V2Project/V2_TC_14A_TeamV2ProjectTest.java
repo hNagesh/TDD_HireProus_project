@@ -1,4 +1,4 @@
-package com.Well.testcases.HealthSafety;
+package com.Well.testcases.V2Project;
 
 import java.io.IOException;
 
@@ -7,19 +7,22 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Healthsafey_TC_11_TeamTest extends BaseClass {
+public class V2_TC_14A_TeamV2ProjectTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_10_AlternativesTest.Healthsafey_TC_10_Alternatives" })
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_14_TeamV2ProjectTest.V2_TC_14_TeamV2Project" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_11_Team(String SheetName,int rowNum) throws IOException {
+	public void V2_TC_14A_TeamV2Project(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName,"Adding Inviting Team member for Project Functionality");
+		StartTest(TestCaseName,"Verifies user able to access the invited V2Project");
 		try {
 			rc.clickOnTeamTab(SheetName, rowNum);
 			rc.team(SheetName, rowNum);
-			rc.deleteAddedTeamMember(SheetName, rowNum);
+			rc.SignOut();
+			rc.commonLogin(SheetName, rowNum);
+			v2project.validateTeamsV2Project(SheetName, rowNum);
+	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

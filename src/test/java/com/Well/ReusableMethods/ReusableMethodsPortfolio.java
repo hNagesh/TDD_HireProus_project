@@ -459,11 +459,9 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 
 	public void teamPortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("TeamTab", 300);
-		CommonMethod.click("TeamTab");
 		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 30);
 		CommonMethod.click("V2ProjectAddMemberbtn");
-		String TeamEmail = "gokulthiru22@gmail.com";
+		String TeamEmail = data.getCellData(SheetName, "TeamEmailID", rowNum);
 		CommonMethod.WaitUntilVisibility("PortfolioEmailAddress", 30);
 		CommonMethod.sendKeys("PortfolioEmailAddress", TeamEmail);
 		data.setCellData(SheetName, "TeamEmailID", rowNum, TeamEmail);
@@ -471,11 +469,38 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.ClickCheckbox("V2ProjectMembercbx");
 		CommonMethod.WaitUntilVisibility("V2ProjectInvitebtn", 30);
 		CommonMethod.click("V2ProjectInvitebtn");
+//		Thread.sleep(2000);
+//		CommonMethod.refreshBrowser();
+//		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 30);
+//		CommonMethod.click("V2ProjectDeleteIcon");
+//		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
+		testlog.pass("**Created Team member successfully**");
+	}
+	
+	public void deleteAddedTeamMemberPortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
 		Thread.sleep(2000);
 		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 30);
 		CommonMethod.click("V2ProjectDeleteIcon");
 		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
-		testlog.pass("**Created Team member successfully**");
+	}
+	public void validateTeamsPortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
+		CommonMethod.click("ProjectNavBar");
+		CommonMethod.RobustclickElementVisible("WellAtScaleNavBar", "PortfolioSearchByID");
+		testlog.info("Portfolio Name:" + data.getCellData(SheetName, "AccountName", rowNum));
+		testlog.info("Portfolio ID:" + data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.WaitUntilClickble("PortfolioSearchByID", 60)
+				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.click("PortfolioSearchApplyFilter");
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Portfolio Search failed");
+		CommonMethod.assertcontainsmessage("PortfolioIDVerify", data.getCellData(SheetName, "ProjectID", rowNum),
+				"Portfolio ID doesn't matched with exceles in search");
+		testlog.pass("**Verifies user able to access the invited project**");
+	}
+	public void clickOnTeamPortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("TeamTab", 300);
+		CommonMethod.click("TeamTab");
 	}
 }

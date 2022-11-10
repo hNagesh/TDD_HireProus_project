@@ -843,27 +843,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 		testlog.pass("**Completed Final Precertification Review successfully**");
 	}
 
-	public void teamV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("TeamTab", 300);
-		CommonMethod.click("TeamTab");
-		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 30);
-		CommonMethod.click("V2ProjectAddMemberbtn");
-		CommonMethod.WaitUntilVisibility("V2ProjectEmailAddress", 30);
-		String TeamEmail = "gokulthiru22@gmail.com";
-		CommonMethod.sendKeys("V2ProjectEmailAddress", TeamEmail);
-		data.setCellData(SheetName, "TeamEmailID", rowNum, TeamEmail);
-		CommonMethod.selectdropdownVisibletext("V2ProjectRole", "Acoustician");
-		CommonMethod.ClickCheckbox("V2ProjectMembercbx");
-		CommonMethod.WaitUntilVisibility("V2ProjectInvitebtn", 30);
-		CommonMethod.click("V2ProjectInvitebtn");
-		Thread.sleep(2000);
-		CommonMethod.refreshBrowser();
-		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 30);
-		CommonMethod.click("V2ProjectDeleteIcon");
-		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
-		testlog.pass("**Created Team member successfully**");
-	}
-
 	public void supportV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectSupportButton", 60);
 		CommonMethod.RobustclickElementVisible("V2ProjectSupportButton", "V2ProjectGetHelpButton");
@@ -1201,5 +1180,20 @@ public class ReusableMethodsV2Project extends BaseClass {
 				"Updated Profile!", "Verified profile updated toast message");
 		softAssert.assertAll();
 		testlog.pass("**Certification story data updated successfully**");
+	}
+	
+	public void validateTeamsV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 120);
+		CommonMethod.click("ProjectNavBar");
+		CommonMethod.RobustclickElementVisible("WELLCertificationNavBar", "V2ProjectId");
+		CommonMethod.WaitUntilClickble("V2ProjectId", 60);
+		testlog.info("ProjectId:" + data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.sendKeys("V2ProjectId", data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.click("V2ProjectApplybtn");
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","V2 Search failed");
+		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
+				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
+		testlog.pass("**Verifies user able to access the invited project**");
 	}
 }
