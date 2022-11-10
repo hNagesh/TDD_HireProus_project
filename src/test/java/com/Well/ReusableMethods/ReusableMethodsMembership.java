@@ -1,13 +1,10 @@
 package com.Well.ReusableMethods;
 
+import java.io.File;
 import java.io.IOException;
-
-import org.json.simple.JSONObject;
-
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
-import io.restassured.response.Response;
-import static io.restassured.RestAssured.given;
+
 
 public class ReusableMethodsMembership extends BaseClass {
 
@@ -127,18 +124,67 @@ public class ReusableMethodsMembership extends BaseClass {
 	}
 	
 	public void AdminMembershipNavigation(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
-		
+		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
+		CommonMethod.RobustclickElementVisible("AdminNavBar", "AdminMembershipNavBar");
+		CommonMethod.WaitUntilPresence("AdminMembershipNavBar", 60);
+		CommonMethod.RobustclickElementVisible("AdminMembershipNavBar", "MPViewButton");
+		CommonMethod.WaitUntilPresence("MPViewButton", 60);
+		CommonMethod.RobustclickElementVisible("MPViewButton","ProfileTab");
+		CommonMethod.RobustclickElementVisible("ProfileTab","MPLicensingProgramCheckbox");
+		CommonMethod.RobustclickElementVisible("MPLicensingProgramCheckbox", "MPProfileUpdateButton");
+		CommonMethod.RobustclickElementVisible("MPProfileUpdateButton", "MPLicensingTab");
+		CommonMethod.RobustclickElementVisible("MPLicensingTab", "MPDownloadApplicationform");
+		CommonMethod.WaitUntilVisibility("MPDownloadApplicationform", 120);
+		CommonMethod.RobustclickElementVisible("MPDownloadApplicationform","MPLicensingContinue");
+		Thread.sleep(2000);
+		CommonMethod.isFileExists(downloadPath);
+		CommonMethod.RobustclickElementVisible("MPLicensingContinue", "MPApplicationform");
+		testlog.pass("**Verified Membership  successfully**");
 	}
 public void UploadDocumentInLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
-		
+	CommonMethod.uploadFile("MPProductUploadForm", ProductInfoFormfileUpload,"MPValidUploadFile");
+	
 	}
 public void CreateLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
-	
+	//3 card
+	CommonMethod.uploadFile("MPApplicationform", ProductInfoFormfileUpload,"MPApplicationformDeleteIcon");
+	CommonMethod.uploadFile("MPSupportingdocuments", ProductInfoFormfileUpload,"MPSupportingdocumentsIcon");
+	CommonMethod.selectdropdownValue("MPSelectProductCategories", "2");
+	CommonMethod.selectdropdownValue("MPSelectproductType","7");
+	CommonMethod.WaitUntilVisibility("MPSelectPartname", 120);
+	CommonMethod.RobustclickElementVisible("MPSelectPartname","MPSelectPartnameChild");
+	CommonMethod.click("MPSelectPartnameChild");
+	CommonMethod.sendKeys("MPGroupName","QA Team");
+	CommonMethod.sendKeys("MPLicenseComment","QA Team");
+	CommonMethod.RobustclickElementVisible("MPSaveProductButton","MPValidGroupName");
+	CommonMethod.scrolldowntoElement("MPApplicationformDeleteIcon");
+	CommonMethod.WaitUntilPresence("MPValidGroupName", 120);
+	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPValidGroupName"),"QA Team" , "GroupName doesn't match");
+	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPValidCategory"),"Openings" , "Category doesn't match");	
+	softAssert.assertAll();
 }
 public void UpdateLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
-	
+	CommonMethod.WaitUntilVisibility("MPLicenseEdit", 120);
+	CommonMethod.RobustclickElementVisible("MPLicenseEdit","MPSelectPartnameChild");
+	CommonMethod.selectdropdownValue("MPSelectUpdateProductCategories", "9");
+	CommonMethod.selectdropdownValue("MPSelectproductType","60");
+	CommonMethod.WaitUntilVisibility("MPSelectPartname", 30);
+	CommonMethod.RobustclickElementVisible("MPSelectPartname","MPSelectPartnameChild");
+	CommonMethod.click("MPSelectPartnameChild");
+	CommonMethod.WaitUntilVisibility("MPGroupName", 30);
+	CommonMethod.WaitUntilVisibility("MPLicenseUpdateSaveButton", 120);
+	Thread.sleep(25000);
+	CommonMethod.RobustclickElementVisible("MPLicenseUpdateSaveButton","MPApplicationformDeleteIcon");
+	CommonMethod.scrolldowntoElement("MPApplicationformDeleteIcon");
+	CommonMethod.WaitUntilPresence("MPValidGroupName", 120);
+	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPValidType"),"Audio-Video Systems" , "GroupName doesn't match");
+	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPValidCategory"),"Communications" , "Category doesn't match");	
+	softAssert.assertAll();
 }
 public void DeleteLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
-	
+	CommonMethod.WaitUntilVisibility("MPDeleteIcon", 120);
+	CommonMethod.RobustclickElementVisible("MPDeleteIcon","MPSelectProductCategories");
+	CommonMethod.RobustclickElementVisible("MPLicenseProductDelete","MPSelectProductCategories");
+	CommonMethod.WaitUntilInVisibility("MPDeleteIcon", 120);
 }
 }

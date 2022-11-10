@@ -17,7 +17,7 @@ public class Portfolio_CTC_02_DocumentTest extends BaseClass {
 		StartTest(TestCaseName,"Attach Document and verify");
 		try {
 			portfolio.clickDocument();		
-			pf.L09_AuditDocumentUploadInDocumentLibrary();
+			//pf.L09_AuditDocumentUploadInDocumentLibrary();
 			pf.UpdateAuditDocumentUploadInDocumentLibrary();
 			pf.A01_2_DocumentUploadInDocumentLibrary();
 			pf.UpdateFeatureDocumentUploadInDocumentLibrary();
