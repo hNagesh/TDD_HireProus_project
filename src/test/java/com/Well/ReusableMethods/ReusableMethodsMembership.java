@@ -139,33 +139,43 @@ public class ReusableMethodsMembership extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.isFileExists(downloadPath);
 		CommonMethod.RobustclickElementVisible("MPLicensingContinue", "MPApplicationform");
-		testlog.pass("**Verified Membership  successfully**");
+		testlog.pass("**Verifies Navigate to Product Licensing Page successfully**");
 	}
 public void UploadDocumentInLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
 	CommonMethod.uploadFile("MPProductUploadForm", ProductInfoFormfileUpload,"MPValidUploadFile");
-	
+	testlog.pass("**Verifies Uploaded File successfully**");
 	}
 public void CreateLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
-	//3 card
+	for (int i=1;i<=3;i++) {
 	CommonMethod.uploadFile("MPApplicationform", ProductInfoFormfileUpload,"MPApplicationformDeleteIcon");
 	CommonMethod.uploadFile("MPSupportingdocuments", ProductInfoFormfileUpload,"MPSupportingdocumentsIcon");
-	CommonMethod.selectdropdownValue("MPSelectProductCategories", "2");
-	CommonMethod.selectdropdownValue("MPSelectproductType","7");
+	CommonMethod.selectdropdownrandom("MPSelectProductCategories");
+	String ProductCategories = CommonMethod.getSelectedDropdownValue("MPSelectProductCategories");
+	testlog.info("ProductCategories: "+ProductCategories);
+	CommonMethod.selectdropdownrandom("MPSelectproductType");
 	CommonMethod.WaitUntilVisibility("MPSelectPartname", 120);
 	CommonMethod.RobustclickElementVisible("MPSelectPartname","MPSelectPartnameChild");
 	CommonMethod.click("MPSelectPartnameChild");
-	CommonMethod.sendKeys("MPGroupName","QA Team");
+	String GroupName = USfaker.address().firstName();
+	testlog.info("GroupName: "+GroupName);
+	CommonMethod.sendKeys("MPGroupName",GroupName);
+	String getGroupName =CommonMethod.getattributeValue("MPGroupName");
+	testlog.info("getGroupName: "+getGroupName);
 	CommonMethod.sendKeys("MPLicenseComment","QA Team");
 	CommonMethod.RobustclickElementVisible("MPSaveProductButton","MPValidGroupName");
 	CommonMethod.scrolldowntoElement("MPApplicationformDeleteIcon");
 	CommonMethod.WaitUntilPresence("MPValidGroupName", 120);
-	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPValidGroupName"),"QA Team" , "GroupName doesn't match");
-	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPValidCategory"),"Openings" , "Category doesn't match");	
-	softAssert.assertAll();
 }
+CommonMethod.assertcountListWebelementFromIndex("MPLicenseProductCard",3);
+CommonMethod.assertcountListWebelementFromIndex("MPLicenseEdit",3);
+CommonMethod.assertcountListWebelementFromIndex("MPApplicationformDeleteIcon",3);
+testlog.pass("**Verifies Created Product Licensing successfully**");
+testlog.pass("**Verifies added 3 Product Licensing Group successfully**");
+}
+
 public void UpdateLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
-	CommonMethod.WaitUntilVisibility("MPLicenseEdit", 120);
-	CommonMethod.RobustclickElementVisible("MPLicenseEdit","MPSelectPartnameChild");
+	CommonMethod.WaitUntilVisibility("MPValidUploadFile", 120);
+	CommonMethod.clickOnListWebelementFromIndex("MPLicenseEdit",0);
 	CommonMethod.selectdropdownValue("MPSelectUpdateProductCategories", "9");
 	CommonMethod.selectdropdownValue("MPSelectproductType","60");
 	CommonMethod.WaitUntilVisibility("MPSelectPartname", 30);
@@ -173,18 +183,37 @@ public void UpdateLicensing(String SheetName, int rowNum, String MembershipName)
 	CommonMethod.click("MPSelectPartnameChild");
 	CommonMethod.WaitUntilVisibility("MPGroupName", 30);
 	CommonMethod.WaitUntilVisibility("MPLicenseUpdateSaveButton", 120);
-	Thread.sleep(25000);
 	CommonMethod.RobustclickElementVisible("MPLicenseUpdateSaveButton","MPApplicationformDeleteIcon");
 	CommonMethod.scrolldowntoElement("MPApplicationformDeleteIcon");
 	CommonMethod.WaitUntilPresence("MPValidGroupName", 120);
 	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPValidType"),"Audio-Video Systems" , "GroupName doesn't match");
 	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPValidCategory"),"Communications" , "Category doesn't match");	
 	softAssert.assertAll();
+	testlog.pass("**Verifies Updated Product Licensing successfully**");
 }
 public void DeleteLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
-	CommonMethod.WaitUntilVisibility("MPDeleteIcon", 120);
+	CommonMethod.WaitUntilVisibility("MPValidUploadFile", 120);
+	CommonMethod.clickOnListWebelementFromIndex("MPDeleteIcon",0);
 	CommonMethod.RobustclickElementVisible("MPDeleteIcon","MPSelectProductCategories");
 	CommonMethod.RobustclickElementVisible("MPLicenseProductDelete","MPSelectProductCategories");
-	CommonMethod.WaitUntilInVisibility("MPDeleteIcon", 120);
+	CommonMethod.assertcountListWebelementFromIndex("MPApplicationformDeleteIcon",2);
+	testlog.pass("**Verifies Delete Product Licensing Group successfully**");
+}
+
+public void SubmitProductLicensingReview(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
+	CommonMethod.WaitUntilVisibility("MPLicenseSubmitForReview", 120);
+	CommonMethod.RobustclickElementVisible("MPLicenseSubmitForReview","MPLicenseDeleteProduct");
+	CommonMethod.assertcountListWebelementFromIndex("MPLicenseProductCard",2);
+	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPLicenseReviewStatus"),"UNDER REVIEW" , "Review Status doesn't match");	
+	CommonMethod.RobustclickElementVisible("MPLicenseDeleteProduct","MPLicenseProductDelete");
+	CommonMethod.RobustclickElementVisible("MPLicenseProductDelete","MPLicensingProgramCheckbox");
+	CommonMethod.WaitUntilPresence("MPLicensingProgramCheckbox", 120);
+	CommonMethod.RobustclickElementVisible("MPLicensingTab", "MPDownloadApplicationform");
+	CommonMethod.WaitUntilInVisibility("MPLicenseDeleteProduct", 120);
+	softAssert.assertAll();
+	testlog.info("**Verifies Product Licensing Review Status successfully**");
+	testlog.info("**Verifies Deleted Product Licensing successfully**");
+	testlog.pass("**Verifies Submitted Product Licensing Review successfully**");
+	
 }
 }

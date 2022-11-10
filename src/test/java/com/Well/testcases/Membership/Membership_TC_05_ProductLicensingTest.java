@@ -9,9 +9,9 @@ import com.Well.Engine.BaseClass;
 
 public class Membership_TC_05_ProductLicensingTest extends BaseClass {
 	
-	@Test//(dependsOnMethods = { "com.Well.testcases.Membership.Membership_TC_04_BillingTest.Membership_TC_04_Billing" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Membership.Membership_TC_04_BillingTest.Membership_TC_04_Billing" })
 	@Parameters({ "SheetName","rowNum","MembershipName"  })
-	public void Membership_TC_05_NavigationToProductLicensing(String SheetName,int rowNum, String MembershipName) throws IOException {
+	public void Membership_TC_05_00_NavigationToProductLicensing(String SheetName,int rowNum, String MembershipName) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Membership Card Payment Functionality");
@@ -26,9 +26,9 @@ public class Membership_TC_05_ProductLicensingTest extends BaseClass {
 		}
 	}
 	
-	@Test//(dependsOnMethods = { "com.Well.testcases.Membership.Membership_TC_04_BillingTest.Membership_TC_04_Billing" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Membership.Membership_TC_05_ProductLicensingTest.Membership_TC_05_00_NavigationToProductLicensing" })
 	@Parameters({ "SheetName","rowNum","MembershipName"  })
-	public void Membership_TC_05_UploadDocumentInProductLicensing(String SheetName,int rowNum, String MembershipName) throws IOException {
+	public void Membership_TC_05_01_UploadDocumentInProductLicensing(String SheetName,int rowNum, String MembershipName) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Membership Card Payment Functionality");
@@ -42,9 +42,9 @@ public class Membership_TC_05_ProductLicensingTest extends BaseClass {
 		}
 	}
 	
-	@Test//(dependsOnMethods = { "com.Well.testcases.Membership.Membership_TC_04_BillingTest.Membership_TC_04_Billing" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Membership.Membership_TC_05_ProductLicensingTest.Membership_TC_05_01_UploadDocumentInProductLicensing" })
 	@Parameters({ "SheetName","rowNum","MembershipName"  })
-	public void Membership_TC_05_CreateProductLicensing(String SheetName,int rowNum, String MembershipName) throws IOException {
+	public void Membership_TC_05_02_CreateProductLicensing(String SheetName,int rowNum, String MembershipName) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Membership Card Payment Functionality");
@@ -58,9 +58,9 @@ public class Membership_TC_05_ProductLicensingTest extends BaseClass {
 		}
 	}
 	
-	@Test//(dependsOnMethods = { "com.Well.testcases.Membership.Membership_TC_04_BillingTest.Membership_TC_04_Billing" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Membership.Membership_TC_05_ProductLicensingTest.Membership_TC_05_02_CreateProductLicensing" })
 	@Parameters({ "SheetName","rowNum","MembershipName"  })
-	public void Membership_TC_05_UpdateProductLicensing(String SheetName,int rowNum, String MembershipName) throws IOException {
+	public void Membership_TC_05_03_UpdateProductLicensing(String SheetName,int rowNum, String MembershipName) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Membership Card Payment Functionality");
@@ -76,9 +76,9 @@ public class Membership_TC_05_ProductLicensingTest extends BaseClass {
 		}
 	}
 	
-	@Test//(dependsOnMethods = { "com.Well.testcases.Membership.Membership_TC_04_BillingTest.Membership_TC_04_Billing" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Membership.Membership_TC_05_ProductLicensingTest.Membership_TC_05_03_UpdateProductLicensing" })
 	@Parameters({ "SheetName","rowNum","MembershipName"  })
-	public void Membership_TC_05_DeleteProductLicensing(String SheetName,int rowNum, String MembershipName) throws IOException {
+	public void Membership_TC_05_04_DeleteProductLicensing(String SheetName,int rowNum, String MembershipName) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Membership Card Payment Functionality");
@@ -93,4 +93,20 @@ public class Membership_TC_05_ProductLicensingTest extends BaseClass {
 		}
 	}
 	
+	@Test(dependsOnMethods = { "com.Well.testcases.Membership.Membership_TC_05_ProductLicensingTest.Membership_TC_05_04_DeleteProductLicensing" })
+	@Parameters({ "SheetName","rowNum","MembershipName"  })
+	public void Membership_TC_05_05_SubmitProductLicensingReview(String SheetName,int rowNum, String MembershipName) throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		StartTest(TestCaseName,"Membership Card Payment Functionality");
+		try {
+		membership.SubmitProductLicensingReview(SheetName, rowNum,MembershipName);
+		
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
 }

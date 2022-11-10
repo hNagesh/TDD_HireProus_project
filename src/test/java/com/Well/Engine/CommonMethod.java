@@ -745,7 +745,7 @@ public class CommonMethod extends BaseClass {
 
 		}
 	public static void softAssertEqualsMessage(String Actual, String expected, String message) {
-
+System.out.println("Actual:"+Actual +"expected"+expected);
 		softAssert.assertEquals(Actual, expected, message);
 	}
 	
