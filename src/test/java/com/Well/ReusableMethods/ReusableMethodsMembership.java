@@ -138,37 +138,47 @@ public class ReusableMethodsMembership extends BaseClass {
 		CommonMethod.RobustclickElementVisible("MPDownloadApplicationform","MPLicensingContinue");
 		Thread.sleep(2000);
 		CommonMethod.isFileExists(downloadPath);
-		CommonMethod.RobustclickElementVisible("MPLicensingContinue", "MPDownloadApplicationform");
+		CommonMethod.RobustclickElementVisible("MPLicensingContinue", "MPApplicationform");
 		
 	}
 public void UploadDocumentInLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
-	CommonMethod.uploadFile("MPApplicationform", ProductInfoFormfileUpload,"MPApplicationformDeleteIcon");
+	CommonMethod.uploadFile("MPProductUploadForm", ProductInfoFormfileUpload,"MPValidUploadFile");
 	
 	}
 public void CreateLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
-	CommonMethod.selectdropdownValue("MPSelectProductCategories", "Openings");
-	CommonMethod.selectdropdownrandom("MPSelectproductType");
+	CommonMethod.uploadFile("MPApplicationform", ProductInfoFormfileUpload,"MPApplicationformDeleteIcon");
+	CommonMethod.uploadFile("MPSupportingdocuments", ProductInfoFormfileUpload,"MPSupportingdocumentsIcon");
+	CommonMethod.selectdropdownValue("MPSelectProductCategories", "2");
+	CommonMethod.selectdropdownValue("MPSelectproductType","7");
 	CommonMethod.WaitUntilVisibility("MPSelectPartname", 120);
 	CommonMethod.RobustclickElementVisible("MPSelectPartname","MPSelectPartnameChild");
 	CommonMethod.click("MPSelectPartnameChild");
 	CommonMethod.sendKeys("MPGroupName","QA Team");
-	CommonMethod.uploadFile("MPApplicationform", ProductInfoFormfileUpload,"MPApplicationformDeleteIcon");
-	CommonMethod.uploadFile("MPSupportingdocuments", ProductInfoFormfileUpload,"MPSupportingdocumentsIcon");
 	CommonMethod.sendKeys("MPLicenseComment","QA Team");
 	CommonMethod.RobustclickElementVisible("MPSaveProductButton","MPValidGroupName");
-	CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("MPValidGroupName"),"QA Team" , "GroupName doesn't match");
-	CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("MPValidCategory"),"Openings" , "Category doesn't match");	
+	CommonMethod.scrolldowntoElement("MPApplicationformDeleteIcon");
+	CommonMethod.WaitUntilPresence("MPValidGroupName", 120);
+	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPValidGroupName"),"QA Team" , "GroupName doesn't match");
+	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPValidCategory"),"Openings" , "Category doesn't match");	
 	softAssert.assertAll();
 }
 public void UpdateLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
 	CommonMethod.WaitUntilVisibility("MPLicenseEdit", 120);
 	CommonMethod.RobustclickElementVisible("MPLicenseEdit","MPSelectPartnameChild");
-	CommonMethod.selectdropdownValue("MPSelectProductCategories", "Communications");
-	CommonMethod.sendKeys("MPLicenseComment","Testing");
+	CommonMethod.selectdropdownValue("MPSelectProductCategories", "9");
+	CommonMethod.selectdropdownValue("MPSelectproductType","60");
+	CommonMethod.WaitUntilVisibility("MPSelectPartname", 120);
+	CommonMethod.RobustclickElementVisible("MPSelectPartname","MPSelectPartnameChild");
+	CommonMethod.click("MPSelectPartnameChild");
+	CommonMethod.clearAndSendKey("MPGroupName","Testing");
+	Thread.sleep(35000);
 	CommonMethod.WaitUntilVisibility("MPLicenseUpdateSaveButton", 120);
-	CommonMethod.RobustclickElementVisible("MPLicenseUpdateSaveButton","MPDeleteIcon");
-	CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("MPValidGroupName"),"Testing" , "GroupName doesn't match");
-	CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("MPValidCategory"),"Communications" , "Category doesn't match");	
+	CommonMethod.RobustclickElementVisible("MPLicenseUpdateSaveButton","MPApplicationformDeleteIcon");
+	CommonMethod.scrolldowntoElement("MPApplicationformDeleteIcon");
+	CommonMethod.WaitUntilPresence("MPValidGroupName", 120);
+	Thread.sleep(25000);
+	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPValidGroupName"),"Testing" , "GroupName doesn't match");
+	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPValidCategory"),"Communications" , "Category doesn't match");	
 	softAssert.assertAll();
 }
 public void DeleteLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
