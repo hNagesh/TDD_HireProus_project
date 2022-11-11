@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Healthsafey_TC_11A_TeamTest extends BaseClass {
+public class Healthsafey_TC_11A_ValidateProjectAccessTeamTest extends BaseClass {
 
 	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_11_TeamTest.Healthsafey_TC_11_Team" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_11A_Team(String SheetName,int rowNum) throws IOException {
+	public void Healthsafey_TC_11A_ValidateProjectAccessTeam(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
@@ -19,7 +19,7 @@ public class Healthsafey_TC_11A_TeamTest extends BaseClass {
 		try {
 			rc.team(SheetName, rowNum);
 			rc.SignOut();
-			rc.commonLogin(SheetName, rowNum);
+			rc.teamMemberLogin(SheetName, rowNum);
 			hsr.validateTeamsHSR(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

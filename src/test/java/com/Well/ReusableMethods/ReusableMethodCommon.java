@@ -415,7 +415,7 @@ public class ReusableMethodCommon extends BaseClass {
 		testlog.pass("**Verifies Download Billing Receipt And Validate successfully**");
 	}
 	
-	public void commonLogin(String SheetName, int rowNum) throws IOException, InterruptedException {
+	public void teamMemberLogin(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.scrolldowntoElement("Username");
 		CommonMethod.sendKeys("Username",data.getCellData(SheetName, "TeamEmailID", rowNum));
 		testlog.info("Sending Username " + data.getCellData(SheetName, "TeamEmailID", rowNum));

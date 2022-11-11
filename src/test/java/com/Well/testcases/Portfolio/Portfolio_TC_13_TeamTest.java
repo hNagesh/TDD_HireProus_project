@@ -18,9 +18,9 @@ public class Portfolio_TC_13_TeamTest extends BaseClass {
 		StartTest(TestCaseName,"Verify team updation and deletion");
 
 		try {
-			//portfolio.clickOnTeamPortfolio(SheetName, rowNum);
+			portfolio.clickOnTeamPortfolio(SheetName, rowNum);
 			portfolio.teamPortfolio(SheetName, rowNum);
-			//portfolio.deleteAddedTeamMemberPortfolio(SheetName, rowNum);
+			portfolio.deleteAddedTeamMemberPortfolio(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

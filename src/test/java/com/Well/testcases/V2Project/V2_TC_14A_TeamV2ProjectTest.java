@@ -20,7 +20,7 @@ public class V2_TC_14A_TeamV2ProjectTest extends BaseClass {
 			rc.clickOnTeamTab(SheetName, rowNum);
 			rc.team(SheetName, rowNum);
 			rc.SignOut();
-			rc.commonLogin(SheetName, rowNum);
+			rc.teamMemberLogin(SheetName, rowNum);
 			v2project.validateTeamsV2Project(SheetName, rowNum);
 	
 		} catch (Throwable t) {

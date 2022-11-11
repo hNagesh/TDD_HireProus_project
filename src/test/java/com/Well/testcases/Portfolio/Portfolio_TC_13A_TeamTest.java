@@ -20,7 +20,7 @@ public class Portfolio_TC_13A_TeamTest extends BaseClass {
 		try {
 			portfolio.teamPortfolio(SheetName, rowNum);
 			rc.SignOut();
-			rc.commonLogin(SheetName, rowNum);
+			rc.teamMemberLogin(SheetName, rowNum);
 			portfolio.validateTeamsPortfolio(SheetName, rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

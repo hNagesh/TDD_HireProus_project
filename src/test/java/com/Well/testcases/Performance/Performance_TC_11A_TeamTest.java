@@ -19,7 +19,7 @@ public class Performance_TC_11A_TeamTest extends BaseClass {
 		try {
 			rc.team(SheetName, rowNum);
 			rc.SignOut();
-			rc.commonLogin(SheetName, rowNum);
+			rc.teamMemberLogin(SheetName, rowNum);
 			performance.validateTeamsWPR(SheetName, rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
