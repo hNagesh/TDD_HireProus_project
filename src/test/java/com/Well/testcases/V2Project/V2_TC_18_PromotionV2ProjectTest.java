@@ -18,7 +18,7 @@ public class V2_TC_18_PromotionV2ProjectTest extends BaseClass {
 
 		StartTest(TestCaseName, "Promotion Card Validation");
 		try {
-			rc.promotionCardValidation(SheetName, rowNum, "5");
+			rc.promotionCardValidation(SheetName, rowNum, "3");
 
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
