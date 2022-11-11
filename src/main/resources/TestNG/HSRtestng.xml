@@ -26,7 +26,8 @@
  <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_14_ProfileTest"></class> 
  <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_15_AddLocationTest"></class>
   <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_16_BillingTest"></class>
-  <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_11_TeamTest"></class>
+  <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_16A_DownloadBillingReceiptAndValidateTest"></class>
+  <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_11_AddTeamMemberTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_11A_ValidateProjectAccessTeamTest"></class>
 </classes>
 </test>

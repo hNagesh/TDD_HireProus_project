@@ -34,8 +34,8 @@
 <class name="com.Well.testcases.V2Project.V2_TC_18_PromotionV2ProjectTest"></class> 
 <class name="com.Well.testcases.V2Project.V2_TC_19_ProfileV2ProjectTest"></class> 
 <class name="com.Well.testcases.V2Project.V2_TC_20_EditV2ProjectTest"></class> 
-<class name="com.Well.testcases.V2Project.V2_TC_14_TeamV2ProjectTest"></class>
-<class name="com.Well.testcases.V2Project.V2_TC_14A_TeamV2ProjectTest"></class>
+<class name="com.Well.testcases.V2Project.V2_TC_14_AddTeamMemberV2ProjectTest"></class>
+<class name="com.Well.testcases.V2Project.V2_TC_14A_ValidateProjectAccessTeamV2ProjectTest"></class>
 </classes>
 </test>
 

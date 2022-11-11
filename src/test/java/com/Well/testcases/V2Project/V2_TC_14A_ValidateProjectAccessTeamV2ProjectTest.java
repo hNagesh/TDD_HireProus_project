@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class V2_TC_14A_TeamV2ProjectTest extends BaseClass {
+public class V2_TC_14A_ValidateProjectAccessTeamV2ProjectTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_14_TeamV2ProjectTest.V2_TC_14_TeamV2Project" })
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_14_AddTeamMemberV2ProjectTest.V2_TC_14_AddTeamMemberV2Project" })
 	@Parameters({ "SheetName","rowNum" })
-	public void V2_TC_14A_TeamV2Project(String SheetName,int rowNum) throws IOException {
+	public void V2_TC_14A_ValidateProjectAccessTeamV2Project(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

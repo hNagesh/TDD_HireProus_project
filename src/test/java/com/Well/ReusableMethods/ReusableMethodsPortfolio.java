@@ -70,7 +70,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		testlog.pass("**Verifies the Registration successful**");
 	}
 
-	public void SearchPortfolioByName(String SheetName, int rowNum) throws IOException, InterruptedException {
+	public void SearchPortfolioById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
 		CommonMethod.click("ProjectNavBar");
 		CommonMethod.RobustclickElementVisible("WellAtScaleNavBar", "PortfolioSearchByID");
