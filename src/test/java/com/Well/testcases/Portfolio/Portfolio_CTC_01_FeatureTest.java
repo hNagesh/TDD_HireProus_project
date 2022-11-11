@@ -19,11 +19,11 @@ public class Portfolio_CTC_01_FeatureTest extends BaseClass {
              portfolio.PortfolioBuildScorecard();
           
             /*
-              * Air A01.1
+              * Air A01.1 */
                pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
-              * Air A01.3
+              /* Air A01.3*/
                pf.MeetThresholdsforInOrganicGases("Meet Thresholds for Inorganic Gases");
-			 */
+			
              
              /*
               * Air A01.2 

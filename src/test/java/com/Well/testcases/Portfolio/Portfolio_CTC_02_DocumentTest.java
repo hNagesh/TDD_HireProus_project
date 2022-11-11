@@ -17,14 +17,14 @@ public class Portfolio_CTC_02_DocumentTest extends BaseClass {
 		StartTest(TestCaseName,"Attach Document and verify");
 		try {
 			portfolio.clickDocument();		
-			//pf.L09_AuditDocumentUploadInDocumentLibrary();
+			pf.L09_AuditDocumentUploadInDocumentLibrary();
 			pf.UpdateAuditDocumentUploadInDocumentLibrary();
 			pf.A01_2_DocumentUploadInDocumentLibrary();
 			pf.UpdateFeatureDocumentUploadInDocumentLibrary();
 			pf.ValidatingLegalUploadDocument();
 			pf.DeleteInDocumentLibrary();
 			pf.FilterInDocumentLibrary();		
-		  //pf.A01_1_FeatureDocumentUploadInDocumentLibrary();
+		    //pf.A01_1_FeatureDocumentUploadInDocumentLibrary();
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
