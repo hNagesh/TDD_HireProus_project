@@ -15,7 +15,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 
 	public void RegisterFaculty(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("TrainingNavBar", 60);
-		CommonMethod.click("TrainingNavBar");
+		CommonMethod.RobustclickElementVisible("TrainingNavBar","WELLFacultyNavBar");
 		CommonMethod.RobustclickElementVisible("WELLFacultyNavBar","WFExamContinuebtn");
 		CommonMethod.WaitUntilVisibility("WFExamContinuebtn", 30);
 		CommonMethod.RobustclickElementVisible("WFExamContinuebtn","WPRExamOwnerCountry");
