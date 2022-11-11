@@ -28,13 +28,14 @@
 <class name="com.Well.testcases.V2Project.V2_TC_11_HealthSafetyReviewV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_12_PerformanceV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_13_PerformanceReviewV2ProjectTest"></class>
-<class name="com.Well.testcases.V2Project.V2_TC_14_TeamV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_15_SupportV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_16_AlternativesV2ProjectTest"></class> 
 <class name="com.Well.testcases.V2Project.V2_TC_17_OverviewAndValidateRegisterFieldsV2ProjectTest"></class> 
 <class name="com.Well.testcases.V2Project.V2_TC_18_PromotionV2ProjectTest"></class> 
 <class name="com.Well.testcases.V2Project.V2_TC_19_ProfileV2ProjectTest"></class> 
 <class name="com.Well.testcases.V2Project.V2_TC_20_EditV2ProjectTest"></class> 
+<class name="com.Well.testcases.V2Project.V2_TC_14_AddTeamMemberV2ProjectTest"></class>
+<class name="com.Well.testcases.V2Project.V2_TC_14A_ValidateProjectAccessTeamV2ProjectTest"></class>
 </classes>
 </test>
 
