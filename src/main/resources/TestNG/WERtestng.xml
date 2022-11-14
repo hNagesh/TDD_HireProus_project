@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+
+<suite name="EquityRating module">
+
+<parameter name="browserName" value="chrome"/>
+<parameter name="environment" value="Test"/>
+
+ <test name="WELL-WER" >
+<parameter name="SheetName" value="Wer"/>
+<parameter name="rowNum" value="2"/>
+<parameter name="Country" value="US"/>
+<classes>
+<class name="com.Well.testcases.login.TC_01_LoginTest"></class>
+<class name="com.Well.testcases.Equity.Equity_TC_02_RegisterAndValidateTest"></class>
+
+</classes>
+</test>
+
+</suite>  
