@@ -11,8 +11,8 @@
 <parameter name="Country" value="US"/>
 <classes>
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
-<!-- <class name="com.Well.testcases.Equity.Equity_TC_02_RegisterAndValidateTest"></class>
-<class name="com.Well.testcases.Equity.Equity_TC_03_SubscribeAndStoreIdTest"></class>-->
+ <class name="com.Well.testcases.Equity.Equity_TC_02_RegisterAndValidateTest"></class>
+<class name="com.Well.testcases.Equity.Equity_TC_03_SubscribeAndStoreIdTest"></class>
 <class name="com.Well.testcases.Equity.Equity_TC_04_SearchByIdTest"></class>
 <class name="com.Well.testcases.Equity.Equity_TC_05_DownloadBillingAndValidateTest"></class>
  <class name="com.Well.testcases.Equity.Equity_TC_06_WerProjectFieldValidationTest"></class>
