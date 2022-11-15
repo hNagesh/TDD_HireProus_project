@@ -69,10 +69,10 @@ public class BaseClass {
 	public static ExtentTest testlog;
 	public static ExtentReports extent;
 	public static String TestCaseName;
+	public static String SecurityAssesment;
 	private ClientApi api;
 	static final String ZAP_PROXY_ADDRESS = "localhost";
-	static final int ZAP_PROXY_PORT = 8090;
-	static final String ZAP_API_KEY = "b69rbuho6m7ii2inphp71mv3kc";
+	static final int ZAP_PROXY_PORT = 8080;
 	public static SoftAssert softAssert = new SoftAssert();
 	public static String SamplePdffile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"Resume.pdf";
 	public static String SamplePdffile1 = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"SampleResume.pdf";
@@ -99,8 +99,8 @@ public class BaseClass {
 	public static ReusableMethodEquity Equity = new ReusableMethodEquity();
 	public static ReusableMethodCommon rc = new ReusableMethodCommon();
 	@BeforeSuite
-	@Parameters({ "browserName", "environment" })
-	public void setup(String browserName, String environment) throws InterruptedException, IOException {
+	@Parameters({ "browserName", "environment","SecurtiyTest" })
+	public void setup(String browserName, String environment,String SecurtiyTest) throws InterruptedException, IOException {
 		
 		data= new XlsReader(System.getProperty("user.dir")+"/TestData.xlsx");
 		Properties prop = new Properties();
@@ -121,17 +121,19 @@ public class BaseClass {
 			Environment = environment;
 		}
 		
-		String ProxyServerURL = ZAP_PROXY_ADDRESS +":"+ ZAP_PROXY_PORT;
-		Proxy proxy = new Proxy();
-		proxy.setAutodetect(false);
-		proxy.setHttpProxy(ProxyServerURL);
-		proxy.setSslProxy(ProxyServerURL);
+		
 
 		if (browserName.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 			
-		} else if (browserName.equalsIgnoreCase("chrome")) {
+		} else if (browserName.equalsIgnoreCase("chrome") && SecurtiyTest.equalsIgnoreCase("true")) {
+			SecurityAssesment = "true";
+			String ProxyServerURL = ZAP_PROXY_ADDRESS +":"+ ZAP_PROXY_PORT;
+			Proxy proxy = new Proxy();
+			proxy.setAutodetect(false);
+			proxy.setHttpProxy(ProxyServerURL);
+			proxy.setSslProxy(ProxyServerURL);
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("--proxy-bypass-list=<-loopback>");
 			options.setAcceptInsecureCerts(true);
@@ -154,8 +156,30 @@ public class BaseClass {
 			driver = new ChromeDriver(options);
 	        JSWaiter.setDriver(driver);
 	        api = new ClientApi(ZAP_PROXY_ADDRESS,ZAP_PROXY_PORT);
-	       Ascan aapi = api.ascan;
-	       System.out.println(aapi.toString());
+
+		}
+		
+		else if (browserName.equalsIgnoreCase("chrome") && SecurtiyTest.equalsIgnoreCase("false")) {
+			SecurityAssesment = "false";
+			ChromeOptions options = new ChromeOptions();
+			WebDriverManager.chromedriver().setup();
+			Map<String, Object> prefs = new HashMap<String, Object>();
+			prefs.put("download.default_directory",  downloadPath);
+			prefs.put("profile.default_content_settings.popups", 0);
+			prefs.put("safebrowsing.enabled", "false");
+			//options.addArguments("--incognito");
+			options.setExperimentalOption("prefs", prefs);
+			options.addArguments("disable-infobars");	           
+			 options.addArguments("--disable-notifications");
+			 options.setExperimentalOption("useAutomationExtension", false);
+			 //options.setExperimentalOption("excludeSwitches",Collections.singletonList("enable-automation"));
+			 options.addArguments("--window-size=1920,1280");
+			 options.addArguments("--window-position=0,0");
+			 options.addArguments("--disable-web-security");
+			options.setHeadless(false);
+			driver = new ChromeDriver(options);
+	        JSWaiter.setDriver(driver);
+
 		}
 		//DevTools chromeDevTools = ((HasDevTools) driver).getDevTools();
 	    //chromeDevTools.createSession();
@@ -260,7 +284,7 @@ ImageIO.write(img, "png", new File(
 @AfterMethod(alwaysRun = true)
 public void getResult(ITestResult result) throws Exception {
 	
-	if(api != null) {
+	if(api != null  && SecurityAssesment.equalsIgnoreCase("true")) {
 		String Title = "ZAP Security Report";
 	    String Template = "traditional-html";
 	    String Description = "ZAP Security Report";
