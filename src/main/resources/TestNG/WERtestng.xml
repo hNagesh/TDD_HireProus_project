@@ -1,19 +1,22 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 
-<suite name="EquityRating module">
+<suite name="Equity Rating module">
 
 <parameter name="browserName" value="chrome"/>
 <parameter name="environment" value="Test"/>
-
  <test name="WELL-WER" >
 <parameter name="SheetName" value="Wer"/>
 <parameter name="rowNum" value="2"/>
 <parameter name="Country" value="US"/>
 <classes>
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
-<class name="com.Well.testcases.Equity.Equity_TC_02_RegisterAndValidateTest"></class>
-<class name="com.Well.testcases.Equity.Equity_TC_03_SubscribeAndStoreIdTest"></class>
+<!-- <class name="com.Well.testcases.Equity.Equity_TC_02_RegisterAndValidateTest"></class>
+<class name="com.Well.testcases.Equity.Equity_TC_03_SubscribeAndStoreIdTest"></class>-->
+<class name="com.Well.testcases.Equity.Equity_TC_04_SearchByIdTest"></class>
+<class name="com.Well.testcases.Equity.Equity_TC_05_DownloadBillingAndValidateTest"></class>
+ <class name="com.Well.testcases.Equity.Equity_TC_06_WerProjectFieldValidationTest"></class>
+<!-- <class name="com.Well.testcases.Equity.Equity_TC_07_LocationTest"></class>-->
 </classes>
 </test>
 

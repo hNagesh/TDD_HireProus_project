@@ -25,8 +25,7 @@
   <class name="com.Well.testcases.Performance.Performance_TC_13_PromotionTest"></class>
   <class name="com.Well.testcases.Performance.Performance_TC_14_ProfileTest"></class>
   <class name="com.Well.testcases.Performance.Performance_TC_15_AddLocationTest"></class>
-  <class name="com.Well.testcases.Performance.Performance_TC_16_BillingTest"></class>
-   <class name="com.Well.testcases.Performance.Performance_TC_16A_DownloadBillingAndValidateTest"></class>
+   <class name="com.Well.testcases.Performance.Performance_TC_16_DownloadBillingAndValidateTest"></class>
    <class name="com.Well.testcases.Performance.Performance_TC_11_AddMemberTeamTest"></class>
   <class name="com.Well.testcases.Performance.Performance_TC_11A_ValidateProjectAccessTeamTest"></class>
 </classes>
