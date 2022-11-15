@@ -70,7 +70,7 @@ public class BaseClass {
 	public static String TestCaseName;
 	private ClientApi api;
 	static final String ZAP_PROXY_ADDRESS = "localhost";
-	static final int ZAP_PROXY_PORT = 8080;
+	static final int ZAP_PROXY_PORT = 8090;
 	static final String ZAP_API_KEY = "b69rbuho6m7ii2inphp71mv3kc";
 	public static SoftAssert softAssert = new SoftAssert();
 	public static String SamplePdffile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"Resume.pdf";
