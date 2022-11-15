@@ -32,6 +32,7 @@ import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 import org.zaproxy.clientapi.core.ApiResponse;
 import org.zaproxy.clientapi.core.ClientApi;
+import org.zaproxy.clientapi.gen.Ascan;
 
 import com.Well.ReusableMethods.ReusableMethodCommon;
 import com.Well.ReusableMethods.ReusableMethodEquity;
@@ -153,6 +154,8 @@ public class BaseClass {
 			driver = new ChromeDriver(options);
 	        JSWaiter.setDriver(driver);
 	        api = new ClientApi(ZAP_PROXY_ADDRESS,ZAP_PROXY_PORT);
+	       Ascan aapi = api.ascan;
+	       System.out.println(aapi.toString());
 		}
 		//DevTools chromeDevTools = ((HasDevTools) driver).getDevTools();
 	    //chromeDevTools.createSession();
