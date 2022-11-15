@@ -110,7 +110,7 @@ public class ReusableMethodEquity extends BaseClass {
 				"Project name doesn't matches in search");
 		CommonMethod.click("WERIdClick");
 		CommonMethod.WaitUntilVisibility("WERDashboard", 300);
-		testlog.pass("**Verifies the Search Performance ByID successfully**");
+		testlog.pass("**Verifies the Search Equity ByID successfully**");
 	}
 	
 	public void WerProjectFieldValidationTest(String SheetName, int rowNum) throws Exception {
@@ -151,6 +151,37 @@ public class ReusableMethodEquity extends BaseClass {
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("HsrWprPostalCode"),
 				data.getCellData(SheetName, "PostalCode", rowNum), "PostalCode doesn't match");
         softAssert.assertAll();
-        testlog.pass("**Verifies the Wer Field Validation successfully**");
+        testlog.pass("**Verifies the WELL Equity Field Validation successfully**");
+	}
+	
+	public void CompleteScorecardWerById(String SheetName, int rowNum) throws IOException, InterruptedException {
+		Thread.sleep(3000);
+		CommonMethod.WaitUntilVisibility("ScorecardTab", 60);
+		CommonMethod.click("ScorecardTab");
+		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
+		performance.ScorecardfillHSRWPR(21, 21, 36, 16, "WPRPurseYes", "WPRPurseNo");
+		testlog.pass("**Verifies the 15 Purse Yes Scorecard Equity successfully**");
+	}
+
+	public void UploadWERDocForFeature(int LastFeatureNumber) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
+		performance.uploadDocumentInFeature(LastFeatureNumber);
+		testlog.pass("**Upload 21 Scorecard Documents successfully**");
+	}
+	
+	public void UploadWERDocument() throws IOException, InterruptedException {
+		Thread.sleep(2000);
+		CommonMethod.WaitUntilVisibility("DocumentLibraryTab", 300);
+		CommonMethod.click("DocumentLibraryTab");
+		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 60);
+		CommonMethod.click("WPRUploadDocLib");
+		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", "general");
+		CommonMethod.selectdropdownValue("WPRSelectType", "Project overview");
+		CommonMethod.uploadFile("WPRDocUpload", GeneralfileUpload);
+		Thread.sleep(2000);
+		CommonMethod.sendKeys("WPRAddNote", "Submitting Document");
+		CommonMethod.Robustclick("WPRSumbitUploadDocLib");
+		testlog.pass("**Upload Document successfully**");
 	}
 }
