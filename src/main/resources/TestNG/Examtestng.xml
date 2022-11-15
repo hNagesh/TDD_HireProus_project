@@ -10,7 +10,7 @@
 <parameter name="SheetName" value="Exam"/>
 <parameter name="rowNum" value="2"/>
 <classes>
-<class name="com.Well.testcases.Faculty.Faculty_TC_05_BulkDeleteInitialTest"></class> -->
+<class name="com.Well.testcases.Faculty.Faculty_TC_05_BulkDeleteInitialTest"></class> 
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
 <class name="com.Well.testcases.Exam.Exam_TC_02_RegisterExamTest"></class>
 <class name="com.Well.testcases.Exam.Exam_TC_03_EnrollExamTest"></class>

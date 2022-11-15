@@ -16,7 +16,7 @@
 <class name="com.Well.testcases.Equity.Equity_TC_04_SearchByIdTest"></class>
 <class name="com.Well.testcases.Equity.Equity_TC_05_DownloadBillingAndValidateTest"></class>
  <class name="com.Well.testcases.Equity.Equity_TC_06_WerProjectFieldValidationTest"></class>
-<!-- <class name="com.Well.testcases.Equity.Equity_TC_07_LocationTest"></class>-->
+<class name="com.Well.testcases.Equity.Equity_TC_07_LocationTest"></class>
 </classes>
 </test>
 
