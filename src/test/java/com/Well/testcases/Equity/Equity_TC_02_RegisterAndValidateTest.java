@@ -18,7 +18,7 @@ public class Equity_TC_02_RegisterAndValidateTest extends BaseClass {
 		StartTest(TestCaseName,"Register WELL Performance Project Functionality");
 
 		try {
-		Equity.RegisterEquity(SheetName, rowNum);	
+		equity.RegisterEquity(SheetName, rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

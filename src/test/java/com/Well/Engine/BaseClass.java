@@ -10,9 +10,7 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
-
-import javax.imageio.ImageIO;
-
+import  javax . imageio . ImageIO ;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Proxy;
@@ -34,7 +32,6 @@ import org.testng.asserts.SoftAssert;
 import org.zaproxy.clientapi.core.ApiResponse;
 import org.zaproxy.clientapi.core.ClientApi;
 import org.zaproxy.clientapi.gen.Ascan;
-
 import com.Well.ReusableMethods.ReusableMethodCommon;
 import com.Well.ReusableMethods.ReusableMethodEquity;
 import com.Well.ReusableMethods.ReusableMethodPerformance;
@@ -54,7 +51,6 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.github.javafaker.Faker;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
@@ -97,7 +93,7 @@ public class BaseClass {
 	public static ReusableMethodsFaculty faculty = new ReusableMethodsFaculty();
 	public static ReusableMethodsExam exam = new ReusableMethodsExam();
 	public static ReusableMethodsMembership membership = new ReusableMethodsMembership();
-	public static ReusableMethodEquity Equity = new ReusableMethodEquity();
+	public static ReusableMethodEquity equity = new ReusableMethodEquity();
 	public static ReusableMethodCommon rc = new ReusableMethodCommon();
 	@BeforeSuite
 	@Parameters({ "browserName", "environment","SecurtiyTest" })
@@ -261,7 +257,7 @@ public void logTestFailure() throws IOException, NumberFormatException, Interrup
 	//File screen = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 	//BufferedImage img = ImageIO.read(screenshot);
 	File filetest = Paths.get(".").toAbsolutePath().normalize().toFile();
-	int num = Integer.parseInt(CommonMethod.randomNumber(9999));
+	int  num = Integer . parseInt ( CommonMethod.randomNumber ( 9999 ) ) ;
 	ImageIO.write(screenshot.getImage(), "png", new File(filetest + File.separator + "Screenshots" + File.separator
 			+ /* ScreenshotCreditName+ */"_"+num +".png"));
 	/*testlog.info("Details of " + "Fail Test screenshot", MediaEntityBuilder
@@ -344,4 +340,3 @@ public void end(){
 		driver.quit();
 }
 	}
-
