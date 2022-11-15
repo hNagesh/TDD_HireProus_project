@@ -28,6 +28,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 import org.zaproxy.clientapi.core.ApiResponse;
@@ -100,7 +101,7 @@ public class BaseClass {
 	public static ReusableMethodCommon rc = new ReusableMethodCommon();
 	@BeforeSuite
 	@Parameters({ "browserName", "environment","SecurtiyTest" })
-	public void setup(String browserName, String environment,String SecurtiyTest) throws InterruptedException, IOException {
+	public void setup(String browserName, String environment,@Optional("false") String SecurtiyTest) throws InterruptedException, IOException {
 		
 		data= new XlsReader(System.getProperty("user.dir")+"/TestData.xlsx");
 		Properties prop = new Properties();
