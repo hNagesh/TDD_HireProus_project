@@ -13,7 +13,7 @@
 <classes>
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
 <class name="com.Well.testcases.Equity.Equity_TC_02_RegisterAndValidateTest"></class>
-
+<class name="com.Well.testcases.Equity.Equity_TC_03_SubscribeAndStoreIdTest"></class>
 </classes>
 </test>
 

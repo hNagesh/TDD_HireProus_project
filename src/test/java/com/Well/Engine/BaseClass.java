@@ -91,7 +91,7 @@ public class BaseClass {
 	public static ReusableMethodsFaculty faculty = new ReusableMethodsFaculty();
 	public static ReusableMethodsExam exam = new ReusableMethodsExam();
 	public static ReusableMethodsMembership membership = new ReusableMethodsMembership();
-	public static ReusableMethodEquity Equity = new ReusableMethodEquity();
+	public static ReusableMethodEquity equity = new ReusableMethodEquity();
 	public static ReusableMethodCommon rc = new ReusableMethodCommon();
 	@BeforeSuite
 	@Parameters({ "browserName", "environment" })
