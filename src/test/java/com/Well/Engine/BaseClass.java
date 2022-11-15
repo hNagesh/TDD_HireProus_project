@@ -34,6 +34,7 @@ import org.zaproxy.clientapi.core.ApiResponse;
 import org.zaproxy.clientapi.core.ClientApi;
 
 import com.Well.ReusableMethods.ReusableMethodCommon;
+import com.Well.ReusableMethods.ReusableMethodEquity;
 import com.Well.ReusableMethods.ReusableMethodPerformance;
 import com.Well.ReusableMethods.ReusableMethodsCustomPortfolio;
 import com.Well.ReusableMethods.ReusableMethodsExam;
@@ -94,6 +95,7 @@ public class BaseClass {
 	public static ReusableMethodsFaculty faculty = new ReusableMethodsFaculty();
 	public static ReusableMethodsExam exam = new ReusableMethodsExam();
 	public static ReusableMethodsMembership membership = new ReusableMethodsMembership();
+	public static ReusableMethodEquity Equity = new ReusableMethodEquity();
 	public static ReusableMethodCommon rc = new ReusableMethodCommon();
 	@BeforeSuite
 	@Parameters({ "browserName", "environment" })
