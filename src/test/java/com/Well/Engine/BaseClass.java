@@ -6,24 +6,21 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.time.Duration;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Properties;
+
 import javax.imageio.ImageIO;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
+import org.openqa.selenium.Proxy;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.devtools.DevTools;
-import org.openqa.selenium.devtools.HasDevTools;
-import org.openqa.selenium.devtools.v101.network.Network;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -33,6 +30,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
+import org.zaproxy.clientapi.core.ApiResponse;
+import org.zaproxy.clientapi.core.ClientApi;
 
 import com.Well.ReusableMethods.ReusableMethodCommon;
 import com.Well.ReusableMethods.ReusableMethodPerformance;
@@ -52,6 +51,7 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.github.javafaker.Faker;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import ru.yandex.qatools.ashot.AShot;
 import ru.yandex.qatools.ashot.Screenshot;
@@ -67,6 +67,10 @@ public class BaseClass {
 	public static ExtentTest testlog;
 	public static ExtentReports extent;
 	public static String TestCaseName;
+	private ClientApi api;
+	static final String ZAP_PROXY_ADDRESS = "127.0.0.1";
+	static final int ZAP_PROXY_PORT = 8080;
+	static final String ZAP_API_KEY = "b69rbuho6m7ii2inphp71mv3kc";
 	public static SoftAssert softAssert = new SoftAssert();
 	public static String SamplePdffile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"Resume.pdf";
 	public static String SamplePdffile1 = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"SampleResume.pdf";
@@ -113,6 +117,12 @@ public class BaseClass {
 
 			Environment = environment;
 		}
+		
+		String ProxyServerURL = ZAP_PROXY_ADDRESS +":"+ ZAP_PROXY_PORT;
+		Proxy proxy = new Proxy();
+		proxy.setAutodetect(false);
+		proxy.setHttpProxy(ProxyServerURL);
+		proxy.setSslProxy(ProxyServerURL);
 
 		if (browserName.equalsIgnoreCase("firefox")) {
 			WebDriverManager.firefoxdriver().setup();
@@ -120,6 +130,9 @@ public class BaseClass {
 			
 		} else if (browserName.equalsIgnoreCase("chrome")) {
 			ChromeOptions options = new ChromeOptions();
+			options.addArguments("--proxy-bypass-list=<-loopback>");
+			options.setAcceptInsecureCerts(true);
+			options.setProxy(proxy);
 			WebDriverManager.chromedriver().setup();
 			Map<String, Object> prefs = new HashMap<String, Object>();
 			prefs.put("download.default_directory",  downloadPath);
@@ -134,10 +147,10 @@ public class BaseClass {
 			 options.addArguments("--window-size=1920,1280");
 			 options.addArguments("--window-position=0,0");
 			 options.addArguments("--disable-web-security");
-			 options.addArguments("--no-proxy-server");
 			options.setHeadless(false);
 			driver = new ChromeDriver(options);
 	        JSWaiter.setDriver(driver);
+	        api = new ClientApi(ZAP_PROXY_ADDRESS,ZAP_PROXY_PORT,ZAP_API_KEY);
 		}
 		//DevTools chromeDevTools = ((HasDevTools) driver).getDevTools();
 	    //chromeDevTools.createSession();
@@ -241,6 +254,17 @@ ImageIO.write(img, "png", new File(
 
 @AfterMethod(alwaysRun = true)
 public void getResult(ITestResult result) throws Exception {
+	
+	if(api != null) {
+		String Title = "ZAP Security Report";
+	    String Template = "traditional-html";
+	    String Description = "ZAP Security Report";
+	    String ReportFileName = "ZAP_report.html";
+	    String TargetFolder = System.getProperty("user.dir")+ "/Report";
+		
+	    ApiResponse response = api.reports.generate(Title, Template, null, Description, null, null, null, null, null, ReportFileName, null, TargetFolder, null);
+	System.out.println("ZAP report generated at this location : " + response.toString());
+	}
 	/*String RS = RatingSystem;
 	System.out.println(RS);*/
 	if (result.getStatus() == ITestResult.FAILURE) {
