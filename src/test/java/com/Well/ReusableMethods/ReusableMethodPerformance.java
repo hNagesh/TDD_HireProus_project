@@ -303,14 +303,14 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilVisibility("DocumentLibraryTab", 300);
 		CommonMethod.click("DocumentLibraryTab");
 	}
-	public void validateGeneralUploadDocument(String SheetName, int rowNum,String DocumentType,String FileName) throws IOException, InterruptedException {
+	public void validateGeneralUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 60);
 		CommonMethod.click("WPRUploadDocLib");
 		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
-		CommonMethod.selectdropdownValue("WPRSelectDocType", DocumentType);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", "general");
 		CommonMethod.selectdropdownrandom("WPRHSRDocumentType");
 		CommonMethod.scrollDown();
-		CommonMethod.uploadFile("WPRDocUpload", FileName);
+		CommonMethod.uploadFile("WPRDocUpload", GeneralfileUpload);
 		Thread.sleep(2000);
 		CommonMethod.sendKeys("WPRHSRAddNote", "Submitting Document");
 		CommonMethod.Robustclick("WPRSumbitUploadDocLib");
@@ -323,15 +323,15 @@ public class ReusableMethodPerformance extends BaseClass {
 		softAssert.assertAll();
 		testlog.pass("**Upload General Document successfully**");	
 	}
-	public void validateLegalUploadDocument(String SheetName, int rowNum,String DocumentType,String FileName) throws IOException, InterruptedException {
+	public void validateLegalUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 120);
 		CommonMethod.click("WPRUploadDocLib");
 		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
-		CommonMethod.selectdropdownValue("WPRSelectDocType", DocumentType);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", "legal");
 		CommonMethod.selectdropdownrandom("WPRHSRDocumentType");
 		CommonMethod.scrollDown();
-		CommonMethod.uploadFile("WPRDocUpload", FileName);
+		CommonMethod.uploadFile("WPRDocUpload", LegalfileUpload);
 		Thread.sleep(2000);
 		CommonMethod.sendKeys("WPRHSRAddNote", "Submitting Document");
 		CommonMethod.Robustclick("WPRSumbitUploadDocLib");
@@ -344,15 +344,15 @@ public class ReusableMethodPerformance extends BaseClass {
 		softAssert.assertAll();
 		testlog.pass("**Upload Legal Document successfully**");	
 	}
-	public void validateAuditUploadDocument(String SheetName, int rowNum,String DocumentType,String FileName) throws IOException, InterruptedException {
+	public void validateAuditUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 120);
 		CommonMethod.click("WPRUploadDocLib");
 		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
-		CommonMethod.selectdropdownValue("WPRSelectDocType", DocumentType);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", "audit");
 		CommonMethod.selectdropdownrandom("WPRHSRDocumentType");
 		CommonMethod.scrollDown();
-		CommonMethod.uploadFile("WPRDocUpload", FileName);
+		CommonMethod.uploadFile("WPRDocUpload", AuditfileUpload);
 		Thread.sleep(2000);
 		CommonMethod.sendKeys("WPRHSRAddNote", "Submitting Document");
 		CommonMethod.Robustclick("WPRSumbitUploadDocLib");
@@ -365,15 +365,15 @@ public class ReusableMethodPerformance extends BaseClass {
 		softAssert.assertAll();
 		testlog.pass("**Upload Audit Document successfully**");	
 	}
-	public void validateFeatureUploadDocument(String SheetName, int rowNum,String DocumentType,String FileName) throws IOException, InterruptedException {
+	public void validateFeatureUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 120);
 		CommonMethod.click("WPRUploadDocLib");
 		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
-		CommonMethod.selectdropdownValue("WPRSelectDocType", DocumentType);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", "feature");
 		CommonMethod.selectdropdownrandom("WPRHSRDocumentType");
 		CommonMethod.scrollDown();
-		CommonMethod.uploadFile("WPRDocUpload", FileName);
+		CommonMethod.uploadFile("WPRDocUpload", FeaturefileUpload);
 		Thread.sleep(2000);
 		CommonMethod.sendKeys("WPRHSRAddNote", "Submitting Document");
 		CommonMethod.Robustclick("WPRSumbitUploadDocLib");

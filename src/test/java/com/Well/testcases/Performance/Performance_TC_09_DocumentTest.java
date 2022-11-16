@@ -18,7 +18,7 @@ public class Performance_TC_09_DocumentTest extends BaseClass {
 		StartTest(TestCaseName, "Upload Document in Document");
 		try {
 			performance.clikOnDocumentLibrary();
-			performance.validateGeneralUploadDocument(SheetName, rowNum, "general",GeneralfileUpload);
+			performance.validateGeneralUploadDocument(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -35,7 +35,7 @@ public class Performance_TC_09_DocumentTest extends BaseClass {
 
 		StartTest(TestCaseName, "Upload Document in Document");
 		try {
-			performance.validateLegalUploadDocument(SheetName, rowNum, "legal",LegalfileUpload);
+			performance.validateLegalUploadDocument(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -52,7 +52,7 @@ public class Performance_TC_09_DocumentTest extends BaseClass {
 
 		StartTest(TestCaseName, "Upload Document in Document");
 		try {
-			performance.validateAuditUploadDocument(SheetName, rowNum, "audit",AuditfileUpload);
+			performance.validateAuditUploadDocument(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -69,7 +69,7 @@ public class Performance_TC_09_DocumentTest extends BaseClass {
 
 		StartTest(TestCaseName, "Upload Document in Document");
 		try {
-			performance.validateFeatureUploadDocument(SheetName, rowNum, "feature",FeaturefileUpload);
+			performance.validateFeatureUploadDocument(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

@@ -238,24 +238,6 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		testlog.pass("**Completed Reviewed Preliminary Health-Safety Review successfully**");
 	}
 
-	public void UploadDocumentHsr() throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("WellV2ProjectDocumentTab", 300);
-		CommonMethod.click("WellV2ProjectDocumentTab");
-		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
-		CommonMethod.RobustclickElementVisible("HsrAddDoc", "V2ProjectDocUpload");
-		CommonMethod.WaitUntilVisibility("HsrSelectTypeDoc", 60);
-		CommonMethod.selectdropdownValue("HsrSelectTypeDoc", "general");
-		CommonMethod.selectdropdownIndex("HsrType", 1);
-		CommonMethod.uploadFile("V2ProjectDocUpload", GeneralfileUpload);
-		Thread.sleep(2000);
-		CommonMethod.sendKeys("HsrReasonnarration", "Submitting Document");
-		CommonMethod.Robustclick("HsrDocumentUploadbtn");
-		/* CommonMethod.click("V2ProjectGeneralDoc"); */
-		// Add Doc count validation
-		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
-		testlog.pass("**Upload Document successfully**");
-	}
-
 	public void HsrProjectFieldValidationTest(String SheetName, int rowNum) throws Exception {
 		CommonMethod.WaitUntilVisibility("EditTab", 120);
 		CommonMethod.RobustclickElementVisible("EditTab", "HsrWprOrganizationInformation");
@@ -337,13 +319,13 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		softAssert.assertAll();
 		testlog.pass("**Upload General Document successfully**");	
 	}
-	public void validateLegalUploadDocument(String SheetName, int rowNum,String DocumentType,String FileName) throws IOException, InterruptedException {
+	public void validateLegalUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
 		CommonMethod.click("HsrAddDoc");
 		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
-		CommonMethod.selectdropdownValue("WPRSelectDocType", DocumentType);
-		CommonMethod.selectdropdownValue("HsrType","CA");
-		CommonMethod.uploadFile("WPRDocUpload", FileName);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", "legal");
+		CommonMethod.selectdropdownValue("HsrType","Signed certification agreement");
+		CommonMethod.uploadFile("WPRDocUpload", LegalfileUpload);
 		Thread.sleep(2000);
 		CommonMethod.sendKeys("HsrReasonnarration", "Submitting Document");
 		CommonMethod.RobustclickElementVisible("HsrDocumentUploadbtn","HsrGeneralLink");
@@ -352,23 +334,15 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilPresence("HsrGeneralTable", 120);
 		CommonMethod.scrolldowntoElement("HsrGeneralTable");
 		List<String> val = CommonMethod.fetchTableData("HsrGeneralTable");
-		System.out.println("Index 0" +val.get(0));
-		System.out.println("Index 1" +val.get(1));
-		System.out.println("Index 2" +val.get(2));
-		System.out.println("Index 3" +val.get(3));
-		System.out.println("Index 4" +val.get(4));
-		System.out.println("Index 5" +val.get(5));
-		System.out.println("Index 6" +val.get(6));
-		System.out.println("Index 7" +val.get(7));
-		CommonMethod.softAssertContainsMessage(val.get(0), "CA", "Document table data mismatch");
+		CommonMethod.softAssertContainsMessage(val.get(0), "SIGNED CERTIFICATION AGREEMENT", "Document table data mismatch");
 		softAssert.assertAll();
 		testlog.pass("**Upload Legal Document successfully**");	
 	}
-	public void validateAuditUploadDocument(String SheetName, int rowNum,String DocumentType,String FileName) throws IOException, InterruptedException {
+	public void validateAuditUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
 		CommonMethod.click("HsrAddDoc");
 		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
-		CommonMethod.selectdropdownValue("WPRSelectDocType", DocumentType);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", "audit");
 		CommonMethod.click("HsrLocationRadiobutton");
 		CommonMethod.selectdropdownValue("HsrType","2");
 //		CommonMethod.scrolldowntoElement("HsrContainedDocument");
@@ -377,7 +351,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		Thread.sleep(10000);
 //		CommonMethod.RobustclickElementVisible("HsrContainedDocument","WPRDocUpload");
 		CommonMethod.click("HsrContainedDocument");
-		CommonMethod.uploadFile("WPRDocUpload", FileName);
+		CommonMethod.uploadFile("WPRDocUpload", AuditfileUpload);
 		Thread.sleep(2000);
 		CommonMethod.sendKeys("HsrReasonnarration", "Submitting Document");
 		CommonMethod.Robustclick("HsrDocumentUploadbtn");
@@ -396,10 +370,10 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
 		CommonMethod.click("HsrAddDoc");
 		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
-		CommonMethod.selectdropdownValue("WPRSelectDocType", DocumentType);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", "feature");
 		CommonMethod.selectdropdownValue("HsrType","Professional Narrative");
 		CommonMethod.selectdropdownrandom("HsrContainedDocument");
-		CommonMethod.uploadFile("WPRDocUpload", FileName);
+		CommonMethod.uploadFile("WPRDocUpload", FeaturefileUpload);
 		Thread.sleep(2000);
 		CommonMethod.sendKeys("HsrReasonnarration", "Submitting Document");
 		CommonMethod.Robustclick("HsrDocumentUploadbtn");

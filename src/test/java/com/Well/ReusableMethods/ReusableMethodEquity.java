@@ -159,8 +159,8 @@ public class ReusableMethodEquity extends BaseClass {
 		CommonMethod.WaitUntilVisibility("ScorecardTab", 60);
 		CommonMethod.click("ScorecardTab");
 		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
-		performance.ScorecardfillHSRWPR(21, 21, 36, 16, "WPRPurseYes", "WPRPurseNo");
-		testlog.pass("**Verifies the 15 Purse Yes Scorecard Equity successfully**");
+		performance.ScorecardfillHSRWPR(21, 21, 49, 29, "WPRPurseYes", "WPRPurseNo");
+		testlog.pass("**Verifies the 21 Purse Yes Scorecard Equity successfully**");
 	}
 
 	public void UploadWERDocForFeature(int LastFeatureNumber) throws IOException, InterruptedException {
@@ -169,19 +169,5 @@ public class ReusableMethodEquity extends BaseClass {
 		testlog.pass("**Upload 21 Scorecard Documents successfully**");
 	}
 	
-	public void UploadWERDocument() throws IOException, InterruptedException {
-		Thread.sleep(2000);
-		CommonMethod.WaitUntilVisibility("DocumentLibraryTab", 300);
-		CommonMethod.click("DocumentLibraryTab");
-		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 60);
-		CommonMethod.click("WPRUploadDocLib");
-		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
-		CommonMethod.selectdropdownValue("WPRSelectDocType", "general");
-		CommonMethod.selectdropdownValue("WPRSelectType", "Project overview");
-		CommonMethod.uploadFile("WPRDocUpload", GeneralfileUpload);
-		Thread.sleep(2000);
-		CommonMethod.sendKeys("WPRAddNote", "Submitting Document");
-		CommonMethod.Robustclick("WPRSumbitUploadDocLib");
-		testlog.pass("**Upload Document successfully**");
-	}
+	
 }

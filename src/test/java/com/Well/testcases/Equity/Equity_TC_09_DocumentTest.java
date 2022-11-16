@@ -17,7 +17,8 @@ public class Equity_TC_09_DocumentTest extends BaseClass {
         StartTest(TestCaseName,"Upload Document in Document");
 
 		try {
-			equity.UploadWERDocument();
+			performance.clikOnDocumentLibrary();
+			performance.validateGeneralUploadDocument(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
