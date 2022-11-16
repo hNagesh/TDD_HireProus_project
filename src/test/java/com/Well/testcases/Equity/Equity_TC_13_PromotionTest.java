@@ -15,7 +15,7 @@ public class Equity_TC_13_PromotionTest extends BaseClass {
 
 		StartTest(TestCaseName,"Verifying Card link details");
 		try {
-			rc.promotionCardValidation(SheetName, rowNum,"1");
+			rc.promotionCardValidation(SheetName, rowNum,"2");
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

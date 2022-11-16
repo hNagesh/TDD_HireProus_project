@@ -169,5 +169,47 @@ public class ReusableMethodEquity extends BaseClass {
 		testlog.pass("**Upload 21 Scorecard Documents successfully**");
 	}
 	
+	public void WERReview(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilClickble("ReviewTab", 60);
+		CommonMethod.RobustclickElementVisible("ReviewTab","WPRReviewSubmitbtn");
+		CommonMethod.RobustclickElementVisible("WPRReviewSubmitbtn","WPRReviewProjectPhase");
+		CommonMethod.selectdropdownVisibletext("WPRReviewProjectPhase", "Preliminary Equity Rating Review");
+		CommonMethod.WaitUntilClickble("WPRReviewComment", 60).sendKeys("Preliminary Equity Rating Review");	
+		CommonMethod.WaitUntilVisibility("WPRReviewSubmitDocbtn", 30);
+		CommonMethod.RobustclickElementVisible("WPRReviewSubmitDocbtn","ReviewViewButton");
+		CommonMethod.WaitUntilVisibility("Reviewlanding", 60);
+		testlog.pass("**Submitted Preliminary Precertification Review successfully**");
+		/*
+		 * Admin Review
+		 */
+		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
+		CommonMethod.click("AdminNavBar");
+		CommonMethod.WaitUntilVisibility("AdminWELLEquityNavBar", 60);
+		CommonMethod.RobustclickElementVisible("AdminWELLEquityNavBar", "WPRAdminIdSearch");
+		CommonMethod.WaitUntilClickble("WPRAdminIdSearch", 60)
+				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.click("WPRAdminApplybtn");
+		Thread.sleep(2000);
+		CommonMethod.assertcontainsmessage("WPRAdminIdClick", data.getCellData(SheetName, "ProjectID", rowNum),
+				"Project name doesn't matches in search");
+		CommonMethod.click("WPRAdminIdClick");
+		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 300);
+		CommonMethod.click("ReviewTab");
+		CommonMethod.WaitUntilVisibility("ReviewViewButton", 60);
+		CommonMethod.click("ReviewViewButton");
+		CommonMethod.WaitUntilVisibility("ReviewReturnButton", 60);
+		CommonMethod.click("ReviewReturnButton");
+		CommonMethod.WaitUntilClickble("ReturnComment", 60).sendKeys("Preliminary Precertification Review");
+		Thread.sleep(1000);
+		CommonMethod.click("DatePickerButton");
+		CommonMethod.click("DatePickerOkButton");
+		CommonMethod.scrollDown();
+		Thread.sleep(1000);
+		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
+		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit", "ReviewedStatus");
+		Thread.sleep(2000);
+		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status successfully");
+		testlog.pass("**Completed Reviewing Preliminary Precertification Review successfully**");
+	}
 	
 }

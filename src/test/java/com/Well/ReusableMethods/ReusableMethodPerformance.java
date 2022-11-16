@@ -200,15 +200,13 @@ public class ReusableMethodPerformance extends BaseClass {
 
 	public void WPRReview(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("ReviewTab", 60);
-		Thread.sleep(3000);
-		CommonMethod.click("ReviewTab");
-		CommonMethod.click("WPRReviewSubmitbtn");
-		CommonMethod.WaitUntilVisibility("WPRReviewSubmitDocbtn", 30);
+		CommonMethod.RobustclickElementVisible("ReviewTab","WPRReviewSubmitbtn");
+		CommonMethod.RobustclickElementVisible("WPRReviewSubmitbtn","WPRReviewProjectPhase");
 		CommonMethod.selectdropdownVisibletext("WPRReviewProjectPhase", "Preliminary Performance Rating Review");
 		CommonMethod.WaitUntilClickble("WPRReviewComment", 60).sendKeys("Preliminary Performance Rating Review");
-		CommonMethod.click("WPRReviewSubmitDocbtn");
+		CommonMethod.WaitUntilVisibility("WPRReviewSubmitDocbtn", 30);
+		CommonMethod.RobustclickElementVisible("WPRReviewSubmitDocbtn","ReviewViewButton");
 		CommonMethod.WaitUntilVisibility("Reviewlanding", 60);
-		Thread.sleep(2000);
 		testlog.pass("**Submitted Preliminary Precertification Review successfully**");
 		/*
 		 * Admin Review

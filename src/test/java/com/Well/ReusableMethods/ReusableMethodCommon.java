@@ -224,7 +224,7 @@ public class ReusableMethodCommon extends BaseClass {
 		 * Validate updated project information fields
 		 */
 		CommonMethod.WaitUntilVisibility("EditTab", 60);
-		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectProjectInformationButton");
+		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectProjectNameInput");
 		if (CommonMethod.isElementsExist("V2ProjectProjectInformationButton", 10)) {
 			CommonMethod.RobustclickElementVisible("V2ProjectProjectInformationButton", "V2ProjectProjectScope");
 		} else if (CommonMethod.isElementsExist("HSROrganizationInformationButton", 10)) {
