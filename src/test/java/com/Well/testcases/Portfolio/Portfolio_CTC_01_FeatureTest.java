@@ -9,8 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Portfolio_CTC_01_FeatureTest extends BaseClass {
 
-	@Test(dependsOnMethods = {
-			"com.Well.testcases.Portfolio.Portfolio_TC_06_PortfolioLocationImportTest.Portfolio_TC_06_PortfolioLocationImport" })
+	@Test(dependsOnMethods = {"com.Well.testcases.Portfolio.Portfolio_TC_06_PortfolioLocationImportTest.Portfolio_TC_06_PortfolioLocationImport" })
 	@Parameters({ "SheetName", "rowNum" })
 	public void Portfolio_CTC_01_Feature() throws IOException {
 
@@ -19,13 +18,13 @@ public class Portfolio_CTC_01_FeatureTest extends BaseClass {
 		try {
 			portfolio.PortfolioBuildScorecard();
 
-			/*
-			 * Air A01.1 
-			 * pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
-			 * Air A01.3
-			 * pf.MeetThresholdsforInOrganicGases("Meet Thresholds for Inorganic Gases");
-			 * 
-			 */
+			
+			  /*Air A01.1 */
+			  pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
+				/* Air A01.3 */
+			  pf.MeetThresholdsforInOrganicGases("Meet Thresholds for Inorganic Gases");
+			  
+			 
 			/*
 			 * Air A01.2
 			 */
