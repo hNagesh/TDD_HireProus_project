@@ -312,4 +312,106 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 				"Project name doesn't matches in search");
 		testlog.pass("**Verifies user able to access the invited project**");
 	}
+	public void clikOnDocumentLibrary() throws InterruptedException, IOException {
+		Thread.sleep(5000);
+		CommonMethod.WaitUntilVisibility("WPRHSRDocumentTab", 300);
+		CommonMethod.click("WPRHSRDocumentTab");
+	}
+	public void validateGeneralUploadDocument(String SheetName, int rowNum,String DocumentType,String FileName) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
+		CommonMethod.click("HsrAddDoc");
+		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", DocumentType);
+		CommonMethod.selectdropdownValue("HsrType","Project overview");
+		CommonMethod.uploadFile("WPRDocUpload", FileName);
+		Thread.sleep(2000);
+		CommonMethod.sendKeys("HsrReasonnarration", "Submitting Document");
+		CommonMethod.RobustclickElementVisible("HsrDocumentUploadbtn","HsrGeneralLink");
+		CommonMethod.WaitUntilPresence("HsrGeneralLink", 120);
+		CommonMethod.RobustclickElementVisible("HsrGeneralLink", "HsrGeneralTable");
+		CommonMethod.WaitUntilPresence("HsrGeneralTable", 120);
+		CommonMethod.scrolldowntoElement("HsrGeneralTable");
+		List<String> val = CommonMethod.fetchTableData("HsrGeneralTable");
+		System.out.println("Index 0" +val.get(0));
+		CommonMethod.softAssertContainsMessage(val.get(0), "PROJECT OVERVIEW", "Document table data mismatch");
+		softAssert.assertAll();
+		testlog.pass("**Upload General Document successfully**");	
+	}
+	public void validateLegalUploadDocument(String SheetName, int rowNum,String DocumentType,String FileName) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
+		CommonMethod.click("HsrAddDoc");
+		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", DocumentType);
+		CommonMethod.selectdropdownValue("HsrType","CA");
+		CommonMethod.uploadFile("WPRDocUpload", FileName);
+		Thread.sleep(2000);
+		CommonMethod.sendKeys("HsrReasonnarration", "Submitting Document");
+		CommonMethod.RobustclickElementVisible("HsrDocumentUploadbtn","HsrGeneralLink");
+		CommonMethod.WaitUntilPresence("HsrGeneralLink", 120);
+		CommonMethod.RobustclickElementVisible("HsrGeneralLink", "HsrGeneralTable");
+		CommonMethod.WaitUntilPresence("HsrGeneralTable", 120);
+		CommonMethod.scrolldowntoElement("HsrGeneralTable");
+		List<String> val = CommonMethod.fetchTableData("HsrGeneralTable");
+		System.out.println("Index 0" +val.get(0));
+		System.out.println("Index 1" +val.get(1));
+		System.out.println("Index 2" +val.get(2));
+		System.out.println("Index 3" +val.get(3));
+		System.out.println("Index 4" +val.get(4));
+		System.out.println("Index 5" +val.get(5));
+		System.out.println("Index 6" +val.get(6));
+		System.out.println("Index 7" +val.get(7));
+		CommonMethod.softAssertContainsMessage(val.get(0), "CA", "Document table data mismatch");
+		softAssert.assertAll();
+		testlog.pass("**Upload Legal Document successfully**");	
+	}
+	public void validateAuditUploadDocument(String SheetName, int rowNum,String DocumentType,String FileName) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
+		CommonMethod.click("HsrAddDoc");
+		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", DocumentType);
+		CommonMethod.click("HsrLocationRadiobutton");
+		CommonMethod.selectdropdownValue("HsrType","2");
+//		CommonMethod.scrolldowntoElement("HsrContainedDocument");
+//		CommonMethod.RobustclickElementVisible("HsrContainedDocument","HsrContainedDocumentOption");
+		CommonMethod.click("HsrContainedDocument");
+		Thread.sleep(10000);
+//		CommonMethod.RobustclickElementVisible("HsrContainedDocument","WPRDocUpload");
+		CommonMethod.click("HsrContainedDocument");
+		CommonMethod.uploadFile("WPRDocUpload", FileName);
+		Thread.sleep(2000);
+		CommonMethod.sendKeys("HsrReasonnarration", "Submitting Document");
+		CommonMethod.Robustclick("HsrDocumentUploadbtn");
+//		CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
+//		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioScorecardDocumentUploadTable");
+//		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
+//		CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
+//		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
+//		System.out.println("Table data " +val);
+//		CommonMethod.softAssertContainsMessage(val.get(6), "Legal", "Document table data mismatch");
+//		softAssert.assertAll();
+		testlog.pass("**Upload Audit Document successfully**");	
+	}
+	
+	public void validateFeatureUploadDocument(String SheetName, int rowNum,String DocumentType,String FileName) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
+		CommonMethod.click("HsrAddDoc");
+		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", DocumentType);
+		CommonMethod.selectdropdownValue("HsrType","Professional Narrative");
+		CommonMethod.selectdropdownrandom("HsrContainedDocument");
+		CommonMethod.uploadFile("WPRDocUpload", FileName);
+		Thread.sleep(2000);
+		CommonMethod.sendKeys("HsrReasonnarration", "Submitting Document");
+		CommonMethod.Robustclick("HsrDocumentUploadbtn");
+//		CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
+//		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioScorecardDocumentUploadTable");
+//		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
+//		CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
+//		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
+//		System.out.println("Table data " +val);
+//		CommonMethod.softAssertContainsMessage(val.get(6), "Legal", "Document table data mismatch");
+//		softAssert.assertAll();
+		testlog.pass("**Upload Feature Document successfully**");		
+	}
+
 }
