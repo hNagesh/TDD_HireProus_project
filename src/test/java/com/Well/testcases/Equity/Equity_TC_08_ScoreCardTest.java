@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Equity_TC_08_ScoreCardTest extends BaseClass {
 
-	@Test//(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_06_WerProjectFieldValidationTest.Equity_TC_06_WerProjectFieldValidation" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_07_LocationTest.Equity_TC_07_01_AddLocation" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Equity_TC_08_00_CompleteScorecardWerById(String SheetName,int rowNum) throws IOException {
 
@@ -26,7 +26,7 @@ public class Equity_TC_08_ScoreCardTest extends BaseClass {
 		}
 	}
 
-	@Test//(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_08_ScoreCardTest.Equity_TC_08_00_CompleteScorecardWerById" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_08_ScoreCardTest.Equity_TC_08_00_CompleteScorecardWerById" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Equity_TC_08_01_UploadWERDocForFeature() throws IOException {
 

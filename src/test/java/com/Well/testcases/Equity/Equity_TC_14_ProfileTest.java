@@ -7,18 +7,17 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Equity_TC_09_DocumentTest extends BaseClass {
+public class Equity_TC_14_ProfileTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_08_ScoreCardTest.Equity_TC_08_01_UploadWERDocForFeature" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_13_PromotionTest.Equity_TC_13_Promotion" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Equity_TC_09_Document(String SheetName,int rowNum) throws IOException {
+	public void Equity_TC_14_Profile(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        StartTest(TestCaseName,"Upload Document in Document");
 
+		StartTest(TestCaseName,"Adding Profile to the Project");
 		try {
-			performance.clikOnDocumentLibrary();
-			performance.validateGeneralUploadDocument(SheetName, rowNum);
+			rc.profile(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -26,7 +25,4 @@ public class Equity_TC_09_DocumentTest extends BaseClass {
 			throw e1;
 		}
 	}
-
-	
-	
 }

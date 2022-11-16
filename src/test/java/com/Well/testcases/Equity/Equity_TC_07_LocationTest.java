@@ -29,7 +29,7 @@ public class Equity_TC_07_LocationTest extends BaseClass {
 	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_07_LocationTest.Equity_TC_07_00_Location" })
 	@Parameters({ "SheetName","rowNum" })
 	
-	public void Performance_TC_07_01_AddLocation(String SheetName,int rowNum) throws IOException {
+	public void Equity_TC_07_01_AddLocation(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
         StartTest(TestCaseName,"Adding new location");
