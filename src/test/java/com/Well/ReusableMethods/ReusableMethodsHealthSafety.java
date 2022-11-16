@@ -314,14 +314,13 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilPresence("HsrGeneralTable", 120);
 		CommonMethod.scrolldowntoElement("HsrGeneralTable");
 		List<String> val = CommonMethod.fetchTableData("HsrGeneralTable");
-		System.out.println("Index 0" +val.get(0));
 		CommonMethod.softAssertContainsMessage(val.get(0), "PROJECT OVERVIEW", "Document table data mismatch");
 		softAssert.assertAll();
 		testlog.pass("**Upload General Document successfully**");	
 	}
 	public void validateLegalUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("HsrAddDoc", 120);
 		CommonMethod.refreshBrowser();
+		CommonMethod.WaitUntilVisibility("HsrAddDoc", 120);
 		CommonMethod.RobustclickElementVisible("HsrAddDoc","HsrDocType");
 		CommonMethod.WaitUntilVisibility("HsrDocType", 60);
 		CommonMethod.selectdropdownValue("HsrDocType", "legal");
@@ -340,25 +339,27 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		testlog.pass("**Upload Legal Document successfully**");	
 	}
 	public void validateAuditUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
-		CommonMethod.click("HsrAddDoc");
-		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
-		CommonMethod.selectdropdownValue("WPRSelectDocType", "audit");
+		CommonMethod.RobustclickElementVisible("HsrAddDoc","HsrDocType");
+		CommonMethod.WaitUntilVisibility("HsrDocType", 60);
+		CommonMethod.selectdropdownValue("HsrDocType", "audit");
 		CommonMethod.click("HsrLocationRadiobutton");
 		CommonMethod.selectdropdownValue("HsrType","2");
-//		CommonMethod.scrolldowntoElement("HsrContainedDocument");
-//		CommonMethod.RobustclickElementVisible("HsrContainedDocument","HsrContainedDocumentOption");
-		CommonMethod.click("HsrContainedDocument");
-		Thread.sleep(10000);
-//		CommonMethod.RobustclickElementVisible("HsrContainedDocument","WPRDocUpload");
-		CommonMethod.click("HsrContainedDocument");
-		CommonMethod.uploadFile("WPRDocUpload", AuditfileUpload);
-		Thread.sleep(2000);
-		CommonMethod.sendKeys("HsrReasonnarration", "Submitting Document");
-		CommonMethod.Robustclick("HsrDocumentUploadbtn");
-//		CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
-//		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioScorecardDocumentUploadTable");
-//		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
+		CommonMethod.scrolldowntoElement("HsrType");
+		CommonMethod.RobustclickElementVisible("HsrContainedDocument","HsrContainedDocumentOption");
+		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
+		CommonMethod.click("OwnerOrgClick");
+		CommonMethod.sendKeys("OwnerOrg", "R");
+		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
+		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 2).click();
+		CommonMethod.selectdropdownrandom("HsrLocationVerificationDoc");
+	    CommonMethod.uploadFile("WPRDocUpload", AuditfileUpload, "UploadFileVerifyScorecard");
+		CommonMethod.RobustclickElementVisible("HsrDocumentUploadbtn","HsrAddDoc");
+		CommonMethod.scrolldowntoElement("HsrAddDoc");
+		CommonMethod.WaitUntilPresence("HsrAuditLinkTab", 120);
+    	CommonMethod.RobustclickElementVisible("HsrAuditLinkTab", "PortfolioScorecardDocumentUploadTable");
+		CommonMethod.WaitUntilPresence("HsrAddDoc", 120);
 //		CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
 //		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
 //		System.out.println("Table data " +val);
