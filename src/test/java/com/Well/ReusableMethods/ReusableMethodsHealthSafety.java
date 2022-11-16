@@ -299,13 +299,13 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WPRHSRDocumentTab", 300);
 		CommonMethod.click("WPRHSRDocumentTab");
 	}
-	public void validateGeneralUploadDocument(String SheetName, int rowNum,String DocumentType,String FileName) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
-		CommonMethod.click("HsrAddDoc");
-		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
-		CommonMethod.selectdropdownValue("WPRSelectDocType", DocumentType);
+	public void validateGeneralUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("HsrAddDoc", 120);
+		CommonMethod.RobustclickElementVisible("HsrAddDoc","HsrDocType");
+		CommonMethod.WaitUntilVisibility("HsrDocType", 60);
+		CommonMethod.selectdropdownValue("HsrDocType", "general");
 		CommonMethod.selectdropdownValue("HsrType","Project overview");
-		CommonMethod.uploadFile("WPRDocUpload", FileName);
+		CommonMethod.uploadFile("WPRDocUpload", GeneralfileUpload);
 		Thread.sleep(2000);
 		CommonMethod.sendKeys("HsrReasonnarration", "Submitting Document");
 		CommonMethod.RobustclickElementVisible("HsrDocumentUploadbtn","HsrGeneralLink");
@@ -320,10 +320,11 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		testlog.pass("**Upload General Document successfully**");	
 	}
 	public void validateLegalUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
-		CommonMethod.click("HsrAddDoc");
-		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
-		CommonMethod.selectdropdownValue("WPRSelectDocType", "legal");
+		CommonMethod.WaitUntilVisibility("HsrAddDoc", 120);
+		CommonMethod.refreshBrowser();
+		CommonMethod.RobustclickElementVisible("HsrAddDoc","HsrDocType");
+		CommonMethod.WaitUntilVisibility("HsrDocType", 60);
+		CommonMethod.selectdropdownValue("HsrDocType", "legal");
 		CommonMethod.selectdropdownValue("HsrType","Signed certification agreement");
 		CommonMethod.uploadFile("WPRDocUpload", LegalfileUpload);
 		Thread.sleep(2000);
