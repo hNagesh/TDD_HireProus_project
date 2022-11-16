@@ -19,7 +19,7 @@ public class Equity_TC_15A_ValidateProjectAccessTeamTest extends BaseClass {
 			rc.team(SheetName, rowNum);
 			rc.SignOut();
 			rc.teamMemberLogin(SheetName, rowNum);
-			performance.validateTeamsWPR(SheetName, rowNum);	
+			equity.validateTeamsWER(SheetName, rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
