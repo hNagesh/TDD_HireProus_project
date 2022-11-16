@@ -9,8 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Portfolio_CTC_01_FeatureTest extends BaseClass {
 
-	@Test(dependsOnMethods = {
-			"com.Well.testcases.Portfolio.Portfolio_TC_06_PortfolioLocationImportTest.Portfolio_TC_06_PortfolioLocationImport" })
+	@Test//(dependsOnMethods = {"com.Well.testcases.Portfolio.Portfolio_TC_06_PortfolioLocationImportTest.Portfolio_TC_06_PortfolioLocationImport" })
 	@Parameters({ "SheetName", "rowNum" })
 	public void Portfolio_CTC_01_Feature() throws IOException {
 
