@@ -297,13 +297,12 @@ public class ReusableMethodPerformance extends BaseClass {
 		testlog.pass("**Verifies user able to access the invited project**");
 	}
 	public void clikOnDocumentLibrary() throws InterruptedException, IOException {
-		Thread.sleep(5000);
-		CommonMethod.WaitUntilVisibility("DocumentLibraryTab", 300);
-		CommonMethod.click("DocumentLibraryTab");
+		CommonMethod.WaitUntilPresence("DocumentLibraryTab", 300);
+		CommonMethod.RobustclickElementVisible("DocumentLibraryTab","WPRUploadDocLib");
 	}
 	public void validateGeneralUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 60);
-		CommonMethod.click("WPRUploadDocLib");
+		CommonMethod.WaitUntilPresence("WPRUploadDocLib", 120);
+		CommonMethod.RobustclickElementVisible("WPRUploadDocLib","WPRSelectDocType");
 		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
 		CommonMethod.selectdropdownValue("WPRSelectDocType", "general");
 		CommonMethod.selectdropdownrandom("WPRHSRDocumentType");
@@ -323,8 +322,8 @@ public class ReusableMethodPerformance extends BaseClass {
 	}
 	public void validateLegalUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.refreshBrowser();
-		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 120);
-		CommonMethod.click("WPRUploadDocLib");
+		CommonMethod.WaitUntilPresence("WPRUploadDocLib", 120);
+		CommonMethod.RobustclickElementVisible("WPRUploadDocLib","WPRSelectDocType");
 		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
 		CommonMethod.selectdropdownValue("WPRSelectDocType", "legal");
 		CommonMethod.selectdropdownrandom("WPRHSRDocumentType");
@@ -344,8 +343,8 @@ public class ReusableMethodPerformance extends BaseClass {
 	}
 	public void validateAuditUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.refreshBrowser();
-		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 120);
-		CommonMethod.click("WPRUploadDocLib");
+		CommonMethod.WaitUntilPresence("WPRUploadDocLib", 120);
+		CommonMethod.RobustclickElementVisible("WPRUploadDocLib","WPRSelectDocType");
 		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
 		CommonMethod.selectdropdownValue("WPRSelectDocType", "audit");
 		CommonMethod.selectdropdownrandom("WPRHSRDocumentType");

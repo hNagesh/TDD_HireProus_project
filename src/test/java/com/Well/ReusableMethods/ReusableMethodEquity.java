@@ -212,4 +212,18 @@ public class ReusableMethodEquity extends BaseClass {
 		testlog.pass("**Completed Reviewing Preliminary Precertification Review successfully**");
 	}
 	
+	public void validateTeamsWER(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLEquityNavBar");
+		CommonMethod.RobustclickElementVisible("WELLEquityNavBar","WERIdClick");
+		String werId = data.getCellData(SheetName, "ProjectID", rowNum);
+		testlog.info("Equity ID: " + werId);
+		CommonMethod.WaitUntilClickble("WERId", 60).sendKeys(werId);
+		CommonMethod.click("WERApplybtn");
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Equity Search failed");
+		CommonMethod.assertcontainsmessage("WERIdClick", data.getCellData(SheetName, "projectID", rowNum),
+				"Project name doesn't matches in search");
+		testlog.pass("**Verifies the Search Equity ByID successfully**");
+	}
 }
