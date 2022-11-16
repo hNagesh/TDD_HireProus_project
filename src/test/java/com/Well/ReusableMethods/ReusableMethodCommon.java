@@ -341,7 +341,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilPresence("AddButton", 120);
 		CommonMethod.RobustclickElementVisible("AddButton", "AddLocationButton");
 		CommonMethod.click("AddLocationButton");
-		if (SheetName.equalsIgnoreCase("Wpr") || SheetName.equalsIgnoreCase("Hsr")) {
+		if (SheetName.equalsIgnoreCase("Wpr") || SheetName.equalsIgnoreCase("Hsr") || SheetName.equalsIgnoreCase("Wer")) {
 			CommonMethod.WaitUntilVisibility("LocationName", 120);
 			CommonMethod.sendKeys("LocationName", data.getCellData(SheetName, "LocationName", rowNum));
 			CommonMethod.sendKeys("LocationArea", data.getCellData(SheetName, "Area", rowNum));
