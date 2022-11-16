@@ -27,7 +27,7 @@ public class Performance_TC_09_DocumentTest extends BaseClass {
 		}
 	}
 
-	@Test(dependsOnMethods = {"com.Well.testcases.Performance.Performance_TC_08_ReviewTest.Performance_TC_08_Review"})
+	@Test(dependsOnMethods = {"com.Well.testcases.Performance.Performance_TC_09_DocumentTest.Performance_TC_09_00_GeneralDocument"})
 	@Parameters({ "SheetName", "rowNum" })
 	public void Performance_TC_09_01_LegalDocument(String SheetName, int rowNum) throws IOException {
 
@@ -44,7 +44,7 @@ public class Performance_TC_09_DocumentTest extends BaseClass {
 		}
 	}
 
-	@Test(dependsOnMethods = {"com.Well.testcases.Performance.Performance_TC_08_ReviewTest.Performance_TC_08_Review"})
+	@Test(dependsOnMethods = {"com.Well.testcases.Performance.Performance_TC_09_DocumentTest.Performance_TC_09_01_LegalDocument"})
 	@Parameters({ "SheetName", "rowNum" })
 	public void Performance_TC_09_02_AuditDocument(String SheetName, int rowNum) throws IOException {
 
@@ -61,7 +61,7 @@ public class Performance_TC_09_DocumentTest extends BaseClass {
 		}
 	}
 
-	@Test(dependsOnMethods = {"com.Well.testcases.Performance.Performance_TC_08_ReviewTest.Performance_TC_08_Review" })
+	@Test(dependsOnMethods = {"com.Well.testcases.Performance.Performance_TC_09_DocumentTest.Performance_TC_09_02_AuditDocument" })
 	@Parameters({ "SheetName", "rowNum" })
 	public void Performance_TC_09_03_FeatureDocument(String SheetName, int rowNum) throws IOException {
 
