@@ -1,4 +1,4 @@
-package com.Well.testcases.HealthSafety;
+package com.Well.testcases.Equity;
 
 import java.io.IOException;
 
@@ -7,17 +7,16 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Healthsafey_TC_16A_DownloadBillingReceiptAndValidateTest extends BaseClass {
+public class Equity_TC_05_DownloadBillingAndValidateTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_16_BillingTest.Healthsafey_TC_16_Billing" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_04_SearchByIdTest.Equity_TC_04_SearchById" })
 	@Parameters({ "SheetName","rowNum" ,"Country"})
-	public void Healthsafey_TC_16A_DownloadBillingReceiptAndValidate(String SheetName,int rowNum,String Country) throws IOException {
+	public void Equity_TC_05_DownloadBillingAndValidate(String SheetName,int rowNum,String Country) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
-		StartTest(TestCaseName,"Validate billing receipt");
+        StartTest(TestCaseName,"Validate billing receipt");
 		try {
-			v2project.ClickBilling(SheetName, rowNum);
+			rc.ClickBilling(SheetName, rowNum);
 			rc.DownloadBillingReceiptAndValidate(SheetName, rowNum, Country);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

@@ -7,16 +7,17 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Performance_TC_16A_DownloadBillingAndValidateTest extends BaseClass {
+public class Performance_TC_16_DownloadBillingAndValidateTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_16_BillingTest.Performance_TC_16_Billing" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_15_AddLocationTest.Performance_TC_15_AddLocation" })
 	@Parameters({ "SheetName","rowNum" ,"Country"})
-	public void Performance_TC_16A_DownloadBillingAndValidate(String SheetName,int rowNum,String Country) throws IOException {
+	public void Performance_TC_16_DownloadBillingAndValidate(String SheetName,int rowNum,String Country) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
 		StartTest(TestCaseName,"Validate billing receipt");
 		try {
+			rc.ClickBilling(SheetName, rowNum);
 			rc.DownloadBillingReceiptAndValidate(SheetName, rowNum, Country);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
