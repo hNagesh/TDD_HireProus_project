@@ -170,11 +170,11 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.RobustclickElementVisible("SubmitButton", "V2projectEPTypeStatus");
 		if (alternativeOption.equalsIgnoreCase("EP")) {
 			CommonMethod.WaitUntilVisibility("V2projectEPTypeStatus", 60);
-			CommonMethod.assertcontainsmessage("V2projectEPTypeStatus", "EP", "Verified EP status");
+			CommonMethod.assertcontainsmessage("V2projectEPTypeStatus", "EP", "EP Alternative doesn't match");
 			testlog.pass("**Added alternative EP documents successfully**");
 		} else if (alternativeOption.equalsIgnoreCase("AAP")) {
 			CommonMethod.WaitUntilVisibility("V2projectAAPTypeStatus", 60);
-			CommonMethod.assertcontainsmessage("V2projectAAPTypeStatus", "AAP", "Verified AAP status");
+			CommonMethod.assertcontainsmessage("V2projectAAPTypeStatus", "AAP", "AAP Alternative doesn't match");
 			testlog.pass("**Added alternative AAP documents successfully**");
 		}
 	}
@@ -311,9 +311,17 @@ public class ReusableMethodCommon extends BaseClass {
 				"Updated Profile!", "Verified profile updated toast message");
 		testlog.pass("**General Information data updated successfully**");
 		CommonMethod.WaitUntilVisibility("ProfileTab", 60);
-		CommonMethod.RobustclickElementVisible("ProfileTab", "WellHealthSafty");
-		CommonMethod.WaitUntilVisibility("WellHealthSafty", 60);
-		CommonMethod.RobustclickElementVisible("WellHealthSafty", "V2ProjectYourObjective");
+		
+		if(SheetName.equalsIgnoreCase("Wpr") || SheetName.equalsIgnoreCase("Hsr")) {
+			CommonMethod.RobustclickElementVisible("ProfileTab", "WellHealthSafty");
+			CommonMethod.WaitUntilVisibility("WellHealthSafty", 60);
+			CommonMethod.RobustclickElementVisible("WellHealthSafty", "V2ProjectYourObjective");
+		}
+		else if(SheetName.equalsIgnoreCase("Wer")) {
+			CommonMethod.RobustclickElementVisible("ProfileTab", "WERProfileWellEquityStoryButton");
+			CommonMethod.WaitUntilVisibility("WERProfileWellEquityStoryButton", 60);
+			CommonMethod.RobustclickElementVisible("WERProfileWellEquityStoryButton", "V2ProjectYourObjective");	
+		}
 		CommonMethod.WaitUntilVisibility("V2ProjectYourObjective", 60);
 		CommonMethod.clearAndSendKey("V2ProjectYourObjective", "Your objective testing");
 		CommonMethod.WaitUntilVisibility("V2ProjectYourOrganization", 60);
