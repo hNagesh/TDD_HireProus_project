@@ -169,7 +169,7 @@ public class ReusableMethodEquity extends BaseClass {
 		testlog.pass("**Upload 21 Scorecard Documents successfully**");
 	}
 	
-	public void WERReview(String SheetName, int rowNum) throws IOException, InterruptedException {
+	public void WERSubmitReview(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("ReviewTab", 60);
 		CommonMethod.RobustclickElementVisible("ReviewTab","WPRReviewSubmitbtn");
 		CommonMethod.RobustclickElementVisible("WPRReviewSubmitbtn","WPRReviewProjectPhase");
@@ -179,6 +179,8 @@ public class ReusableMethodEquity extends BaseClass {
 		CommonMethod.RobustclickElementVisible("WPRReviewSubmitDocbtn","ReviewViewButton");
 		CommonMethod.WaitUntilVisibility("Reviewlanding", 60);
 		testlog.pass("**Submitted Preliminary Precertification Review successfully**");
+	}
+	public void WERCompleteReview(String SheetName, int rowNum) throws IOException, InterruptedException {
 		/*
 		 * Admin Review
 		 */
