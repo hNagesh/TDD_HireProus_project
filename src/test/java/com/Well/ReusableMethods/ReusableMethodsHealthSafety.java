@@ -358,36 +358,50 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.RobustclickElementVisible("HsrDocumentUploadbtn","HsrAddDoc");
 		CommonMethod.scrolldowntoElement("HsrAddDoc");
 		CommonMethod.WaitUntilPresence("HsrAuditLinkTab", 120);
-    	CommonMethod.RobustclickElementVisible("HsrAuditLinkTab", "PortfolioScorecardDocumentUploadTable");
+    	CommonMethod.RobustclickElementVisible("HsrAuditLinkTab", "HsrAuditTable");
 		CommonMethod.WaitUntilPresence("HsrAddDoc", 120);
-//		CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
-//		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
-//		System.out.println("Table data " +val);
-//		CommonMethod.softAssertContainsMessage(val.get(6), "Legal", "Document table data mismatch");
-//		softAssert.assertAll();
+		CommonMethod.scrolldowntoElement("HsrAuditTable");
+		List<String> val = CommonMethod.fetchTableData("HsrAuditTable");
+		System.out.println("Index 0" +val.get(0));
+		System.out.println("Index 1" +val.get(1));
+		System.out.println("Index 2" +val.get(2));
+		System.out.println("Index 3" +val.get(3));
+		System.out.println("Index 4" +val.get(4));
+		System.out.println("Index 5" +val.get(5));
+		System.out.println("Index 6" +val.get(6));
+		System.out.println("Index 7" +val.get(7));
+		CommonMethod.softAssertContainsMessage(val.get(3), "Audit Document", "Document table data mismatch");
+		softAssert.assertAll();
 		testlog.pass("**Upload Audit Document successfully**");	
 	}
 	
-	public void validateFeatureUploadDocument(String SheetName, int rowNum,String DocumentType,String FileName) throws IOException, InterruptedException {
+	public void validateFeatureUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {		
+		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("HsrAddDoc", 60);
-		CommonMethod.click("HsrAddDoc");
-		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
-		CommonMethod.selectdropdownValue("WPRSelectDocType", "feature");
-		CommonMethod.selectdropdownValue("HsrType","Professional Narrative");
-		CommonMethod.selectdropdownrandom("HsrContainedDocument");
-		CommonMethod.uploadFile("WPRDocUpload", FeaturefileUpload);
-		Thread.sleep(2000);
-		CommonMethod.sendKeys("HsrReasonnarration", "Submitting Document");
-		CommonMethod.Robustclick("HsrDocumentUploadbtn");
-//		CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
-//		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioScorecardDocumentUploadTable");
-//		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
-//		CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
-//		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
-//		System.out.println("Table data " +val);
-//		CommonMethod.softAssertContainsMessage(val.get(6), "Legal", "Document table data mismatch");
-//		softAssert.assertAll();
-		testlog.pass("**Upload Feature Document successfully**");		
+		CommonMethod.RobustclickElementVisible("HsrAddDoc","HsrDocType");
+		CommonMethod.WaitUntilVisibility("HsrDocType", 60);
+		CommonMethod.selectdropdownValue("HsrDocType", "feature");
+		CommonMethod.click("HsrLocationRadiobutton");
+		CommonMethod.selectdropdownValue("HsrType","2");
+		CommonMethod.scrolldowntoElement("HsrType");
+		CommonMethod.RobustclickElementVisible("HsrContainedDocument","HsrContainedDocumentOption");
+		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
+		CommonMethod.click("OwnerOrgClick");
+		CommonMethod.sendKeys("OwnerOrg", "R");
+		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
+		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 2).click();
+		CommonMethod.selectdropdownrandom("HsrLocationVerificationDoc");
+	    CommonMethod.uploadFile("WPRDocUpload", FeaturefileUpload, "UploadFileVerifyScorecard");
+		CommonMethod.RobustclickElementVisible("HsrDocumentUploadbtn","HsrAddDoc");
+		CommonMethod.scrolldowntoElement("HsrAddDoc");
+		CommonMethod.WaitUntilPresence("HsrAuditLinkTab", 120);
+		CommonMethod.WaitUntilPresence("HsrAddDoc", 120);
+		CommonMethod.scrolldowntoElement("HsrAuditTable");
+		List<String> val = CommonMethod.fetchTableData("HsrAuditTable");
+		CommonMethod.softAssertContainsMessage(val.get(3), "On-site Photographs", "Document table data mismatch");
+		softAssert.assertAll();
+		testlog.pass("**Upload Audit Document successfully**");	
+		
 	}
 
 }
