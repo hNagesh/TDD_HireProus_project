@@ -171,10 +171,12 @@ public class ReusableMethodCommon extends BaseClass {
 		if (alternativeOption.equalsIgnoreCase("EP")) {
 			CommonMethod.WaitUntilVisibility("V2projectEPTypeStatus", 60);
 			CommonMethod.assertcontainsmessage("V2projectEPTypeStatus", "EP", "EP Alternative doesn't match");
+			softAssert.assertAll();
 			testlog.pass("**Added alternative EP documents successfully**");
 		} else if (alternativeOption.equalsIgnoreCase("AAP")) {
 			CommonMethod.WaitUntilVisibility("V2projectAAPTypeStatus", 60);
 			CommonMethod.assertcontainsmessage("V2projectAAPTypeStatus", "AAP", "AAP Alternative doesn't match");
+			softAssert.assertAll();
 			testlog.pass("**Added alternative AAP documents successfully**");
 		}
 	}
@@ -190,11 +192,6 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.ClickCheckbox("V2ProjectMembercbx");
 		CommonMethod.WaitUntilVisibility("V2ProjectInvitebtn", 30);
 		CommonMethod.click("V2ProjectInvitebtn");
-//		Thread.sleep(2000);
-//		CommonMethod.refreshBrowser();
-//		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 30);
-//		CommonMethod.click("V2ProjectDeleteIcon");
-//		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
 		testlog.pass("**Created Team member successfully**");
 	}
 	public void deleteAddedTeamMember(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -235,6 +232,7 @@ public class ReusableMethodCommon extends BaseClass {
 		testlog.info("**Project scope data updated successfully**");
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectProjectGoals"),
 				data.getCellData(SheetName, "ProjectGoals", rowNum), "Project goals data doesn't match");
+		softAssert.assertAll();
 		testlog.pass("**Project goals data updated successfully**");
 	}
 
@@ -280,6 +278,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WellReviewerDropDown", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("WellReviewerDropDown"),
 				data.getCellData(SheetName, "WellReviewer", rowNum), "Well Reviewer value doesn't match");
+		softAssert.assertAll();
 		testlog.pass("**Well Reviewer value updated successfully**");
 	}
 
@@ -340,6 +339,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectProfileUpdatedToastMessage", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProfileUpdatedToastMessage"),
 				"Updated Profile!", "Verified profile updated toast message");
+		softAssert.assertAll();
 		testlog.pass("**Certification story data updated successfully**");
 	}
 
@@ -453,6 +453,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","V2 Search failed");
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
+		softAssert.assertAll();
 		testlog.pass("**Verifies user able to access the invited project**");
 	}
 	public void clickOnTeamTab(String SheetName, int rowNum) throws IOException, InterruptedException {
