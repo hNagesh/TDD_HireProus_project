@@ -31,6 +31,7 @@ import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 import org.zaproxy.clientapi.core.ApiResponse;
 import org.zaproxy.clientapi.core.ClientApi;
+import org.zaproxy.clientapi.core.ClientApiException;
 import org.zaproxy.clientapi.gen.Ascan;
 import com.Well.ReusableMethods.ReusableMethodCommon;
 import com.Well.ReusableMethods.ReusableMethodEquity;
@@ -68,6 +69,7 @@ public class BaseClass {
 	public static String TestCaseName;
 	public static String SecurityAssesment;
 	private ClientApi api;
+	private ApiResponse response;
 	static final String ZAP_PROXY_ADDRESS = "localhost";
 	static final int ZAP_PROXY_PORT = 8080;
 	public static SoftAssert softAssert = new SoftAssert();
@@ -97,7 +99,7 @@ public class BaseClass {
 	public static ReusableMethodCommon rc = new ReusableMethodCommon();
 	@BeforeSuite
 	@Parameters({ "browserName", "environment","SecurtiyTest" })
-	public void setup(String browserName, String environment,@Optional("false") String SecurtiyTest) throws InterruptedException, IOException {
+	public void setup(String browserName, String environment,@Optional("false") String SecurtiyTest) throws InterruptedException, IOException, ClientApiException {
 		
 		data= new XlsReader(System.getProperty("user.dir")+"/TestData.xlsx");
 		Properties prop = new Properties();
@@ -153,7 +155,7 @@ public class BaseClass {
 			driver = new ChromeDriver(options);
 	        JSWaiter.setDriver(driver);
 	        api = new ClientApi(ZAP_PROXY_ADDRESS,ZAP_PROXY_PORT);
-
+	        
 		}
 		
 		else if (browserName.equalsIgnoreCase("chrome") && SecurtiyTest.equalsIgnoreCase("false")) {
@@ -282,13 +284,19 @@ ImageIO.write(img, "png", new File(
 public void getResult(ITestResult result) throws Exception {
 	
 	if(api != null  && SecurityAssesment.equalsIgnoreCase("true")) {
-		String Title = "ZAP Security Report";
+		
+		api.pscan.enableAllScanners();
+        response = api.pscan.recordsToScan();
+        while(!response.toString().equals("0")) {
+        	response = api.pscan.recordsToScan();
+        }
+        String Title = "ZAP Security Report";
 	    String Template = "traditional-html";
 	    String Description = "ZAP Security Report";
 	    String ReportFileName = "ZAP_report.html";
 	    String TargetFolder = System.getProperty("user.dir")+ "/Report";
 		
-	    ApiResponse response = api.reports.generate(Title, Template, null, Description, null, null, null, null, null, ReportFileName, null, TargetFolder, null);
+	    response = api.reports.generate(Title, Template, null, Description, null, null, null, null, null, ReportFileName, null, TargetFolder, null);
 	System.out.println("ZAP report generated at this location : " + response.toString());
 	}
 	/*String RS = RatingSystem;
