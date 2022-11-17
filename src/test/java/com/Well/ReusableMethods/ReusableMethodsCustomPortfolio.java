@@ -980,7 +980,8 @@ public void FilterInDocumentLibrary() throws IOException, InterruptedException {
 	CommonMethod.RobustclickElementVisible("PortfolioTaskListTab","PortfolioTaskListPendingTab");
 	CommonMethod.scrolldowntoElement("PortfolioTaskListTab");
 	CommonMethod.RobustclickElementVisible("PortfolioDocFliterByLocation","PortfolioSelectFliterByLocation");
-	CommonMethod.click("PortfolioSelectFliterByLocation");
+	CommonMethod.RobustclickElementVisible("PortfolioSelectFliterByLocation","PortfolioDocListFilterLocationValid");
+	CommonMethod.WaitUntilPresence("PortfolioDocListFilterLocationValid", 120);
 	List<WebElement> FliterVerifyLocation;
 	FliterVerifyLocation = CommonMethod.findElements("PortfolioFliterVerifyLocation");
 	for (WebElement f : FliterVerifyLocation) {
@@ -989,6 +990,7 @@ public void FilterInDocumentLibrary() throws IOException, InterruptedException {
 	}
 	CommonMethod.Robustclick("PortfolioFliterClearFilter");
 	testlog.info("**verifies search by location filter successfully**");
+	
 	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterVerificationOption");
 	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioFliterVerificationOption"), "Verification", "Document table data mismatch");
 	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioFliterPartTypeOption"), "Part Type", "Document table data mismatch");
