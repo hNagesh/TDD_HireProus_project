@@ -200,15 +200,13 @@ public class ReusableMethodPerformance extends BaseClass {
 
 	public void WPRReview(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("ReviewTab", 60);
-		Thread.sleep(3000);
-		CommonMethod.click("ReviewTab");
-		CommonMethod.click("WPRReviewSubmitbtn");
-		CommonMethod.WaitUntilVisibility("WPRReviewSubmitDocbtn", 30);
+		CommonMethod.RobustclickElementVisible("ReviewTab","WPRReviewSubmitbtn");
+		CommonMethod.RobustclickElementVisible("WPRReviewSubmitbtn","WPRReviewProjectPhase");
 		CommonMethod.selectdropdownVisibletext("WPRReviewProjectPhase", "Preliminary Performance Rating Review");
 		CommonMethod.WaitUntilClickble("WPRReviewComment", 60).sendKeys("Preliminary Performance Rating Review");
-		CommonMethod.click("WPRReviewSubmitDocbtn");
+		CommonMethod.WaitUntilVisibility("WPRReviewSubmitDocbtn", 30);
+		CommonMethod.RobustclickElementVisible("WPRReviewSubmitDocbtn","ReviewViewButton");
 		CommonMethod.WaitUntilVisibility("Reviewlanding", 60);
-		Thread.sleep(2000);
 		testlog.pass("**Submitted Preliminary Precertification Review successfully**");
 		/*
 		 * Admin Review
@@ -241,22 +239,6 @@ public class ReusableMethodPerformance extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status successfully");
 		testlog.pass("**Completed Reviewing Preliminary Precertification Review successfully**");
-	}
-
-	public void UploadWPRDocument() throws IOException, InterruptedException {
-		Thread.sleep(2000);
-		CommonMethod.WaitUntilVisibility("DocumentLibraryTab", 300);
-		CommonMethod.click("DocumentLibraryTab");
-		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 60);
-		CommonMethod.click("WPRUploadDocLib");
-		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
-		CommonMethod.selectdropdownValue("WPRSelectDocType", "general");
-		CommonMethod.selectdropdownValue("WPRSelectType", "Project overview");
-		CommonMethod.uploadFile("WPRDocUpload", GeneralfileUpload);
-		Thread.sleep(2000);
-		CommonMethod.sendKeys("WPRAddNote", "Submitting Document");
-		CommonMethod.Robustclick("WPRSumbitUploadDocLib");
-		testlog.pass("**Upload Document successfully**");
 	}
 	public void WprProjectFieldValidationTest(String SheetName, int rowNum) throws Exception {
 		CommonMethod.WaitUntilVisibility("EditTab", 120);
@@ -313,5 +295,92 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.assertcontainsmessage("WPRIdClick", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
 		testlog.pass("**Verifies user able to access the invited project**");
+	}
+	public void clikOnDocumentLibrary() throws InterruptedException, IOException {
+		CommonMethod.WaitUntilPresence("DocumentLibraryTab", 300);
+		CommonMethod.RobustclickElementVisible("DocumentLibraryTab","WPRUploadDocLib");
+	}
+	public void validateGeneralUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilPresence("WPRUploadDocLib", 120);
+		CommonMethod.RobustclickElementVisible("WPRUploadDocLib","WPRSelectDocType");
+		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", "general");
+		CommonMethod.selectdropdownrandom("WPRHSRDocumentType");
+		CommonMethod.scrollDown();
+		CommonMethod.uploadFile("WPRDocUpload", GeneralfileUpload);
+		Thread.sleep(2000);
+		CommonMethod.sendKeys("WPRHSRAddNote", "Submitting Document");
+		CommonMethod.Robustclick("WPRSumbitUploadDocLib");
+		CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioScorecardDocumentUploadTable");
+		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
+		CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
+		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
+		CommonMethod.softAssertContainsMessage(val.get(6), "General", "Document table data mismatch");
+		softAssert.assertAll();
+		testlog.pass("**Upload General Document successfully**");	
+	}
+	public void validateLegalUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.refreshBrowser();
+		CommonMethod.WaitUntilPresence("WPRUploadDocLib", 120);
+		CommonMethod.RobustclickElementVisible("WPRUploadDocLib","WPRSelectDocType");
+		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", "legal");
+		CommonMethod.selectdropdownrandom("WPRHSRDocumentType");
+		CommonMethod.scrollDown();
+		CommonMethod.uploadFile("WPRDocUpload", LegalfileUpload);
+		Thread.sleep(2000);
+		CommonMethod.sendKeys("WPRHSRAddNote", "Submitting Document");
+		CommonMethod.Robustclick("WPRSumbitUploadDocLib");
+		CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioScorecardDocumentUploadTable");
+		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
+		CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
+		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
+		CommonMethod.softAssertContainsMessage(val.get(6), "Legal", "Document table data mismatch");
+		softAssert.assertAll();
+		testlog.pass("**Upload Legal Document successfully**");	
+	}
+	public void validateAuditUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.refreshBrowser();
+		CommonMethod.WaitUntilPresence("WPRUploadDocLib", 120);
+		CommonMethod.RobustclickElementVisible("WPRUploadDocLib","WPRSelectDocType");
+		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", "audit");
+		CommonMethod.selectdropdownrandom("WPRHSRDocumentType");
+		CommonMethod.scrollDown();
+		CommonMethod.uploadFile("WPRDocUpload", AuditfileUpload);
+		Thread.sleep(2000);
+		CommonMethod.sendKeys("WPRHSRAddNote", "Submitting Document");
+		CommonMethod.Robustclick("WPRSumbitUploadDocLib");
+		CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioScorecardDocumentUploadTable");
+		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
+		CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
+		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
+		CommonMethod.softAssertContainsMessage(val.get(6), "Audit", "Document table data mismatch");
+		softAssert.assertAll();
+		testlog.pass("**Upload Audit Document successfully**");	
+	}
+	public void validateFeatureUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.refreshBrowser();
+		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 120);
+		CommonMethod.click("WPRUploadDocLib");
+		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
+		CommonMethod.selectdropdownValue("WPRSelectDocType", "feature");
+		CommonMethod.selectdropdownrandom("WPRHSRDocumentType");
+		CommonMethod.scrollDown();
+		CommonMethod.uploadFile("WPRDocUpload", FeaturefileUpload);
+		Thread.sleep(2000);
+		CommonMethod.sendKeys("WPRHSRAddNote", "Submitting Document");
+		CommonMethod.Robustclick("WPRSumbitUploadDocLib");
+		CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioScorecardDocumentUploadTable");
+		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
+		CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
+		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
+		CommonMethod.softAssertContainsMessage(val.get(6), "Feature", "Document table data mismatch");
+		softAssert.assertAll();
+		testlog.pass("**Upload Feature Document successfully**");		
 	}
 }

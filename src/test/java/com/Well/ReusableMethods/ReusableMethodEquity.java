@@ -159,8 +159,8 @@ public class ReusableMethodEquity extends BaseClass {
 		CommonMethod.WaitUntilVisibility("ScorecardTab", 60);
 		CommonMethod.click("ScorecardTab");
 		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
-		performance.ScorecardfillHSRWPR(21, 21, 36, 16, "WPRPurseYes", "WPRPurseNo");
-		testlog.pass("**Verifies the 15 Purse Yes Scorecard Equity successfully**");
+		performance.ScorecardfillHSRWPR(21, 21, 49, 29, "WPRPurseYes", "WPRPurseNo");
+		testlog.pass("**Verifies the 21 Purse Yes Scorecard Equity successfully**");
 	}
 
 	public void UploadWERDocForFeature(int LastFeatureNumber) throws IOException, InterruptedException {
@@ -169,19 +169,63 @@ public class ReusableMethodEquity extends BaseClass {
 		testlog.pass("**Upload 21 Scorecard Documents successfully**");
 	}
 	
-	public void UploadWERDocument() throws IOException, InterruptedException {
+	public void WERSubmitReview(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilClickble("ReviewTab", 60);
+		CommonMethod.RobustclickElementVisible("ReviewTab","WPRReviewSubmitbtn");
+		CommonMethod.RobustclickElementVisible("WPRReviewSubmitbtn","WPRReviewProjectPhase");
+		CommonMethod.selectdropdownVisibletext("WPRReviewProjectPhase", "Preliminary Equity Rating Review");
+		CommonMethod.WaitUntilClickble("WPRReviewComment", 60).sendKeys("Preliminary Equity Rating Review");	
+		CommonMethod.WaitUntilVisibility("WPRReviewSubmitDocbtn", 30);
+		CommonMethod.RobustclickElementVisible("WPRReviewSubmitDocbtn","ReviewViewButton");
+		CommonMethod.WaitUntilVisibility("Reviewlanding", 60);
+		testlog.pass("**Submitted Preliminary Precertification Review successfully**");
+	}
+	public void WERCompleteReview(String SheetName, int rowNum) throws IOException, InterruptedException {
+		/*
+		 * Admin Review
+		 */
+		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
+		CommonMethod.click("AdminNavBar");
+		CommonMethod.WaitUntilVisibility("AdminWELLEquityNavBar", 60);
+		CommonMethod.RobustclickElementVisible("AdminWELLEquityNavBar", "WPRAdminIdSearch");
+		CommonMethod.WaitUntilClickble("WPRAdminIdSearch", 60)
+				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.click("WPRAdminApplybtn");
 		Thread.sleep(2000);
-		CommonMethod.WaitUntilVisibility("DocumentLibraryTab", 300);
-		CommonMethod.click("DocumentLibraryTab");
-		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 60);
-		CommonMethod.click("WPRUploadDocLib");
-		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
-		CommonMethod.selectdropdownValue("WPRSelectDocType", "general");
-		CommonMethod.selectdropdownValue("WPRSelectType", "Project overview");
-		CommonMethod.uploadFile("WPRDocUpload", GeneralfileUpload);
+		CommonMethod.assertcontainsmessage("WPRAdminIdClick", data.getCellData(SheetName, "ProjectID", rowNum),
+				"Project name doesn't matches in search");
+		CommonMethod.click("WPRAdminIdClick");
+		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 300);
+		CommonMethod.click("ReviewTab");
+		CommonMethod.WaitUntilVisibility("ReviewViewButton", 60);
+		CommonMethod.click("ReviewViewButton");
+		CommonMethod.WaitUntilVisibility("ReviewReturnButton", 60);
+		CommonMethod.click("ReviewReturnButton");
+		CommonMethod.WaitUntilClickble("ReturnComment", 60).sendKeys("Preliminary Precertification Review");
+		Thread.sleep(1000);
+		CommonMethod.click("DatePickerButton");
+		CommonMethod.click("DatePickerOkButton");
+		CommonMethod.scrollDown();
+		Thread.sleep(1000);
+		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
+		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit", "ReviewedStatus");
 		Thread.sleep(2000);
-		CommonMethod.sendKeys("WPRAddNote", "Submitting Document");
-		CommonMethod.Robustclick("WPRSumbitUploadDocLib");
-		testlog.pass("**Upload Document successfully**");
+		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status successfully");
+		testlog.pass("**Completed Reviewing Preliminary Precertification Review successfully**");
+	}
+	
+	public void validateTeamsWER(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLEquityNavBar");
+		CommonMethod.RobustclickElementVisible("WELLEquityNavBar","WERIdClick");
+		String werId = data.getCellData(SheetName, "ProjectID", rowNum);
+		testlog.info("Equity ID: " + werId);
+		CommonMethod.WaitUntilClickble("WERId", 60).sendKeys(werId);
+		CommonMethod.click("WERApplybtn");
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Equity Search failed");
+		CommonMethod.assertcontainsmessage("WERIdClick", data.getCellData(SheetName, "projectID", rowNum),
+				"Project name doesn't matches in search");
+		testlog.pass("**Verifies the Search Equity ByID successfully**");
 	}
 }

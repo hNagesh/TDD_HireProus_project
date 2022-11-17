@@ -7,17 +7,16 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Equity_TC_07_LocationTest extends BaseClass {
+public class Equity_TC_10_ReviewTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_06_WerProjectFieldValidationTest.Equity_TC_06_WerProjectFieldValidation" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_09_DocumentTest.Equity_TC_09_03_FeatureDocument" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Equity_TC_07_00_Location(String SheetName,int rowNum) throws IOException {
+	public void Equity_TC_10_00_SubmitReview(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        StartTest(TestCaseName,"Importing Locations to Equity Project");
-
+        StartTest(TestCaseName, "Equity Review Submit Functionality");
 		try {
-        rc.LocationImport(SheetName, rowNum);
+			equity.WERSubmitReview(SheetName, rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -26,15 +25,14 @@ public class Equity_TC_07_LocationTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_07_LocationTest.Equity_TC_07_00_Location" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_10_ReviewTest.Equity_TC_10_00_SubmitReview" })
 	@Parameters({ "SheetName","rowNum" })
-	
-	public void Equity_TC_07_01_AddLocation(String SheetName,int rowNum) throws IOException {
+	public void Equity_TC_10_01_CompleteReview(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-        StartTest(TestCaseName,"Adding new location");
+        StartTest(TestCaseName, "Equity Completing Review Functionality");
 		try {
-			rc.addLocation(SheetName, rowNum);
+			equity.WERCompleteReview(SheetName, rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -42,6 +40,4 @@ public class Equity_TC_07_LocationTest extends BaseClass {
 			throw e1;
 		}
 	}
-	
-	
 }

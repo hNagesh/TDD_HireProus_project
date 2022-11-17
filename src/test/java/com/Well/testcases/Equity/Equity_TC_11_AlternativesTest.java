@@ -1,4 +1,4 @@
-package com.Well.testcases.Performance;
+package com.Well.testcases.Equity;
 
 import java.io.IOException;
 
@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Performance_TC_10_AlternativesTest extends BaseClass {
+public class Equity_TC_11_AlternativesTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_09_DocumentTest.Performance_TC_09_03_FeatureDocument" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_10_ReviewTest.Equity_TC_10_01_CompleteReview" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Performance_TC_10_EPAlternatives(String SheetName,int rowNum) throws IOException {
+	public void Equity_TC_11_00_EPAlternatives(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
         StartTest(TestCaseName,"Adding feature in EP alternatives functionality");
@@ -26,9 +26,9 @@ public class Performance_TC_10_AlternativesTest extends BaseClass {
 		}
 	}
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_10_AlternativesTest.Performance_TC_10_EPAlternatives" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_11_AlternativesTest.Equity_TC_11_00_EPAlternatives" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Performance_TC_10_AAPAlternatives(String SheetName,int rowNum) throws IOException {
+	public void Equity_TC_11_01_AAPAlternatives(String SheetName,int rowNum) throws IOException {
 
 			TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 			StartTest(TestCaseName,"Adding feature in AAP alternatives functionality");
