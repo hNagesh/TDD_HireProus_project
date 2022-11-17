@@ -200,15 +200,13 @@ public class ReusableMethodPerformance extends BaseClass {
 
 	public void WPRReview(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("ReviewTab", 60);
-		Thread.sleep(3000);
-		CommonMethod.click("ReviewTab");
-		CommonMethod.click("WPRReviewSubmitbtn");
-		CommonMethod.WaitUntilVisibility("WPRReviewSubmitDocbtn", 30);
+		CommonMethod.RobustclickElementVisible("ReviewTab","WPRReviewSubmitbtn");
+		CommonMethod.RobustclickElementVisible("WPRReviewSubmitbtn","WPRReviewProjectPhase");
 		CommonMethod.selectdropdownVisibletext("WPRReviewProjectPhase", "Preliminary Performance Rating Review");
 		CommonMethod.WaitUntilClickble("WPRReviewComment", 60).sendKeys("Preliminary Performance Rating Review");
-		CommonMethod.click("WPRReviewSubmitDocbtn");
+		CommonMethod.WaitUntilVisibility("WPRReviewSubmitDocbtn", 30);
+		CommonMethod.RobustclickElementVisible("WPRReviewSubmitDocbtn","ReviewViewButton");
 		CommonMethod.WaitUntilVisibility("Reviewlanding", 60);
-		Thread.sleep(2000);
 		testlog.pass("**Submitted Preliminary Precertification Review successfully**");
 		/*
 		 * Admin Review
@@ -299,13 +297,12 @@ public class ReusableMethodPerformance extends BaseClass {
 		testlog.pass("**Verifies user able to access the invited project**");
 	}
 	public void clikOnDocumentLibrary() throws InterruptedException, IOException {
-		Thread.sleep(5000);
-		CommonMethod.WaitUntilVisibility("DocumentLibraryTab", 300);
-		CommonMethod.click("DocumentLibraryTab");
+		CommonMethod.WaitUntilPresence("DocumentLibraryTab", 300);
+		CommonMethod.RobustclickElementVisible("DocumentLibraryTab","WPRUploadDocLib");
 	}
 	public void validateGeneralUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 60);
-		CommonMethod.click("WPRUploadDocLib");
+		CommonMethod.WaitUntilPresence("WPRUploadDocLib", 120);
+		CommonMethod.RobustclickElementVisible("WPRUploadDocLib","WPRSelectDocType");
 		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
 		CommonMethod.selectdropdownValue("WPRSelectDocType", "general");
 		CommonMethod.selectdropdownrandom("WPRHSRDocumentType");
@@ -325,8 +322,8 @@ public class ReusableMethodPerformance extends BaseClass {
 	}
 	public void validateLegalUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.refreshBrowser();
-		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 120);
-		CommonMethod.click("WPRUploadDocLib");
+		CommonMethod.WaitUntilPresence("WPRUploadDocLib", 120);
+		CommonMethod.RobustclickElementVisible("WPRUploadDocLib","WPRSelectDocType");
 		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
 		CommonMethod.selectdropdownValue("WPRSelectDocType", "legal");
 		CommonMethod.selectdropdownrandom("WPRHSRDocumentType");
@@ -346,8 +343,8 @@ public class ReusableMethodPerformance extends BaseClass {
 	}
 	public void validateAuditUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.refreshBrowser();
-		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 120);
-		CommonMethod.click("WPRUploadDocLib");
+		CommonMethod.WaitUntilPresence("WPRUploadDocLib", 120);
+		CommonMethod.RobustclickElementVisible("WPRUploadDocLib","WPRSelectDocType");
 		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
 		CommonMethod.selectdropdownValue("WPRSelectDocType", "audit");
 		CommonMethod.selectdropdownrandom("WPRHSRDocumentType");
