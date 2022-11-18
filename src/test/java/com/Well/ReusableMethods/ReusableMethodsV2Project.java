@@ -17,6 +17,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2Projectstartav2projectbtn", 300);
 		CommonMethod.Robustclick("V2Projectstartav2projectbtn");
 		CommonMethod.Robustclick("V2ProjectstartProjectcontinuebtn");
+		CommonMethod.click("V2ProjectnicknameContinuebtn");
 		CommonMethod.negativesoftassertPageSource("Project nickname is required.", "Project Name Error Mismatch");
 		String ProjectName = "Automation V2 Project" + CommonMethod.randomNumber(8000000);
 		testlog.info("V2 ProjectName is: " + ProjectName);
@@ -1197,4 +1198,10 @@ public class ReusableMethodsV2Project extends BaseClass {
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
 		testlog.pass("**Verifies user able to access the invited project**");
 	}
+	
+	public void errorMessageNegativeAssert() throws IOException, InterruptedException {
+		negativesoftAssert.assertAll();
+		testlog.pass("**Verifies Error Message for Madatory field**");
+	}
 }
+	
