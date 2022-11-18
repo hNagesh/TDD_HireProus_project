@@ -17,6 +17,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2Projectstartav2projectbtn", 300);
 		CommonMethod.Robustclick("V2Projectstartav2projectbtn");
 		CommonMethod.Robustclick("V2ProjectstartProjectcontinuebtn");
+		CommonMethod.negativesoftassertPageSource("Project nickname is required.", "Project Name Error Mismatch");
 		String ProjectName = "Automation V2 Project" + CommonMethod.randomNumber(8000000);
 		testlog.info("V2 ProjectName is: " + ProjectName);
 		data.setCellData(SheetName, "ProjectName", rowNum, ProjectName);

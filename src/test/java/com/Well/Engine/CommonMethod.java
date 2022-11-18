@@ -748,7 +748,11 @@ public class CommonMethod extends BaseClass {
 System.out.println("Actual:"+Actual +"expected"+expected);
 		softAssert.assertEquals(Actual, expected, message);
 	}
-	
+	public static void negativesoftassertPageSource(String expectedtext, String message) {
+
+		negativesoftAssert.assertTrue(driver.getPageSource().contains(expectedtext), message);
+
+	}
 	public static void softAssertContainsMessage(String Actual, String expected, String message) {
 		
 		softAssert.assertTrue(Actual.contains(expected), message);
@@ -1544,7 +1548,7 @@ System.out.println("Actual:"+Actual +"expected"+expected);
 			List<WebElement> cells = row.findElements(By.tagName("td"));
 			for (WebElement cell : cells) {
 				System.out.println("content >>   " + cell.getText());
-				testlog.info("content >>   " + cell.getText());
+				//testlog.info("content >>   " + cell.getText());
 				value.add(cell.getText());
 			}
 		}

@@ -73,6 +73,7 @@ public class BaseClass {
 	static final String ZAP_PROXY_ADDRESS = "localhost";
 	static final int ZAP_PROXY_PORT = 8080;
 	public static SoftAssert softAssert = new SoftAssert();
+	public static SoftAssert negativesoftAssert = new SoftAssert();
 	public static String SamplePdffile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"Resume.pdf";
 	public static String SamplePdffile1 = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"SampleResume.pdf";
 	public static String SampleJpgfile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"Favicon.jpg";
