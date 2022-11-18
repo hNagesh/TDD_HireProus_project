@@ -980,7 +980,8 @@ public void FilterInDocumentLibrary() throws IOException, InterruptedException {
 	CommonMethod.RobustclickElementVisible("PortfolioTaskListTab","PortfolioTaskListPendingTab");
 	CommonMethod.scrolldowntoElement("PortfolioTaskListTab");
 	CommonMethod.RobustclickElementVisible("PortfolioDocFliterByLocation","PortfolioSelectFliterByLocation");
-	CommonMethod.click("PortfolioSelectFliterByLocation");
+	CommonMethod.RobustclickElementVisible("PortfolioSelectFliterByLocation","PortfolioDocListFilterLocationValid");
+	CommonMethod.WaitUntilPresence("PortfolioDocListFilterLocationValid", 120);
 	List<WebElement> FliterVerifyLocation;
 	FliterVerifyLocation = CommonMethod.findElements("PortfolioFliterVerifyLocation");
 	for (WebElement f : FliterVerifyLocation) {
@@ -988,7 +989,7 @@ public void FilterInDocumentLibrary() throws IOException, InterruptedException {
 				"Filter Verify Location doesn't match");
 	}
 	CommonMethod.Robustclick("PortfolioFliterClearFilter");
-	testlog.info("**verifies search by location filter successfully**");
+	
 	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterVerificationOption");
 	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioFliterVerificationOption"), "Verification", "Document table data mismatch");
 	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioFliterPartTypeOption"), "Part Type", "Document table data mismatch");
@@ -1020,10 +1021,7 @@ public void FilterInDocumentLibrary() throws IOException, InterruptedException {
 	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioDocListFilterPreOption"), "A01.2", "Precondition option didn't match");
 	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterOptionClear");
 	CommonMethod.click("PortfolioFliterOptionClear");
-	softAssert.assertAll();
-	testlog.info("**Verifies search filter options successfully**");
-	testlog.info("**Verifies search filter by Verification Task successfully**");
-	testlog.info("**Verifies search filter by Part Type Task successfully**");
+	
 	//Multiple option
 	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterConceptOption");
 	CommonMethod.RobustclickElementVisible("PortfolioFliterVerificationOption","PortfolioFliterVerificationOptionCheckbox");
@@ -1036,8 +1034,24 @@ public void FilterInDocumentLibrary() throws IOException, InterruptedException {
 	CommonMethod.WaitUntilPresence("PortfolioDocListFilterNoTaskShow", 120);
 	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterOptionClear");
 	CommonMethod.click("PortfolioFliterOptionClear");
+	//Filter By Name
+	CommonMethod.scrolldowntoElement("PortfolioDocumentUploadbutton");
+	CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
+	CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioDocListFilterName");
+	CommonMethod.sendKeys("PortfolioDocListFilterName", "Feature");
+	CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
+	CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
+	testlog.info("Fetching Data from Upload Table");
+	List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
+	CommonMethod.softAssertContainsMessage(val.get(0), "FeatureFile", "Document table data mismatch");
+	softAssert.assertAll();
+	testlog.info("**verifies search by location filter successfully**");
+	testlog.info("**Verifies search filter options successfully**");
+	testlog.info("**Verifies search filter by Verification Task successfully**");
+	testlog.info("**Verifies search filter by Part Type Task successfully**");
+	testlog.info("**verifies search by Name filter successfully**");
 	testlog.info("**Verifies search filter Mutiple options successfully**");
-	testlog.info("**Verifies search filter successfully**");
+	testlog.pass("**Verifies search filter successfully**");
 }
 
 public void DeleteInDocumentLibrary() throws IOException, InterruptedException {
