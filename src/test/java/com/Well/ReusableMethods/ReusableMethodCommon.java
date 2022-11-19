@@ -243,17 +243,17 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectAdminFieldsButton", 60);
 		CommonMethod.RobustclickElementVisible("V2ProjectAdminFieldsButton", "CoachingContactsDropDown");
 		CommonMethod.WaitUntilVisibility("CoachingContactsDropDown", 60);
-		CommonMethod.selectdropdownrandom("CoachingContactsDropDown");
+		CommonMethod.selectdropdownVisibletext("CoachingContactsDropDown","Ui (welluiautomationtesting@gmail.com)");
 		data.setCellData(SheetName, "CoachingContacts", rowNum,
 				CommonMethod.getSelectedDropdownValue("CoachingContactsDropDown"));
 		testlog.info("Coaching Contacts: " + data.getCellData(SheetName, "CoachingContacts", rowNum));
 		CommonMethod.WaitUntilVisibility("RelationshipManagerDropDown", 60);
-		CommonMethod.selectdropdownrandom("RelationshipManagerDropDown");
+		CommonMethod.selectdropdownVisibletext("RelationshipManagerDropDown","Ui (welluiautomationtesting@gmail.com)");
 		data.setCellData(SheetName, "RelationshipManager", rowNum,
 				CommonMethod.getSelectedDropdownValue("RelationshipManagerDropDown"));
 		testlog.info("Relationship Manager: " + data.getCellData(SheetName, "RelationshipManager", rowNum));
 		CommonMethod.WaitUntilVisibility("WellReviewerDropDown", 60);
-		CommonMethod.selectdropdownrandom("WellReviewerDropDown");
+		CommonMethod.selectdropdownVisibletext("WellReviewerDropDown","Ui (welluiautomationtesting@gmail.com)");
 		data.setCellData(SheetName, "WellReviewer", rowNum,
 				CommonMethod.getSelectedDropdownValue("WellReviewerDropDown"));
 		testlog.info("Well Reviewer: " + data.getCellData(SheetName, "WellReviewer", rowNum));
@@ -268,15 +268,15 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectAdminFieldsButton", 60);
 		CommonMethod.RobustclickElementVisible("V2ProjectAdminFieldsButton", "CoachingContactsDropDown");
 		CommonMethod.WaitUntilVisibility("CoachingContactsDropDown", 60);
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("CoachingContactsDropDown"),
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownValue("CoachingContactsDropDown"),
 				data.getCellData(SheetName, "CoachingContacts", rowNum), "Coaching contacts value doesn't match");
 		testlog.pass("**Coaching contacts updated successfully**");
 		CommonMethod.WaitUntilVisibility("RelationshipManagerDropDown", 60);
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("RelationshipManagerDropDown"),
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownValue("RelationshipManagerDropDown"),
 				data.getCellData(SheetName, "RelationshipManager", rowNum), "Relationship Manager value doesn't match");
 		testlog.pass("**Relationship Manager value updated successfully**");
 		CommonMethod.WaitUntilVisibility("WellReviewerDropDown", 60);
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("WellReviewerDropDown"),
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownValue("WellReviewerDropDown"),
 				data.getCellData(SheetName, "WellReviewer", rowNum), "Well Reviewer value doesn't match");
 		softAssert.assertAll();
 		testlog.pass("**Well Reviewer value updated successfully**");
