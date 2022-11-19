@@ -14,8 +14,8 @@
      <suite-file path="Membershiptestng.xml"></suite-file>
      <suite-file path="Examtestng.xml"></suite-file>  
      <suite-file path="WERtestng.xml"></suite-file> 
-    <suite-file path="Facultytestng.xml"></suite-file>-->
-     <suite-file path="Membershiptestng.xml"></suite-file>
+    <suite-file path="Facultytestng.xml"></suite-file>
+     <suite-file path="Membershiptestng.xml"></suite-file>-->
       <suite-file path="HSRtestng.xml"></suite-file>  
 </suite-files>
 </suite>

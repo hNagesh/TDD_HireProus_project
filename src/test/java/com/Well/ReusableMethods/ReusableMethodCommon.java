@@ -307,7 +307,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.RobustclickElementVisible("V2ProjectSave", "V2ProjectProfileUpdatedToastMessage");
 		CommonMethod.WaitUntilVisibility("V2ProjectProfileUpdatedToastMessage", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProfileUpdatedToastMessage"),
-				"Updated Profile!", "Verified profile updated toast message");
+				"Profile updated successfully.", "Verified profile updated toast message");
 		testlog.pass("**General Information data updated successfully**");
 		CommonMethod.WaitUntilVisibility("ProfileTab", 60);
 		
@@ -338,7 +338,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.RobustclickElementVisible("V2ProjectSave", "V2ProjectProfileUpdatedToastMessage");
 		CommonMethod.WaitUntilVisibility("V2ProjectProfileUpdatedToastMessage", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProfileUpdatedToastMessage"),
-				"Updated Profile!", "Verified profile updated toast message");
+				"Profile updated successfully.", "Verified profile updated toast message");
 		softAssert.assertAll();
 		testlog.pass("**Certification story data updated successfully**");
 	}
