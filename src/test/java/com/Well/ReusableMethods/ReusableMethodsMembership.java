@@ -163,12 +163,12 @@ public void CreateLicensing(String SheetName, int rowNum, String MembershipName)
 	testlog.info("getGroupName: "+getGroupName);
 	CommonMethod.sendKeys("MPLicenseComment","QA Team");
 	CommonMethod.RobustclickElementVisible("MPSaveProductButton","MPValidGroupName");
-	CommonMethod.scrolldowntoElement("MPApplicationformDeleteIcon");
+	CommonMethod.scrolldowntoElement("MPValidUploadFile");
 	CommonMethod.WaitUntilPresence("MPValidGroupName", 120);
 }
 CommonMethod.assertcountListWebelementFromIndex("MPLicenseProductCard",3);
 CommonMethod.assertcountListWebelementFromIndex("MPLicenseEdit",3);
-CommonMethod.assertcountListWebelementFromIndex("MPApplicationformDeleteIcon",3);
+CommonMethod.assertcountListWebelementFromIndex("MPDeleteIcon",3);
 testlog.pass("**Verifies Created Product Licensing successfully**");
 testlog.pass("**Verifies added 3 Product Licensing Group successfully**");
 }
@@ -184,7 +184,7 @@ public void UpdateLicensing(String SheetName, int rowNum, String MembershipName)
 	CommonMethod.WaitUntilVisibility("MPGroupName", 30);
 	CommonMethod.WaitUntilVisibility("MPLicenseUpdateSaveButton", 120);
 	CommonMethod.RobustclickElementVisible("MPLicenseUpdateSaveButton","MPApplicationformDeleteIcon");
-	CommonMethod.scrolldowntoElement("MPApplicationformDeleteIcon");
+	CommonMethod.scrolldowntoElement("MPValidUploadFile");
 	CommonMethod.WaitUntilPresence("MPValidGroupName", 120);
 	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPValidType"),"Audio-Video Systems" , "GroupName doesn't match");
 	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPValidCategory"),"Communications" , "Category doesn't match");	
@@ -192,11 +192,10 @@ public void UpdateLicensing(String SheetName, int rowNum, String MembershipName)
 	testlog.pass("**Verifies Updated Product Licensing successfully**");
 }
 public void DeleteLicensing(String SheetName, int rowNum, String MembershipName) throws IOException, InterruptedException {
-	CommonMethod.WaitUntilVisibility("MPValidUploadFile", 120);
-	CommonMethod.clickOnListWebelementFromIndex("MPDeleteIcon",0);
-	CommonMethod.RobustclickElementVisible("MPDeleteIcon","MPSelectProductCategories");
+	CommonMethod.WaitUntilPresence("MPValidUploadFile", 120);
+	CommonMethod.clickOnListWebelementFromIndex("MPDeleteIcon",2);
 	CommonMethod.RobustclickElementVisible("MPLicenseProductDelete","MPSelectProductCategories");
-	CommonMethod.assertcountListWebelementFromIndex("MPApplicationformDeleteIcon",2);
+	CommonMethod.assertcountListWebelementFromIndex("MPDeleteIcon",2);
 	testlog.pass("**Verifies Delete Product Licensing Group successfully**");
 }
 
