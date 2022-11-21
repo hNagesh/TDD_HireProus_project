@@ -140,7 +140,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.WaitUntilVisibility("AdminWELLFacultyNavBar", 60);
 		CommonMethod.RobustclickElementVisible("AdminWELLFacultyNavBar", "WFAdminEmail");
 		CommonMethod.WaitUntilClickble("WFAdminEmail", 60)
-				.sendKeys(data.getCellData("Login", "UserName", 3));
+				.sendKeys(data.getCellData("Login", "UserName", 5));
 		CommonMethod.RobustclickElementVisible("ApplyButton","WFViewButton");
 		CommonMethod.RobustclickElementVisible("WFViewButton","WFReviewApplicationButton");
 		CommonMethod.RobustclickElementVisible("WFReviewApplicationButton","WFAddrContinuebtn");
