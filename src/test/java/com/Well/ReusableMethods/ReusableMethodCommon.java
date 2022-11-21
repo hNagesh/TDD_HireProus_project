@@ -461,4 +461,8 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilVisibility("TeamTab", 300);
 		CommonMethod.click("TeamTab");
 	}
+	public void errorMessageNegativeAssert() throws IOException, InterruptedException {
+		negativesoftAssert.assertAll();
+		testlog.pass("**Verifies Error Message for Madatory field**");
+	}
 }

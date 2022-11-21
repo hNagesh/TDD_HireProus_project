@@ -21,6 +21,9 @@ public class ReusableMethodsLogin extends BaseClass {
 			Username = data.getCellData("Login", "UserName", 2);
 		    Password = data.getCellData("Login", "Password", 2);
 		}
+		CommonMethod.RobustclickElementVisible("LoginButton","Username");
+		CommonMethod.WaitUntilVisibility("Username", 60);
+		CommonMethod.negativesoftassertPageSource("The given data was invalid.", "Data invalid error mismatch");
 		CommonMethod.scrolldowntoElement("Username");
 		CommonMethod.sendKeys("Username", Username);
 		testlog.info("Sending Username " + Username);

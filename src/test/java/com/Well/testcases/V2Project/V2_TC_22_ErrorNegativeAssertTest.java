@@ -7,17 +7,17 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class ErrorNegativeAssertTest extends BaseClass {
+public class V2_TC_22_ErrorNegativeAssertTest extends BaseClass {
 
 	@Test
 	@Parameters({ "SheetName", "rowNum" })
-	public void ErrorNegativeAssert(String SheetName, int rowNum) throws IOException {
+	public void V2_TC_22_ErrorNegativeAssert(String SheetName, int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
         StartTest(TestCaseName, "Error Negative Assert Validation");
 		
         try {
-			v2project.errorMessageNegativeAssert();
+			rc.errorMessageNegativeAssert();
 
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

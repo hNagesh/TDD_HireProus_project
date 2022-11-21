@@ -24,6 +24,11 @@ public class ReusableMethodsV2Project extends BaseClass {
 		data.setCellData(SheetName, "ProjectName", rowNum, ProjectName);
 		CommonMethod.sendKeys("V2Projectprojectnickname", ProjectName);
 		CommonMethod.RobustclickElementVisible("V2ProjectnicknameContinuebtn", "V2ProjectlocationContinuebtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectlocationContinuebtn","V2ProjectlocationStreet");
+		CommonMethod.negativesoftassertPageSource("Country is required.", "Country Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Street is required.", "Street Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("City is required.", "City Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Postal Code is required.", "Postal Code Error Mismatch");
 		rc.SelectCountryAndState(Country, SheetName, rowNum);
 		String ProjectAddress = USfaker.address().streetAddress();
 		String ProjectCity = USfaker.address().cityName();
@@ -44,6 +49,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		data.setCellData(SheetName, "Area", rowNum, CommonMethod.getattributeValue("V2ProjectareaSize"));
 		testlog.info("Area: " + data.getCellData(SheetName, "Area", rowNum));
 		CommonMethod.RobustclickElementVisible("V2ProjectareaContinuebtn", "V2ProjectspacetypeContinuebtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectspacetypeContinuebtn", "V2ProjectspaceType");
+		CommonMethod.negativesoftassertPageSource("You need at least 1 checkbox.", "CheckBox Error Mismatch");
 		CommonMethod.ClickCheckbox("V2ProjectspaceType");
 		CommonMethod.WaitUntilVisibility("V2ProjectspacetypeContinuebtn", 60);
 		CommonMethod.RobustclickElementVisible("V2ProjectspacetypeContinuebtn", "V2Projectwellcorecertification");
@@ -61,6 +68,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.WaitUntilVisibility("V2ProjectwellCertification", 30);
 			CommonMethod.click("V2ProjectwellCertification");
 			CommonMethod.WaitUntilVisibility("V2ProjectownershipOflocation", 30);
+			CommonMethod.RobustclickElementVisible("V2ProjectownershipContinuebtn", "V2ProjectownershipOflocation");
+			CommonMethod.negativesoftassertPageSource("Ownership type is required.", "CheckBox Error Mismatch");
 			CommonMethod.ClickCheckbox("V2ProjectownershipOflocation");
 			CommonMethod.click("V2ProjectownershipContinuebtn");
 			
@@ -111,6 +120,15 @@ public class ReusableMethodsV2Project extends BaseClass {
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("EnrollTab", 60);
 		CommonMethod.click("EnrollTab");
+		CommonMethod.Robustclick("V2ProjectprojectOwnerContinuebtn","V2ProjectownerName");
+		CommonMethod.negativesoftassertPageSource("Organization is required.", "Organization Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Owner name* is required.", "Owner name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Owner email* is required.", "Owner email Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Organization Industry is required.", "Organization Industry Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Are you planning to undergo construction or renovation?* is required.", "construction Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Estimated date of document submission* is required", "Estimated Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Anticipated date of construction completion* is required.", "Anticipated date Error Mismatch");
+		CommonMethod.refreshBrowser();
 		rc.SelectOwnerOrg(SheetName, rowNum);
 		String Ownername = USfaker.address().firstName();
 		String Email = USfaker.internet().emailAddress();
@@ -144,6 +162,11 @@ public class ReusableMethodsV2Project extends BaseClass {
 			testlog.info("MarketSector: " + data.getCellData(SheetName, "MarketSectorName", rowNum));
 		}
 		CommonMethod.click("V2ProjectprojectOwnerContinuebtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectprojectaddressContinuebtn", "V2ProjectprojectaddressCountry");
+		CommonMethod.negativesoftassertPageSource("Country is required.", "Country Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Street is required.", "Street Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("City is required.", "City Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Postal Code is required.", "CPostal Code Error Mismatch");
 		testlog.info("Country: " + Country);
 		CommonMethod.selectdropdownValue("V2ProjectprojectaddressCountry", Country);
 		data.setCellData(SheetName, "OwnerCountry", rowNum,
@@ -1197,11 +1220,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
 		testlog.pass("**Verifies user able to access the invited project**");
-	}
-	
-	public void errorMessageNegativeAssert() throws IOException, InterruptedException {
-		negativesoftAssert.assertAll();
-		testlog.pass("**Verifies Error Message for Madatory field**");
 	}
 }
 	
