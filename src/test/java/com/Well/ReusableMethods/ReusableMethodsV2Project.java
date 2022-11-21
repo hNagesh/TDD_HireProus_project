@@ -655,47 +655,44 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void ReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ReviewTab", 60);
-		CommonMethod.click("ReviewTab");
-		CommonMethod.WaitUntilVisibility("Reviewlanding", 20);
+		CommonMethod.RobustclickElementVisible("ReviewTab","Reviewlanding");
+		CommonMethod.WaitUntilVisibility("Reviewlanding", 30);
 		CommonMethod.WaitUntilVisibility("V2ProjectsubmitReview", 60);
-		CommonMethod.click("V2ProjectsubmitReview");
+		CommonMethod.RobustclickElementVisible("V2ProjectsubmitReview","V2ProjectcommentReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Preliminary Precertification Review");
-		Thread.sleep(4000);
+		CommonMethod.WaitUntilPresence("V2ProjectSelectPhase", 60);
 		CommonMethod.selectdropdownVisibletext("V2ProjectSelectPhase", "Preliminary Precertification Review");
-		CommonMethod.click("V2ProjectSubmitPhaseReview");
+		CommonMethod.RobustclickElementVisible("V2ProjectSubmitPhaseReview","ReviewViewButton");
 		CommonMethod.WaitUntilVisibility("ReviewViewButton", 60);
-		Thread.sleep(2000);
 		/*
 		 * Admin Review
 		 */
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
-		CommonMethod.click("AdminNavBar");
+		CommonMethod.RobustclickElementVisible("AdminNavBar","AdminWELLCertificationNavBar");
 		CommonMethod.RobustclickElementVisible("AdminWELLCertificationNavBar", "AdminV2ProjectId");
 		CommonMethod.WaitUntilClickble("AdminV2ProjectId", 60)
 				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.click("AdminV2ProjectApplybtn");
+		CommonMethod.RobustclickElementVisible("AdminV2ProjectApplybtn","V2ProjectSearchResultIDVerify");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
 				data.getCellData(SheetName, "ProjectID", rowNum), "ProjectID doesn't matches in search");
-		CommonMethod.click("V2ProjectIdCompare");
+		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare","V2ProjectStartBuilding");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 60);
-		CommonMethod.click("ReviewTab");
-		CommonMethod.WaitUntilVisibility("Reviewlanding", 60);
+		CommonMethod.RobustclickElementVisible("ReviewTab","Reviewlanding");
 		CommonMethod.WaitUntilVisibility("ReviewViewButton", 60);
-		CommonMethod.click("ReviewViewButton");
-		Thread.sleep(2000);
+		CommonMethod.RobustclickElementVisible("ReviewViewButton","ReviewReturnButton");
 		CommonMethod.RobustclickElementVisible("ReviewReturnButton", "V2ProjectReviewCommentNarrative");
 		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60)
 				.sendKeys("Preliminary Precertification Review");
 		CommonMethod.sendKeys("V2ProjectGeneralCommentNarrative", "Preliminary Precertification Review");
 		CommonMethod.WaitUntilClickble("DatePickerButton", 60);
 		Thread.sleep(1000);
-		CommonMethod.click("DatePickerButton");
-		CommonMethod.click("DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerButton","DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerOkButton","ReviewPaymentstatusRadio");
 		CommonMethod.scrollDown();
-		Thread.sleep(1000);
+		CommonMethod.WaitUntilPresence("ReviewPaymentstatusRadio", 60);
 		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
-		CommonMethod.click("ReviewReturnSubmit");
+		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit","ReviewedStatus");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("ReviewedStatus", 60);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
@@ -750,12 +747,11 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void hsrReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 600);
 		CommonMethod.Robustclick("ReviewTab","V2ProjectsubmitReview");
-		CommonMethod.click("V2ProjectsubmitReview");
+		CommonMethod.RobustclickElementVisible("V2ProjectsubmitReview","V2ProjectcommentReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Final Documentation Review");
-		Thread.sleep(4000);
 		CommonMethod.selectdropdownVisibletext("V2ProjectSelectPhase", "Final Documentation Review");
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingHsrcbx");
-		CommonMethod.click("V2ProjectSubmitPhaseReview");
+		CommonMethod.RobustclickElementVisible("V2ProjectSubmitPhaseReview","V2ProjectHSRReviewViewbtn");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("V2ProjectHSRReviewViewbtn", 120);
 		testlog.pass("**Reviewed Final Precertification Review successfully**");
@@ -763,19 +759,19 @@ public class ReusableMethodsV2Project extends BaseClass {
 		 * Admin Review
 		 */
 		CommonMethod.WaitUntilClickble("AdminNavBar", 60);
-		CommonMethod.click("AdminNavBar");
-		CommonMethod.click("AdminWELLCertificationNavBar");
+		CommonMethod.RobustclickElementVisible("AdminNavBar","AdminWELLCertificationNavBar");
+		CommonMethod.RobustclickElementVisible("AdminWELLCertificationNavBar","AdminV2ProjectId");
 		CommonMethod.WaitUntilClickble("AdminV2ProjectId", 60)
 				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.click("AdminV2ProjectApplybtn");
+		CommonMethod.RobustclickElementVisible("AdminV2ProjectApplybtn","V2ProjectSearchResultIDVerify");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project ID doesn't matches");
-		CommonMethod.click("V2ProjectIdCompare");
-		CommonMethod.click("ReviewTab");
+		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare","ReviewTab");
+		CommonMethod.RobustclickElementVisible("ReviewTab","V2ProjectHSRReviewViewbtn");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("V2ProjectHSRReviewViewbtn", 120);
-		CommonMethod.click("V2ProjectHSRReviewViewbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectHSRReviewViewbtn","ReviewReturnButton");
 		Thread.sleep(2000);
 		CommonMethod.RobustclickElementVisible("ReviewReturnButton", "ReturnComment");
 		CommonMethod.WaitUntilClickble("ReturnComment", 60).sendKeys("Final Review");
@@ -785,7 +781,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
 		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
-		CommonMethod.click("ReviewReturnSubmit");
+		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit","ReviewedStatus");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("ReviewedStatus", 60);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
@@ -820,14 +816,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 600);
 		CommonMethod.Robustclick("ReviewTab","V2ProjectsubmitReview");
 		CommonMethod.WaitUntilVisibility("V2ProjectsubmitReview", 300);
-		CommonMethod.click("V2ProjectsubmitReview");
+		CommonMethod.RobustclickElementVisible("V2ProjectsubmitReview","V2ProjectcommentReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Final Performance Review");
-		Thread.sleep(4000);
+		CommonMethod.WaitUntilPresence("V2ProjectsubmitReview", 30);
 		CommonMethod.selectdropdownVisibletext("V2ProjectSelectPhase", "Final Performance Review");
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingHsrcbx");
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingWprcbx");
-		CommonMethod.click("V2ProjectSubmitPhaseReview");
-		Thread.sleep(2000);
+		CommonMethod.RobustclickElementVisible("V2ProjectSubmitPhaseReview","V2ProjectWPRReviewViewbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRReviewViewbtn", 30);
 		testlog.pass("**Reviewed Final Precertification Review successfully**");
 
@@ -835,19 +830,17 @@ public class ReusableMethodsV2Project extends BaseClass {
 		 * Admin Review
 		 */
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 300);
-		CommonMethod.click("AdminNavBar");
-		CommonMethod.click("AdminWELLCertificationNavBar");
-		CommonMethod.WaitUntilVisibility("AdminV2ProjectId", 300)
-				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.click("AdminV2ProjectApplybtn");
+		CommonMethod.RobustclickElementVisible("AdminNavBar","AdminWELLCertificationNavBar");
+		CommonMethod.RobustclickElementVisible("AdminWELLCertificationNavBar","AdminV2ProjectId");
+		CommonMethod.WaitUntilVisibility("AdminV2ProjectId", 300).sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.RobustclickElementVisible("AdminV2ProjectApplybtn","V2ProjectSearchResultIDVerify");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
 		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare","ReviewTab");
-		CommonMethod.click("ReviewTab");
-		Thread.sleep(2000);
+		CommonMethod.RobustclickElementVisible("ReviewTab","V2ProjectWPRReviewViewbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRReviewViewbtn", 30);
-		CommonMethod.click("V2ProjectWPRReviewViewbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectWPRReviewViewbtn","ReviewReturnButton");
 		CommonMethod.WaitUntilVisibility("ReviewReturnButton", 30);
 		CommonMethod.RobustclickElementVisible("ReviewReturnButton", "ReturnComment");
 		Thread.sleep(2000);
@@ -855,13 +848,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60).sendKeys("Final Precertification Review");
 		CommonMethod.WaitUntilVisibility("DatePickerButton", 300);
 		Thread.sleep(1000);
-		CommonMethod.click("DatePickerButton");
-		CommonMethod.click("DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerButton","DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerOkButton","ReviewPaymentstatusRadio");
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
 		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
 		CommonMethod.WaitUntilVisibility("ReviewReturnSubmit", 300);
-		CommonMethod.click("ReviewReturnSubmit");
+		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit","ReviewedStatus");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("ReviewedStatus", 60);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
