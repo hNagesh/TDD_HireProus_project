@@ -843,7 +843,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
-		CommonMethod.click("V2ProjectIdCompare");
+		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare","ReviewTab");
 		CommonMethod.click("ReviewTab");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRReviewViewbtn", 30);
