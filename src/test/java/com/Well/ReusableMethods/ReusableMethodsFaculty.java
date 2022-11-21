@@ -175,8 +175,8 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("FacultyRenew"), "Renew", "Renew doesn't match");
 		CommonMethod.WaitUntilVisibility("FacultyDownloadCertificate", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("FacultyDownloadCertificate"),
-				"Download Ceritificate", "Download Ceritificate doesn't match");
-		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
+				"Download certificate", "Download Ceritificate doesn't match");
+		int countCard = CommonMethod.ElementSize("PromotionCardContainer");
 		String cardCount = Integer.toString(countCard);
 		CommonMethod.assertActualContainsExpected(cardCount, "4");
 		softAssert.assertAll();
@@ -189,7 +189,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.RobustclickElementVisible("WFKeepLearningTab", "FacultyRenew");
 		CommonMethod.WaitUntilVisibility("FacultyRenew", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("FacultyRenew"), "Renew", "Renew doesn't match");
-		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
+		int countCard = CommonMethod.ElementSize("PromotionCardContainer");
 		String cardCount = Integer.toString(countCard);
 		CommonMethod.assertActualContainsExpected(cardCount, "3");
 		softAssert.assertAll();
@@ -202,7 +202,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.RobustclickElementVisible("WFResourceTab", "FacultyRenew");
 		CommonMethod.WaitUntilVisibility("FacultyRenew", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("FacultyRenew"), "Renew", "Renew doesn't match");
-		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
+		int countCard = CommonMethod.ElementSize("PromotionCardContainer");
 		String cardCount = Integer.toString(countCard);
 		CommonMethod.assertActualContainsExpected(cardCount, "22");
 		softAssert.assertAll();
@@ -215,7 +215,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.RobustclickElementVisible("WFMarketingToolkitTab", "FacultyRenew");
 		CommonMethod.WaitUntilVisibility("FacultyRenew", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("FacultyRenew"), "Renew", "Renew doesn't match");
-		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
+		int countCard = CommonMethod.ElementSize("PromotionCardContainer");
 		String cardCount = Integer.toString(countCard);
 		CommonMethod.assertActualContainsExpected(cardCount, "2");
 		softAssert.assertAll();
@@ -228,7 +228,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.RobustclickElementVisible("WFReportingTab", "FacultyRenew");
 		CommonMethod.WaitUntilVisibility("FacultyRenew", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("FacultyRenew"), "Renew", "Renew doesn't match");
-		int countCard = CommonMethod.ElementSize("V2ProjectCardContainer");
+		int countCard = CommonMethod.ElementSize("PromotionCardContainer");
 		String cardCount = Integer.toString(countCard);
 		CommonMethod.assertActualContainsExpected(cardCount, "2");
 		softAssert.assertAll();
