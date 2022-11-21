@@ -237,11 +237,15 @@ public class ReusableMethodsFaculty extends BaseClass {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static Response PostRequestAuthenticate() {
+	public static Response PostRequestAuthenticate(String SheetName, int rowNum) {
 		/*
 		 * Get Token by authentication
 		 */
+	
 		username = data.getCellData("Login", "UserName", 3);
+		if (SheetName.equalsIgnoreCase("Faculty")) {
+			username = data.getCellData("Login", "UserName", 5);
+		}
 		JSONObject param = new JSONObject();
 		param.put("email", username);
 		param.put("password", "initpass");

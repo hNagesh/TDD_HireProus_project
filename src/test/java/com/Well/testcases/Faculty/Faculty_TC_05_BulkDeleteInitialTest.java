@@ -17,7 +17,7 @@ public class Faculty_TC_05_BulkDeleteInitialTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName, "Bulk Delete Functionality");
 		try {
-			faculty.PostRequestAuthenticate();
+			faculty.PostRequestAuthenticate(SheetName, rowNum);
 			faculty.DeleteFacultyOrMembership();
 			testlog.pass("**Verifies Bulk Delete successfully**");
 		} catch (Throwable t) {
