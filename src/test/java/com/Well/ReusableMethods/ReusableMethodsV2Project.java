@@ -17,7 +17,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2Projectstartav2projectbtn", 300);
 		CommonMethod.Robustclick("V2Projectstartav2projectbtn");
 		CommonMethod.Robustclick("V2ProjectstartProjectcontinuebtn");
-		CommonMethod.click("V2ProjectnicknameContinuebtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectnicknameContinuebtn","MadatoryFieldErrorMessage");
 		CommonMethod.negativesoftassertPageSource("Project nickname is required.", "Project Name Error Mismatch");
 		String ProjectName = "Automation V2 Project" + CommonMethod.randomNumber(8000000);
 		testlog.info("V2 ProjectName is: " + ProjectName);
@@ -101,17 +101,17 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void SearchV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 120);
-		CommonMethod.click("ProjectNavBar");
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLCertificationNavBar");
 		CommonMethod.RobustclickElementVisible("WELLCertificationNavBar", "V2ProjectId");
 		CommonMethod.WaitUntilClickble("V2ProjectId", 60);
 		testlog.info("ProjectId:" + data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.sendKeys("V2ProjectId", data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.click("V2ProjectApplybtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectApplybtn","V2ProjectSearchResultIDVerify");
 		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
 		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","V2 Search failed");
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
-		CommonMethod.click("V2ProjectIdCompare");
+		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare","V2ProjectStartBuilding");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 300);
 		testlog.pass("**Verifies the Search V2Project ByID successfully**");
 	}
@@ -119,8 +119,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void EnrollV2ProjectById(String SheetName, int rowNum, String ProjectType, String Country)
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("EnrollTab", 60);
-		CommonMethod.click("EnrollTab");
-		CommonMethod.Robustclick("V2ProjectprojectOwnerContinuebtn","V2ProjectownerName");
+		CommonMethod.RobustclickElementVisible("EnrollTab","V2ProjectprojectOwnerContinuebtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectprojectOwnerContinuebtn","MadatoryFieldErrorMessage");
 		CommonMethod.negativesoftassertPageSource("Organization is required.", "Organization Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Owner name* is required.", "Owner name Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Owner email* is required.", "Owner email Error Mismatch");
@@ -676,6 +676,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
 				data.getCellData(SheetName, "ProjectID", rowNum), "ProjectID doesn't matches in search");
+		CommonMethod.WaitUntilPresence("V2ProjectIdCompare", 120);
 		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare","V2ProjectStartBuilding");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 60);
 		CommonMethod.RobustclickElementVisible("ReviewTab","Reviewlanding");

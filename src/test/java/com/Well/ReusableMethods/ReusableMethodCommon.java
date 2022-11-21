@@ -183,7 +183,7 @@ public class ReusableMethodCommon extends BaseClass {
 
 	public void team(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 30);
-		CommonMethod.click("V2ProjectAddMemberbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectAddMemberbtn","V2ProjectEmailAddress");
 		String TeamEmail = data.getCellData(SheetName, "TeamEmailID", rowNum);
 		CommonMethod.WaitUntilVisibility("V2ProjectEmailAddress", 30);
 		CommonMethod.sendKeys("V2ProjectEmailAddress", TeamEmail);
@@ -191,14 +191,14 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.selectdropdownVisibletext("V2ProjectRole", "Acoustician");
 		CommonMethod.ClickCheckbox("V2ProjectMembercbx");
 		CommonMethod.WaitUntilVisibility("V2ProjectInvitebtn", 30);
-		CommonMethod.click("V2ProjectInvitebtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectInvitebtn","V2ProjectDeleteIcon");
 		testlog.pass("**Created Team member successfully**");
 	}
 	public void deleteAddedTeamMember(String SheetName, int rowNum) throws IOException, InterruptedException {
 		Thread.sleep(2000);
 		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 30);
-		CommonMethod.click("V2ProjectDeleteIcon");
+		CommonMethod.RobustclickElementVisible("V2ProjectDeleteIcon","V2ProjectAddMemberbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
 		testlog.pass("**Created Team member successfully**");
 	}
@@ -458,7 +458,7 @@ public class ReusableMethodCommon extends BaseClass {
 	}
 	public void clickOnTeamTab(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("TeamTab", 300);
-		CommonMethod.click("TeamTab");
+		CommonMethod.RobustclickElementVisible("TeamTab","V2ProjectAddMemberbtn");
 	}
 	public void errorMessageNegativeAssert() throws IOException, InterruptedException {
 		negativesoftAssert.assertAll();
