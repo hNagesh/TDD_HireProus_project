@@ -444,20 +444,19 @@ public class ReusableMethodCommon extends BaseClass {
 	}
 	public void validateTeams(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 120);
-		CommonMethod.click("ProjectNavBar");
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLCertificationNavBar");
 		CommonMethod.RobustclickElementVisible("WELLCertificationNavBar", "V2ProjectId");
-		testlog.info("ProjectId:" + data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.WaitUntilClickble("V2ProjectId", 60).sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.click("V2ProjectApplybtn");
+		testlog.info("ProjectId: " + data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.WaitUntilClickble("V2ProjectId", 60).click();
+		CommonMethod.sendKeys("V2ProjectId",data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.RobustclickElementVisible("V2ProjectApplybtn","V2ProjectSearchResultIDVerify");
 		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
 		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","V2 Search failed");
-		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
-				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
+		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify", data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
 		softAssert.assertAll();
 		testlog.pass("**Verifies user able to access the invited project**");
 	}
 	public void clickOnTeamTab(String SheetName, int rowNum) throws IOException, InterruptedException {
-		Thread.sleep(5000);
 		CommonMethod.WaitUntilVisibility("TeamTab", 300);
 		CommonMethod.click("TeamTab");
 	}
