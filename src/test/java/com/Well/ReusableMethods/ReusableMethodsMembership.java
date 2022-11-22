@@ -180,10 +180,13 @@ public void UpdateLicensing(String SheetName, int rowNum, String MembershipName)
 	CommonMethod.selectdropdownValue("MPSelectproductType","60");
 	CommonMethod.WaitUntilVisibility("MPSelectPartname", 30);
 	CommonMethod.RobustclickElementVisible("MPSelectPartname","MPSelectPartnameChild");
-	CommonMethod.click("MPSelectPartnameChild");
-	CommonMethod.WaitUntilVisibility("MPGroupName", 30);
+	CommonMethod.RobustclickElementVisible("MPSelectPartnameChild","MPGroupName");
+	CommonMethod.WaitUntilVisibility("MPLicenseComment", 60);
+	Thread.sleep(2000);
+	CommonMethod.scrolldowntoElement("MPLicenseComment");
 	CommonMethod.WaitUntilVisibility("MPLicenseUpdateSaveButton", 120);
 	CommonMethod.RobustclickElementVisible("MPLicenseUpdateSaveButton","MPApplicationformDeleteIcon");
+	Thread.sleep(2000);
 	CommonMethod.scrolldowntoElement("MPValidUploadFile");
 	CommonMethod.WaitUntilPresence("MPValidGroupName", 120);
 	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPValidType"),"Audio-Video Systems" , "GroupName doesn't match");
@@ -204,6 +207,7 @@ public void SubmitProductLicensingReview(String SheetName, int rowNum, String Me
 	CommonMethod.RobustclickElementVisible("MPLicenseSubmitForReview","MPLicenseDeleteProduct");
 	CommonMethod.assertcountListWebelementFromIndex("MPLicenseProductCard",2);
 	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPLicenseReviewStatus"),"UNDER REVIEW" , "Review Status doesn't match");	
+	CommonMethod.scrolldowntoElement("MPLicenseReviewStatus");
 	CommonMethod.RobustclickElementVisible("MPLicenseDeleteProduct","MPLicenseProductDelete");
 	CommonMethod.RobustclickElementVisible("MPLicenseProductDelete","MPLicensingProgramCheckbox");
 	CommonMethod.WaitUntilPresence("MPLicensingProgramCheckbox", 120);
