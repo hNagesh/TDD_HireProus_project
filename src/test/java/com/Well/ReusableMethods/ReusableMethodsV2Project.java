@@ -1203,12 +1203,12 @@ public class ReusableMethodsV2Project extends BaseClass {
 	
 	public void validateTeamsV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 120);
-		CommonMethod.click("ProjectNavBar");
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLCertificationNavBar");
 		CommonMethod.RobustclickElementVisible("WELLCertificationNavBar", "V2ProjectId");
 		CommonMethod.WaitUntilClickble("V2ProjectId", 60);
 		testlog.info("ProjectId:" + data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.sendKeys("V2ProjectId", data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.click("V2ProjectApplybtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectApplybtn","V2ProjectSearchResultIDVerify");
 		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
 		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","V2 Search failed");
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",

@@ -185,29 +185,29 @@ public class ReusableMethodEquity extends BaseClass {
 		 * Admin Review
 		 */
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
-		CommonMethod.click("AdminNavBar");
+		CommonMethod.RobustclickElementVisible("AdminNavBar","AdminWELLEquityNavBar");
 		CommonMethod.WaitUntilVisibility("AdminWELLEquityNavBar", 60);
 		CommonMethod.RobustclickElementVisible("AdminWELLEquityNavBar", "WPRAdminIdSearch");
 		CommonMethod.WaitUntilClickble("WPRAdminIdSearch", 60)
 				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.click("WPRAdminApplybtn");
+		CommonMethod.RobustclickElementVisible("WPRAdminApplybtn","WPRAdminIdClick");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("WPRAdminIdClick", data.getCellData(SheetName, "ProjectID", rowNum),
 				"Project name doesn't matches in search");
-		CommonMethod.click("WPRAdminIdClick");
+		CommonMethod.RobustclickElementVisible("WPRAdminIdClick","WPRHsrPortfolioDashboard");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 300);
-		CommonMethod.click("ReviewTab");
+		CommonMethod.RobustclickElementVisible("ReviewTab","ReviewViewButton");
 		CommonMethod.WaitUntilVisibility("ReviewViewButton", 60);
-		CommonMethod.click("ReviewViewButton");
+		CommonMethod.RobustclickElementVisible("ReviewViewButton","ReviewReturnButton");
 		CommonMethod.WaitUntilVisibility("ReviewReturnButton", 60);
-		CommonMethod.click("ReviewReturnButton");
+		CommonMethod.RobustclickElementVisible("ReviewReturnButton","ReturnComment");
 		CommonMethod.WaitUntilClickble("ReturnComment", 60).sendKeys("Preliminary Precertification Review");
 		Thread.sleep(1000);
-		CommonMethod.click("DatePickerButton");
-		CommonMethod.click("DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerButton","DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerOkButton","ReviewPaymentstatusRadio");
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
-		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
+		CommonMethod.RobustclickElementVisible("ReviewPaymentstatusRadio","ReviewReturnSubmit");
 		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit", "ReviewedStatus");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status successfully");
@@ -221,11 +221,11 @@ public class ReusableMethodEquity extends BaseClass {
 		String werId = data.getCellData(SheetName, "ProjectID", rowNum);
 		testlog.info("Equity ID: " + werId);
 		CommonMethod.WaitUntilClickble("WERId", 60).sendKeys(werId);
-		CommonMethod.click("WERApplybtn");
+		CommonMethod.RobustclickElementVisible("WERApplybtn","V2ProjectSearchResultIDVerify");
 		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
 		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Equity Search failed");
 		CommonMethod.assertcontainsmessage("WERIdClick", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
-		testlog.pass("**Verifies the Search Equity ByID successfully**");
+		testlog.pass("**Verifies the Search Equity ByID can access the Project successfully**");
 	}
 }
