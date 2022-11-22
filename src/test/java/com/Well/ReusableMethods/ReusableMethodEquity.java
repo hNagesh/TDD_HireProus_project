@@ -108,7 +108,7 @@ public class ReusableMethodEquity extends BaseClass {
 		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Equity Search failed");
 		CommonMethod.assertcontainsmessage("WERIdClick", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
-		CommonMethod.click("WERIdClick");
+		CommonMethod.RobustclickElementVisible("WERIdClick","WERDashboard");
 		CommonMethod.WaitUntilVisibility("WERDashboard", 300);
 		testlog.pass("**Verifies the Search Equity ByID successfully**");
 	}
@@ -157,7 +157,7 @@ public class ReusableMethodEquity extends BaseClass {
 	public void CompleteScorecardWerById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		Thread.sleep(3000);
 		CommonMethod.WaitUntilVisibility("ScorecardTab", 60);
-		CommonMethod.click("ScorecardTab");
+		CommonMethod.RobustclickElementVisible("ScorecardTab","WPRPortfolioScorecardLanding");
 		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
 		performance.ScorecardfillHSRWPR(21, 21, 49, 29, "WPRPurseYes", "WPRPurseNo");
 		testlog.pass("**Verifies the 21 Purse Yes Scorecard Equity successfully**");
