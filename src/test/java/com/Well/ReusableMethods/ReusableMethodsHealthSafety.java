@@ -280,14 +280,14 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	}
 	public void validateTeamsHSR(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
-		CommonMethod.click("ProjectNavBar");
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLHealthSafetyNavBar");
 		CommonMethod.WaitUntilVisibility("WELLHealthSafetyNavBar", 300);
 		CommonMethod.RobustclickElementVisible("WELLHealthSafetyNavBar", "HsrIdSearch");
 		CommonMethod.WaitUntilVisibility("HsrIdSearch", 300);
-		CommonMethod.click("HsrIdSearch");
+		CommonMethod.RobustclickElementVisible("HsrIdSearch","HsrapplySearch");
 		testlog.info("HealthSafety ID:" + data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.sendKeys("HsrIdSearch", data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.click("HsrapplySearch");
+		CommonMethod.RobustclickElementVisible("HsrapplySearch","V2ProjectSearchResultIDVerify");
 		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
 		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","HealthSafety Search failed");
 		CommonMethod.assertcontainsmessage("HSRIdClick", data.getCellData(SheetName, "projectID", rowNum),
@@ -295,9 +295,8 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		testlog.pass("**Verifies user able to access the invited project**");
 	}
 	public void clikOnDocumentLibrary() throws InterruptedException, IOException {
-		Thread.sleep(5000);
-		CommonMethod.WaitUntilVisibility("WPRHSRDocumentTab", 300);
-		CommonMethod.click("WPRHSRDocumentTab");
+		CommonMethod.WaitUntilPresence("WPRHSRDocumentTab", 300);
+		CommonMethod.RobustclickElementVisible("WPRHSRDocumentTab","HsrAddDoc");
 	}
 	public void validateGeneralUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("HsrAddDoc", 120);

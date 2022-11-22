@@ -283,14 +283,14 @@ public class ReusableMethodPerformance extends BaseClass {
 	
 	public void validateTeamsWPR(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
-		CommonMethod.click("ProjectNavBar");
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLPerformanceRatingNavBar");
 		CommonMethod.WaitUntilVisibility("WELLPerformanceRatingNavBar", 300);
 		CommonMethod.RobustclickElementVisible("WELLPerformanceRatingNavBar", "WPRIdClick");
 		String wprId = data.getCellData(SheetName, "ProjectID", rowNum);
 		testlog.info("Performance ID: " + wprId);
 		CommonMethod.WaitUntilClickble("WPRId", 60).sendKeys(wprId);
-		CommonMethod.click("WPRApplybtn");
-		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.RobustclickElementVisible("WPRApplybtn","WELLPerformanceRatingNavBar");
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("WELLPerformanceRatingNavBar", 1, 60).size();
 		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Portfolio Search failed");
 		CommonMethod.assertcontainsmessage("WPRIdClick", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
