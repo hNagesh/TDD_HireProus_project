@@ -31,7 +31,7 @@ public class ReusableMethodCommon extends BaseClass {
 
 	public void SelectOwnerOrg(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
-		CommonMethod.click("OwnerOrgClick");
+		CommonMethod.RobustclickElementVisible("OwnerOrgClick","OwnerOrg");
 		CommonMethod.sendKeys("OwnerOrg", "R");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
 		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 5).click();
@@ -70,7 +70,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.switchToParentFrame();
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilClickble("PayNowButton", 10);
-		CommonMethod.click("PayNowButton");
+		CommonMethod.Robustclick("PayNowButton","CardHolderName");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilInVisibility("CardHolderName", 180);
 		testlog.pass("**Verifies the Completed Card Payment Billing successfully**");
@@ -78,7 +78,7 @@ public class ReusableMethodCommon extends BaseClass {
 
 	public void LocationImport(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("LocationsTab", 60);
-		CommonMethod.click("LocationsTab");
+		CommonMethod.RobustclickElementVisible("LocationsTab","PortfolioLocationLanding");
 		CommonMethod.WaitUntilVisibility("PortfolioLocationLanding", 60);
 		CommonMethod.RobustclickElementVisible("PortfolioLocationsImportButton", "PortfolioUploadFileNextButton");
 		CommonMethod.scrolldowntoElement("PortfolioUploadLocationButton");
@@ -91,11 +91,11 @@ public class ReusableMethodCommon extends BaseClass {
 			CommonMethod.ClickCheckbox("PortfolioUnmatchFieldcbx");
 		}
 		CommonMethod.WaitUntilVisibility("PortfolioUploadFileNextButton", 30);
-		CommonMethod.click("PortfolioUploadFileNextButton");
+		CommonMethod.RobustclickElementVisible("PortfolioUploadFileNextButton","PortfolioFinishImportButton");
 		CommonMethod.WaitUntilVisibility("PortfolioFinishImportButton", 30);
-		CommonMethod.click("PortfolioFinishImportButton");
+		CommonMethod.RobustclickElementVisible("PortfolioFinishImportButton","PortfolioImportCloseButton");
 		CommonMethod.WaitUntilVisibility("PortfolioImportCloseButton", 30);
-		CommonMethod.click("PortfolioImportCloseButton");
+		CommonMethod.RobustclickElementVisible("PortfolioImportCloseButton","PortfolioLocationLanding");
 		CommonMethod.WaitUntilVisibility("PortfolioLocationLanding", 60);
 		testlog.pass("**Imported Locations successfully**");
 	}
@@ -344,9 +344,11 @@ public class ReusableMethodCommon extends BaseClass {
 	}
 
 	public void addLocation(String SheetName, int rowNum) throws Exception {
-		CommonMethod.WaitUntilPresence("LocationTab", 120);
-		CommonMethod.RobustclickElementVisible("LocationTab", "AddButton");
-		CommonMethod.WaitUntilPresence("AddButton", 120);
+		if (SheetName.equalsIgnoreCase("Wpr") || SheetName.equalsIgnoreCase("Hsr") || SheetName.equalsIgnoreCase("Portfolio")) {
+			CommonMethod.WaitUntilPresence("LocationTab", 120);
+			CommonMethod.RobustclickElementVisible("LocationTab", "AddButton");		
+		}
+        CommonMethod.WaitUntilPresence("AddButton", 120);
 		CommonMethod.RobustclickElementVisible("AddButton", "AddLocationButton");
 		CommonMethod.click("AddLocationButton");
 		if (SheetName.equalsIgnoreCase("Wpr") || SheetName.equalsIgnoreCase("Hsr") || SheetName.equalsIgnoreCase("Wer")) {
@@ -437,7 +439,7 @@ public class ReusableMethodCommon extends BaseClass {
 		testlog.info("Sending Password " + data.getCellData("Login", "Password", 3));
 		Thread.sleep(1000);
 		CommonMethod.scrolldowntoElement("LoginButton");
-		CommonMethod.click("LoginButton");
+		CommonMethod.RobustclickElementVisible("LoginButton","SuccessfulLogin");
 		testlog.info("Clicking on Submit Button");
 		CommonMethod.WaitUntilVisibility("SuccessfulLogin", 300);
 		testlog.pass("Verfies Login Successful");

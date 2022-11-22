@@ -57,8 +57,8 @@ public class ReusableMethodEquity extends BaseClass {
 		CommonMethod.scrollUp();
 		CommonMethod.sendKeys("WERlocations", "10");
 		data.setCellData(SheetName, "WERlocations", rowNum, CommonMethod.getattributeValue("WERlocations"));
-		CommonMethod.click("WERlocationsSpacetype");
-		CommonMethod.click("WERlocationsSpaceOption");
+		CommonMethod.RobustclickElementVisible("WERlocationsSpacetype","WERlocationsSpaceOption");
+		CommonMethod.RobustclickElementVisible("WERlocationsSpaceOption","WERlocationsize");
 		Thread.sleep(1000);
 		CommonMethod.scrollDown();
 		String Area = CommonMethod.randomNumberBetweenRanges(100, 50000);
@@ -155,8 +155,7 @@ public class ReusableMethodEquity extends BaseClass {
 	}
 	
 	public void CompleteScorecardWerById(String SheetName, int rowNum) throws IOException, InterruptedException {
-		Thread.sleep(3000);
-		CommonMethod.WaitUntilVisibility("ScorecardTab", 60);
+		CommonMethod.WaitUntilVisibility("ScorecardTab", 300);
 		CommonMethod.RobustclickElementVisible("ScorecardTab","WPRPortfolioScorecardLanding");
 		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
 		performance.ScorecardfillHSRWPR(21, 21, 49, 29, "WPRPurseYes", "WPRPurseNo");
@@ -215,7 +214,7 @@ public class ReusableMethodEquity extends BaseClass {
 	}
 	
 	public void validateTeamsWER(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 120);
 		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLEquityNavBar");
 		CommonMethod.RobustclickElementVisible("WELLEquityNavBar","WERIdClick");
 		String werId = data.getCellData(SheetName, "ProjectID", rowNum);
