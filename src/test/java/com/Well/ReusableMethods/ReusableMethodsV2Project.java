@@ -585,8 +585,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void UploadOngoingDocumentInDocV2Project(String SheetName, int rowNum)
 			throws IOException, InterruptedException {
-		CommonMethod.WaitUntilClickble("WellV2ProjectDocumentTab", 60);
-		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.WaitUntilVisibility("V2ProjectDocUploadbtn", 60);
 		CommonMethod.click("V2ProjectDocUploadbtn");
 		testlog.info("Document Type" + "Ongoing data reports");
@@ -616,8 +614,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void UploadFeatureDocumentInDocV2Project(String SheetName, int rowNum)
 			throws IOException, InterruptedException {
-		CommonMethod.WaitUntilClickble("WellV2ProjectDocumentTab", 60);
-		CommonMethod.click("WellV2ProjectDocumentTab");
 		CommonMethod.WaitUntilVisibility("V2ProjectDocUploadbtn", 60);
 		CommonMethod.click("V2ProjectDocUploadbtn");
 		Thread.sleep(2000);
@@ -641,12 +637,12 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void UploadDocumentCountInDocV2Project(String SheetName, int rowNum)
 			throws IOException, InterruptedException {
-		CommonMethod.refreshBrowser();
-		CommonMethod.click("V2ProjectGeneralDoc");
+		CommonMethod.scrolldowntoElement("V2ProjectDocUploadbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectGeneralDoc","V2ProjectDocumentValid");
 		int V2ProjectDocCount = CommonMethod.ElementSize("V2ProjectGeneralDocCount");
 		String V2ProjectDocuCounts = Integer.toString(V2ProjectDocCount);
 		CommonMethod.assertActualContainsExpected(V2ProjectDocuCounts, "2");
-		CommonMethod.click("V2ProjectScorecardDoc");
+		CommonMethod.RobustclickElementVisible("V2ProjectScorecardDoc","V2ProjectDocumentValid");
 		int V2ProjectScoreDocCount = CommonMethod.ElementSize("V2ProjectScorecardDocCount");
 		String V2ProjectDocCounts = Integer.toString(V2ProjectScoreDocCount);
 		CommonMethod.assertActualContainsExpected(V2ProjectDocCounts, "4");
