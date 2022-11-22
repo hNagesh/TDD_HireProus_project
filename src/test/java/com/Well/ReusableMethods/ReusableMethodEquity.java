@@ -103,7 +103,7 @@ public class ReusableMethodEquity extends BaseClass {
 		String werId = data.getCellData(SheetName, "ProjectID", rowNum);
 		testlog.info("Equity ID: " + werId);
 		CommonMethod.WaitUntilClickble("WERId", 60).sendKeys(werId);
-		CommonMethod.click("WERApplybtn");
+		CommonMethod.RobustclickElementVisible("WERApplybtn","V2ProjectSearchResultIDVerify");
 		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
 		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Equity Search failed");
 		CommonMethod.assertcontainsmessage("WERIdClick", data.getCellData(SheetName, "projectID", rowNum),
