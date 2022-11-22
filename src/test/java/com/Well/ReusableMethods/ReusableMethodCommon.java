@@ -70,7 +70,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.switchToParentFrame();
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilClickble("PayNowButton", 10);
-		CommonMethod.Robustclick("PayNowButton","CardHolderName");
+		CommonMethod.click("PayNowButton");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilInVisibility("CardHolderName", 180);
 		testlog.pass("**Verifies the Completed Card Payment Billing successfully**");
