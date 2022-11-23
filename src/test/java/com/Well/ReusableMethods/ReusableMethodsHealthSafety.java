@@ -381,7 +381,8 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	    CommonMethod.uploadFile("WPRDocUpload", FeaturefileUpload, "UploadFileVerifyScorecard");
 		CommonMethod.RobustclickElementVisible("HsrDocumentUploadbtn","HsrAddDoc");
 		CommonMethod.scrolldowntoElement("HsrAddDoc");
-		CommonMethod.WaitUntilPresence("HsrAuditLinkTab", 120);
+		CommonMethod.WaitUntilPresence("HsrLibraryLinkTab", 120);
+    	CommonMethod.RobustclickElementVisible("HsrLibraryLinkTab", "HsrAuditTable");
 		CommonMethod.WaitUntilPresence("HsrAddDoc", 120);
 		CommonMethod.scrolldowntoElement("HsrAuditTable");
 		List<String> val = CommonMethod.fetchTableData("HsrAuditTable");
