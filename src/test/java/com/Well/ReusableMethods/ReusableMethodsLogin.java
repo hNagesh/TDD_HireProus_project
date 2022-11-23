@@ -37,17 +37,11 @@ public class ReusableMethodsLogin extends BaseClass {
 		testlog.info("Sending Password " + Password);
 		Thread.sleep(1000);
 		CommonMethod.scrolldowntoElement("LoginButton");
-		CommonMethod.click("LoginButton");
+		CommonMethod.RobustclickElementVisible("LoginButton","SuccessfulLogin");
 		testlog.info("Clicking on Submit Button");
 		CommonMethod.WaitUntilVisibility("SuccessfulLogin", 300);
-		testlog.pass("Verfies Login Successful");
-
-		
+		testlog.pass("Verfies Login Successful");	
 	}
-	
-	
-	
-	
 	}
 
 
