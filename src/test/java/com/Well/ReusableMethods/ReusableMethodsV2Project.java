@@ -17,7 +17,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2Projectstartav2projectbtn", 300);
 		CommonMethod.Robustclick("V2Projectstartav2projectbtn");
 		CommonMethod.Robustclick("V2ProjectstartProjectcontinuebtn");
-		CommonMethod.RobustclickElementVisible("V2ProjectnicknameContinuebtn","MadatoryFieldErrorMessage");
+		CommonMethod.RobustclickElementVisible("V2ProjectnicknameContinuebtn","MandatoryFieldErrorMessage");
 		CommonMethod.negativesoftassertPageSource("Project nickname is required.", "Project Name Error Mismatch");
 		String ProjectName = "Automation V2 Project" + CommonMethod.randomNumber(8000000);
 		testlog.info("V2 ProjectName is: " + ProjectName);
@@ -116,7 +116,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("EnrollTab", 60);
 		CommonMethod.RobustclickElementVisible("EnrollTab","V2ProjectprojectOwnerContinuebtn");
-		CommonMethod.RobustclickElementVisible("V2ProjectprojectOwnerContinuebtn","MadatoryFieldErrorMessage");
+		CommonMethod.RobustclickElementVisible("V2ProjectprojectOwnerContinuebtn","MandatoryFieldErrorMessage");
 		CommonMethod.negativesoftassertPageSource("Organization is required.", "Organization Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Owner name* is required.", "Owner name Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Owner email* is required.", "Owner email Error Mismatch");
