@@ -10,10 +10,10 @@ public class ReusableMethodPerformance extends BaseClass {
 
 	public void RegisterPerformance(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
-		CommonMethod.click("ProjectNavBar");
-		CommonMethod.click("WELLPerformanceRatingNavBar");
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLPerformanceRatingNavBar");
+		CommonMethod.RobustclickElementVisible("WELLPerformanceRatingNavBar","WPRstartNewProject");
 		CommonMethod.WaitUntilVisibility("WPRstartNewProject", 60);
-		CommonMethod.click("WPRstartNewProject");
+		CommonMethod.RobustclickElementVisible("WPRstartNewProject","WPREnrollOption");
 		CommonMethod.RobustclickElementVisible("WPREnrollOption", "WPRenrollbtn");
 		CommonMethod.RobustclickElementVisible("WPRenrollbtn", "WPROrgContinebtn");
 		String ProjectName = "Automation WPR Project" + CommonMethod.randomNumber(8000000);
@@ -55,8 +55,8 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.scrollUp();
 		CommonMethod.sendKeys("WPRlocations", "10");
 		data.setCellData(SheetName, "WPRlocations", rowNum, CommonMethod.getattributeValue("WPRlocations"));
-		CommonMethod.click("HsrWPRlocationsSpacetype");
-		CommonMethod.click("HsrWPRlocationsSpaceOption");
+		CommonMethod.RobustclickElementVisible("HsrWPRlocationsSpacetype","HsrWPRlocationsSpaceOption");
+		CommonMethod.RobustclickElementVisible("HsrWPRlocationsSpaceOption","WPRlocationsize");
 		Thread.sleep(1000);
 		CommonMethod.scrollDown();
 		String Area = CommonMethod.randomNumberBetweenRanges(100, 50000);
@@ -101,18 +101,18 @@ public class ReusableMethodPerformance extends BaseClass {
 
 	public void SearchPerformanceByID(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
-		CommonMethod.click("ProjectNavBar");
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLPerformanceRatingNavBar");
 		CommonMethod.WaitUntilVisibility("WELLPerformanceRatingNavBar", 300);
 		CommonMethod.RobustclickElementVisible("WELLPerformanceRatingNavBar", "WPRIdClick");
 		String wprId = data.getCellData(SheetName, "ProjectID", rowNum);
 		testlog.info("Performance ID: " + wprId);
 		CommonMethod.WaitUntilClickble("WPRId", 60).sendKeys(wprId);
-		CommonMethod.click("WPRApplybtn");
+		CommonMethod.RobustclickElementVisible("WPRApplybtn","V2ProjectSearchResultIDVerify");
 		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
 		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Portfolio Search failed");
 		CommonMethod.assertcontainsmessage("WPRIdClick", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
-		CommonMethod.click("WPRIdClick");
+		CommonMethod.RobustclickElementVisible("WPRIdClick","WPRHsrPortfolioDashboard");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 300);
 		testlog.pass("**Verifies the Search Performance ByID successfully**");
 	}
@@ -139,8 +139,10 @@ public class ReusableMethodPerformance extends BaseClass {
 			do {
 				CommonMethod.WaitUntilClickble(NoButton.get(RemainingNo - j), 30);
 				CommonMethod.click(NoButton.get(RemainingNo - j));
-				CommonMethod.WaitUntilVisibility("WPRCloseIcon", 30);
+				//CommonMethod.WaitUntilVisibility("WPRCloseIcon", 30);
+				if(CommonMethod.isElementsExist("WPRCloseIcon", 30)) {
 				CommonMethod.WaitUntilInVisibility("WPRCloseIcon", 30);
+				}
 				Thread.sleep(1000);
 				NoButton = CommonMethod.findElements(purseNo);
 			} while (NoButton.size() == RemainingNo);
@@ -150,9 +152,8 @@ public class ReusableMethodPerformance extends BaseClass {
 	}
 
 	public void CompleteScorecardWprById(String SheetName, int rowNum) throws IOException, InterruptedException {
-		Thread.sleep(3000);
-		CommonMethod.WaitUntilVisibility("ScorecardTab", 60);
-		CommonMethod.click("ScorecardTab");
+		CommonMethod.WaitUntilVisibility("ScorecardTab", 300);
+		CommonMethod.RobustclickElementVisible("ScorecardTab","WPRPortfolioScorecardLanding");
 		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
 		ScorecardfillHSRWPR(21, 21, 36, 16, "WPRPurseYes", "WPRPurseNo");
 		testlog.pass("**Verifies the 15 Purse Yes Scorecard Performance successfully**");
@@ -166,7 +167,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		for (WebElement f : Feature) {
 			CommonMethod.click(f);
 			CommonMethod.WaitUntilVisibility("WPRVerficationTab", 60);
-			CommonMethod.click("WPRVerficationTab");
+			CommonMethod.RobustclickElementVisible("WPRVerficationTab","WPRAddOption");
 			CommonMethod.WaitUntilVisibility("WPRAddOption", 60);
 			CommonMethod.JavascriptClickElement("WPRAddOption");
 			CommonMethod.WaitUntilVisibility("WPRAddOptionbtn", 60);
@@ -175,13 +176,13 @@ public class ReusableMethodPerformance extends BaseClass {
 			CommonMethod.Robustclick("WPRAddOptionCloseIcon");
 			CommonMethod.WaitUntilVisibility("WPRAssignLocbtn", 30);
 			Thread.sleep(1000);
-			CommonMethod.click("WPRAssignLocbtn");
+			CommonMethod.RobustclickElementVisible("WPRAssignLocbtn","WPRAssignLocCbx");
 			CommonMethod.WaitUntilPresence("WPRAssignLocCbx", 60);
 			CommonMethod.Robustclick("WPRAssignLocCbx", "WPRAssignDisabledbtn");
 			CommonMethod.WaitUntilVisibility("WPRAssignSavebtn", 30);
-			CommonMethod.click("WPRAssignSavebtn");
+			CommonMethod.RobustclickElementVisible("WPRAssignSavebtn","WPRUploadDocTaskbtn");
 			CommonMethod.WaitUntilVisibility("WPRUploadDocTaskbtn", 60);
-			CommonMethod.click("WPRUploadDocTaskbtn");
+			CommonMethod.RobustclickElementVisible("WPRUploadDocTaskbtn","WPRDocUpload");
 			CommonMethod.scrolldowntoLast();
 			CommonMethod.uploadFile("WPRDocUpload", FeaturefileUpload);
 			Thread.sleep(2000);
@@ -212,26 +213,26 @@ public class ReusableMethodPerformance extends BaseClass {
 		 * Admin Review
 		 */
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
-		CommonMethod.click("AdminNavBar");
+		CommonMethod.RobustclickElementVisible("AdminNavBar","AdminWELLPerformanceNavBar");
 		CommonMethod.WaitUntilVisibility("AdminWELLPerformanceNavBar", 60);
 		CommonMethod.RobustclickElementVisible("AdminWELLPerformanceNavBar", "WPRAdminIdSearch");
 		CommonMethod.WaitUntilClickble("WPRAdminIdSearch", 60)
 				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.click("WPRAdminApplybtn");
+		CommonMethod.RobustclickElementVisible("WPRAdminApplybtn","WPRAdminIdClick");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("WPRAdminIdClick", data.getCellData(SheetName, "ProjectID", rowNum),
 				"Project name doesn't matches in search");
-		CommonMethod.click("WPRAdminIdClick");
+		CommonMethod.RobustclickElementVisible("WPRAdminIdClick","WPRHsrPortfolioDashboard");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 300);
-		CommonMethod.click("ReviewTab");
+		CommonMethod.RobustclickElementVisible("ReviewTab","ReviewViewButton");
 		CommonMethod.WaitUntilVisibility("ReviewViewButton", 60);
-		CommonMethod.click("ReviewViewButton");
+		CommonMethod.RobustclickElementVisible("ReviewViewButton","ReviewReturnButton");
 		CommonMethod.WaitUntilVisibility("ReviewReturnButton", 60);
-		CommonMethod.click("ReviewReturnButton");
+		CommonMethod.RobustclickElementVisible("ReviewReturnButton","ReturnComment");
 		CommonMethod.WaitUntilClickble("ReturnComment", 60).sendKeys("Preliminary Precertification Review");
 		Thread.sleep(1000);
-		CommonMethod.click("DatePickerButton");
-		CommonMethod.click("DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerButton","DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerOkButton","ReviewPaymentstatusRadio");
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
 		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
@@ -283,14 +284,14 @@ public class ReusableMethodPerformance extends BaseClass {
 	
 	public void validateTeamsWPR(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
-		CommonMethod.click("ProjectNavBar");
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLPerformanceRatingNavBar");
 		CommonMethod.WaitUntilVisibility("WELLPerformanceRatingNavBar", 300);
 		CommonMethod.RobustclickElementVisible("WELLPerformanceRatingNavBar", "WPRIdClick");
 		String wprId = data.getCellData(SheetName, "ProjectID", rowNum);
 		testlog.info("Performance ID: " + wprId);
 		CommonMethod.WaitUntilClickble("WPRId", 60).sendKeys(wprId);
-		CommonMethod.click("WPRApplybtn");
-		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.RobustclickElementVisible("WPRApplybtn","WELLPerformanceRatingNavBar");
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("WELLPerformanceRatingNavBar", 1, 60).size();
 		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Portfolio Search failed");
 		CommonMethod.assertcontainsmessage("WPRIdClick", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
@@ -365,7 +366,7 @@ public class ReusableMethodPerformance extends BaseClass {
 	public void validateFeatureUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 120);
-		CommonMethod.click("WPRUploadDocLib");
+		CommonMethod.RobustclickElementVisible("WPRUploadDocLib","WPRSelectDocType");
 		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
 		CommonMethod.selectdropdownValue("WPRSelectDocType", "feature");
 		CommonMethod.selectdropdownrandom("WPRHSRDocumentType");

@@ -42,7 +42,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		data.setCellData(SheetName, "WFPostion", rowNum, CommonMethod.getattributeValue("WFPostion"));
 		testlog.info("Language : English");
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
-		CommonMethod.click("OwnerOrgClick");
+		CommonMethod.RobustclickElementVisible("OwnerOrgClick","OwnerOrg");
 		CommonMethod.sendKeys("OwnerOrg", "R");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
 		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 5).click();
@@ -90,17 +90,17 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.scrolldowntoElement("WFFacultyApplication");
 		CommonMethod.WaitUntilVisibility("WFStatus", 60);
 		CommonMethod.ClickCheckbox("WFStatus");
-		CommonMethod.click("WFApprovedDate");
+		CommonMethod.RobustclickElementVisible("WFApprovedDate","DatePickerOkButton");
 		CommonMethod.WaitUntilVisibility("DatePickerOkButton", 10);
-		CommonMethod.click("DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerOkButton","WFApproved");
 		Thread.sleep(1000);
 		String FirstName = USfaker.address().firstName();
 		testlog.info("firstName"+FirstName);
 		CommonMethod.sendKeys("WFApproved", FirstName);
 		data.setCellData(SheetName, "WFApproved", rowNum, CommonMethod.getattributeValue("WFApproved"));
 		CommonMethod.WaitUntilVisibility("WFExpireDate", 10);
-		CommonMethod.click("WFExpireDate");
-		CommonMethod.click("DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("WFExpireDate","DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerOkButton","WFReasonnarration");
 		String sampleText = "WELL Faculty Application";
 		CommonMethod.sendKeys("WFReasonnarration", sampleText);
 		CommonMethod.sendKeys("WFRegion", sampleText);
@@ -112,8 +112,8 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.ClickCheckbox("WFBusinessrbn");
 		CommonMethod.ClickCheckbox("WFRedflagrbn");
 		CommonMethod.ClickCheckbox("WFWorkshops");
-		CommonMethod.click("WFNextDate");
-		CommonMethod.click("DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("WFNextDate","DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerOkButton","WFProvideUpload");
 		CommonMethod.uploadFile("WFProvideUpload", SamplePdffile);
 		CommonMethod.sendKeys("WFAdminNote3narration", sampleText);
 		CommonMethod.sendKeys("WFAdminNote2narration", sampleText);
@@ -136,11 +136,11 @@ public class ReusableMethodsFaculty extends BaseClass {
 	}
 	public void ReviewSubmitResultFaculty(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
-		CommonMethod.click("AdminNavBar");
+		CommonMethod.RobustclickElementVisible("AdminNavBar","AdminWELLFacultyNavBar");
 		CommonMethod.WaitUntilVisibility("AdminWELLFacultyNavBar", 60);
 		CommonMethod.RobustclickElementVisible("AdminWELLFacultyNavBar", "WFAdminEmail");
 		CommonMethod.WaitUntilClickble("WFAdminEmail", 60)
-				.sendKeys(data.getCellData("Login", "UserName", 3));
+				.sendKeys(data.getCellData("Login", "UserName", 5));
 		CommonMethod.RobustclickElementVisible("ApplyButton","WFViewButton");
 		CommonMethod.RobustclickElementVisible("WFViewButton","WFReviewApplicationButton");
 		CommonMethod.RobustclickElementVisible("WFReviewApplicationButton","WFAddrContinuebtn");
@@ -158,7 +158,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 	
 	public void ReviewBillingFaculty(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("TrainingNavBar", 60);
-		CommonMethod.click("TrainingNavBar");
+		CommonMethod.RobustclickElementVisible("TrainingNavBar","WELLFacultyNavBar");
 		CommonMethod.RobustclickElementVisible("WELLFacultyNavBar","WFExamContinuebtn");
 		CommonMethod.WaitUntilVisibility("WFExamContinuebtn", 30);
 		CommonMethod.RobustclickElementVisible("WFExamContinuebtn","BillingLanding");
@@ -167,7 +167,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 	
 	public static void orientationCardValdationFaculty() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("TrainingNavBar", 60);
-		CommonMethod.click("TrainingNavBar");
+		CommonMethod.RobustclickElementVisible("TrainingNavBar","WELLFacultyNavBar");
 		CommonMethod.RobustclickElementVisible("WELLFacultyNavBar", "WFOrientationTab");
 		CommonMethod.WaitUntilVisibility("WFOrientationTab", 60);
 		CommonMethod.RobustclickElementVisible("WFOrientationTab", "FacultyRenew");
@@ -237,16 +237,18 @@ public class ReusableMethodsFaculty extends BaseClass {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static Response PostRequestAuthenticate() {
+	public static Response PostRequestAuthenticate(String SheetName, int rowNum) {
 		/*
 		 * Get Token by authentication
 		 */
-		username = data.getCellData("Login", "UserName", 3);
+        username = data.getCellData("Login", "UserName", 3);
+		if (SheetName.equalsIgnoreCase("Faculty")) {
+			username = data.getCellData("Login", "UserName", 5);
+		}
 		JSONObject param = new JSONObject();
 		param.put("email", username);
 		param.put("password", "initpass");
-
-		Response res = given().accept("application/json").contentType("application/json").body(param).when()
+        Response res = given().accept("application/json").contentType("application/json").body(param).when()
 				.post("https://test-v2-api.wellcertified.com/api/authenticate");
 		admin_Header = (res.path("token")).toString();
 		admin_Header = "Bearer " + admin_Header;
@@ -254,8 +256,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 	}
 
 	public static Response DeleteFacultyOrMembership() {
-
-		/*
+        /*
 		 * Delete Faculty/Membership using Token
 		 */
 		Response res = given().contentType("application/json").header("Authorization", admin_Header).when()

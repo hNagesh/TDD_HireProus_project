@@ -31,7 +31,7 @@ public class ReusableMethodCommon extends BaseClass {
 
 	public void SelectOwnerOrg(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
-		CommonMethod.click("OwnerOrgClick");
+		CommonMethod.RobustclickElementVisible("OwnerOrgClick","OwnerOrg");
 		CommonMethod.sendKeys("OwnerOrg", "R");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
 		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 5).click();
@@ -78,7 +78,7 @@ public class ReusableMethodCommon extends BaseClass {
 
 	public void LocationImport(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("LocationsTab", 60);
-		CommonMethod.click("LocationsTab");
+		CommonMethod.RobustclickElementVisible("LocationsTab","PortfolioLocationLanding");
 		CommonMethod.WaitUntilVisibility("PortfolioLocationLanding", 60);
 		CommonMethod.RobustclickElementVisible("PortfolioLocationsImportButton", "PortfolioUploadFileNextButton");
 		CommonMethod.scrolldowntoElement("PortfolioUploadLocationButton");
@@ -91,11 +91,11 @@ public class ReusableMethodCommon extends BaseClass {
 			CommonMethod.ClickCheckbox("PortfolioUnmatchFieldcbx");
 		}
 		CommonMethod.WaitUntilVisibility("PortfolioUploadFileNextButton", 30);
-		CommonMethod.click("PortfolioUploadFileNextButton");
+		CommonMethod.RobustclickElementVisible("PortfolioUploadFileNextButton","PortfolioFinishImportButton");
 		CommonMethod.WaitUntilVisibility("PortfolioFinishImportButton", 30);
-		CommonMethod.click("PortfolioFinishImportButton");
+		CommonMethod.RobustclickElementVisible("PortfolioFinishImportButton","PortfolioImportCloseButton");
 		CommonMethod.WaitUntilVisibility("PortfolioImportCloseButton", 30);
-		CommonMethod.click("PortfolioImportCloseButton");
+		CommonMethod.RobustclickElementVisible("PortfolioImportCloseButton","PortfolioLocationLanding");
 		CommonMethod.WaitUntilVisibility("PortfolioLocationLanding", 60);
 		testlog.pass("**Imported Locations successfully**");
 	}
@@ -183,7 +183,7 @@ public class ReusableMethodCommon extends BaseClass {
 
 	public void team(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 30);
-		CommonMethod.click("V2ProjectAddMemberbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectAddMemberbtn","V2ProjectEmailAddress");
 		String TeamEmail = data.getCellData(SheetName, "TeamEmailID", rowNum);
 		CommonMethod.WaitUntilVisibility("V2ProjectEmailAddress", 30);
 		CommonMethod.sendKeys("V2ProjectEmailAddress", TeamEmail);
@@ -191,14 +191,14 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.selectdropdownVisibletext("V2ProjectRole", "Acoustician");
 		CommonMethod.ClickCheckbox("V2ProjectMembercbx");
 		CommonMethod.WaitUntilVisibility("V2ProjectInvitebtn", 30);
-		CommonMethod.click("V2ProjectInvitebtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectInvitebtn","V2ProjectDeleteIcon");
 		testlog.pass("**Created Team member successfully**");
 	}
 	public void deleteAddedTeamMember(String SheetName, int rowNum) throws IOException, InterruptedException {
 		Thread.sleep(2000);
 		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 30);
-		CommonMethod.click("V2ProjectDeleteIcon");
+		CommonMethod.RobustclickElementVisible("V2ProjectDeleteIcon","V2ProjectAddMemberbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
 		testlog.pass("**Created Team member successfully**");
 	}
@@ -344,9 +344,11 @@ public class ReusableMethodCommon extends BaseClass {
 	}
 
 	public void addLocation(String SheetName, int rowNum) throws Exception {
-		CommonMethod.WaitUntilPresence("LocationTab", 120);
-		CommonMethod.RobustclickElementVisible("LocationTab", "AddButton");
-		CommonMethod.WaitUntilPresence("AddButton", 120);
+		if (SheetName.equalsIgnoreCase("Wpr") || SheetName.equalsIgnoreCase("Hsr") || SheetName.equalsIgnoreCase("Portfolio")) {
+			CommonMethod.WaitUntilPresence("LocationTab", 120);
+			CommonMethod.RobustclickElementVisible("LocationTab", "AddButton");		
+		}
+        CommonMethod.WaitUntilPresence("AddButton", 120);
 		CommonMethod.RobustclickElementVisible("AddButton", "AddLocationButton");
 		CommonMethod.click("AddLocationButton");
 		if (SheetName.equalsIgnoreCase("Wpr") || SheetName.equalsIgnoreCase("Hsr") || SheetName.equalsIgnoreCase("Wer")) {
@@ -437,29 +439,28 @@ public class ReusableMethodCommon extends BaseClass {
 		testlog.info("Sending Password " + data.getCellData("Login", "Password", 3));
 		Thread.sleep(1000);
 		CommonMethod.scrolldowntoElement("LoginButton");
-		CommonMethod.click("LoginButton");
+		CommonMethod.RobustclickElementVisible("LoginButton","SuccessfulLogin");
 		testlog.info("Clicking on Submit Button");
 		CommonMethod.WaitUntilVisibility("SuccessfulLogin", 300);
 		testlog.pass("Verfies Login Successful");
 	}
 	public void validateTeams(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 120);
-		CommonMethod.click("ProjectNavBar");
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLCertificationNavBar");
 		CommonMethod.RobustclickElementVisible("WELLCertificationNavBar", "V2ProjectId");
-		testlog.info("ProjectId:" + data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.WaitUntilClickble("V2ProjectId", 60).sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.click("V2ProjectApplybtn");
+		testlog.info("ProjectId: " + data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.WaitUntilClickble("V2ProjectId", 60).click();
+		CommonMethod.sendKeys("V2ProjectId",data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.RobustclickElementVisible("V2ProjectApplybtn","V2ProjectSearchResultIDVerify");
 		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
 		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","V2 Search failed");
-		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
-				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
+		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify", data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
 		softAssert.assertAll();
 		testlog.pass("**Verifies user able to access the invited project**");
 	}
 	public void clickOnTeamTab(String SheetName, int rowNum) throws IOException, InterruptedException {
-		Thread.sleep(5000);
 		CommonMethod.WaitUntilVisibility("TeamTab", 300);
-		CommonMethod.click("TeamTab");
+		CommonMethod.RobustclickElementVisible("TeamTab","V2ProjectAddMemberbtn");
 	}
 	public void errorMessageNegativeAssert() throws IOException, InterruptedException {
 		negativesoftAssert.assertAll();

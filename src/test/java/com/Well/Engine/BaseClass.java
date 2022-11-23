@@ -19,6 +19,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -26,6 +27,7 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
@@ -67,11 +69,12 @@ public class BaseClass {
 	public static ExtentTest testlog;
 	public static ExtentReports extent;
 	public static String TestCaseName;
+	public static String TestNGTestName;
 	public static String SecurityAssesment;
 	private ClientApi api;
 	private ApiResponse response;
 	static final String ZAP_PROXY_ADDRESS = "localhost";
-	static final int ZAP_PROXY_PORT = 8080;
+	static final int ZAP_PROXY_PORT = 8091;
 	public static SoftAssert softAssert = new SoftAssert();
 	public static SoftAssert negativesoftAssert = new SoftAssert();
 	public static String SamplePdffile = System.getProperty("user.dir") +File.separator +"src"+File.separator +"main"+File.separator +"resources"+File.separator +"Files"+File.separator +"Resume.pdf";
@@ -222,7 +225,12 @@ public class BaseClass {
 		
 	
 	}
-	
+	@BeforeTest(alwaysRun = true)
+	public void getTestNGTestName(final ITestContext testContext) {
+		TestNGTestName=testContext.getName();
+	}
+		
+
 	@BeforeMethod(alwaysRun = true)
 	public static ExtentReports ExtentReportConfig() throws IOException {
 		softAssert = new SoftAssert();

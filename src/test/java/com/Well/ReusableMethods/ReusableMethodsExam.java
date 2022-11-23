@@ -8,7 +8,7 @@ public class ReusableMethodsExam extends BaseClass {
 
 	public void RegisterExam(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("TrainingNavBar", 60);
-		CommonMethod.click("TrainingNavBar");
+		CommonMethod.RobustclickElementVisible("TrainingNavBar","WELLExamRatingNavBar");
 		CommonMethod.RobustclickElementVisible("WELLExamRatingNavBar","WFExamContinuebtn");
 		CommonMethod.RobustclickElementVisible("WFExamContinuebtn","APRegContinue");
 		CommonMethod.selectdropdownValue("WPRExamOwnerCountry", "US");
@@ -48,15 +48,15 @@ public class ReusableMethodsExam extends BaseClass {
 		CommonMethod.ClickCheckbox("APDesignationscbx");
 		CommonMethod.ClickCheckbox("APGender");
 		CommonMethod.WaitUntilVisibility("DatePickerButton", 30);
-		CommonMethod.click("DatePickerButton");
+		CommonMethod.RobustclickElementVisible("DatePickerButton","APYearDOB");
 		CommonMethod.WaitUntilVisibility("APYearDOB", 30);
-		CommonMethod.click("APYearDOB");
+		CommonMethod.RobustclickElementVisible("APYearDOB","APSelctyear");
 		CommonMethod.WaitUntilVisibility("APSelctyear", 30);
-		CommonMethod.click("APSelctyear");
+		CommonMethod.RobustclickElementVisible("APSelctyear","DatePickerOkButton");
 		Thread.sleep(1000);
 		CommonMethod.WaitUntilVisibility("DatePickerOkButton", 30);
-		CommonMethod.click("DatePickerOkButton");
-		CommonMethod.click("DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerOkButton","DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerOkButton","APJobtitleContinuebtn");
 		CommonMethod.RobustclickElementVisible("APJobtitleContinuebtn","APAlmostContinuebtn");
 		CommonMethod.selectdropdownIndex("APSelectWELLAP", 1);
 		data.setCellData(SheetName, "APSelectWELLAP", rowNum, CommonMethod.getSelectedDropdownValue("APSelectWELLAP"));
@@ -86,14 +86,14 @@ public class ReusableMethodsExam extends BaseClass {
 
 	public void CancelExam(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
-		CommonMethod.click("AdminNavBar");
+		CommonMethod.RobustclickElementVisible("AdminNavBar","AdminWELLExamNavBar");
 		CommonMethod.WaitUntilVisibility("AdminWELLExamNavBar", 60);
 		CommonMethod.RobustclickElementVisible("AdminWELLExamNavBar","APId");
 		CommonMethod.WaitUntilClickble("APId", 60).sendKeys(data.getCellData(SheetName, "examId", rowNum));
-		CommonMethod.click("APApplybtn");
+		CommonMethod.RobustclickElementVisible("APApplybtn","APClickId");
 		CommonMethod.scrolldowntoLast();
 		CommonMethod.WaitUntilVisibility("APClickId", 60);
-		CommonMethod.click("APClickId");
+		CommonMethod.RobustclickElementVisible("APClickId","APCancelExam");
 		CommonMethod.WaitUntilVisibility("APCancelExam", 60);
 		CommonMethod.Robustclick("APCancelExam");
 		testlog.pass("**Verifies Cancel the Exam successfully**");

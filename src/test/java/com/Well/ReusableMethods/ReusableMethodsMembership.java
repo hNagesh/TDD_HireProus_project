@@ -18,9 +18,9 @@ public class ReusableMethodsMembership extends BaseClass {
 		CommonMethod.scrolldowntoElement("MPCornerstoneAmount");
 		testlog.info("MembershipName:" +MembershipName);
 		if (MembershipName.equalsIgnoreCase("Cornerstone")) {
-			CommonMethod.click("MPCornerstonebtn");
+			CommonMethod.RobustclickElementVisible("MPCornerstonebtn","MPorganization");
 		} else if (MembershipName.equalsIgnoreCase("Keystone")) {
-			CommonMethod.click("MPKeystonebtn");
+			CommonMethod.RobustclickElementVisible("MPKeystonebtn","MPorganization");
 		}
 		String firstName = USfaker.address().firstName();
 		CommonMethod.sendKeys("MPorganization", firstName);
@@ -103,7 +103,7 @@ public class ReusableMethodsMembership extends BaseClass {
 		CommonMethod.WaitUntilVisibility("MPTermscheckbox", 30);
 		CommonMethod.ClickCheckbox("MPTermscheckbox");
 		CommonMethod.scrolldowntoElement("MPProcedtopaymentbtn");
-		CommonMethod.click("MPProcedtopaymentbtn");
+		CommonMethod.RobustclickElementVisible("MPProcedtopaymentbtn","MPTermscheckbox");
 		CommonMethod.WaitUntilVisibility("MPTermscheckbox", 30);
 		CommonMethod.RobustclickElementVisible("MPProcedtoConfirmationPaymentbtn","BillingLanding");
 		CommonMethod.WaitUntilVisibility("BillingLanding", 60);
@@ -155,7 +155,7 @@ public void CreateLicensing(String SheetName, int rowNum, String MembershipName)
 	CommonMethod.selectdropdownrandom("MPSelectproductType");
 	CommonMethod.WaitUntilVisibility("MPSelectPartname", 120);
 	CommonMethod.RobustclickElementVisible("MPSelectPartname","MPSelectPartnameChild");
-	CommonMethod.click("MPSelectPartnameChild");
+	CommonMethod.RobustclickElementVisible("MPSelectPartnameChild","MPGroupName");
 	String GroupName = USfaker.address().firstName();
 	testlog.info("GroupName: "+GroupName);
 	CommonMethod.sendKeys("MPGroupName",GroupName);
@@ -180,10 +180,13 @@ public void UpdateLicensing(String SheetName, int rowNum, String MembershipName)
 	CommonMethod.selectdropdownValue("MPSelectproductType","60");
 	CommonMethod.WaitUntilVisibility("MPSelectPartname", 30);
 	CommonMethod.RobustclickElementVisible("MPSelectPartname","MPSelectPartnameChild");
-	CommonMethod.click("MPSelectPartnameChild");
-	CommonMethod.WaitUntilVisibility("MPGroupName", 30);
+	CommonMethod.RobustclickElementVisible("MPSelectPartnameChild","MPGroupName");
+	CommonMethod.WaitUntilVisibility("MPLicenseComment", 60);
+	Thread.sleep(2000);
+	CommonMethod.scrolldowntoElement("MPLicenseComment");
 	CommonMethod.WaitUntilVisibility("MPLicenseUpdateSaveButton", 120);
 	CommonMethod.RobustclickElementVisible("MPLicenseUpdateSaveButton","MPApplicationformDeleteIcon");
+	Thread.sleep(2000);
 	CommonMethod.scrolldowntoElement("MPValidUploadFile");
 	CommonMethod.WaitUntilPresence("MPValidGroupName", 120);
 	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPValidType"),"Audio-Video Systems" , "GroupName doesn't match");
@@ -204,6 +207,7 @@ public void SubmitProductLicensingReview(String SheetName, int rowNum, String Me
 	CommonMethod.RobustclickElementVisible("MPLicenseSubmitForReview","MPLicenseDeleteProduct");
 	CommonMethod.assertcountListWebelementFromIndex("MPLicenseProductCard",2);
 	CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MPLicenseReviewStatus"),"UNDER REVIEW" , "Review Status doesn't match");	
+	CommonMethod.scrolldowntoElement("MPLicenseReviewStatus");
 	CommonMethod.RobustclickElementVisible("MPLicenseDeleteProduct","MPLicenseProductDelete");
 	CommonMethod.RobustclickElementVisible("MPLicenseProductDelete","MPLicensingProgramCheckbox");
 	CommonMethod.WaitUntilPresence("MPLicensingProgramCheckbox", 120);

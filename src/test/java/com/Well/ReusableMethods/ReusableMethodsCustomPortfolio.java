@@ -94,9 +94,9 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
 				CommonMethod.click(ele);
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
-				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab","PortfolioScoreCardAddOptionbutton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 30);
-				CommonMethod.click("PortfolioScoreCardAddOptionbutton");
+				CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddOptionbutton","PortfolioScoreCardAddButton");
 				/*
 				 * ScoreCard Add option
 				 */
@@ -244,7 +244,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
 				CommonMethod.click(ele);
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
-				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab","PortfolioDocListEditIcon1");
 				/*
 				 * Edit Upload Document
 				 */
@@ -304,7 +304,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
 				CommonMethod.click(ele);
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
-				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab","PortfolioScorecardDocumentUploadTable");
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardDocumentUploadTable", 60);
 				List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
 				testlog.info("Fetching Data from Upload Table");
@@ -332,9 +332,9 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
 				CommonMethod.click(ele);
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
-				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab","PortfolioScoreCardAddOptionbutton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 10);
-				CommonMethod.click("PortfolioScoreCardAddOptionbutton");
+				CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddOptionbutton","PortfolioScoreCardAddButton");
 				CommonMethod.Robustclick("PortfolioScoreCardAddButton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
@@ -364,9 +364,9 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
 				CommonMethod.click(ele);
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
-				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab","PortfolioScoreCardAddOptionbutton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 10);
-				CommonMethod.click("PortfolioScoreCardAddOptionbutton");
+				CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddOptionbutton","PortfolioScoreCardAddButton");
 				CommonMethod.Robustclick("PortfolioScoreCardAddButton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
@@ -407,15 +407,15 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				/*
 				 * Response selection Yes for optimization
 				 */
-				CommonMethod.click("PortfolioScorecardA08PurseStatus");
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardA08PurseStatus","PortfolioScorecardPursueToast");
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardPursueToast", 60);
 				CommonMethod.WaitUntilInVisibility("PortfolioScorecardPursueToast", 60);
 				testlog.info("**Verifies Response selection Yes Toaster message successful**");
 				CommonMethod.click(ele);
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
-				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab","PortfolioScoreCardAddOptionbutton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 10);
-				CommonMethod.click("PortfolioScoreCardAddOptionbutton");
+				CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddOptionbutton","PortfolioScoreCardAddButton");
 				CommonMethod.Robustclick("PortfolioScoreCardAddButton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
@@ -462,7 +462,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				testlog.pass("**Verifies Response selection Yes Toaster message successful**");
 				CommonMethod.click(ele);
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
-				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab","PortfolioScoreCardAddOptionbutton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 10);
 				/*
 				 * Test by adding Light L09.1 feature option 1 And option 2
@@ -475,7 +475,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 						"TierDropdown Defualt value doesn't match");
 				CommonMethod.selectdropdownValue("PortfolioScorecardTierDropdownValue", "2");
 				CommonMethod.clickListWebelementFromRange("PortfolioScoreCardVerificationAssignLocCbxGeneral", 0, 1);
-				CommonMethod.click("PortfolioScoreCardAddButton");
+				CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddButton","PortfolioScoreCardVerificationCloseicon");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 60);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
 				 /*
@@ -503,7 +503,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 					 * Assign Location filter
 					 */
 					CommonMethod.RobustclickElementVisible("PortfolioScorecardFilters", "OwnerOrgClick");
-					CommonMethod.click("OwnerOrgClick");
+					CommonMethod.RobustclickElementVisible("OwnerOrgClick","OwnerOrg");
 					CommonMethod.sendKeys("OwnerOrg", "India");
 					CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10).click();
 					CommonMethod.WaitUntilVisibility("PortfolioScorecardVerifyCountryFilter", 120);
@@ -626,9 +626,9 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
 				CommonMethod.click(ele);
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
-				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab","PortfolioScoreCardAddOptionbutton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 10);
-				CommonMethod.click("PortfolioScoreCardAddOptionbutton");
+				CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddOptionbutton","PortfolioScoreCardAddButton");
 				CommonMethod.Robustclick("PortfolioScoreCardAddButton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
@@ -737,9 +737,9 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
 				CommonMethod.click(ele);
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
-				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab","PortfolioScoreCardAddOptionbutton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 60);
-				CommonMethod.click("PortfolioScoreCardAddOptionbutton");
+				CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddOptionbutton","PortfolioScoreCardAddButton");
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardAddOptionbutton", 1);
 				CommonMethod.Robustclick("PortfolioScoreCardAddButton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 30);
@@ -771,9 +771,9 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
 				CommonMethod.click(ele);
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
-				CommonMethod.click("PortfolioScorecardFeatureVerificationTab");
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab","PortfolioScoreCardAddOptionbutton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 10);
-				CommonMethod.click("PortfolioScoreCardAddOptionbutton");
+				CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddOptionbutton","PortfolioScorecardTierDropdownValue");
 				CommonMethod.softAssertContainsMessage(CommonMethod.getSelectedDropdownValue("PortfolioScorecardTierDropdownValue"), "1",
 						"TierDropdown Defualt value doesn't match");
 				testlog.info("**Verifies Tier Dropdown Value successful**");
@@ -832,7 +832,7 @@ public void L09_AuditDocumentUploadInDocumentLibrary() throws IOException, Inter
 	CommonMethod.WaitUntilVisibility("PortfolioTaskListTab", 60);
 	CommonMethod.RobustclickElementVisible("PortfolioTaskListTab","PortfolioTaskListPendingTab");
 	CommonMethod.WaitUntilVisibility("PortfolioTaskListPendingTab", 30);
-	CommonMethod.click("PortfolioTaskListPendingTab");
+	CommonMethod.RobustclickElementVisible("PortfolioTaskListPendingTab","PortfolioDocListUploadTaskL09Technical");
 	CommonMethod.scrolldowntoElement("PortfolioTaskListPendingTab");
 	CommonMethod.RobustclickElementVisible("PortfolioDocListUploadTaskL09Technical","PortfolioScoreVerifyUploadVerificationMethod");
 	CommonMethod.WaitUntilVisibility("PortfolioScoreVerifyUploadVerificationMethod", 60);
@@ -895,7 +895,7 @@ public void A01_2_DocumentUploadInDocumentLibrary() throws IOException, Interrup
 	CommonMethod.WaitUntilVisibility("PortfolioTaskListTab", 60);
 	CommonMethod.RobustclickElementVisible("PortfolioTaskListTab","PortfolioTaskListPendingTab");
 	CommonMethod.WaitUntilVisibility("PortfolioTaskListPendingTab", 30);
-	CommonMethod.click("PortfolioTaskListPendingTab");
+	CommonMethod.RobustclickElementVisible("PortfolioTaskListPendingTab","PortfolioDocListA1.2");
 	CommonMethod.scrolldowntoElement("PortfolioTaskListPendingTab");
 	CommonMethod.WaitUntilPresence("PortfolioDocListA1.2", 60);
 	CommonMethod.RobustclickElementVisible("PortfolioDocListA1.2","PortfolioScoreVerifyUploadVerificationMethod");
@@ -989,7 +989,6 @@ public void FilterInDocumentLibrary() throws IOException, InterruptedException {
 				"Filter Verify Location doesn't match");
 	}
 	CommonMethod.Robustclick("PortfolioFliterClearFilter");
-	
 	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterVerificationOption");
 	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioFliterVerificationOption"), "Verification", "Document table data mismatch");
 	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioFliterPartTypeOption"), "Part Type", "Document table data mismatch");
@@ -1002,7 +1001,7 @@ public void FilterInDocumentLibrary() throws IOException, InterruptedException {
 	CommonMethod.WaitUntilPresence("PortfolioDocListFilterPreOption", 120);
 	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioFliterVerificationAuditTask"), "Technical Document (Audited)", "Verification option didn't match");
 	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterVerificationOption");
-	CommonMethod.click("PortfolioFliterOptionClear");
+	CommonMethod.RobustclickElementVisible("PortfolioFliterOptionClear","PortfolioFliterButton");
 	//PartType
 	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterPartTypeOption");
 	CommonMethod.RobustclickElementVisible("PortfolioFliterPartTypeOption","PortfolioFliterPartTypeOptionCheckbox");
@@ -1011,7 +1010,7 @@ public void FilterInDocumentLibrary() throws IOException, InterruptedException {
 	CommonMethod.RobustclickElementVisible("PortfolioFliterOptionApply","PortfolioDocListFilterPreOption");
 	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioDocListFilterPreOption"), "A01.2", "Precondition option didn't match");
 	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterVerificationOption");
-	CommonMethod.click("PortfolioFliterOptionClear");
+	CommonMethod.RobustclickElementVisible("PortfolioFliterOptionClear","PortfolioFliterButton");
 	//Concept
 		CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterConceptOption");
 		CommonMethod.RobustclickElementVisible("PortfolioFliterConceptOption","PortfolioFliterPartTypeConceptCheckbox");
@@ -1020,7 +1019,7 @@ public void FilterInDocumentLibrary() throws IOException, InterruptedException {
 	CommonMethod.RobustclickElementVisible("PortfolioFliterOptionApply","PortfolioDocListFilterPreOption");
 	CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioDocListFilterPreOption"), "A01.2", "Precondition option didn't match");
 	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterOptionClear");
-	CommonMethod.click("PortfolioFliterOptionClear");
+	CommonMethod.RobustclickElementVisible("PortfolioFliterOptionClear","PortfolioFliterButton");
 	
 	//Multiple option
 	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterConceptOption");
@@ -1033,7 +1032,7 @@ public void FilterInDocumentLibrary() throws IOException, InterruptedException {
 	CommonMethod.RobustclickElementVisible("PortfolioFliterOptionApply","PortfolioDocListFilterNoTaskShow");
 	CommonMethod.WaitUntilPresence("PortfolioDocListFilterNoTaskShow", 120);
 	CommonMethod.RobustclickElementVisible("PortfolioFliterButton","PortfolioFliterOptionClear");
-	CommonMethod.click("PortfolioFliterOptionClear");
+	CommonMethod.RobustclickElementVisible("PortfolioFliterOptionClear","PortfolioFliterButton");
 	//Filter By Name
 	CommonMethod.scrolldowntoElement("PortfolioDocumentUploadbutton");
 	CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
