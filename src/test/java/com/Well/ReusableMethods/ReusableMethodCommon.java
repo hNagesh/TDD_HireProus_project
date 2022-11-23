@@ -342,7 +342,6 @@ public class ReusableMethodCommon extends BaseClass {
 		softAssert.assertAll();
 		testlog.pass("**Certification story data updated successfully**");
 	}
-
 	public void addLocation(String SheetName, int rowNum) throws Exception {
 		if (SheetName.equalsIgnoreCase("Wpr") || SheetName.equalsIgnoreCase("Hsr") || SheetName.equalsIgnoreCase("Portfolio")) {
 			CommonMethod.WaitUntilPresence("LocationTab", 120);
