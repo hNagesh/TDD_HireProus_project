@@ -103,8 +103,7 @@ public class ReusableMethodsMembership extends BaseClass {
 		CommonMethod.WaitUntilVisibility("MPTermscheckbox", 30);
 		CommonMethod.ClickCheckbox("MPTermscheckbox");
 		CommonMethod.scrolldowntoElement("MPProcedtopaymentbtn");
-		CommonMethod.RobustclickElementVisible("MPProcedtopaymentbtn","MPTermscheckbox");
-		CommonMethod.WaitUntilVisibility("MPTermscheckbox", 30);
+		CommonMethod.RobustclickElementVisible("MPProcedtopaymentbtn","MPProcedtoConfirmationPaymentbtn");
 		CommonMethod.RobustclickElementVisible("MPProcedtoConfirmationPaymentbtn","BillingLanding");
 		CommonMethod.WaitUntilVisibility("BillingLanding", 60);
 		testlog.pass("**Verifies Enrollment successfully**");
