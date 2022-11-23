@@ -7,8 +7,7 @@ import com.Well.Engine.CommonMethod;
 public class ReusableMethodEquity extends BaseClass {
 
 	public void RegisterEquity(String SheetName, int rowNum) throws IOException, InterruptedException {
-		System.out.println("This my changes");
-		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 120);
 		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLEquityNavBar");
 		CommonMethod.RobustclickElementVisible("WELLEquityNavBar","WERstartNewProject");
 		CommonMethod.WaitUntilVisibility("WERstartNewProject", 60);

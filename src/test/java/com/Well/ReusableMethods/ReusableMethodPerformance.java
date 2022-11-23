@@ -140,7 +140,8 @@ public class ReusableMethodPerformance extends BaseClass {
 				CommonMethod.WaitUntilClickble(NoButton.get(RemainingNo - j), 30);
 				CommonMethod.click(NoButton.get(RemainingNo - j));
 				//CommonMethod.WaitUntilVisibility("WPRCloseIcon", 30);
-				if(CommonMethod.isElementsExist("WPRCloseIcon", 30)) {
+				Thread.sleep(1000);
+				if(CommonMethod.isElementsExist("WPRCloseIcon", 5)) {
 				CommonMethod.WaitUntilInVisibility("WPRCloseIcon", 30);
 				}
 				Thread.sleep(1000);
