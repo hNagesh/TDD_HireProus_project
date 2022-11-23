@@ -18,9 +18,9 @@ public class ReusableMethodsMembership extends BaseClass {
 		CommonMethod.scrolldowntoElement("MPCornerstoneAmount");
 		testlog.info("MembershipName:" +MembershipName);
 		if (MembershipName.equalsIgnoreCase("Cornerstone")) {
-			CommonMethod.click("MPCornerstonebtn");
+			CommonMethod.RobustclickElementVisible("MPCornerstonebtn","MPorganization");
 		} else if (MembershipName.equalsIgnoreCase("Keystone")) {
-			CommonMethod.click("MPKeystonebtn");
+			CommonMethod.RobustclickElementVisible("MPKeystonebtn","MPorganization");
 		}
 		String firstName = USfaker.address().firstName();
 		CommonMethod.sendKeys("MPorganization", firstName);
@@ -103,7 +103,7 @@ public class ReusableMethodsMembership extends BaseClass {
 		CommonMethod.WaitUntilVisibility("MPTermscheckbox", 30);
 		CommonMethod.ClickCheckbox("MPTermscheckbox");
 		CommonMethod.scrolldowntoElement("MPProcedtopaymentbtn");
-		CommonMethod.click("MPProcedtopaymentbtn");
+		CommonMethod.RobustclickElementVisible("MPProcedtopaymentbtn","MPTermscheckbox");
 		CommonMethod.WaitUntilVisibility("MPTermscheckbox", 30);
 		CommonMethod.RobustclickElementVisible("MPProcedtoConfirmationPaymentbtn","BillingLanding");
 		CommonMethod.WaitUntilVisibility("BillingLanding", 60);
@@ -155,7 +155,7 @@ public void CreateLicensing(String SheetName, int rowNum, String MembershipName)
 	CommonMethod.selectdropdownrandom("MPSelectproductType");
 	CommonMethod.WaitUntilVisibility("MPSelectPartname", 120);
 	CommonMethod.RobustclickElementVisible("MPSelectPartname","MPSelectPartnameChild");
-	CommonMethod.click("MPSelectPartnameChild");
+	CommonMethod.RobustclickElementVisible("MPSelectPartnameChild","MPGroupName");
 	String GroupName = USfaker.address().firstName();
 	testlog.info("GroupName: "+GroupName);
 	CommonMethod.sendKeys("MPGroupName",GroupName);
