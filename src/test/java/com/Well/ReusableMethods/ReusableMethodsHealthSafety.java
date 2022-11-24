@@ -123,6 +123,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 				CommonMethod.click(NoButton.get(RemainingNo - j));
 				Thread.sleep(1000);
 				NoButton = CommonMethod.findElements("V2ProjectHsrPurseNo");
+				Thread.sleep(2000);
 			} while (NoButton.size() == RemainingNo);
 			RemainingNo--;
 			j--;
@@ -136,6 +137,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 				CommonMethod.click("V2ProjectHsrPurseYes");
 				Thread.sleep(1000);
 				YesButton = CommonMethod.findElements("V2ProjectHsrPurseYes");
+				Thread.sleep(2000);
 			} while (YesButton.size() == RemainingYes);
 			RemainingYes--;
 		}
