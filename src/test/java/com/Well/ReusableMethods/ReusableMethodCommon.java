@@ -216,7 +216,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.sendKeys("V2ProjectProjectScope", data.getCellData(SheetName, "ProjectScope", rowNum));
 		CommonMethod.sendKeys("V2ProjectProjectGoals", data.getCellData(SheetName, "ProjectGoals", rowNum));
 		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "WPRHsrPortfolioDashboard");
-		testlog.info("**Project Information data updated successfully**");
+		testlog.info("***Project Information data updated successfully***");
 		/*
 		 * Validate updated project information fields
 		 */
