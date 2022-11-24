@@ -211,7 +211,7 @@
 				<configuration>
 				<testFailureIgnore>true</testFailureIgnore>
 					<suiteXmlFiles>	   					
-		<suiteXmlFile>src/main/resources/TestNG/${TestSuites}</suiteXmlFile>
+		<suiteXmlFile>${project.basedir}/src/main/resources/TestNG/${TestSuites}</suiteXmlFile>
 			   					
 				   </suiteXmlFiles>
 				</configuration>
