@@ -16,15 +16,7 @@ public class Portfolio_CTC_01_FeatureTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName, "Portfolio Scorecard custom scenarios");
 		try {
-			portfolio.PortfolioBuildScorecard();
-
-			
-			  /*Air A01.1 */
-			  pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
-				/* Air A01.3 */
-			  pf.MeetThresholdsforInOrganicGases("Meet Thresholds for Inorganic Gases");
-			  
-			 
+			portfolio.PortfolioBuildScorecard(); 
 			/*
 			 * Air A01.2
 			 */
@@ -52,7 +44,7 @@ public class Portfolio_CTC_01_FeatureTest extends BaseClass {
 			/*
 			 * Light L09.1
 			 */
-			pf.EnhanceOccupantControllability("Enhance Occupant Controllability");
+		   pf.EnhanceOccupantControllability("Enhance Occupant Controllability");
 			/*
 			 * V09.1
 			 */
@@ -61,9 +53,14 @@ public class Portfolio_CTC_01_FeatureTest extends BaseClass {
 			/*
 			 * X06.2
 			 */
-			pf.RestrictVOCEmissionsfromFurnitureArchitecturalandInteriorProducts(
-					"Restrict VOC Emissions from Furniture, Architectural and Interior Products");
-
+			pf.RestrictVOCEmissionsfromFurnitureArchitecturalandInteriorProducts("Restrict VOC Emissions from Furniture, Architectural and Interior Products");
+			 
+			/*Air A01.1 */
+			 pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
+				
+			/* Air A01.3 */
+			 pf.MeetThresholdsforInOrganicGases("Meet Thresholds for Inorganic Gases");
+			 
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

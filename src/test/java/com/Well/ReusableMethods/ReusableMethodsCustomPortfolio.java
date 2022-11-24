@@ -55,9 +55,17 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 							"PortfolioScoreCardVerificationAssignLocCancelbtn");
 				}
 				CommonMethod.scrollDown();
-				Thread.sleep(1000);
-				CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationUploadbtn", 60);
 				CommonMethod.clickOnListWebelementFromIndex("PortfolioScoreCardVerificationUploadbtn", 0);
+				CommonMethod.scrolldowntoElement("PortfolioScoreVerifyUploadVerificationMethod");
+				CommonMethod.WaitUntilPresence("PortfolioScoreCardVerificationUploadAddfeature", 60);
+				CommonMethod.scrolldowntoElement("PortfolioScoreCardVerificationUploadAddfeature");
+				CommonMethod.RobustclickElementVisible("PortfolioScoreCardVerificationUploadAddfeature",
+						"PortfolioScoreCardVerificationSelectFeature");
+				CommonMethod.selectdropdownVisibletext("PortfolioScoreCardVerificationSelectFeature", "A01.3");
+				CommonMethod.selectdropdownrandom("PortfolioScoreCardVerificationSelectSpaceType");
+				CommonMethod.WaitUntilPresence("PortfolioScoreCardVerificationAddPart", 60);
+				CommonMethod.RobustclickElementVisible("PortfolioScoreCardVerificationAddPart", "PortfolioScoreCardVerificationSelectFeature");
+				CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadAddfeature", "PortfolioScoreCardVerificationSelectFeature");
 				CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload,"UploadFileVerifyScorecard");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn",
@@ -67,6 +75,8 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				}
 				List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
 				testlog.info("Fetching Data from Upload Table");
+				CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
+				CommonMethod.softAssertContainsMessage(val.get(2), "A01.3", "Document table data mismatch");
 				CommonMethod.softAssertContainsMessage(val.get(7), "Ready For Review", "Document table data mismatch");
 				softAssert.assertAll();
 				testlog.info("**Verifies Task Count successful**");
@@ -80,6 +90,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 		}
 		testlog.pass("**Verifies Feature successful**");
 	}
+
 
 	public void MeetThresholdsforOrganicGases(String FeatureName) throws IOException, InterruptedException {
 		/*
@@ -303,17 +314,20 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 			if (Creditname.equalsIgnoreCase(FeatureName)) {
 				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
 				CommonMethod.click(ele);
-				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
+				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 120);
 				CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab","PortfolioScorecardDocumentUploadTable");
-				CommonMethod.WaitUntilVisibility("PortfolioScorecardDocumentUploadTable", 60);
+				CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
+				CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
 				List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
 				testlog.info("Fetching Data from Upload Table");
+				CommonMethod.softAssertContainsMessage(val.get(2), "A01.3", "Document table data mismatch");
 				CommonMethod.softAssertContainsMessage(val.get(7), "Ready For Review", "Document table data mismatch");
 				softAssert.assertAll();
 				testlog.pass("**Verifies Document table data successful**");
 				testlog.info("Review Status is correct in Table in UploadTab");
 				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
 				CommonMethod.click(ele);
+				
 			}
 		}
 		testlog.pass("**Verifies Feature successful**");
@@ -422,7 +436,6 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.WaitUntilPresence("WPRAssignLocbtn", 60);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardCorePointCheckbox", 3);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardVerificationAssignbtn", 2);
-				softAssert.assertAll();
 				testlog.info("**Verifies CorePoint Checkbox Count successful**");
 				testlog.info("**Verifies Assign button Count successful**");
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardCorePointCheckbox", 60);
@@ -433,7 +446,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.WaitUntilPresence("PortfolioScorecardWeightHighlightA08", 30);
 				CommonMethod.scrolldowntoElement("PortfolioScorecardWeightHighlightA08");
 				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlightA08"),"1", "Weight Point for doesn't match");
-				//softAssert.assertAll();
+			    softAssert.assertAll();
 				testlog.info("**Verifies Weight Point Count successful**");
 				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
 				CommonMethod.click(ele);
@@ -473,15 +486,15 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardVerifyTierDropdownValue", 2);
 				CommonMethod.softAssertContainsMessage(CommonMethod.getSelectedDropdownValue("PortfolioScorecardTierDropdownValue"), "Tier 1",
 						"TierDropdown Defualt value doesn't match");
-				CommonMethod.selectdropdownValue("PortfolioScorecardTierDropdownValue", "2");
 				CommonMethod.clickListWebelementFromRange("PortfolioScoreCardVerificationAssignLocCbxGeneral", 0, 1);
+				CommonMethod.selectdropdownValue("PortfolioScorecardTierDropdownValue", "2");
 				CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddButton","PortfolioScoreCardVerificationCloseicon");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 60);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
 				 /*
 				 * Test by adding the core point
 				 */
-				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlighted"),"3", "Weight Point for 3 doesn't match");
+				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlighted"),"2", "Weight Point for 2 doesn't match");
 				testlog.pass("**Verifies Core Weight Point successful**");
 				/*
 				 * Verify Upload button disable
