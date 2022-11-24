@@ -211,7 +211,7 @@
 				<configuration>
 				<testFailureIgnore>true</testFailureIgnore>
 					<suiteXmlFiles>	   					
-		<suiteXmlFile>src/main/resources/TestNG/${TestSuites}</suiteXmlFile>
+		<suiteXmlFile>${TestSuites}</suiteXmlFile>
 			   					
 				   </suiteXmlFiles>
 				</configuration>
