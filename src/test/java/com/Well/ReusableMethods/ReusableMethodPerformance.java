@@ -168,7 +168,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilVisibility("ScorecardTab", 300);
 		CommonMethod.RobustclickElementVisible("ScorecardTab","WPRPortfolioScorecardLanding");
 		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
-		ScorecardfillHSRWPR(20, 20, 36, 17, "WPRPurseYes", "WPRPurseNo");
+		ScorecardfillHSRWPR(21, 21, 36, 16, "WPRPurseYes", "WPRPurseNo");
 		testlog.pass("**Verifies the 15 Purse Yes Scorecard Performance successfully**");
 	}
 
@@ -207,7 +207,7 @@ public class ReusableMethodPerformance extends BaseClass {
 	}
 
 	public void AudituploadDocumentInFeature(String FeatureName) throws IOException, InterruptedException {
-		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
+		List<WebElement> Feature = CommonMethod.findElements("V2ProjectWPRPFeature");
 		testlog.info("Fetching total no. of credits on page");
 		CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
 		CommonMethod.RobustclickElementVisible("PortfolioScorecardPX5","PortfolioScorecardPursueToast");
@@ -218,7 +218,6 @@ public class ReusableMethodPerformance extends BaseClass {
 			String Creditname = ele.getText();
 			Creditname = Creditname.replaceAll("\\.", "");
 			if (Creditname.equalsIgnoreCase(FeatureName)) {
-				
 				CommonMethod.click(ele);
 			CommonMethod.WaitUntilVisibility("WPRVerficationTab", 60);
 			CommonMethod.RobustclickElementVisible("WPRVerficationTab","WPRAddOption");
@@ -247,7 +246,7 @@ public class ReusableMethodPerformance extends BaseClass {
 	}
 	public void UploadWPRDocForFeature() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
-		uploadDocumentInFeature(20);
+		uploadDocumentInFeature(21);
 		testlog.pass("**Upload 21 Scorecard Documents successfully**");
 	}
 

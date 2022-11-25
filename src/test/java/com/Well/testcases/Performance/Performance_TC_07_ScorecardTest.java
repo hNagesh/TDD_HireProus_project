@@ -16,8 +16,8 @@ public class Performance_TC_07_ScorecardTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Performance Scorecard Complete Functionality");
 		try {
+			
 		performance.CompleteScorecardWprById(SheetName, rowNum);	
-	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -41,7 +41,7 @@ public class Performance_TC_07_ScorecardTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_07_ScorecardTest.Performance_TC_07_00_CompleteScorecard" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_07_ScorecardTest.Performance_TC_07_01_UploadDocumentScorecard" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Performance_TC_07_02_AuditUploadDocumentScorecard(String SheetName,int rowNum) throws IOException {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
