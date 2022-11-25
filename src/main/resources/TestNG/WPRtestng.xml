@@ -8,7 +8,7 @@
 
  <test name="WELL-WPR" >
 <parameter name="SheetName" value="Wpr"/>
-<parameter name="rowNum" value="3"/>
+<parameter name="rowNum" value="1"/>
 <parameter name="Country" value="US"/>
 <classes>
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
