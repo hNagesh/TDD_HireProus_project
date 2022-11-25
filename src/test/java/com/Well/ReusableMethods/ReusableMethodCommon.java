@@ -110,18 +110,28 @@ public class ReusableMethodCommon extends BaseClass {
 			throws IOException, InterruptedException {
 		if (alternativeOption.equalsIgnoreCase("EP")) {
 			CommonMethod.RobustclickElementVisible("V2ProjectEPSubmitButton", "V2ProjectFeatureDropdown");
+			
+			CommonMethod.RobustclickElementVisible("SubmitButton", "V2ProjectFeatureDropdown");
+			CommonMethod.negativesoftassertPageSource("Feature* is required.", "Feature Name Error Mismatch");
+			
 			CommonMethod.WaitUntilVisibility("V2ProjectFeatureDropdown", 60);
-			CommonMethod.selectdropdownrandom("V2ProjectFeatureDropdown");
+			CommonMethod.selectdropdownValue("V2ProjectFeatureDropdown","14359");
 			data.setCellData(SheetName, "EPFeatureName", rowNum,
 					CommonMethod.getSelectedDropdownValue("V2ProjectFeatureDropdown"));
 			testlog.info("EPFeatureName: " + data.getCellData(SheetName, "EPFeatureName", rowNum));
 			if (CommonMethod.isElementsExist("V2ProjectApplicablePartCheckBox", 10)) {
+				
+//				CommonMethod.RobustclickElementVisible("SubmitButton", "V2ProjectFeatureDropdown");
+//				CommonMethod.negativesoftassertPageSource("You need at least 1 Applicable part(s) *.", "Applicable Part Error Mismatch");
 				CommonMethod.ClickCheckbox("V2ProjectApplicablePartCheckBox");
 			}
+			CommonMethod.negativesoftassertPageSource("Regions/Countries where Equivalency may be Applicable * is required.", "Regions/Countries Equivalency Error Mismatch");
+			
 			CommonMethod.WaitUntilClickble("V2ProjectEquivalencyReason", 60).sendKeys("Reason for Equivalency Request");
 			CommonMethod.WaitUntilClickble("V2ProjectEquivalencyCountriesInput", 60)
 					.sendKeys("Regions/Countries where Equivalency may be Applicable");
 			if (CommonMethod.isElementsExist("V2ProjectVerificationTextArea", 10)) {
+				CommonMethod.negativesoftassertPageSource("Verification method within proposed equivalent * is required.", "Verification method within proposed equivalent Error Mismatch");
 				CommonMethod.WaitUntilVisibility("V2ProjectVerificationTextArea", 60);
 				CommonMethod.clearAndSendKey("V2ProjectVerificationTextArea",
 						"Verification method within proposed equivalent");
@@ -131,6 +141,7 @@ public class ReusableMethodCommon extends BaseClass {
 						"Verification method within proposed equivalent");
 			}
 			if (CommonMethod.isElementsExist("V2ProjectSimilaritiesTextArea", 10)) {
+				CommonMethod.negativesoftassertPageSource("Similarities to WELL feature requirement * is required.", "Similarities to WELL feature requirement Error Mismatch");
 				CommonMethod.WaitUntilVisibility("V2ProjectSimilaritiesTextArea", 60);
 				CommonMethod.clearAndSendKey("V2ProjectSimilaritiesTextArea",
 						"Similarities to WELL feature requirement");
@@ -140,6 +151,7 @@ public class ReusableMethodCommon extends BaseClass {
 						"Similarities to WELL feature requirement");
 			}
 			if (CommonMethod.isElementsExist("V2ProjectDifferencesTextArea", 10)) {
+				CommonMethod.negativesoftassertPageSource("Differences from WELL feature requirement * is required.", "Differences from WELL feature Error Mismatch");
 				CommonMethod.WaitUntilVisibility("V2ProjectDifferencesTextArea", 60);
 				CommonMethod.clearAndSendKey("V2ProjectDifferencesTextArea",
 						"Differences from WELL feature requirement");
@@ -152,6 +164,8 @@ public class ReusableMethodCommon extends BaseClass {
 			CommonMethod.refreshBrowser();
 			CommonMethod.WaitUntilVisibility("V2ProjectAapSubmitButton", 60);
 			CommonMethod.RobustclickElementVisible("V2ProjectAapSubmitButton", "V2ProjectFeatureDropdown");
+			CommonMethod.RobustclickElementVisible("SubmitButton", "V2ProjectFeatureDropdown");
+			CommonMethod.negativesoftassertPageSource("Feature* is required.", "Feature Name Error Mismatch");
 			CommonMethod.WaitUntilVisibility("V2ProjectFeatureDropdown", 60);
 			CommonMethod.selectdropdownrandom("V2ProjectFeatureDropdown");
 			data.setCellData(SheetName, "AAPFeatureName", rowNum,
@@ -163,6 +177,7 @@ public class ReusableMethodCommon extends BaseClass {
 			CommonMethod.WaitUntilClickble("V2ProjectAlternativesReasonTextArea", 60)
 					.sendKeys("Reason for Alternative Means and Methods");
 		}
+		CommonMethod.negativesoftassertPageSource("Reason for Alternative Means and Methods * is required.", "Reason for Alternative Means and Methods Error Mismatch");
 		CommonMethod.WaitUntilClickble("V2ProjectAlternativesProposedTextArea", 60)
 				.sendKeys("Proposed Alternative Means of Compliance");
 		CommonMethod.uploadFile("DocumentsUpload", PortfolioLocationImportfile);
@@ -183,6 +198,10 @@ public class ReusableMethodCommon extends BaseClass {
 
 	public void team(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 30);
+		CommonMethod.RobustclickElementVisible("V2ProjectInvitebtn","V2ProjectEmailAddress");
+		CommonMethod.negativesoftassertPageSource("Email Address is required.", "Email Address Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Project Authorization is required.", "Project Authorization Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Project Role is required.", "Project Role Error Mismatch");
 		CommonMethod.RobustclickElementVisible("V2ProjectAddMemberbtn","V2ProjectEmailAddress");
 		String TeamEmail = data.getCellData(SheetName, "TeamEmailID", rowNum);
 		CommonMethod.WaitUntilVisibility("V2ProjectEmailAddress", 30);
