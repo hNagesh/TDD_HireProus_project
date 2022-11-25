@@ -256,11 +256,10 @@ public class ReusableMethodCommon extends BaseClass {
 	}
 
 	public void editAndValidateAdmin(String SheetName, int rowNum) throws Exception {
-
-		CommonMethod.WaitUntilVisibility("EditTab", 60);
+		CommonMethod.WaitUntilVisibility("EditTab", 180);
 		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectAdminFieldsButton");
-		CommonMethod.WaitUntilVisibility("V2ProjectAdminFieldsButton", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectAdminFieldsButton", "CoachingContactsDropDown");
+		CommonMethod.WaitUntilVisibility("V2ProjectAdminFieldsButton", 120);
+		CommonMethod.Robustclick("V2ProjectAdminFieldsButton", "V2ProjectProjectNameInput");
 		CommonMethod.WaitUntilVisibility("CoachingContactsDropDown", 60);
 		CommonMethod.selectdropdownVisibletext("CoachingContactsDropDown","Ui (welluiautomationtesting@gmail.com)");
 		data.setCellData(SheetName, "CoachingContacts", rowNum,
@@ -285,7 +284,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilVisibility("EditTab", 60);
 		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectAdminFieldsButton");
 		CommonMethod.WaitUntilVisibility("V2ProjectAdminFieldsButton", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectAdminFieldsButton", "CoachingContactsDropDown");
+		CommonMethod.Robustclick("V2ProjectAdminFieldsButton", "V2ProjectProjectNameInput");
 		CommonMethod.WaitUntilVisibility("CoachingContactsDropDown", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownValue("CoachingContactsDropDown"),
 				data.getCellData(SheetName, "CoachingContacts", rowNum), "Coaching contacts value doesn't match");

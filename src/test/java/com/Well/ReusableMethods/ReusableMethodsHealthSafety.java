@@ -123,6 +123,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 				CommonMethod.click(NoButton.get(RemainingNo - j));
 				Thread.sleep(1000);
 				NoButton = CommonMethod.findElements("V2ProjectHsrPurseNo");
+				Thread.sleep(2000);
 			} while (NoButton.size() == RemainingNo);
 			RemainingNo--;
 			j--;
@@ -136,6 +137,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 				CommonMethod.click("V2ProjectHsrPurseYes");
 				Thread.sleep(1000);
 				YesButton = CommonMethod.findElements("V2ProjectHsrPurseYes");
+				Thread.sleep(2000);
 			} while (YesButton.size() == RemainingYes);
 			RemainingYes--;
 		}
@@ -157,7 +159,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.scrolldowntoElement("HsrScorecard");
 		for (WebElement f : Feature) {
 			CommonMethod.WaitUntilClickble(f, 30).click();
-			CommonMethod.WaitUntilPresence("V2ProjectWPRPDocIcon", 60);
+			CommonMethod.WaitUntilPresence("V2ProjectWPRPDocIcon", 120);
 			CommonMethod.RobustclickElementVisible("V2ProjectWPRPDocIcon", "HsrSelectTypeDoc");
 			CommonMethod.WaitUntilVisibility("HsrSelectTypeDoc", 60);
 			CommonMethod.selectdropdownIndex("HsrSelectTypeDoc", 1);
@@ -339,7 +341,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.RobustclickElementVisible("HsrAddDoc","HsrDocType");
 		CommonMethod.WaitUntilVisibility("HsrDocType", 60);
 		CommonMethod.selectdropdownValue("HsrDocType", "audit");
-		CommonMethod.ClickCheckbox("HsrLocationRadiobutton");
+		CommonMethod.click("HsrLocationRadiobutton");
 		CommonMethod.selectdropdownValue("HsrType","2");
 		CommonMethod.scrolldowntoElement("HsrType");
 		CommonMethod.RobustclickElementVisible("HsrContainedDocument","HsrContainedDocumentOption");
@@ -368,7 +370,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.RobustclickElementVisible("HsrAddDoc","HsrDocType");
 		CommonMethod.WaitUntilVisibility("HsrDocType", 60);
 		CommonMethod.selectdropdownValue("HsrDocType", "feature");
-		CommonMethod.ClickCheckbox("HsrLocationRadiobutton");
+		CommonMethod.click("HsrLocationRadiobutton");
 		CommonMethod.selectdropdownValue("HsrType","2");
 		CommonMethod.scrolldowntoElement("HsrType");
 		CommonMethod.RobustclickElementVisible("HsrContainedDocument","HsrContainedDocumentOption");
@@ -381,7 +383,8 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	    CommonMethod.uploadFile("WPRDocUpload", FeaturefileUpload, "UploadFileVerifyScorecard");
 		CommonMethod.RobustclickElementVisible("HsrDocumentUploadbtn","HsrAddDoc");
 		CommonMethod.scrolldowntoElement("HsrAddDoc");
-		CommonMethod.WaitUntilPresence("HsrAuditLinkTab", 120);
+		CommonMethod.WaitUntilPresence("HsrLibraryLinkTab", 120);
+    	CommonMethod.RobustclickElementVisible("HsrLibraryLinkTab", "HsrAuditTable");
 		CommonMethod.WaitUntilPresence("HsrAddDoc", 120);
 		CommonMethod.scrolldowntoElement("HsrAuditTable");
 		List<String> val = CommonMethod.fetchTableData("HsrAuditTable");

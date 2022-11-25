@@ -716,7 +716,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		List<WebElement> Feature;
 		Feature = CommonMethod.findElements("V2ProjectWPRPFeature");
 		Feature = Feature.subList(0, LastFeatureNumber);
-		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
+		CommonMethod.scrolldowntoElement("V2ProjectWPRScorecardLanding");
 		for (WebElement f : Feature) {
 			CommonMethod.click(f);
 			CommonMethod.WaitUntilPresence("V2ProjectWPRPDocIcon", 60);
@@ -726,7 +726,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.uploadFile("V2ProjectDocUpload", FeaturefileUpload);
 			CommonMethod.WaitUntilVisibility("FeatureFileUploadedVisible", 60);
 			CommonMethod.Robustclick("V2ProjectWPRUploadbtn");
-			CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
+			CommonMethod.scrolldowntoElement("V2ProjectWPRScorecardLanding");
 			CommonMethod.click(f);
 		}
 
@@ -795,7 +795,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.Robustclick("V2ProjectWPRProceedbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRAccountbtn", 60);
 		CommonMethod.Robustclick("V2ProjectWPRAccountbtn");
-		CommonMethod.WaitUntilVisibility("V2ProjectHsrScorecard", 300);
+		CommonMethod.WaitUntilVisibility("V2ProjectWPRScorecardLanding", 300);
 		ScorecardfillHSRWPR(21, 1, 38, 38);
 		testlog.pass("**Verifies the 21 Purse Yes Scorecard Performance successfully**");
 	}
