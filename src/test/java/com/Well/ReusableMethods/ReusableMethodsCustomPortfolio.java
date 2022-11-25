@@ -35,24 +35,14 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardOptionCount", 60);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardOptionCount", 1);
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardTaskCount", 1);
-				/*
-				 * Add 2 options with same verification method
-				 */
-				CommonMethod.RobustclickElementVisible("PortfolioScorecardEditoption","PortfolioScorecardEditoption");
-				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddButton", 30);
-				CommonMethod.clickOnListWebelementFromIndex("PortfolioScoreCardAddButton", 0);
-				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
-				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
 				List<WebElement> AssignButton;
 				AssignButton = CommonMethod.findElements("PortfolioScoreCardVerificationAssignbtn");
 				for (WebElement f : AssignButton) {
 					CommonMethod.WaitUntilClickble(f, 30).click();
 					CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationAssignChildLocCbx", 30);
-					CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocCbx",
-							"PortfolioScorecardValidDisable");
+					CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocCbx","PortfolioScorecardValidDisable");
 					CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationAssignLocSavebtn", 30);
-					CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocSavebtn",
-							"PortfolioScoreCardVerificationAssignLocCancelbtn");
+					CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocSavebtn","PortfolioScoreCardVerificationAssignLocCancelbtn");
 				}
 				CommonMethod.scrollDown();
 				CommonMethod.clickOnListWebelementFromIndex("PortfolioScoreCardVerificationUploadbtn", 0);
@@ -79,6 +69,8 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.softAssertContainsMessage(val.get(2), "A01.3", "Document table data mismatch");
 				CommonMethod.softAssertContainsMessage(val.get(7), "Ready For Review", "Document table data mismatch");
 				softAssert.assertAll();
+				CommonMethod.WaitUntilPresence("PortfolioDocListEditIcon", 60);
+				CommonMethod.WaitUntilPresence("PortfolioDocListDeleteIcon", 60);
 				testlog.info("**Verifies Task Count successful**");
 				testlog.info("**Verifies Option Count successful**");
 				testlog.info("**Verifies Toaster message successful**");
@@ -90,8 +82,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 		}
 		testlog.pass("**Verifies Feature successful**");
 	}
-
-
+	
 	public void MeetThresholdsforOrganicGases(String FeatureName) throws IOException, InterruptedException {
 		/*
          * Air A01.2
@@ -393,7 +384,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				String VerifyAndText = CommonMethod.getText("PortfolioScorecardVerifyAndOption");
 				testlog.info("And Condition: " + VerifyAndText);
 				CommonMethod.assertActualContainsExpected(VerifyAndText, "AND");
-				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardManageWeightHightlighting", 1);
+				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardManageWeightHightlighting", 2);
 				softAssert.assertAll();
 				testlog.info("**Verifies Option Count successful**");
 				testlog.info("**Verifies Task count successful**");
@@ -430,6 +421,10 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab","PortfolioScoreCardAddOptionbutton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 10);
 				CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddOptionbutton","PortfolioScoreCardAddButton");
+				 /*
+				 * Test by adding the core point
+				 */
+				 CommonMethod.clickListWebelementFromRange("PortfolioScoreCardVerificationAssignLocCbxGeneral", 0,1);
 				CommonMethod.Robustclick("PortfolioScoreCardAddButton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
@@ -438,15 +433,10 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardVerificationAssignbtn", 2);
 				testlog.info("**Verifies CorePoint Checkbox Count successful**");
 				testlog.info("**Verifies Assign button Count successful**");
-				CommonMethod.WaitUntilVisibility("PortfolioScorecardCorePointCheckbox", 60);
-				 /*
-				 * Test by adding the core point
-				 */
-				 CommonMethod.clickListWebelementFromRange("PortfolioScoreCardVerificationAssignLocCbxGeneral", 0,1);
 				CommonMethod.WaitUntilPresence("PortfolioScorecardWeightHighlightA08", 30);
 				CommonMethod.scrolldowntoElement("PortfolioScorecardWeightHighlightA08");
 				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlightA08"),"1", "Weight Point for doesn't match");
-			    softAssert.assertAll();
+				softAssert.assertAll();
 				testlog.info("**Verifies Weight Point Count successful**");
 				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
 				CommonMethod.click(ele);

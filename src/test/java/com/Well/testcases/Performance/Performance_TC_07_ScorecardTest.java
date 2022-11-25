@@ -40,4 +40,19 @@ public class Performance_TC_07_ScorecardTest extends BaseClass {
 			throw e1;
 		}
 	}
+	
+	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_07_ScorecardTest.Performance_TC_07_00_CompleteScorecard" })
+	@Parameters({ "SheetName","rowNum" })
+	public void Performance_TC_07_02_AuditUploadDocumentScorecard(String SheetName,int rowNum) throws IOException {
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		StartTest(TestCaseName,"Upload Document Scorecard Functionality");
+		try {
+		performance.AudituploadDocumentInFeature("Survey for Thermal Comfort");
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
 }

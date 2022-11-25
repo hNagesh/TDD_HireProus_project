@@ -2323,6 +2323,7 @@ public static  List<WebElement> WaitUntilNumberOfElementToBePresent(String objec
 		List<WebElement> ele;
 		
 		ele = CommonMethod.findElements(ObjectLocator);
+		System.out.println("Actual: "+ele.size()+" " +"Expected: "+Count);
 		softAssert.assertEquals(ele.size(), Count,"Count Validation failed");
 		
 	}

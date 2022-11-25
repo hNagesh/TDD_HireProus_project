@@ -153,7 +153,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilVisibility("ScorecardTab", 300);
 		CommonMethod.RobustclickElementVisible("ScorecardTab","WPRPortfolioScorecardLanding");
 		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
-		ScorecardfillHSRWPR(21, 21, 36, 16, "WPRPurseYes", "WPRPurseNo");
+		ScorecardfillHSRWPR(20, 20, 36, 17, "WPRPurseYes", "WPRPurseNo");
 		testlog.pass("**Verifies the 15 Purse Yes Scorecard Performance successfully**");
 	}
 
@@ -191,9 +191,48 @@ public class ReusableMethodPerformance extends BaseClass {
 
 	}
 
+	public void AudituploadDocumentInFeature(String FeatureName) throws IOException, InterruptedException {
+		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
+		testlog.info("Fetching total no. of credits on page");
+		CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
+		CommonMethod.RobustclickElementVisible("PortfolioScorecardPX5","PortfolioScorecardPursueToast");
+		CommonMethod.WaitUntilVisibility("PortfolioScorecardPursueToast", 60);
+		CommonMethod.WaitUntilInVisibility("PortfolioScorecardPursueToast", 60);
+		testlog.info("**Verifies Response selection Yes Toaster message successful**");
+		for (WebElement ele : Feature) {
+			String Creditname = ele.getText();
+			Creditname = Creditname.replaceAll("\\.", "");
+			if (Creditname.equalsIgnoreCase(FeatureName)) {
+				
+				CommonMethod.click(ele);
+			CommonMethod.WaitUntilVisibility("WPRVerficationTab", 60);
+			CommonMethod.RobustclickElementVisible("WPRVerficationTab","WPRAddOption");
+			CommonMethod.WaitUntilVisibility("WPRAddOption", 60);
+			CommonMethod.JavascriptClickElement("WPRAddOption");
+			CommonMethod.WaitUntilVisibility("WPRAddOptionbtn", 60);
+			CommonMethod.Robustclick("WPRAddOptionbtn");
+			CommonMethod.WaitUntilVisibility("WPRAddOptionCloseIcon", 60);
+			CommonMethod.Robustclick("WPRAddOptionCloseIcon");
+			CommonMethod.WaitUntilVisibility("WPRAssignLocbtn", 30);
+			Thread.sleep(1000);
+			CommonMethod.RobustclickElementVisible("WPRAssignLocbtn","WPRAssignLocCbx");
+			CommonMethod.WaitUntilPresence("WPRAssignLocCbx", 60);
+			CommonMethod.Robustclick("WPRAssignLocCbx", "WPRAssignDisabledbtn");
+			CommonMethod.WaitUntilVisibility("WPRAssignSavebtn", 30);
+			CommonMethod.RobustclickElementVisible("WPRAssignSavebtn","WPRUploadDocTaskbtn");
+			CommonMethod.WaitUntilVisibility("WPRUploadDocTaskbtn", 60);
+			CommonMethod.RobustclickElementVisible("WPRUploadDocTaskbtn","WPRDocUpload");
+			CommonMethod.scrolldowntoLast();
+			CommonMethod.uploadFile("WPRDocUpload", FeaturefileUpload);
+			Thread.sleep(2000);
+			CommonMethod.Robustclick("WPRUploadDocTaskSavebtn");
+			CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
+			}
+		}
+	}
 	public void UploadWPRDocForFeature() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
-		uploadDocumentInFeature(21);
+		uploadDocumentInFeature(20);
 		testlog.pass("**Upload 21 Scorecard Documents successfully**");
 	}
 
