@@ -44,24 +44,9 @@ public class Performance_TC_09_DocumentTest extends BaseClass {
 		}
 	}
 
-	@Test(dependsOnMethods = {"com.Well.testcases.Performance.Performance_TC_09_DocumentTest.Performance_TC_09_01_LegalDocument"})
-	@Parameters({ "SheetName", "rowNum" })
-	public void Performance_TC_09_02_AuditDocument(String SheetName, int rowNum) throws IOException {
+	
 
-		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
-		StartTest(TestCaseName, "Upload Document in Document");
-		try {
-			performance.validateAuditUploadDocument(SheetName, rowNum);
-		} catch (Throwable t) {
-			System.out.println(t.getLocalizedMessage());
-			Error e1 = new Error(t.getMessage());
-			e1.setStackTrace(t.getStackTrace());
-			throw e1;
-		}
-	}
-
-	@Test(dependsOnMethods = {"com.Well.testcases.Performance.Performance_TC_09_DocumentTest.Performance_TC_09_02_AuditDocument" })
+	@Test(dependsOnMethods = {"com.Well.testcases.Performance.Performance_TC_09_DocumentTest.Performance_TC_09_01_LegalDocument" })
 	@Parameters({ "SheetName", "rowNum" })
 	public void Performance_TC_09_03_FeatureDocument(String SheetName, int rowNum) throws IOException {
 
@@ -78,4 +63,20 @@ public class Performance_TC_09_DocumentTest extends BaseClass {
 		}
 	}
 
+	@Test(dependsOnMethods = {"com.Well.testcases.Performance.Performance_TC_09_DocumentTest.Performance_TC_09_03_FeatureDocument"})
+	@Parameters({ "SheetName", "rowNum" })
+	public void Performance_TC_09_02_AuditDocument(String SheetName, int rowNum) throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+
+		StartTest(TestCaseName, "Upload Document in Document");
+		try {
+			performance.validateAuditUploadDocument(SheetName, rowNum);
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
 }

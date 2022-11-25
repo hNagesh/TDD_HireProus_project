@@ -420,7 +420,12 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.RobustclickElementVisible("WPRUploadDocLib","WPRSelectDocType");
 		CommonMethod.WaitUntilVisibility("WPRSelectDocType", 60);
 		CommonMethod.selectdropdownValue("WPRSelectDocType", "feature");
-		CommonMethod.selectdropdownrandom("WPRHSRDocumentType");
+		CommonMethod.WaitUntilPresence("WPRHSRDocumentType", 60);
+		CommonMethod.selectdropdownVisibletext("WPRHSRDocumentType","Policy and/or Operations Schedule");
+		CommonMethod.WaitUntilPresence("WPRSelectFeaturePart", 60);
+		CommonMethod.selectdropdownVisibletext("WPRSelectFeaturePart","PX1.1");
+		CommonMethod.WaitUntilPresence("WPRAddPartButton", 60);
+		CommonMethod.RobustclickElementVisible("WPRAddPartButton","WPRDocUpload");
 		CommonMethod.scrollDown();
 		CommonMethod.uploadFile("WPRDocUpload", FeaturefileUpload);
 		Thread.sleep(2000);
