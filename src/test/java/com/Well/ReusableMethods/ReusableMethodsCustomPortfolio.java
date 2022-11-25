@@ -393,6 +393,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				testlog.info("**Verifies Enable Weight highlightling count successful**");
 				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
 				CommonMethod.click(ele);
+				
 			}
 		}
 		testlog.pass("**Verifies Feature successful**");
