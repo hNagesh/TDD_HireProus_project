@@ -19,6 +19,13 @@ public class ReusableMethodPerformance extends BaseClass {
 		String ProjectName = "Automation WPR Project" + CommonMethod.randomNumber(8000000);
 		testlog.info("ProjectName: " + ProjectName);
 		data.setCellData(SheetName, "projectName", rowNum, ProjectName);
+		CommonMethod.RobustclickElementVisible("WPROrgContinebtn", "WPROrgName");
+		CommonMethod.negativesoftassertPageSource("Organization is required.", "Organization Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Organization Industry is required.", "Organization Industry Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Country is required.", "Country Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Street is required.", "Street Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("City is required.", "City Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Postal Code is required.", "Postal Code Error Mismatch");
 		CommonMethod.sendKeys("WPROrgName", ProjectName);
 		CommonMethod.ClickCheckbox("WPROwnerInfocbx");
 		rc.SelectOwnerOrg(SheetName, rowNum);
@@ -45,6 +52,9 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.scrollDown();
 		CommonMethod.RobustclickElementVisible("WPROrgContinebtn", "WPROwnerRegContinuebtn");
 		Thread.sleep(2000);
+		CommonMethod.RobustclickElementVisible("WPROwnerRegContinuebtn","WPRBehalfCbx");
+		CommonMethod.negativesoftassertPageSource("On behalf of owner is required.", "Owner CheckBox Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Is the Owner organization an IWBI member?* is required.", "Owner Organization Name Error Mismatch");
 		CommonMethod.scrollUp();
 		CommonMethod.ClickCheckbox("WPRBehalfCbx");
 		CommonMethod.selectdropdownVisibletext("WPRSelectMember", "No");
@@ -66,15 +76,20 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilClickble("WPROwnerRegContinuebtn", 60);
 		CommonMethod.RobustclickElementVisible("WPROwnerRegContinuebtn", "WPRReviewContinuebutton");
 		if (CommonMethod.isElementsExist("HsrWPRYesMyOrganizationCbx", 2)) {
+			CommonMethod.RobustclickElementVisible("WPRReviewContinuebutton", "HsrWPRYesMyOrganizationCbx");
+			CommonMethod.negativesoftassertPageSource("Yes, my organization meets the criteria of the listed discount category.* is required.", "My Organization CheckBox Error Name");
 			CommonMethod.WaitUntilClickble("HsrWPRYesMyOrganizationCbx", 30);
 			CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
 		}
 		CommonMethod.RobustclickElementVisible("WPRReviewContinuebutton", "WPRtermContinuebutton");
-		if (CommonMethod.isElementsExist("WPRProgramFeePublicrbtn", 20)) {
+		if (CommonMethod.isElementsExist("WPRProgramFeePublicrbtn", 20)) { 
+			
 			CommonMethod.WaitUntilClickble("WPRProgramFeePublicrbtn", 60);
 			CommonMethod.ClickCheckbox("WPRProgramFeePublicrbtn");
 		}
 		CommonMethod.scrollDown();
+		CommonMethod.RobustclickElementVisible("WPRtermContinuebutton", "WPRAcknowledecbx");
+		CommonMethod.negativesoftassertPageSource("By checking this box you acknowledge you have read the Terms & Conditions and agree to be bound by these Terms.* is required.", "Acknowledge CheckBox Error Name");
 		CommonMethod.WaitUntilClickble("WPRAcknowledecbx", 60);
 		CommonMethod.ClickCheckbox("WPRAcknowledecbx");
 		CommonMethod.RobustclickElementVisible("WPRtermContinuebutton", "BillingLanding");

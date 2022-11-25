@@ -17,6 +17,12 @@ public class Portfolio_CTC_01_FeatureTest extends BaseClass {
 		StartTest(TestCaseName, "Portfolio Scorecard custom scenarios");
 		try {
 			portfolio.PortfolioBuildScorecard(); 
+			/*Air A01.1 */
+			 pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
+				
+			/* Air A01.3 */
+			 pf.MeetThresholdsforInOrganicGases("Meet Thresholds for Inorganic Gases");
+			 
 			/*
 			 * Air A01.2
 			 */
@@ -55,12 +61,7 @@ public class Portfolio_CTC_01_FeatureTest extends BaseClass {
 			 */
 			pf.RestrictVOCEmissionsfromFurnitureArchitecturalandInteriorProducts("Restrict VOC Emissions from Furniture, Architectural and Interior Products");
 			 
-			/*Air A01.1 */
-			 pf.MeetThresholdsforParticulateMatter("Meet Thresholds for Particulate Matter");
-				
-			/* Air A01.3 */
-			 pf.MeetThresholdsforInOrganicGases("Meet Thresholds for Inorganic Gases");
-			 
+			
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

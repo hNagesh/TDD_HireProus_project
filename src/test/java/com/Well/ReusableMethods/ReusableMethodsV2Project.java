@@ -859,6 +859,12 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.RobustclickElementVisible("V2ProjectSupportButton", "V2ProjectGetHelpButton");
 		CommonMethod.WaitUntilVisibility("V2ProjectGetHelpButton", 60);
 		CommonMethod.RobustclickElementVisible("V2ProjectGetHelpButton", "V2ProjectQuestionAboutDropdown");
+		
+		CommonMethod.RobustclickElementVisible("SubmitButton", "V2ProjectQuestionAboutDropdown");
+		CommonMethod.negativesoftassertPageSource("Question About is required.", "Question About Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Subject is required.", "Subject Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Description is required.", "Description Error Mismatch");
+		
 		CommonMethod.WaitUntilVisibility("V2ProjectQuestionAboutDropdown", 60);
 		CommonMethod.selectdropdownValue("V2ProjectQuestionAboutDropdown", "well-v2-feature");
 		CommonMethod.WaitUntilVisibility("V2ProjectIssueSubTypeDropdown", 60);
