@@ -52,7 +52,7 @@ public class Equity_TC_09_DocumentTest extends BaseClass {
 
 		StartTest(TestCaseName, "Upload Document in Document");
 		try {
-			performance.validateAuditUploadDocument(SheetName, rowNum,"ED10.1");
+			performance.validateAuditUploadDocument(SheetName, rowNum,"EB3");
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

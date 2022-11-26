@@ -206,11 +206,16 @@ public class ReusableMethodPerformance extends BaseClass {
 
 	}
 
-	public void AudituploadDocumentInFeature(String FeatureName) throws IOException, InterruptedException {
+	public void AudituploadDocumentInFeature(String SheetName, String FeatureName) throws IOException, InterruptedException {
 		List<WebElement> Feature = CommonMethod.findElements("V2ProjectWPRPFeature");
 		testlog.info("Fetching total no. of credits on page");
 		CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
-		CommonMethod.RobustclickElementVisible("WPRScorecardPX5","PortfolioScorecardPursueToast");
+		if(SheetName.equalsIgnoreCase("Wer"))  {
+			CommonMethod.RobustclickElementVisible("WERScorecardEB3Feature","PortfolioScorecardPursueToast");
+		}
+		if(SheetName.equalsIgnoreCase("Wpr"))  {
+			CommonMethod.RobustclickElementVisible("WPRScorecardPX5","PortfolioScorecardPursueToast");
+		}
 		CommonMethod.WaitUntilVisibility("PortfolioScorecardPursueToast", 60);
 		CommonMethod.WaitUntilInVisibility("PortfolioScorecardPursueToast", 60);
 		testlog.info("**Verifies Response selection Yes Toaster message successful**");
@@ -235,7 +240,13 @@ public class ReusableMethodPerformance extends BaseClass {
 			CommonMethod.WaitUntilVisibility("WPRAssignSavebtn", 30);
 			CommonMethod.RobustclickElementVisible("WPRAssignSavebtn","WPRUploadDocTaskbtn");
 			CommonMethod.WaitUntilVisibility("WPRUploadDocTaskbtn", 60);
-			CommonMethod.RobustclickElementVisible("WPRUploadDocTaskbtn","WPRDocUpload");
+			if(SheetName.equalsIgnoreCase("Wer"))  {
+				CommonMethod.RobustclickElementVisible("WPRUploadDocAditTaskbtn","WPRScorecardFeatureName");
+			}
+			if(SheetName.equalsIgnoreCase("Wpr"))  {
+				CommonMethod.RobustclickElementVisible("WPRUploadDocTaskbtn","WPRScorecardFeatureName");
+			}
+			
 			CommonMethod.scrolldowntoElement("WPRScorecardFeatureName");
 			CommonMethod.RobustclickElementVisible("WPRScorecardConfirmLocation","WPRAssignLocCbx");
 			CommonMethod.declickListWebelementFromIndex("PortfolioScoreCardVerificationAssignLocCbxGeneral", 2);
@@ -408,10 +419,6 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.selectdropdownVisibletext("WPRHSRDocumentType","Technical Document (Audited)");
 		CommonMethod.scrolldowntoElement("WPRSelectFeaturePart");
 		CommonMethod.selectdropdownVisibletext("WPRSelectFeaturePart",Featurename);
-		if(SheetName.equalsIgnoreCase("Wer"))  {
-			CommonMethod.WaitUntilPresence("WERDocumentAddFeatureOption", 60);
-		CommonMethod.selectdropdownVisibletext("WERDocumentAddFeatureOption","Pedestrian-friendly environment");
-		}
 		CommonMethod.WaitUntilPresence("WPRAddPartButton", 60);
 		CommonMethod.Robustclick("WPRAddPartButton","WPRSelectFeaturePart");
 		CommonMethod.scrollDown();
@@ -438,7 +445,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.selectdropdownVisibletext("WPRHSRDocumentType","Policy and/or Operations Schedule");
 		CommonMethod.WaitUntilPresence("WPRSelectFeaturePart", 60);
 		CommonMethod.scrolldowntoElement("WPRSelectFeaturePart");
-		CommonMethod.selectdropdownVisibletext("WPRSelectFeaturePart","PX1.1");
+		CommonMethod.selectdropdownVisibletext("WPRSelectFeaturePart",Featurename);
 		CommonMethod.WaitUntilPresence("WPRAddPartButton", 60);
 		CommonMethod.Robustclick("WPRAddPartButton","WPRSelectFeaturePart");
 		CommonMethod.WaitUntilPresence("WPRConfirmLocation", 60);
