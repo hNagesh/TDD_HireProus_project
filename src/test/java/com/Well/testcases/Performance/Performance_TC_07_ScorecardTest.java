@@ -47,7 +47,7 @@ public class Performance_TC_07_ScorecardTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Upload Document Scorecard Functionality");
 		try {
-		performance.AudituploadDocumentInFeature("Survey for Thermal Comfort");
+		performance.AudituploadDocumentInFeature(SheetName,"Survey for Thermal Comfort");
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
