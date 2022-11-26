@@ -398,7 +398,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		softAssert.assertAll();
 		testlog.pass("**Upload Legal Document successfully**");	
 	}
-	public void validateAuditUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
+	public void validateAuditUploadDocument(String SheetName, int rowNum, String Featurename) throws IOException, InterruptedException {
 		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilPresence("WPRUploadDocLib", 120);
 		CommonMethod.RobustclickElementVisible("WPRUploadDocLib","WPRSelectDocType");
@@ -407,7 +407,11 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilPresence("WPRHSRDocumentType", 60);
 		CommonMethod.selectdropdownVisibletext("WPRHSRDocumentType","Technical Document (Audited)");
 		CommonMethod.scrolldowntoElement("WPRSelectFeaturePart");
-		CommonMethod.selectdropdownVisibletext("WPRSelectFeaturePart","PX5");
+		CommonMethod.selectdropdownVisibletext("WPRSelectFeaturePart",Featurename);
+		if(SheetName.equalsIgnoreCase("Wer"))  {
+			CommonMethod.WaitUntilPresence("WERDocumentAddFeatureOption", 60);
+		CommonMethod.selectdropdownVisibletext("WERDocumentAddFeatureOption","Pedestrian-friendly environment");
+		}
 		CommonMethod.WaitUntilPresence("WPRAddPartButton", 60);
 		CommonMethod.Robustclick("WPRAddPartButton","WPRSelectFeaturePart");
 		CommonMethod.scrollDown();

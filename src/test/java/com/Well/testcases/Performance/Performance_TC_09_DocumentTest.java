@@ -71,7 +71,7 @@ public class Performance_TC_09_DocumentTest extends BaseClass {
 
 		StartTest(TestCaseName, "Upload Document in Document");
 		try {
-			performance.validateAuditUploadDocument(SheetName, rowNum);
+			performance.validateAuditUploadDocument(SheetName, rowNum,"PX5");
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
