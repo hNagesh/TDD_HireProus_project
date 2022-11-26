@@ -69,7 +69,7 @@ public class Equity_TC_09_DocumentTest extends BaseClass {
 
 		StartTest(TestCaseName, "Upload Document in Document");
 		try {
-			performance.validateFeatureUploadDocument(SheetName, rowNum);
+			performance.validateFeatureUploadDocument(SheetName, rowNum,"EE1");
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

@@ -236,11 +236,16 @@ public class ReusableMethodPerformance extends BaseClass {
 			CommonMethod.RobustclickElementVisible("WPRAssignSavebtn","WPRUploadDocTaskbtn");
 			CommonMethod.WaitUntilVisibility("WPRUploadDocTaskbtn", 60);
 			CommonMethod.RobustclickElementVisible("WPRUploadDocTaskbtn","WPRDocUpload");
-			CommonMethod.scrolldowntoLast();
+			CommonMethod.scrolldowntoElement("WPRScorecardFeatureName");
+			CommonMethod.RobustclickElementVisible("WPRScorecardConfirmLocation","WPRAssignLocCbx");
+			CommonMethod.declickListWebelementFromIndex("PortfolioScoreCardVerificationAssignLocCbxGeneral", 2);
+			CommonMethod.RobustclickElementVisible("WPRScorecardVerifyTaskUploadEditLocationsUpdateButton", "WPRDocUpload");
 			CommonMethod.uploadFile("WPRDocUpload", FeaturefileUpload);
-			Thread.sleep(2000);
-			CommonMethod.Robustclick("WPRUploadDocTaskSavebtn");
-			CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
+			CommonMethod.RobustclickElementVisible("WPRUploadDocTaskSavebtn","PortfolioScorecardDocumentUploadTable");
+			if (CommonMethod.isElementsExist("PortfolioScorecardDocumentAddedPopup", 3)) {
+				CommonMethod.WaitUntilInVisibility("PortfolioScorecardDocumentAddedPopup", 30);
+			}
+			
 			}
 		}
 	}
@@ -419,7 +424,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		softAssert.assertAll();
 		testlog.pass("**Upload Audit Document successfully**");	
 	}
-	public void validateFeatureUploadDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
+	public void validateFeatureUploadDocument(String SheetName, int rowNum, String Featurename) throws IOException, InterruptedException {
 		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("WPRUploadDocLib", 120);
 		CommonMethod.RobustclickElementVisible("WPRUploadDocLib","WPRSelectDocType");
