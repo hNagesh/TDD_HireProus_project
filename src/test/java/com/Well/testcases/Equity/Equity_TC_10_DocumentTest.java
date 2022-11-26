@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Equity_TC_09_DocumentTest extends BaseClass {
+public class Equity_TC_10_DocumentTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_08_ScoreCardTest.Equity_TC_08_02_AuditUploadDocumentScorecard" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_09_ReviewTest.Equity_TC_09_01_CompleteReview" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Equity_TC_09_00_GeneralDocument(String SheetName,int rowNum) throws IOException {
+	public void Equity_TC_10_00_GeneralDocument(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
         StartTest(TestCaseName,"Upload Document in Document");
@@ -27,9 +27,9 @@ public class Equity_TC_09_DocumentTest extends BaseClass {
 		}
 	}
 
-	@Test(dependsOnMethods = {"com.Well.testcases.Equity.Equity_TC_09_DocumentTest.Equity_TC_09_00_GeneralDocument"})
+	@Test(dependsOnMethods = {"com.Well.testcases.Equity.Equity_TC_10_DocumentTest.Equity_TC_10_00_GeneralDocument"})
 	@Parameters({ "SheetName", "rowNum" })
-	public void Equity_TC_09_01_LegalDocument(String SheetName, int rowNum) throws IOException {
+	public void Equity_TC_10_01_LegalDocument(String SheetName, int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
@@ -44,9 +44,9 @@ public class Equity_TC_09_DocumentTest extends BaseClass {
 		}
 	}
 
-	@Test(dependsOnMethods = {"com.Well.testcases.Equity.Equity_TC_09_DocumentTest.Equity_TC_09_01_LegalDocument"})
+	@Test(dependsOnMethods = {"com.Well.testcases.Equity.Equity_TC_10_DocumentTest.Equity_TC_10_01_LegalDocument"})
 	@Parameters({ "SheetName", "rowNum" })
-	public void Equity_TC_09_02_AuditDocument(String SheetName, int rowNum) throws IOException {
+	public void Equity_TC_10_02_AuditDocument(String SheetName, int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
@@ -61,9 +61,9 @@ public class Equity_TC_09_DocumentTest extends BaseClass {
 		}
 	}
 
-	@Test(dependsOnMethods = {"com.Well.testcases.Equity.Equity_TC_09_DocumentTest.Equity_TC_09_02_AuditDocument" })
+	@Test(dependsOnMethods = {"com.Well.testcases.Equity.Equity_TC_10_DocumentTest.Equity_TC_10_02_AuditDocument" })
 	@Parameters({ "SheetName", "rowNum" })
-	public void Equity_TC_09_03_FeatureDocument(String SheetName, int rowNum) throws IOException {
+	public void Equity_TC_10_03_FeatureDocument(String SheetName, int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
