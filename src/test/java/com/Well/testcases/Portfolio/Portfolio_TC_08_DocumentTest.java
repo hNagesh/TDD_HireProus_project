@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Portfolio_TC_08_DocumentTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_15_AddLocationTest.Portfolio_TC_15_AddLocation" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_07_PortfolioScorecardTest.Portfolio_TC_07_02_UploadFileInAudit" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Portfolio_TC_08_00_LegalUploadDocumentInDocument() throws IOException {
 
@@ -18,7 +18,6 @@ public class Portfolio_TC_08_DocumentTest extends BaseClass {
 		StartTest(TestCaseName,"Type Legal Upload Document");
 
 		try {
-
 			portfolio.clickDocument();
 			portfolio.ValidatingLegalUploadDocument();
 
@@ -30,7 +29,7 @@ public class Portfolio_TC_08_DocumentTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_15_AddLocationTest.Portfolio_TC_15_AddLocation" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_08_DocumentTest.Portfolio_TC_08_00_LegalUploadDocumentInDocument" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Portfolio_TC_08_01_AuditUploadDocumentInDocument() throws IOException {
 
@@ -49,7 +48,7 @@ public class Portfolio_TC_08_DocumentTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_15_AddLocationTest.Portfolio_TC_15_AddLocation" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_08_DocumentTest.Portfolio_TC_08_01_AuditUploadDocumentInDocument" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Portfolio_TC_08_02_FeatureUploadDocumentInDocument() throws IOException {
 

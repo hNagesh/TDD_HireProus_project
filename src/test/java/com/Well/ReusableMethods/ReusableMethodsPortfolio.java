@@ -209,10 +209,18 @@ public class ReusableMethodsPortfolio extends BaseClass {
 				UploadTaskbtn = CommonMethod.findElements("PortfolioScoreCardVerificationUploadbtn");
 				for (WebElement f : UploadTaskbtn) {
 					CommonMethod.WaitUntilClickble(f, 30).click();
+					CommonMethod.WaitUntilPresence("PortfolioScorecardUploadFeatureName", 60);
+					CommonMethod.scrolldowntoElement("PortfolioScorecardUploadFeatureName");
 					CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload);
+					if (FeatureName.equalsIgnoreCase("Support Mindful Eating")) {
+						CommonMethod.WaitUntilVisibility("PortfolioScorecardUploadEditLocationA05.2", 60);
+						CommonMethod.RobustclickElementVisible("PortfolioScorecardUploadEditLocationA05.2", "PortfolioScorecardUncheckLoc");
+						CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationAssignChildLocCbx", 30);
+						CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocCbx","PortfolioScorecardValidDisable");
+						CommonMethod.RobustclickElementVisible("PortfolioScorecardVerifyTaskUploadEditLocationsUpdateButton","PortfolioScoreCardVerificationAddNote");
+					}
 					CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
-					CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn",
-							"PortfolioScoreCardVerificationAddNote");
+					CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn","PortfolioScoreCardVerificationAddNote");
 					if (CommonMethod.isElementsExist("PortfolioScorecardDocumentAddedPopup", 3)) {
 						CommonMethod.WaitUntilInVisibility("PortfolioScorecardDocumentAddedPopup", 30);
 					}
@@ -289,7 +297,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.selectdropdownVisibletext("PortfolioSelectverificationMethod", "Technical Document (Audited)");
 		CommonMethod.WaitUntilPresence("WPRSelectFeaturePart", 60);
 		CommonMethod.scrolldowntoElement("WPRHSRDocumentType");
-		CommonMethod.selectdropdownVisibletext("WPRSelectFeaturePart","L09.1");
+		CommonMethod.selectdropdownVisibletext("WPRSelectFeaturePart","N08.1");
 		CommonMethod.scrolldowntoElement("WPRSelectFeaturePart");
 		CommonMethod.WaitUntilPresence("WPRAddPartButton", 60);
 		CommonMethod.Robustclick("WPRAddPartButton","WPRSelectFeaturePart");
