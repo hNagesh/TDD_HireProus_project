@@ -184,7 +184,7 @@ public void UpdateLicensing(String SheetName, int rowNum, String MembershipName)
 	Thread.sleep(2000);
 	CommonMethod.scrolldowntoElement("MPLicenseComment");
 	CommonMethod.WaitUntilVisibility("MPLicenseUpdateSaveButton", 120);
-	CommonMethod.RobustclickElementVisible("MPLicenseUpdateSaveButton","MPApplicationformDeleteIcon");
+	CommonMethod.Robustclick("MPLicenseUpdateSaveButton","MPLicenseUpdaateClosePopup");
 	Thread.sleep(2000);
 	CommonMethod.scrolldowntoElement("MPValidUploadFile");
 	CommonMethod.WaitUntilPresence("MPValidGroupName", 120);
