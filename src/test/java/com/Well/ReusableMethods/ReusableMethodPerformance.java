@@ -88,8 +88,10 @@ public class ReusableMethodPerformance extends BaseClass {
 			CommonMethod.ClickCheckbox("WPRProgramFeePublicrbtn");
 		}
 		CommonMethod.scrollDown();
-		CommonMethod.RobustclickElementVisible("WPRtermContinuebutton", "WPRAcknowledecbx");
-		CommonMethod.negativesoftassertPageSource("By checking this box you acknowledge you have read the Terms & Conditions and agree to be bound by these Terms.* is required.", "Acknowledge CheckBox Error Name");
+		//CommonMethod.RobustclickElementVisible("WPRtermContinuebutton", "WPRAcknowledecbx");
+		//CommonMethod.scrolldowntoElement("WPRProgramFeePublicrbtn");
+		//CommonMethod.WaitUntilVisibility("WPRtermContinuebutton", 60);
+		//CommonMethod.negativesoftassertPageSource("By checking this box you acknowledge you have read the Terms & Conditions and agree to be bound by these Terms.* is required.", "Acknowledge CheckBox Error Name");
 		CommonMethod.WaitUntilClickble("WPRAcknowledecbx", 60);
 		CommonMethod.ClickCheckbox("WPRAcknowledecbx");
 		CommonMethod.RobustclickElementVisible("WPRtermContinuebutton", "BillingLanding");
