@@ -6,7 +6,7 @@
 </listeners>
 <parameter name="SecurtiyTest" value="false"/>
 <suite-files>
-<suite-file path="WERtestng.xml"></suite-file>
+<!-- <suite-file path="WERtestng.xml"></suite-file> -->
 <suite-file path="Membershiptestng.xml"></suite-file>
 <suite-file path="WPRtestng.xml"></suite-file>
 <suite-file path="Portfoliotestng.xml"></suite-file> 
