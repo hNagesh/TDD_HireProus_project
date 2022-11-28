@@ -328,13 +328,17 @@ public class ReusableMethodCommon extends BaseClass {
 				"Profile updated successfully.", "Verified profile updated toast message");
 		testlog.pass("**General Information data updated successfully**");
 		CommonMethod.WaitUntilVisibility("ProfileTab", 60);
-		
-		if(SheetName.equalsIgnoreCase("Wpr") || SheetName.equalsIgnoreCase("Hsr")) {
+		if(SheetName.equalsIgnoreCase("Wpr")) {
+			CommonMethod.RobustclickElementVisible("ProfileTab", "WellPerformanceProfileButton");
+			CommonMethod.WaitUntilVisibility("WellPerformanceProfileButton", 60);
+			CommonMethod.RobustclickElementVisible("WellPerformanceProfileButton", "V2ProjectYourObjective");
+		}
+		if(SheetName.equalsIgnoreCase("Hsr")) {
 			CommonMethod.RobustclickElementVisible("ProfileTab", "WellHealthSafty");
 			CommonMethod.WaitUntilVisibility("WellHealthSafty", 60);
 			CommonMethod.RobustclickElementVisible("WellHealthSafty", "V2ProjectYourObjective");
 		}
-		else if(SheetName.equalsIgnoreCase("Wer")) {
+		if(SheetName.equalsIgnoreCase("Wer")) {
 			CommonMethod.RobustclickElementVisible("ProfileTab", "WERProfileWellEquityStoryButton");
 			CommonMethod.WaitUntilVisibility("WERProfileWellEquityStoryButton", 60);
 			CommonMethod.RobustclickElementVisible("WERProfileWellEquityStoryButton", "V2ProjectYourObjective");	
