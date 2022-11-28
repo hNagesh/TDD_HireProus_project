@@ -387,7 +387,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		for (int i = NoStart; i <= NoEnd; i++) {
 			int RemainingNo = NoButton.size();
 			do {
-				CommonMethod.click(NoButton.get(RemainingNo - j));
+				CommonMethod.JavascriptClickElement(NoButton.get(RemainingNo - j));
 				Thread.sleep(1000);
 				NoButton = CommonMethod.findElements("V2ProjectHsrPurseNo");
 			} while (NoButton.size() == RemainingNo);
