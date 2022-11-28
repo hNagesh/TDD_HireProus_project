@@ -7,7 +7,6 @@ import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
 
 public class ReusableMethodsCustomPortfolio extends BaseClass {
-
 	public void MeetThresholdsforParticulateMatter(String FeatureName) throws IOException, InterruptedException {
 		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
 		testlog.info("Fetching total no. of credits on page");
