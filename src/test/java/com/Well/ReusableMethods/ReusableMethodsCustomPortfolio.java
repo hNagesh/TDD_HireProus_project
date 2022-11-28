@@ -384,7 +384,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				String VerifyAndText = CommonMethod.getText("PortfolioScorecardVerifyAndOption");
 				testlog.info("And Condition: " + VerifyAndText);
 				CommonMethod.assertActualContainsExpected(VerifyAndText, "AND");
-				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardManageWeightHightlighting", 2);
+				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardManageWeightHightlighting", 1);
 				softAssert.assertAll();
 				testlog.info("**Verifies Option Count successful**");
 				testlog.info("**Verifies Task count successful**");
