@@ -113,9 +113,9 @@ public class ReusableMethodCommon extends BaseClass {
 			
 			CommonMethod.RobustclickElementVisible("SubmitButton", "V2ProjectFeatureDropdown");
 			CommonMethod.negativesoftassertPageSource("Feature* is required.", "Feature Name Error Mismatch");
-			
+			CommonMethod.scrollUp();
 			CommonMethod.WaitUntilVisibility("V2ProjectFeatureDropdown", 60);
-			CommonMethod.selectdropdownValue("V2ProjectFeatureDropdown","14359");
+			CommonMethod.selectdropdownrandom("V2ProjectFeatureDropdown");
 			data.setCellData(SheetName, "EPFeatureName", rowNum,
 					CommonMethod.getSelectedDropdownValue("V2ProjectFeatureDropdown"));
 			testlog.info("EPFeatureName: " + data.getCellData(SheetName, "EPFeatureName", rowNum));
@@ -177,7 +177,7 @@ public class ReusableMethodCommon extends BaseClass {
 			CommonMethod.WaitUntilClickble("V2ProjectAlternativesReasonTextArea", 60)
 					.sendKeys("Reason for Alternative Means and Methods");
 		}
-		CommonMethod.negativesoftassertPageSource("Reason for Alternative Means and Methods * is required.", "Reason for Alternative Means and Methods Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Proposed Alternative Means of Compliance * is required.", "Proposed Alternative Means of Compliance Error Mismatch");
 		CommonMethod.WaitUntilClickble("V2ProjectAlternativesProposedTextArea", 60)
 				.sendKeys("Proposed Alternative Means of Compliance");
 		CommonMethod.uploadFile("DocumentsUpload", PortfolioLocationImportfile);
@@ -198,11 +198,11 @@ public class ReusableMethodCommon extends BaseClass {
 
 	public void team(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 30);
+		CommonMethod.RobustclickElementVisible("V2ProjectAddMemberbtn","V2ProjectEmailAddress");
 		CommonMethod.RobustclickElementVisible("V2ProjectInvitebtn","V2ProjectEmailAddress");
 		CommonMethod.negativesoftassertPageSource("Email Address is required.", "Email Address Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Project Authorization is required.", "Project Authorization Error Mismatch");
-		CommonMethod.negativesoftassertPageSource("Project Role is required.", "Project Role Error Mismatch");
-		CommonMethod.RobustclickElementVisible("V2ProjectAddMemberbtn","V2ProjectEmailAddress");
+		CommonMethod.negativesoftassertPageSource("Role is required.", "Project Role Error Mismatch");
 		String TeamEmail = data.getCellData(SheetName, "TeamEmailID", rowNum);
 		CommonMethod.WaitUntilVisibility("V2ProjectEmailAddress", 30);
 		CommonMethod.sendKeys("V2ProjectEmailAddress", TeamEmail);
@@ -369,6 +369,11 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.RobustclickElementVisible("AddButton", "AddLocationButton");
 		CommonMethod.click("AddLocationButton");
 		if (SheetName.equalsIgnoreCase("Wpr") || SheetName.equalsIgnoreCase("Hsr") || SheetName.equalsIgnoreCase("Wer")) {
+			CommonMethod.RobustclickElementVisible("SubmitButton", "LocationName");
+			CommonMethod.negativesoftassertPageSource("Location Name* is required.", "Location Name Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("Location Area* is required.", "Location Area Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("Space Type* is required.", "Space Type Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("Ownership Type* is required.", "Ownership Type Error Mismatch");
 			CommonMethod.WaitUntilVisibility("LocationName", 120);
 			CommonMethod.sendKeys("LocationName", data.getCellData(SheetName, "LocationName", rowNum));
 			CommonMethod.sendKeys("LocationArea", data.getCellData(SheetName, "Area", rowNum));
@@ -397,6 +402,10 @@ public class ReusableMethodCommon extends BaseClass {
 					CommonMethod.getSelectedDropdownValue("PortfolioLocationOwnerType"));
 			testlog.info("Owner type: " + data.getCellData(SheetName, "OwnerType", rowNum));
 		}
+		CommonMethod.negativesoftassertPageSource("Country is required.", "Country Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Street is required.", "Street Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("City is required.", "City Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Postal Code is required.", "Postal Code Name Error Mismatch");
 		CommonMethod.selectdropdownValue("LocationCountryName", "US");
 		CommonMethod.selectdropdownrandom("LocationStateName");
 		CommonMethod.sendKeys("LocationStreetName", data.getCellData(SheetName, "Street", rowNum));

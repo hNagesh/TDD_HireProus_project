@@ -17,6 +17,13 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.RobustclickElementVisible("HsrEnrollbtn", "Hsrenrollcontinuebtn");
 		CommonMethod.WaitUntilClickble("HsrenrollName", 30);
 		String erollName = "Automation HSR Project " + CommonMethod.randomNumber(8000000);
+		CommonMethod.RobustclickElementVisible("Hsrenrollcontinuebtn", "HsrenrollName");
+		CommonMethod.negativesoftassertPageSource("Organization is required.", "Organization Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Organization Industry is required.", "Organization Industry Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Country is required.", "Country Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Street is required.", "Street Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("City is required.", "City Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Postal Code is required.", "Postal Code Error Mismatch");
 		CommonMethod.sendKeys("HsrenrollName", erollName);
 		data.setCellData(SheetName, "HsrName", rowNum, CommonMethod.getattributeValue("HsrenrollName"));
 		testlog.info("HsrName: " + data.getCellData(SheetName, "HsrName", rowNum));
@@ -44,6 +51,9 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		testlog.info("PostalCode: " + data.getCellData(SheetName, "PostalCode", rowNum));
 		CommonMethod.ClickCheckbox("Hsrbilladdcheckbox");
 		CommonMethod.RobustclickElementVisible("Hsrenrollcontinuebtn", "HsrRegcontinuebtn");
+		CommonMethod.RobustclickElementVisible("HsrRegcontinuebtn", "Hsrregcheckbox");
+		CommonMethod.negativesoftassertPageSource("On behalf of owner is required.", "Owner CheckBox Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Is the Owner organization an IWBI member?* is required.", "Owner Organization Name Error Mismatch");
 		CommonMethod.ClickCheckbox("Hsrregcheckbox");
 		CommonMethod.selectdropdownVisibletext("HsrIwbimemberdropdown", "No");
 		CommonMethod.RobustclickElementVisible("HsrRegcontinuebtn", "HsrTypeoneEnrollbtn");
@@ -62,11 +72,14 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilVisibility("HsrLocContinuebutton", 120);
 		CommonMethod.RobustclickElementVisible("HsrLocContinuebutton", "HSRApplyButton");
 		if (CommonMethod.isElementsExist("HsrWPRYesMyOrganizationCbx", 20)) {
+			CommonMethod.RobustclickElementVisible("HsrLocContinuebutton", "HsrWPRYesMyOrganizationCbx");
+			CommonMethod.negativesoftassertPageSource("Yes, my organization meets the criteria of the listed discount category.* is required.", "My Organization CheckBox Error Name");
 			CommonMethod.WaitUntilClickble("HsrWPRYesMyOrganizationCbx", 60);
 			CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
 		}
-
 		CommonMethod.RobustclickElementVisible("HsrLocContinuebutton", "HsrReviewbtn");
+//		CommonMethod.RobustclickElementVisible("HsrReviewbtn", "HsrProgramFeePublicrbtn");
+//		CommonMethod.negativesoftassertPageSource("By checking this box you acknowledge you have read the Terms & Conditions and agree to be bound by these Terms.* is required.", "Acknowledge CheckBox Error Name");
 		CommonMethod.WaitUntilClickble("HsrProgramFeePublicrbtn", 60);
 		CommonMethod.ClickCheckbox("HsrProgramFeePublicrbtn");
 		CommonMethod.WaitUntilVisibility("HsrAcknowledecbx", 60);
@@ -75,6 +88,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilVisibility("BillingLanding", 60);
 		testlog.pass("**Verifies the Registration successful**");
 	}
+
 
 	public void StoreIdHealthSafety(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilPresence("HsrIframe", 180);

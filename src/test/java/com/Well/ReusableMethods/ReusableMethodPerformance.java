@@ -52,10 +52,10 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.scrollDown();
 		CommonMethod.RobustclickElementVisible("WPROrgContinebtn", "WPROwnerRegContinuebtn");
 		Thread.sleep(2000);
+		CommonMethod.scrollUp();
 		CommonMethod.RobustclickElementVisible("WPROwnerRegContinuebtn","WPRBehalfCbx");
 		CommonMethod.negativesoftassertPageSource("On behalf of owner is required.", "Owner CheckBox Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Is the Owner organization an IWBI member?* is required.", "Owner Organization Name Error Mismatch");
-		CommonMethod.scrollUp();
 		CommonMethod.ClickCheckbox("WPRBehalfCbx");
 		CommonMethod.selectdropdownVisibletext("WPRSelectMember", "No");
 		data.setCellData(SheetName, "WPRSelectMember", rowNum,
