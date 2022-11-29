@@ -107,6 +107,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","V2 Search failed");
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
+		CommonMethod.click("V2ProjectIdCompare");
 		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare","V2ProjectStartBuilding");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 300);
 		testlog.pass("**Verifies the Search V2Project ByID successfully**");
@@ -386,20 +387,19 @@ public class ReusableMethodsV2Project extends BaseClass {
 		for (int i = NoStart; i <= NoEnd; i++) {
 			int RemainingNo = NoButton.size();
 			do {
-				CommonMethod.click(NoButton.get(RemainingNo - j));
+				CommonMethod.JavascriptClickElement(NoButton.get(RemainingNo - j));
 				Thread.sleep(1000);
 				NoButton = CommonMethod.findElements("V2ProjectHsrPurseNo");
 			} while (NoButton.size() == RemainingNo);
 			RemainingNo--;
 			j--;
 		}
-		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
 		YesButton = CommonMethod.findElements("V2ProjectHsrPurseYes");
 		for (int i = 1; i <= YesEnd; i++) {
 			int RemainingYes = YesButton.size();
 			do {
 				CommonMethod.WaitUntilClickble("V2ProjectHsrPurseYes", 60);
-				CommonMethod.click("V2ProjectHsrPurseYes");
+				CommonMethod.JavascriptClickElement("V2ProjectHsrPurseYes");
 				Thread.sleep(1000);
 				YesButton = CommonMethod.findElements("V2ProjectHsrPurseYes");
 			} while (YesButton.size() == RemainingYes);
@@ -407,7 +407,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		}
 
 	}
-//need to start
+
 	public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WellV2ScorecardTab", 300);
 		CommonMethod.RobustclickElementVisible("WellV2ScorecardTab","V2ProjectHsrScorecard");
@@ -716,9 +716,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 		List<WebElement> Feature;
 		Feature = CommonMethod.findElements("V2ProjectWPRPFeature");
 		Feature = Feature.subList(0, LastFeatureNumber);
-		CommonMethod.scrolldowntoElement("V2ProjectWPRScorecardLanding");
 		for (WebElement f : Feature) {
-			CommonMethod.click(f);
+			CommonMethod.WaitUntilClickble(f,120);
+			CommonMethod.JavascriptClickElement(f);
 			CommonMethod.WaitUntilPresence("V2ProjectWPRPDocIcon", 60);
 			CommonMethod.RobustclickElementVisible("V2ProjectWPRPDocIcon","V2ProjectWPRVerificationMethod");
 			CommonMethod.WaitUntilVisibility("V2ProjectWPRVerificationMethod", 60);
@@ -726,10 +726,10 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.uploadFile("V2ProjectDocUpload", FeaturefileUpload);
 			CommonMethod.WaitUntilVisibility("FeatureFileUploadedVisible", 60);
 			CommonMethod.Robustclick("V2ProjectWPRUploadbtn");
+			CommonMethod.WaitUntilPresence("V2ProjectWPRScorecardLanding", 60);
 			CommonMethod.scrolldowntoElement("V2ProjectWPRScorecardLanding");
-			CommonMethod.click(f);
+			CommonMethod.JavascriptClickElement(f);
 		}
-
 	}
 
 	public void uploadHsrDocV2Project() throws IOException, InterruptedException {

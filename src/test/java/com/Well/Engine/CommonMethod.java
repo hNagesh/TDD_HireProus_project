@@ -2334,4 +2334,12 @@ public static  List<WebElement> WaitUntilNumberOfElementToBePresent(String objec
 	 * driver).getDevTools().send(Network.clearBrowserCookies()); // you could also
 	 * use ((HasDevTools) driver).getDevTools().send(Network.clearBrowserCache()); }
 	 */
+
+
+public static void JavascriptClickElement(WebElement Objectlocator) throws IOException {
+	
+	JavascriptExecutor executor = (JavascriptExecutor)driver;
+	executor.executeScript("arguments[0].click();", Objectlocator);
+	//((JavascriptExecutor) driver).executeScript("arguments[0].click();", Objectlocator);
+}
 }
