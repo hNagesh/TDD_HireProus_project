@@ -43,7 +43,7 @@
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_05A_PortfolioValidateBillingReceiptTest"></class> 
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_06_PortfolioLocationImportTest"></class>
 		<class name="com.Well.testcases.Portfolio.Portfolio_CTC_01_FeatureTest"></class>
-	   <!-- <class name="com.Well.testcases.Portfolio.Portfolio_CTC_02_DocumentTest"></class> -->
+	    <class name="com.Well.testcases.Portfolio.Portfolio_CTC_02_DocumentTest"></class>
 		</classes> 
-	</test>  
+	</test> 
 </suite>  
