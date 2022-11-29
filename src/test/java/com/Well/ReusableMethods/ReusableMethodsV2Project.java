@@ -387,20 +387,19 @@ public class ReusableMethodsV2Project extends BaseClass {
 		for (int i = NoStart; i <= NoEnd; i++) {
 			int RemainingNo = NoButton.size();
 			do {
-				CommonMethod.click(NoButton.get(RemainingNo - j));
+				CommonMethod.JavascriptClickElement(NoButton.get(RemainingNo - j));
 				Thread.sleep(1000);
 				NoButton = CommonMethod.findElements("V2ProjectHsrPurseNo");
 			} while (NoButton.size() == RemainingNo);
 			RemainingNo--;
 			j--;
 		}
-		CommonMethod.scrolldowntoElement("V2ProjectHsrScorecard");
 		YesButton = CommonMethod.findElements("V2ProjectHsrPurseYes");
 		for (int i = 1; i <= YesEnd; i++) {
 			int RemainingYes = YesButton.size();
 			do {
 				CommonMethod.WaitUntilClickble("V2ProjectHsrPurseYes", 60);
-				CommonMethod.click("V2ProjectHsrPurseYes");
+				CommonMethod.JavascriptClickElement("V2ProjectHsrPurseYes");
 				Thread.sleep(1000);
 				YesButton = CommonMethod.findElements("V2ProjectHsrPurseYes");
 			} while (YesButton.size() == RemainingYes);
@@ -408,7 +407,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		}
 
 	}
-//need to start
+
 	public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WellV2ScorecardTab", 300);
 		CommonMethod.RobustclickElementVisible("WellV2ScorecardTab","V2ProjectHsrScorecard");
