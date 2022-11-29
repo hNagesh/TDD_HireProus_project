@@ -7,7 +7,6 @@ import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
 
 public class ReusableMethodsCustomPortfolio extends BaseClass {
-
 	public void MeetThresholdsforParticulateMatter(String FeatureName) throws IOException, InterruptedException {
 		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
 		testlog.info("Fetching total no. of credits on page");
@@ -426,17 +425,17 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				 * Test by adding the core point
 				 */
 				 CommonMethod.clickListWebelementFromRange("PortfolioScoreCardVerificationAssignLocCbxGeneral", 0,1);
-				CommonMethod.Robustclick("PortfolioScoreCardAddButton");
+				CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddButton","PortfolioScoreCardVerificationCloseicon");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
 				CommonMethod.WaitUntilPresence("WPRAssignLocbtn", 60);
-				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardCorePointCheckbox", 3);
-				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardVerificationAssignbtn", 2);
+				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardCorePointCheckbox", 2);
+				CommonMethod.assertcountListWebelementFromIndex("PortfolioScoreCardVerificationAssignbtn", 1);
 				testlog.info("**Verifies CorePoint Checkbox Count successful**");
 				testlog.info("**Verifies Assign button Count successful**");
 				CommonMethod.WaitUntilPresence("PortfolioScorecardWeightHighlightA08", 30);
 				CommonMethod.scrolldowntoElement("PortfolioScorecardWeightHighlightA08");
-				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlightA08"),"1", "Weight Point for doesn't match");
+				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlightA08"),"2", "Weight Point for doesn't match");
 				softAssert.assertAll();
 				testlog.info("**Verifies Weight Point Count successful**");
 				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
