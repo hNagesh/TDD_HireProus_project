@@ -21,7 +21,7 @@
 </classes>
 </test>
 
- <test name="WELL-Membership-KS" >
+  <test name="WELL-Membership-KS" >
 <parameter name="SheetName" value="Membership"/>
 <parameter name="rowNum" value="2"/>
 <parameter name="MembershipName" value="Keystone"/>
