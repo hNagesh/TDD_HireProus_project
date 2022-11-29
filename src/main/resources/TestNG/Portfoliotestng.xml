@@ -44,6 +44,6 @@
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_06_PortfolioLocationImportTest"></class>
 		<class name="com.Well.testcases.Portfolio.Portfolio_CTC_01_FeatureTest"></class>
 	    <class name="com.Well.testcases.Portfolio.Portfolio_CTC_02_DocumentTest"></class>
-		</classes> -->
-	</test> 
+		</classes> 
+	</test> -->
 </suite>  
