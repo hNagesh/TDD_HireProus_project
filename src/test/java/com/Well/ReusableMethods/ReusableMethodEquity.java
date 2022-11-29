@@ -18,6 +18,15 @@ public class ReusableMethodEquity extends BaseClass {
 		String ProjectName = "Automation WER Project" + CommonMethod.randomNumber(8000000);
 		testlog.info("ProjectName: " + ProjectName);
 		data.setCellData(SheetName, "projectName", rowNum, ProjectName);
+		
+		CommonMethod.RobustclickElementVisible("WEROrgContinebtn", "WEREnrollName");
+		CommonMethod.negativesoftassertPageSource("Organization is required.", "Organization Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Organization Industry is required.", "Organization Industry Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Country is required.", "Country Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Street is required.", "Street Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("City is required.", "City Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Postal Code is required.", "Postal Code Error Mismatch");
+		
 		CommonMethod.WaitUntilPresence("WEREnrollName",60);
 		CommonMethod.sendKeys("WEREnrollName", ProjectName);
 		CommonMethod.ClickCheckbox("WEROwnerInfocbx");
@@ -49,6 +58,10 @@ public class ReusableMethodEquity extends BaseClass {
 		CommonMethod.RobustclickElementVisible("WEROrgContinebtn", "WEROwnerRegContinuebtn");
 		Thread.sleep(2000);
 		CommonMethod.scrollUp();
+		CommonMethod.RobustclickElementVisible("WEROwnerRegContinuebtn","WERBehalfCbx");
+		CommonMethod.negativesoftassertPageSource("On behalf of owner is required.", "Owner CheckBox Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Is the Owner organization an IWBI member?* is required.", "Owner Organization Name Error Mismatch");
+		
 		CommonMethod.ClickCheckbox("WERBehalfCbx");
 		CommonMethod.selectdropdownVisibletext("WERSelectMember", "No");
 		data.setCellData(SheetName, "WERSelectMember", rowNum,

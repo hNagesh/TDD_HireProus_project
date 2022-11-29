@@ -142,9 +142,10 @@ public class ReusableMethodPerformance extends BaseClass {
 		for (int i = 1; i <= YesEnd; i++) {
 			int RemainingYes = YesButton.size();
 			do {
+				CommonMethod.WaitUntilClickble(purseYes, 60);
 				CommonMethod.click(purseYes);
-				CommonMethod.WaitUntilVisibility("WPRCloseIcon", 30);
-				CommonMethod.WaitUntilInVisibility("WPRCloseIcon", 30);
+				CommonMethod.WaitUntilVisibility("WPRCloseIcon", 120);
+				CommonMethod.WaitUntilInVisibility("WPRCloseIcon",60);
 				YesButton = CommonMethod.findElements(purseYes);
 			} while (YesButton.size() == RemainingYes);
 			RemainingYes--;
@@ -156,8 +157,8 @@ public class ReusableMethodPerformance extends BaseClass {
 			do {
 				CommonMethod.WaitUntilClickble(NoButton.get(RemainingNo - j), 30);
 				CommonMethod.click(NoButton.get(RemainingNo - j));
-				CommonMethod.WaitUntilVisibility("WPRCloseIcon", 30);
-				CommonMethod.WaitUntilInVisibility("WPRCloseIcon", 30);
+				CommonMethod.WaitUntilVisibility("WPRCloseIcon", 120);
+				CommonMethod.WaitUntilInVisibility("WPRCloseIcon", 60);
 				Thread.sleep(1000);
 				NoButton = CommonMethod.findElements(purseNo);
 			} while (NoButton.size() == RemainingNo);
@@ -188,7 +189,7 @@ public class ReusableMethodPerformance extends BaseClass {
 			CommonMethod.WaitUntilVisibility("WPRAddOptionbtn", 60);
 			CommonMethod.Robustclick("WPRAddOptionbtn");
 			CommonMethod.WaitUntilVisibility("WPRAddOptionCloseIcon", 60);
-			CommonMethod.Robustclick("WPRAddOptionCloseIcon");
+			CommonMethod.Robustclick("WPRAddOptionCloseIcon","UploadFileVerifyScorecard");
 			CommonMethod.WaitUntilVisibility("WPRAssignLocbtn", 30);
 			Thread.sleep(1000);
 			CommonMethod.RobustclickElementVisible("WPRAssignLocbtn","WPRAssignLocCbx");
