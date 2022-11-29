@@ -481,11 +481,12 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddButton","PortfolioScoreCardVerificationCloseicon");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 60);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
+				
 				 /*
 				 * Test by adding the core point
 				 */
-				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlighted"),"2", "Weight Point for 2 doesn't match");
-				softAssert.assertAll();
+				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlighted"),"3", "Weight Point for 2 doesn't match");
+				
 				testlog.pass("**Verifies Core Weight Point successful**");
 				/*
 				 * Verify Upload button disable
@@ -503,6 +504,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 					CommonMethod.WaitUntilVisibility("PortfolioScorecardVerifyTotalLocationCount", 120);
 					CommonMethod.softAssertContainsMessage(
 					CommonMethod.getText("PortfolioScorecardAssignLocationCountInModel"), "LOCATIONS (5)", "Location Count in model doesn't match");
+					
 					/*
 					 * Assign Location filter
 					 */
@@ -527,7 +529,6 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 					CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationAssignLocSavebtn", 30);
 					CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocSavebtn", "PortfolioScoreCardVerificationAssignLocCancelbtn");
 }
-				
 				/*
 				 * Verifies Assign Button and verify Purse Location Count
 				 */
@@ -593,8 +594,8 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 					CommonMethod.softAssertContainsMessage(CommonMethod.getSelectedDropdownValue(drop), "1", "TierDropdown value doesn't match");
 				}
 				CommonMethod.WaitUntilPresence("PortfolioScorecardWeightHighlighted", 30);
-				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlighted"),"2", "Weight Point for 2 doesn't match");		
-				//softAssert.assertAll();
+				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlighted"),"1", "Weight Point for 2 doesn't match");		
+				softAssert.assertAll();
 				testlog.info("**Verifies CorePoint Checkbox count successful**");
 				testlog.info("**Verifies TierDropdown count successful**");
 				testlog.info("**Verifies TierDropdown value successful**");
