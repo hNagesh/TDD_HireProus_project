@@ -11,6 +11,12 @@ public class ReusableMethodsExam extends BaseClass {
 		CommonMethod.RobustclickElementVisible("TrainingNavBar","WELLExamRatingNavBar");
 		CommonMethod.RobustclickElementVisible("WELLExamRatingNavBar","WFExamContinuebtn");
 		CommonMethod.RobustclickElementVisible("WFExamContinuebtn","APRegContinue");
+		CommonMethod.RobustclickElementVisible("APRegContinue","WPRExamOwnerCountry");
+		CommonMethod.negativesoftassertPageSource("Country is required.", "Country Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Street is required.", "Street Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("City is required.", "City Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Postal Code is required.", "Postal Code Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Phone number* is required.", "Phone number Error Mismatch");
 		CommonMethod.selectdropdownValue("WPRExamOwnerCountry", "US");
 		data.setCellData(SheetName, "Country", rowNum, CommonMethod.getSelectedDropdownValue("WPRExamOwnerCountry"));
 		CommonMethod.selectdropdownrandom("WPRExamOwnerState");
@@ -37,6 +43,13 @@ public class ReusableMethodsExam extends BaseClass {
 	}
 
 	public void EnrollExam(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.RobustclickElementVisible("APJobtitleContinuebtn","APJobtitle");
+		CommonMethod.negativesoftassertPageSource("Job title* is required.", "Job title Error Mismatch");
+//		CommonMethod.negativesoftassertPageSource("Organization is required.", "Organization Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Industry/Sector is required.", "Industry/Sector Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Do you hold any of the following designations? is required.", "Designations Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Gender* is required.", "Gender Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Date of birth* is required.", "Date of birth Error Mismatch");
 		CommonMethod.WaitUntilVisibility("APJobtitle", 60);
 		String firstName = USfaker.address().firstName();
 		testlog.info("firstName: " + firstName);
@@ -58,6 +71,12 @@ public class ReusableMethodsExam extends BaseClass {
 		CommonMethod.RobustclickElementVisible("DatePickerOkButton","DatePickerOkButton");
 		CommonMethod.RobustclickElementVisible("DatePickerOkButton","APJobtitleContinuebtn");
 		CommonMethod.RobustclickElementVisible("APJobtitleContinuebtn","APAlmostContinuebtn");
+
+		CommonMethod.RobustclickElementVisible("APAlmostContinuebtn","APSelectWELLAP");
+		CommonMethod.negativesoftassertPageSource("How did you hear about the WELL AP?* is required.", "How did you hear about the WELL AP Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Checkbox is required.", "Credentials Checkbox Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Exam language is required.", "Exam language Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Agreement is required.", "Agreement Error Mismatch");
 		CommonMethod.selectdropdownIndex("APSelectWELLAP", 1);
 		data.setCellData(SheetName, "APSelectWELLAP", rowNum, CommonMethod.getSelectedDropdownValue("APSelectWELLAP"));
 		CommonMethod.ClickCheckbox("APPrimaryReason");
