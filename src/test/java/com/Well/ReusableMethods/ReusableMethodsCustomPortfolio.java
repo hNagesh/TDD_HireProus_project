@@ -811,15 +811,13 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 		CommonMethod.RobustclickElementVisible("PortfolioDocListA1.1","PortfolioScoreVerifyUploadVerificationMethod");
 		CommonMethod.WaitUntilVisibility("PortfolioScoreVerifyUploadVerificationMethod", 60);
 		String VerificationMethod = CommonMethod.getText("PortfolioScoreVerifyUploadVerificationMethod");
-		CommonMethod.softAssertContainsMessage(VerificationMethod, "Performance Test OR Sensor Data",
-				"Verification Method doesn't match");
+		CommonMethod.softAssertContainsMessage(VerificationMethod, "Performance Test OR Sensor Data","Verification Method doesn't match");
 		testlog.info("VerificationMethod: " + VerificationMethod);
 		CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardUploadFeatureName"),"Meet Thresholds for Particulate Matter", "Feature Name doesn't match");
 		CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardVerifyUpdateLocation"),"5 Locations assigned", "Selected Location Count doesn't match");
 		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload,"UploadFileVerifyScorecard");
 		CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
-		CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn",
-				"PortfolioScoreCardVerificationAddNote");
+		CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn","PortfolioScoreCardVerificationAddNote");
 		if (CommonMethod.isElementsExist("PortfolioScorecardDocumentAddedPopup", 3)) {
 			CommonMethod.WaitUntilInVisibility("PortfolioScorecardDocumentAddedPopup", 30);
 		}
