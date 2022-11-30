@@ -1,6 +1,5 @@
 package com.Well.ReusableMethods;
 
-import java.io.File;
 import java.io.IOException;
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
@@ -212,8 +211,11 @@ public class ReusableMethodsMembership extends BaseClass {
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("MPValidUploadFile", 120);
 		CommonMethod.clickOnListWebelementFromIndex("MPLicenseEdit", 0);
-		CommonMethod.selectdropdownValue("MPSelectUpdateProductCategories", "9");
-		CommonMethod.selectdropdownValue("MPSelectproductType", "60");
+		CommonMethod.WaitUntilPresence("MPLicenseUpdateCloseFeaturePart", 60);
+		CommonMethod.RobustclickElementVisible("MPLicenseUpdateCloseFeaturePart", "MPSelectUpdateProductCategories");
+		CommonMethod.WaitUntilInVisibility("MPLicenseUpdateCloseFeaturePart", 120);
+		CommonMethod.selectdropdownVisibletext("MPSelectUpdateProductCategories", "Communications");
+		CommonMethod.selectdropdownVisibletext("MPSelectproductType", "Audio-Video Systems");
 		CommonMethod.WaitUntilVisibility("MPSelectPartname", 30);
 		CommonMethod.RobustclickElementVisible("MPSelectPartname", "MPSelectPartnameChild");
 		CommonMethod.RobustclickElementVisible("MPSelectPartnameChild", "MPGroupName");
