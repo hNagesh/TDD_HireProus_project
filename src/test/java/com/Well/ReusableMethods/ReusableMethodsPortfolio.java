@@ -203,20 +203,16 @@ public class ReusableMethodsPortfolio extends BaseClass {
 					CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocSavebtn",
 							"PortfolioScoreCardVerificationAssignLocCancelbtn");
 				}
-				Thread.sleep(2000);
 				CommonMethod.scrollDown();
-				List<WebElement> UploadTaskbtn;
-				UploadTaskbtn = CommonMethod.findElements("PortfolioScoreCardVerificationUploadbtn");
-				for (WebElement f : UploadTaskbtn) {
-					CommonMethod.WaitUntilClickble(f, 30).click();
+					CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadbutton", "PortfolioScorecardUploadFeatureName");
 					CommonMethod.WaitUntilPresence("PortfolioScorecardUploadFeatureName", 60);
 					CommonMethod.scrolldowntoElement("PortfolioScorecardUploadFeatureName");
 					CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload);
 					if (FeatureName.equalsIgnoreCase("Support Mindful Eating")) {
 						CommonMethod.WaitUntilVisibility("PortfolioScorecardUploadEditLocationA05.2", 60);
-						CommonMethod.RobustclickElementVisible("PortfolioScorecardUploadEditLocationA05.2", "PortfolioScorecardUncheckLoc");
-						CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationAssignChildLocCbx", 30);
-						CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocCbx","PortfolioScorecardValidDisable");
+						CommonMethod.RobustclickElementVisible("PortfolioScorecardUploadEditLocationA05.2", "PortfolioScoreCardEditLocationCbx");
+						CommonMethod.WaitUntilClickble("PortfolioScoreCardEditLocationCbx", 30);
+						CommonMethod.RobustclickElementVisible("PortfolioScoreCardEditLocationCbx", "PortfolioScorecardVerifyTaskUploadEditLocationsUpdateButton");
 						CommonMethod.RobustclickElementVisible("PortfolioScorecardVerifyTaskUploadEditLocationsUpdateButton","PortfolioScoreCardVerificationAddNote");
 					}
 					CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
@@ -224,11 +220,10 @@ public class ReusableMethodsPortfolio extends BaseClass {
 					if (CommonMethod.isElementsExist("PortfolioScorecardDocumentAddedPopup", 3)) {
 						CommonMethod.WaitUntilInVisibility("PortfolioScorecardDocumentAddedPopup", 30);
 					}
-				}
-				CommonMethod.WaitUntilVisibility("PortfolioScorecardVerifyLoc", 30);
-				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
-				CommonMethod.click(ele);
-			}
+					CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
+					CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
+					CommonMethod.click(ele);
+				}		
 		}
 		testlog.pass("**Upload Scorecard Documents in feature successfully**");
 	}
@@ -296,23 +291,24 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.selectdropdownValue("V2ProjectPortfolioDocType", "audit");
 		CommonMethod.selectdropdownVisibletext("PortfolioSelectverificationMethod", "Technical Document (Audited)");
 		CommonMethod.WaitUntilPresence("WPRSelectFeaturePart", 60);
-		CommonMethod.scrolldowntoElement("WPRHSRDocumentType");
+		CommonMethod.scrolldowntoElement("PortfolioSelectverificationMethod");
 		CommonMethod.selectdropdownVisibletext("WPRSelectFeaturePart","N08.1");
 		CommonMethod.scrolldowntoElement("WPRSelectFeaturePart");
 		CommonMethod.WaitUntilPresence("WPRAddPartButton", 60);
 		CommonMethod.Robustclick("WPRAddPartButton","WPRSelectFeaturePart");
 		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", AuditfileUpload, "UploadFileVerifyScorecard");
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadSubmitbutton", 60);
-		CommonMethod.Robustclick("PortfolioDocumentUploadSubmitbutton");
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadSubmitbutton","PortfolioDocumentListLink");
 		CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
 		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioScorecardDocumentUploadTable");
+		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
+		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
 		CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
 		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
 		CommonMethod.softAssertContainsMessage(val.get(6), "Audit", "Document table data mismatch");
 		softAssert.assertAll();
 		testlog.pass("**Upload Audit Document successfully**");
-	
 	}
 	
 	public void ValidatingFeatureUploadDocument() throws IOException, InterruptedException {
@@ -321,9 +317,9 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.scrolldowntoElement("PortfolioDocumentUploadbutton");
 		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadbutton", "V2ProjectPortfolioDocType");
 		CommonMethod.selectdropdownValue("V2ProjectPortfolioDocType", "feature");
-		CommonMethod.selectdropdownValue("PortfolioSelectverificationMethod", "Policy and/or Operations Schedule");
+		CommonMethod.selectdropdownVisibletext("PortfolioSelectverificationMethod", "Policy and/or Operations Schedule");
 		CommonMethod.WaitUntilPresence("WPRSelectFeaturePart", 60);
-		CommonMethod.scrolldowntoElement("WPRHSRDocumentType");
+		CommonMethod.scrolldowntoElement("PortfolioSelectverificationMethod");
 		CommonMethod.selectdropdownVisibletext("WPRSelectFeaturePart","A02.1");
 		CommonMethod.scrolldowntoElement("WPRSelectFeaturePart");
 		CommonMethod.WaitUntilPresence("WPRAddPartButton", 60);
@@ -335,13 +331,14 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.RobustclickElementVisible("PortfolioScoreCardVerificationAssignLocSavebtn","PortfolioScoreCardVerificationUpload");
 		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload,"UploadFileVerifyScorecard");
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadSubmitbutton", 60);
-		CommonMethod.Robustclick("PortfolioDocumentUploadSubmitbutton");
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadSubmitbutton","PortfolioDocumentListLink");
 		CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
 		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioScorecardDocumentUploadTable");
 		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
+		CommonMethod.refreshBrowser();
+		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
 		CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
 		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
-		testlog.info("Fetching Data from Upload Table");
 		CommonMethod.softAssertContainsMessage(val.get(6), "Feature", "Document table data mismatch");
 		softAssert.assertAll();
 		testlog.pass("**Upload Feature Document successfully**");
