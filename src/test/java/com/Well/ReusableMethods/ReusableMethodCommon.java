@@ -275,6 +275,12 @@ public class ReusableMethodCommon extends BaseClass {
 		data.setCellData(SheetName, "WellReviewer", rowNum,
 				CommonMethod.getSelectedDropdownValue("WellReviewerDropDown"));
 		testlog.info("Well Reviewer: " + data.getCellData(SheetName, "WellReviewer", rowNum));
+		if(SheetName.equalsIgnoreCase("Wer")|| SheetName.equalsIgnoreCase("Wpr") || SheetName.equalsIgnoreCase("Hsr")){
+			System.out.println("@@@@@@@@@@@@@@@@@@");
+		CommonMethod.ClickCheckbox("EditAchievedStatus");
+		CommonMethod.RobustclickElementVisible("DatePickerButton","DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerOkButton","V2ProjectSaveChangesButton");
+		}
 		CommonMethod.WaitUntilVisibility("V2ProjectSaveChangesButton", 60);
 		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "WPRHsrPortfolioDashboard");
 		testlog.pass("**Admin data updated successfully**");
