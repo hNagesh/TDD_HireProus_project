@@ -18,6 +18,7 @@
 <class name="com.Well.testcases.Membership.Membership_TC_04_BillingTest"></class>
 <class name="com.Well.testcases.Membership.Membership_TC_05_ProductLicensingTest"></class>
 <class name="com.Well.testcases.Faculty.Faculty_TC_05_BulkDeleteTest"></class>
+<class name="com.Well.testcases.Membership.Membership_TC_06_ErrorNegativeAssertTest"></class>
 </classes>
 </test>
 

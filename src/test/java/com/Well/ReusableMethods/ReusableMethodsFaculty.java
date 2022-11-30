@@ -19,6 +19,21 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.RobustclickElementVisible("WELLFacultyNavBar","WFExamContinuebtn");
 		CommonMethod.WaitUntilVisibility("WFExamContinuebtn", 30);
 		CommonMethod.RobustclickElementVisible("WFExamContinuebtn","WPRExamOwnerCountry");
+		CommonMethod.RobustclickElementVisible("WFAddrContinuebtn","WPRExamOwnerCountry");
+		CommonMethod.negativesoftassertPageSource("Country is required.", "Country Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Street is required.", "Street Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("City is required.", "City Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Postal Code is required.", "Postal Code Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Employer is required.", "Employer Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Position is required.", "Position Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Language Selection is required.", "Language Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Please upload a CV/Resume with the file type of doc, docx, pdf, txt.", "Upload CV/Resume with the file type Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Please select if you are a current USGBC Faculty member.", "USGBC Faculty member Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Please select a Credential or Certification.", "Credential or Certification Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Please select if you are migrated from USGBC.", "Migrated from USGBC Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Please select if you are an advisor.", "Select Advisor Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Please select if you are a part of a Member organization.", "Select Member Organization Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Please select if you are LEED Faculty.", "Select LEED Faculty Error Mismatch");
 		CommonMethod.WaitUntilVisibility("WPRExamOwnerCountry", 60);
 		CommonMethod.selectdropdownValue("WPRExamOwnerCountry", "US");
 		data.setCellData(SheetName, "Country", rowNum, CommonMethod.getattributeValue("WPRExamOwnerCountry"));
@@ -64,6 +79,10 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WFFacultyApplication", 60);
 		CommonMethod.scrolldowntoElement("WFFacultyApplication");
 		String sampleText = "WELL Faculty Application";
+		CommonMethod.RobustclickElementVisible("WFAddrContinuebtn","WFFacilitation");
+		CommonMethod.negativesoftassertPageSource("Please fill out the required fields.", "Qualification Required Fields Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Fileupload is required.", "Fileupload Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Please confirm the terms and conditions.", "Terms And Conditions Error Mismatch");
 		CommonMethod.sendKeys("WFFacilitation", sampleText);
 		data.setCellData(SheetName, "WFFacilitation", rowNum, CommonMethod.getattributeValue("WFFacilitation"));
 		CommonMethod.uploadFile("WFProvideUpload", SamplePdffile);
@@ -85,7 +104,26 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WFFacultyApplication", 60);
 		testlog.pass("**Verifies the Agreement Faculty successfully**");
 	}
-	public void SubmitReview(String SheetName, int rowNum) throws IOException, InterruptedException {
+	public void SubmitReview(String SheetName, int rowNum, String assertion) throws IOException, InterruptedException {
+		if(assertion.equalsIgnoreCase("assertion")) {
+			CommonMethod.RobustclickElementVisible("WFExamContinuebtn","WFSubmitApplicationbtn");
+			System.out.println("Status Radio button is selected");
+			CommonMethod.negativesoftassertPageSource("Please select application status.", "Application Status Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("Region is required.", "Region Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("Source is required.", "Source Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("Teaching Experience is required.", "Teaching Experience Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("Teaching Experience Notes is required.", "Teaching Experience Notes Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("WELL Events Taught is required.", "WELL Events Taught Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("Willingness to Train is required.", "Willingness to Train Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("Technical is required.", "Technical Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("Red Flag is required.", "Red Flag Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("Workshops is required.", "Workshops Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("Next Step is required.", "Next Step Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("Admin Notes is required.", "Admin Notes Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("Admin Notes 2 is required.", "Admin Notes 2 Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("Admin Notes 3 is required.", "Admin Notes 3 Error Mismatch");
+			CommonMethod.negativesoftassertPageSource("Please upload Scorecard Documents.", "Scorecard Documents Error Mismatch");
+		}
 		CommonMethod.WaitUntilVisibility("WFFacultyApplication", 60);
 		CommonMethod.scrolldowntoElement("WFFacultyApplication");
 		CommonMethod.WaitUntilVisibility("WFStatus", 60);
@@ -125,7 +163,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 	}
 
 	public void SubmitReviewFaculty(String SheetName, int rowNum) throws IOException, InterruptedException {
-		SubmitReview(SheetName, rowNum);
+		SubmitReview(SheetName, rowNum,"assertion");
 		CommonMethod.WaitUntilVisibility("WFSubmitApplicationbtn", 60);
 		CommonMethod.RobustclickElementVisible("WFSubmitApplicationbtn","WFReturnbtn");
 		Thread.sleep(2000);
@@ -150,7 +188,7 @@ public class ReusableMethodsFaculty extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WFAddrContinuebtn", 60);
 		Thread.sleep(1000);
 		CommonMethod.RobustclickElementVisible("WFAddrContinuebtn","WFFacultyApplication");
-		SubmitReview(SheetName, rowNum);
+		SubmitReview(SheetName, rowNum,"No Assertion");
 		CommonMethod.RobustclickElementVisible("WFReturnSubmitButton","WFAdminReviewApprovedStatus");
 		CommonMethod.assertcontainsmessage("WFAdminReviewApprovedStatus", "APPROVED", "Verified Review status");
 		testlog.pass("**Verifies Review Result successfully**");
