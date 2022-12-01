@@ -5,7 +5,7 @@
 
 	<parameter name="browserName" value="chrome" />
 	<parameter name="environment" value="Test" />
-	  <!--  <test name="WELL-At-Scale">
+	    <test name="WELL-At-Scale">
 		<parameter name="SheetName" value="Portfolio" />
 		<parameter name="rowNum" value="2" />
 		<parameter name="Country" value="US"/>
@@ -28,7 +28,7 @@
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_13_AddTeamMemberTest"></class>
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_13A_ValidateProjectAccessTeamTest"></class>
 		 </classes>
-	</test>-->
+	</test>
 	
 	 <test name="WELL-At-Scale-Custom">
 		<parameter name="SheetName" value="Portfolio" />
