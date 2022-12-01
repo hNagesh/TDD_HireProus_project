@@ -16,7 +16,8 @@ public class Portfolio_CTC_02_DocumentTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Attach Document and verify");
 		try {
-			portfolio.clickDocument();		
+			portfolio.clickDocument();	
+			pf.A01_1_FeatureDocumentUploadInDocumentLibrary();
 			pf.L09_AuditDocumentUploadInDocumentLibrary();
 			pf.UpdateAuditDocumentUploadInDocumentLibrary();
 			pf.A01_2_DocumentUploadInDocumentLibrary();
@@ -24,7 +25,7 @@ public class Portfolio_CTC_02_DocumentTest extends BaseClass {
 			pf.ValidatingLegalUploadDocument();
 			pf.DeleteInDocumentLibrary();
 			pf.FilterInDocumentLibrary();		
-		    //pf.A01_1_FeatureDocumentUploadInDocumentLibrary();
+		    
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
