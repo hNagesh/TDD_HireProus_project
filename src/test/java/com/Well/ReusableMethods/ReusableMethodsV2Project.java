@@ -73,14 +73,25 @@ public class ReusableMethodsV2Project extends BaseClass {
 		}
 		CommonMethod.WaitUntilVisibility("DatePickerButton", 300);
 		CommonMethod.RobustclickElementVisible("DatePickerButton", "V2ProjectDatePopupWeekday");
-		//CommonMethod.WaitUntilVisibility("V2ProjectnextMonthbtn", 120);
-		//CommonMethod.Robustclick("V2ProjectnextMonthbtn", "V2ProjectDatePopupWeekday");
-		//CommonMethod.WaitUntilVisibility("V2ProjectselectNextMonth", 120);
-		//Thread.sleep(1000);
-		//CommonMethod.RobustclickElementVisible("V2ProjectselectNextMonth","DatePickerOkButton");
-		//Thread.sleep(1000);
-		//CommonMethod.WaitUntilVisibility("DatePickerOkButton", 120);
-		//CommonMethod.Robustclick("DatePickerOkButton", "V2ProjectselectNextMonth");
+		
+		CommonMethod.WaitUntilVisibility("V2ProjectnextYearbtn", 120);
+		CommonMethod.Robustclick("V2ProjectnextYearbtn", "V2ProjectDatePopupWeekday");
+		CommonMethod.WaitUntilVisibility("V2ProjectselectNextYear", 120);
+		Thread.sleep(1000);
+		CommonMethod.RobustclickElementVisible("V2ProjectselectNextYear","DatePickerOkButton");
+		Thread.sleep(1000);
+		CommonMethod.WaitUntilVisibility("DatePickerOkButton", 120);
+		CommonMethod.Robustclick("DatePickerOkButton", "V2ProjectselectNextYear");
+		
+		
+		CommonMethod.WaitUntilVisibility("V2ProjectnextMonthbtn", 120);
+		CommonMethod.Robustclick("V2ProjectnextMonthbtn", "V2ProjectDatePopupWeekday");
+		CommonMethod.WaitUntilVisibility("V2ProjectselectNextMonth", 120);
+		Thread.sleep(1000);
+		CommonMethod.RobustclickElementVisible("V2ProjectselectNextMonth","DatePickerOkButton");
+		Thread.sleep(1000);
+		CommonMethod.WaitUntilVisibility("DatePickerOkButton", 120);
+		CommonMethod.Robustclick("DatePickerOkButton", "V2ProjectselectNextMonth");
 		CommonMethod.WaitUntilPresence("DatePickerOkButton", 120);
 		CommonMethod.RobustclickElementVisible("DatePickerOkButton","V2ProjectdocsubConfirmbtn");
 		CommonMethod.WaitUntilClickble("V2ProjectdocsubConfirmbtn", 60);
