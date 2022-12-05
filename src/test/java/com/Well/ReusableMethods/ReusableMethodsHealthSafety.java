@@ -250,6 +250,57 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		testlog.pass("**Completed Reviewed Preliminary Health-Safety Review successfully**");
 	}
 
+	public void SubmitHsrReview(String SheetName, int rowNum, String ReviewName) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ReviewTab", 120);
+		CommonMethod.RobustclickElementVisible("ReviewTab","Reviewlanding");
+		CommonMethod.WaitUntilVisibility("Reviewlanding", 120);
+		CommonMethod.WaitUntilVisibility("HsrSubmitReview", 60);
+		CommonMethod.RobustclickElementVisible("HsrSubmitReview","HsrSubmitDocReview");
+		CommonMethod.WaitUntilVisibility("HsrSubmitDocReview", 60);
+		CommonMethod.WaitUntilVisibility("HsrCommentReview", 60).sendKeys(ReviewName);
+		CommonMethod.WaitUntilPresence("HsrSelectedProjectPhaseReview", 60);
+		CommonMethod.selectdropdownVisibletext("HsrSelectedProjectPhaseReview", ReviewName);
+		CommonMethod.WaitUntilClickble("HsrSubmitDocReview", 60);
+		CommonMethod.RobustclickElementVisible("HsrSubmitDocReview","ReviewViewButton");
+		CommonMethod.WaitUntilVisibility("Reviewlanding", 60);
+		testlog.pass("**Submitted Health-Safety Review successfully**");
+	}
+		
+	public void CompleteHsrReview(String SheetName, int rowNum, String ReviewName) throws IOException, InterruptedException {
+		/*
+		 * Admin Review
+		 */
+		CommonMethod.WaitUntilVisibility("AdminNavBar", 120);
+		CommonMethod.RobustclickElementVisible("AdminNavBar","AdminWELLHealthsafetyNavBar");
+		CommonMethod.WaitUntilVisibility("AdminWELLHealthsafetyNavBar", 60);
+		CommonMethod.RobustclickElementVisible("AdminWELLHealthsafetyNavBar", "HsrAdminIdSearch");
+		CommonMethod.WaitUntilVisibility("HsrAdminIdSearch", 300);
+		CommonMethod.RobustclickElementVisible("HsrAdminIdSearch","HsrAdminApplybtn");
+		CommonMethod.sendKeys("HsrAdminIdSearch", data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.RobustclickElementVisible("HsrAdminApplybtn","HsrAdminIdClick");
+		Thread.sleep(2000);
+		CommonMethod.assertcontainsmessage("HsrAdminIdClick", data.getCellData(SheetName, "projectID", rowNum),
+				"Project name doesn't matches in search");
+		CommonMethod.RobustclickElementVisible("HsrAdminIdClick","ReviewTab");
+		CommonMethod.WaitUntilVisibility("ReviewTab", 300);
+		CommonMethod.RobustclickElementVisible("ReviewTab","ReviewViewButton");
+	    CommonMethod.WaitUntilVisibility("ReviewViewButton", 60);
+	    CommonMethod.RobustclickElementVisible("ReviewViewButton","ReviewReturnButton");
+		CommonMethod.WaitUntilVisibility("ReviewReturnButton", 60);
+		CommonMethod.RobustclickElementVisible("ReviewReturnButton", "ReviewReturnSubmit");
+		CommonMethod.WaitUntilClickble("ReturnComment", 60).sendKeys(ReviewName);
+		CommonMethod.RobustclickElementVisible("DatePickerButton", "DatePickerOkButton");
+		CommonMethod.Robustclick("DatePickerOkButton");
+		CommonMethod.scrollDown();
+		Thread.sleep(1000);
+		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
+		CommonMethod.Robustclick("ReviewReturnSubmit");
+		Thread.sleep(2000);
+		CommonMethod.WaitUntilClickble("ReviewedStatus", 60);
+		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
+		testlog.pass("**Completed Reviewed Health-Safety Review successfully**");
+	}
+
 	public void HsrProjectFieldValidationTest(String SheetName, int rowNum) throws Exception {
 		CommonMethod.WaitUntilVisibility("EditTab", 120);
 		CommonMethod.RobustclickElementVisible("EditTab", "HsrWprOrganizationInformation");
