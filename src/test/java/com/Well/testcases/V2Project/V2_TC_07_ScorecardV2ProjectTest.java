@@ -89,4 +89,35 @@ public class V2_TC_07_ScorecardV2ProjectTest extends BaseClass {
 			throw e1;
 		}
 	}
+	
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_07_ScorecardV2ProjectTest.V2_TC_07_04_UploadAuditDocV2ProjectInsideScorecard" })
+	@Parameters({ "SheetName","rowNum" })
+	public void V2_TC_07_05_ScoreCardSearchFilterV2Project(String SheetName,int rowNum) throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		StartTest(TestCaseName,"Validate scorecard search filter successfully");
+		try {
+			v2project.searchFilterScoreCardV2Project();
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_07_ScorecardV2ProjectTest.V2_TC_07_05_ScoreCardSearchFilterV2Project" })
+	@Parameters({ "SheetName","rowNum" })
+	public void V2_TC_07_06_ScoreCardOptionFilterV2Project(String SheetName,int rowNum) throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		StartTest(TestCaseName,"Validate scorecard option filter successfully");
+		try {
+			v2project.scorecardOptionFilterV2Project(SheetName, rowNum);
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
 }
