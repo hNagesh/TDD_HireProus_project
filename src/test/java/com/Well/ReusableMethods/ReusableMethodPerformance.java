@@ -502,7 +502,7 @@ public class ReusableMethodPerformance extends BaseClass {
 			testlog.info("YesFeatureCount: " + actualYesFeatureCount);
 			CommonMethod.softAssertEqualsMessage(actualYesFeatureCount, expectedResult, "YesPurseCount doesn't match");
 		}
-		if (filterName.equalsIgnoreCase("Verification")) {
+		if (filterName.equalsIgnoreCase("Verification") || filterName.equalsIgnoreCase("Document Scale")) {
 			CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectWPRPFeature", 36,120);
 			CommonMethod.WaitUntilInVisibility("WPRValidTotalFeature", 120);
 			CommonMethod.WaitUntilPresence("WPRValidVerification", 60);
