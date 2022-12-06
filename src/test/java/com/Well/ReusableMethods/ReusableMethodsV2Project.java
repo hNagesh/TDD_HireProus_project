@@ -1303,7 +1303,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 	}
 
 	public void searchFilterScoreCardV2Project() throws IOException, InterruptedException {
-		CommonMethod.WaitUntilInVisibility("V2ProjectScoreCardSearchBox", 60);
+		CommonMethod.WaitUntilVisibility("V2ProjectScoreCardSearchBox", 60);
 		CommonMethod.sendKeys("V2ProjectScoreCardSearchBox", "Meet Thresholds for Particulate Matter");
 		CommonMethod.assertActualContainsExpected(CommonMethod.getText("V2ProjectScoreCardOptionValue"),
 				"Meet Thresholds for Particulate Matter");
