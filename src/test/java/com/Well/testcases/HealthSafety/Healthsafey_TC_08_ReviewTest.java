@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Healthsafey_TC_08_ReviewTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_07_ScorecardTest.Healthsafey_TC_07_01_UploadScorecardDocument" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_07_ScorecardTest.Healthsafey_TC_07_03_FilterVerification" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Healthsafey_TC_08_00_PreliminarySubmitReview(String SheetName,int rowNum) throws IOException {
 

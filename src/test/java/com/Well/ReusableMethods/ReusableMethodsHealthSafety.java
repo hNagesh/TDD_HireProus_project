@@ -410,5 +410,27 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		testlog.pass("**Upload Audit Document successfully**");	
 		
 	}
-
+	public void validateScorecardFilterResponse() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilPresence("HsrScorecardResponseFilter", 120);
+		CommonMethod.RobustclickElementVisible("HsrScorecardResponseFilter", "HsrScorecardYesPurseResponseFilterCbx");
+		CommonMethod.WaitUntilPresence("HsrScorecardYesPurseResponseFilterCbx", 120);
+		CommonMethod.clickListWebelementFromIndex("HsrScorecardYesPurseResponseFilterCbx", 0);
+		int YesResponseCount = CommonMethod.ElementSize("V2ProjectWPRPFeature");
+		CommonMethod.assertExpectedContainsActual(String.valueOf(YesResponseCount),"15","Scorecard Filter Response doesn't match");
+		softAssert.assertAll();
+		CommonMethod.refreshBrowser();
+		testlog.pass("**Verifies Scorecard Filter Response successfully**");
+	}
+	
+	public void validateScorecardFilterVerification() throws IOException, InterruptedException {	
+		CommonMethod.WaitUntilPresence("HsrScorecardVerificationFilter", 120);
+		CommonMethod.RobustclickElementVisible("HsrScorecardVerificationFilter", "HsrScorecardFilterSelectbyVerification");
+		CommonMethod.WaitUntilPresence("HsrScorecardFilterSelectbyVerification", 120);
+		CommonMethod.selectdropdownVisibletext("HsrScorecardFilterSelectbyVerification", "On-site Photographs");
+		int FeatureCount = CommonMethod.ElementSize("V2ProjectWPRPFeature");
+		CommonMethod.assertExpectedContainsActual(String.valueOf(FeatureCount),"4","Verification filter doesn't match");
+		softAssert.assertAll();
+		CommonMethod.refreshBrowser();
+		testlog.pass("**Verifies Scorecard Filter Verification successfully**");
+	}
 }
