@@ -182,18 +182,18 @@ public class ReusableMethodEquity extends BaseClass {
 		testlog.pass("**Upload 21 Scorecard Documents successfully**");
 	}
 	
-	public void WERSubmitReview(String SheetName, int rowNum) throws IOException, InterruptedException {
+	public void WERSubmitReview(String SheetName, int rowNum, String ReviewName) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("ReviewTab", 60);
 		CommonMethod.RobustclickElementVisible("ReviewTab","WPRReviewSubmitbtn");
 		CommonMethod.RobustclickElementVisible("WPRReviewSubmitbtn","WPRReviewProjectPhase");
-		CommonMethod.selectdropdownVisibletext("WPRReviewProjectPhase", "Preliminary Equity Rating Review");
-		CommonMethod.WaitUntilClickble("WPRReviewComment", 60).sendKeys("Preliminary Equity Rating Review");	
+		CommonMethod.selectdropdownVisibletext("WPRReviewProjectPhase", ReviewName);
+		CommonMethod.WaitUntilClickble("WPRReviewComment", 60).sendKeys(ReviewName);	
 		CommonMethod.WaitUntilVisibility("WPRReviewSubmitDocbtn", 30);
 		CommonMethod.RobustclickElementVisible("WPRReviewSubmitDocbtn","ReviewViewButton");
 		CommonMethod.WaitUntilVisibility("Reviewlanding", 60);
 		testlog.pass("**Submitted Preliminary Precertification Review successfully**");
 	}
-	public void WERCompleteReview(String SheetName, int rowNum) throws IOException, InterruptedException {
+	public void WERCompleteReview(String SheetName, int rowNum, String ReviewName) throws IOException, InterruptedException {
 		/*
 		 * Admin Review
 		 */
@@ -214,7 +214,7 @@ public class ReusableMethodEquity extends BaseClass {
 		CommonMethod.RobustclickElementVisible("ReviewViewButton","ReviewReturnButton");
 		CommonMethod.WaitUntilVisibility("ReviewReturnButton", 60);
 		CommonMethod.RobustclickElementVisible("ReviewReturnButton","ReturnComment");
-		CommonMethod.WaitUntilClickble("ReturnComment", 60).sendKeys("Preliminary Precertification Review");
+		CommonMethod.WaitUntilClickble("ReturnComment", 60).sendKeys(ReviewName);
 		Thread.sleep(1000);
 		CommonMethod.RobustclickElementVisible("DatePickerButton","DatePickerOkButton");
 		CommonMethod.RobustclickElementVisible("DatePickerOkButton","ReviewPaymentstatusRadio");

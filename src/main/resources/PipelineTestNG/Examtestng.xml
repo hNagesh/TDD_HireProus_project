@@ -17,6 +17,7 @@
 <class name="com.Well.testcases.Exam.Exam_TC_04_BillingTest"></class>
 <class name="com.Well.testcases.Exam.Exam_TC_05_StoreExamIdTest"></class> 
 <class name="com.Well.testcases.Exam.Exam_TC_06_CancelExamByIdTest"></class>
+<class name="com.Well.testcases.Exam.Exam_TC_07_ErrorNegativeAssertTest"></class>
 </classes>
 </test>
 

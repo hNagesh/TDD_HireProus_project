@@ -1,9 +1,11 @@
 package com.Well.ReusableMethods;
 
-import java.io.File;
 import java.io.IOException;
+import java.util.List;
+import org.openqa.selenium.WebElement;
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
+
 
 public class ReusableMethodsMembership extends BaseClass {
 
@@ -182,28 +184,47 @@ public class ReusableMethodsMembership extends BaseClass {
 		CommonMethod.negativesoftassertPageSource("Document is required.", "Document Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("At least one supporting document is required.", "At least one supporting document Error Mismatch");
 		for (int i = 1; i <= 3; i++) {
+			int j = i+1;
 			CommonMethod.uploadFile("MPApplicationform", ProductInfoFormfileUpload, "MPApplicationformDeleteIcon");
 			CommonMethod.uploadFile("MPSupportingdocuments", ProductInfoFormfileUpload, "MPSupportingdocumentsIcon");
 			CommonMethod.selectdropdownrandom("MPSelectProductCategories");
 			String ProductCategories = CommonMethod.getSelectedDropdownValue("MPSelectProductCategories");
 			testlog.info("ProductCategories: " + ProductCategories);
+			data.setCellData(SheetName, "ProductCategories", j, ProductCategories);
 			CommonMethod.selectdropdownrandom("MPSelectproductType");
+			String getproductType = CommonMethod.getSelectedDropdownValue("MPSelectproductType");
+			testlog.info("ProductType: " + getproductType);
+			data.setCellData(SheetName, "ProductType", j, getproductType);
 			CommonMethod.WaitUntilVisibility("MPSelectPartname", 120);
 			CommonMethod.RobustclickElementVisible("MPSelectPartname", "MPSelectPartnameChild");
 			CommonMethod.RobustclickElementVisible("MPSelectPartnameChild", "MPGroupName");
-			String GroupName = USfaker.address().firstName();
-			testlog.info("GroupName: " + GroupName);
-			CommonMethod.sendKeys("MPGroupName", GroupName);
-			String getGroupName = CommonMethod.getattributeValue("MPGroupName");
-			testlog.info("getGroupName: " + getGroupName);
+			data.setCellData(SheetName, "FeaturePart", j, CommonMethod.getText("MPLicenseValidFeaturePart"));
+			CommonMethod.sendKeys("MPGroupName", data.getCellData(SheetName, "GroupName", j));
 			CommonMethod.sendKeys("MPLicenseComment", "QA Team");
+			String getComment = CommonMethod.getattributeValue("MPLicenseComment");
+			data.setCellData(SheetName, "Comment", j, getComment);
 			CommonMethod.RobustclickElementVisible("MPSaveProductButton", "MPValidGroupName");
 			CommonMethod.scrolldowntoElement("MPValidUploadFile");
 			CommonMethod.WaitUntilPresence("MPValidGroupName", 120);
 		}
+	List<WebElement> Feature = CommonMethod.findElements("MPLicenseValidGroupName");
+		int tempRowNum = rowNum ;
+		for (WebElement ele : Feature) {
+			String GroupName = ele.getText();
+		CommonMethod.softAssertContainsMessage(GroupName,data.getCellData(SheetName, "GroupName", rowNum), "GroupName data mismatch");
+		rowNum++;
+		}
+		rowNum = tempRowNum;
+		List<WebElement> FeaturePart = CommonMethod.findElements("MPLicenseValidFeaturePartName");
+		for (WebElement ele : FeaturePart) {
+			String getFeaturePart = ele.getText();
+		CommonMethod.softAssertContainsMessage(getFeaturePart,data.getCellData(SheetName, "FeaturePart", rowNum), "FeaturePart data mismatch");
+		rowNum++;
+		}
 		CommonMethod.assertcountListWebelementFromIndex("MPLicenseProductCard", 3);
 		CommonMethod.assertcountListWebelementFromIndex("MPLicenseEdit", 3);
-		CommonMethod.assertcountListWebelementFromIndex("MPDeleteIcon", 3);
+		CommonMethod.assertcountListWebelementFromIndex("MPDeleteIcon", 4);
+		softAssert.assertAll();
 		testlog.pass("**Verifies Created Product Licensing successfully**");
 		testlog.pass("**Verifies added 3 Product Licensing Group successfully**");
 	}
@@ -212,8 +233,11 @@ public class ReusableMethodsMembership extends BaseClass {
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("MPValidUploadFile", 120);
 		CommonMethod.clickOnListWebelementFromIndex("MPLicenseEdit", 0);
-		CommonMethod.selectdropdownValue("MPSelectUpdateProductCategories", "9");
-		CommonMethod.selectdropdownValue("MPSelectproductType", "60");
+		CommonMethod.WaitUntilPresence("MPLicenseUpdateCloseFeaturePart", 60);
+		CommonMethod.RobustclickElementVisible("MPLicenseUpdateCloseFeaturePart", "MPSelectUpdateProductCategories");
+		CommonMethod.WaitUntilInVisibility("MPLicenseUpdateCloseFeaturePart", 120);
+		CommonMethod.selectdropdownVisibletext("MPSelectUpdateProductCategories", "Communications");
+		CommonMethod.selectdropdownVisibletext("MPSelectproductType", "Audio-Video Systems");
 		CommonMethod.WaitUntilVisibility("MPSelectPartname", 30);
 		CommonMethod.RobustclickElementVisible("MPSelectPartname", "MPSelectPartnameChild");
 		CommonMethod.RobustclickElementVisible("MPSelectPartnameChild", "MPGroupName");
@@ -238,8 +262,9 @@ public class ReusableMethodsMembership extends BaseClass {
 		CommonMethod.WaitUntilPresence("MPValidUploadFile", 120);
 		CommonMethod.clickOnListWebelementFromIndex("MPDeleteIcon", 2);
 		CommonMethod.RobustclickElementVisible("MPLicenseProductDelete", "MPSelectProductCategories");
-		CommonMethod.assertcountListWebelementFromIndex("MPDeleteIcon", 2);
+		CommonMethod.assertcountListWebelementFromIndex("MPDeleteIcon", 3);
 		testlog.pass("**Verifies Delete Product Licensing Group successfully**");
+		softAssert.assertAll();
 	}
 
 	public void SubmitProductLicensingReview(String SheetName, int rowNum, String MembershipName)
