@@ -16,7 +16,7 @@ public class Equity_TC_09_ReviewTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
         StartTest(TestCaseName, "Equity Review Submit Functionality");
 		try {
-			equity.WERSubmitReview(SheetName, rowNum);	
+			equity.WERSubmitReview(SheetName, rowNum, "Preliminary Equity Rating Review");	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -32,7 +32,7 @@ public class Equity_TC_09_ReviewTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
         StartTest(TestCaseName, "Equity Completing Review Functionality");
 		try {
-			equity.WERCompleteReview(SheetName, rowNum);
+			equity.WERCompleteReview(SheetName, rowNum,"Preliminary Equity Rating Review");
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -48,7 +48,7 @@ public class Equity_TC_09_ReviewTest extends BaseClass {
 	        StartTest(TestCaseName, "Equity Review Submit Functionality");
 			try {
 				equity.SearchEquityByID(SheetName,rowNum);
-				equity.WERSubmitReview(SheetName, rowNum);	
+				equity.WERSubmitReview(SheetName, rowNum, "Final Equity Rating Review");	
 			} catch (Throwable t) {
 				System.out.println(t.getLocalizedMessage());
 				Error e1 = new Error(t.getMessage());
@@ -64,7 +64,7 @@ public class Equity_TC_09_ReviewTest extends BaseClass {
 			TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 	        StartTest(TestCaseName, "Equity Completing Review Functionality");
 			try {
-				equity.WERCompleteReview(SheetName, rowNum);	
+				equity.WERCompleteReview(SheetName, rowNum, "Final Equity Rating Review");	
 			} catch (Throwable t) {
 				System.out.println(t.getLocalizedMessage());
 				Error e1 = new Error(t.getMessage());
@@ -81,7 +81,7 @@ public class Equity_TC_09_ReviewTest extends BaseClass {
 	        StartTest(TestCaseName, "Equity Review Submit Functionality");
 			try {
 				equity.SearchEquityByID(SheetName,rowNum);
-				equity.WERSubmitReview(SheetName, rowNum);	
+				equity.WERSubmitReview(SheetName, rowNum,"Curative Action Review");	
 			} catch (Throwable t) {
 				System.out.println(t.getLocalizedMessage());
 				Error e1 = new Error(t.getMessage());
@@ -97,7 +97,7 @@ public class Equity_TC_09_ReviewTest extends BaseClass {
 			TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 	        StartTest(TestCaseName, "Equity Completing Review Functionality");
 			try {
-				equity.WERCompleteReview(SheetName, rowNum);	
+				equity.WERCompleteReview(SheetName, rowNum, "Curative Action Review");	
 				equity.SearchEquityByID(SheetName,rowNum);
 			} catch (Throwable t) {
 				System.out.println(t.getLocalizedMessage());
