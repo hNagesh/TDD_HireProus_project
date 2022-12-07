@@ -249,7 +249,6 @@ public class ReusableMethodPerformance extends BaseClass {
 			if(SheetName.equalsIgnoreCase("Wpr"))  {
 				CommonMethod.RobustclickElementVisible("WPRUploadDocTaskbtn","WPRScorecardFeatureName");
 			}
-			
 			CommonMethod.scrolldowntoElement("WPRScorecardFeatureName");
 			CommonMethod.RobustclickElementVisible("WPRScorecardConfirmLocation","WPRAssignLocCbx");
 			CommonMethod.declickListWebelementFromIndex("PortfolioScoreCardVerificationAssignLocCbxGeneral", 2);

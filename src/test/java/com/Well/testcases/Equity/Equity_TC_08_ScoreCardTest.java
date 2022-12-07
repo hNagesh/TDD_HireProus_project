@@ -15,7 +15,6 @@ public class Equity_TC_08_ScoreCardTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
         StartTest(TestCaseName,"Performance Scorecard Complete Functionality");
-
 		try {
 			equity.CompleteScorecardWerById(SheetName,rowNum);
 		} catch (Throwable t) {
@@ -32,7 +31,6 @@ public class Equity_TC_08_ScoreCardTest extends BaseClass {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
         StartTest(TestCaseName,"Upload Document Scorecard Functionality");
-
 		try {
 			equity.UploadWERDocForFeature(21);
 		} catch (Throwable t) {
