@@ -476,7 +476,7 @@ public class ReusableMethodPerformance extends BaseClass {
 	
 	public void searchFilterScoreCard(String FeatureName) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilInVisibility("V2ProjectScoreCardSearchBox", 60);
-		CommonMethod.sendKeys("V2ProjectScoreCardSearchBox", "Meet Thresholds for Particulate Matter");
+		CommonMethod.sendKeys("V2ProjectScoreCardSearchBox", FeatureName);
 		CommonMethod.WaitUntilPresence("V2ProjectWPRPFeature", 60);
 		CommonMethod.assertActualContainsExpected(CommonMethod.getText("V2ProjectWPRPFeature"),FeatureName);
 		CommonMethod.softAssertEqualsMessage(Integer.toString(CommonMethod.ElementSize("V2ProjectWPRPFeature")), "1", "YesPurseCount doesn't match");
