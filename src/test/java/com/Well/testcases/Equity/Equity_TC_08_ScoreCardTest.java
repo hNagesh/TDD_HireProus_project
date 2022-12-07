@@ -57,4 +57,34 @@ public class Equity_TC_08_ScoreCardTest extends BaseClass {
 			throw e1;
 		}
 	}
+	
+	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_08_ScoreCardTest.Equity_TC_08_02_AuditUploadDocumentScorecard" })
+	@Parameters({ "SheetName","rowNum" })
+	public void Equity_TC_08_03_ScoreCardSearchFilter(String SheetName,int rowNum) throws IOException {
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		StartTest(TestCaseName,"Verifies Search Scorecard Filter Functionality");
+		try {
+			performance.searchFilterScoreCard("Create DEI Assessment and Action Plan");
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
+	
+	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_08_ScoreCardTest.Equity_TC_08_03_ScoreCardSearchFilter" })
+	@Parameters({ "SheetName","rowNum" })
+	public void Equity_TC_08_04_ScoreCardOptionFilter(String SheetName,int rowNum) throws IOException {
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		StartTest(TestCaseName,"Verifies Scorecard Filter Options Functionality");
+		try {
+			performance.scorecardOptionFilter(SheetName, rowNum);
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
 }
