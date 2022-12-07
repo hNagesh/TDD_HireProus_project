@@ -171,13 +171,13 @@ public class ReusableMethodEquity extends BaseClass {
 	public void CompleteScorecardWerById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ScorecardTab", 300);
 		CommonMethod.RobustclickElementVisible("ScorecardTab","WPRPortfolioScorecardLanding");
-		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
+		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", Scorecardtimeout);
 		performance.ScorecardfillHSRWPR(21, 21, 49, 29, "WPRPurseYes", "WPRPurseNo");
 		testlog.pass("**Verifies the 21 Purse Yes Scorecard Equity successfully**");
 	}
 
 	public void UploadWERDocForFeature(int LastFeatureNumber) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
+		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", Scorecardtimeout);
 		performance.uploadDocumentInFeature(LastFeatureNumber);
 		testlog.pass("**Upload 21 Scorecard Documents successfully**");
 	}

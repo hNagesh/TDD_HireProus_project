@@ -66,6 +66,7 @@ public class BaseClass {
 	public static WebDriver driver;
 	public static XlsReader data;
 	public static int timeout=60;
+	public static int Scorecardtimeout=900;
 	public static ExtentTest testlog;
 	public static ExtentReports extent;
 	public static String TestCaseName;

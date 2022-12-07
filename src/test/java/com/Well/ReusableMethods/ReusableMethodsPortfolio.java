@@ -171,7 +171,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 			CommonMethod.WaitUntilVisibility("PortfolioScorecardPopupButton", 30);
 			CommonMethod.RobustclickElementVisible("PortfolioScorecardPopupButton","PortFolioScoreCardPageLand");
 		}
-		CommonMethod.WaitUntilVisibility("PortFolioScoreCardPageLand", 300);
+		CommonMethod.WaitUntilVisibility("PortFolioScoreCardPageLand", Scorecardtimeout);
 		testlog.pass("**Verfies Scorecard Page successfully**");
 	}
 

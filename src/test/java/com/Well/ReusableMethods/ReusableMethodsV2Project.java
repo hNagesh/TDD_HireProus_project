@@ -351,14 +351,14 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void BuildScorecardV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("V2ProjectStartBuilding", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectStartBuilding", "ScoreCardPageLand");
+		CommonMethod.RobustclickElementVisible("V2ProjectStartBuilding","ScoreCardPageLand");
 		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 300);
 		testlog.pass("**Verfies Scorecard Page successfully**");
 	}
 
 	public void RefreshScorecard() throws IOException {
 		CommonMethod.refreshBrowser();
-		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 600);
+		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", Scorecardtimeout);
 	}
 
 	public void Scorecardfill(int YesEnd, int NoStart, int NoEnd, int DifferencePlusOne)

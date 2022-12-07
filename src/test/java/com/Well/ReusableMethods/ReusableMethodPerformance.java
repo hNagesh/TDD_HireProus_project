@@ -170,7 +170,7 @@ public class ReusableMethodPerformance extends BaseClass {
 	public void CompleteScorecardWprById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ScorecardTab", 300);
 		CommonMethod.RobustclickElementVisible("ScorecardTab","WPRPortfolioScorecardLanding");
-		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
+		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", Scorecardtimeout);
 		ScorecardfillHSRWPR(21, 21, 36, 16, "WPRPurseYes", "WPRPurseNo");
 		testlog.pass("**Verifies the 15 Purse Yes Scorecard Performance successfully**");
 	}
@@ -249,7 +249,6 @@ public class ReusableMethodPerformance extends BaseClass {
 			if(SheetName.equalsIgnoreCase("Wpr"))  {
 				CommonMethod.RobustclickElementVisible("WPRUploadDocTaskbtn","WPRScorecardFeatureName");
 			}
-			
 			CommonMethod.scrolldowntoElement("WPRScorecardFeatureName");
 			CommonMethod.RobustclickElementVisible("WPRScorecardConfirmLocation","WPRAssignLocCbx");
 			CommonMethod.declickListWebelementFromIndex("PortfolioScoreCardVerificationAssignLocCbxGeneral", 2);
@@ -264,7 +263,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		}
 	}
 	public void UploadWPRDocForFeature() throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
+		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", Scorecardtimeout);
 		uploadDocumentInFeature(21);
 		testlog.pass("**Upload 21 Scorecard Documents successfully**");
 	}
@@ -475,14 +474,12 @@ public class ReusableMethodPerformance extends BaseClass {
 		testlog.pass("**Upload Feature Document successfully**");		
 	}
 	
-	public void searchFilterScoreCard() throws IOException, InterruptedException {
+	public void searchFilterScoreCard(String FeatureName) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilInVisibility("V2ProjectScoreCardSearchBox", 60);
-		CommonMethod.sendKeys("V2ProjectScoreCardSearchBox", "Meet Thresholds for Particulate Matter");
+		CommonMethod.sendKeys("V2ProjectScoreCardSearchBox", FeatureName);
 		CommonMethod.WaitUntilPresence("V2ProjectWPRPFeature", 60);
-		CommonMethod.assertActualContainsExpected(CommonMethod.getText("V2ProjectWPRPFeature"),
-				"Meet Thresholds for Particulate Matter");
-		CommonMethod.softAssertEqualsMessage(Integer.toString(CommonMethod.ElementSize("V2ProjectWPRPFeature")),
-				"1", "YesPurseCount doesn't match");
+		CommonMethod.assertActualContainsExpected(CommonMethod.getText("V2ProjectWPRPFeature"),FeatureName);
+		CommonMethod.softAssertEqualsMessage(Integer.toString(CommonMethod.ElementSize("V2ProjectWPRPFeature")), "1", "YesPurseCount doesn't match");
 		softAssert.assertAll();
 		CommonMethod.refreshBrowser();
 		testlog.pass("**Search filter working successfully**");
