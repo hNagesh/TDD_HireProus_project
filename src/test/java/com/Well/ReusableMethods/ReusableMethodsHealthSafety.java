@@ -161,7 +161,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ScorecardTab", 300);
 		CommonMethod.RobustclickElementVisible("ScorecardTab","HsrScorecard");
-		CommonMethod.WaitUntilVisibility("HsrScorecard", 300);
+		CommonMethod.WaitUntilVisibility("HsrScorecard", Scorecardtimeout);
 		ScorecardfillHSRWPR(15, 1, 27, 27);
 		testlog.pass("**Verifies the 15 Purse Yes Scorecard HealthSafety in V2Project successfully**");
 	}
@@ -197,7 +197,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	}
 
 	public void UploadHsrDocForFeature() throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("HsrScorecard", 300);
+		CommonMethod.WaitUntilVisibility("HsrScorecard", Scorecardtimeout);
 		uploadDocumentInFeature(15);
 		testlog.pass("**Upload 15 Scorecard Documents successfully**");
 	}

@@ -170,7 +170,7 @@ public class ReusableMethodPerformance extends BaseClass {
 	public void CompleteScorecardWprById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ScorecardTab", 300);
 		CommonMethod.RobustclickElementVisible("ScorecardTab","WPRPortfolioScorecardLanding");
-		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
+		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", Scorecardtimeout);
 		ScorecardfillHSRWPR(21, 21, 36, 16, "WPRPurseYes", "WPRPurseNo");
 		testlog.pass("**Verifies the 15 Purse Yes Scorecard Performance successfully**");
 	}
@@ -263,7 +263,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		}
 	}
 	public void UploadWPRDocForFeature() throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
+		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", Scorecardtimeout);
 		uploadDocumentInFeature(21);
 		testlog.pass("**Upload 21 Scorecard Documents successfully**");
 	}
