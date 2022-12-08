@@ -62,15 +62,16 @@ stages {
                         currentBuild.result = 'UNSTABLE'
                         
                     }
-                     post {
-                        always {
-                            stash includes: '**/target/surefire-reports/junitreports/*.xml', name: 'testresult-1'
-                        }
-                    }
+                     
                 }
 		     
                    
             }
+            post {
+                        always {
+                            stash includes: '**/target/surefire-reports/junitreports/*.xml', name: 'testresult-1'
+                        }
+                    }
 			}
 			
 			stage('TEST'){
@@ -96,15 +97,16 @@ stages {
                         currentBuild.result = 'UNSTABLE'
                         
                     }
-                     post {
-                        always {
-                            stash includes: '**/target/surefire-reports/junitreports/*.xml', name: 'testresult-2'
-                        }
-                    }
+                     
                 }
 		     
                    
             }
+            post {
+                        always {
+                            stash includes: '**/target/surefire-reports/junitreports/*.xml', name: 'testresult-2'
+                        }
+                    }
 			
 			}
             }
