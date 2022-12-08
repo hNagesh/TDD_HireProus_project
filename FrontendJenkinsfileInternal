@@ -76,7 +76,7 @@ stages {
                     }
 			}
 			
-			stage('Testing Batch 1'){
+			stage('Testing Batch 2'){
 			agent {
                     node {
                     label 'jenkins_node'
