@@ -43,8 +43,9 @@ stages {
 	            failFast true
 				parallel {
 				stage ('STG'){
+				agent {
+                    node {
                 steps{
-                    
                     script {
 			    
                     try {
@@ -64,8 +65,11 @@ stages {
                    
             }
 			}
+			}
+			}
 			stage('TEST'){
-			
+			agent {
+                    node {
 			steps{
                     
                     script {
@@ -88,6 +92,8 @@ stages {
             }
 			
 			}
+            }
+            }
             }
             }
 stage('Test Results'){
