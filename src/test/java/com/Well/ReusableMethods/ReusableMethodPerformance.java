@@ -478,17 +478,17 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilPresence("V2ProjectScoreCardSearchBox", 60);
 		CommonMethod.sendKeys("V2ProjectScoreCardSearchBox", FeatureName);
 		CommonMethod.WaitUntilPresence("V2ProjectWPRPFeature", 60);
+		testlog.info(FeatureName+ ": " + FeatureName);
 		CommonMethod.assertActualContainsExpected(CommonMethod.getText("V2ProjectWPRPFeature"),FeatureName);
 		CommonMethod.softAssertEqualsMessage(Integer.toString(CommonMethod.ElementSize("V2ProjectWPRPFeature")), "1", "YesPurseCount doesn't match");
 		softAssert.assertAll();
 		CommonMethod.refreshBrowser();
-		testlog.pass("**Search filter working successfully**");
+		testlog.pass("**Verifies Search filter successfully**");
 	}
 	
 	public void verifyScoreCardFilter(String SheetName, String filterName, String expectedResult, int filterIndex, int checkboxIndex)
 			throws IOException, InterruptedException {
-		CommonMethod.WaitUntilPresence("V2ProjectScoreCardFilterButton", 120);
-		Thread.sleep(3000);
+		CommonMethod.WaitUntilPresence("V2ProjectScoreCardFilterButton", 180);
 		CommonMethod.RobustclickElementVisible("V2ProjectScoreCardFilterButton", "V2ProjectScorecardApplybutton");
 		CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filterIndex);
 		CommonMethod.clickListWebelementFromIndex("V2ProjectScoreCardFilterOptionCheckBox", checkboxIndex);
@@ -508,14 +508,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		testlog.info(filterName+": " + actualYesFeatureCount);
 		CommonMethod.softAssertEqualsMessage(actualYesFeatureCount, expectedResult, "Feature Count doesn't match");
 		}
-		if (SheetName.equalsIgnoreCase("Wpr")) {
-		CommonMethod.WaitUntilPresence("APCloseIcon", 60);
-		CommonMethod.RobustclickElementVisible("APCloseIcon", "V2ProjectScoreCardFilterButton");
-		}
-		CommonMethod.WaitUntilPresence("V2ProjectScoreCardFilterButton", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectScoreCardFilterButton", "V2ProjectScorecardApplybutton");
-		CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filterIndex);
-		CommonMethod.click("V2ProjectScorecardClearbutton");
+		CommonMethod.refreshBrowser();
 		softAssert.assertAll();
 		testlog.pass("**Verifies filter " + filterName + " options successfully**");
 	}
