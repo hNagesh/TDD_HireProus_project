@@ -14,6 +14,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -42,9 +43,13 @@ public class TestNGEmailableReport2 implements IReporter {
 
 	// Reusable buffer
 	private final StringBuilder buffer = new StringBuilder();
-
+	int max = 100;
+	int min = 1;
+	Random rand = new Random();
+	int randomNum = rand.nextInt((max - min) + 1) + min;
+	String number = String.valueOf(randomNum);
 	private String dReportTitle = "WELL Frontend Testing Summary";
-	private String dReportFileName = "emailable-report"+CommonMethod.randomNumber1To99()+".html";
+	private String dReportFileName = "emailable-report"+number+".html";
 
 	@Override
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
