@@ -53,7 +53,7 @@ stages {
            	checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '', url: 'git@github.com:agupta89/WellFrontendTest.git']]]         
 			wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, shutdownWithBuild: true ,displayNameOffset: 1,installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 60])
                         {
-                        sh "mvn -f 'Pipelinepom.xml' clean install -Denv=STG -Dmaven.test.failure.ignore=true" 
+                        sh "mvn -f 'Pipelinepom.xml' clean install -Dsurefire.suiteXmlFiles='PipelineCombinedRegression2.xml' -Denv=${env.environment} -Dmaven.test.failure.ignore=true" 
                     }
                     }
                     catch (exc) {
@@ -89,7 +89,7 @@ stages {
        		checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '', url: 'git@github.com:agupta89/WellFrontendTest.git']]]
 			wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, shutdownWithBuild: true ,displayNameOffset: 1,installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 60])
                         {
-                        sh "mvn -f 'Pipelinepom.xml' clean install -Denv=TEST -Dmaven.test.failure.ignore=true" 
+                        sh "mvn -f 'Pipelinepom.xml' clean install -Dsurefire.suiteXmlFiles='PipelineCombinedRegression.xml' -Denv=${env.environment} -Dmaven.test.failure.ignore=true" 
                     }
                     }
                     catch (exc) {

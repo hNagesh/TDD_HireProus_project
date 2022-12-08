@@ -213,7 +213,7 @@
                     <environment>${env}</environment>
                 </systemPropertyVariables>
 					<suiteXmlFiles>	   					
-        <suiteXmlFile>src/main/resources/PipelineTestNG/PipelineCombinedRegression.xml</suiteXmlFile>
+        <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
 						   </suiteXmlFiles>
 				</configuration>
 			</plugin>
