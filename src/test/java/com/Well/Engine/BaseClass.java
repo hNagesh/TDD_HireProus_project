@@ -102,9 +102,11 @@ public class BaseClass {
 	public static ReusableMethodsMembership membership = new ReusableMethodsMembership();
 	public static ReusableMethodEquity equity = new ReusableMethodEquity();
 	public static ReusableMethodCommon rc = new ReusableMethodCommon();
+
 	@BeforeSuite
 	@Parameters({ "browserName", "environment","SecurtiyTest" })
 	public void setup(String browserName, String environment,@Optional("false") String SecurtiyTest) throws InterruptedException, IOException, ClientApiException {
+		
 		
 		data= new XlsReader(System.getProperty("user.dir")+"/TestData.xlsx");
 		Properties prop = new Properties();
