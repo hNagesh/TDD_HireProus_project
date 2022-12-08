@@ -41,7 +41,7 @@ stages {
 	 
 	            failFast true
 				parallel {
-				stage ('STG'){
+				stage ('Testing Batch 1'){
 				agent {
                     node {
                     label 'jenkins_node'
@@ -71,12 +71,12 @@ stages {
             post {
                         always {
                             stash includes: '**/target/surefire-reports/junitreports/*.xml', name: 'testresult-1'
-                            stash includes: '**/target/surefire-reports/emailable-report2.html', name: 'email-1'
+                            stash includes: '**/target/surefire-reports/*.html', name: 'email-1'
                         }
                     }
 			}
 			
-			stage('TEST'){
+			stage('Testing Batch 1'){
 			agent {
                     node {
                     label 'jenkins_node'
@@ -107,7 +107,7 @@ stages {
             post {
                         always {
                             stash includes: '**/target/surefire-reports/junitreports/*.xml', name: 'testresult-2'
-                            stash includes: '**/target/surefire-reports/emailable-report2.html', name: 'email-2'
+                            stash includes: '**/target/surefire-reports/*.html', name: 'email-2'
                         }
                     }
 			

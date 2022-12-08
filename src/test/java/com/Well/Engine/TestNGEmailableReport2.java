@@ -44,7 +44,7 @@ public class TestNGEmailableReport2 implements IReporter {
 	private final StringBuilder buffer = new StringBuilder();
 
 	private String dReportTitle = "WELL Frontend Testing Summary";
-	private String dReportFileName = "emailable-report2.html";
+	private String dReportFileName = "emailable-report"+CommonMethod.randomNumber1To99()+".html";
 
 	@Override
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
