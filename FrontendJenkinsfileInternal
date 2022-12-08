@@ -45,6 +45,9 @@ stages {
 				stage ('STG'){
 				agent {
                     node {
+                    label 'jenkins_node'
+                    }
+                    }
                 steps{
                     script {
 			    
@@ -65,11 +68,13 @@ stages {
                    
             }
 			}
-			}
-			}
+			
 			stage('TEST'){
 			agent {
                     node {
+                    label 'jenkins_node'
+                    }
+                    }
 			steps{
                     
                     script {
@@ -94,8 +99,7 @@ stages {
 			}
             }
             }
-            }
-            }
+            
 stage('Test Results'){
 	            steps{
 	            echo "ZIP"
