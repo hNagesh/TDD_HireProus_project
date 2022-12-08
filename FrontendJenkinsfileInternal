@@ -70,6 +70,7 @@ stages {
             post {
                         always {
                             stash includes: '**/target/surefire-reports/junitreports/*.xml', name: 'testresult-1'
+                            stash includes: '**/target/surefire-reports/emailable-report2.html', name: 'email-1'
                         }
                     }
 			}
@@ -105,6 +106,7 @@ stages {
             post {
                         always {
                             stash includes: '**/target/surefire-reports/junitreports/*.xml', name: 'testresult-2'
+                            stash includes: '**/target/surefire-reports/emailable-report2.html', name: 'email-2'
                         }
                     }
 			
@@ -133,6 +135,8 @@ stage('Test Results'){
          script {
                 unstash 'testresult-1'
                 unstash 'testresult-2'
+                unstash 'email-1'
+                unstash 'email-2'
             summary = junit '**/target/surefire-reports/junitreports/*.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, includes: '**/*.html', keepAll: true, reportDir: 'Report', reportFiles: 'WELL_AutomationReport.html', reportName: 'Frontend-Execution-Report', reportTitles: ''])  
         }
