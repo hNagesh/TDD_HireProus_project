@@ -150,7 +150,7 @@ stage('Test Results'){
             PassPercentage = pass/Total*100
             echo "${PassPercentage}"
             }
-            emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report2.html',
+            emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report1*.html',
         body: '''${SCRIPT, template="groovy-html.template"}''',
         mimeType: 'text/html',
         subject: "[Jenkins] ${env.JOB_NAME}-${env.BUILD_NUMBER}",
@@ -166,7 +166,7 @@ stage('Test Results'){
             echo "${PassPercentage}"
             }  
              echo 'This will run only if the run was marked as unstable'
-              emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report2.html',
+              emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report1*.html',
         body: '''${SCRIPT, template="groovy-html.template"}''',
         mimeType: 'text/html',
         subject: "[Jenkins] ${env.JOB_NAME}-${env.BUILD_NUMBER}",
