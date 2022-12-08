@@ -62,6 +62,11 @@ stages {
                         currentBuild.result = 'UNSTABLE'
                         
                     }
+                     post {
+                        always {
+                            stash includes: '**/target/surefire-reports/junitreports/*.xml', name: 'testresult-1'
+                        }
+                    }
                 }
 		     
                    
@@ -91,6 +96,11 @@ stages {
                         currentBuild.result = 'UNSTABLE'
                         
                     }
+                     post {
+                        always {
+                            stash includes: '**/target/surefire-reports/junitreports/*.xml', name: 'testresult-2'
+                        }
+                    }
                 }
 		     
                    
@@ -102,9 +112,7 @@ stages {
             
 stage('Test Results'){
 	            steps{
-	            echo "ZIP"
-    zip zipFile: 'ExecutionReport.zip', glob: '**/Report/*.html'
-    echo "END - ZIP"
+	            
 			    echo env.GIT_BRANCH
 			     script {
 			     if ("${env.GIT_BRANCH}" == "origin/env/stg") {
@@ -121,6 +129,8 @@ stage('Test Results'){
         post {
          always {
          script {
+                unstash 'testresult-1'
+                unstash 'testresult-2'
             summary = junit '**/target/surefire-reports/junitreports/*.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, includes: '**/*.html', keepAll: true, reportDir: 'Report', reportFiles: 'WELL_AutomationReport.html', reportName: 'Frontend-Execution-Report', reportTitles: ''])  
         }
