@@ -475,7 +475,7 @@ public class ReusableMethodPerformance extends BaseClass {
 	}
 	
 	public void searchFilterScoreCard(String FeatureName) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilInVisibility("V2ProjectScoreCardSearchBox", 60);
+		CommonMethod.WaitUntilPresence("V2ProjectScoreCardSearchBox", 60);
 		CommonMethod.sendKeys("V2ProjectScoreCardSearchBox", FeatureName);
 		CommonMethod.WaitUntilPresence("V2ProjectWPRPFeature", 60);
 		CommonMethod.assertActualContainsExpected(CommonMethod.getText("V2ProjectWPRPFeature"),FeatureName);
@@ -485,9 +485,10 @@ public class ReusableMethodPerformance extends BaseClass {
 		testlog.pass("**Search filter working successfully**");
 	}
 	
-	public void verifyScoreCardFilter(String filterName, String expectedResult, int filterIndex, int checkboxIndex)
+	public void verifyScoreCardFilter(String SheetName, String filterName, String expectedResult, int filterIndex, int checkboxIndex)
 			throws IOException, InterruptedException {
-		CommonMethod.WaitUntilPresence("V2ProjectScoreCardFilterButton", 60);
+		CommonMethod.WaitUntilPresence("V2ProjectScoreCardFilterButton", 120);
+		Thread.sleep(3000);
 		CommonMethod.RobustclickElementVisible("V2ProjectScoreCardFilterButton", "V2ProjectScorecardApplybutton");
 		CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filterIndex);
 		CommonMethod.clickListWebelementFromIndex("V2ProjectScoreCardFilterOptionCheckBox", checkboxIndex);
@@ -496,31 +497,26 @@ public class ReusableMethodPerformance extends BaseClass {
 			CommonMethod.WaitUntilPresence("WPRValidPurseYes", 60);
 			int YesFeature = CommonMethod.ElementSize("WPRValidPurseYes");
 			String actualYesFeatureCount = Integer.toString(YesFeature);
-			testlog.info("YesFeatureCount: " + actualYesFeatureCount);
+			testlog.info(filterName+ ": " + actualYesFeatureCount);
 			CommonMethod.softAssertEqualsMessage(actualYesFeatureCount, expectedResult, "YesPurseCount doesn't match");
 		}
 		if (filterName.equalsIgnoreCase("Verification") || filterName.equalsIgnoreCase("Document Scale")) {
-			CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectWPRPFeature", 36,120);
 			CommonMethod.WaitUntilInVisibility("WPRValidTotalFeature", 120);
 			CommonMethod.WaitUntilPresence("WPRValidVerification", 60);
 		int FeatureCount = CommonMethod.ElementSize("V2ProjectWPRPFeature");
 		String actualYesFeatureCount = Integer.toString(FeatureCount);
-		testlog.info("YesFeatureCount: " + actualYesFeatureCount);
-		CommonMethod.softAssertEqualsMessage(actualYesFeatureCount, expectedResult, "YesPurseCount doesn't match");
+		testlog.info(filterName+": " + actualYesFeatureCount);
+		CommonMethod.softAssertEqualsMessage(actualYesFeatureCount, expectedResult, "Feature Count doesn't match");
 		}
+		if (SheetName.equalsIgnoreCase("Wpr")) {
 		CommonMethod.WaitUntilPresence("APCloseIcon", 60);
 		CommonMethod.RobustclickElementVisible("APCloseIcon", "V2ProjectScoreCardFilterButton");
+		}
 		CommonMethod.WaitUntilPresence("V2ProjectScoreCardFilterButton", 60);
 		CommonMethod.RobustclickElementVisible("V2ProjectScoreCardFilterButton", "V2ProjectScorecardApplybutton");
 		CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filterIndex);
 		CommonMethod.click("V2ProjectScorecardClearbutton");
-	}
-	
-      public void scorecardOptionFilter(String SheetName, int rowNum) throws IOException, InterruptedException {
-		verifyScoreCardFilter("Response", "22", 0, 0);
-		verifyScoreCardFilter("Verification", "4", 1, 3);
-		verifyScoreCardFilter("Document Scale", "33", 2, 24);
 		softAssert.assertAll();
-		testlog.pass("**Verifies filter options successfully**");
+		testlog.pass("**Verifies filter " + filterName + " options successfully**");
 	}
 }

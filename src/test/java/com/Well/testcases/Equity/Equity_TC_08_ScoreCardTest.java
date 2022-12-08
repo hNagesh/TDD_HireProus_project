@@ -77,7 +77,9 @@ public class Equity_TC_08_ScoreCardTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Verifies Scorecard Filter Options Functionality");
 		try {
-			performance.scorecardOptionFilter(SheetName, rowNum);
+			performance.verifyScoreCardFilter(SheetName, "Response", "22", 0, 0);
+			performance.verifyScoreCardFilter(SheetName, "Verification", "4", 1, 3);
+			performance.verifyScoreCardFilter(SheetName, "Document Scale", "10", 2, 24);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
