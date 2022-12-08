@@ -48,7 +48,7 @@ public class TestNGEmailableReport2 implements IReporter {
 	Random rand = new Random();
 	int randomNum = rand.nextInt((max - min) + 1) + min;
 	String number = String.valueOf(randomNum);
-	private String dReportTitle = "WELL Frontend Parallel Module Execution";
+	private String dReportTitle = "WELL Frontend Test Execution";
 	private String dReportFileName = "emailable-report"+number+".html";
 
 	@Override
