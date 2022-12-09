@@ -27,6 +27,7 @@
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_14_EditTest"></class> 
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_13_AddTeamMemberTest"></class>
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_13A_ValidateProjectAccessTeamTest"></class>
+		<class name="com.Well.testcases.Portfolio.Portfolio_TC_16_ErrorNegativeAssertTest"></class>
 		 </classes>
 	</test>
 	
