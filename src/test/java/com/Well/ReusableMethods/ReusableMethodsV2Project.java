@@ -604,7 +604,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectDocUploadbtn", 60);
 		CommonMethod.RobustclickElementVisible("V2ProjectDocUploadbtn", "V2ProjectPortfolioDocType");
-		testlog.info("Document Type" + "Ongoing data reports");
+		testlog.info("Document Type: Ongoing data reports");
 		CommonMethod.selectdropdownVisibletext("V2ProjectPortfolioDocType", "Ongoing data reports");
 		Thread.sleep(2000);
 		CommonMethod.RobustclickElementVisible("V2ProjectResetbtn", "V2ProjectPortfolioDocType");
@@ -1245,7 +1245,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 				"1", "YesPurseCount doesn't match");
 		softAssert.assertAll();
 		CommonMethod.RobustclickElementVisible("V2ProjectScorecardRefreshButton", "V2ProjectScoreCardFilterButton");
-		testlog.pass("**Search filter working successfully**");
+		testlog.pass("**Verifies Scorecard Search filter successfully**");
 	}
 
 	public void verifyScoreCardFilter(String filterName, String expectedResult, int filterIndex, int checkboxIndex)
