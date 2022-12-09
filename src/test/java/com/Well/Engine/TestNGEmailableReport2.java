@@ -14,6 +14,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -42,8 +43,12 @@ public class TestNGEmailableReport2 implements IReporter {
 
 	// Reusable buffer
 	private final StringBuilder buffer = new StringBuilder();
-
-	private String dReportTitle = "WELL Frontend Testing Summary";
+	/*
+	 * int max = 19; int min = 11; Random rand = new Random(); int randomNum =
+	 * rand.nextInt((max - min) + 1) + min; String number =
+	 * String.valueOf(randomNum);
+	 */
+	private String dReportTitle = "WELL Frontend Test Execution";
 	private String dReportFileName = "emailable-report2.html";
 
 	@Override

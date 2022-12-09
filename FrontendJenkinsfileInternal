@@ -9,7 +9,7 @@ options {
   }
 agent any 
 triggers {
-    cron('H 16 * * 1-5')
+    cron('H 18 * * 1-5')
   }
 stages {
         stage('Build') {
@@ -21,7 +21,8 @@ stages {
 		   }
                    steps {
 		   echo 'Hello World'
-                   script {			    	
+                   script {		
+		checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '', url: 'git@github.com:agupta89/WellFrontendTest.git']]]         	   
                    if ("${env.GIT_BRANCH}" == "origin/env/stg") {
                    env.environment = "STG"
                    env.Branch = "env/stg"
@@ -39,15 +40,21 @@ stages {
        stage('Build And Test'){
 	 
 	            failFast true
+				parallel {
+				stage ('Testing Batch 1'){
+				agent {
+                    node {
+                    label 'jenkins_node'
+                    }
+                    }
                 steps{
-                    
                     script {
 			    
                     try {
-			checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '', url: 'git@github.com:agupta89/WellFrontendTest.git']]]
+           	checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '', url: 'git@github.com:agupta89/WellFrontendTest.git']]]         
 			wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, shutdownWithBuild: true ,displayNameOffset: 1,installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 60])
                         {
-                        sh "mvn -f 'Pipelinepom.xml' clean install -Dsurefire.suiteXmlFiles='src/main/resources/PipelineTestNG/CombinedRegression.xml' -Denv=${env.environment} -Dmaven.test.failure.ignore=true" 
+                        sh "mvn -f 'Pipelinepom.xml' clean install -Dsurefire.suiteXmlFiles='src/main/resources/PipelineTestNG/PipelineRegressionBatch1.xml' -Denv=${env.environment} -Dmaven.test.failure.ignore=true" 
                     }
                     }
                     catch (exc) {
@@ -56,15 +63,62 @@ stages {
                         currentBuild.result = 'UNSTABLE'
                         
                     }
+                     
                 }
 		     
                    
+            }
+            post {
+                        always {
+                            stash includes: '**/target/surefire-reports/junitreports/*.xml', name: 'testresult-1'
+                            stash includes: '**/target/surefire-reports/emailable-report*.html', name: 'email-1'
+                        }
+                    }
+			}
+			
+			stage('Testing Batch 2'){
+			agent {
+                    node {
+                    label 'jenkins_node'
+                    }
+                    }
+			steps{
+                    
+                    script {
+			    
+                    try {
+       		checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '', url: 'git@github.com:agupta89/WellFrontendTest.git']]]
+			wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, shutdownWithBuild: true ,displayNameOffset: 1,installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 60])
+                        {
+                        sh "mvn -f 'Pipelinepom.xml' clean install -Dsurefire.suiteXmlFiles='src/main/resources/PipelineTestNG/PipelineRegressionBatch2.xml' -Denv=${env.environment} -Dmaven.test.failure.ignore=true" 
+                    }
+                    }
+                    catch (exc) {
+                        echo 'Testing failed!'
+			      sh 'exit 1'
+                        currentBuild.result = 'UNSTABLE'
+                        
+                    }
+                     
+                }
+		     
+                   
+            }
+            post {
+                        always {
+                            stash includes: '**/target/surefire-reports/junitreports/*.xml', name: 'testresult-2'
+                            stash includes: '**/target/surefire-reports/emailable-report*.html', name: 'email-2'
+                        }
+                    }
+			
+			}
             }
             }
             
 stage('Test Results'){
 	            steps{
-	            echo env.GIT_BRANCH
+	            
+			    echo env.GIT_BRANCH
 			     script {
 			     if ("${env.GIT_BRANCH}" == "origin/env/stg") {
                    env.JOB_NAME = "WellFrontendExecution-STG"
@@ -80,6 +134,10 @@ stage('Test Results'){
         post {
          always {
          script {
+                unstash 'testresult-1'
+                unstash 'testresult-2'
+                unstash 'email-1'
+                unstash 'email-2'
             summary = junit '**/target/surefire-reports/junitreports/*.xml'
             publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, includes: '**/*.html', keepAll: true, reportDir: 'Report', reportFiles: 'WELL_AutomationReport.html', reportName: 'Frontend-Execution-Report', reportTitles: ''])  
         }
@@ -91,14 +149,12 @@ stage('Test Results'){
             Total = "${summary.totalCount}".toInteger()
             PassPercentage = pass/Total*100
             echo "${PassPercentage}"
-            buildSummary = "Job: *${env.JOB_NAME}[${env.BUILD_NUMBER}]*\n Status: *SUCCESS*\n Execution Report: ${env.BUILD_URL}Frontend-Execution-Report\n *Test Summary - Passed: ${summary.passCount}, Failures: ${summary.failCount}, Skipped: ${summary.skipCount}*\n *Test Success %* - ${PassPercentage}"
-            slackSend (color: 'good', message: "Frontend Nightly Regression Intact. Great effort!!\n${buildSummary}")
             }
-            emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report2.html',
+            emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report1*.html',
         body: '''${SCRIPT, template="groovy-html.template"}''',
         mimeType: 'text/html',
         subject: "[Jenkins] ${env.JOB_NAME}-${env.BUILD_NUMBER}",
-        to: 'abhishek.gupta@wellcertified.com, gokul@promantus.com, avinash.singh@wellcertified.com, devi.dayalan@wellcertified.com, adil.mian@wellcertified.com, gaurav.arora@wellcertified.com, himanshu.bansal@wellcertified.com, ashutosh.kumar@wellcertified.com, kumar@promantus.com, cc: shekhar.chikara@wellcertified.com',
+        to: 'abhishek.gupta@wellcertified.com',
         replyTo: "abhishek.gupta@wellcertified.com"
         
         }
@@ -108,15 +164,13 @@ stage('Test Results'){
             Total = "${summary.totalCount}".toInteger()
             PassPercentage = pass/Total*100
             echo "${PassPercentage}"
-            buildSummary = "Job: *${env.JOB_NAME}[${env.BUILD_NUMBER}]*\n Status: *UNSTABLE*\n Execution Report: ${env.BUILD_URL}Frontend-Execution-Report\n *Test Summary - Passed: ${summary.passCount}, Failures: ${summary.failCount}, Skipped: ${summary.skipCount}*\n *Test Success %* - ${PassPercentage}"
-            slackSend (color: 'danger', message: "Frontend Nightly Regression broken. Please refer to below execution report for failures.\n${buildSummary}")
             }  
              echo 'This will run only if the run was marked as unstable'
-              emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report2.html',
+              emailext attachmentsPattern: '**/*.zip, **/target/surefire-reports/emailable-report1*.html',
         body: '''${SCRIPT, template="groovy-html.template"}''',
         mimeType: 'text/html',
         subject: "[Jenkins] ${env.JOB_NAME}-${env.BUILD_NUMBER}",
-        to: 'abhishek.gupta@wellcertified.com, gokul@promantus.com, avinash.singh@wellcertified.com, devi.dayalan@wellcertified.com, adil.mian@wellcertified.com, gaurav.arora@wellcertified.com, himanshu.bansal@wellcertified.com, ashutosh.kumar@wellcertified.com, kumar@promantus.com, cc: shekhar.chikara@wellcertified.com',
+        to: 'abhishek.gupta@wellcertified.com',
         replyTo: "abhishek.gupta@wellcertified.com"
         
             
