@@ -1235,17 +1235,23 @@ public class ReusableMethodsV2Project extends BaseClass {
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
 		testlog.pass("**Verifies user able to access the invited project**");
 	}
+	
+	public void searchFilterScoreCardV2Project() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("V2ProjectScoreCardSearchBox", 60);
+		CommonMethod.sendKeys("V2ProjectScoreCardSearchBox", "Meet Thresholds for Particulate Matter");
+		CommonMethod.assertActualContainsExpected(CommonMethod.getText("V2ProjectScoreCardOptionValue"),
+				"Meet Thresholds for Particulate Matter");
+		CommonMethod.softAssertEqualsMessage(Integer.toString(CommonMethod.ElementSize("V2ProjectSelectedPurseYes")),
+				"1", "YesPurseCount doesn't match");
+		softAssert.assertAll();
+		CommonMethod.RobustclickElementVisible("V2ProjectScorecardRefreshButton", "V2ProjectScoreCardFilterButton");
+		testlog.pass("**Search filter working successfully**");
+	}
 
-	public void verifyScoreCardFilter(String filterName, String expectedResult, int filetrIndex, int checkoxIndex)
+	public void verifyScoreCardFilter(String filterName, String expectedResult, int filterIndex, int checkboxIndex)
 			throws IOException, InterruptedException {
-		if (filterName.equalsIgnoreCase("Responsible Party")) {
-			Thread.sleep(5000);
-			CommonMethod.RobustclickElementVisible("V2projectScorecardResponsibleParty",
-					"V2ProjectScoreCardFilterOption");
-		} else {
-			CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filetrIndex);
-		}
-		CommonMethod.clickListWebelementFromIndex("V2ProjectScoreCardFilterOptionCheckBox", checkoxIndex);
+		CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filterIndex);
+		CommonMethod.clickListWebelementFromIndex("V2ProjectScoreCardFilterOptionCheckBox", checkboxIndex);
 		CommonMethod.RobustclickElementVisible("V2ProjectScorecardApplybutton", "V2ProjectScoreCardFilterButton");
 		if (filterName.equalsIgnoreCase("Response")) {
 			CommonMethod.WaitUntilPresence("V2ProjectScoreCardValidatePurseYes", 60);
@@ -1255,17 +1261,14 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.softAssertEqualsMessage(actualYesFeatureCount, expectedResult, "YesPurseCount doesn't match");
 		}
 		if (filterName.equalsIgnoreCase("Verification")) {
-
 			CommonMethod.WaitUntilVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
 			CommonMethod.WaitUntilInVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
 			CommonMethod.WaitUntilPresence("V2ProjectScorecardVerificationPartCount", 60);
 
 		}
 		if (filterName.equalsIgnoreCase("Part type")) {
-			System.out.println("Size of element before: " + CommonMethod.ElementSize("V2ProjectScorecardPartCount"));
 			CommonMethod.WaitUntilInVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
 			CommonMethod.WaitUntilPresence("V2ProjectScorecardPartTypePartCount", 60);
-			System.out.println("Size of  after: " + CommonMethod.ElementSize("V2ProjectScorecardPartCount"));
 		}
 		if (filterName.equalsIgnoreCase("Priorities")) {
 			CommonMethod.WaitUntilVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
@@ -1293,9 +1296,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.WaitUntilPresence("V2ProjectScorecardCrossWalkPartCount", 60);
 		}
 		if (filterName.equalsIgnoreCase("Responsible Party")) {
-			CommonMethod.WaitUntilVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
 			CommonMethod.WaitUntilInVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
-			CommonMethod.WaitUntilPresence("V2ProjectScorecardResponsiblePartyPartCount", 60);
+			CommonMethod.WaitUntilPresence("V2ProjectScorecardResponsiblePartyPartCount", 180);
+			CommonMethod.RobustclickElementVisible("V2projectScorecardResponsibleParty","V2ProjectScoreCardFilterOption");
 		}
 		if (filterName.equalsIgnoreCase("Verification") || filterName.equalsIgnoreCase("Part type")
 				|| filterName.equalsIgnoreCase("Priorities") || filterName.equalsIgnoreCase("Space Type")
@@ -1304,32 +1307,22 @@ public class ReusableMethodsV2Project extends BaseClass {
 			int ScorecardPart = CommonMethod.ElementSize("V2ProjectScorecardPartCount");
 			String actualFeaturePartCount = Integer.toString(ScorecardPart);
 			testlog.info("FeatureScorecardPartCount: " + actualFeaturePartCount);
-			System.out.println("Fillter Name:" + filterName);
-			CommonMethod.softAssertEqualsMessage(actualFeaturePartCount, expectedResult,
-					"ScorecardPartCount doesn't match");
+			CommonMethod.softAssertEqualsMessage(actualFeaturePartCount, expectedResult,"ScorecardPartCount doesn't match");
 		}
 
 		CommonMethod.click("V2ProjectScorecardClearbutton");
-		CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filetrIndex);
+		CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filterIndex);
 		softAssert.assertAll();
 		testlog.pass("**All filter working successfully**");
 
 	}
 
-	public void searchFilterScoreCardV2Project() throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("V2ProjectScoreCardSearchBox", 60);
-		CommonMethod.sendKeys("V2ProjectScoreCardSearchBox", "Meet Thresholds for Particulate Matter");
-		CommonMethod.assertActualContainsExpected(CommonMethod.getText("V2ProjectScoreCardOptionValue"),
-				"Meet Thresholds for Particulate Matter");
-		CommonMethod.softAssertEqualsMessage(Integer.toString(CommonMethod.ElementSize("V2ProjectSelectedPurseYes")),
-				"1", "YesPurseCount doesn't match");
-		softAssert.assertAll();
-		testlog.pass("**Search filter working successfully**");
-	}
+	
 
 	public void scorecardOptionFilterV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
-		CommonMethod.Robustclick("V2ProjectScorecardRefreshButton", "V2ProjectScoreCardFilterButton");
-		CommonMethod.Robustclick("V2ProjectScoreCardFilterButton", "V2ProjectScorecardApplybutton");
+		CommonMethod.WaitUntilPresence("V2ProjectScoreCardFilterButton", 120);
+		CommonMethod.RobustclickElementVisible("V2ProjectScoreCardFilterButton", "V2ProjectScorecardApplybutton");
+		verifyScoreCardFilter("Responsible Party", "30", 8, 93);
 		verifyScoreCardFilter("Response", "130", 0, 0);
 		verifyScoreCardFilter("Verification", "40", 1, 3);
 		verifyScoreCardFilter("Part type", "48", 2, 24);
@@ -1338,7 +1331,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		verifyScoreCardFilter("Ratings", "27", 5, 66);
 		verifyScoreCardFilter("Strategy Type", "18", 6, 69);
 		verifyScoreCardFilter("Cross walk", "21", 7, 73);
-		verifyScoreCardFilter("Responsible Party", "88", 8, 93);
+		
 	}
 
 }
