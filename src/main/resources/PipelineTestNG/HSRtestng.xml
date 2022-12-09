@@ -13,7 +13,7 @@
 <classes>
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_02_RegisterHealthSafetyTest"></class>
-<!-- <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_03_SubscribeAndStoreIdTest"></class>
+<class name="com.Well.testcases.HealthSafety.Healthsafey_TC_03_SubscribeAndStoreIdTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_04_SearchHealthSafetyByIdTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_05_HsrProjectFieldValidationTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_06_LocationTest"></class>
@@ -29,6 +29,6 @@
   <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_11_AddTeamMemberTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_11A_ValidateProjectAccessTeamTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafey_TC_17_ErrorNegativeAssertTest"></class>
- --></classes>
+</classes>
 </test>
 </suite>  
