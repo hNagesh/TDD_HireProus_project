@@ -1264,7 +1264,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.WaitUntilVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
 			CommonMethod.WaitUntilInVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
 			CommonMethod.WaitUntilPresence("V2ProjectScorecardVerificationPartCount", 60);
-
 		}
 		if (filterName.equalsIgnoreCase("Part type")) {
 			CommonMethod.WaitUntilInVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
@@ -1306,18 +1305,14 @@ public class ReusableMethodsV2Project extends BaseClass {
 				|| filterName.equalsIgnoreCase("Cross walk") || filterName.equalsIgnoreCase("Responsible Party")) {
 			int ScorecardPart = CommonMethod.ElementSize("V2ProjectScorecardPartCount");
 			String actualFeaturePartCount = Integer.toString(ScorecardPart);
-			testlog.info("FeatureScorecardPartCount: " + actualFeaturePartCount);
+			testlog.info(filterName +" FeatureScorecardPartCount: " + actualFeaturePartCount);
 			CommonMethod.softAssertEqualsMessage(actualFeaturePartCount, expectedResult,"ScorecardPartCount doesn't match");
 		}
-
 		CommonMethod.click("V2ProjectScorecardClearbutton");
 		CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filterIndex);
 		softAssert.assertAll();
-		testlog.pass("**All filter working successfully**");
-
+		testlog.pass("**All Scorecard filter options successfully**");
 	}
-
-	
 
 	public void scorecardOptionFilterV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilPresence("V2ProjectScoreCardFilterButton", 120);
@@ -1331,7 +1326,5 @@ public class ReusableMethodsV2Project extends BaseClass {
 		verifyScoreCardFilter("Ratings", "27", 5, 66);
 		verifyScoreCardFilter("Strategy Type", "18", 6, 69);
 		verifyScoreCardFilter("Cross walk", "21", 7, 73);
-		
 	}
-
 }
