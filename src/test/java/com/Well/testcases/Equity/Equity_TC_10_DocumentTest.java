@@ -9,13 +9,12 @@ import com.Well.Engine.BaseClass;
 
 public class Equity_TC_10_DocumentTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_09_ReviewTest.Equity_TC_09_01_CompleteReview" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_09_ReviewTest.Equity_TC_09_05_CurativeCompleteReview" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Equity_TC_10_00_GeneralDocument(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
         StartTest(TestCaseName,"Upload Document in Document");
-
 		try {
 			performance.clikOnDocumentLibrary();
 			performance.validateGeneralUploadDocument(SheetName, rowNum);
@@ -32,7 +31,6 @@ public class Equity_TC_10_DocumentTest extends BaseClass {
 	public void Equity_TC_10_01_LegalDocument(String SheetName, int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
 		StartTest(TestCaseName, "Upload Document in Document");
 		try {
 			performance.validateLegalUploadDocument(SheetName, rowNum);
@@ -49,7 +47,6 @@ public class Equity_TC_10_DocumentTest extends BaseClass {
 	public void Equity_TC_10_02_AuditDocument(String SheetName, int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
 		StartTest(TestCaseName, "Upload Document in Document");
 		try {
 			performance.validateAuditUploadDocument(SheetName, rowNum,"EB3");
@@ -66,7 +63,6 @@ public class Equity_TC_10_DocumentTest extends BaseClass {
 	public void Equity_TC_10_03_FeatureDocument(String SheetName, int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
 		StartTest(TestCaseName, "Upload Document in Document");
 		try {
 			performance.validateFeatureUploadDocument(SheetName, rowNum,"EE1");

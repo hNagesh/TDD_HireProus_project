@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class V2_TC_08_DocumentV2ProjectTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_07_ScorecardV2ProjectTest.V2_TC_07_04_UploadAuditDocV2ProjectInsideScorecard" })
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_07_ScorecardV2ProjectTest.V2_TC_07_06_ScoreCardOptionFilterV2Project" })
 	@Parameters({ "SheetName","rowNum" })
 	public void V2_TC_08_00_UploadGeneralDocumentFromDocumentLibrary(String SheetName,int rowNum) throws IOException {
 

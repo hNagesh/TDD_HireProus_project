@@ -9,15 +9,14 @@ import com.Well.Engine.BaseClass;
 
 public class Healthsafey_TC_08_ReviewTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_07_ScorecardTest.Healthsafey_TC_07_01_UploadScorecardDocument" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_07_ScorecardTest.Healthsafey_TC_07_03_FilterVerification" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_08_Review(String SheetName,int rowNum) throws IOException {
+	public void Healthsafey_TC_08_00_PreliminarySubmitReview(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
 		StartTest(TestCaseName,"Healthsafey Review Submit Functionality");
 		try {
-		hsr.ReviewHsr(SheetName, rowNum);	
+		hsr.SubmitHsrReview(SheetName, rowNum, "Preliminary Health-Safety Review");	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -25,4 +24,87 @@ public class Healthsafey_TC_08_ReviewTest extends BaseClass {
 			throw e1;
 		}
 	}
+
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest.Healthsafey_TC_08_00_PreliminarySubmitReview" })
+	@Parameters({ "SheetName","rowNum" })
+	public void Healthsafey_TC_08_01_PreliminaryCompleteReview(String SheetName,int rowNum) throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		StartTest(TestCaseName,"Healthsafey Review Complete Functionality");
+		try {
+		hsr.CompleteHsrReview(SheetName, rowNum, "Preliminary Health-Safety Review");	
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
+
+@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest.Healthsafey_TC_08_01_PreliminaryCompleteReview" })
+@Parameters({ "SheetName","rowNum" })
+public void Healthsafey_TC_08_02_FinalSubmitReview(String SheetName,int rowNum) throws IOException {
+
+	TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+	StartTest(TestCaseName,"Healthsafey Review Submit Functionality");
+	try {
+		hsr.SearchHealthSafetyByID(SheetName,rowNum);
+	    hsr.SubmitHsrReview(SheetName, rowNum, "Final Health-Safety Review");	
+	} catch (Throwable t) {
+		System.out.println(t.getLocalizedMessage());
+		Error e1 = new Error(t.getMessage());
+		e1.setStackTrace(t.getStackTrace());
+		throw e1;
+	}
+}
+
+@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest.Healthsafey_TC_08_02_FinalSubmitReview" })
+@Parameters({ "SheetName","rowNum" })
+public void Healthsafey_TC_08_03_FinalCompleteReview(String SheetName,int rowNum) throws IOException {
+
+	TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+	StartTest(TestCaseName,"Healthsafey Review Complete Functionality");
+	try {
+	hsr.CompleteHsrReview(SheetName, rowNum, "Final Health-Safety Review");	
+	} catch (Throwable t) {
+		System.out.println(t.getLocalizedMessage());
+		Error e1 = new Error(t.getMessage());
+		e1.setStackTrace(t.getStackTrace());
+		throw e1;
+	}
+}
+
+@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest.Healthsafey_TC_08_03_FinalCompleteReview" })
+@Parameters({ "SheetName","rowNum" })
+public void Healthsafey_TC_08_04_CurativeSubmitReview(String SheetName,int rowNum) throws IOException {
+
+	TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+	StartTest(TestCaseName,"Healthsafey Review Submit Functionality");
+	try {
+		hsr.SearchHealthSafetyByID(SheetName,rowNum);
+	    hsr.SubmitHsrReview(SheetName, rowNum, "Curative Action Plan Review");	
+	} catch (Throwable t) {
+		System.out.println(t.getLocalizedMessage());
+		Error e1 = new Error(t.getMessage());
+		e1.setStackTrace(t.getStackTrace());
+		throw e1;
+	}
+}
+
+@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest.Healthsafey_TC_08_04_CurativeSubmitReview" })
+@Parameters({ "SheetName","rowNum" })
+public void Healthsafey_TC_08_05_CurativeCompleteReview(String SheetName,int rowNum) throws IOException {
+
+	TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+	StartTest(TestCaseName,"Healthsafey Review Complete Functionality");
+	try {
+	hsr.CompleteHsrReview(SheetName, rowNum, "Curative Action Plan Review");	
+	hsr.SearchHealthSafetyByID(SheetName,rowNum);
+	} catch (Throwable t) {
+		System.out.println(t.getLocalizedMessage());
+		Error e1 = new Error(t.getMessage());
+		e1.setStackTrace(t.getStackTrace());
+		throw e1;
+	}
+}
 }

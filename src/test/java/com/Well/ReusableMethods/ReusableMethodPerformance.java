@@ -170,7 +170,7 @@ public class ReusableMethodPerformance extends BaseClass {
 	public void CompleteScorecardWprById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ScorecardTab", 300);
 		CommonMethod.RobustclickElementVisible("ScorecardTab","WPRPortfolioScorecardLanding");
-		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
+		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", Scorecardtimeout);
 		ScorecardfillHSRWPR(21, 21, 36, 16, "WPRPurseYes", "WPRPurseNo");
 		testlog.pass("**Verifies the 15 Purse Yes Scorecard Performance successfully**");
 	}
@@ -249,7 +249,6 @@ public class ReusableMethodPerformance extends BaseClass {
 			if(SheetName.equalsIgnoreCase("Wpr"))  {
 				CommonMethod.RobustclickElementVisible("WPRUploadDocTaskbtn","WPRScorecardFeatureName");
 			}
-			
 			CommonMethod.scrolldowntoElement("WPRScorecardFeatureName");
 			CommonMethod.RobustclickElementVisible("WPRScorecardConfirmLocation","WPRAssignLocCbx");
 			CommonMethod.declickListWebelementFromIndex("PortfolioScoreCardVerificationAssignLocCbxGeneral", 2);
@@ -264,24 +263,24 @@ public class ReusableMethodPerformance extends BaseClass {
 		}
 	}
 	public void UploadWPRDocForFeature() throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", 300);
+		CommonMethod.WaitUntilVisibility("WPRPortfolioScorecardLanding", Scorecardtimeout);
 		uploadDocumentInFeature(21);
 		testlog.pass("**Upload 21 Scorecard Documents successfully**");
 	}
 
-	public void WPRReview(String SheetName, int rowNum) throws IOException, InterruptedException {
+	public void SubmitWPRReview(String SheetName, int rowNum, String ReviewName) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("ReviewTab", 60);
 		CommonMethod.RobustclickElementVisible("ReviewTab","WPRReviewSubmitbtn");
 		CommonMethod.RobustclickElementVisible("WPRReviewSubmitbtn","WPRReviewProjectPhase");
-		CommonMethod.selectdropdownVisibletext("WPRReviewProjectPhase", "Preliminary Performance Rating Review");
-		CommonMethod.WaitUntilClickble("WPRReviewComment", 60).sendKeys("Preliminary Performance Rating Review");
+		CommonMethod.selectdropdownVisibletext("WPRReviewProjectPhase", ReviewName);
+		CommonMethod.WaitUntilClickble("WPRReviewComment", 60).sendKeys(ReviewName);
 		CommonMethod.WaitUntilVisibility("WPRReviewSubmitDocbtn", 30);
 		CommonMethod.RobustclickElementVisible("WPRReviewSubmitDocbtn","ReviewViewButton");
 		CommonMethod.WaitUntilVisibility("Reviewlanding", 60);
-		testlog.pass("**Submitted Preliminary Precertification Review successfully**");
-		/*
-		 * Admin Review
-		 */
+		testlog.pass("**Submitted Performance Review successfully**");
+	}
+	
+	public void CompleteWPRReview(String SheetName, int rowNum, String ReviewName) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
 		CommonMethod.RobustclickElementVisible("AdminNavBar","AdminWELLPerformanceNavBar");
 		CommonMethod.WaitUntilVisibility("AdminWELLPerformanceNavBar", 60);
@@ -299,7 +298,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.RobustclickElementVisible("ReviewViewButton","ReviewReturnButton");
 		CommonMethod.WaitUntilVisibility("ReviewReturnButton", 60);
 		CommonMethod.RobustclickElementVisible("ReviewReturnButton","ReturnComment");
-		CommonMethod.WaitUntilClickble("ReturnComment", 60).sendKeys("Preliminary Precertification Review");
+		CommonMethod.WaitUntilClickble("ReturnComment", 60).sendKeys(ReviewName);
 		Thread.sleep(1000);
 		CommonMethod.RobustclickElementVisible("DatePickerButton","DatePickerOkButton");
 		CommonMethod.RobustclickElementVisible("DatePickerOkButton","ReviewPaymentstatusRadio");
@@ -309,7 +308,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit", "ReviewedStatus");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status successfully");
-		testlog.pass("**Completed Reviewing Preliminary Precertification Review successfully**");
+		testlog.pass("**Completed Performance Review successfully**");
 	}
 	public void WprProjectFieldValidationTest(String SheetName, int rowNum) throws Exception {
 		CommonMethod.WaitUntilVisibility("EditTab", 120);
@@ -473,5 +472,44 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.softAssertContainsMessage(val.get(6), "Feature", "Document table data mismatch");
 		softAssert.assertAll();
 		testlog.pass("**Upload Feature Document successfully**");		
+	}
+	
+	public void searchFilterScoreCard(String FeatureName) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilPresence("V2ProjectScoreCardSearchBox", 60);
+		CommonMethod.sendKeys("V2ProjectScoreCardSearchBox", FeatureName);
+		CommonMethod.WaitUntilPresence("V2ProjectWPRPFeature", 60);
+		testlog.info(FeatureName+ ": " + FeatureName);
+		CommonMethod.assertActualContainsExpected(CommonMethod.getText("V2ProjectWPRPFeature"),FeatureName);
+		CommonMethod.softAssertEqualsMessage(Integer.toString(CommonMethod.ElementSize("V2ProjectWPRPFeature")), "1", "YesPurseCount doesn't match");
+		softAssert.assertAll();
+		CommonMethod.refreshBrowser();
+		testlog.pass("**Verifies Search filter successfully**");
+	}
+	
+	public void verifyScoreCardFilter(String SheetName, String filterName, String expectedResult, int filterIndex, int checkboxIndex)
+			throws IOException, InterruptedException {
+		CommonMethod.WaitUntilPresence("V2ProjectScoreCardFilterButton", 180);
+		CommonMethod.RobustclickElementVisible("V2ProjectScoreCardFilterButton", "V2ProjectScorecardApplybutton");
+		CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filterIndex);
+		CommonMethod.clickListWebelementFromIndex("V2ProjectScoreCardFilterOptionCheckBox", checkboxIndex);
+		CommonMethod.RobustclickElementVisible("V2ProjectScorecardApplybutton", "V2ProjectScoreCardFilterButton");
+		if (filterName.equalsIgnoreCase("Response")) {
+			CommonMethod.WaitUntilPresence("WPRValidPurseYes", 60);
+			int YesFeature = CommonMethod.ElementSize("WPRValidPurseYes");
+			String actualYesFeatureCount = Integer.toString(YesFeature);
+			testlog.info(filterName+ ": " + actualYesFeatureCount);
+			CommonMethod.softAssertEqualsMessage(actualYesFeatureCount, expectedResult, "YesPurseCount doesn't match");
+		}
+		if (filterName.equalsIgnoreCase("Verification") || filterName.equalsIgnoreCase("Document Scale")) {
+			CommonMethod.WaitUntilInVisibility("WPRValidTotalFeature", 120);
+			CommonMethod.WaitUntilPresence("WPRValidVerification", 60);
+		int FeatureCount = CommonMethod.ElementSize("V2ProjectWPRPFeature");
+		String actualYesFeatureCount = Integer.toString(FeatureCount);
+		testlog.info(filterName+": " + actualYesFeatureCount);
+		CommonMethod.softAssertEqualsMessage(actualYesFeatureCount, expectedResult, "Feature Count doesn't match");
+		}
+		CommonMethod.refreshBrowser();
+		softAssert.assertAll();
+		testlog.pass("**Verifies filter " + filterName + " options successfully**");
 	}
 }

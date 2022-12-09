@@ -13,18 +13,18 @@ public class ReusableMethodsV2Project extends BaseClass {
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
 		CommonMethod.RobustclickElementVisible("ProjectNavBar", "WELLCertificationNavBar");
-		CommonMethod.RobustclickElementVisible("WELLCertificationNavBar","V2Projectstartav2projectbtn");
+		CommonMethod.RobustclickElementVisible("WELLCertificationNavBar", "V2Projectstartav2projectbtn");
 		CommonMethod.WaitUntilVisibility("V2Projectstartav2projectbtn", 300);
 		CommonMethod.Robustclick("V2Projectstartav2projectbtn");
 		CommonMethod.Robustclick("V2ProjectstartProjectcontinuebtn");
-		CommonMethod.RobustclickElementVisible("V2ProjectnicknameContinuebtn","MandatoryFieldErrorMessage");
+		CommonMethod.RobustclickElementVisible("V2ProjectnicknameContinuebtn", "MandatoryFieldErrorMessage");
 		CommonMethod.negativesoftassertPageSource("Project nickname is required.", "Project Name Error Mismatch");
 		String ProjectName = "Automation V2 Project" + CommonMethod.randomNumber(8000000);
 		testlog.info("V2 ProjectName is: " + ProjectName);
 		data.setCellData(SheetName, "ProjectName", rowNum, ProjectName);
 		CommonMethod.sendKeys("V2Projectprojectnickname", ProjectName);
 		CommonMethod.RobustclickElementVisible("V2ProjectnicknameContinuebtn", "V2ProjectlocationContinuebtn");
-		CommonMethod.RobustclickElementVisible("V2ProjectlocationContinuebtn","V2ProjectlocationStreet");
+		CommonMethod.RobustclickElementVisible("V2ProjectlocationContinuebtn", "V2ProjectlocationStreet");
 		CommonMethod.negativesoftassertPageSource("Country is required.", "Country Name Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Street is required.", "Street Name Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("City is required.", "City Name Error Mismatch");
@@ -56,7 +56,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.RobustclickElementVisible("V2ProjectspacetypeContinuebtn", "V2Projectwellcorecertification");
 		if (ProjectType.equalsIgnoreCase("WELLCore")) {
 			CommonMethod.WaitUntilVisibility("V2Projectwellcorecertification", 30);
-			CommonMethod.RobustclickElementVisible("V2Projectwellcorecertification","HsrIframe");
+			CommonMethod.RobustclickElementVisible("V2Projectwellcorecertification", "HsrIframe");
 			CommonMethod.WaitUntilPresence("HsrIframe", 180);
 			CommonMethod.switchToFrame("HsrIframe");
 			CommonMethod.WaitUntilPresence("HsrCloseCard", 60);
@@ -64,28 +64,38 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.switchToParentFrame();
 		} else if (ProjectType.equalsIgnoreCase("WELLCertification")) {
 			CommonMethod.WaitUntilVisibility("V2ProjectwellCertification", 30);
-			CommonMethod.RobustclickElementVisible("V2ProjectwellCertification","V2ProjectownershipOflocation");
+			CommonMethod.RobustclickElementVisible("V2ProjectwellCertification", "V2ProjectownershipOflocation");
 			CommonMethod.WaitUntilVisibility("V2ProjectownershipOflocation", 30);
 			CommonMethod.RobustclickElementVisible("V2ProjectownershipContinuebtn", "V2ProjectownershipOflocation");
 			CommonMethod.negativesoftassertPageSource("Ownership type is required.", "CheckBox Error Mismatch");
 			CommonMethod.ClickCheckbox("V2ProjectownershipOflocation");
-			CommonMethod.RobustclickElementVisible("V2ProjectownershipContinuebtn","DatePickerButton");	
+			CommonMethod.RobustclickElementVisible("V2ProjectownershipContinuebtn", "DatePickerButton");
 		}
 		CommonMethod.WaitUntilVisibility("DatePickerButton", 300);
 		CommonMethod.RobustclickElementVisible("DatePickerButton", "V2ProjectDatePopupWeekday");
-		//CommonMethod.WaitUntilVisibility("V2ProjectnextMonthbtn", 120);
-		//CommonMethod.Robustclick("V2ProjectnextMonthbtn", "V2ProjectDatePopupWeekday");
-		//CommonMethod.WaitUntilVisibility("V2ProjectselectNextMonth", 120);
-		//Thread.sleep(1000);
-		//CommonMethod.RobustclickElementVisible("V2ProjectselectNextMonth","DatePickerOkButton");
-		//Thread.sleep(1000);
-		//CommonMethod.WaitUntilVisibility("DatePickerOkButton", 120);
-		//CommonMethod.Robustclick("DatePickerOkButton", "V2ProjectselectNextMonth");
+
+		CommonMethod.WaitUntilVisibility("V2ProjectnextYearbtn", 120);
+		CommonMethod.Robustclick("V2ProjectnextYearbtn", "V2ProjectDatePopupWeekday");
+		CommonMethod.WaitUntilVisibility("V2ProjectselectNextYear", 120);
+		Thread.sleep(1000);
+		CommonMethod.RobustclickElementVisible("V2ProjectselectNextYear", "DatePickerOkButton");
+		Thread.sleep(1000);
+		CommonMethod.WaitUntilVisibility("DatePickerOkButton", 120);
+		CommonMethod.Robustclick("DatePickerOkButton", "V2ProjectselectNextYear");
+
+		CommonMethod.WaitUntilVisibility("V2ProjectnextMonthbtn", 120);
+		CommonMethod.Robustclick("V2ProjectnextMonthbtn", "V2ProjectDatePopupWeekday");
+		CommonMethod.WaitUntilVisibility("V2ProjectselectNextMonth", 120);
+		Thread.sleep(1000);
+		CommonMethod.RobustclickElementVisible("V2ProjectselectNextMonth", "DatePickerOkButton");
+		Thread.sleep(1000);
+		CommonMethod.WaitUntilVisibility("DatePickerOkButton", 120);
+		CommonMethod.Robustclick("DatePickerOkButton", "V2ProjectselectNextMonth");
 		CommonMethod.WaitUntilPresence("DatePickerOkButton", 120);
-		CommonMethod.RobustclickElementVisible("DatePickerOkButton","V2ProjectdocsubConfirmbtn");
+		CommonMethod.RobustclickElementVisible("DatePickerOkButton", "V2ProjectdocsubConfirmbtn");
 		CommonMethod.WaitUntilClickble("V2ProjectdocsubConfirmbtn", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectdocsubConfirmbtn","V2Projectcontinuethejourneybtn");
-		CommonMethod.RobustclickElementVisible("V2Projectcontinuethejourneybtn","EnrollTab");
+		CommonMethod.RobustclickElementVisible("V2ProjectdocsubConfirmbtn", "V2Projectcontinuethejourneybtn");
+		CommonMethod.RobustclickElementVisible("V2Projectcontinuethejourneybtn", "EnrollTab");
 		CommonMethod.WaitUntilVisibility("EnrollTab", 300);
 		CommonMethod.WaitUntilVisibility("StoreId", 60);
 		String getId = CommonMethod.getText("StoreId");
@@ -98,18 +108,18 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void SearchV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 120);
-		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLCertificationNavBar");
+		CommonMethod.RobustclickElementVisible("ProjectNavBar", "WELLCertificationNavBar");
 		CommonMethod.RobustclickElementVisible("WELLCertificationNavBar", "V2ProjectId");
 		CommonMethod.WaitUntilClickble("V2ProjectId", 60);
 		testlog.info("ProjectId:" + data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.sendKeys("V2ProjectId", data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.RobustclickElementVisible("V2ProjectApplybtn","V2ProjectSearchResultIDVerify");
+		CommonMethod.RobustclickElementVisible("V2ProjectApplybtn", "V2ProjectSearchResultIDVerify");
 		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
-		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","V2 Search failed");
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var), "1", "V2 Search failed");
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
 		CommonMethod.click("V2ProjectIdCompare");
-		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare","V2ProjectStartBuilding");
+		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare", "V2ProjectStartBuilding");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 300);
 		testlog.pass("**Verifies the Search V2Project ByID successfully**");
 	}
@@ -117,15 +127,19 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void EnrollV2ProjectById(String SheetName, int rowNum, String ProjectType, String Country)
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("EnrollTab", 60);
-		CommonMethod.RobustclickElementVisible("EnrollTab","V2ProjectprojectOwnerContinuebtn");
-		CommonMethod.RobustclickElementVisible("V2ProjectprojectOwnerContinuebtn","MandatoryFieldErrorMessage");
+		CommonMethod.RobustclickElementVisible("EnrollTab", "V2ProjectprojectOwnerContinuebtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectprojectOwnerContinuebtn", "MandatoryFieldErrorMessage");
 		CommonMethod.negativesoftassertPageSource("Organization is required.", "Organization Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Owner name* is required.", "Owner name Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Owner email* is required.", "Owner email Error Mismatch");
-		CommonMethod.negativesoftassertPageSource("Organization Industry is required.", "Organization Industry Error Mismatch");
-		CommonMethod.negativesoftassertPageSource("Are you planning to undergo construction or renovation?* is required.", "construction Error Mismatch");
-		CommonMethod.negativesoftassertPageSource("Estimated date of document submission* is required", "Estimated Error Mismatch");
-		CommonMethod.negativesoftassertPageSource("Anticipated date of construction completion* is required.", "Anticipated date Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Organization Industry is required.",
+				"Organization Industry Error Mismatch");
+		CommonMethod.negativesoftassertPageSource(
+				"Are you planning to undergo construction or renovation?* is required.", "construction Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Estimated date of document submission* is required",
+				"Estimated Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Anticipated date of construction completion* is required.",
+				"Anticipated date Error Mismatch");
 		CommonMethod.refreshBrowser();
 		rc.SelectOwnerOrg(SheetName, rowNum);
 		String Ownername = USfaker.address().firstName();
@@ -149,9 +163,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 		data.setCellData(SheetName, "Overview", rowNum,
 				CommonMethod.getattributeValue("V2ProjectorganizationOverview"));
 		CommonMethod.ClickCheckbox("V2ProjectconstructionOrrenovation");
-		CommonMethod.RobustclickElementVisible("V2ProjectdocsubEstidate","V2ProjectdocsubEstidateOkbtn");
-		CommonMethod.RobustclickElementVisible("V2ProjectdocsubEstidateOkbtn","V2ProjectdocsubAnticdate");
-		CommonMethod.RobustclickElementVisible("V2ProjectdocsubAnticdate","V2ProjectdocsubEstidateOkbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectdocsubEstidate", "V2ProjectdocsubEstidateOkbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectdocsubEstidateOkbtn", "V2ProjectdocsubAnticdate");
+		CommonMethod.RobustclickElementVisible("V2ProjectdocsubAnticdate", "V2ProjectdocsubEstidateOkbtn");
 		CommonMethod.click("V2ProjectdocsubEstidateOkbtn");
 		if (ProjectType.equalsIgnoreCase("WELLCore")) {
 			CommonMethod.selectdropdownValue("V2ProjectSector", "government/municipal-buildings");
@@ -159,7 +173,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 					CommonMethod.getSelectedDropdownValue("V2ProjectSector"));
 			testlog.info("MarketSector: " + data.getCellData(SheetName, "MarketSectorName", rowNum));
 		}
-		CommonMethod.RobustclickElementVisible("V2ProjectprojectOwnerContinuebtn","V2ProjectprojectaddressContinuebtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectprojectOwnerContinuebtn",
+				"V2ProjectprojectaddressContinuebtn");
 		CommonMethod.RobustclickElementVisible("V2ProjectprojectaddressContinuebtn", "V2ProjectprojectaddressCountry");
 		CommonMethod.negativesoftassertPageSource("Country is required.", "Country Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Street is required.", "Street Error Mismatch");
@@ -187,7 +202,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.sendKeys("V2ProjectowneraddressStreet", ProjectAddress1);
 		CommonMethod.sendKeys("V2ProjectowneraddressCity", ProjectCity);
 		CommonMethod.sendKeys("V2ProjectowneraddressPostalcode", PostalCode);
-		data.setCellData(SheetName, "OwnerStreet", rowNum, CommonMethod.getattributeValue("V2ProjectowneraddressStreet"));
+		data.setCellData(SheetName, "OwnerStreet", rowNum,
+				CommonMethod.getattributeValue("V2ProjectowneraddressStreet"));
 		data.setCellData(SheetName, "OwnerCity", rowNum, CommonMethod.getattributeValue("V2ProjectowneraddressCity"));
 		data.setCellData(SheetName, "OwnerPostalCode", rowNum,
 				CommonMethod.getattributeValue("V2ProjectowneraddressPostalcode"));
@@ -199,33 +215,32 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void ClickBilling(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("BiilingTab", 120);
-		CommonMethod.RobustclickElementVisible("BiilingTab","V2ProjectPreBillingPayNowButton");
+		CommonMethod.RobustclickElementVisible("BiilingTab", "V2ProjectPreBillingPayNowButton");
 		CommonMethod.RobustclickElementVisible("V2ProjectPreBillingPayNowButton", "BillingLanding");
 		testlog.pass("**Nagavited to Billing successfully**");
 	}
 
 	public void DownloadBillingReceiptAndValidate(String SheetName, int rowNum, String Country)
 			throws IOException, InterruptedException {
-		//String Amount = data.getCellData(SheetName, "EnrollFee", rowNum);
+		// String Amount = data.getCellData(SheetName, "EnrollFee", rowNum);
 		String Email = data.getCellData("Login", "UserName", 3);
-		String Address=null;
-		if(Country.equalsIgnoreCase("US")) {
-		Address = "New York, NY 10014";
+		String Address = null;
+		if (Country.equalsIgnoreCase("US")) {
+			Address = "New York, NY 10014";
+		} else {
+			Address = "IWBI China(HK) Limited";
 		}
-		else {
-	    Address	= "IWBI China(HK) Limited";
-		}
-		String [] ProjDetails = {Email,Address};
+		String[] ProjDetails = { Email, Address };
 		CommonMethod.WaitUntilVisibility("DownloadReceipt", 120);
 		CommonMethod.click("DownloadReceipt");
 		Thread.sleep(2000);
-		if(CommonMethod.isFileExists(downloadPath)) {
-			File path = new File(downloadPath); 
-			File[] files = path.listFiles(); 
-			for(File file : files) {
+		if (CommonMethod.isFileExists(downloadPath)) {
+			File path = new File(downloadPath);
+			File[] files = path.listFiles();
+			for (File file : files) {
 				String ReceiptContent = CommonMethod.extractPDFContent(file.toString());
-				for(String s:ProjDetails) {
-				CommonMethod.assertActualContainsExpected(ReceiptContent, s);
+				for (String s : ProjDetails) {
+					CommonMethod.assertActualContainsExpected(ReceiptContent, s);
 				}
 			}
 		}
@@ -234,7 +249,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void AgreementV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WellV2DashboardTab", 300);
-		CommonMethod.RobustclickElementVisible("WellV2DashboardTab","V2ProjectSignNow");
+		CommonMethod.RobustclickElementVisible("WellV2DashboardTab", "V2ProjectSignNow");
 		CommonMethod.WaitUntilClickble("V2ProjectSignNow", 60);
 		CommonMethod.Robustclick("V2ProjectSignNow");
 		CommonMethod.WaitUntilVisibility("WellV2DashboardTab", 30);
@@ -343,7 +358,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void RefreshScorecard() throws IOException {
 		CommonMethod.refreshBrowser();
-		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 600);
+		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", Scorecardtimeout);
 	}
 
 	public void Scorecardfill(int YesEnd, int NoStart, int NoEnd, int DifferencePlusOne)
@@ -411,133 +426,137 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void CompleteScorecardHsrById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WellV2ScorecardTab", 300);
-		CommonMethod.RobustclickElementVisible("WellV2ScorecardTab","V2ProjectHsrScorecard");
+		CommonMethod.RobustclickElementVisible("WellV2ScorecardTab", "V2ProjectHsrScorecard");
 		Scorecardfill(15, 16, 27, 8);
 		testlog.pass("**Verifies the 15 Purse Yes Scorecard HealthSafety ByID successfully**");
 	}
 
 	public void CompleteScorecardV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("V2ProjectAirconcept", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectAirconcept","WPRPortfolioScorecardLanding");
+		CommonMethod.RobustclickElementVisible("V2ProjectAirconcept", "WPRPortfolioScorecardLanding");
 		Scorecardfill(15, 16, 25, 10);
 		testlog.pass("**Completed Scorecard Air concept Purse Status V2Project successfully**");
 		/*
 		 * Water concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectWaterconcept", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectWaterconcept","WPRPortfolioScorecardLanding");
+		CommonMethod.RobustclickElementVisible("V2ProjectWaterconcept", "WPRPortfolioScorecardLanding");
 		Scorecardfill(13, 14, 17, 4);
 		testlog.pass("**Completed Scorecard Water concept Purse Status V2Project successfully**");
 		/*
 		 * Nourisement concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectNourisementconcept", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectNourisementconcept","WPRPortfolioScorecardLanding");
+		CommonMethod.RobustclickElementVisible("V2ProjectNourisementconcept", "WPRPortfolioScorecardLanding");
 		Scorecardfill(14, 15, 15, 1);
 		testlog.pass("**Completed Scorecard Nourisement concept Purse Status V2Project successfully**");
 		/*
 		 * Light concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectLightconcept", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectLightconcept","WPRPortfolioScorecardLanding");
+		CommonMethod.RobustclickElementVisible("V2ProjectLightconcept", "WPRPortfolioScorecardLanding");
 		Scorecardfill(6, 7, 12, 6);
 		testlog.pass("**Completed Scorecard Light concept Purse Status V2Project successfully**");
 		/*
 		 * Movement concept
 		 */
 		CommonMethod.WaitUntilClickble("V2Projectmovementconcept", 60);
-		CommonMethod.RobustclickElementVisible("V2Projectmovementconcept","WPRPortfolioScorecardLanding");
+		CommonMethod.RobustclickElementVisible("V2Projectmovementconcept", "WPRPortfolioScorecardLanding");
 		Scorecardfill(11, 12, 22, 11);
 		testlog.pass("**Completed Scorecard Movement concept Purse Status V2Project successfully**");
 		/*
 		 * Thermal concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectThermalconcept", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectThermalconcept","WPRPortfolioScorecardLanding");
+		CommonMethod.RobustclickElementVisible("V2ProjectThermalconcept", "WPRPortfolioScorecardLanding");
 		Scorecardfill(10, 11, 15, 5);
 		testlog.pass("**Completed Scorecard Thermal concept Purse Status V2Project successfully**");
 		/*
 		 * Sound concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectSoundconcept", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectSoundconcept","WPRPortfolioScorecardLanding");
+		CommonMethod.RobustclickElementVisible("V2ProjectSoundconcept", "WPRPortfolioScorecardLanding");
 		Scorecardfill(9, 10, 14, 5);
 		testlog.pass("**Completed Scorecard Sound concept Purse Status V2Project successfully**");
 		/*
 		 * Material concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectMaterialconcept", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectMaterialconcept","WPRPortfolioScorecardLanding");
+		CommonMethod.RobustclickElementVisible("V2ProjectMaterialconcept", "WPRPortfolioScorecardLanding");
 		Scorecardfill(17, 18, 24, 7);
 		testlog.pass("**Completed Scorecard Material concept Purse Status V2Project successfully**");
 		/*
 		 * Mind concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectMindconcept", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectMindconcept","WPRPortfolioScorecardLanding");
+		CommonMethod.RobustclickElementVisible("V2ProjectMindconcept", "WPRPortfolioScorecardLanding");
 		Scorecardfill(8, 9, 19, 11);
 		testlog.pass("**Completed Scorecard Mind concept Purse Status V2Project successfully**");
 		/*
 		 * Community concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectCommunityconcept", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectCommunityconcept","WPRPortfolioScorecardLanding");
+		CommonMethod.RobustclickElementVisible("V2ProjectCommunityconcept", "WPRPortfolioScorecardLanding");
 		Scorecardfill(17, 18, 35, 18);
 		testlog.pass("**Completed Scorecard Community concept Purse Status V2Project successfully**");
 		/*
 		 * Innovation concept
 		 */
 		CommonMethod.WaitUntilClickble("V2ProjectInnovationconcept", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectInnovationconcept","WPRPortfolioScorecardLanding");
+		CommonMethod.RobustclickElementVisible("V2ProjectInnovationconcept", "WPRPortfolioScorecardLanding");
 		Scorecardfill(10, 11, 18, 8);
 		testlog.pass("**Completed Scorecard Innovation concept Purse Status V2Project successfully**");
 	}
-	
+
 	public void ScorecardPurseStatusCount(String SheetName, int rowNum) throws IOException {
 		/*
 		 * Total FeaturePartCount
 		 */
 		RefreshScorecard();
 		int ScorecardPart = CommonMethod.ElementSize("V2ProjectScorecardPartCount");
-		String FeatureScorecardPartCount= Integer.toString(ScorecardPart);
-		testlog.info("FeatureScorecardPartCount: "+FeatureScorecardPartCount);
+		String FeatureScorecardPartCount = Integer.toString(ScorecardPart);
+		testlog.info("FeatureScorecardPartCount: " + FeatureScorecardPartCount);
 		data.setCellData(SheetName, "ScorecardPartCount", rowNum, FeatureScorecardPartCount);
-		CommonMethod.softAssertEqualsMessage("216",data.getCellData(SheetName, "ScorecardPartCount", rowNum), "ScorecardPartCount doesn't match");
-  
+		CommonMethod.softAssertEqualsMessage("216", data.getCellData(SheetName, "ScorecardPartCount", rowNum),
+				"ScorecardPartCount doesn't match");
+
 		/*
 		 * YesPurseCount
 		 */
 		int YesFeature = CommonMethod.ElementSize("V2ProjectSelectedPurseYes");
-		String YesFeatureCount= Integer.toString(YesFeature);
-		testlog.info("YesFeatureCount: "+YesFeatureCount);
+		String YesFeatureCount = Integer.toString(YesFeature);
+		testlog.info("YesFeatureCount: " + YesFeatureCount);
 		data.setCellData(SheetName, "YesPurseCount", rowNum, YesFeatureCount);
-		CommonMethod.softAssertEqualsMessage("130",data.getCellData(SheetName, "YesPurseCount", rowNum), "YesPurseCount doesn't match");
-    /*
-     *    NoPurseCount 
-     */
+		CommonMethod.softAssertEqualsMessage("130", data.getCellData(SheetName, "YesPurseCount", rowNum),
+				"YesPurseCount doesn't match");
+		/*
+		 * NoPurseCount
+		 */
 		int NoFeature = CommonMethod.ElementSize("V2ProjectSelectedPurseNo");
-		String NoFeatureCount= Integer.toString(NoFeature);
-		testlog.info("NoFeatureCount: "+NoFeatureCount);
+		String NoFeatureCount = Integer.toString(NoFeature);
+		testlog.info("NoFeatureCount: " + NoFeatureCount);
 		data.setCellData(SheetName, "NoPurseCount", rowNum, NoFeatureCount);
-		CommonMethod.softAssertEqualsMessage("86",data.getCellData(SheetName, "NoPurseCount", rowNum), "NoPurseCount doesn't match");
+		CommonMethod.softAssertEqualsMessage("86", data.getCellData(SheetName, "NoPurseCount", rowNum),
+				"NoPurseCount doesn't match");
 		softAssert.assertAll();
 		testlog.pass("**Verifies the 130 Purse Yes Scorecard V2Project successfully**");
 		testlog.pass("**Verifies the 86 Purse No Scorecard V2Project successfully**");
 		testlog.pass("**Verifies the 216 Purse Scorecard Part Count V2Project successfully**");
-}
-	
+	}
+
 	public void UploadFeatureDocV2ProjectInsideScorecard(String SheetName, int rowNum)
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("V2ProjectScorecardFeature", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectScorecardFeature","V2ProjectscorecardDocbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectScorecardFeature", "V2ProjectscorecardDocbtn");
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectscorecardDocbtn","V2Projectscorecardverificationdropdown");
+		CommonMethod.RobustclickElementVisible("V2ProjectscorecardDocbtn", "V2Projectscorecardverificationdropdown");
 		testlog.info("TaskName : Performance Test OR Sensor Data");
 		CommonMethod.selectdropdownVisibletext("V2Projectscorecardverificationdropdown",
 				"Performance Test OR Sensor Data");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", FeaturefileUpload);
 		CommonMethod.WaitUntilVisibility("UploadFileVerifyScorecard", 120);
-		CommonMethod.RobustclickElementVisible("V2Projectscorecarddocuploadsubmit","V2ProjectscorecardVerifyUploadDoc");
+		CommonMethod.RobustclickElementVisible("V2Projectscorecarddocuploadsubmit",
+				"V2ProjectscorecardVerifyUploadDoc");
 		CommonMethod.Isdisplayed("V2ProjectscorecardVerifyUploadDoc", 60);
 		CommonMethod.refreshBrowser();
 		testlog.pass("**Verifies the Upload Document in Scorecard Feature successfully**");
@@ -547,15 +566,16 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void UploadAuditDocV2ProjectInsideScorecard(String SheetName, int rowNum)
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("V2ProjectScorecardAuditFeature", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectScorecardAuditFeature","V2ProjectscorecardDocbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectScorecardAuditFeature", "V2ProjectscorecardDocbtn");
 		CommonMethod.WaitUntilClickble("V2ProjectscorecardDocbtn", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectscorecardDocbtn","V2Projectscorecardverificationdropdown");
+		CommonMethod.RobustclickElementVisible("V2ProjectscorecardDocbtn", "V2Projectscorecardverificationdropdown");
 		testlog.info("TaskName : Technical Document (Audited)");
 		CommonMethod.selectdropdownVisibletext("V2Projectscorecardverificationdropdown",
 				"Technical Document (Audited)");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", AuditfileUpload);
 		CommonMethod.WaitUntilVisibility("UploadFileVerifyScorecard", 120);
-		CommonMethod.RobustclickElementVisible("V2Projectscorecarddocuploadsubmit","V2ProjectscorecardVerifyUploadDoc");
+		CommonMethod.RobustclickElementVisible("V2Projectscorecarddocuploadsubmit",
+				"V2ProjectscorecardVerifyUploadDoc");
 		CommonMethod.Isdisplayed("V2ProjectscorecardVerifyUploadDoc", 60);
 		Thread.sleep(2000);
 		CommonMethod.refreshBrowser();
@@ -566,14 +586,14 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void UploadLegalAndGeneralDocumentFromDocumentLibrary(String SheetName, int rowNum, String DocumentType,
 			String FileName) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("WellV2ProjectDocumentTab", 60);
-		CommonMethod.RobustclickElementVisible("WellV2ProjectDocumentTab","V2ProjectDocUploadbtn");
+		CommonMethod.RobustclickElementVisible("WellV2ProjectDocumentTab", "V2ProjectDocUploadbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectDocUploadbtn", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectDocUploadbtn","V2ProjectPortfolioDocType");
+		CommonMethod.RobustclickElementVisible("V2ProjectDocUploadbtn", "V2ProjectPortfolioDocType");
 		testlog.info("Document Type : General");
 		CommonMethod.selectdropdownVisibletext("V2ProjectPortfolioDocType", DocumentType);
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", FileName);
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectDocSubmit","V2ProjectScorecardWaitUntilDocUploaded");
+		CommonMethod.RobustclickElementVisible("V2ProjectDocSubmit", "V2ProjectScorecardWaitUntilDocUploaded");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilInVisibility("V2ProjectScorecardWaitUntilDocUploaded", 120);
 		CommonMethod.WaitUntilClickble("V2ProjectDocUploadbtn", 30);
@@ -583,26 +603,26 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void UploadOngoingDocumentInDocV2Project(String SheetName, int rowNum)
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectDocUploadbtn", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectDocUploadbtn","V2ProjectPortfolioDocType");
-		testlog.info("Document Type" + "Ongoing data reports");
+		CommonMethod.RobustclickElementVisible("V2ProjectDocUploadbtn", "V2ProjectPortfolioDocType");
+		testlog.info("Document Type: Ongoing data reports");
 		CommonMethod.selectdropdownVisibletext("V2ProjectPortfolioDocType", "Ongoing data reports");
 		Thread.sleep(2000);
-		CommonMethod.RobustclickElementVisible("V2ProjectResetbtn","V2ProjectPortfolioDocType");
+		CommonMethod.RobustclickElementVisible("V2ProjectResetbtn", "V2ProjectPortfolioDocType");
 		Thread.sleep(1000);
 		CommonMethod.selectdropdownVisibletext("V2ProjectPortfolioDocType", "Legal");
 		Thread.sleep(1000);
-		CommonMethod.RobustclickElementVisible("V2ProjectResetbtn","V2ProjectPortfolioDocType");
+		CommonMethod.RobustclickElementVisible("V2ProjectResetbtn", "V2ProjectPortfolioDocType");
 		Thread.sleep(2000);
 		CommonMethod.selectdropdownVisibletext("V2ProjectPortfolioDocType", "Ongoing data reports");
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
-		CommonMethod.RobustclickElementVisible("OwnerOrgClick","OwnerOrg");
+		CommonMethod.RobustclickElementVisible("OwnerOrgClick", "OwnerOrg");
 		CommonMethod.sendKeys("OwnerOrg", "R");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
 		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 5).click();
 		CommonMethod.selectdropdownVisibletext("V2ProjectDocPeriod", "Year 1 reporting");
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", OngoingfileUpload);
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectDocSubmit","V2ProjectScorecardWaitUntilDocUploaded");
+		CommonMethod.RobustclickElementVisible("V2ProjectDocSubmit", "V2ProjectScorecardWaitUntilDocUploaded");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilInVisibility("V2ProjectScorecardWaitUntilDocUploaded", 120);
 		CommonMethod.WaitUntilClickble("V2ProjectDocUploadbtn", 30);
@@ -612,20 +632,20 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void UploadFeatureDocumentInDocV2Project(String SheetName, int rowNum)
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectDocUploadbtn", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectDocUploadbtn","V2ProjectPortfolioDocType");
+		CommonMethod.RobustclickElementVisible("V2ProjectDocUploadbtn", "V2ProjectPortfolioDocType");
 		Thread.sleep(2000);
 		testlog.info("Document Type: " + "Feature");
 		CommonMethod.selectdropdownVisibletext("V2ProjectPortfolioDocType", "Feature");
 		Thread.sleep(2000);
 		rc.SelectOwnerOrg(SheetName, rowNum);
 		Thread.sleep(2000);
-		CommonMethod.RobustclickElementVisible("V2ProjectPart","V2ProjectSelectPartDoc");
+		CommonMethod.RobustclickElementVisible("V2ProjectPart", "V2ProjectSelectPartDoc");
 		Thread.sleep(1000);
 		CommonMethod.Robustclick("V2ProjectSelectPartDoc");
 		Thread.sleep(1000);
 		CommonMethod.uploadFile("V2Projectscorecarddocupload", FeaturefileUpload);
 		CommonMethod.WaitUntilClickble("V2ProjectDocSubmit", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectDocSubmit","V2ProjectScorecardWaitUntilDocUploaded");
+		CommonMethod.RobustclickElementVisible("V2ProjectDocSubmit", "V2ProjectScorecardWaitUntilDocUploaded");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilInVisibility("V2ProjectScorecardWaitUntilDocUploaded", 120);
 		CommonMethod.WaitUntilClickble("V2ProjectDocUploadbtn", 30);
@@ -635,11 +655,11 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void UploadDocumentCountInDocV2Project(String SheetName, int rowNum)
 			throws IOException, InterruptedException {
 		CommonMethod.scrolldowntoElement("V2ProjectDocUploadbtn");
-		CommonMethod.RobustclickElementVisible("V2ProjectGeneralDoc","V2ProjectDocumentValid");
+		CommonMethod.RobustclickElementVisible("V2ProjectGeneralDoc", "V2ProjectDocumentValid");
 		int V2ProjectDocCount = CommonMethod.ElementSize("V2ProjectGeneralDocCount");
 		String V2ProjectDocuCounts = Integer.toString(V2ProjectDocCount);
 		CommonMethod.assertActualContainsExpected(V2ProjectDocuCounts, "2");
-		CommonMethod.RobustclickElementVisible("V2ProjectScorecardDoc","V2ProjectDocumentValid");
+		CommonMethod.RobustclickElementVisible("V2ProjectScorecardDoc", "V2ProjectDocumentValid");
 		int V2ProjectScoreDocCount = CommonMethod.ElementSize("V2ProjectScorecardDocCount");
 		String V2ProjectDocCounts = Integer.toString(V2ProjectScoreDocCount);
 		CommonMethod.assertActualContainsExpected(V2ProjectDocCounts, "4");
@@ -648,45 +668,45 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void ReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ReviewTab", 60);
-		CommonMethod.RobustclickElementVisible("ReviewTab","Reviewlanding");
+		CommonMethod.RobustclickElementVisible("ReviewTab", "Reviewlanding");
 		CommonMethod.WaitUntilVisibility("Reviewlanding", 30);
 		CommonMethod.WaitUntilVisibility("V2ProjectsubmitReview", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectsubmitReview","V2ProjectcommentReview");
+		CommonMethod.RobustclickElementVisible("V2ProjectsubmitReview", "V2ProjectcommentReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Preliminary Precertification Review");
 		CommonMethod.WaitUntilPresence("V2ProjectSelectPhase", 60);
 		CommonMethod.selectdropdownVisibletext("V2ProjectSelectPhase", "Preliminary Precertification Review");
-		CommonMethod.RobustclickElementVisible("V2ProjectSubmitPhaseReview","ReviewViewButton");
+		CommonMethod.RobustclickElementVisible("V2ProjectSubmitPhaseReview", "ReviewViewButton");
 		CommonMethod.WaitUntilVisibility("ReviewViewButton", 60);
 		/*
 		 * Admin Review
 		 */
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
-		CommonMethod.RobustclickElementVisible("AdminNavBar","AdminWELLCertificationNavBar");
+		CommonMethod.RobustclickElementVisible("AdminNavBar", "AdminWELLCertificationNavBar");
 		CommonMethod.RobustclickElementVisible("AdminWELLCertificationNavBar", "AdminV2ProjectId");
 		CommonMethod.WaitUntilClickble("AdminV2ProjectId", 60)
 				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.RobustclickElementVisible("AdminV2ProjectApplybtn","V2ProjectSearchResultIDVerify");
+		CommonMethod.RobustclickElementVisible("AdminV2ProjectApplybtn", "V2ProjectSearchResultIDVerify");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
 				data.getCellData(SheetName, "ProjectID", rowNum), "ProjectID doesn't matches in search");
 		CommonMethod.WaitUntilPresence("V2ProjectIdCompare", 120);
-		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare","V2ProjectStartBuilding");
+		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare", "V2ProjectStartBuilding");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 60);
-		CommonMethod.RobustclickElementVisible("ReviewTab","Reviewlanding");
+		CommonMethod.RobustclickElementVisible("ReviewTab", "Reviewlanding");
 		CommonMethod.WaitUntilVisibility("ReviewViewButton", 60);
-		CommonMethod.RobustclickElementVisible("ReviewViewButton","ReviewReturnButton");
+		CommonMethod.RobustclickElementVisible("ReviewViewButton", "ReviewReturnButton");
 		CommonMethod.RobustclickElementVisible("ReviewReturnButton", "V2ProjectReviewCommentNarrative");
 		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60)
 				.sendKeys("Preliminary Precertification Review");
 		CommonMethod.sendKeys("V2ProjectGeneralCommentNarrative", "Preliminary Precertification Review");
 		CommonMethod.WaitUntilClickble("DatePickerButton", 60);
 		Thread.sleep(1000);
-		CommonMethod.RobustclickElementVisible("DatePickerButton","DatePickerOkButton");
-		CommonMethod.RobustclickElementVisible("DatePickerOkButton","ReviewPaymentstatusRadio");
+		CommonMethod.RobustclickElementVisible("DatePickerButton", "DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerOkButton", "ReviewPaymentstatusRadio");
 		CommonMethod.scrollDown();
 		CommonMethod.WaitUntilPresence("ReviewPaymentstatusRadio", 60);
 		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
-		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit","ReviewedStatus");
+		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit", "ReviewedStatus");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("ReviewedStatus", 60);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
@@ -696,14 +716,14 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void HealthSafetyV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("HealthSafetyTab", 300);
-		CommonMethod.RobustclickElementVisible("HealthSafetyTab","V2ProjectHsrContinuebtn");
+		CommonMethod.RobustclickElementVisible("HealthSafetyTab", "V2ProjectHsrContinuebtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrContinuebtn", 60);
 		CommonMethod.Robustclick("V2ProjectHsrContinuebtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectHsrTermscbx","V2ProjectHsrTermsbtn");
-		CommonMethod.RobustclickElementVisible("V2ProjectHsrTermsbtn","V2ProjectHsrTermscbx");
+		CommonMethod.RobustclickElementVisible("V2ProjectHsrTermscbx", "V2ProjectHsrTermsbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectHsrTermsbtn", "V2ProjectHsrTermscbx");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectHsrTermscbx","V2ProjectHsrProceedbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectHsrTermscbx", "V2ProjectHsrProceedbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrProceedbtn", 60);
 		CommonMethod.Robustclick("V2ProjectHsrProceedbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrAccountbtn", 60);
@@ -718,10 +738,10 @@ public class ReusableMethodsV2Project extends BaseClass {
 		Feature = CommonMethod.findElements("V2ProjectWPRPFeature");
 		Feature = Feature.subList(0, LastFeatureNumber);
 		for (WebElement f : Feature) {
-			CommonMethod.WaitUntilClickble(f,120);
+			CommonMethod.WaitUntilClickble(f, 120);
 			CommonMethod.JavascriptClickElement(f);
 			CommonMethod.WaitUntilPresence("V2ProjectWPRPDocIcon", 60);
-			CommonMethod.RobustclickElementVisible("V2ProjectWPRPDocIcon","V2ProjectWPRVerificationMethod");
+			CommonMethod.RobustclickElementVisible("V2ProjectWPRPDocIcon", "V2ProjectWPRVerificationMethod");
 			CommonMethod.WaitUntilVisibility("V2ProjectWPRVerificationMethod", 60);
 			CommonMethod.selectdropdownIndex("V2ProjectWPRVerificationMethod", 1);
 			CommonMethod.uploadFile("V2ProjectDocUpload", FeaturefileUpload);
@@ -740,12 +760,12 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void hsrReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 600);
-		CommonMethod.Robustclick("ReviewTab","V2ProjectsubmitReview");
-		CommonMethod.RobustclickElementVisible("V2ProjectsubmitReview","V2ProjectcommentReview");
+		CommonMethod.Robustclick("ReviewTab", "V2ProjectsubmitReview");
+		CommonMethod.RobustclickElementVisible("V2ProjectsubmitReview", "V2ProjectcommentReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Final Documentation Review");
 		CommonMethod.selectdropdownVisibletext("V2ProjectSelectPhase", "Final Documentation Review");
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingHsrcbx");
-		CommonMethod.RobustclickElementVisible("V2ProjectSubmitPhaseReview","V2ProjectHSRReviewViewbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectSubmitPhaseReview", "V2ProjectHSRReviewViewbtn");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("V2ProjectHSRReviewViewbtn", 120);
 		testlog.pass("**Reviewed Final Precertification Review successfully**");
@@ -753,19 +773,19 @@ public class ReusableMethodsV2Project extends BaseClass {
 		 * Admin Review
 		 */
 		CommonMethod.WaitUntilClickble("AdminNavBar", 60);
-		CommonMethod.RobustclickElementVisible("AdminNavBar","AdminWELLCertificationNavBar");
-		CommonMethod.RobustclickElementVisible("AdminWELLCertificationNavBar","AdminV2ProjectId");
+		CommonMethod.RobustclickElementVisible("AdminNavBar", "AdminWELLCertificationNavBar");
+		CommonMethod.RobustclickElementVisible("AdminWELLCertificationNavBar", "AdminV2ProjectId");
 		CommonMethod.WaitUntilClickble("AdminV2ProjectId", 60)
 				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.RobustclickElementVisible("AdminV2ProjectApplybtn","V2ProjectSearchResultIDVerify");
+		CommonMethod.RobustclickElementVisible("AdminV2ProjectApplybtn", "V2ProjectSearchResultIDVerify");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project ID doesn't matches");
-		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare","ReviewTab");
-		CommonMethod.RobustclickElementVisible("ReviewTab","V2ProjectHSRReviewViewbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare", "ReviewTab");
+		CommonMethod.RobustclickElementVisible("ReviewTab", "V2ProjectHSRReviewViewbtn");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("V2ProjectHSRReviewViewbtn", 120);
-		CommonMethod.RobustclickElementVisible("V2ProjectHSRReviewViewbtn","ReviewReturnButton");
+		CommonMethod.RobustclickElementVisible("V2ProjectHSRReviewViewbtn", "ReviewReturnButton");
 		Thread.sleep(2000);
 		CommonMethod.RobustclickElementVisible("ReviewReturnButton", "ReturnComment");
 		CommonMethod.WaitUntilClickble("ReturnComment", 60).sendKeys("Final Review");
@@ -775,7 +795,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
 		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
-		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit","ReviewedStatus");
+		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit", "ReviewedStatus");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("ReviewedStatus", 60);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
@@ -784,12 +804,12 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void performanceV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("PerformanceTab", 300);
-		CommonMethod.RobustclickElementVisible("PerformanceTab","V2ProjectWPRContinuebtn");
+		CommonMethod.RobustclickElementVisible("PerformanceTab", "V2ProjectWPRContinuebtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRContinuebtn", 60);
 		CommonMethod.Robustclick("V2ProjectWPRContinuebtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRTermscbx", 60);
 		CommonMethod.ClickCheckbox("V2ProjectWPRTermscbx");
-		CommonMethod.RobustclickElementVisible("V2ProjectWPRTermsbtn","V2ProjectHsrTermscbx");
+		CommonMethod.RobustclickElementVisible("V2ProjectWPRTermsbtn", "V2ProjectHsrTermscbx");
 		CommonMethod.WaitUntilVisibility("V2ProjectHsrTermscbx", 60);
 		CommonMethod.ClickCheckbox("V2ProjectHsrTermscbx");
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRProceedbtn", 60);
@@ -808,15 +828,15 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void wprReviewV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRPFeature", 600);
-		CommonMethod.Robustclick("ReviewTab","V2ProjectsubmitReview");
+		CommonMethod.Robustclick("ReviewTab", "V2ProjectsubmitReview");
 		CommonMethod.WaitUntilVisibility("V2ProjectsubmitReview", 300);
-		CommonMethod.RobustclickElementVisible("V2ProjectsubmitReview","V2ProjectcommentReview");
+		CommonMethod.RobustclickElementVisible("V2ProjectsubmitReview", "V2ProjectcommentReview");
 		CommonMethod.WaitUntilClickble("V2ProjectcommentReview", 60).sendKeys("Final Performance Review");
 		CommonMethod.WaitUntilPresence("V2ProjectsubmitReview", 30);
 		CommonMethod.selectdropdownVisibletext("V2ProjectSelectPhase", "Final Performance Review");
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingHsrcbx");
 		CommonMethod.ClickCheckbox("V2ProjectsubmittingWprcbx");
-		CommonMethod.RobustclickElementVisible("V2ProjectSubmitPhaseReview","V2ProjectWPRReviewViewbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectSubmitPhaseReview", "V2ProjectWPRReviewViewbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRReviewViewbtn", 30);
 		testlog.pass("**Reviewed Final Precertification Review successfully**");
 
@@ -824,17 +844,18 @@ public class ReusableMethodsV2Project extends BaseClass {
 		 * Admin Review
 		 */
 		CommonMethod.WaitUntilVisibility("AdminNavBar", 300);
-		CommonMethod.RobustclickElementVisible("AdminNavBar","AdminWELLCertificationNavBar");
-		CommonMethod.RobustclickElementVisible("AdminWELLCertificationNavBar","AdminV2ProjectId");
-		CommonMethod.WaitUntilVisibility("AdminV2ProjectId", 300).sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.RobustclickElementVisible("AdminV2ProjectApplybtn","V2ProjectSearchResultIDVerify");
+		CommonMethod.RobustclickElementVisible("AdminNavBar", "AdminWELLCertificationNavBar");
+		CommonMethod.RobustclickElementVisible("AdminWELLCertificationNavBar", "AdminV2ProjectId");
+		CommonMethod.WaitUntilVisibility("AdminV2ProjectId", 300)
+				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.RobustclickElementVisible("AdminV2ProjectApplybtn", "V2ProjectSearchResultIDVerify");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
-		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare","ReviewTab");
-		CommonMethod.RobustclickElementVisible("ReviewTab","V2ProjectWPRReviewViewbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare", "ReviewTab");
+		CommonMethod.RobustclickElementVisible("ReviewTab", "V2ProjectWPRReviewViewbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectWPRReviewViewbtn", 30);
-		CommonMethod.RobustclickElementVisible("V2ProjectWPRReviewViewbtn","ReviewReturnButton");
+		CommonMethod.RobustclickElementVisible("V2ProjectWPRReviewViewbtn", "ReviewReturnButton");
 		CommonMethod.WaitUntilVisibility("ReviewReturnButton", 30);
 		CommonMethod.RobustclickElementVisible("ReviewReturnButton", "ReturnComment");
 		Thread.sleep(2000);
@@ -842,13 +863,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilClickble("V2ProjectReviewCommentNarrative", 60).sendKeys("Final Precertification Review");
 		CommonMethod.WaitUntilVisibility("DatePickerButton", 300);
 		Thread.sleep(1000);
-		CommonMethod.RobustclickElementVisible("DatePickerButton","DatePickerOkButton");
-		CommonMethod.RobustclickElementVisible("DatePickerOkButton","ReviewPaymentstatusRadio");
+		CommonMethod.RobustclickElementVisible("DatePickerButton", "DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerOkButton", "ReviewPaymentstatusRadio");
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
 		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
 		CommonMethod.WaitUntilVisibility("ReviewReturnSubmit", 300);
-		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit","ReviewedStatus");
+		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit", "ReviewedStatus");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("ReviewedStatus", 60);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status");
@@ -860,18 +881,18 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.RobustclickElementVisible("V2ProjectSupportButton", "V2ProjectGetHelpButton");
 		CommonMethod.WaitUntilVisibility("V2ProjectGetHelpButton", 60);
 		CommonMethod.RobustclickElementVisible("V2ProjectGetHelpButton", "V2ProjectQuestionAboutDropdown");
-		
+
 		CommonMethod.RobustclickElementVisible("SubmitButton", "V2ProjectQuestionAboutDropdown");
 		CommonMethod.negativesoftassertPageSource("Question About is required.", "Question About Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Subject is required.", "Subject Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Description is required.", "Description Error Mismatch");
-		
+
 		CommonMethod.WaitUntilVisibility("V2ProjectQuestionAboutDropdown", 60);
 		CommonMethod.selectdropdownValue("V2ProjectQuestionAboutDropdown", "well-v2-feature");
 		CommonMethod.WaitUntilVisibility("V2ProjectIssueSubTypeDropdown", 60);
 		CommonMethod.selectdropdownValue("V2ProjectIssueSubTypeDropdown", "A01 Air Quality");
 		CommonMethod.WaitUntilClickble("OwnerOrgClick", 10);
-		CommonMethod.RobustclickElementVisible("OwnerOrgClick","OwnerOrg");
+		CommonMethod.RobustclickElementVisible("OwnerOrgClick", "OwnerOrg");
 		CommonMethod.sendKeys("OwnerOrg", "R");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrgDyn", 10);
 		CommonMethod.SelectRandomfromList("SelectOwnerOrgDyn", 1, 5).click();
@@ -1114,14 +1135,14 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.RobustclickElementVisible("OverviewTab", "V2ProjectProjectID");
 		CommonMethod.WaitUntilVisibility("V2ProjectProjectID", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProjectID"),
-				data.getCellData(SheetName, "ProjectID", rowNum), "Product id value doesn't match");	
+				data.getCellData(SheetName, "ProjectID", rowNum), "Product id value doesn't match");
 		CommonMethod.WaitUntilVisibility("V2ProjectProjectName", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProjectName"),
 				data.getCellData(SheetName, "ProjectName", rowNum), "Product name doesn't match");
 		CommonMethod.WaitUntilVisibility("V2ProjectProjectArea", 60);
-		String getArea =  CommonMethod.getText("V2ProjectProjectArea").replace("sq ft", "").replace(",", "").trim();
-		CommonMethod.softAssertEqualsMessage(getArea,
-				data.getCellData(SheetName, "Area", rowNum), "Project area value doesn't match");
+		String getArea = CommonMethod.getText("V2ProjectProjectArea").replace("sq ft", "").replace(",", "").trim();
+		CommonMethod.softAssertEqualsMessage(getArea, data.getCellData(SheetName, "Area", rowNum),
+				"Project area value doesn't match");
 		CommonMethod.WaitUntilVisibility("V2ProjectProjectStreet", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProjectStreet"),
 				data.getCellData(SheetName, "Street", rowNum), "Street name doesn't match");
@@ -1199,20 +1220,112 @@ public class ReusableMethodsV2Project extends BaseClass {
 		softAssert.assertAll();
 		testlog.pass("**Certification story data updated successfully**");
 	}
-	
+
 	public void validateTeamsV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 120);
-		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLCertificationNavBar");
+		CommonMethod.RobustclickElementVisible("ProjectNavBar", "WELLCertificationNavBar");
 		CommonMethod.RobustclickElementVisible("WELLCertificationNavBar", "V2ProjectId");
 		CommonMethod.WaitUntilClickble("V2ProjectId", 60);
 		testlog.info("ProjectId: " + data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.sendKeys("V2ProjectId", data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.RobustclickElementVisible("V2ProjectApplybtn","V2ProjectSearchResultIDVerify");
+		CommonMethod.RobustclickElementVisible("V2ProjectApplybtn", "V2ProjectSearchResultIDVerify");
 		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
-		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","V2 Search failed");
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var), "1", "V2 Search failed");
 		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
 		testlog.pass("**Verifies user able to access the invited project**");
 	}
-}
 	
+	public void searchFilterScoreCardV2Project() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("V2ProjectScoreCardSearchBox", 60);
+		CommonMethod.sendKeys("V2ProjectScoreCardSearchBox", "Meet Thresholds for Particulate Matter");
+		CommonMethod.assertActualContainsExpected(CommonMethod.getText("V2ProjectScoreCardOptionValue"),
+				"Meet Thresholds for Particulate Matter");
+		CommonMethod.softAssertEqualsMessage(Integer.toString(CommonMethod.ElementSize("V2ProjectSelectedPurseYes")),
+				"1", "YesPurseCount doesn't match");
+		softAssert.assertAll();
+		CommonMethod.RobustclickElementVisible("V2ProjectScorecardRefreshButton", "V2ProjectScoreCardFilterButton");
+		testlog.pass("**Verifies Scorecard Search filter successfully**");
+	}
+
+	public void verifyScoreCardFilter(String filterName, String expectedResult, int filterIndex, int checkboxIndex)
+			throws IOException, InterruptedException {
+		CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filterIndex);
+		CommonMethod.clickListWebelementFromIndex("V2ProjectScoreCardFilterOptionCheckBox", checkboxIndex);
+		CommonMethod.RobustclickElementVisible("V2ProjectScorecardApplybutton", "V2ProjectScoreCardFilterButton");
+		if (filterName.equalsIgnoreCase("Response")) {
+			CommonMethod.WaitUntilPresence("V2ProjectScoreCardValidatePurseYes", 60);
+			int YesFeature = CommonMethod.ElementSize("V2ProjectSelectedPurseYes");
+			String actualYesFeatureCount = Integer.toString(YesFeature);
+			testlog.info("YesFeatureCount: " + actualYesFeatureCount);
+			CommonMethod.softAssertEqualsMessage(actualYesFeatureCount, expectedResult, "YesPurseCount doesn't match");
+		}
+		if (filterName.equalsIgnoreCase("Verification")) {
+			CommonMethod.WaitUntilVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilInVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("V2ProjectScorecardVerificationPartCount", 60);
+		}
+		if (filterName.equalsIgnoreCase("Part type")) {
+			CommonMethod.WaitUntilInVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("V2ProjectScorecardPartTypePartCount", 60);
+		}
+		if (filterName.equalsIgnoreCase("Priorities")) {
+			CommonMethod.WaitUntilVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilInVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("V2ProjectScorecardPrioritiesPartCount", 60);
+		}
+		if (filterName.equalsIgnoreCase("Space Type")) {
+			CommonMethod.WaitUntilVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilInVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("V2ProjectScorecardSpaceTypePartCount", 60);
+		}
+		if (filterName.equalsIgnoreCase("Ratings")) {
+			CommonMethod.WaitUntilVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilInVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("V2ProjectScorecardRatingsPartCount", 60);
+		}
+		if (filterName.equalsIgnoreCase("Strategy Type")) {
+			CommonMethod.WaitUntilVisibility("V2ProjectScorecardRatingsPartCount", 120);
+			CommonMethod.WaitUntilInVisibility("V2ProjectScorecardRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("V2ProjectScorecardStrategyTypePartCount", 60);
+		}
+		if (filterName.equalsIgnoreCase("Cross walk")) {
+			CommonMethod.WaitUntilVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilInVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("V2ProjectScorecardCrossWalkPartCount", 60);
+		}
+		if (filterName.equalsIgnoreCase("Responsible Party")) {
+			CommonMethod.WaitUntilInVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("V2ProjectScorecardResponsiblePartyPartCount", 180);
+			CommonMethod.RobustclickElementVisible("V2projectScorecardResponsibleParty","V2ProjectScoreCardFilterOption");
+		}
+		if (filterName.equalsIgnoreCase("Verification") || filterName.equalsIgnoreCase("Part type")
+				|| filterName.equalsIgnoreCase("Priorities") || filterName.equalsIgnoreCase("Space Type")
+				|| filterName.equalsIgnoreCase("Ratings") || filterName.equalsIgnoreCase("Strategy Type")
+				|| filterName.equalsIgnoreCase("Cross walk") || filterName.equalsIgnoreCase("Responsible Party")) {
+			int ScorecardPart = CommonMethod.ElementSize("V2ProjectScorecardPartCount");
+			String actualFeaturePartCount = Integer.toString(ScorecardPart);
+			testlog.info(filterName +" FeatureScorecardPartCount: " + actualFeaturePartCount);
+			CommonMethod.softAssertEqualsMessage(actualFeaturePartCount, expectedResult,"ScorecardPartCount doesn't match");
+		}
+		CommonMethod.click("V2ProjectScorecardClearbutton");
+		CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filterIndex);
+		softAssert.assertAll();
+		testlog.pass("**All Scorecard filter options successfully**");
+	}
+
+	public void scorecardOptionFilterV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilPresence("V2ProjectScoreCardFilterButton", 120);
+		CommonMethod.RobustclickElementVisible("V2ProjectScoreCardFilterButton", "V2ProjectScorecardApplybutton");
+		verifyScoreCardFilter("Responsible Party", "30", 8, 93);
+		verifyScoreCardFilter("Response", "130", 0, 0);
+		verifyScoreCardFilter("Verification", "40", 1, 3);
+		verifyScoreCardFilter("Part type", "48", 2, 24);
+		verifyScoreCardFilter("Priorities", "34", 3, 26);
+		verifyScoreCardFilter("Space Type", "208", 4, 29);
+		verifyScoreCardFilter("Ratings", "27", 5, 66);
+		verifyScoreCardFilter("Strategy Type", "18", 6, 69);
+		verifyScoreCardFilter("Cross walk", "21", 7, 73);
+	}
+}
+
