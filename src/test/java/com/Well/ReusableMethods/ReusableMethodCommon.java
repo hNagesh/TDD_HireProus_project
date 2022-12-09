@@ -405,6 +405,7 @@ public class ReusableMethodCommon extends BaseClass {
 					CommonMethod.getSelectedDropdownValue("LocationOwnershipType"));
 			testlog.info("Owner type: " + data.getCellData(SheetName, "OwnerType", rowNum));
 		} else if (SheetName.equalsIgnoreCase("Portfolio")) {
+			CommonMethod.RobustclickElementVisible("SubmitButton", "PortfolioLocationProjectName");
 			CommonMethod.WaitUntilVisibility("PortfolioLocationProjectName", 120);
 			CommonMethod.sendKeys("PortfolioLocationProjectName", data.getCellData(SheetName, "ProjectName", rowNum));
 			CommonMethod.selectdropdownrandom("PortfolioLocationProjectVersion");
