@@ -43,13 +43,13 @@ public class TestNGEmailableReport2 implements IReporter {
 
 	// Reusable buffer
 	private final StringBuilder buffer = new StringBuilder();
-	int max = 19;
-	int min = 11;
-	Random rand = new Random();
-	int randomNum = rand.nextInt((max - min) + 1) + min;
-	String number = String.valueOf(randomNum);
+	/*
+	 * int max = 19; int min = 11; Random rand = new Random(); int randomNum =
+	 * rand.nextInt((max - min) + 1) + min; String number =
+	 * String.valueOf(randomNum);
+	 */
 	private String dReportTitle = "WELL Frontend Test Execution";
-	private String dReportFileName = "emailable-report"+number+".html";
+	private String dReportFileName = "emailable-report2.html";
 
 	@Override
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
