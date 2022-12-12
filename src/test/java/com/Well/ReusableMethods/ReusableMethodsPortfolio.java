@@ -706,6 +706,8 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 
 	public void searchFilterScoreCardV2Project() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ScorecardTab", 60);
+		CommonMethod.RobustclickElementVisible("ScorecardTab", "V2ProjectScoreCardSearchBox");
 		CommonMethod.WaitUntilVisibility("V2ProjectScoreCardSearchBox", 60);
 		CommonMethod.sendKeys("V2ProjectScoreCardSearchBox", "Meet Thresholds for Particulate Matter");
 		CommonMethod.assertActualContainsExpected(CommonMethod.getText("PortfolioScoreCardOptionValue"),
