@@ -6,6 +6,7 @@ import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
+import com.Well.Engine.CommonMethod;
 
 public class Equity_TC_07_LocationTest extends BaseClass {
 
@@ -34,6 +35,7 @@ public class Equity_TC_07_LocationTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
         StartTest(TestCaseName,"Adding new location");
 		try {
+			CommonMethod.refreshBrowser();
 			rc.addLocation(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
