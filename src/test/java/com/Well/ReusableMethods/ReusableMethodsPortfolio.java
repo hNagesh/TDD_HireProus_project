@@ -706,8 +706,6 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	}
 
 	public void searchFilterScoreCardV2Project() throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("ScorecardTab", 60);
-		CommonMethod.RobustclickElementVisible("ScorecardTab", "V2ProjectScoreCardSearchBox");
 		CommonMethod.WaitUntilVisibility("V2ProjectScoreCardSearchBox", 60);
 		CommonMethod.sendKeys("V2ProjectScoreCardSearchBox", "Meet Thresholds for Particulate Matter");
 		CommonMethod.assertActualContainsExpected(CommonMethod.getText("PortfolioScoreCardOptionValue"),
@@ -722,7 +720,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	public void scorecardOptionFilterPortfolio() throws IOException, InterruptedException {
 		CommonMethod.Robustclick("V2ProjectScorecardRefreshButton", "V2ProjectScoreCardFilterButton");
 		CommonMethod.Robustclick("V2ProjectScoreCardFilterButton", "V2ProjectScorecardApplybutton");
-		verifyScoreCardOptionFilter("Response", "10", 0, 0);
+		verifyScoreCardOptionFilter("Response", "2", 0, 0);
 		verifyScoreCardOptionFilter("Verification", "40", 1, 3);
 		verifyScoreCardOptionFilter("Document Scale", "36", 2, 24);
 		verifyScoreCardOptionFilter("Part type", "48", 3, 27);
