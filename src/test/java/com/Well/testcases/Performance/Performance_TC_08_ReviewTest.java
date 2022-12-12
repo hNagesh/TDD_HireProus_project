@@ -84,6 +84,8 @@ public class Performance_TC_08_ReviewTest extends BaseClass {
 		StartTest(TestCaseName, "Performance Review Submit Functionality");
 		try {
 		performance.SearchPerformanceByID(SheetName,rowNum);
+		performance.ClickBilling();
+		rc.Billing(SheetName, rowNum);
 		performance.SubmitWPRReview(SheetName, rowNum,"Curative Action Review");	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());

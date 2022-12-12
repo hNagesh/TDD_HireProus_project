@@ -188,7 +188,7 @@ public class ReusableMethodPerformance extends BaseClass {
 			CommonMethod.JavascriptClickElement("WPRAddOption");
 			CommonMethod.WaitUntilVisibility("WPRAddOptionbtn", 60);
 			CommonMethod.Robustclick("WPRAddOptionbtn");
-			CommonMethod.WaitUntilVisibility("WPRAddOptionCloseIcon", 60);
+			CommonMethod.WaitUntilPresence("WPRAddOptionCloseIcon", 60);
 			CommonMethod.Robustclick("WPRAddOptionCloseIcon","UploadFileVerifyScorecard");
 			CommonMethod.WaitUntilVisibility("WPRAssignLocbtn", 30);
 			Thread.sleep(1000);
@@ -280,6 +280,14 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilVisibility("Reviewlanding", 120);
 		CommonMethod.WaitUntilPresence("Table", 300);
 		testlog.pass("**Submitted Performance Review successfully**");
+	}
+	public void ClickBilling() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("BiilingTab", 120);
+		CommonMethod.RobustclickElementVisible("BiilingTab", "BillingProjectInvoice");
+		CommonMethod.WaitUntilPresence("BillingProjectInvoice", 120);
+		CommonMethod.RobustclickElementVisible("V2ProjectPreBillingPayNowButton", "BillingLanding");
+		CommonMethod.WaitUntilPresence("BillingLanding", 120);
+		testlog.pass("**Nagavited to Billing successfully**");
 	}
 	
 	public void CompleteWPRReview(String SheetName, int rowNum, String ReviewName) throws IOException, InterruptedException {

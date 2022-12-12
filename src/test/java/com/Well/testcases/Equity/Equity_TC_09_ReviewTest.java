@@ -82,6 +82,8 @@ public class Equity_TC_09_ReviewTest extends BaseClass {
 	        StartTest(TestCaseName, "Equity Review Submit Functionality");
 			try {
 				equity.SearchEquityByID(SheetName,rowNum);
+				performance.ClickBilling();
+				rc.Billing(SheetName, rowNum);
 				equity.WERSubmitReview(SheetName, rowNum,"Curative Action Review");	
 			} catch (Throwable t) {
 				System.out.println(t.getLocalizedMessage());
