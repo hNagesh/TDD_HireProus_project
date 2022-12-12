@@ -10,7 +10,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 
 	public void RegisterPortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
-		CommonMethod.RobustclickElementVisible("ProjectNavBar","WellAtScaleNavBar");
+		CommonMethod.RobustclickElementVisible("ProjectNavBar", "WellAtScaleNavBar");
 		CommonMethod.RobustclickElementVisible("WellAtScaleNavBar", "PortfolioCreateAccountButton");
 		CommonMethod.WaitUntilVisibility("PortfolioCreateAccountButton", 60);
 		CommonMethod.RobustclickElementVisible("PortfolioCreateAccountButton", "PortfolioAccountName");
@@ -19,10 +19,14 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.RobustclickElementVisible("PortfolioCreateAccountSubmit", "PortfolioAccountName");
 		CommonMethod.WaitUntilVisibility("PortfolioAccountName", 60);
 		CommonMethod.negativesoftassertPageSource("Organization is required.", "Organization Name Error Mismatch");
-		CommonMethod.negativesoftassertPageSource("Organization Industry is required.", "Organization Industry Name Error Mismatch");
-		CommonMethod.negativesoftassertPageSource("Locations Questionaire is required.", "Locations Questionaire Error Mismatch");
-		CommonMethod.negativesoftassertPageSource("Total number of assets is required.", "Total number of assets Error Mismatch");
-		CommonMethod.negativesoftassertPageSource("Number of locations is required.", "Number of locations Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Organization Industry is required.",
+				"Organization Industry Name Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Locations Questionaire is required.",
+				"Locations Questionaire Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Total number of assets is required.",
+				"Total number of assets Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("Number of locations is required.",
+				"Number of locations Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Area is required.", "Area Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Area in Meter is required.", "Area in Meter Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Primary Locations is required.", "Primary Locations Error Mismatch");
@@ -51,11 +55,11 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		data.setCellData(SheetName, "AreaSQFT", rowNum, CommonMethod.getattributeValue("PortfolioGrossAreaSQFT"));
 		testlog.info("PortfolioGrossAreaSQFT: " + data.getCellData(SheetName, "AreaSQFT", rowNum));
 		CommonMethod.scrolldowntoElement("PortfolioPrimarlyLocated");
-		CommonMethod.RobustclickElementVisible("PortfolioPrimarlyLocated","SelectOwnerOrg");
+		CommonMethod.RobustclickElementVisible("PortfolioPrimarlyLocated", "SelectOwnerOrg");
 		CommonMethod.WaitUntilClickble("SelectOwnerOrg", 10);
-		CommonMethod.RobustclickElementVisible("SelectOwnerOrg","PortfolioSpaceType");
-		CommonMethod.RobustclickElementVisible("PortfolioSpaceType","PortfolioSelectSpaceType");
-		CommonMethod.RobustclickElementVisible("PortfolioSelectSpaceType","PortfolioOwnerCountry");
+		CommonMethod.RobustclickElementVisible("SelectOwnerOrg", "PortfolioSpaceType");
+		CommonMethod.RobustclickElementVisible("PortfolioSpaceType", "PortfolioSelectSpaceType");
+		CommonMethod.RobustclickElementVisible("PortfolioSelectSpaceType", "PortfolioOwnerCountry");
 		CommonMethod.selectdropdownValue("PortfolioOwnerCountry", "US");
 		data.setCellData(SheetName, "Country", rowNum, CommonMethod.getSelectedDropdownValue("PortfolioOwnerCountry"));
 		testlog.info("PortfolioOwnerCountry: " + data.getCellData(SheetName, "Country", rowNum));
@@ -88,15 +92,15 @@ public class ReusableMethodsPortfolio extends BaseClass {
 
 	public void SearchPortfolioById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
-		CommonMethod.RobustclickElementVisible("ProjectNavBar","WellAtScaleNavBar");
+		CommonMethod.RobustclickElementVisible("ProjectNavBar", "WellAtScaleNavBar");
 		CommonMethod.RobustclickElementVisible("WellAtScaleNavBar", "PortfolioSearchByID");
 		testlog.info("Portfolio Name:" + data.getCellData(SheetName, "AccountName", rowNum));
 		testlog.info("Portfolio ID:" + data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.WaitUntilClickble("PortfolioSearchByID", 60)
 				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.RobustclickElementVisible("PortfolioSearchApplyFilter","V2ProjectSearchResultIDVerify");
+		CommonMethod.RobustclickElementVisible("PortfolioSearchApplyFilter", "V2ProjectSearchResultIDVerify");
 		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
-		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Portfolio Search failed");
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var), "1", "Portfolio Search failed");
 		CommonMethod.assertcontainsmessage("PortfolioIDVerify", data.getCellData(SheetName, "ProjectID", rowNum),
 				"Portfolio ID doesn't matched with exceles in search");
 		CommonMethod.RobustclickElementVisible("PortfolioIDVerify", "WPRHsrPortfolioDashboard");
@@ -163,13 +167,13 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	public void PortfolioBuildScorecard() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("WellV2Tab", 120);
 		CommonMethod.RobustclickElementVisible("WellV2Tab", "ScorecardTab");
-		CommonMethod.RobustclickElementVisible("ScorecardTab","PortfolioScorecardFinishedButton");
+		CommonMethod.RobustclickElementVisible("ScorecardTab", "PortfolioScorecardFinishedButton");
 		if (CommonMethod.isElementsExist("PortfolioScorecardFinishedButton", 30)) {
 			Thread.sleep(2000);
-			CommonMethod.RobustclickElementVisible("PortfolioScorecardFinishedButton","PortfolioScorecardPopupButton");
+			CommonMethod.RobustclickElementVisible("PortfolioScorecardFinishedButton", "PortfolioScorecardPopupButton");
 			Thread.sleep(2000);
 			CommonMethod.WaitUntilVisibility("PortfolioScorecardPopupButton", 30);
-			CommonMethod.RobustclickElementVisible("PortfolioScorecardPopupButton","PortFolioScoreCardPageLand");
+			CommonMethod.RobustclickElementVisible("PortfolioScorecardPopupButton", "PortFolioScoreCardPageLand");
 		}
 		CommonMethod.WaitUntilVisibility("PortFolioScoreCardPageLand", Scorecardtimeout);
 		testlog.pass("**Verfies Scorecard Page successfully**");
@@ -185,9 +189,11 @@ public class ReusableMethodsPortfolio extends BaseClass {
 				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
 				CommonMethod.click(ele);
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
-				CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab","PortfolioScoreCardAddOptionbutton");
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab",
+						"PortfolioScoreCardAddOptionbutton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 10);
-				CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddOptionbutton","PortfolioScoreCardAddButton");
+				CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddOptionbutton",
+						"PortfolioScoreCardAddButton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddButton", 10);
 				CommonMethod.Robustclick("PortfolioScoreCardAddButton");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
@@ -204,52 +210,63 @@ public class ReusableMethodsPortfolio extends BaseClass {
 							"PortfolioScoreCardVerificationAssignLocCancelbtn");
 				}
 				CommonMethod.scrollDown();
-					CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadbutton", "PortfolioScorecardUploadFeatureName");
-					CommonMethod.WaitUntilPresence("PortfolioScorecardUploadFeatureName", 60);
-					CommonMethod.scrolldowntoElement("PortfolioScorecardUploadFeatureName");
-					CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload);
-					if (FeatureName.equalsIgnoreCase("Support Mindful Eating")) {
-						CommonMethod.WaitUntilVisibility("PortfolioScorecardUploadEditLocationA05.2", 60);
-						CommonMethod.RobustclickElementVisible("PortfolioScorecardUploadEditLocationA05.2", "PortfolioScoreCardEditLocationCbx");
-						CommonMethod.WaitUntilClickble("PortfolioScoreCardEditLocationCbx", 30);
-						CommonMethod.RobustclickElementVisible("PortfolioScoreCardEditLocationCbx", "PortfolioScorecardVerifyTaskUploadEditLocationsUpdateButton");
-						CommonMethod.RobustclickElementVisible("PortfolioScorecardVerifyTaskUploadEditLocationsUpdateButton","PortfolioScoreCardVerificationAddNote");
-					}
-					CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
-					CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn","PortfolioScoreCardVerificationAddNote");
-					if (CommonMethod.isElementsExist("PortfolioScorecardDocumentAddedPopup", 3)) {
-						CommonMethod.WaitUntilInVisibility("PortfolioScorecardDocumentAddedPopup", 30);
-					}
-					CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
-					CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
-					CommonMethod.click(ele);
-				}		
+				CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadbutton",
+						"PortfolioScorecardUploadFeatureName");
+				CommonMethod.WaitUntilPresence("PortfolioScorecardUploadFeatureName", 60);
+				CommonMethod.scrolldowntoElement("PortfolioScorecardUploadFeatureName");
+				CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload);
+				if (FeatureName.equalsIgnoreCase("Support Mindful Eating")) {
+					CommonMethod.WaitUntilVisibility("PortfolioScorecardUploadEditLocationA05.2", 60);
+					CommonMethod.RobustclickElementVisible("PortfolioScorecardUploadEditLocationA05.2",
+							"PortfolioScoreCardEditLocationCbx");
+					CommonMethod.WaitUntilClickble("PortfolioScoreCardEditLocationCbx", 30);
+					CommonMethod.RobustclickElementVisible("PortfolioScoreCardEditLocationCbx",
+							"PortfolioScorecardVerifyTaskUploadEditLocationsUpdateButton");
+					CommonMethod.RobustclickElementVisible(
+							"PortfolioScorecardVerifyTaskUploadEditLocationsUpdateButton",
+							"PortfolioScoreCardVerificationAddNote");
+				}
+				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
+				CommonMethod.Robustclick("PortfolioScoreCardVerificationUploadDocbtn",
+						"PortfolioScoreCardVerificationAddNote");
+				if (CommonMethod.isElementsExist("PortfolioScorecardDocumentAddedPopup", 3)) {
+					CommonMethod.WaitUntilInVisibility("PortfolioScorecardDocumentAddedPopup", 30);
+				}
+				CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
+				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
+				CommonMethod.click(ele);
+			}
 		}
 		testlog.pass("**Upload Scorecard Documents in feature successfully**");
 	}
 
 	public void UploadFileinAudit() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ScoreCardSupportOrgFeature", 60);
-		CommonMethod.RobustclickElementVisible("ScoreCardSupportOrgFeature","PortfolioScorecardFeatureVerificationTab");
+		CommonMethod.RobustclickElementVisible("ScoreCardSupportOrgFeature",
+				"PortfolioScorecardFeatureVerificationTab");
 		CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 60);
-		CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab","PortfolioScoreCardAddOptionbutton");
+		CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab",
+				"PortfolioScoreCardAddOptionbutton");
 		CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddOptionbutton", 10);
-		CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddOptionbutton","PortfolioScoreCardAddButton");
+		CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddOptionbutton", "PortfolioScoreCardAddButton");
 		CommonMethod.WaitUntilVisibility("PortfolioScoreCardAddButton", 10);
 		CommonMethod.Robustclick("PortfolioScoreCardAddButton");
 		CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 10);
 		CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
 		Thread.sleep(2000);
 		CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationAssignbtn", 60);
-		CommonMethod.RobustclickElementVisible("PortfolioScoreCardVerificationAssignbtn","PortfolioScoreCardVerificationAssignChildLocCbx");
+		CommonMethod.RobustclickElementVisible("PortfolioScoreCardVerificationAssignbtn",
+				"PortfolioScoreCardVerificationAssignChildLocCbx");
 		CommonMethod.WaitUntilClickble("PortfolioScoreCardVerificationAssignChildLocCbx", 30);
 		CommonMethod.Robustclick("PortfolioScoreCardVerificationAssignLocCbx", "PortfolioScorecardValidDisable");
 		CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationAssignLocSavebtn", 30);
-		CommonMethod.RobustclickElementVisible("PortfolioScoreCardVerificationAssignLocSavebtn","PortfolioScoreCardVerificationUploadbtn");
+		CommonMethod.RobustclickElementVisible("PortfolioScoreCardVerificationAssignLocSavebtn",
+				"PortfolioScoreCardVerificationUploadbtn");
 		Thread.sleep(2000);
 		CommonMethod.scrolldowntoLast();
 		CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadbtn", 60);
-		CommonMethod.RobustclickElementVisible("PortfolioScoreCardVerificationUploadbtn","PortfolioScoreCardVerificationUpload");
+		CommonMethod.RobustclickElementVisible("PortfolioScoreCardVerificationUploadbtn",
+				"PortfolioScoreCardVerificationUpload");
 		CommonMethod.scrolldowntoLast();
 		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", AuditfileUpload);
 		CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationUploadDocbtn", 30);
@@ -292,13 +309,13 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.selectdropdownVisibletext("PortfolioSelectverificationMethod", "Technical Document (Audited)");
 		CommonMethod.WaitUntilPresence("WPRSelectFeaturePart", 60);
 		CommonMethod.scrolldowntoElement("PortfolioSelectverificationMethod");
-		CommonMethod.selectdropdownVisibletext("WPRSelectFeaturePart","N08.1");
+		CommonMethod.selectdropdownVisibletext("WPRSelectFeaturePart", "N08.1");
 		CommonMethod.scrolldowntoElement("WPRSelectFeaturePart");
 		CommonMethod.WaitUntilPresence("WPRAddPartButton", 60);
-		CommonMethod.Robustclick("WPRAddPartButton","WPRSelectFeaturePart");
+		CommonMethod.Robustclick("WPRAddPartButton", "WPRSelectFeaturePart");
 		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", AuditfileUpload, "UploadFileVerifyScorecard");
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadSubmitbutton", 60);
-		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadSubmitbutton","PortfolioDocumentListLink");
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadSubmitbutton", "PortfolioDocumentListLink");
 		CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
 		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioScorecardDocumentUploadTable");
 		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
@@ -310,28 +327,30 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		softAssert.assertAll();
 		testlog.pass("**Upload Audit Document successfully**");
 	}
-	
+
 	public void ValidatingFeatureUploadDocument() throws IOException, InterruptedException {
 		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilPresence("PortfolioDocumentUploadbutton", 120);
 		CommonMethod.scrolldowntoElement("PortfolioDocumentUploadbutton");
 		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadbutton", "V2ProjectPortfolioDocType");
 		CommonMethod.selectdropdownValue("V2ProjectPortfolioDocType", "feature");
-		CommonMethod.selectdropdownVisibletext("PortfolioSelectverificationMethod", "Policy and/or Operations Schedule");
+		CommonMethod.selectdropdownVisibletext("PortfolioSelectverificationMethod",
+				"Policy and/or Operations Schedule");
 		CommonMethod.WaitUntilPresence("WPRSelectFeaturePart", 60);
 		CommonMethod.scrolldowntoElement("PortfolioSelectverificationMethod");
-		CommonMethod.selectdropdownVisibletext("WPRSelectFeaturePart","A02.1");
+		CommonMethod.selectdropdownVisibletext("WPRSelectFeaturePart", "A02.1");
 		CommonMethod.scrolldowntoElement("WPRSelectFeaturePart");
 		CommonMethod.WaitUntilPresence("WPRAddPartButton", 60);
-		CommonMethod.Robustclick("WPRAddPartButton","WPRSelectFeaturePart");
+		CommonMethod.Robustclick("WPRAddPartButton", "WPRSelectFeaturePart");
 		CommonMethod.WaitUntilPresence("WPRConfirmLocation", 60);
-		CommonMethod.RobustclickElementVisible("WPRConfirmLocation","WPRAssignLocCbx");
+		CommonMethod.RobustclickElementVisible("WPRConfirmLocation", "WPRAssignLocCbx");
 		CommonMethod.ClickCheckbox("WPRAssignLocCbx");
 		CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationAssignLocSavebtn", 30);
-		CommonMethod.RobustclickElementVisible("PortfolioScoreCardVerificationAssignLocSavebtn","PortfolioScoreCardVerificationUpload");
-		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload,"UploadFileVerifyScorecard");
+		CommonMethod.RobustclickElementVisible("PortfolioScoreCardVerificationAssignLocSavebtn",
+				"PortfolioScoreCardVerificationUpload");
+		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", FeaturefileUpload, "UploadFileVerifyScorecard");
 		CommonMethod.WaitUntilVisibility("PortfolioDocumentUploadSubmitbutton", 60);
-		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadSubmitbutton","PortfolioDocumentListLink");
+		CommonMethod.RobustclickElementVisible("PortfolioDocumentUploadSubmitbutton", "PortfolioDocumentListLink");
 		CommonMethod.WaitUntilPresence("PortfolioDocumentListLink", 120);
 		CommonMethod.RobustclickElementVisible("PortfolioDocumentListLink", "PortfolioScorecardDocumentUploadTable");
 		CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
@@ -342,8 +361,9 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.softAssertContainsMessage(val.get(6), "Feature", "Document table data mismatch");
 		softAssert.assertAll();
 		testlog.pass("**Upload Feature Document successfully**");
-		
+
 	}
+
 	public void ReviewDocument(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ReviewTab", 60);
 		CommonMethod.RobustclickElementVisible("ReviewTab", "Reviewlanding");
@@ -365,7 +385,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.RobustclickElementVisible("AdminWELLAtScaleNavBar", "PortfolioSearchByID");
 		CommonMethod.WaitUntilClickble("PortfolioSearchByID", 60)
 				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.RobustclickElementVisible("PortfolioAdminApplybtn","PortfolioIDVerify");
+		CommonMethod.RobustclickElementVisible("PortfolioAdminApplybtn", "PortfolioIDVerify");
 		CommonMethod.assertcontainsmessage("PortfolioIDVerify", data.getCellData(SheetName, "ProjectID", rowNum),
 				"Portfolio ID doesn't matched with excel in search");
 		Thread.sleep(2000);
@@ -373,9 +393,9 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("ReviewTab", 60);
 		CommonMethod.RobustclickElementVisible("ReviewTab", "PortfolioReviewListViewButton");
 		CommonMethod.WaitUntilVisibility("PortfolioReviewListViewButton", 60);
-		CommonMethod.RobustclickElementVisible("PortfolioReviewListViewButton","PortfolioReturnReview");
+		CommonMethod.RobustclickElementVisible("PortfolioReviewListViewButton", "PortfolioReturnReview");
 		CommonMethod.WaitUntilVisibility("PortfolioReturnReview", 60);
-		CommonMethod.RobustclickElementVisible("PortfolioReturnReview","PortfolioScoreCardVerificationUpload");
+		CommonMethod.RobustclickElementVisible("PortfolioReturnReview", "PortfolioScoreCardVerificationUpload");
 		CommonMethod.uploadFile("PortfolioScoreCardVerificationUpload", PortfolioLocationImportfile);
 		CommonMethod.WaitUntilClickble("ReturnComment", 60).sendKeys("Preliminary Precertification Review");
 		Thread.sleep(1000);
@@ -468,8 +488,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		data.setCellData(SheetName, "CoachingContacts", rowNum,
 				CommonMethod.getSelectedDropdownValue("PortfolioCoachingContacts"));
 		testlog.info("Coaching Contacts: " + data.getCellData(SheetName, "CoachingContacts", rowNum));
-		CommonMethod.clearAndSendKey("PortfolioChallengesNotes",
-				data.getCellData(SheetName, "ChallengeNote", rowNum));
+		CommonMethod.clearAndSendKey("PortfolioChallengesNotes", data.getCellData(SheetName, "ChallengeNote", rowNum));
 		CommonMethod.clearAndSendKey("PortfolioCommunicationNotes",
 				data.getCellData(SheetName, "CommunicationNotes", rowNum));
 		CommonMethod.clearAndSendKey("PortfolioAccountNotes", data.getCellData(SheetName, "AccountNotes", rowNum));
@@ -501,7 +520,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 
 	public void teamPortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 30);
-		CommonMethod.RobustclickElementVisible("V2ProjectAddMemberbtn","PortfolioEmailAddress");
+		CommonMethod.RobustclickElementVisible("V2ProjectAddMemberbtn", "PortfolioEmailAddress");
 		String TeamEmail = data.getCellData(SheetName, "TeamEmailID", rowNum);
 		CommonMethod.WaitUntilVisibility("PortfolioEmailAddress", 30);
 		CommonMethod.sendKeys("PortfolioEmailAddress", TeamEmail);
@@ -509,34 +528,200 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.selectdropdownVisibletext("PortfolioRole", "Acoustician");
 		CommonMethod.ClickCheckbox("V2ProjectMembercbx");
 		CommonMethod.WaitUntilVisibility("V2ProjectInvitebtn", 30);
-		CommonMethod.RobustclickElementVisible("V2ProjectInvitebtn","V2ProjectAddMemberbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectInvitebtn", "V2ProjectAddMemberbtn");
 		testlog.pass("**Created Team member successfully**");
 	}
-	
+
 	public void deleteAddedTeamMemberPortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
 		Thread.sleep(2000);
 		CommonMethod.refreshBrowser();
 		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 30);
-		CommonMethod.RobustclickElementVisible("V2ProjectDeleteIcon","V2ProjectAddMemberbtn");
+		CommonMethod.RobustclickElementVisible("V2ProjectDeleteIcon", "V2ProjectAddMemberbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
 	}
+
 	public void validateTeamsPortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
-		CommonMethod.RobustclickElementVisible("ProjectNavBar","WellAtScaleNavBar");
+		CommonMethod.RobustclickElementVisible("ProjectNavBar", "WellAtScaleNavBar");
 		CommonMethod.RobustclickElementVisible("WellAtScaleNavBar", "PortfolioSearchByID");
 		testlog.info("Portfolio Name:" + data.getCellData(SheetName, "AccountName", rowNum));
 		testlog.info("Portfolio ID:" + data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.WaitUntilClickble("PortfolioSearchByID", 60)
 				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.RobustclickElementVisible("PortfolioSearchApplyFilter","V2ProjectSearchResultIDVerify");
+		CommonMethod.RobustclickElementVisible("PortfolioSearchApplyFilter", "V2ProjectSearchResultIDVerify");
 		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
-		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Portfolio Search failed");
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var), "1", "Portfolio Search failed");
 		CommonMethod.assertcontainsmessage("PortfolioIDVerify", data.getCellData(SheetName, "ProjectID", rowNum),
 				"Portfolio ID doesn't matched with exceles in search");
 		testlog.pass("**Verifies user able to access the invited project**");
 	}
+
 	public void clickOnTeamPortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("TeamTab", 300);
-		CommonMethod.RobustclickElementVisible("TeamTab","V2ProjectAddMemberbtn");
+		CommonMethod.RobustclickElementVisible("TeamTab", "V2ProjectAddMemberbtn");
+	}
+
+	public void verifyScoreCardOptionFilter(String filterName, String expectedResult, int filetrIndex, int checkoxIndex)
+			throws IOException, InterruptedException {
+		if (filterName.equalsIgnoreCase("GRESB")) {
+			CommonMethod.RobustclickElementVisible("PortfolioScorecardGresbFilter", "V2ProjectScoreCardFilterOption");
+		} else {
+			CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filetrIndex);
+		}
+		CommonMethod.clickListWebelementFromIndex("V2ProjectScoreCardFilterOptionCheckBox", checkoxIndex);
+		CommonMethod.RobustclickElementVisible("V2ProjectScorecardApplybutton", "V2ProjectScoreCardFilterButton");
+
+		if (filterName.equalsIgnoreCase("Response")) {
+			CommonMethod.WaitUntilPresence("PortfolioScoreCardValidatePurseYes", 60);
+			int YesFeature = CommonMethod.ElementSize("PortfolioSelectedPurseYes");
+			String actualYesFeatureCount = Integer.toString(YesFeature);
+			testlog.info("YesFeatureCount: " + actualYesFeatureCount);
+			CommonMethod.softAssertEqualsMessage(actualYesFeatureCount, expectedResult, "YesPurseCount doesn't match");
+		}
+		if (filterName.equalsIgnoreCase("Verification")) {
+			CommonMethod.WaitUntilPresence("PortfolioScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilInVisibility("PortfolioScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("PortfolioScorecardFeatureVerification", 60);
+
+		}
+		if (filterName.equalsIgnoreCase("Document Scale")) {
+			CommonMethod.WaitUntilPresence("PortfolioScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilInVisibility("PortfolioScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("PortfolioScorecardFeatureDocumentScale", 60);	
+		}
+
+		if (filterName.equalsIgnoreCase("Part type")) {
+			System.out.println("Size of element before: " + CommonMethod.ElementSize("V2ProjectScorecardPartCount"));
+			CommonMethod.WaitUntilPresence("PortfolioScorecardValidateRatingsPartCount", 120);
+			try{
+				CommonMethod.WaitUntilInVisibility("PortfolioScorecardValidateRatingsPartCount", 120);
+			}
+			catch(Exception e) {
+				CommonMethod.refreshBrowser();
+				CommonMethod.WaitUntilPresence("PortfolioScorecardValidateRatingsPartCount", 120);
+				CommonMethod.Robustclick("V2ProjectScoreCardFilterButton", "V2ProjectScorecardApplybutton");
+				CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filetrIndex);
+				CommonMethod.clickListWebelementFromIndex("V2ProjectScoreCardFilterOptionCheckBox", checkoxIndex);
+				CommonMethod.RobustclickElementVisible("V2ProjectScorecardApplybutton", "V2ProjectScoreCardFilterButton");
+				
+			}
+			CommonMethod.WaitUntilPresence("V2ProjectScorecardPartTypePartCount", 60);
+		}
+		if (filterName.equalsIgnoreCase("Priorities")) {
+			CommonMethod.WaitUntilPresence("PortfolioScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilInVisibility("PortfolioScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("V2ProjectScorecardPrioritiesPartCount", 60);
+		}
+		if (filterName.equalsIgnoreCase("Space Type")) {
+			try {
+				CommonMethod.WaitUntilPresence("PortfolioScorecardValidateRatingsPartCount", 120);
+			}
+			catch(Exception e) {
+				System.out.println(e.getMessage());
+			}
+			
+			CommonMethod.WaitUntilInVisibility("PortfolioScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("V2ProjectScorecardSpaceTypePartCount", 60);
+		}
+		if (filterName.equalsIgnoreCase("GRESB")) {
+			CommonMethod.WaitUntilPresence("PortfolioScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilInVisibility("PortfolioScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("PortfolioScorecardFeatureGRESB", 60);
+		}
+
+		if (filterName.equalsIgnoreCase("Ratings")) {
+			CommonMethod.WaitUntilPresence("PortfolioScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilInVisibility("PortfolioScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("V2ProjectScorecardRatingsPartCount", 60);
+		}
+		if (filterName.equalsIgnoreCase("Strategy Type")) {
+			CommonMethod.WaitUntilPresence("PortfolioScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilInVisibility("PortfolioScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("V2ProjectScorecardStrategyTypePartCount", 60);
+		}
+		if (filterName.equalsIgnoreCase("Cross walk")) {
+			CommonMethod.WaitUntilPresence("PortfolioScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilInVisibility("PortfolioScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("V2ProjectScorecardCrossWalkPartCount", 60);
+		}
+		if (filterName.equalsIgnoreCase("SDG")) {
+			CommonMethod.WaitUntilPresence("PortfolioScorecardValidateRatingsPartCount", 120);
+			try{
+				CommonMethod.WaitUntilInVisibility("PortfolioScorecardValidateRatingsPartCount", 120);
+			}
+			catch(Exception e) {
+				System.out.println(e.getMessage());
+				CommonMethod.refreshBrowser();
+				CommonMethod.WaitUntilPresence("PortfolioScorecardValidateRatingsPartCount", 120);
+				CommonMethod.Robustclick("V2ProjectScoreCardFilterButton", "V2ProjectScorecardApplybutton");
+				CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filetrIndex);
+				CommonMethod.clickListWebelementFromIndex("V2ProjectScoreCardFilterOptionCheckBox", checkoxIndex);
+				CommonMethod.RobustclickElementVisible("V2ProjectScorecardApplybutton", "V2ProjectScoreCardFilterButton");	
+			}
+			CommonMethod.WaitUntilPresence("PortfolioScorecardFeatureSDG", 60);
+		}
+		if (filterName.equalsIgnoreCase("Responsible Party")) {
+			try{
+				CommonMethod.WaitUntilVisibility("PortfolioScorecardValidateRatingsPartCount", 120);
+			}
+			catch(Exception e) {
+				System.out.println(e.getMessage());
+				CommonMethod.refreshBrowser();
+				CommonMethod.WaitUntilPresence("PortfolioScorecardValidateRatingsPartCount", 120);
+				CommonMethod.Robustclick("V2ProjectScoreCardFilterButton", "V2ProjectScorecardApplybutton");
+				CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filetrIndex);
+				CommonMethod.clickListWebelementFromIndex("V2ProjectScoreCardFilterOptionCheckBox", checkoxIndex);
+				CommonMethod.RobustclickElementVisible("V2ProjectScorecardApplybutton", "V2ProjectScoreCardFilterButton");
+				
+			}
+			CommonMethod.WaitUntilInVisibility("PortfolioScorecardValidateRatingsPartCount", 120);
+			CommonMethod.WaitUntilPresence("PortfolioScorecardResponsiblePartyPartCount", 60);
+		}
+		if (filterName.equalsIgnoreCase("Verification") || filterName.equalsIgnoreCase("Document Scale")
+				|| filterName.equalsIgnoreCase("Part type") || filterName.equalsIgnoreCase("Priorities")
+				|| filterName.equalsIgnoreCase("Space Type") || filterName.equalsIgnoreCase("Ratings")
+				|| filterName.equalsIgnoreCase("GRESB") || filterName.equalsIgnoreCase("Strategy Type")
+				|| filterName.equalsIgnoreCase("Cross walk") || filterName.equalsIgnoreCase("SDG")
+				|| filterName.equalsIgnoreCase("Responsible Party")) {
+			int ScorecardPart = CommonMethod.ElementSize("V2ProjectScorecardPartCount");
+			String actualFeaturePartCount = Integer.toString(ScorecardPart);
+			testlog.info("FeatureScorecardPartCount: " + actualFeaturePartCount);
+			System.out.println("Fillter Name:" + filterName);
+			CommonMethod.softAssertEqualsMessage(actualFeaturePartCount, expectedResult,
+					"ScorecardPartCount doesn't match");
+		}
+		CommonMethod.click("V2ProjectScorecardClearbutton");
+		CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filetrIndex);
+		softAssert.assertAll();
+		testlog.pass("**All filter working successfully**");
+	}
+
+	public void searchFilterScoreCardV2Project() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("V2ProjectScoreCardSearchBox", 60);
+		CommonMethod.sendKeys("V2ProjectScoreCardSearchBox", "Meet Thresholds for Particulate Matter");
+		CommonMethod.assertActualContainsExpected(CommonMethod.getText("PortfolioScoreCardOptionValue"),
+				"Meet Thresholds for Particulate Matter");
+		CommonMethod.softAssertEqualsMessage(
+				Integer.toString(CommonMethod.ElementSize("PortfolioScoreCardOptionValue")), "1",
+				"YesPurseCount doesn't match");
+		softAssert.assertAll();
+		testlog.pass("**Search filter working successfully**");
+	}
+
+	public void scorecardOptionFilterPortfolio() throws IOException, InterruptedException {
+		CommonMethod.Robustclick("V2ProjectScorecardRefreshButton", "V2ProjectScoreCardFilterButton");
+		CommonMethod.Robustclick("V2ProjectScoreCardFilterButton", "V2ProjectScorecardApplybutton");
+		verifyScoreCardOptionFilter("Response", "2", 0, 0);
+		verifyScoreCardOptionFilter("Verification", "40", 1, 3);
+		verifyScoreCardOptionFilter("Document Scale", "36", 2, 24);
+		verifyScoreCardOptionFilter("Part type", "48", 3, 27);
+		verifyScoreCardOptionFilter("Priorities", "34", 4, 29);
+		verifyScoreCardOptionFilter("Space Type", "208", 5, 32);
+		verifyScoreCardOptionFilter("Ratings", "27", 6, 69);
+		verifyScoreCardOptionFilter("GRESB", "38", 11, 123);
+		verifyScoreCardOptionFilter("Strategy Type", "18", 7, 72);
+		verifyScoreCardOptionFilter("Cross walk", "21", 8, 76);
+		verifyScoreCardOptionFilter("SDG", "8", 9, 96);
+		verifyScoreCardOptionFilter("Responsible Party", "30", 10, 113);
 	}
 }
