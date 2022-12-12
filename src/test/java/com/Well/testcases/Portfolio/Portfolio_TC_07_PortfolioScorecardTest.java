@@ -55,4 +55,35 @@ public class Portfolio_TC_07_PortfolioScorecardTest extends BaseClass {
 			throw e1;
 		}
 	}
+	@Test(dependsOnMethods = {"com.Well.testcases.Portfolio.Portfolio_TC_07_PortfolioScorecardTest.Portfolio_TC_07_02_UploadFileInAudit" })
+    @Parameters({ "SheetName", "rowNum" })
+	public void Portfolio_TC_07_03_ScorecardSearchFilter() throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		StartTest(TestCaseName, "Upload Document In Audit Functionality");
+		try {
+			portfolio.searchFilterScoreCardV2Project();
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
+	
+	@Test(dependsOnMethods = {"com.Well.testcases.Portfolio.Portfolio_TC_07_PortfolioScorecardTest.Portfolio_TC_07_03_ScorecardSearchFilter" })
+    @Parameters({ "SheetName", "rowNum" })
+	public void Portfolio_TC_07_03_ScorecardOptionFilter() throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		StartTest(TestCaseName, "Upload Document In Audit Functionality");
+		try {
+			portfolio.scorecardOptionFilterPortfolio();
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}	
 }
