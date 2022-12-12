@@ -272,8 +272,9 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilClickble("ReviewTab", 120);
 		CommonMethod.RobustclickElementVisible("ReviewTab","WPRReviewSubmitbtn");
 		CommonMethod.WaitUntilPresence("WPRReviewSubmitbtn", 120);
-		CommonMethod.RobustclickElementVisible("WPRReviewSubmitbtn","WPRReviewProjectPhase");
 		CommonMethod.refreshBrowser();
+		CommonMethod.WaitUntilPresence("WPRReviewSubmitbtn", 120);
+		CommonMethod.RobustclickElementVisible("WPRReviewSubmitbtn","WPRReviewProjectPhase");
 		CommonMethod.WaitUntilPresence("WPRReviewProjectPhase", 120);
 		testlog.info("ReviewName: "+ReviewName);
 		CommonMethod.selectdropdownValue("WPRReviewProjectPhase", ReviewName);
