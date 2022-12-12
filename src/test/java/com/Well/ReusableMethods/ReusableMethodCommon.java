@@ -386,8 +386,9 @@ public class ReusableMethodCommon extends BaseClass {
 		}
         CommonMethod.WaitUntilPresence("AddButton", 120);
 		CommonMethod.RobustclickElementVisible("AddButton", "AddLocationButton");
-		CommonMethod.click("AddLocationButton");
+		CommonMethod.WaitUntilPresence("AddLocationButton", 120);
 		if (SheetName.equalsIgnoreCase("Wpr") || SheetName.equalsIgnoreCase("Hsr") || SheetName.equalsIgnoreCase("Wer")) {
+			CommonMethod.RobustclickElementVisible("AddLocationButton","LocationName");
 			CommonMethod.RobustclickElementVisible("SubmitButton", "LocationName");
 			CommonMethod.negativesoftassertPageSource("Location Name* is required.", "Location Name Error Mismatch");
 			CommonMethod.negativesoftassertPageSource("Location Area* is required.", "Location Area Error Mismatch");
@@ -405,6 +406,7 @@ public class ReusableMethodCommon extends BaseClass {
 					CommonMethod.getSelectedDropdownValue("LocationOwnershipType"));
 			testlog.info("Owner type: " + data.getCellData(SheetName, "OwnerType", rowNum));
 		} else if (SheetName.equalsIgnoreCase("Portfolio")) {
+			CommonMethod.RobustclickElementVisible("AddLocationButton","PortfolioLocationProjectName");
 			CommonMethod.RobustclickElementVisible("SubmitButton", "PortfolioLocationProjectName");
 			CommonMethod.WaitUntilVisibility("PortfolioLocationProjectName", 120);
 			CommonMethod.sendKeys("PortfolioLocationProjectName", data.getCellData(SheetName, "ProjectName", rowNum));
