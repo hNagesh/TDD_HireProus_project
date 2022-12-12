@@ -97,6 +97,16 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilVisibility("PortfolioImportCloseButton", 30);
 		CommonMethod.RobustclickElementVisible("PortfolioImportCloseButton","PortfolioLocationLanding");
 		CommonMethod.WaitUntilVisibility("PortfolioLocationLanding", 60);
+		CommonMethod.refreshBrowser();
+		/*
+		 * Validate location added successfully
+		 */
+		CommonMethod.WaitUntilPresence("AddButton", 300);
+		CommonMethod.scrolldowntoElement("AddButton");
+		CommonMethod.WaitUntilPresence("LocationResultCount", 60);
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("LocationResultCount"), "5",
+				"Result location count doesn't match");
+		softAssert.assertAll();
 		testlog.pass("**Imported Locations successfully**");
 	}
 
