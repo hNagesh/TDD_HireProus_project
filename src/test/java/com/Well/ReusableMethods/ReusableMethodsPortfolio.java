@@ -597,19 +597,15 @@ public class ReusableMethodsPortfolio extends BaseClass {
 				CommonMethod.WaitUntilInVisibility("PortfolioScorecardValidateRatingsPartCount", 120);
 			}
 			catch(Exception e) {
-				System.out.println(e.getMessage());
 				CommonMethod.refreshBrowser();
 				CommonMethod.WaitUntilPresence("PortfolioScorecardValidateRatingsPartCount", 120);
 				CommonMethod.Robustclick("V2ProjectScoreCardFilterButton", "V2ProjectScorecardApplybutton");
 				CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filetrIndex);
 				CommonMethod.clickListWebelementFromIndex("V2ProjectScoreCardFilterOptionCheckBox", checkoxIndex);
-				Thread.sleep(5000);
 				CommonMethod.RobustclickElementVisible("V2ProjectScorecardApplybutton", "V2ProjectScoreCardFilterButton");
 				
 			}
-			
 			CommonMethod.WaitUntilPresence("V2ProjectScorecardPartTypePartCount", 60);
-			System.out.println("Size of  after: " + CommonMethod.ElementSize("V2ProjectScorecardPartCount"));
 		}
 		if (filterName.equalsIgnoreCase("Priorities")) {
 			CommonMethod.WaitUntilPresence("PortfolioScorecardValidateRatingsPartCount", 120);
@@ -620,7 +616,6 @@ public class ReusableMethodsPortfolio extends BaseClass {
 			try {
 				CommonMethod.WaitUntilPresence("PortfolioScorecardValidateRatingsPartCount", 120);
 			}
-			
 			catch(Exception e) {
 				System.out.println(e.getMessage());
 			}
@@ -661,9 +656,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 				CommonMethod.Robustclick("V2ProjectScoreCardFilterButton", "V2ProjectScorecardApplybutton");
 				CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filetrIndex);
 				CommonMethod.clickListWebelementFromIndex("V2ProjectScoreCardFilterOptionCheckBox", checkoxIndex);
-				Thread.sleep(5000);
-				CommonMethod.RobustclickElementVisible("V2ProjectScorecardApplybutton", "V2ProjectScoreCardFilterButton");
-				
+				CommonMethod.RobustclickElementVisible("V2ProjectScorecardApplybutton", "V2ProjectScoreCardFilterButton");	
 			}
 			CommonMethod.WaitUntilPresence("PortfolioScorecardFeatureSDG", 60);
 		}
@@ -678,7 +671,6 @@ public class ReusableMethodsPortfolio extends BaseClass {
 				CommonMethod.Robustclick("V2ProjectScoreCardFilterButton", "V2ProjectScorecardApplybutton");
 				CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filetrIndex);
 				CommonMethod.clickListWebelementFromIndex("V2ProjectScoreCardFilterOptionCheckBox", checkoxIndex);
-				Thread.sleep(5000);
 				CommonMethod.RobustclickElementVisible("V2ProjectScorecardApplybutton", "V2ProjectScoreCardFilterButton");
 				
 			}
@@ -702,7 +694,6 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filetrIndex);
 		softAssert.assertAll();
 		testlog.pass("**All filter working successfully**");
-
 	}
 
 	public void searchFilterScoreCardV2Project() throws IOException, InterruptedException {
