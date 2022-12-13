@@ -73,7 +73,7 @@ public class Portfolio_TC_07_PortfolioScorecardTest extends BaseClass {
 	
 	@Test(dependsOnMethods = {"com.Well.testcases.Portfolio.Portfolio_TC_07_PortfolioScorecardTest.Portfolio_TC_07_03_ScorecardSearchFilter" })
     @Parameters({ "SheetName", "rowNum" })
-	public void Portfolio_TC_07_03_ScorecardOptionFilter() throws IOException {
+	public void Portfolio_TC_07_04_ScorecardOptionFilter() throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName, "Upload Document In Audit Functionality");
