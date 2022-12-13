@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Healthsafey_TC_10_AlternativesTest extends BaseClass {
+public class Healthsafety_TC_10_AlternativesTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_09_DocumentTest.Healthsafey_TC_09_02_AuditDocument" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_09_DocumentTest.Healthsafety_TC_09_02_AuditDocument" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_10__00_EPAlternatives(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_10__00_EPAlternatives(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName, "Adding feature in EP alternatives functionality");
@@ -27,9 +27,9 @@ public class Healthsafey_TC_10_AlternativesTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_10_AlternativesTest.Healthsafey_TC_10__00_EPAlternatives" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_10_AlternativesTest.Healthsafety_TC_10__00_EPAlternatives" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_10_01_AAPAlternatives(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_10_01_AAPAlternatives(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName, "Adding feature in AAP alternatives functionality");

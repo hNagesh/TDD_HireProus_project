@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Healthsafey_TC_03_SubscribeAndStoreIdTest extends BaseClass {
+public class Healthsafety_TC_03_SubscribeAndStoreIdTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_02_RegisterHealthSafetyTest.Healthsafey_TC_02_RegisterHealthSafety" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_02_RegisterHealthSafetyTest.Healthsafety_TC_02_RegisterHealthSafety" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_03_00_Subscribe(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_03_00_Subscribe(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Subscribe the HealthSafety Functionality");
@@ -26,9 +26,9 @@ public class Healthsafey_TC_03_SubscribeAndStoreIdTest extends BaseClass {
 		}
 	}
 	
-		@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_03_SubscribeAndStoreIdTest.Healthsafey_TC_03_00_Subscribe" })
+		@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_03_SubscribeAndStoreIdTest.Healthsafety_TC_03_00_Subscribe" })
 		@Parameters({ "SheetName","rowNum" })
-		public void Healthsafey_TC_03_01_StoreId(String SheetName,int rowNum) throws IOException {
+		public void Healthsafety_TC_03_01_StoreId(String SheetName,int rowNum) throws IOException {
 
 			TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 			StartTest(TestCaseName,"Store Health Safety Id");

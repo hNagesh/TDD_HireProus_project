@@ -7,17 +7,17 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Healthsafey_TC_15_AddLocationTest extends BaseClass {
+public class Healthsafety_TC_05_HsrProjectFieldValidationTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_14_ProfileTest.Healthsafey_TC_14_Profile" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_04_SearchHealthSafetyByIdTest.Healthsafety_TC_04_SearchHealthSafetyById" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_15_AddLocation(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_05_HsrProjectFieldValidation(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName,"Adding new location");
+		StartTest(TestCaseName,"HealthSafety Project Field Validation");
 		try {
-			rc.addLocation(SheetName, rowNum);
+		hsr.HsrProjectFieldValidationTest(SheetName, rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

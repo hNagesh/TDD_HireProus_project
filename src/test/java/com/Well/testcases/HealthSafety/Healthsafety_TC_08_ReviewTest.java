@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Healthsafey_TC_08_ReviewTest extends BaseClass {
+public class Healthsafety_TC_08_ReviewTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_07_ScorecardTest.Healthsafey_TC_07_03_FilterVerification" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_07_ScorecardTest.Healthsafety_TC_07_03_FilterVerification" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_08_00_PreliminarySubmitReview(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_08_00_PreliminarySubmitReview(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Healthsafey Review Submit Functionality");
@@ -25,9 +25,9 @@ public class Healthsafey_TC_08_ReviewTest extends BaseClass {
 		}
 	}
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest.Healthsafey_TC_08_00_PreliminarySubmitReview" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_08_ReviewTest.Healthsafety_TC_08_00_PreliminarySubmitReview" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_08_01_PreliminaryCompleteReview(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_08_01_PreliminaryCompleteReview(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Healthsafey Review Complete Functionality");
@@ -41,9 +41,9 @@ public class Healthsafey_TC_08_ReviewTest extends BaseClass {
 		}
 	}
 
-@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest.Healthsafey_TC_08_01_PreliminaryCompleteReview" })
+@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_08_ReviewTest.Healthsafety_TC_08_01_PreliminaryCompleteReview" })
 @Parameters({ "SheetName","rowNum" })
-public void Healthsafey_TC_08_02_FinalSubmitReview(String SheetName,int rowNum) throws IOException {
+public void Healthsafety_TC_08_02_FinalSubmitReview(String SheetName,int rowNum) throws IOException {
 
 	TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 	StartTest(TestCaseName,"Healthsafey Review Submit Functionality");
@@ -58,9 +58,9 @@ public void Healthsafey_TC_08_02_FinalSubmitReview(String SheetName,int rowNum) 
 	}
 }
 
-@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest.Healthsafey_TC_08_02_FinalSubmitReview" })
+@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_08_ReviewTest.Healthsafety_TC_08_02_FinalSubmitReview" })
 @Parameters({ "SheetName","rowNum" })
-public void Healthsafey_TC_08_03_FinalCompleteReview(String SheetName,int rowNum) throws IOException {
+public void Healthsafety_TC_08_03_FinalCompleteReview(String SheetName,int rowNum) throws IOException {
 
 	TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 	StartTest(TestCaseName,"Healthsafey Review Complete Functionality");
@@ -74,9 +74,9 @@ public void Healthsafey_TC_08_03_FinalCompleteReview(String SheetName,int rowNum
 	}
 }
 
-@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest.Healthsafey_TC_08_03_FinalCompleteReview" })
+@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_08_ReviewTest.Healthsafety_TC_08_03_FinalCompleteReview" })
 @Parameters({ "SheetName","rowNum" })
-public void Healthsafey_TC_08_04_CurativeSubmitReview(String SheetName,int rowNum) throws IOException {
+public void Healthsafety_TC_08_04_CurativeSubmitReview(String SheetName,int rowNum) throws IOException {
 
 	TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 	StartTest(TestCaseName,"Healthsafey Review Submit Functionality");
@@ -91,9 +91,9 @@ public void Healthsafey_TC_08_04_CurativeSubmitReview(String SheetName,int rowNu
 	}
 }
 
-@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest.Healthsafey_TC_08_04_CurativeSubmitReview" })
+@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_08_ReviewTest.Healthsafety_TC_08_04_CurativeSubmitReview" })
 @Parameters({ "SheetName","rowNum" })
-public void Healthsafey_TC_08_05_CurativeCompleteReview(String SheetName,int rowNum) throws IOException {
+public void Healthsafety_TC_08_05_CurativeCompleteReview(String SheetName,int rowNum) throws IOException {
 
 	TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 	StartTest(TestCaseName,"Healthsafey Review Complete Functionality");

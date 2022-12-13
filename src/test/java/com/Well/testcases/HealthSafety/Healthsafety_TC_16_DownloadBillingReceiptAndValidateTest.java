@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Healthsafey_TC_16_DownloadBillingReceiptAndValidateTest extends BaseClass {
+public class Healthsafety_TC_16_DownloadBillingReceiptAndValidateTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_15_AddLocationTest.Healthsafey_TC_15_AddLocation" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_15_AddLocationTest.Healthsafety_TC_15_AddLocation" })
 	@Parameters({ "SheetName","rowNum" ,"Country"})
-	public void Healthsafey_TC_16_DownloadBillingReceiptAndValidate(String SheetName,int rowNum,String Country) throws IOException {
+	public void Healthsafety_TC_16_DownloadBillingReceiptAndValidate(String SheetName,int rowNum,String Country) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

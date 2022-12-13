@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Healthsafey_TC_14_ProfileTest extends BaseClass {
+public class Healthsafety_TC_14_ProfileTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_13_PromotionTest.Healthsafey_TC_13_Promotion" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_13_PromotionTest.Healthsafety_TC_13_Promotion" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_14_Profile(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_14_Profile(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

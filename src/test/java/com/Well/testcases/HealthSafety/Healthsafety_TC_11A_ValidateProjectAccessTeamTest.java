@@ -7,19 +7,20 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Healthsafey_TC_11_AddTeamMemberTest extends BaseClass {
+public class Healthsafety_TC_11A_ValidateProjectAccessTeamTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_16_DownloadBillingReceiptAndValidateTest.Healthsafey_TC_16_DownloadBillingReceiptAndValidate" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_11_AddTeamMemberTest.Healthsafety_TC_11_AddTeamMember" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_11_AddTeamMember(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_11A_ValidateProjectAccessTeam(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
-		StartTest(TestCaseName,"Adding Inviting Team member for Project Functionality");
+		StartTest(TestCaseName,"Verifies user able to access the invited project");
 		try {
-			rc.clickOnTeamTab(SheetName, rowNum);
 			rc.team(SheetName, rowNum);
-			rc.deleteAddedTeamMember(SheetName, rowNum);
+			rc.SignOut();
+			rc.teamMemberLogin(SheetName, rowNum);
+			hsr.validateTeamsHSR(SheetName, rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

@@ -7,12 +7,12 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Healthsafey_TC_07_ScorecardTest extends BaseClass {
+public class Healthsafety_TC_07_ScorecardTest extends BaseClass {
 
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_06_LocationTest.Healthsafey_TC_06_Location" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_06_LocationTest.Healthsafety_TC_06_Location" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_07_00_CompleteScorecard(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_07_00_CompleteScorecard(String SheetName,int rowNum) throws IOException {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"HealthSafety Scorecard Complete Functionality");
 		try {
@@ -25,9 +25,9 @@ public class Healthsafey_TC_07_ScorecardTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_07_ScorecardTest.Healthsafey_TC_07_00_CompleteScorecard" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_07_ScorecardTest.Healthsafety_TC_07_00_CompleteScorecard" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_07_01_UploadScorecardDocument(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_07_01_UploadScorecardDocument(String SheetName,int rowNum) throws IOException {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Upload Scorecard Document Functionality");
 		try {
@@ -40,9 +40,9 @@ public class Healthsafey_TC_07_ScorecardTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_07_ScorecardTest.Healthsafey_TC_07_01_UploadScorecardDocument" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_07_ScorecardTest.Healthsafety_TC_07_01_UploadScorecardDocument" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_07_02_FilterResponse(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_07_02_FilterResponse(String SheetName,int rowNum) throws IOException {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Scorecard Filter Response Functionality");
 		try {
@@ -55,9 +55,9 @@ public class Healthsafey_TC_07_ScorecardTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_07_ScorecardTest.Healthsafey_TC_07_02_FilterResponse" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_07_ScorecardTest.Healthsafety_TC_07_02_FilterResponse" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_07_03_FilterVerification(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_07_03_FilterVerification(String SheetName,int rowNum) throws IOException {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName,"Scorecard Filter Verification Functionality");
 		try {

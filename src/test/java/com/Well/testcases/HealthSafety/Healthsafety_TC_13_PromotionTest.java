@@ -7,18 +7,17 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Healthsafey_TC_12_EditTest extends BaseClass {
+public class Healthsafety_TC_13_PromotionTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_10_AlternativesTest.Healthsafey_TC_10_01_AAPAlternatives" })
+
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_12_EditTest.Healthsafety_TC_12_Edit" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_12_Edit(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_13_Promotion(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
-		StartTest(TestCaseName,"Updating the Project field and validating");
+		StartTest(TestCaseName,"Verifying Card link details");
 		try {
-			rc.editAndValidateOrganizationInformation(SheetName, rowNum);
-			rc.editAndValidateAdmin(SheetName, rowNum);
+			rc.promotionCardValidation(SheetName, rowNum,"20");
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
