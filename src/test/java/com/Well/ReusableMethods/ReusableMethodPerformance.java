@@ -181,30 +181,30 @@ public class ReusableMethodPerformance extends BaseClass {
 		Feature = Feature.subList(0, LastFeatureNumber);
 		CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
 		for (WebElement f : Feature) {
-			CommonMethod.click(f);
+			CommonMethod.WaitUntilClickble(f, 120);
+			CommonMethod.JavascriptClickElement(f);
 			CommonMethod.WaitUntilVisibility("WPRVerficationTab", 60);
 			CommonMethod.RobustclickElementVisible("WPRVerficationTab","WPRAddOption");
 			CommonMethod.WaitUntilVisibility("WPRAddOption", 60);
 			CommonMethod.JavascriptClickElement("WPRAddOption");
 			CommonMethod.WaitUntilVisibility("WPRAddOptionbtn", 60);
 			CommonMethod.Robustclick("WPRAddOptionbtn");
-			CommonMethod.WaitUntilPresence("WPRAddOptionCloseIcon", 60);
-			CommonMethod.Robustclick("WPRAddOptionCloseIcon","UploadFileVerifyScorecard");
-			CommonMethod.WaitUntilVisibility("WPRAssignLocbtn", 30);
+			CommonMethod.WaitUntilPresence("WPRAddOptionCloseIcon", 120);
+			CommonMethod.Robustclick("WPRAddOptionCloseIcon");
+			CommonMethod.WaitUntilVisibility("WPRAssignLocbtn", 60);
 			Thread.sleep(1000);
 			CommonMethod.RobustclickElementVisible("WPRAssignLocbtn","WPRAssignLocCbx");
 			CommonMethod.WaitUntilPresence("WPRAssignLocCbx", 60);
 			CommonMethod.Robustclick("WPRAssignLocCbx", "WPRAssignDisabledbtn");
-			CommonMethod.WaitUntilVisibility("WPRAssignSavebtn", 30);
+			CommonMethod.WaitUntilVisibility("WPRAssignSavebtn", 60);
 			CommonMethod.RobustclickElementVisible("WPRAssignSavebtn","WPRUploadDocTaskbtn");
 			CommonMethod.WaitUntilVisibility("WPRUploadDocTaskbtn", 60);
 			CommonMethod.RobustclickElementVisible("WPRUploadDocTaskbtn","WPRDocUpload");
-			CommonMethod.scrolldowntoLast();
-			CommonMethod.uploadFile("WPRDocUpload", FeaturefileUpload);
-			Thread.sleep(2000);
+			CommonMethod.uploadFile("WPRDocUpload", FeaturefileUpload,"UploadFileVerifyScorecard");
+			CommonMethod.WaitUntilPresence("WPRUploadDocTaskSavebtn", 120);
 			CommonMethod.Robustclick("WPRUploadDocTaskSavebtn");
 			CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
-			CommonMethod.click(f);
+			CommonMethod.JavascriptClickElement(f);
 		}
 
 	}
