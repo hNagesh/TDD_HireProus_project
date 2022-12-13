@@ -1328,3 +1328,4 @@ public class ReusableMethodsV2Project extends BaseClass {
 		verifyScoreCardFilter("Cross walk", "21", 7, 73);
 	}
 }
+

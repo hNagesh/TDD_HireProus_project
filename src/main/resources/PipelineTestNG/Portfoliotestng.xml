@@ -27,6 +27,7 @@
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_14_EditTest"></class> 
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_13_AddTeamMemberTest"></class>
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_13A_ValidateProjectAccessTeamTest"></class>
+		<class name="com.Well.testcases.Portfolio.Portfolio_TC_16_ErrorNegativeAssertTest"></class>
 		 </classes>
 	</test>
 	
@@ -43,7 +44,8 @@
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_05A_PortfolioValidateBillingReceiptTest"></class> 
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_06_PortfolioLocationImportTest"></class>
 		<class name="com.Well.testcases.Portfolio.Portfolio_CTC_01_FeatureTest"></class>
-	   <!-- <class name="com.Well.testcases.Portfolio.Portfolio_CTC_02_DocumentTest"></class> -->
+	    <class name="com.Well.testcases.Portfolio.Portfolio_CTC_02_DocumentTest"></class> 
 		</classes> 
 	</test>  
+
 </suite>  

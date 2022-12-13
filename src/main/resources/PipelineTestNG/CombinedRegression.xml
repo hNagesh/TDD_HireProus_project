@@ -13,6 +13,6 @@
 <suite-file path="WPRtestng.xml"></suite-file>
 <suite-file path="V2Projecttestng.xml"></suite-file>
 <suite-file path="HSRtestng.xml"></suite-file> 
-<suite-file path="Portfoliotestng.xml"></suite-file>  
+<suite-file path="Portfoliotestng.xml"></suite-file>   
 </suite-files>
 </suite>

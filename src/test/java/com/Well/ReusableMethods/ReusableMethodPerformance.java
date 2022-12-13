@@ -188,7 +188,7 @@ public class ReusableMethodPerformance extends BaseClass {
 			CommonMethod.JavascriptClickElement("WPRAddOption");
 			CommonMethod.WaitUntilVisibility("WPRAddOptionbtn", 60);
 			CommonMethod.Robustclick("WPRAddOptionbtn");
-			CommonMethod.WaitUntilVisibility("WPRAddOptionCloseIcon", 60);
+			CommonMethod.WaitUntilPresence("WPRAddOptionCloseIcon", 60);
 			CommonMethod.Robustclick("WPRAddOptionCloseIcon","UploadFileVerifyScorecard");
 			CommonMethod.WaitUntilVisibility("WPRAssignLocbtn", 30);
 			Thread.sleep(1000);
@@ -269,21 +269,39 @@ public class ReusableMethodPerformance extends BaseClass {
 	}
 
 	public void SubmitWPRReview(String SheetName, int rowNum, String ReviewName) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilClickble("ReviewTab", 60);
+		CommonMethod.WaitUntilClickble("ReviewTab", 120);
 		CommonMethod.RobustclickElementVisible("ReviewTab","WPRReviewSubmitbtn");
+		CommonMethod.WaitUntilPresence("WPRReviewSubmitbtn", 120);
+		CommonMethod.refreshBrowser();
+		CommonMethod.WaitUntilPresence("WPRReviewSubmitbtn", 120);
 		CommonMethod.RobustclickElementVisible("WPRReviewSubmitbtn","WPRReviewProjectPhase");
-		CommonMethod.selectdropdownVisibletext("WPRReviewProjectPhase", ReviewName);
+		CommonMethod.WaitUntilPresence("WPRReviewProjectPhase", 120);
+		testlog.info("ReviewName: "+ReviewName);
+		CommonMethod.selectdropdownValue("WPRReviewProjectPhase", ReviewName);
 		CommonMethod.WaitUntilClickble("WPRReviewComment", 60).sendKeys(ReviewName);
-		CommonMethod.WaitUntilVisibility("WPRReviewSubmitDocbtn", 30);
-		CommonMethod.RobustclickElementVisible("WPRReviewSubmitDocbtn","ReviewViewButton");
-		CommonMethod.WaitUntilVisibility("Reviewlanding", 60);
+		CommonMethod.WaitUntilPresence("WPRReviewSubmitDocbtn", 30);
+		CommonMethod.RobustclickElementVisible("WPRReviewSubmitDocbtn","Table");
+		CommonMethod.WaitUntilVisibility("Reviewlanding", 120);
+		CommonMethod.WaitUntilPresence("Table", 300);
 		testlog.pass("**Submitted Performance Review successfully**");
+	}
+	public void ClickBilling() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("BiilingTab", 120);
+		CommonMethod.RobustclickElementVisible("BiilingTab", "BillingProjectInvoice");
+		CommonMethod.WaitUntilPresence("BillingProjectInvoice", 120);
+		CommonMethod.RobustclickElementVisible("BillingProjectInvoice", "BillingCurativeAction");
+		CommonMethod.WaitUntilPresence("BillingCurativeAction", 120);
+		CommonMethod.RobustclickElementVisible("BillingCurativeAction", "V2ProjectPreBillingPayNowButton");
+		CommonMethod.WaitUntilPresence("V2ProjectPreBillingPayNowButton", 120);
+		CommonMethod.RobustclickElementVisible("V2ProjectPreBillingPayNowButton", "BillingLanding");
+		CommonMethod.WaitUntilPresence("BillingLanding", 120);
+		testlog.pass("**Nagavited to Billing successfully**");
 	}
 	
 	public void CompleteWPRReview(String SheetName, int rowNum, String ReviewName) throws IOException, InterruptedException {
-		CommonMethod.WaitUntilVisibility("AdminNavBar", 60);
+		CommonMethod.WaitUntilVisibility("AdminNavBar", 120);
 		CommonMethod.RobustclickElementVisible("AdminNavBar","AdminWELLPerformanceNavBar");
-		CommonMethod.WaitUntilVisibility("AdminWELLPerformanceNavBar", 60);
+		CommonMethod.WaitUntilVisibility("AdminWELLPerformanceNavBar", 120);
 		CommonMethod.RobustclickElementVisible("AdminWELLPerformanceNavBar", "WPRAdminIdSearch");
 		CommonMethod.WaitUntilClickble("WPRAdminIdSearch", 60)
 				.sendKeys(data.getCellData(SheetName, "ProjectID", rowNum));
@@ -307,6 +325,7 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.ClickCheckbox("ReviewPaymentstatusRadio");
 		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit", "ReviewedStatus");
 		Thread.sleep(2000);
+		CommonMethod.WaitUntilPresence("ReviewedStatus", 300);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status successfully");
 		testlog.pass("**Completed Performance Review successfully**");
 	}
