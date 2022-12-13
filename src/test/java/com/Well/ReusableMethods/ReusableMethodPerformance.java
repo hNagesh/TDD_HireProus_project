@@ -7,7 +7,6 @@ import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
 
 public class ReusableMethodPerformance extends BaseClass {
-
 	public void RegisterPerformance(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
 		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLPerformanceRatingNavBar");
