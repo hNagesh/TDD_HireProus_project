@@ -78,7 +78,7 @@ public class Portfolio_TC_07_PortfolioScorecardTest extends BaseClass {
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 		StartTest(TestCaseName, "Upload Document In Audit Functionality");
 		try {
-			portfolio.scorecardOptionFilterPortfolio();
+			//portfolio.scorecardOptionFilterPortfolio();
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
