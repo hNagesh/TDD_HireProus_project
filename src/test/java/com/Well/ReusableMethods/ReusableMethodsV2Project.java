@@ -1007,7 +1007,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.selectdropdownVisibletext("V2ProjectState", data.getCellData(SheetName, "State", rowNum));
 		CommonMethod.WaitUntilVisibility("V2ProjectSaveChangesButton", 60);
 		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "V2ProjectNextStep");
-		testlog.info("**Owner Information data updated successfully**");
+		testlog.pass("**Owner Information data updated successfully**");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 60);
 		/*
 		 * Validate updated owner information fields
@@ -1024,7 +1024,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectState"),
 				data.getCellData(SheetName, "State", rowNum), "State name doesn't match");
 		softAssert.assertAll();
-		testlog.pass("**State name updated successfully**");
+		testlog.info("**State name updated successfully**");
+		testlog.pass("**Verifies Information data updated successfully**");
 	}
 
 	public void editAndValidateAddressV2Project(String SheetName, int rowNum) throws Exception {
