@@ -520,7 +520,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioAccountNotes"),
 				data.getCellData(SheetName, "AccountNotes", rowNum), "Account notes value doesn't match");
 		softAssert.assertAll();
-		testlog.pass("**Verfies Admin fields updated successfully**");
+		testlog.pass("**Verifies Admin fields updated successfully**");
 	}
 
 	public void teamPortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
