@@ -989,7 +989,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectProjectGoals", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectProjectGoals"),
 				data.getCellData(SheetName, "ProjectGoals", rowNum), "Project goals data doesn't match");
-//		softAssert.assertAll();
+		softAssert.assertAll();
 		testlog.pass("**Project goals data updated successfully**");
 	}
 
@@ -1076,12 +1076,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectBillingCity", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectBillingCity"),
 				data.getCellData(SheetName, "City", rowNum), "Billing city name doesn't match");
-		testlog.pass("**City name updated successfully**");
+		testlog.info("**City name updated successfully**");
 		CommonMethod.WaitUntilVisibility("V2ProjectBillingPostalCode", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectBillingPostalCode"),
 				data.getCellData(SheetName, "PostalCode", rowNum), "Billing postal code doesn't match");
 		softAssert.assertAll();
-		testlog.pass("**Postal code updated successfully**");
+		testlog.info("**Postal code updated successfully**");
+		testlog.pass("**Verifies Address data updated successfully**");
 	}
 
 	public void editAndValidateAdminV2Project(String SheetName, int rowNum) throws Exception {
@@ -1114,20 +1115,21 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2projectAdminBillingStatus", 120);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2projectAdminBillingStatus"),
 				data.getCellData(SheetName, "BillingStatus", rowNum), "Billing status value doesn't match");
-		testlog.pass("**Billing status updated successfully**");
+		testlog.info("**Billing status updated successfully**");
 		CommonMethod.WaitUntilVisibility("V2projectAdminBillingChallengeNote", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2projectAdminBillingChallengeNote"),
 				data.getCellData(SheetName, "ChallengeNote", rowNum), "Challenge note value doesn't match");
-		testlog.pass("**Challenge note updated successfully**");
+		testlog.info("**Challenge note updated successfully**");
 		CommonMethod.WaitUntilVisibility("V2projectAdminBillingCommunicationNote", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2projectAdminBillingCommunicationNote"),
 				data.getCellData(SheetName, "CommunicationNote", rowNum), "Communication note value doesn't match");
-		testlog.pass("**Communication updated successfully**");
+		testlog.info("**Communication updated successfully**");
 		CommonMethod.WaitUntilVisibility("V2projectAdminBillingNote", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2projectAdminBillingNote"),
 				data.getCellData(SheetName, "BillingNote", rowNum), "Billing note value doesn't match");
 		softAssert.assertAll();
-		testlog.pass("**Billing note updated successfully**");
+		testlog.info("**Billing note updated successfully**");
+		testlog.pass("**Verifies Admin data updated successfully**");
 	}
 
 	public void overviewV2Project(String SheetName, int rowNum) throws Exception {
