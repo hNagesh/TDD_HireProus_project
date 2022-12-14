@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Portfolio_TC_13_AddTeamMemberTest extends BaseClass {
 
-	@Test(dependsOnMethods = {"com.Well.testcases.Portfolio.Portfolio_TC_14_EditTest.Portfolio_TC_14_Edit"})
+	@Test(dependsOnMethods = {"com.Well.testcases.Portfolio.Portfolio_TC_14_EditTest.Portfolio_TC_14_01_EditAndValidateAdminField"})
 	@Parameters({ "SheetName", "rowNum" })
 	public void Portfolio_TC_13_AddTeamMember(String SheetName, int rowNum) throws IOException {
 

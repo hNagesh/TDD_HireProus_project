@@ -475,6 +475,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("PortfolioScope", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioScope"),
 				data.getCellData(SheetName, "Scope", rowNum), "Scope data doesn't match");
+		softAssert.assertAll();
 		testlog.pass("**Scope data updated successfully**");
 	}
 
@@ -484,13 +485,15 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectAdminFieldsButton", 60);
 		CommonMethod.RobustclickElementVisible("V2ProjectAdminFieldsButton", "PortfolioCoachingContacts");
 		CommonMethod.WaitUntilVisibility("PortfolioCoachingContacts", 60);
-		CommonMethod.selectdropdownrandom("PortfolioCoachingContacts");
-		data.setCellData(SheetName, "CoachingContacts", rowNum,
-				CommonMethod.getSelectedDropdownValue("PortfolioCoachingContacts"));
 		testlog.info("Coaching Contacts: " + data.getCellData(SheetName, "CoachingContacts", rowNum));
+		CommonMethod.selectdropdownVisibletext("PortfolioCoachingContacts", data.getCellData(SheetName, "CoachingContacts", rowNum));
+		CommonMethod.RobustclickElementVisible("PortfolioExternalReview", "OwnerOrg");
+		CommonMethod.WaitUntilPresence("OwnerOrg", 60);
+		CommonMethod.sendKeys("OwnerOrg","Ui");
+		CommonMethod.WaitUntilPresence("PortfolioExternalReviewChild", 60);
+		CommonMethod.RobustclickElementVisible("PortfolioExternalReviewChild", "PortfolioExternalReview");
 		CommonMethod.clearAndSendKey("PortfolioChallengesNotes", data.getCellData(SheetName, "ChallengeNote", rowNum));
-		CommonMethod.clearAndSendKey("PortfolioCommunicationNotes",
-				data.getCellData(SheetName, "CommunicationNotes", rowNum));
+		CommonMethod.clearAndSendKey("PortfolioCommunicationNotes", data.getCellData(SheetName, "CommunicationNotes", rowNum));
 		CommonMethod.clearAndSendKey("PortfolioAccountNotes", data.getCellData(SheetName, "AccountNotes", rowNum));
 		CommonMethod.WaitUntilVisibility("PortfolioSaveButton", 60);
 		CommonMethod.RobustclickElementVisible("PortfolioSaveButton", "WPRHsrPortfolioDashboard");
@@ -498,23 +501,25 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		/*
 		 * Validate updated admin fields
 		 */
-
 		CommonMethod.WaitUntilVisibility("EditTab", 60);
 		CommonMethod.RobustclickElementVisible("EditTab", "V2ProjectAdminFieldsButton");
 		CommonMethod.WaitUntilVisibility("V2ProjectAdminFieldsButton", 60);
 		CommonMethod.RobustclickElementVisible("V2ProjectAdminFieldsButton", "PortfolioCoachingContacts");
 		CommonMethod.WaitUntilVisibility("PortfolioCoachingContacts", 60);
-		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioCoachingContacts"),
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getSelectedDropdownValue("PortfolioCoachingContacts"),
 				data.getCellData(SheetName, "CoachingContacts", rowNum), "Coaching contacts value doesn't match");
-		testlog.pass("**Coaching contacts updated successfully**");
+		testlog.info("**Coaching contacts updated successfully**");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("PortfolioExternalReviewValid"),
+				data.getCellData(SheetName, "ExternalReview", rowNum), "ExternalReview value doesn't match");
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioChallengesNotes"),
 				data.getCellData(SheetName, "ChallengeNote", rowNum), "Challenges notes value doesn't match");
-		testlog.pass("**Rhallenges notes value updated successfully**");
+		testlog.info("**Challenges notes value updated successfully**");
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioCommunicationNotes"),
 				data.getCellData(SheetName, "CommunicationNotes", rowNum), "Communication notes value doesn't match");
-		testlog.pass("**Communication notes value updated successfully**");
+		testlog.info("**Communication notes value updated successfully**");
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioAccountNotes"),
 				data.getCellData(SheetName, "AccountNotes", rowNum), "Account notes value doesn't match");
+		softAssert.assertAll();
 		testlog.pass("**Account notes value updated successfully**");
 	}
 
