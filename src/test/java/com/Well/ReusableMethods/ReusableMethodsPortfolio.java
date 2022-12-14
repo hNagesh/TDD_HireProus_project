@@ -476,7 +476,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioScope"),
 				data.getCellData(SheetName, "Scope", rowNum), "Scope data doesn't match");
 		softAssert.assertAll();
-		testlog.pass("**Scope data updated successfully**");
+		testlog.pass("**Verifies Project Information data updated successfully**");
 	}
 
 	public void editAndValidateAdmin(String SheetName, int rowNum) throws Exception {
@@ -520,7 +520,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("PortfolioAccountNotes"),
 				data.getCellData(SheetName, "AccountNotes", rowNum), "Account notes value doesn't match");
 		softAssert.assertAll();
-		testlog.pass("**Account notes value updated successfully**");
+		testlog.pass("**Verfies Admin fields updated successfully**");
 	}
 
 	public void teamPortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
