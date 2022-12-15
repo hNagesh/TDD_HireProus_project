@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Performance_TC_18_SearchPerformanceByStatusTest extends BaseClass {
 
-	@Test//(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_11A_ValidateProjectAccessTeamTest.Performance_TC_11A_ValidateProjectAccessTeam" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_11A_ValidateProjectAccessTeamTest.Performance_TC_11A_ValidateProjectAccessTeam" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Performance_TC_18_SearchPerformanceByStatus(String SheetName,int rowNum) throws IOException {
 
