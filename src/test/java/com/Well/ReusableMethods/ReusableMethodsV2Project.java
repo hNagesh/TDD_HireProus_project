@@ -160,7 +160,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectCountryResultList"), data.getCellData(SheetName, "Country", rowNum), "V2 CountryList Search failed");
 		int Country = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
 		CommonMethod.assertExpectedContainsActual(String.valueOf(Country), "1", "V2 Search failed");
-		
 		/*
 		 * FilterByOrganizationName
 		 */
