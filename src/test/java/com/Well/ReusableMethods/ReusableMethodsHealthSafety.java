@@ -122,6 +122,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.assertcontainsmessage("HSRIdClick", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
 		String status = CommonMethod.getText("HsrWprStatusResultList");
+		testlog.info("Status: " +status);
 		CommonMethod.assertExpectedContainsActual(status,"REGISTERED","HealthSafety Search failed");
 		CommonMethod.RobustclickElementVisible("HSRIdClick","WPRHsrPortfolioDashboard");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);

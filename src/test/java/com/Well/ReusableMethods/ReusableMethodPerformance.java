@@ -87,10 +87,6 @@ public class ReusableMethodPerformance extends BaseClass {
 			CommonMethod.ClickCheckbox("WPRProgramFeePublicrbtn");
 		}
 		CommonMethod.scrollDown();
-		//CommonMethod.RobustclickElementVisible("WPRtermContinuebutton", "WPRAcknowledecbx");
-		//CommonMethod.scrolldowntoElement("WPRProgramFeePublicrbtn");
-		//CommonMethod.WaitUntilVisibility("WPRtermContinuebutton", 60);
-		//CommonMethod.negativesoftassertPageSource("By checking this box you acknowledge you have read the Terms & Conditions and agree to be bound by these Terms.* is required.", "Acknowledge CheckBox Error Name");
 		CommonMethod.WaitUntilClickble("WPRAcknowledecbx", 60);
 		CommonMethod.ClickCheckbox("WPRAcknowledecbx");
 		CommonMethod.RobustclickElementVisible("WPRtermContinuebutton", "BillingLanding");
@@ -124,10 +120,17 @@ public class ReusableMethodPerformance extends BaseClass {
 		testlog.info("Performance ID: " + wprId);
 		CommonMethod.WaitUntilClickble("WPRId", 60).sendKeys(wprId);
 		CommonMethod.RobustclickElementVisible("WPRApplybtn","V2ProjectSearchResultIDVerify");
+		int ProjectCount = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount),"1","HealthSafety Search failed");
+		CommonMethod.sendKeys("HsrNameList", data.getCellData(SheetName, "projectName", rowNum));
+		CommonMethod.RobustclickElementVisible("WPRApplybtn","V2ProjectSearchResultIDVerify");
 		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
 		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Portfolio Search failed");
 		CommonMethod.assertcontainsmessage("WPRIdClick", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
+		String status = CommonMethod.getText("HsrWprStatusResultList");
+		testlog.info("Status: " +status);
+		CommonMethod.assertExpectedContainsActual(status,"REGISTERED","Performance Search failed");
 		CommonMethod.RobustclickElementVisible("WPRIdClick","WPRHsrPortfolioDashboard");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 300);
 		testlog.pass("**Verifies the Search Performance ByID successfully**");
@@ -529,5 +532,30 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.refreshBrowser();
 		softAssert.assertAll();
 		testlog.pass("**Verifies filter " + filterName + " options successfully**");
+	}
+	
+	public void SearchPerformanceByStatus(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLPerformanceRatingNavBar");
+		CommonMethod.WaitUntilVisibility("WELLPerformanceRatingNavBar", 300);
+		CommonMethod.RobustclickElementVisible("WELLPerformanceRatingNavBar", "WPRIdClick");
+		String wprId = data.getCellData(SheetName, "ProjectID", rowNum);
+		testlog.info("Performance ID: " + wprId);
+		CommonMethod.WaitUntilClickble("WPRId", 60).sendKeys(wprId);
+		CommonMethod.RobustclickElementVisible("WPRApplybtn","V2ProjectSearchResultIDVerify");
+		int ProjectCount = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount),"1","HealthSafety Search failed");
+		CommonMethod.sendKeys("HsrNameList", data.getCellData(SheetName, "projectName", rowNum));
+		CommonMethod.RobustclickElementVisible("WPRApplybtn","V2ProjectSearchResultIDVerify");
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Portfolio Search failed");
+		CommonMethod.assertcontainsmessage("WPRIdClick", data.getCellData(SheetName, "projectID", rowNum),
+				"Project name doesn't matches in search");
+		String status = CommonMethod.getText("HsrWprStatusResultList");
+		testlog.info("Status: " +status);
+		CommonMethod.assertExpectedContainsActual(status,"ACHIEVED","Performance Search failed");
+		CommonMethod.RobustclickElementVisible("WPRIdClick","WPRHsrPortfolioDashboard");
+		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 300);
+		testlog.pass("**Verifies the Search Performance ByID successfully**");
 	}
 }

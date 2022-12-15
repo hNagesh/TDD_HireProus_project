@@ -29,7 +29,7 @@
    <class name="com.Well.testcases.Performance.Performance_TC_11_AddMemberTeamTest"></class>
   <class name="com.Well.testcases.Performance.Performance_TC_11A_ValidateProjectAccessTeamTest"></class>
   <class name="com.Well.testcases.Performance.Performance_TC_17_ErrorNegativeAssertTest"></class>
-  
+  <class name="com.Well.testcases.Performance.Performance_TC_18_SearchPerformanceByStatusTest"></class>
 </classes>
 </test>
 </suite>  
