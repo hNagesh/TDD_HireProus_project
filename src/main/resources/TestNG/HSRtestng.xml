@@ -15,6 +15,7 @@
 <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_02_RegisterHealthSafetyTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_03_SubscribeAndStoreIdTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_04_SearchHealthSafetyByIdTest"></class>
+<class name="com.Well.testcases.HealthSafety.Healthsafety_TC_04A_SearchFilterByStatusTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_05_HsrProjectFieldValidationTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_06_LocationTest"></class>
  <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_07_ScorecardTest"></class>
