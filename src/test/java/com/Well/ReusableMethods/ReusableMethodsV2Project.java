@@ -129,7 +129,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 	}
 	
 	public void SearchV2ProjectFilterByStatus(String SheetName, int rowNum, String Status, String Status1) throws IOException, InterruptedException {
-		testlog.info("StatusList: " + data.getCellData(SheetName, "Country", rowNum));
+		testlog.info("StatusList: " + Status);
 		CommonMethod.selectdropdownVisibletext("V2ProjectIdStatusList", Status);
 		CommonMethod.RobustclickElementVisible("V2ProjectApplybtn", "V2ProjectStatusResultList");
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectStatusResultList"), Status1, "V2 CountryList Search failed");
