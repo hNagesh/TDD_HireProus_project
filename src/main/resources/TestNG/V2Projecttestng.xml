@@ -6,7 +6,7 @@
 <parameter name="browserName" value="chrome"/>
 <parameter name="environment" value="Test"/>
 
-<test name="WELL-V2-CoreProject" >
+<!-- <test name="WELL-V2-CoreProject" >
 <parameter name="SheetName" value="V2Project"/>
 <parameter name="rowNum" value="2"/>
 <parameter name="ProjectType" value="WELLCore"/>
@@ -38,7 +38,7 @@
 <class name="com.Well.testcases.V2Project.V2_TC_14A_ValidateProjectAccessTeamV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_22_ErrorNegativeAssertTest"></class> 
 </classes>
-</test>
+</test> -->
 
 <test name="WELL-V2-CertificationProject" >
 <parameter name="SheetName" value="V2Project"/>
@@ -54,10 +54,10 @@
 <class name="com.Well.testcases.V2Project.V2_TC_21_PricingV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_05_BillingV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_06_AgreementV2ProjectTest"></class> 
-<class name="com.Well.testcases.V2Project.V2_TC_07_ScorecardV2ProjectTest"></class>
+<!-- <class name="com.Well.testcases.V2Project.V2_TC_07_ScorecardV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_08_DocumentV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_09_ReviewV2ProjectTest"></class>
-
+ -->
 </classes>
 </test>
 </suite>  
