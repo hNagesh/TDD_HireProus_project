@@ -61,7 +61,7 @@
 </classes>
 </test>
 
-<test name="WELL-V2-CertificationProject" >
+<test name="WELL-V2-CertificationProjectFilter" >
 <parameter name="SheetName" value="V2Project"/>
 <parameter name="rowNum" value="4"/>
 <parameter name="ProjectType" value="WELLCertification"/>
