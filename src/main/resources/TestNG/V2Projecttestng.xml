@@ -60,4 +60,21 @@
 
 </classes>
 </test>
+
+<test name="WELL-V2-CertificationProject" >
+<parameter name="SheetName" value="V2Project"/>
+<parameter name="rowNum" value="4"/>
+<parameter name="ProjectType" value="WELLCertification"/>
+<parameter name="Country" value="IN"/>
+<classes>
+<class name="com.Well.testcases.login.TC_01_LoginTest"></class>
+<class name="com.Well.testcases.V2Project.V2_TC_SF_00_RegisterV2ProjectTest"></class>
+<class name="com.Well.testcases.V2Project.V2_TC_SF_01_SearchV2ProjectByNRStatusTest"></class>
+<class name="com.Well.testcases.V2Project.V2_TC_SF_02_EnrollV2ProjectTest"></class>
+<class name="com.Well.testcases.V2Project.V2_TC_SF_03_SearchV2ProjectByRIPStatusTest"></class>
+<class name="com.Well.testcases.V2Project.V2_TC_SF_04_BillingV2ProjectTest"></class>
+<class name="com.Well.testcases.V2Project.V2_TC_SF_05_SearchV2ProjectByRegisteredStatusTest"></class>
+<class name="com.Well.testcases.V2Project.V2_TC_SF_06_SearchV2ProjectFilters"></class>
+</classes>
+</test>
 </suite>  
