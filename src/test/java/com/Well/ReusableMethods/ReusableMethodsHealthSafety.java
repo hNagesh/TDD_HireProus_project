@@ -121,6 +121,29 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount1),"1","HealthSafety Search failed");
 		CommonMethod.assertcontainsmessage("HSRIdClick", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
+		CommonMethod.RobustclickElementVisible("HSRIdClick","WPRHsrPortfolioDashboard");
+		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
+		testlog.pass("**Verifies the Search HealthSafety ByID successfully**");
+	}
+	
+	public void SearchFilterRegisteredStatus(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLHealthSafetyNavBar");
+		CommonMethod.WaitUntilVisibility("WELLHealthSafetyNavBar", 300);
+		CommonMethod.RobustclickElementVisible("WELLHealthSafetyNavBar", "HsrIdSearch");
+		CommonMethod.WaitUntilVisibility("HsrIdSearch", 300);
+		CommonMethod.RobustclickElementVisible("HsrIdSearch","HsrIdSearch");
+		testlog.info("HealthSafety ID:" + data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.sendKeys("HsrIdSearch", data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.RobustclickElementVisible("HsrapplySearch","V2ProjectSearchResultIDVerify");
+		int ProjectCount = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount),"1","HealthSafety Search failed");
+		CommonMethod.sendKeys("HsrNameList", data.getCellData(SheetName, "HsrName", rowNum));
+		CommonMethod.RobustclickElementVisible("HsrapplySearch","V2ProjectSearchResultIDVerify");
+		int ProjectCount1 = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount1),"1","HealthSafety Search failed");
+		CommonMethod.assertcontainsmessage("HSRIdClick", data.getCellData(SheetName, "projectID", rowNum),
+				"Project name doesn't matches in search");
 		String status = CommonMethod.getText("HsrWprStatusResultList");
 		testlog.info("Status: " +status);
 		CommonMethod.assertExpectedContainsActual(status,"REGISTERED","HealthSafety Search failed");
