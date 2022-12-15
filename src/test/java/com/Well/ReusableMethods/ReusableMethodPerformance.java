@@ -556,6 +556,6 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.assertExpectedContainsActual(status,"ACHIEVED","Performance Search failed");
 		CommonMethod.RobustclickElementVisible("WPRIdClick","WPRHsrPortfolioDashboard");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 300);
-		testlog.pass("**Verifies the Search Performance ByID successfully**");
+		testlog.pass("**Verifies the Search Performance Status successfully**");
 	}
 }
