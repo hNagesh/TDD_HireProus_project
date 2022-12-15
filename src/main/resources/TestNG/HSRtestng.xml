@@ -29,6 +29,7 @@
  <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_11_AddTeamMemberTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_11A_ValidateProjectAccessTeamTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_17_ErrorNegativeAssertTest"></class>
+<class name="com.Well.testcases.HealthSafety.Healthsafety_TC_18_SearchFilterByStatusTest"></class>
 </classes>
 </test>
 </suite>  
