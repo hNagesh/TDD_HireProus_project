@@ -544,11 +544,11 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.WaitUntilClickble("WPRId", 60).sendKeys(wprId);
 		CommonMethod.RobustclickElementVisible("WPRApplybtn","V2ProjectSearchResultIDVerify");
 		int ProjectCount = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
-		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount),"1","HealthSafety Search failed");
+		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount),"1","Performance Search failed");
 		CommonMethod.sendKeys("HsrNameList", data.getCellData(SheetName, "projectName", rowNum));
 		CommonMethod.RobustclickElementVisible("WPRApplybtn","V2ProjectSearchResultIDVerify");
 		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
-		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Portfolio Search failed");
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Performance Search Count failed");
 		CommonMethod.assertcontainsmessage("WPRIdClick", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
 		String status = CommonMethod.getText("HsrWprStatusResultList");
