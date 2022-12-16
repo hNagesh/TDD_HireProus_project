@@ -470,7 +470,8 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilVisibility("HsrIdSearch", 300);
 		CommonMethod.RobustclickElementVisible("HsrIdSearch","HsrIdSearch");
 		testlog.info("HealthSafety ID:" + data.getCellData(SheetName, "ProjectID", rowNum));
-		CommonMethod.sendKeys("HsrIdSearch", data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.WaitUntilPresence("HsrIdSearch", 60);
+		CommonMethod.clearAndSendKey("HsrIdSearch", data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.RobustclickElementVisible("HsrapplySearch","V2ProjectSearchResultIDVerify");
 		String status = CommonMethod.getText("HsrWprStatusResultList");
 		testlog.info("Status: " +status);

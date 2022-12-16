@@ -563,7 +563,8 @@ public class ReusableMethodPerformance extends BaseClass {
 		CommonMethod.RobustclickElementVisible("WELLPerformanceRatingNavBar", "WPRIdClick");
 		String wprId = data.getCellData(SheetName, "ProjectID", rowNum);
 		testlog.info("Performance ID: " + wprId);
-		CommonMethod.WaitUntilClickble("WPRId", 60).sendKeys(wprId);
+		CommonMethod.WaitUntilPresence("WPRId", 60);
+		CommonMethod.clearAndSendKey("WPRId", wprId);
 		CommonMethod.RobustclickElementVisible("WPRApplybtn","V2ProjectSearchResultIDVerify");
 		int ProjectCount = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
 		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount),"1","Performance Search failed");
