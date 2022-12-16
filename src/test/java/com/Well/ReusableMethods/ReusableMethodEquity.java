@@ -271,10 +271,17 @@ public class ReusableMethodEquity extends BaseClass {
 		CommonMethod.RobustclickElementVisible("WELLEquityNavBar","WERIdClick");
 		String werId = data.getCellData(SheetName, "ProjectID", rowNum);
 		testlog.info("Equity ID: " + werId);
-		CommonMethod.WaitUntilClickble("WERId", 60).sendKeys(werId);
+		CommonMethod.WaitUntilPresence("WPRId", 60);
+		CommonMethod.clearAndSendKey("WPRId", werId);
 		CommonMethod.RobustclickElementVisible("WERApplybtn","V2ProjectSearchResultIDVerify");
 		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
 		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Equity Search failed");
+		int ProjectCount = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount),"1","Performance Search failed");
+		CommonMethod.sendKeys("HsrNameList", data.getCellData(SheetName, "projectName", rowNum));
+		CommonMethod.RobustclickElementVisible("WPRApplybtn","V2ProjectSearchResultIDVerify");
+		int ProjectCount1 = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount1),"1","Performance Search Count failed");
 		CommonMethod.assertcontainsmessage("WERIdClick", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
 		String status = CommonMethod.getText("HsrWprStatusResultList");
