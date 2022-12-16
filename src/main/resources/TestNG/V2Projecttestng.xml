@@ -74,7 +74,7 @@
 <class name="com.Well.testcases.V2Project.V2_TC_SF_03_SearchV2ProjectByRIPStatusTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_SF_04_BillingV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_SF_05_SearchV2ProjectByRegisteredStatusTest"></class>
-<class name="com.Well.testcases.V2Project.V2_TC_SF_06_SearchV2ProjectFilters"></class>
+<class name="com.Well.testcases.V2Project.V2_TC_SF_06_SearchV2ProjectFiltersTest"></class>
 </classes>
 </test>
 </suite>  

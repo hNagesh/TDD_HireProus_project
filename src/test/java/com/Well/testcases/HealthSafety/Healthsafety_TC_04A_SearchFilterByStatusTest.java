@@ -7,17 +7,16 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Healthsafety_TC_05_HsrProjectFieldValidationTest extends BaseClass {
+public class Healthsafety_TC_04A_SearchFilterByStatusTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_04A_SearchFilterByStatusTest.Healthsafety_TC_04A_SearchFilterByStatus" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_04_SearchHealthSafetyByIdTest.Healthsafety_TC_04_SearchHealthSafetyById" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafety_TC_05_HsrProjectFieldValidation(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_04A_SearchFilterByStatus(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
-		StartTest(TestCaseName,"HealthSafety Project Field Validation");
+		StartTest(TestCaseName,"HealthSafety Enrollment Search list Functionality");
 		try {
-		hsr.HsrProjectFieldValidationTest(SheetName, rowNum);	
+         hsr.SearchFilterRegisteredStatus(SheetName,rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

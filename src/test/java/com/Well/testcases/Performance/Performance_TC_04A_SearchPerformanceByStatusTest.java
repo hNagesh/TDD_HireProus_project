@@ -7,17 +7,16 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Performance_TC_05_WprProjectFieldValidationTest extends BaseClass {
+public class Performance_TC_04A_SearchPerformanceByStatusTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_04A_SearchPerformanceByStatusTest.Performance_TC_04A_SearchPerformanceByStatus" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_04_SearchPerformanceByIdTest.Performance_TC_04_SearchPerformanceById" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Performance_TC_05_WprProjectFieldValidation(String SheetName,int rowNum) throws IOException {
+	public void Performance_TC_04A_SearchPerformanceByStatus(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
-		StartTest(TestCaseName,"Performance Project Field Validation");
+		StartTest(TestCaseName,"Performance Enrollment Search list Functionality");
 		try {
-		performance.WprProjectFieldValidationTest(SheetName, rowNum);	
+        performance.SearchPerformanceFilterStatus(SheetName,rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
