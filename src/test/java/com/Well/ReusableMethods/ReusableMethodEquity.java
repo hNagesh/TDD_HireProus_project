@@ -221,6 +221,9 @@ public class ReusableMethodEquity extends BaseClass {
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
 		CommonMethod.RobustclickElementVisible("ReviewPaymentstatusRadio","ReviewReturnSubmit");
+		CommonMethod.WaitUntilPresence("AwardedDate", 120);
+		CommonMethod.RobustclickElementVisible("AwardedDate","DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerOkButton","ReviewReturnSubmit");
 		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit", "ReviewedStatus");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status successfully");
