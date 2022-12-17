@@ -31,7 +31,7 @@
 		 </classes>
 	</test>
 	
-	<test name="WELL-At-Scale-Custom">
+	 <test name="WELL-At-Scale-Custom">
 		<parameter name="SheetName" value="Portfolio" />
 		<parameter name="rowNum" value="3" />
 		<parameter name="Country" value="US"/>
@@ -44,9 +44,8 @@
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_05A_PortfolioValidateBillingReceiptTest"></class> 
 		<class name="com.Well.testcases.Portfolio.Portfolio_TC_06_PortfolioLocationImportTest"></class>
 		<class name="com.Well.testcases.Portfolio.Portfolio_CTC_01_FeatureTest"></class>
-	    <class name="com.Well.testcases.Portfolio.Portfolio_CTC_02_DocumentTest"></class> 
-	    <class name="com.Well.testcases.Portfolio.Portfolio_TC_16_ErrorNegativeAssertTest"></class>
+	   <class name="com.Well.testcases.Portfolio.Portfolio_CTC_02_DocumentTest"></class> 
+	   <class name="com.Well.testcases.Portfolio.Portfolio_TC_16_ErrorNegativeAssertTest"></class>
 		</classes> 
 	</test>  
-
 </suite>  

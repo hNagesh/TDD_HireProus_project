@@ -15,6 +15,7 @@
 <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_02_RegisterHealthSafetyTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_03_SubscribeAndStoreIdTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_04_SearchHealthSafetyByIdTest"></class>
+<class name="com.Well.testcases.HealthSafety.Healthsafety_TC_04A_SearchFilterByStatusTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_05_HsrProjectFieldValidationTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_06_LocationTest"></class>
  <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_07_ScorecardTest"></class>
@@ -25,10 +26,11 @@
 <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_13_PromotionTest"></class>
  <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_14_ProfileTest"></class> 
  <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_15_AddLocationTest"></class>
-  <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_16_DownloadBillingReceiptAndValidateTest"></class>
-  <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_11_AddTeamMemberTest"></class>
+ <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_16_DownloadBillingReceiptAndValidateTest"></class>
+ <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_11_AddTeamMemberTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_11A_ValidateProjectAccessTeamTest"></class>
 <class name="com.Well.testcases.HealthSafety.Healthsafety_TC_17_ErrorNegativeAssertTest"></class>
+<class name="com.Well.testcases.HealthSafety.Healthsafety_TC_18_SearchFilterByStatusTest"></class>
 </classes>
 </test>
 </suite>  

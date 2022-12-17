@@ -15,6 +15,7 @@
 <class name="com.Well.testcases.Performance.Performance_TC_02_RegisterPerformanceTest"></class>
 <class name="com.Well.testcases.Performance.Performance_TC_03_SubscribeAndStoreIdTest"></class>
  <class name="com.Well.testcases.Performance.Performance_TC_04_SearchPerformanceByIdTest"></class>
+ <class name="com.Well.testcases.Performance.Performance_TC_04A_SearchPerformanceByStatusTest"></class>
  <class name="com.Well.testcases.Performance.Performance_TC_05_WprProjectFieldValidationTest"></class>
  <class name="com.Well.testcases.Performance.Performance_TC_06_LocationTest"></class>
   <class name="com.Well.testcases.Performance.Performance_TC_07_ScorecardTest"></class>
@@ -29,6 +30,7 @@
    <class name="com.Well.testcases.Performance.Performance_TC_11_AddMemberTeamTest"></class>
   <class name="com.Well.testcases.Performance.Performance_TC_11A_ValidateProjectAccessTeamTest"></class>
   <class name="com.Well.testcases.Performance.Performance_TC_17_ErrorNegativeAssertTest"></class>
+  <class name="com.Well.testcases.Performance.Performance_TC_18_SearchPerformanceByStatusTest"></class>
 </classes>
 </test>
 </suite>  
