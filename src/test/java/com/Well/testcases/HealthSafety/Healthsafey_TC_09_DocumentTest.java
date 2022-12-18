@@ -75,4 +75,52 @@ public class Healthsafey_TC_09_DocumentTest extends BaseClass {
 			throw e1;
 		}
 	}
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_09_DocumentTest.Healthsafey_TC_09_03_FeatureDocument" })
+	@Parameters({ "SheetName","rowNum" })
+	public void Healthsafey_TC_09_04_LibrarySearchFilterDocumentHSR(String SheetName,int rowNum) throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+
+		StartTest(TestCaseName,"HealthSafety Upload Scorecard Document");
+		try {
+			hsr.searchFilterDocumentHSR("FeatureFile", "Library", "1");
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_09_DocumentTest.Healthsafey_TC_09_04_LibrarySearchFilterDocumentHSR" })
+	@Parameters({ "SheetName","rowNum" })
+	public void Healthsafey_TC_09_05_AuditSearchFilterDocumentHSR(String SheetName,int rowNum) throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+
+		StartTest(TestCaseName,"HealthSafety Upload Scorecard Document");
+		try {
+			hsr.searchFilterDocumentHSR("AuditFile", "Audit", "1");
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_09_DocumentTest.Healthsafey_TC_09_05_AuditSearchFilterDocumentHSR" })
+	@Parameters({ "SheetName","rowNum" })
+	public void Healthsafey_TC_09_06_GeneralSearchFilterDocumentHSR(String SheetName,int rowNum) throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+
+		StartTest(TestCaseName,"HealthSafety Upload Scorecard Document");
+		try {
+			hsr.searchFilterDocumentHSR("LegalFile", "General", "1");
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
 }

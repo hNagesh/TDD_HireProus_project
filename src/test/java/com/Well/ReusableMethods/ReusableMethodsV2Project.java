@@ -120,7 +120,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
 		CommonMethod.click("V2ProjectIdCompare");
 		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare", "V2ProjectStartBuilding");
-		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 300);
+//		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 300);
 		testlog.pass("**Verifies the Search V2Project ByID successfully**");
 	}
 
@@ -351,7 +351,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void BuildScorecardV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("V2ProjectStartBuilding", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectStartBuilding","ScoreCardPageLand");
+		CommonMethod.RobustclickElementVisible("V2ProjectStartBuilding", "ScoreCardPageLand");
 		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 300);
 		testlog.pass("**Verfies Scorecard Page successfully**");
 	}
@@ -1235,7 +1235,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
 		testlog.pass("**Verifies user able to access the invited project**");
 	}
-	
+
 	public void searchFilterScoreCardV2Project() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectScoreCardSearchBox", 60);
 		CommonMethod.sendKeys("V2ProjectScoreCardSearchBox", "Meet Thresholds for Particulate Matter");
@@ -1297,7 +1297,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		if (filterName.equalsIgnoreCase("Responsible Party")) {
 			CommonMethod.WaitUntilInVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
 			CommonMethod.WaitUntilPresence("V2ProjectScorecardResponsiblePartyPartCount", 180);
-			CommonMethod.RobustclickElementVisible("V2projectScorecardResponsibleParty","V2ProjectScoreCardFilterOption");
+			CommonMethod.RobustclickElementVisible("V2projectScorecardResponsibleParty",
+					"V2ProjectScoreCardFilterOption");
 		}
 		if (filterName.equalsIgnoreCase("Verification") || filterName.equalsIgnoreCase("Part type")
 				|| filterName.equalsIgnoreCase("Priorities") || filterName.equalsIgnoreCase("Space Type")
@@ -1305,8 +1306,9 @@ public class ReusableMethodsV2Project extends BaseClass {
 				|| filterName.equalsIgnoreCase("Cross walk") || filterName.equalsIgnoreCase("Responsible Party")) {
 			int ScorecardPart = CommonMethod.ElementSize("V2ProjectScorecardPartCount");
 			String actualFeaturePartCount = Integer.toString(ScorecardPart);
-			testlog.info(filterName +" FeatureScorecardPartCount: " + actualFeaturePartCount);
-			CommonMethod.softAssertEqualsMessage(actualFeaturePartCount, expectedResult,"ScorecardPartCount doesn't match");
+			testlog.info(filterName + " FeatureScorecardPartCount: " + actualFeaturePartCount);
+			CommonMethod.softAssertEqualsMessage(actualFeaturePartCount, expectedResult,
+					"ScorecardPartCount doesn't match");
 		}
 		CommonMethod.click("V2ProjectScorecardClearbutton");
 		CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filterIndex);
@@ -1327,5 +1329,20 @@ public class ReusableMethodsV2Project extends BaseClass {
 		verifyScoreCardFilter("Strategy Type", "18", 6, 69);
 		verifyScoreCardFilter("Cross walk", "21", 7, 73);
 	}
-}
 
+	public void SearchFilterDocument(String documentName, String filterOption, String fileCount)
+			throws IOException, InterruptedException {
+		if (filterOption.equalsIgnoreCase("Scorecard")) {
+			CommonMethod.click("V2ProjectScorecardDoc");
+			CommonMethod.WaitUntilVisibility("V2ProjectDecumentSearchBox", 60);
+		}
+		CommonMethod.WaitUntilVisibility("WPRDocumentSearchBox", 60);
+		CommonMethod.clearAndSendKey("WPRDocumentSearchBox", documentName);
+		CommonMethod.WaitUntilVisibility("V2ProjectDocumentGeneralFileCount", 60);
+		int V2ProjectScoreDocCount = CommonMethod.ElementSize("V2ProjectDocumentGeneralFileCount");
+		String V2ProjectDocCounts = Integer.toString(V2ProjectScoreDocCount);
+		CommonMethod.assertActualContainsExpected(V2ProjectDocCounts, fileCount);
+		softAssert.assertAll();
+		testlog.pass("**Verifies search filter successfully **");
+	}
+}

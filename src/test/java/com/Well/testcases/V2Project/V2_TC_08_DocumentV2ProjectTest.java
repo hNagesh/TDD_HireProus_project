@@ -90,4 +90,36 @@ public class V2_TC_08_DocumentV2ProjectTest extends BaseClass {
 			throw e1;
 		}
 	}
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_08_DocumentV2ProjectTest.V2_TC_08_04_UploadDocumentCountInDocV2Project" })
+	@Parameters({ "SheetName","rowNum" })
+	public void V2_TC_08_05_GeneralSearchFilterDocumentV2Project(String SheetName,int rowNum) throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+
+		StartTest(TestCaseName,"Upload Document Count");
+		try {
+			v2project.SearchFilterDocument("GENERALFILE", "General","1");
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
+	@Test(dependsOnMethods = { "com.Well.testcases.V2Project.V2_TC_08_DocumentV2ProjectTest.V2_TC_08_05_GeneralSearchFilterDocumentV2Project" })
+	@Parameters({ "SheetName","rowNum" })
+	public void V2_TC_08_06_AuditSearchFilterDocumentV2Project(String SheetName,int rowNum) throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		
+		StartTest(TestCaseName,"Upload Document Count");
+		try {
+			v2project.SearchFilterDocument("AUDITFILE", "Scorecard","1");
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
 }

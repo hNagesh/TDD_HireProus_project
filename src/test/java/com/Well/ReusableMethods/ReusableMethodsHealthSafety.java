@@ -433,4 +433,31 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.refreshBrowser();
 		testlog.pass("**Verifies Scorecard Filter Verification successfully**");
 	}
+	public void searchFilterDocumentHSR(String documentName, String filterOption, String fileCount)
+			throws IOException, InterruptedException {
+		if (filterOption.equalsIgnoreCase("Audit")) {
+			CommonMethod.click("HsrAuditLinkTab");
+			CommonMethod.WaitUntilVisibility("V2ProjectDecumentSearchBox", 60);
+		}
+		if (filterOption.equalsIgnoreCase("General")) {
+			CommonMethod.click("HsrGeneralLink");
+			CommonMethod.WaitUntilVisibility("V2ProjectDecumentSearchBox", 60);
+		}
+		CommonMethod.WaitUntilVisibility("V2ProjectDecumentSearchBox", 60);
+		CommonMethod.clearAndSendKey("V2ProjectDecumentSearchBox", documentName);
+		CommonMethod.click("HSRDocumentSearchButton");
+		if (filterOption.equalsIgnoreCase("General")) {
+			CommonMethod.WaitUntilVisibility("HSRDocumentGeneralFileCount", 60);
+			int V2ProjectScoreDocCount = CommonMethod.ElementSize("HSRDocumentGeneralFileCount");
+			String V2ProjectDocCounts = Integer.toString(V2ProjectScoreDocCount);
+			CommonMethod.assertActualContainsExpected(V2ProjectDocCounts, fileCount);
+		} else {
+			CommonMethod.WaitUntilVisibility("V2ProjectDocumentGeneralFileCount", 60);
+			int V2ProjectScoreDocCount = CommonMethod.ElementSize("V2ProjectDocumentGeneralFileCount");
+			String V2ProjectDocCounts = Integer.toString(V2ProjectScoreDocCount);
+			CommonMethod.assertActualContainsExpected(V2ProjectDocCounts, fileCount);
+		}
+		softAssert.assertAll();
+		testlog.pass("**Verifies search filter successfully **");
+	}
 }

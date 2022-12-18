@@ -79,4 +79,20 @@ public class Performance_TC_09_DocumentTest extends BaseClass {
 			throw e1;
 		}
 	}
+	@Test(dependsOnMethods = {"com.Well.testcases.Performance.Performance_TC_09_DocumentTest.Performance_TC_09_02_AuditDocument"})
+	@Parameters({ "SheetName", "rowNum" })
+	public void Performance_TC_09_04_SearchFilterDocument(String SheetName, int rowNum) throws IOException {
+
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+
+		StartTest(TestCaseName, "Upload Document in Document");
+		try {
+			rc.searchFilterDocument("LegalFile","1");
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
 }

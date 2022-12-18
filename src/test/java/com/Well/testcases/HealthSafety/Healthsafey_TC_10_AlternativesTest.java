@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Healthsafey_TC_10_AlternativesTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_09_DocumentTest.Healthsafey_TC_09_02_AuditDocument" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_09_DocumentTest.Healthsafey_TC_09_06_GeneralSearchFilterDocumentHSR" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Healthsafey_TC_10__00_EPAlternatives(String SheetName,int rowNum) throws IOException {
 

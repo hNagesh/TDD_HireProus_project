@@ -513,4 +513,16 @@ public class ReusableMethodCommon extends BaseClass {
 		negativesoftAssert.assertAll();
 		testlog.pass("**Verifies Error Message for Madatory field**");
 	}
+	public void searchFilterDocument(String documentName, String fileCount)
+			throws IOException, InterruptedException {
+		CommonMethod.RobustclickElementVisible("WPRDocumentFilterOption", "WPRDocumentSearchBox");
+		CommonMethod.clearAndSendKey("WPRDocumentSearchBox", documentName);
+		CommonMethod.WaitUntilPresence("WPRDocumentSpinner", 120);
+		CommonMethod.WaitUntilInVisibility("WPRDocumentSpinner", 60);
+		CommonMethod.WaitUntilVisibility("PortfolioScorecardDocumentUploadTable", 60);
+		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
+		CommonMethod.softAssertContainsMessage(val.get(0), "FeatureFile", "Document table data mismatch");
+		softAssert.assertAll();
+		testlog.pass("**Verifies search filter successfully **");
+	}
 }
