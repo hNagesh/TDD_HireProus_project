@@ -104,6 +104,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilPresence("AddButton", 300);
 		CommonMethod.scrolldowntoElement("AddButton");
 		CommonMethod.WaitUntilPresence("LocationResultCount", 60);
+		testlog.info("LocationResultCount: "+CommonMethod.getText("LocationResultCount"));
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("LocationResultCount"), "5",
 				"Result location count doesn't match");
 		softAssert.assertAll();
@@ -455,11 +456,14 @@ public class ReusableMethodCommon extends BaseClass {
 	public void DownloadBillingReceiptAndValidate(String SheetName, int rowNum, String Country)
 			throws IOException, InterruptedException {
 		String Amount = data.getCellData(SheetName, "EnrollFee", rowNum);
+		testlog.info("Amount: "+ Amount);
 		String Address = null;
 		if (Country.equalsIgnoreCase("US")) {
 			Address = "New York, NY 10014";
+			testlog.info("Address: "+ Address);
 		} else {
 			Address = "IWBI China(HK) Limited";
+			testlog.info("Address: "+ Address);
 		}
 		String[] ProjDetails = { Address, Amount };
 		CommonMethod.WaitUntilVisibility("DownloadReceipt", 120);
