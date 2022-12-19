@@ -78,8 +78,6 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 			CommonMethod.ClickCheckbox("HsrWPRYesMyOrganizationCbx");
 		}
 		CommonMethod.RobustclickElementVisible("HsrLocContinuebutton", "HsrReviewbtn");
-//		CommonMethod.RobustclickElementVisible("HsrReviewbtn", "HsrProgramFeePublicrbtn");
-//		CommonMethod.negativesoftassertPageSource("By checking this box you acknowledge you have read the Terms & Conditions and agree to be bound by these Terms.* is required.", "Acknowledge CheckBox Error Name");
 		CommonMethod.WaitUntilClickble("HsrProgramFeePublicrbtn", 60);
 		CommonMethod.ClickCheckbox("HsrProgramFeePublicrbtn");
 		CommonMethod.WaitUntilVisibility("HsrAcknowledecbx", 60);
@@ -88,8 +86,7 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.WaitUntilVisibility("BillingLanding", 60);
 		testlog.pass("**Verifies the Registration successful**");
 	}
-
-
+	
 	public void StoreIdHealthSafety(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilPresence("HsrIframe", 180);
 		CommonMethod.switchToFrame("HsrIframe");
@@ -116,13 +113,44 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		testlog.info("HealthSafety ID:" + data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.sendKeys("HsrIdSearch", data.getCellData(SheetName, "ProjectID", rowNum));
 		CommonMethod.RobustclickElementVisible("HsrapplySearch","V2ProjectSearchResultIDVerify");
-		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
-		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","HealthSafety Search failed");
+		int ProjectCount = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount),"1","HealthSafety Search failed");
+		CommonMethod.sendKeys("HsrNameList", data.getCellData(SheetName, "HsrName", rowNum));
+		CommonMethod.RobustclickElementVisible("HsrapplySearch","V2ProjectSearchResultIDVerify");
+		int ProjectCount1 = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount1),"1","HealthSafety Search failed");
 		CommonMethod.assertcontainsmessage("HSRIdClick", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
 		CommonMethod.RobustclickElementVisible("HSRIdClick","WPRHsrPortfolioDashboard");
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
 		testlog.pass("**Verifies the Search HealthSafety ByID successfully**");
+	}
+	
+	public void SearchFilterRegisteredStatus(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLHealthSafetyNavBar");
+		CommonMethod.WaitUntilVisibility("WELLHealthSafetyNavBar", 300);
+		CommonMethod.RobustclickElementVisible("WELLHealthSafetyNavBar", "HsrIdSearch");
+		CommonMethod.WaitUntilVisibility("HsrIdSearch", 300);
+		CommonMethod.RobustclickElementVisible("HsrIdSearch","HsrIdSearch");
+		testlog.info("HealthSafety ID:" + data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.sendKeys("HsrIdSearch", data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.RobustclickElementVisible("HsrapplySearch","V2ProjectSearchResultIDVerify");
+		int ProjectCount = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount),"1","HealthSafety Search failed");
+		CommonMethod.sendKeys("HsrNameList", data.getCellData(SheetName, "HsrName", rowNum));
+		CommonMethod.RobustclickElementVisible("HsrapplySearch","V2ProjectSearchResultIDVerify");
+		int ProjectCount1 = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount1),"1","HealthSafety Search failed");
+		CommonMethod.assertcontainsmessage("HSRIdClick", data.getCellData(SheetName, "projectID", rowNum),
+				"Project name doesn't matches in search");
+		String status = CommonMethod.getText("HsrWprStatusResultList");
+		testlog.info("Status: " +status);
+		CommonMethod.assertExpectedContainsActual(status,"REGISTERED","HealthSafety Search failed");
+		CommonMethod.RobustclickElementVisible("HSRIdClick","WPRHsrPortfolioDashboard");
+		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
+		testlog.pass("**Verifies the Search HealthSafety ByID successfully**");
+		testlog.pass("**Verifies the Search filter status successfully**");
 	}
 
 	public void ScorecardfillHSRWPR(int YesEnd, int NoStart, int NoEnd, int DifferencePlusOne)
@@ -433,6 +461,26 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.refreshBrowser();
 		testlog.pass("**Verifies Scorecard Filter Verification successfully**");
 	}
+	
+	public void SearchHealthSafetyByStatus(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 300);
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLHealthSafetyNavBar");
+		CommonMethod.WaitUntilVisibility("WELLHealthSafetyNavBar", 300);
+		CommonMethod.RobustclickElementVisible("WELLHealthSafetyNavBar", "HsrIdSearch");
+		CommonMethod.WaitUntilVisibility("HsrIdSearch", 300);
+		CommonMethod.RobustclickElementVisible("HsrIdSearch","HsrIdSearch");
+		testlog.info("HealthSafety ID:" + data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.WaitUntilPresence("HsrIdSearch", 60);
+		CommonMethod.clearAndSendKey("HsrIdSearch", data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.RobustclickElementVisible("HsrapplySearch","V2ProjectSearchResultIDVerify");
+		String status = CommonMethod.getText("HsrWprStatusResultList");
+		testlog.info("Status: " +status);
+		CommonMethod.assertExpectedContainsActual(status,"ACHIEVED","HealthSafety Search failed");
+		int ProjectCount = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount),"1","HealthSafety Search failed");
+		testlog.pass("**Verifies search filter status successfully**");
+	}
+	
 	public void searchFilterDocumentHSR(String documentName, String filterOption, String fileCount)
 			throws IOException, InterruptedException {
 		if (filterOption.equalsIgnoreCase("Audit")) {

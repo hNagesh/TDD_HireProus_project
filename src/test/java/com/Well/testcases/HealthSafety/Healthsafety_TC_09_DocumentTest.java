@@ -7,11 +7,11 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Healthsafey_TC_09_DocumentTest extends BaseClass {
+public class Healthsafety_TC_09_DocumentTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_08_ReviewTest.Healthsafey_TC_08_05_CurativeCompleteReview" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_08_ReviewTest.Healthsafety_TC_08_05_CurativeCompleteReview" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_09_00_GeneralDocument(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_09_00_GeneralDocument(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
@@ -27,9 +27,9 @@ public class Healthsafey_TC_09_DocumentTest extends BaseClass {
 		}
 	}
 	
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_09_DocumentTest.Healthsafey_TC_09_00_GeneralDocument" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_09_DocumentTest.Healthsafety_TC_09_00_GeneralDocument" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_09_01_LegalDocument(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_09_01_LegalDocument(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
@@ -43,9 +43,9 @@ public class Healthsafey_TC_09_DocumentTest extends BaseClass {
 			throw e1;
 		}
 	}
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_09_DocumentTest.Healthsafey_TC_09_01_LegalDocument" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_09_DocumentTest.Healthsafety_TC_09_01_LegalDocument" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_09_02_AuditDocument(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_09_02_AuditDocument(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
@@ -59,9 +59,9 @@ public class Healthsafey_TC_09_DocumentTest extends BaseClass {
 			throw e1;
 		}
 	}
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_09_DocumentTest.Healthsafey_TC_09_02_AuditDocument" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_09_DocumentTest.Healthsafety_TC_09_02_AuditDocument" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_09_03_FeatureDocument(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_09_03_FeatureDocument(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
@@ -75,9 +75,9 @@ public class Healthsafey_TC_09_DocumentTest extends BaseClass {
 			throw e1;
 		}
 	}
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_09_DocumentTest.Healthsafey_TC_09_03_FeatureDocument" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_09_DocumentTest.Healthsafety_TC_09_03_FeatureDocument" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_09_04_LibrarySearchFilterDocumentHSR(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_09_04_LibrarySearchFilterDocumentHSR(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
@@ -91,9 +91,9 @@ public class Healthsafey_TC_09_DocumentTest extends BaseClass {
 			throw e1;
 		}
 	}
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_09_DocumentTest.Healthsafey_TC_09_04_LibrarySearchFilterDocumentHSR" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_09_DocumentTest.Healthsafety_TC_09_04_LibrarySearchFilterDocumentHSR" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_09_05_AuditSearchFilterDocumentHSR(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_09_05_AuditSearchFilterDocumentHSR(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 
@@ -107,9 +107,9 @@ public class Healthsafey_TC_09_DocumentTest extends BaseClass {
 			throw e1;
 		}
 	}
-	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafey_TC_09_DocumentTest.Healthsafey_TC_09_05_AuditSearchFilterDocumentHSR" })
+	@Test(dependsOnMethods = { "com.Well.testcases.HealthSafety.Healthsafety_TC_09_DocumentTest.Healthsafety_TC_09_05_AuditSearchFilterDocumentHSR" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Healthsafey_TC_09_06_GeneralSearchFilterDocumentHSR(String SheetName,int rowNum) throws IOException {
+	public void Healthsafety_TC_09_06_GeneralSearchFilterDocumentHSR(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
 

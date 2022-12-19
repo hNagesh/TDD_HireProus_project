@@ -73,7 +73,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 		}
 		CommonMethod.WaitUntilVisibility("DatePickerButton", 300);
 		CommonMethod.RobustclickElementVisible("DatePickerButton", "V2ProjectDatePopupWeekday");
-
 		CommonMethod.WaitUntilVisibility("V2ProjectnextYearbtn", 120);
 		CommonMethod.Robustclick("V2ProjectnextYearbtn", "V2ProjectDatePopupWeekday");
 		CommonMethod.WaitUntilVisibility("V2ProjectselectNextYear", 120);
@@ -82,7 +81,6 @@ public class ReusableMethodsV2Project extends BaseClass {
 		Thread.sleep(1000);
 		CommonMethod.WaitUntilVisibility("DatePickerOkButton", 120);
 		CommonMethod.Robustclick("DatePickerOkButton", "V2ProjectselectNextYear");
-
 		CommonMethod.WaitUntilVisibility("V2ProjectnextMonthbtn", 120);
 		CommonMethod.Robustclick("V2ProjectnextMonthbtn", "V2ProjectDatePopupWeekday");
 		CommonMethod.WaitUntilVisibility("V2ProjectselectNextMonth", 120);
@@ -105,8 +103,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		testlog.pass("**Stored the Registered id  in excel successfully**");
 		testlog.pass("**Verifies the Registration successful**");
 	}
-
-	public void SearchV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
+	
+	public void SearchV2ById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 120);
 		CommonMethod.RobustclickElementVisible("ProjectNavBar", "WELLCertificationNavBar");
 		CommonMethod.RobustclickElementVisible("WELLCertificationNavBar", "V2ProjectId");
@@ -116,14 +114,67 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.RobustclickElementVisible("V2ProjectApplybtn", "V2ProjectSearchResultIDVerify");
 		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
 		CommonMethod.assertExpectedContainsActual(String.valueOf(var), "1", "V2 Search failed");
-		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
-				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
-		CommonMethod.click("V2ProjectIdCompare");
-		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare", "V2ProjectStartBuilding");
-//		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 300);
-		testlog.pass("**Verifies the Search V2Project ByID successfully**");
 	}
 
+	public void ClickSearchV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.assertcontainsmessage("V2ProjectSearchResultIDVerify",
+				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
+		CommonMethod.RobustclickElementVisible("V2ProjectIdCompare", "V2ProjectStartBuilding");
+		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 300);
+	}
+	public void SearchV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
+		SearchV2ById(SheetName,rowNum);
+		ClickSearchV2ProjectById(SheetName,rowNum);
+		testlog.pass("**Verifies the Search V2Project ByID successfully**");
+	}
+	
+	public void SearchV2ProjectFilterByStatus(String SheetName, int rowNum, String Status, String Status1) throws IOException, InterruptedException {
+		testlog.info("StatusList: " + Status);
+		CommonMethod.selectdropdownVisibletext("V2ProjectIdStatusList", Status);
+		CommonMethod.RobustclickElementVisible("V2ProjectApplybtn", "V2ProjectStatusResultList");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectStatusResultList"), Status1, "V2 CountryList Search failed");
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var), "1", "V2 Search failed");
+		softAssert.assertAll();
+		testlog.pass("**Verifies the Search V2Project By StatusName successfully**");
+	}
+	
+	public void SearchV2ProjectFilters(String SheetName, int rowNum) throws IOException, InterruptedException {
+		/*
+		 * FilterByProjectName
+		 */
+		CommonMethod.WaitUntilVisibility("V2ProjectIdNameList", 120);
+		testlog.info("ProjectName: " + data.getCellData(SheetName, "ProjectName", rowNum));
+		CommonMethod.sendKeys("V2ProjectIdNameList", data.getCellData(SheetName, "ProjectName", rowNum));
+		CommonMethod.RobustclickElementVisible("V2ProjectApplybtn", "V2ProjectProjectNameResultList");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectProjectNameResultList"), data.getCellData(SheetName, "ProjectName", rowNum), "V2 ProjectName Search failed");
+		int ProjectName = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectName), "1", "V2 Search failed");
+		/*
+		 * FilterByCountryName
+		 */
+		testlog.info("CountryList: " + data.getCellData(SheetName, "Country", rowNum));
+		CommonMethod.WaitUntilVisibility("V2ProjectIdCountryList", 120);
+		CommonMethod.selectdropdownVisibletext("V2ProjectIdCountryList", data.getCellData(SheetName, "Country", rowNum));
+		CommonMethod.RobustclickElementVisible("V2ProjectApplybtn", "V2ProjectCountryResultList");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectCountryResultList"), data.getCellData(SheetName, "Country", rowNum), "V2 CountryList Search failed");
+		int Country = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(Country), "1", "V2 Search failed");
+		/*
+		 * FilterByOrganizationName
+		 */
+		testlog.info("OwnerOrganizationName: " + data.getCellData(SheetName, "OrgName", rowNum));
+		CommonMethod.sendKeys("V2ProjectIdOwnerOrganizationList", data.getCellData(SheetName, "OrgName", rowNum));
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("V2ProjectOrgResultList"), data.getCellData(SheetName, "OrgName", rowNum), "V2 CountryList Search failed");
+		int OrgName = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(OrgName), "1", "V2 Search failed");
+		softAssert.assertAll();
+		testlog.pass("**Verifies the Search V2Project By Country Name successfully**");
+		testlog.pass("**Verifies the Search V2Project By Project Name successfully**");
+		testlog.pass("**Verifies the Search V2Project By Organisation Name successfully**");
+	}
+
+	
 	public void EnrollV2ProjectById(String SheetName, int rowNum, String ProjectType, String Country)
 			throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("EnrollTab", 60);
@@ -351,7 +402,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 
 	public void BuildScorecardV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("V2ProjectStartBuilding", 60);
-		CommonMethod.RobustclickElementVisible("V2ProjectStartBuilding", "ScoreCardPageLand");
+		CommonMethod.RobustclickElementVisible("V2ProjectStartBuilding","ScoreCardPageLand");
 		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 300);
 		testlog.pass("**Verfies Scorecard Page successfully**");
 	}
@@ -989,7 +1040,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectProjectGoals", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectProjectGoals"),
 				data.getCellData(SheetName, "ProjectGoals", rowNum), "Project goals data doesn't match");
-//		softAssert.assertAll();
+		softAssert.assertAll();
 		testlog.pass("**Project goals data updated successfully**");
 	}
 
@@ -1007,7 +1058,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.selectdropdownVisibletext("V2ProjectState", data.getCellData(SheetName, "State", rowNum));
 		CommonMethod.WaitUntilVisibility("V2ProjectSaveChangesButton", 60);
 		CommonMethod.RobustclickElementVisible("V2ProjectSaveChangesButton", "V2ProjectNextStep");
-		testlog.info("**Owner Information data updated successfully**");
+		testlog.pass("**Owner Information data updated successfully**");
 		CommonMethod.WaitUntilVisibility("V2ProjectStartBuilding", 60);
 		/*
 		 * Validate updated owner information fields
@@ -1024,7 +1075,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectState"),
 				data.getCellData(SheetName, "State", rowNum), "State name doesn't match");
 		softAssert.assertAll();
-		testlog.pass("**State name updated successfully**");
+		testlog.info("**State name updated successfully**");
+		testlog.pass("**Verifies Information data updated successfully**");
 	}
 
 	public void editAndValidateAddressV2Project(String SheetName, int rowNum) throws Exception {
@@ -1076,12 +1128,13 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectBillingCity", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectBillingCity"),
 				data.getCellData(SheetName, "City", rowNum), "Billing city name doesn't match");
-		testlog.pass("**City name updated successfully**");
+		testlog.info("**City name updated successfully**");
 		CommonMethod.WaitUntilVisibility("V2ProjectBillingPostalCode", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2ProjectBillingPostalCode"),
 				data.getCellData(SheetName, "PostalCode", rowNum), "Billing postal code doesn't match");
 		softAssert.assertAll();
-		testlog.pass("**Postal code updated successfully**");
+		testlog.info("**Postal code updated successfully**");
+		testlog.pass("**Verifies Address data updated successfully**");
 	}
 
 	public void editAndValidateAdminV2Project(String SheetName, int rowNum) throws Exception {
@@ -1114,20 +1167,21 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2projectAdminBillingStatus", 120);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2projectAdminBillingStatus"),
 				data.getCellData(SheetName, "BillingStatus", rowNum), "Billing status value doesn't match");
-		testlog.pass("**Billing status updated successfully**");
+		testlog.info("**Billing status updated successfully**");
 		CommonMethod.WaitUntilVisibility("V2projectAdminBillingChallengeNote", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2projectAdminBillingChallengeNote"),
 				data.getCellData(SheetName, "ChallengeNote", rowNum), "Challenge note value doesn't match");
-		testlog.pass("**Challenge note updated successfully**");
+		testlog.info("**Challenge note updated successfully**");
 		CommonMethod.WaitUntilVisibility("V2projectAdminBillingCommunicationNote", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2projectAdminBillingCommunicationNote"),
 				data.getCellData(SheetName, "CommunicationNote", rowNum), "Communication note value doesn't match");
-		testlog.pass("**Communication updated successfully**");
+		testlog.info("**Communication updated successfully**");
 		CommonMethod.WaitUntilVisibility("V2projectAdminBillingNote", 60);
 		CommonMethod.softAssertEqualsMessage(CommonMethod.getattributeValue("V2projectAdminBillingNote"),
 				data.getCellData(SheetName, "BillingNote", rowNum), "Billing note value doesn't match");
 		softAssert.assertAll();
-		testlog.pass("**Billing note updated successfully**");
+		testlog.info("**Billing note updated successfully**");
+		testlog.pass("**Verifies Admin data updated successfully**");
 	}
 
 	public void overviewV2Project(String SheetName, int rowNum) throws Exception {
@@ -1235,7 +1289,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 				data.getCellData(SheetName, "ProjectID", rowNum), "Project name doesn't matches in search");
 		testlog.pass("**Verifies user able to access the invited project**");
 	}
-
+	
 	public void searchFilterScoreCardV2Project() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("V2ProjectScoreCardSearchBox", 60);
 		CommonMethod.sendKeys("V2ProjectScoreCardSearchBox", "Meet Thresholds for Particulate Matter");
@@ -1297,8 +1351,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 		if (filterName.equalsIgnoreCase("Responsible Party")) {
 			CommonMethod.WaitUntilInVisibility("V2ProjectScorecardValidateRatingsPartCount", 120);
 			CommonMethod.WaitUntilPresence("V2ProjectScorecardResponsiblePartyPartCount", 180);
-			CommonMethod.RobustclickElementVisible("V2projectScorecardResponsibleParty",
-					"V2ProjectScoreCardFilterOption");
+			CommonMethod.RobustclickElementVisible("V2projectScorecardResponsibleParty","V2ProjectScoreCardFilterOption");
 		}
 		if (filterName.equalsIgnoreCase("Verification") || filterName.equalsIgnoreCase("Part type")
 				|| filterName.equalsIgnoreCase("Priorities") || filterName.equalsIgnoreCase("Space Type")
@@ -1306,9 +1359,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 				|| filterName.equalsIgnoreCase("Cross walk") || filterName.equalsIgnoreCase("Responsible Party")) {
 			int ScorecardPart = CommonMethod.ElementSize("V2ProjectScorecardPartCount");
 			String actualFeaturePartCount = Integer.toString(ScorecardPart);
-			testlog.info(filterName + " FeatureScorecardPartCount: " + actualFeaturePartCount);
-			CommonMethod.softAssertEqualsMessage(actualFeaturePartCount, expectedResult,
-					"ScorecardPartCount doesn't match");
+			testlog.info(filterName +" FeatureScorecardPartCount: " + actualFeaturePartCount);
+			CommonMethod.softAssertEqualsMessage(actualFeaturePartCount, expectedResult,"ScorecardPartCount doesn't match");
 		}
 		CommonMethod.click("V2ProjectScorecardClearbutton");
 		CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filterIndex);

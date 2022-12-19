@@ -14,6 +14,7 @@
 <class name="com.Well.testcases.Equity.Equity_TC_02_RegisterAndValidateTest"></class>
  <class name="com.Well.testcases.Equity.Equity_TC_03_SubscribeAndStoreIdTest"></class>
 <class name="com.Well.testcases.Equity.Equity_TC_04_SearchByIdTest"></class>
+<class name="com.Well.testcases.Equity.Equity_TC_04A_SearchByRegisteredStatusTest"></class>
 <class name="com.Well.testcases.Equity.Equity_TC_05_DownloadBillingAndValidateTest"></class>
  <class name="com.Well.testcases.Equity.Equity_TC_06_WerProjectFieldValidationTest"></class>
 <class name="com.Well.testcases.Equity.Equity_TC_07_LocationTest"></class>
@@ -27,6 +28,7 @@
 <class name="com.Well.testcases.Equity.Equity_TC_15_AddMemberTeamTest"></class>
 <class name="com.Well.testcases.Equity.Equity_TC_15A_ValidateProjectAccessTeamTest"></class>
 <class name="com.Well.testcases.Equity.Equity_TC_16_ErrorNegativeAssertTest"></class> 
+<class name="com.Well.testcases.Equity.Equity_TC_17_SearchByAchievedStatusTest"></class>
 </classes>
 </test>
 

@@ -127,6 +127,26 @@ public class ReusableMethodEquity extends BaseClass {
 		testlog.pass("**Verifies the Search Equity ByID successfully**");
 	}
 	
+	public void SearchEquityByRegisterStatus(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLEquityNavBar");
+		CommonMethod.RobustclickElementVisible("WELLEquityNavBar","WERIdClick");
+		String werId = data.getCellData(SheetName, "ProjectID", rowNum);
+		testlog.info("Equity ID: " + werId);
+		CommonMethod.WaitUntilClickble("WERId", 60).sendKeys(werId);
+		CommonMethod.RobustclickElementVisible("WERApplybtn","V2ProjectSearchResultIDVerify");
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Equity Search failed");
+		CommonMethod.assertcontainsmessage("WERIdClick", data.getCellData(SheetName, "projectID", rowNum),
+				"Project name doesn't matches in search");
+		String status = CommonMethod.getText("HsrWprStatusResultList");
+		testlog.info("Status: " +status);
+		CommonMethod.assertExpectedContainsActual(status,"REGISTERED","Performance Search failed");
+		CommonMethod.RobustclickElementVisible("WERIdClick","WERDashboard");
+		CommonMethod.WaitUntilVisibility("WERDashboard", 300);
+		testlog.pass("**Verifies the Search Equity ByID successfully**");
+	}
+	
 	public void WerProjectFieldValidationTest(String SheetName, int rowNum) throws Exception {
 		CommonMethod.WaitUntilVisibility("EditTab", 120);
 		CommonMethod.RobustclickElementVisible("EditTab","HsrWprOrganizationInformation");
@@ -221,6 +241,9 @@ public class ReusableMethodEquity extends BaseClass {
 		CommonMethod.scrollDown();
 		Thread.sleep(1000);
 		CommonMethod.RobustclickElementVisible("ReviewPaymentstatusRadio","ReviewReturnSubmit");
+		CommonMethod.WaitUntilPresence("AwardedDate", 120);
+		CommonMethod.RobustclickElementVisible("AwardedDate","DatePickerOkButton");
+		CommonMethod.RobustclickElementVisible("DatePickerOkButton","ReviewReturnSubmit");
 		CommonMethod.RobustclickElementVisible("ReviewReturnSubmit", "ReviewedStatus");
 		Thread.sleep(2000);
 		CommonMethod.assertcontainsmessage("ReviewedStatus", "REVIEWED", "Verified Review status successfully");
@@ -240,5 +263,30 @@ public class ReusableMethodEquity extends BaseClass {
 		CommonMethod.assertcontainsmessage("WERIdClick", data.getCellData(SheetName, "projectID", rowNum),
 				"Project name doesn't matches in search");
 		testlog.pass("**Verifies the Search Equity ByID can access the Project successfully**");
+	}
+	
+	public void SearchEquityByAchievedStatus(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
+		CommonMethod.RobustclickElementVisible("ProjectNavBar","WELLEquityNavBar");
+		CommonMethod.RobustclickElementVisible("WELLEquityNavBar","WERIdClick");
+		String werId = data.getCellData(SheetName, "ProjectID", rowNum);
+		testlog.info("Equity ID: " + werId);
+		CommonMethod.WaitUntilPresence("WPRId", 60);
+		CommonMethod.clearAndSendKey("WPRId", werId);
+		CommonMethod.RobustclickElementVisible("WERApplybtn","V2ProjectSearchResultIDVerify");
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(var),"1","Equity Search failed");
+		int ProjectCount = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount),"1","Performance Search failed");
+		CommonMethod.sendKeys("HsrNameList", data.getCellData(SheetName, "projectName", rowNum));
+		CommonMethod.RobustclickElementVisible("WPRApplybtn","V2ProjectSearchResultIDVerify");
+		int ProjectCount1 = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount1),"1","Performance Search Count failed");
+		CommonMethod.assertcontainsmessage("WERIdClick", data.getCellData(SheetName, "projectID", rowNum),
+				"Project name doesn't matches in search");
+		String status = CommonMethod.getText("HsrWprStatusResultList");
+		testlog.info("Status: " +status);
+		CommonMethod.assertExpectedContainsActual(status,"ACHIEVED","Performance Search failed");
+		testlog.pass("**Verifies the Search Equity Achieved Status successfully**");
 	}
 }
