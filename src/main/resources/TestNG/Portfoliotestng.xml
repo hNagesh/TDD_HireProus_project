@@ -5,7 +5,7 @@
 
 	<parameter name="browserName" value="chrome" />
 	<parameter name="environment" value="Test" />
-	    <test name="WELL-At-Scale">
+	  <!--  <test name="WELL-At-Scale">
 		<parameter name="SheetName" value="Portfolio" />
 		<parameter name="rowNum" value="2" />
 		<parameter name="Country" value="US"/>
@@ -47,5 +47,20 @@
 	   <class name="com.Well.testcases.Portfolio.Portfolio_CTC_02_DocumentTest"></class> 
 	   <class name="com.Well.testcases.Portfolio.Portfolio_TC_16_ErrorNegativeAssertTest"></class>
 		</classes> 
-	</test>  
+	</test>  --> 
+	
+	   <test name="WELL-At-Scale-Filter">
+		<parameter name="SheetName" value="Portfolio" />
+		<parameter name="rowNum" value="4" />
+		<parameter name="Country" value="US"/>
+		<classes>
+		<class name="com.Well.testcases.login.TC_01_LoginTest"></class>
+		<class name="com.Well.testcases.Portfolio.Portfolio_TC_SF_02_RegisterPortfolioTest"></class>
+		<class name="com.Well.testcases.Portfolio.Portfolio_TC_SF_03_SearchPortfolioByNSStatusTest"></class>
+	    <class name="com.Well.testcases.Portfolio.Portfolio_TC_SF_04_SignAndSubscribePortfolioTest"></class> 
+	    <class name="com.Well.testcases.Portfolio.Portfolio_TC_SF_05_SearchPortfolioByInProgressStatusTest"></class> 
+	    <class name="com.Well.testcases.Portfolio.Portfolio_TC_SF_06_PortfolioPaymentTest"></class> 
+	    <class name="com.Well.testcases.Portfolio.Portfolio_TC_SF_07_SearchPortfolioBySubscribedStatusTest"></class> 
+		</classes> 
+	</test> 
 </suite>  
