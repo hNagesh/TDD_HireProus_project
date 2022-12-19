@@ -5,7 +5,7 @@
 
 	<parameter name="browserName" value="chrome" />
 	<parameter name="environment" value="Test" />
-	    <test name="WELL-At-Scale">
+	  <!--  <test name="WELL-At-Scale">
 		<parameter name="SheetName" value="Portfolio" />
 		<parameter name="rowNum" value="2" />
 		<parameter name="Country" value="US"/>
@@ -47,7 +47,7 @@
 	   <class name="com.Well.testcases.Portfolio.Portfolio_CTC_02_DocumentTest"></class> 
 	   <class name="com.Well.testcases.Portfolio.Portfolio_TC_16_ErrorNegativeAssertTest"></class>
 		</classes> 
-	</test>  
+	</test>  --> 
 	
 	   <test name="WELL-At-Scale-Filter">
 		<parameter name="SheetName" value="Portfolio" />

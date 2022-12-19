@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Portfolio_TC_SF_05_SearchPortfolioByInProgressStatusTest extends BaseClass {
 
-	@Test//(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_SF_04_SignAndSubscribePortfolioTest.Portfolio_TC_SF_04_01_SubscribePortfolio" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_SF_04_SignAndSubscribePortfolioTest.Portfolio_TC_SF_04_01_SubscribePortfolio" })
 	@Parameters({ "SheetName","rowNum" })
 	public void Portfolio_TC_SF_05_SearchPortfolioByInProgressStatus(String SheetName,int rowNum) throws IOException {
 
