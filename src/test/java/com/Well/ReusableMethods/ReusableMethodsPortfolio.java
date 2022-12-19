@@ -720,4 +720,57 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		verifyScoreCardOptionFilter("SDG", "8", 9, 96);
 		verifyScoreCardOptionFilter("Responsible Party", "30", 10, 113);
 	}
+	
+	public void SearchPortfolioBySubcribedStatus(String SheetName, int rowNum, String Status) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);
+		CommonMethod.RobustclickElementVisible("ProjectNavBar", "WellAtScaleNavBar");
+		CommonMethod.RobustclickElementVisible("WellAtScaleNavBar", "PortfolioSearchByID");
+		testlog.info("Portfolio Name:" + data.getCellData(SheetName, "AccountName", rowNum));
+		testlog.info("Portfolio ID:" + data.getCellData(SheetName, "ProjectID", rowNum));
+		/*
+		 * ProjectID
+		 */
+		CommonMethod.WaitUntilVisibility("PortfolioSearchByID", 60);
+		CommonMethod.clearAndSendKey("PortfolioSearchByID",data.getCellData(SheetName, "ProjectID", rowNum));
+		CommonMethod.RobustclickElementVisible("PortfolioSearchApplyFilter", "V2ProjectSearchResultIDVerify");
+		int var = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.softAssertContainsMessage(String.valueOf(var), "1", "Portfolio Search failed");
+		/*
+		 * AccountName
+		 */
+		CommonMethod.WaitUntilVisibility("PortfolioSearchByName", 60);
+		CommonMethod.clearAndSendKey("PortfolioSearchByName",data.getCellData(SheetName, "AccountName", rowNum));
+		CommonMethod.RobustclickElementVisible("PortfolioSearchApplyFilter", "V2ProjectSearchResultIDVerify");
+		int ProjectIDCount = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.softAssertContainsMessage(String.valueOf(ProjectIDCount), "1", "Portfolio Search failed");
+		CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioNameVerify"), data.getCellData(SheetName, "AccountName", rowNum),
+				"Portfolio ID doesn't matched with exceles in search");
+		/*
+		 * OrgName
+		 */
+		CommonMethod.WaitUntilVisibility("PortfolioOrganizationList", 60);
+		CommonMethod.clearAndSendKey("PortfolioOrganizationList",data.getCellData(SheetName, "OrgName", rowNum));
+		CommonMethod.RobustclickElementVisible("PortfolioSearchApplyFilter", "V2ProjectSearchResultIDVerify");
+		CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioOrgNameResultList"), data.getCellData(SheetName, "OrgName", rowNum), "Portfolio Search failed");
+		/*
+		 * Status
+		 */
+		if (Status.equalsIgnoreCase("SUBSCRIBED") || Status.equalsIgnoreCase("NOT SUBSCRIBED")){
+			CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioStatusResultList"), Status, "Portfolio Search failed");
+		}
+		if (Status.equalsIgnoreCase("IN PROGRESS")) {
+			CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioSubInProgressResultList"), Status, "Portfolio Search failed");
+		}
+		int ProjectIDCount1 = CommonMethod.WaitUntilNumberOfElementToBePresent("V2ProjectSearchResultIDVerify", 1, 60).size();
+		CommonMethod.softAssertContainsMessage(String.valueOf(ProjectIDCount1), "1", "Portfolio Search failed");
+		CommonMethod.assertcontainsmessage("PortfolioIDVerify", data.getCellData(SheetName, "ProjectID", rowNum),
+				"Portfolio ID doesn't matched with exceles in search");
+		
+		CommonMethod.RobustclickElementVisible("PortfolioIDVerify", "WPRHsrPortfolioDashboard");
+		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
+		softAssert.assertAll();
+		testlog.pass("**Verifies the Search Portfolio Name successfully**");
+	}
+	
+	
 }
