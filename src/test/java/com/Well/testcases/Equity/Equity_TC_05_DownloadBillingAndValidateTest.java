@@ -9,7 +9,7 @@ import com.Well.Engine.BaseClass;
 
 public class Equity_TC_05_DownloadBillingAndValidateTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_04A_SearchByRegisteredStatusTest.Equity_TC_04A_SearchByRegisteredStatus" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Equity.Equity_TC_18_DashboardTest.Equity_TC_18_Dashboard" })
 	@Parameters({ "SheetName","rowNum" ,"Country"})
 	public void Equity_TC_05_DownloadBillingAndValidate(String SheetName,int rowNum,String Country) throws IOException {
 

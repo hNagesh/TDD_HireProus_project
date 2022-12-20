@@ -158,6 +158,22 @@ public class ReusableMethodPerformance extends BaseClass {
 		testlog.pass("**Verifies the Search Performance ByID successfully**");
 	}
 	
+	public void ValidDashboardWprField(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilPresence("WellV2DashboardTab", 60);
+		CommonMethod.WaitUntilPresence("DocumentLibraryTab", 30);
+		CommonMethod.WaitUntilPresence("ScorecardTab", 30);
+		CommonMethod.WaitUntilPresence("ReviewTab", 30);
+		CommonMethod.WaitUntilPresence("V2ProjectSupportButton", 30);
+		CommonMethod.WaitUntilPresence("AlternativesTab", 30);
+		CommonMethod.WaitUntilPresence("LocationTab", 30);
+		CommonMethod.WaitUntilPresence("ProfileTab", 30);
+		CommonMethod.WaitUntilPresence("BiilingTab", 30);
+		CommonMethod.WaitUntilPresence("TeamTab", 30);
+		CommonMethod.WaitUntilPresence("PromotionTab", 30);
+		CommonMethod.WaitUntilPresence("EditTab", 30);
+		testlog.pass("**Verifies Dashboard fields and SideBar Navigation tab successfully **");
+}
+	
 	public void ScorecardfillHSRWPR(int YesEnd, int NoStart, int NoEnd, int DifferencePlusOne, String purseYes,
 			String purseNo) throws IOException, InterruptedException {
 		List<WebElement> YesButton;

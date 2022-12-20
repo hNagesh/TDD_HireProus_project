@@ -119,7 +119,7 @@ public class ReusableMethodsPortfolio extends BaseClass {
 	public void SubscribePortfolio(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("WPRHsrPortfolioDashboard", 60);
 		CommonMethod.WaitUntilVisibility("SubscribeTab", 30);
-		CommonMethod.Robustclick("SubscribeTab", "PortfolioAccountName");
+		CommonMethod.RobustclickElementVisible("SubscribeTab", "PortfolioAccountValidName");
 		String OwnerName = USfaker.address().firstName();
 		String OwnerEmail = USfaker.internet().emailAddress();
 		String OwnerPhone = USfaker.number().digits(10);
@@ -138,6 +138,10 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		CommonMethod.sendKeys("PortfolioOwnerPhone", OwnerPhone);
 		data.setCellData(SheetName, "OwnerPhone", rowNum, CommonMethod.getattributeValue("PortfolioOwnerPhone"));
 		testlog.info("OwnerPhone: " + data.getCellData(SheetName, "OwnerPhone", rowNum));
+		CommonMethod.WaitUntilPresence("PortfolioenterpriseRadioButton", 60);
+		CommonMethod.ClickCheckbox("PortfolioenterpriseRadioButton");
+		CommonMethod.WaitUntilPresence("PortfolioconsultantsRadioButton", 60);
+		CommonMethod.ClickCheckbox("PortfolioconsultantsRadioButton");
 		CommonMethod.scrolldowntoElement("PortfolioSubcribeContinueButton");
 		CommonMethod.RobustclickElementVisible("PortfolioSubcribeContinueButton", "PortfolioSubcribeContinueButton2");
 		CommonMethod.ClickCheckbox("PortfolioQuestionRadio");
@@ -772,5 +776,25 @@ public class ReusableMethodsPortfolio extends BaseClass {
 		testlog.pass("**Verifies the Search Portfolio Name successfully**");
 	}
 	
+	public void ValidDashboardPortfolioField(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilPresence("WellV2DashboardTab", 60);
+		CommonMethod.WaitUntilPresence("PortfolioClickSignNow", 30);
+		CommonMethod.WaitUntilPresence("SubscribeTab", 30);
+		CommonMethod.WaitUntilPresence("ResourcesTab", 30);
+		CommonMethod.WaitUntilPresence("BiilingTab", 30);
+		CommonMethod.WaitUntilPresence("TeamTab", 30);
+		CommonMethod.WaitUntilPresence("EditTab", 30);
+		testlog.pass("**Verifies Dashboard fields and SideBar Navigation tab successfully **");
+}
 	
+	public void ResorceCardValidation(String SheetName, int rowNum, String cardValue) throws Exception {
+		CommonMethod.WaitUntilVisibility("ResourcesTab", 60);
+		CommonMethod.RobustclickElementVisible("ResourcesTab", "PromotionCardContainer");
+		int countCard = CommonMethod.ElementSize("PromotionCardContainer");
+		String cardCount = Integer.toString(countCard);
+		CommonMethod.assertActualContainsExpected(cardCount, cardValue);
+		testlog.info("Card count: " + cardCount);
+		testlog.pass("**Verify card count successfully**");
+
+	}
 }

@@ -18,7 +18,6 @@ public class ReusableMethodEquity extends BaseClass {
 		String ProjectName = "Automation WER Project" + CommonMethod.randomNumber(8000000);
 		testlog.info("ProjectName: " + ProjectName);
 		data.setCellData(SheetName, "projectName", rowNum, ProjectName);
-		
 		CommonMethod.RobustclickElementVisible("WEROrgContinebtn", "WEREnrollName");
 		CommonMethod.negativesoftassertPageSource("Organization is required.", "Organization Name Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Organization Industry is required.", "Organization Industry Name Error Mismatch");
@@ -26,7 +25,6 @@ public class ReusableMethodEquity extends BaseClass {
 		CommonMethod.negativesoftassertPageSource("Street is required.", "Street Name Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("City is required.", "City Name Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Postal Code is required.", "Postal Code Error Mismatch");
-		
 		CommonMethod.WaitUntilPresence("WEREnrollName",60);
 		CommonMethod.sendKeys("WEREnrollName", ProjectName);
 		CommonMethod.ClickCheckbox("WEROwnerInfocbx");
@@ -61,7 +59,6 @@ public class ReusableMethodEquity extends BaseClass {
 		CommonMethod.RobustclickElementVisible("WEROwnerRegContinuebtn","WERBehalfCbx");
 		CommonMethod.negativesoftassertPageSource("On behalf of owner is required.", "Owner CheckBox Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Is the Owner organization an IWBI member?* is required.", "Owner Organization Name Error Mismatch");
-		
 		CommonMethod.ClickCheckbox("WERBehalfCbx");
 		CommonMethod.selectdropdownVisibletext("WERSelectMember", "No");
 		data.setCellData(SheetName, "WERSelectMember", rowNum,
@@ -126,6 +123,22 @@ public class ReusableMethodEquity extends BaseClass {
 		CommonMethod.WaitUntilVisibility("WERDashboard", 300);
 		testlog.pass("**Verifies the Search Equity ByID successfully**");
 	}
+	
+	public void ValidDashboardWerField(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilPresence("WellV2DashboardTab", 60);
+		CommonMethod.WaitUntilPresence("DocumentLibraryTab", 30);
+		CommonMethod.WaitUntilPresence("ScorecardTab", 30);
+		CommonMethod.WaitUntilPresence("ReviewTab", 30);
+		CommonMethod.WaitUntilPresence("V2ProjectSupportButton", 30);
+		CommonMethod.WaitUntilPresence("AlternativesTab", 30);
+		CommonMethod.WaitUntilPresence("LocationTab", 30);
+		CommonMethod.WaitUntilPresence("ProfileTab", 30);
+		CommonMethod.WaitUntilPresence("BiilingTab", 30);
+		CommonMethod.WaitUntilPresence("TeamTab", 30);
+		CommonMethod.WaitUntilPresence("PromotionTab", 30);
+		CommonMethod.WaitUntilPresence("EditTab", 30);
+		testlog.pass("**Verifies Dashboard fields and SideBar Navigation tab successfully **");
+}
 	
 	public void SearchEquityByRegisterStatus(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("ProjectNavBar", 60);

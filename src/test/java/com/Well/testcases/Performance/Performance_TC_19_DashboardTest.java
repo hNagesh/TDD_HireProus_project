@@ -7,16 +7,16 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Performance_TC_05_WprProjectFieldValidationTest extends BaseClass {
+public class Performance_TC_19_DashboardTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_19_DashboardTest.Performance_TC_19_Dashboard" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Performance.Performance_TC_04A_SearchPerformanceByStatusTest.Performance_TC_04A_SearchPerformanceByStatus" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Performance_TC_05_WprProjectFieldValidation(String SheetName,int rowNum) throws IOException {
+	public void Performance_TC_19_Dashboard(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName,"Performance Project Field Validation");
+		StartTest(TestCaseName,"Verify Dashboard fields in Performance Functionality");
 		try {
-		performance.WprProjectFieldValidationTest(SheetName, rowNum);	
+        performance.ValidDashboardWprField(SheetName,rowNum);	
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

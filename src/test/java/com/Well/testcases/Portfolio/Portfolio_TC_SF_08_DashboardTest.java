@@ -7,16 +7,16 @@ import org.testng.annotations.Test;
 
 import com.Well.Engine.BaseClass;
 
-public class Portfolio_TC_SF_07_SearchPortfolioBySubscribedStatusTest extends BaseClass {
+public class Portfolio_TC_SF_08_DashboardTest extends BaseClass {
 
-	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_SF_09_ResourceTest.Portfolio_TC_SF_09_Resource" })
+	@Test(dependsOnMethods = { "com.Well.testcases.Portfolio.Portfolio_TC_SF_03_SearchPortfolioByNSStatusTest.Portfolio_TC_SF_03_SearchPortfolioByNSStatus" })
 	@Parameters({ "SheetName","rowNum" })
-	public void Portfolio_TC_17_SearchPortfolioBySubscribedStatus(String SheetName,int rowNum) throws IOException {
+	public void Portfolio_TC_SF_08_Dashboard(String SheetName,int rowNum) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName,"WELL At Scale Enrollment List Functionality");
+		StartTest(TestCaseName,"Verify Dashboard fields in WELL At Scale Functionality");
 		try {
-			portfolio.SearchPortfolioBySubcribedStatus(SheetName,rowNum,"SUBSCRIBED");
+			portfolio.ValidDashboardPortfolioField(SheetName,rowNum);
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());

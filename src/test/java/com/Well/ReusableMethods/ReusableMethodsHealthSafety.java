@@ -508,4 +508,20 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		softAssert.assertAll();
 		testlog.pass("**Verifies search filter successfully **");
 	}
+	
+	public void ValidDashboardHsrField() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilPresence("WellV2DashboardTab", 60);
+		CommonMethod.WaitUntilPresence("WellV2ProjectDocumentTab", 30);
+		CommonMethod.WaitUntilPresence("ScorecardTab", 30);
+		CommonMethod.WaitUntilPresence("ReviewTab", 30);
+		CommonMethod.WaitUntilPresence("V2ProjectSupportButton", 30);
+		CommonMethod.WaitUntilPresence("AlternativesTab", 30);
+		CommonMethod.WaitUntilPresence("LocationTab", 30);
+		CommonMethod.WaitUntilPresence("ProfileTab", 30);
+		CommonMethod.WaitUntilPresence("BiilingTab", 30);
+		CommonMethod.WaitUntilPresence("TeamTab", 30);
+		CommonMethod.WaitUntilPresence("PromotionTab", 30);
+		CommonMethod.WaitUntilPresence("EditTab", 30);
+		testlog.pass("**Verifies Dashboard fields and SideBar Navigation tab successfully **");
+}
 }
