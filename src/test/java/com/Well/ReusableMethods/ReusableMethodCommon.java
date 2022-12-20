@@ -525,7 +525,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilInVisibility("WPRDocumentSpinner", 60);
 		CommonMethod.WaitUntilVisibility("PortfolioScorecardDocumentUploadTable", 60);
 		List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
-		CommonMethod.softAssertContainsMessage(val.get(0), "LegalFile", "Document table data mismatch");
+		CommonMethod.softAssertContainsMessage(val.get(0), "FeatureFile", "Document table data mismatch");
 		softAssert.assertAll();
 		testlog.pass("**Verifies search filter successfully **");
 	}

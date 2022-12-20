@@ -87,7 +87,7 @@ public class Performance_TC_09_DocumentTest extends BaseClass {
 
 		StartTest(TestCaseName, "Upload Document in Document");
 		try {
-			rc.searchFilterDocument("LegalFile","1");
+			rc.searchFilterDocument("FeatureFile","1");
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
