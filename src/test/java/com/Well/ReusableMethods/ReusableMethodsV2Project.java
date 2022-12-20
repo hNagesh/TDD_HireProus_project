@@ -1388,8 +1388,8 @@ public class ReusableMethodsV2Project extends BaseClass {
 			CommonMethod.click("V2ProjectScorecardDoc");
 			CommonMethod.WaitUntilVisibility("V2ProjectDecumentSearchBox", 60);
 		}
-		CommonMethod.WaitUntilVisibility("WPRDocumentSearchBox", 60);
-		CommonMethod.clearAndSendKey("WPRDocumentSearchBox", documentName);
+		CommonMethod.WaitUntilVisibility("V2ProjectDecumentSearchBox", 60);
+		CommonMethod.clearAndSendKey("V2ProjectDecumentSearchBox", documentName);
 		CommonMethod.WaitUntilVisibility("V2ProjectDocumentGeneralFileCount", 60);
 		int V2ProjectScoreDocCount = CommonMethod.ElementSize("V2ProjectDocumentGeneralFileCount");
 		String V2ProjectDocCounts = Integer.toString(V2ProjectScoreDocCount);
