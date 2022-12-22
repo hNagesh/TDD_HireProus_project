@@ -1397,4 +1397,21 @@ public class ReusableMethodsV2Project extends BaseClass {
 		softAssert.assertAll();
 		testlog.pass("**Verifies search filter successfully **");
 	}
+	
+	public void DashboardV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilPresence("V2ProjectEstimatePriceButton", 60);
+		CommonMethod.WaitUntilPresence("V2ProjectReviewAgreeButton", 30);
+		CommonMethod.WaitUntilPresence("V2ProjectSignNow", 30);
+		CommonMethod.WaitUntilPresence("V2ProjectStartBuilding", 30);
+		CommonMethod.WaitUntilPresence("V2ProjectDashboardEnrollButton", 30);
+		CommonMethod.WaitUntilPresence("V2ProjectDashboardLearnMoreButton", 30);
+		CommonMethod.WaitUntilPresence("V2ProjectDashboardLearnMoreButton1", 30);
+		CommonMethod.WaitUntilPresence("EnrollTab", 30);
+		CommonMethod.WaitUntilPresence("BiilingTab", 30);
+		CommonMethod.WaitUntilPresence("TeamTab", 30);
+		CommonMethod.WaitUntilPresence("OverviewTab", 30);
+		CommonMethod.WaitUntilPresence("PricingTab", 30);
+		CommonMethod.WaitUntilPresence("EditTab", 30);
+		testlog.pass("**Verifies Dashboard fields and SideBar Navigation tab successfully **");
+}
 }
