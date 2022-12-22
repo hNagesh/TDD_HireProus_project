@@ -24,8 +24,8 @@ public class ReusableMethodsLogin extends BaseClass {
 			}
 		}
 		else {
-			Username = data.getCellData("Login", "UserName", 2);
-		    Password = data.getCellData("Login", "Password", 2);
+			Username = data.getCellData("Login", "UserName", 4);
+		    Password = data.getCellData("Login", "Password", 4);
 		}
 		//CommonMethod.RobustclickElementVisible("LoginButton","Username");
 		CommonMethod.WaitUntilVisibility("Username", 60);
