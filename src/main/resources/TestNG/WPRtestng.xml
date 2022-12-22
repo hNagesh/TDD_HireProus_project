@@ -4,7 +4,7 @@
 <suite name="PerformanceRating module">
 
 <parameter name="browserName" value="chrome"/>
-<parameter name="environment" value="QAS"/>
+<parameter name="environment" value="TEST"/>
 
  <test name="WELL-WPR" >
 <parameter name="SheetName" value="Wpr"/>
@@ -14,7 +14,7 @@
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
 <class name="com.Well.testcases.Performance.Performance_TC_02_RegisterPerformanceTest"></class>
 <class name="com.Well.testcases.Performance.Performance_TC_03_SubscribeAndStoreIdTest"></class>
- <!-- <class name="com.Well.testcases.Performance.Performance_TC_04_SearchPerformanceByIdTest"></class>
+ <class name="com.Well.testcases.Performance.Performance_TC_04_SearchPerformanceByIdTest"></class>
  <class name="com.Well.testcases.Performance.Performance_TC_04A_SearchPerformanceByStatusTest"></class>
 <class name="com.Well.testcases.Performance.Performance_TC_19_DashboardTest"></class>
  <class name="com.Well.testcases.Performance.Performance_TC_05_WprProjectFieldValidationTest"></class>
@@ -32,6 +32,6 @@
   <class name="com.Well.testcases.Performance.Performance_TC_11A_ValidateProjectAccessTeamTest"></class>
   <class name="com.Well.testcases.Performance.Performance_TC_17_ErrorNegativeAssertTest"></class>
   <class name="com.Well.testcases.Performance.Performance_TC_18_SearchPerformanceByStatusTest"></class>
- --></classes>
+</classes>
 </test>
 </suite>  
