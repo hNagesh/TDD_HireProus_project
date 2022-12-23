@@ -73,6 +73,21 @@ public class Equity_TC_10_DocumentTest extends BaseClass {
 			throw e1;
 		}
 	}
+	
+	@Test(dependsOnMethods = {"com.Well.testcases.Equity.Equity_TC_10_DocumentTest.Equity_TC_10_03_FeatureDocument" })
+	@Parameters({ "SheetName", "rowNum" })
+	public void Equity_TC_10_04_SearchFilterDocumentWER(String SheetName, int rowNum) throws IOException {
 
+		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
+		StartTest(TestCaseName, "Upload Document in Document");
+		try {
+			rc.searchFilterDocument("FeatureFile","1");
+		} catch (Throwable t) {
+			System.out.println(t.getLocalizedMessage());
+			Error e1 = new Error(t.getMessage());
+			e1.setStackTrace(t.getStackTrace());
+			throw e1;
+		}
+	}
 	
 }

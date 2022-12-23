@@ -14,7 +14,7 @@ public class Membership_TC_05_ProductLicensingTest extends BaseClass {
 	public void Membership_TC_05_00_NavigationToProductLicensing(String SheetName,int rowNum, String MembershipName) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName,"Membership Card Payment Functionality");
+		StartTest(TestCaseName,"Navigating to Product Licensing Functionality");
 		try {
 		membership.AdminMembershipNavigation(SheetName, rowNum,MembershipName);
 		
@@ -31,7 +31,7 @@ public class Membership_TC_05_ProductLicensingTest extends BaseClass {
 	public void Membership_TC_05_01_UploadDocumentInProductLicensing(String SheetName,int rowNum, String MembershipName) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName,"Membership Card Payment Functionality");
+		StartTest(TestCaseName,"Upload Document In Product Licensing Functionality");
 		try {
 		membership.UploadDocumentInLicensing(SheetName, rowNum,MembershipName);
 		} catch (Throwable t) {
@@ -47,7 +47,7 @@ public class Membership_TC_05_ProductLicensingTest extends BaseClass {
 	public void Membership_TC_05_02_CreateProductLicensing(String SheetName,int rowNum, String MembershipName) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName,"Membership Card Payment Functionality");
+		StartTest(TestCaseName,"Create Product Licensing Functionality");
 		try {
       membership.CreateLicensing(SheetName, rowNum,MembershipName);
 		} catch (Throwable t) {
@@ -63,11 +63,9 @@ public class Membership_TC_05_ProductLicensingTest extends BaseClass {
 	public void Membership_TC_05_03_UpdateProductLicensing(String SheetName,int rowNum, String MembershipName) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName,"Membership Card Payment Functionality");
+		StartTest(TestCaseName,"Update Product Licensing Functionality");
 		try {
-	
 		membership.UpdateLicensing(SheetName, rowNum,MembershipName);
-		
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -81,10 +79,9 @@ public class Membership_TC_05_ProductLicensingTest extends BaseClass {
 	public void Membership_TC_05_04_DeleteProductLicensing(String SheetName,int rowNum, String MembershipName) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName,"Membership Card Payment Functionality");
+		StartTest(TestCaseName,"Deleting Product Licensing Functionality");
 		try {
 		membership.DeleteLicensing(SheetName, rowNum,MembershipName);
-		
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
@@ -98,7 +95,7 @@ public class Membership_TC_05_ProductLicensingTest extends BaseClass {
 	public void Membership_TC_05_05_SubmitProductLicensingReview(String SheetName,int rowNum, String MembershipName) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-		StartTest(TestCaseName,"Membership Card Payment Functionality");
+		StartTest(TestCaseName,"Submit for Product Licensing Review Functionality");
 		try {
 		membership.SubmitProductLicensingReview(SheetName, rowNum,MembershipName);
 		

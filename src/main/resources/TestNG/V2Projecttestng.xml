@@ -70,6 +70,7 @@
 <class name="com.Well.testcases.login.TC_01_LoginTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_SF_00_RegisterV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_SF_01_SearchV2ProjectByNRStatusTest"></class>
+<class name="com.Well.testcases.V2Project.V2_TC_SF_07_DashboardV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_SF_02_EnrollV2ProjectTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_SF_03_SearchV2ProjectByRIPStatusTest"></class>
 <class name="com.Well.testcases.V2Project.V2_TC_SF_04_BillingV2ProjectTest"></class>

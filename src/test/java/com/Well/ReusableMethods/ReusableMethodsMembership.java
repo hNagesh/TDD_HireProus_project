@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import com.Well.Engine.BaseClass;
 import com.Well.Engine.CommonMethod;
 
-
 public class ReusableMethodsMembership extends BaseClass {
 
 	public void RegisterMembership(String SheetName, int rowNum, String MembershipName)
@@ -182,9 +181,10 @@ public class ReusableMethodsMembership extends BaseClass {
 		CommonMethod.negativesoftassertPageSource("Parts is required.", "Feature Parts Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Group name is required.", "Group Name Error Mismatch");
 		CommonMethod.negativesoftassertPageSource("Document is required.", "Document Error Mismatch");
-		CommonMethod.negativesoftassertPageSource("At least one supporting document is required.", "At least one supporting document Error Mismatch");
+		CommonMethod.negativesoftassertPageSource("At least one supporting document is required.",
+				"At least one supporting document Error Mismatch");
 		for (int i = 1; i <= 3; i++) {
-			int j = i+1;
+			int j = i + 1;
 			CommonMethod.uploadFile("MPApplicationform", ProductInfoFormfileUpload, "MPApplicationformDeleteIcon");
 			CommonMethod.uploadFile("MPSupportingdocuments", ProductInfoFormfileUpload, "MPSupportingdocumentsIcon");
 			CommonMethod.selectdropdownrandom("MPSelectProductCategories");
@@ -207,19 +207,21 @@ public class ReusableMethodsMembership extends BaseClass {
 			CommonMethod.scrolldowntoElement("MPValidUploadFile");
 			CommonMethod.WaitUntilPresence("MPValidGroupName", 120);
 		}
-	List<WebElement> Feature = CommonMethod.findElements("MPLicenseValidGroupName");
-		int tempRowNum = rowNum ;
+		List<WebElement> Feature = CommonMethod.findElements("MPLicenseValidGroupName");
+		int tempRowNum = rowNum;
 		for (WebElement ele : Feature) {
 			String GroupName = ele.getText();
-		CommonMethod.softAssertContainsMessage(GroupName,data.getCellData(SheetName, "GroupName", rowNum), "GroupName data mismatch");
-		rowNum++;
+			CommonMethod.softAssertContainsMessage(GroupName, data.getCellData(SheetName, "GroupName", rowNum),
+					"GroupName data mismatch");
+			rowNum++;
 		}
 		rowNum = tempRowNum;
 		List<WebElement> FeaturePart = CommonMethod.findElements("MPLicenseValidFeaturePartName");
 		for (WebElement ele : FeaturePart) {
 			String getFeaturePart = ele.getText();
-		CommonMethod.softAssertContainsMessage(getFeaturePart,data.getCellData(SheetName, "FeaturePart", rowNum), "FeaturePart data mismatch");
-		rowNum++;
+			CommonMethod.softAssertContainsMessage(getFeaturePart, data.getCellData(SheetName, "FeaturePart", rowNum),
+					"FeaturePart data mismatch");
+			rowNum++;
 		}
 		CommonMethod.assertcountListWebelementFromIndex("MPLicenseProductCard", 3);
 		CommonMethod.assertcountListWebelementFromIndex("MPLicenseEdit", 3);
@@ -285,5 +287,80 @@ public class ReusableMethodsMembership extends BaseClass {
 		testlog.info("**Verifies Deleted Product Licensing successfully**");
 		testlog.pass("**Verifies Submitted Product Licensing Review successfully**");
 
+	}
+	public void PromotionCardValidation(String SheetName, int rowNum, String cardValue) throws Exception {
+		int countCard = CommonMethod.ElementSize("PromotionCardContainer");
+		String cardCount = Integer.toString(countCard);
+		CommonMethod.assertActualContainsExpected(cardCount, cardValue);
+		testlog.info("Card count: " + cardCount);
+		softAssert.assertAll();
+		testlog.pass("**Verify card count successfully**");
+
+	}
+	public void ValidatePromtionCard(String SheetName, int rowNum) throws Exception {
+		CommonMethod.WaitUntilVisibility("PromotionTab", 60);
+		CommonMethod.RobustclickElementVisible("PromotionTab", "PromotionCardContainer");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MembershipPromotionMembershipName"),
+				data.getCellData(SheetName, "Organization", rowNum), "Membership Name doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MembershipPromotionMembershipType"),
+				"CORNERSTONE MEMBERSHIP", "Membership Type doesn't match");
+		softAssert.assertAll();
+		PromotionCardValidation(SheetName, rowNum, "6");
+	}
+	
+	public void ValidateEducationCard(String SheetName, int rowNum) throws Exception {
+		CommonMethod.WaitUntilVisibility("EducationTab", 60);
+		CommonMethod.RobustclickElementVisible("EducationTab", "PromotionCardContainer");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MembershipPromotionMembershipName"),
+				data.getCellData(SheetName, "Organization", rowNum), "Membership Name doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MembershipPromotionMembershipType"),
+				"CORNERSTONE MEMBERSHIP", "Membership Type doesn't match");
+		softAssert.assertAll();
+		PromotionCardValidation(SheetName, rowNum, "15");
+	}
+	
+	public void AddTeamMember(String SheetName, int rowNum) throws Exception {
+		CommonMethod.WaitUntilVisibility("TeamTab", 300);
+		CommonMethod.RobustclickElementVisible("TeamTab","V2ProjectAddMemberbtn");
+		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 30);
+		CommonMethod.RobustclickElementVisible("V2ProjectAddMemberbtn","MembershipTeamEmailAddress");
+		String TeamEmail = data.getCellData(SheetName, "TeamEmailID", rowNum);
+		CommonMethod.WaitUntilVisibility("MembershipTeamEmailAddress", 30);
+		CommonMethod.sendKeys("MembershipTeamEmailAddress", TeamEmail);
+		testlog.info("Team Email ID: " +TeamEmail);
+		CommonMethod.ClickCheckbox("MembershipTeamRoleOption");
+		CommonMethod.WaitUntilVisibility("V2ProjectInvitebtn", 30);
+		CommonMethod.RobustclickElementVisible("V2ProjectInvitebtn","V2ProjectDeleteIcon");
+		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 30);
+		CommonMethod.RobustclickElementVisible("V2ProjectDeleteIcon","V2ProjectAddMemberbtn");
+		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
+		softAssert.assertAll();
+		testlog.pass("**Created Team member successfully**");		
+	}
+	
+	public void ProfileUpdated(String SheetName, int rowNum) throws Exception {
+		CommonMethod.WaitUntilVisibility("ProfileTab", 300);
+		CommonMethod.RobustclickElementVisible("ProfileTab","MembershipProfileAboutYourOrg");
+		CommonMethod.WaitUntilVisibility("MembershipProfileAboutYourOrg", 300);
+		CommonMethod.sendKeys("MembershipProfileAboutYourOrg", "Tell us about your organization and what you do.");
+		CommonMethod.clearAndSendKey("MembershipProfileOrgHealthAndWellness", "Which of your organization’s health and wellness achievements have been the most impactful, or make you feel pride");
+		CommonMethod.scrolldowntoElement("MembershipProfileWellnessValue");
+		CommonMethod.clearAndSendKey("MembershipProfileOrgMission", "What is your organization’s mission");
+		CommonMethod.clearAndSendKey("MembershipProfileIWBIMember", "Why is your organization an IWBI member");
+		CommonMethod.clearAndSendKey("MembershipProfileWellnessValue", "How does your team live their wellness values");
+		CommonMethod.scrolldowntoElement("MembershipProfileUpdateButton");
+		CommonMethod.RobustclickElementVisible("MembershipProfileUpdateButton", "MembershipProfileAboutYourOrg");
+		CommonMethod.RobustclickElementVisible("ProfileTab","MembershipProfileAboutYourOrg");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MembershipProfileAboutYourOrg"),
+				"Tell us about your organization and what you do.", "About Org Answer doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MembershipProfileOrgHealthAndWellness"),
+				"Which of your organization’s health and wellness achievements have been the most impactful, or make you feel pride", "Org Health And Wellness Answer doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MembershipProfileOrgMission"),
+				"What is your organization’s mission", "Org Mission Answer doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MembershipProfileIWBIMember"),
+				"Why is your organization an IWBI member", "IWBI Member Answer doesn't match");
+		CommonMethod.softAssertEqualsMessage(CommonMethod.getText("MembershipProfileWellnessValue"),
+				"How does your team live their wellness values", "Team Wellness Value Answer doesn't match");
+		softAssert.assertAll();
 	}
 }

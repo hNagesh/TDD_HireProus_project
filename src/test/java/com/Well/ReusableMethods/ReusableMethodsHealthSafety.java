@@ -480,4 +480,48 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 		CommonMethod.assertExpectedContainsActual(String.valueOf(ProjectCount),"1","HealthSafety Search failed");
 		testlog.pass("**Verifies search filter status successfully**");
 	}
+	
+	public void searchFilterDocumentHSR(String documentName, String filterOption, String fileCount)
+			throws IOException, InterruptedException {
+		if (filterOption.equalsIgnoreCase("Audit")) {
+			CommonMethod.click("HsrAuditLinkTab");
+			CommonMethod.WaitUntilVisibility("V2ProjectDecumentSearchBox", 60);
+		}
+		if (filterOption.equalsIgnoreCase("General")) {
+			CommonMethod.click("HsrGeneralLink");
+			CommonMethod.WaitUntilVisibility("V2ProjectDecumentSearchBox", 60);
+		}
+		CommonMethod.WaitUntilVisibility("V2ProjectDecumentSearchBox", 60);
+		CommonMethod.clearAndSendKey("V2ProjectDecumentSearchBox", documentName);
+		CommonMethod.click("HSRDocumentSearchButton");
+		if (filterOption.equalsIgnoreCase("General")) {
+			CommonMethod.WaitUntilVisibility("HSRDocumentGeneralFileCount", 60);
+			int V2ProjectScoreDocCount = CommonMethod.ElementSize("HSRDocumentGeneralFileCount");
+			String V2ProjectDocCounts = Integer.toString(V2ProjectScoreDocCount);
+			CommonMethod.assertActualContainsExpected(V2ProjectDocCounts, fileCount);
+		} else {
+			CommonMethod.WaitUntilVisibility("V2ProjectDocumentGeneralFileCount", 60);
+			int V2ProjectScoreDocCount = CommonMethod.ElementSize("V2ProjectDocumentGeneralFileCount");
+			String V2ProjectDocCounts = Integer.toString(V2ProjectScoreDocCount);
+			CommonMethod.assertActualContainsExpected(V2ProjectDocCounts, fileCount);
+		}
+		softAssert.assertAll();
+		testlog.pass("**Verifies search filter successfully **");
+	}
+	
+	public void ValidDashboardHsrField() throws IOException, InterruptedException {
+		CommonMethod.WaitUntilPresence("WellV2DashboardTab", 60);
+		CommonMethod.WaitUntilPresence("WellV2ProjectDocumentTab", 30);
+		CommonMethod.WaitUntilPresence("ScorecardTab", 30);
+		CommonMethod.WaitUntilPresence("ReviewTab", 30);
+		CommonMethod.WaitUntilPresence("V2ProjectSupportButton", 30);
+		CommonMethod.WaitUntilPresence("AlternativesTab", 30);
+		CommonMethod.WaitUntilPresence("LocationTab", 30);
+		CommonMethod.WaitUntilPresence("ProfileTab", 30);
+		CommonMethod.WaitUntilPresence("BiilingTab", 30);
+		CommonMethod.WaitUntilPresence("TeamTab", 30);
+		CommonMethod.WaitUntilPresence("PromotionTab", 30);
+		CommonMethod.WaitUntilPresence("EditTab", 30);
+		testlog.pass("**Verifies Dashboard fields and SideBar Navigation tab successfully **");
+}
 }

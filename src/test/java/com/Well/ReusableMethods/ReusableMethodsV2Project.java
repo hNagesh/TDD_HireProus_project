@@ -1381,5 +1381,37 @@ public class ReusableMethodsV2Project extends BaseClass {
 		verifyScoreCardFilter("Strategy Type", "18", 6, 69);
 		verifyScoreCardFilter("Cross walk", "21", 7, 73);
 	}
-}
 
+	public void SearchFilterDocument(String documentName, String filterOption, String fileCount)
+			throws IOException, InterruptedException {
+		if (filterOption.equalsIgnoreCase("Scorecard")) {
+			CommonMethod.click("V2ProjectScorecardDoc");
+			CommonMethod.WaitUntilVisibility("V2ProjectDecumentSearchBox", 60);
+		}
+		CommonMethod.WaitUntilVisibility("V2ProjectDecumentSearchBox", 60);
+		CommonMethod.clearAndSendKey("V2ProjectDecumentSearchBox", documentName);
+		CommonMethod.WaitUntilVisibility("V2ProjectDocumentGeneralFileCount", 60);
+		int V2ProjectScoreDocCount = CommonMethod.ElementSize("V2ProjectDocumentGeneralFileCount");
+		String V2ProjectDocCounts = Integer.toString(V2ProjectScoreDocCount);
+		CommonMethod.assertActualContainsExpected(V2ProjectDocCounts, fileCount);
+		softAssert.assertAll();
+		testlog.pass("**Verifies search filter successfully **");
+	}
+	
+	public void DashboardV2Project(String SheetName, int rowNum) throws IOException, InterruptedException {
+		CommonMethod.WaitUntilPresence("V2ProjectEstimatePriceButton", 60);
+		CommonMethod.WaitUntilPresence("V2ProjectReviewAgreeButton", 30);
+		CommonMethod.WaitUntilPresence("V2ProjectSignNow", 30);
+		CommonMethod.WaitUntilPresence("V2ProjectStartBuilding", 30);
+		CommonMethod.WaitUntilPresence("V2ProjectDashboardEnrollButton", 30);
+		CommonMethod.WaitUntilPresence("V2ProjectDashboardLearnMoreButton", 30);
+		CommonMethod.WaitUntilPresence("V2ProjectDashboardLearnMoreButton1", 30);
+		CommonMethod.WaitUntilPresence("EnrollTab", 30);
+		CommonMethod.WaitUntilPresence("BiilingTab", 30);
+		CommonMethod.WaitUntilPresence("TeamTab", 30);
+		CommonMethod.WaitUntilPresence("OverviewTab", 30);
+		CommonMethod.WaitUntilPresence("PricingTab", 30);
+		CommonMethod.WaitUntilPresence("EditTab", 30);
+		testlog.pass("**Verifies Dashboard fields and SideBar Navigation tab successfully **");
+}
+}

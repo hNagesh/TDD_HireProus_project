@@ -14,12 +14,9 @@ public class Portfolio_TC_05A_PortfolioValidateBillingReceiptTest extends BaseCl
 	public void Portfolio_TC_05A_PortfolioValidateBillingReceipt(String SheetName, int rowNum, String Country) throws IOException {
 
 		TestCaseName = Thread.currentThread().getStackTrace()[1].getMethodName();
-
 		StartTest(TestCaseName,"Validate billing receipt");
-
 		try {
 			rc.DownloadBillingReceiptAndValidate(SheetName, rowNum, Country);
-			
 		} catch (Throwable t) {
 			System.out.println(t.getLocalizedMessage());
 			Error e1 = new Error(t.getMessage());
