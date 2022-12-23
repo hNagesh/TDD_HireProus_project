@@ -1362,7 +1362,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 			testlog.info(filterName +" FeatureScorecardPartCount: " + actualFeaturePartCount);
 			CommonMethod.softAssertEqualsMessage(actualFeaturePartCount, expectedResult,"ScorecardPartCount doesn't match");
 		}
-		CommonMethod.click("V2ProjectScorecardClearbutton");
+		CommonMethod.RobustclickElementVisible("V2ProjectScorecardClearbutton","V2ProjectScoreCardFilterOption");
 		CommonMethod.clickOnListWebelementFromIndex("V2ProjectScoreCardFilterOption", filterIndex);
 		softAssert.assertAll();
 		testlog.pass("**All Scorecard filter options successfully**");

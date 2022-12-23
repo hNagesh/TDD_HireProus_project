@@ -484,16 +484,16 @@ public class ReusableMethodsHealthSafety extends BaseClass {
 	public void searchFilterDocumentHSR(String documentName, String filterOption, String fileCount)
 			throws IOException, InterruptedException {
 		if (filterOption.equalsIgnoreCase("Audit")) {
-			CommonMethod.click("HsrAuditLinkTab");
+			CommonMethod.RobustclickElementVisible("HsrAuditLinkTab", "V2ProjectDecumentSearchBox");
 			CommonMethod.WaitUntilVisibility("V2ProjectDecumentSearchBox", 60);
 		}
 		if (filterOption.equalsIgnoreCase("General")) {
-			CommonMethod.click("HsrGeneralLink");
+			CommonMethod.RobustclickElementVisible("HsrGeneralLink","V2ProjectDecumentSearchBox");
 			CommonMethod.WaitUntilVisibility("V2ProjectDecumentSearchBox", 60);
 		}
 		CommonMethod.WaitUntilVisibility("V2ProjectDecumentSearchBox", 60);
 		CommonMethod.clearAndSendKey("V2ProjectDecumentSearchBox", documentName);
-		CommonMethod.click("HSRDocumentSearchButton");
+		CommonMethod.RobustclickElementVisible("HSRDocumentSearchButton","V2ProjectDecumentSearchBox");
 		if (filterOption.equalsIgnoreCase("General")) {
 			CommonMethod.WaitUntilVisibility("HSRDocumentGeneralFileCount", 60);
 			int V2ProjectScoreDocCount = CommonMethod.ElementSize("HSRDocumentGeneralFileCount");

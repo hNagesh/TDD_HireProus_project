@@ -222,6 +222,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.ClickCheckbox("V2ProjectMembercbx");
 		CommonMethod.WaitUntilVisibility("V2ProjectInvitebtn", 30);
 		CommonMethod.RobustclickElementVisible("V2ProjectInvitebtn","V2ProjectDeleteIcon");
+		softAssert.assertAll();
 		testlog.pass("**Created Team member successfully**");
 	}
 	public void deleteAddedTeamMember(String SheetName, int rowNum) throws IOException, InterruptedException {
@@ -230,6 +231,7 @@ public class ReusableMethodCommon extends BaseClass {
 		CommonMethod.WaitUntilVisibility("V2ProjectDeleteIcon", 30);
 		CommonMethod.RobustclickElementVisible("V2ProjectDeleteIcon","V2ProjectAddMemberbtn");
 		CommonMethod.WaitUntilVisibility("V2ProjectAddMemberbtn", 300);
+		softAssert.assertAll();
 		testlog.pass("**Created Team member successfully**");
 	}
 	public void editAndValidateOrganizationInformation(String SheetName, int rowNum) throws Exception {
@@ -323,8 +325,8 @@ public class ReusableMethodCommon extends BaseClass {
 		String cardCount = Integer.toString(countCard);
 		CommonMethod.assertActualContainsExpected(cardCount, cardValue);
 		testlog.info("Card count: " + cardCount);
+		softAssert.assertAll();
 		testlog.pass("**Verify card count successfully**");
-
 	}
 
 	public void profile(String SheetName, int rowNum) throws Exception {

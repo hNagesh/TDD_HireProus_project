@@ -343,11 +343,11 @@ public class ReusableMethodsMembership extends BaseClass {
 		CommonMethod.RobustclickElementVisible("ProfileTab","MembershipProfileAboutYourOrg");
 		CommonMethod.WaitUntilVisibility("MembershipProfileAboutYourOrg", 300);
 		CommonMethod.sendKeys("MembershipProfileAboutYourOrg", "Tell us about your organization and what you do.");
-		CommonMethod.clearAndSendKey("MembershipProfileOrgHealthAndWellness", "Which of your organization’s health and wellness achievements have been the most impactful, or make you feel pride");
+		CommonMethod.sendKeys("MembershipProfileOrgHealthAndWellness", "Which of your organization’s health and wellness achievements have been the most impactful, or make you feel pride");
 		CommonMethod.scrolldowntoElement("MembershipProfileWellnessValue");
-		CommonMethod.clearAndSendKey("MembershipProfileOrgMission", "What is your organization’s mission");
-		CommonMethod.clearAndSendKey("MembershipProfileIWBIMember", "Why is your organization an IWBI member");
-		CommonMethod.clearAndSendKey("MembershipProfileWellnessValue", "How does your team live their wellness values");
+		CommonMethod.sendKeys("MembershipProfileOrgMission", "What is your organization’s mission");
+		CommonMethod.sendKeys("MembershipProfileIWBIMember", "Why is your organization an IWBI member");
+		CommonMethod.sendKeys("MembershipProfileWellnessValue", "How does your team live their wellness values");
 		CommonMethod.scrolldowntoElement("MembershipProfileUpdateButton");
 		CommonMethod.RobustclickElementVisible("MembershipProfileUpdateButton", "MembershipProfileAboutYourOrg");
 		CommonMethod.RobustclickElementVisible("ProfileTab","MembershipProfileAboutYourOrg");
