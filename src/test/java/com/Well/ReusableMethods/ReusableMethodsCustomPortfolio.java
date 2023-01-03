@@ -8,11 +8,9 @@ import com.Well.Engine.CommonMethod;
 
 public class ReusableMethodsCustomPortfolio extends BaseClass {
 	public void MeetThresholdsforParticulateMatter(String FeatureName) throws IOException, InterruptedException {
+		testlog.info("Upload Scorecard Document for Air A01.1");
 		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
 		testlog.info("Fetching total no. of credits on page");
-		 /*
-         * Air A01.1
-         */
 		for (WebElement ele : Feature) {
 			String Creditname = ele.getText();
 			Creditname = Creditname.replaceAll("\\.", "");
@@ -87,13 +85,11 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.click(ele);
 			}
 		}
-		testlog.pass("**Verifies Feature successful**");
+		testlog.pass("**Verifies Scorecard Uploaded Document for Air A01.1 Feature successful**");
 	}
 	
 	public void MeetThresholdsforOrganicGases(String FeatureName) throws IOException, InterruptedException {
-		/*
-         * Air A01.2
-         */
+		testlog.info("Upload Scorecard Document for Air A01.2");
 		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
 		testlog.info("Fetching total no. of credits on page");
 		for (WebElement ele : Feature) {
@@ -236,14 +232,11 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.click(ele);
 			}
 			}
-		
-		testlog.pass("**Verifies Feature successful**");
+		testlog.pass("**Verifies Scorecard Uploaded Document for Air A01.2 Feature successful**");
 	}
 	
 	public void MeetEnhancedThresholdsforOrganicGases(String FeatureName) throws IOException, InterruptedException {
-		/*
-         * Air A05.2
-         */
+		testlog.info("Upload Document for Air A05.2");
 		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
 		testlog.info("Fetching total no. of credits on page");
 		for (WebElement ele : Feature) {
@@ -296,14 +289,12 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.click(ele);
 				}
 		}
-		testlog.pass("**Verifies Feature successful**");
+		testlog.pass("**Verifies Scorecard Uploaded Document Air A05.2 Feature successful**");
 		
 	}
 	
 	public void MeetThresholdsforInOrganicGases(String FeatureName) throws IOException, InterruptedException {
-		 /*
-         * Air A01.3
-         */
+		testlog.info("Upload Document for Air A01.3");
 		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
 		testlog.info("Fetching total no. of credits on page");
 		for (WebElement ele : Feature) {
@@ -313,7 +304,20 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.scrolldowntoElement("WPRPortfolioScorecardLanding");
 				CommonMethod.click(ele);
 				CommonMethod.WaitUntilVisibility("PortfolioScorecardFeatureVerificationTab", 120);
-				CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab","PortfolioScorecardDocumentUploadTable");
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardFeatureVerificationTab","PortfolioScorecardDocumentCompleteGreenCircleValid");
+				/*
+				 * Validate Task completion and green circle
+				 */
+				CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentCompleteGreenCircleValid", 120);
+				testlog.info("Validate Task Completed green circle");
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardDocumentCompleteLink","PortfolioScorecardDocumentCompleteCount");
+				CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentCompleteCount", 120);
+				testlog.info("Validate Completed Location count for Task Completed model");
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardDocumentCompleteCount","PortfolioScorecardDocumentCompleteGreenCount");
+				CommonMethod.assertcountListWebelementFromIndex("PortfolioScorecardDocumentCompleteGreenCount", 4);
+				testlog.info("Validate count for Task Completed green colour for location list");
+				CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentCompleteClose", 60);
+				CommonMethod.RobustclickElementVisible("PortfolioScorecardDocumentCompleteClose","PortfolioScorecardDocumentUploadTable");
 				CommonMethod.WaitUntilPresence("PortfolioScorecardDocumentUploadTable", 120);
 				CommonMethod.scrolldowntoElement("PortfolioScorecardDocumentUploadTable");
 				List<String> val = CommonMethod.fetchTableData("PortfolioScorecardDocumentUploadTable");
@@ -328,13 +332,11 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				
 			}
 		}
-		testlog.pass("**Verifies Feature successful**");
+		testlog.pass("**Verifies Scorecard Uploaded Document Air A01.3 Feature successful**");
 	}
 
 	public void MitigateConstructionPollution(String FeatureName) throws IOException, InterruptedException {
-		 /*
-         * Air A04.1
-         */
+		testlog.info("Upload Document for Air A04.1");
 		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
 		testlog.info("Fetching total no. of credits on page");
 		for (WebElement ele : Feature) {
@@ -360,13 +362,11 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.click(ele);
 			}
 		}
-		testlog.pass("**Verifies Feature successful**");
+		testlog.pass("**Verifies Scorecard Uploaded Document Air A04.1 Feature successful**");
 	}
 
 	public void ManageWindowUse(String FeatureName) throws IOException, InterruptedException {
-		 /*
-         * Air A07.2
-         */
+		testlog.info("Upload Scorecard Document for Air A07.2");
 		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
 		testlog.info("Fetching total no. of credits on page");
 		for (WebElement ele : Feature) {
@@ -400,16 +400,13 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				testlog.info("**Verifies Enable Weight highlightling count successful**");
 				CommonMethod.scrolldowntoElement("PortFolioScoreCardPageLand");
 				CommonMethod.click(ele);
-				
 			}
 		}
-		testlog.pass("**Verifies Feature successful**");
+		testlog.pass("**Verifies Scorecard Uploaded Document Air A07.2 Feature successful**");
 	}
 	
 	public void InstallIndoorAirMonitors(String FeatureName) throws IOException, InterruptedException {
-		 /*
-         * Air A08.1
-         */
+		testlog.info("Upload Scorecard Document for Air A08.1");
 		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
 		testlog.info("Fetching total no. of credits on page");
 		for (WebElement ele : Feature) {
@@ -450,13 +447,11 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.click(ele);
 			}
 		}
-		testlog.pass("**Verifies Feature successful**");	
+		testlog.pass("**Verifies Scorecard Uploaded Document Air A08.1 Feature successful**");
 	}
 	
 	public void EnhanceOccupantControllability(String FeatureName) throws IOException, InterruptedException {
-		/*
-         * Light L09.1
-         */
+		testlog.info("Upload Scorecard Document for Light L09.1");
 		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
 		testlog.info("Fetching total no. of credits on page");
 		for (WebElement ele : Feature) {
@@ -489,7 +484,6 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.RobustclickElementVisible("PortfolioScoreCardAddButton","PortfolioScoreCardVerificationCloseicon");
 				CommonMethod.WaitUntilVisibility("PortfolioScoreCardVerificationCloseicon", 60);
 				CommonMethod.Robustclick("PortfolioScoreCardVerificationCloseicon");
-				
 				 /*
 				 * Test by adding the core point
 				 */
@@ -590,8 +584,6 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.WaitUntilPresence("PortfolioScorecardWeightHighlighted", 30);
 				Thread.sleep(2000);
 				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlighted"),"2", "Weight Point for 2 doesn't match");
-				testlog.pass("**Verifies Core Weight Point successful**");
-				
 				/*
 				 * Test by modifying tier point to 1 for option 1 and 2
 				 */
@@ -604,6 +596,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.WaitUntilPresence("PortfolioScorecardWeightHighlighted", 30);
 				CommonMethod.softAssertContainsMessage(CommonMethod.getText("PortfolioScorecardWeightHighlighted"),"1", "Weight Point for 2 doesn't match");		
 				softAssert.assertAll();
+				testlog.info("**Verifies Core Weight Point successful**");
 				testlog.info("**Verifies CorePoint Checkbox count successful**");
 				testlog.info("**Verifies TierDropdown count successful**");
 				testlog.info("**Verifies TierDropdown value successful**");
@@ -623,13 +616,11 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
                 CommonMethod.click(ele);
 			}
 		}
-		testlog.pass("**Verifies Feature successful**");
+		testlog.pass("**Verifies Scorecard Uploaded Document Light L09.1 Feature successful**");
 	}
 
 	public void ConductDaylightSimulation(String FeatureName) throws IOException, InterruptedException {
-        /*
-         * Light L06.1
-         */
+		testlog.info("Upload Scorecard Document for Light L06.1");
 		 List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
 		testlog.info("Fetching total no. of credits on page");
 		for (WebElement ele : Feature) {
@@ -735,12 +726,10 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.click(ele);
 			}
 		}
-		testlog.pass("**Verifies Feature successful**");
+		testlog.pass("**Verifies Scorecard Uploaded Document Ligght L06.1 Feature successful**");
 	}
 	public void OfferPhysicalActivityIncentives(String FeatureName) throws IOException, InterruptedException {
-		/*
-         * V09.1
-         */
+		testlog.info("Upload Scorecard Document for Movement V09.1");
 		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
 		testlog.info("Fetching total no. of credits on page");
 		for (WebElement ele : Feature) {
@@ -769,12 +758,10 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.click(ele);
 			}
 	}
-		testlog.pass("**Verifies Feature successful**");
+		testlog.pass("**Verifies Scorecard Uploaded Document Movement V09.1 Feature successful**");
 	}
 	public void RestrictVOCEmissionsfromFurnitureArchitecturalandInteriorProducts(String FeatureName) throws IOException, InterruptedException {
-		/*
-         * X06.2
-         */
+		testlog.info("Upload Scorecard Document for Materials X06.2");
 		List<WebElement> Feature = CommonMethod.findElements("PortfolioScoreCardFeature");
 		testlog.info("Fetching total no. of credits on page");
 		for (WebElement ele : Feature) {
@@ -799,7 +786,7 @@ public class ReusableMethodsCustomPortfolio extends BaseClass {
 				CommonMethod.click(ele);
 			}
 }
-		testlog.pass("**Verifies Feature successful**");
+		testlog.pass("**Verifies Scorecard Uploaded Document Materials X06.2 Feature successful**");
 }
 	public void A01_1_FeatureDocumentUploadInDocumentLibrary() throws IOException, InterruptedException {
 		CommonMethod.WaitUntilVisibility("PortfolioTaskListTab", 120);
