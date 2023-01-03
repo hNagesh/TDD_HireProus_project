@@ -30,7 +30,6 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
-
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
@@ -40,8 +39,6 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.HasDevTools;
-import org.openqa.selenium.devtools.v102.network.Network;
 import org.openqa.selenium.interactions.*;
 import org.openqa.selenium.support.locators.RelativeLocator;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -49,7 +46,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
 import com.google.common.base.Verify;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfReaderContentParser;
@@ -2337,9 +2333,7 @@ public static  List<WebElement> WaitUntilNumberOfElementToBePresent(String objec
 
 
 public static void JavascriptClickElement(WebElement Objectlocator) throws IOException {
-	
 	JavascriptExecutor executor = (JavascriptExecutor)driver;
 	executor.executeScript("arguments[0].click();", Objectlocator);
-	//((JavascriptExecutor) driver).executeScript("arguments[0].click();", Objectlocator);
 }
 }
