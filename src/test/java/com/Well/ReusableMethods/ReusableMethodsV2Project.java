@@ -403,7 +403,7 @@ public class ReusableMethodsV2Project extends BaseClass {
 	public void BuildScorecardV2ProjectById(String SheetName, int rowNum) throws IOException, InterruptedException {
 		CommonMethod.WaitUntilClickble("V2ProjectStartBuilding", 60);
 		CommonMethod.RobustclickElementVisible("V2ProjectStartBuilding","ScoreCardPageLand");
-		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", 300);
+		CommonMethod.WaitUntilVisibility("ScoreCardPageLand", Scorecardtimeout);
 		testlog.pass("**Verfies Scorecard Page successfully**");
 	}
 
