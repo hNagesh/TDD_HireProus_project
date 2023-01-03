@@ -22,7 +22,7 @@ stages {
                    steps {
 		   echo 'Hello World'
                    script {		
-		checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '', url: 'git@github.com:agupta89/WellFrontendTest.git']]]         	   
+		checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'AbhishekGit', url: 'git@github.com:IWBI/WellFrontendTest.git']]]         	   
                    if ("${env.GIT_BRANCH}" == "origin/env/stg") {
                    env.environment = "STG"
                    env.Branch = "env/stg"

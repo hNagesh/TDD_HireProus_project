@@ -44,7 +44,7 @@ stages {
                     script {
 			    
                     try {
-			checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: '', url: 'git@github.com:agupta89/WellFrontendTest.git']]]
+			checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'AbhishekGit', url: 'git@github.com:IWBI/WellFrontendTest.git']]]
 			wrap([$class: 'Xvfb', additionalOptions: '', assignedLabels: '', autoDisplayName: true, debug: false, shutdownWithBuild: true ,displayNameOffset: 1,installationName: 'Xvfb', parallelBuild: true, screen: '1600x1280x24', timeout: 60])
                         {
                         sh "mvn -f 'Pipelinepom.xml' clean install -Dsurefire.suiteXmlFiles='src/main/resources/PipelineTestNG/CombinedRegression.xml' -Denv=${env.environment} -Dmaven.test.failure.ignore=true" 
