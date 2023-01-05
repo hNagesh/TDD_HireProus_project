@@ -56,12 +56,14 @@ public class ReusableMethodsV2Project extends BaseClass {
 		CommonMethod.RobustclickElementVisible("V2ProjectspacetypeContinuebtn", "V2Projectwellcorecertification");
 		if (ProjectType.equalsIgnoreCase("WELLCore")) {
 			CommonMethod.WaitUntilVisibility("V2Projectwellcorecertification", 30);
-			CommonMethod.RobustclickElementVisible("V2Projectwellcorecertification", "HsrIframe");
+			CommonMethod.Robustclick("V2Projectwellcorecertification");
+			if (CommonMethod.isElementsExist("HsrIframe", 120)) {
 			CommonMethod.WaitUntilPresence("HsrIframe", 180);
 			CommonMethod.switchToFrame("HsrIframe");
 			CommonMethod.WaitUntilPresence("HsrCloseCard", 60);
 			CommonMethod.Robustclick("HsrCloseCard");
 			CommonMethod.switchToParentFrame();
+			}
 		} else if (ProjectType.equalsIgnoreCase("WELLCertification")) {
 			CommonMethod.WaitUntilVisibility("V2ProjectwellCertification", 30);
 			CommonMethod.RobustclickElementVisible("V2ProjectwellCertification", "V2ProjectownershipOflocation");
